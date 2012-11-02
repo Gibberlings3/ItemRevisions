@@ -51,8 +51,8 @@ SUBCOMPONENT @34
 REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9002
 
 OUTER_SPRINT ~TOBEX_MOD_DIRECTORY~ ~item_rev~
-LOAD_TRA ~item_rev/tobex_redist/tobex.tra~
-INCLUDE ~item_rev/tobex_redist/tobex.tpa~
+LOAD_TRA ~item_rev/tobex_redist/TobEx.tra~
+INCLUDE ~item_rev/tobex_redist/TobEx.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // ToB_Hacks - Casting Level Modifier and Repeating EFF Fix
