@@ -1,0 +1,216 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/macros.tpa~
+INCLUDE ~item_rev/lib/common_shield_list.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO ~revised_shield_bonuses_buckler_english~ BEGIN
+  SPRINT t1 @100311
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100312
+  SPRINT t2 @100313
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO ~revised_shield_bonuses_small_english~ BEGIN
+  SPRINT t1 @100314
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+END
+
+// requires 'new_ac', the new AC bonus
+DEFINE_PATCH_MACRO ~revised_shield_bonuses_medium_english~ BEGIN
+  PATCH_IF (%index% != 0x50) BEGIN // identified descriptions
+    SPRINT t1 @100315
+    SPRINT t2 @100316
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END ELSE BEGIN // unidentified
+    SPRINT t1 @100315
+    SPRINT t2 @100317
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  
+  SPRINT t1 @100319
+  SPRINT t2 @100324
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+// requires 'new_ac', the new AC bonus, and 'new_type', the new missile bonus
+DEFINE_PATCH_MACRO ~revised_shield_bonuses_large_english~ BEGIN
+  PATCH_IF (%index% != 0x50) BEGIN // identified descriptions
+    SPRINT t1 @100315
+    SPRINT t2 @100316
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END ELSE BEGIN // unidentified
+    SPRINT t1 @100315
+    SPRINT t2 @100318
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  
+  SPRINT t1 @100319
+  SPRINT t2 @100320
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  PATCH_IF (new_type == 0 || %index% == 0x50) BEGIN // unidentified
+    SPRINT t1 @100321
+    SPRINT t2 @100407
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END ELSE BEGIN // identified that had a non-standard missile bonus beforehand
+    SPRINT t1 @100322
+    SPRINT t2 @100323
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+
+END
+
+//////////////////////////////////////////////
+//  macro
+
+// adds 'specific_amount' of AC bonus vs 'type'; if 'specific_amount' = 0, the amount added will be equal to the normal AC bonus
+DEFINE_PATCH_MACRO ~ADD_AC_VS_TYPE~ BEGIN
+  PATCH_IF (%specific_amount% == 0) BEGIN
+    SET new_bonus = 0
+    SET found = 0
+    FOR (i0 = 0; i0 < num_effects && found == 0; i0 += 1) BEGIN
+      READ_SHORT (effects_offset + 0x30*i0) current_opcode
+      READ_LONG  (effects_offset + 0x30*i0 + 0x04) param1
+      READ_LONG  (effects_offset + 0x30*i0 + 0x08) param2
+      PATCH_IF (current_opcode == 0 && param2 == 0) BEGIN // AC bonus vs all
+        SET new_bonus = param1
+        SET found = 1 // prevents the loop from continuing
+      END
+    END
+  END ELSE BEGIN
+    SET new_bonus = specific_amount
+    SET found = 1
+  END
+  
+  PATCH_IF (%found% == 1) BEGIN // if the shield has an AC bonus
+    SET found = 0
+    FOR (i0 = 0; i0 < num_effects && found == 0; i0 += 1) BEGIN
+      READ_SHORT (effects_offset + 0x30*i0) current_opcode
+      READ_LONG  (effects_offset + 0x30*i0 + 0x04) param1
+      READ_LONG  (effects_offset + 0x30*i0 + 0x08) param2
+      
+      PATCH_IF (current_opcode == 0 && param2 == %type%) BEGIN // AC bonus vs type
+        SET found = 1 // prevents the loop from continuing
+        PATCH_IF (param1 != (0 - new_bonus)) BEGIN // if the new bonus won't cancel the old one
+          SET new_type = param1 + new_bonus
+          WRITE_LONG (effects_offset + 0x30*i0 + 0x04) new_type // increase the bonus vs type by new_bonus
+        END ELSE BEGIN // remove effect
+          SET new_type = 0
+          DELETE_BYTES (effects_offset + 0x30*i0) 0x30
+          
+          PATCH_IF (abilities_offset > effects_offset) BEGIN // if the abilities are located after effects for whatever reason
+            WRITE_LONG 0x64 (abilities_offset - 0x30) // fix abilities offset
+          END
+          FOR (i1 = 0; i1 < num_abilities; i1 += 1) BEGIN // loop through abilities
+            READ_SHORT (abilities_offset + 0x38*i1 + 0x20) extended_effects_after
+            WRITE_SHORT (abilities_offset + 0x38*i1 + 0x20) (extended_effects_after - 1) // adjust for deletion
+          END
+          
+          WRITE_SHORT 0x70 (num_effects - 1) // update with new number of effects
+        END
+      END
+    END
+  END
+END
+
+//////////////////////////////////////////////
+// patching
+
+LAM shields
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c temp_type ELSE 0
+    READ_ASCII 0x22 animation (2)
+    READ_LONG  0x64 abilities_offset
+    READ_SHORT 0x68 num_abilities
+    READ_LONG  0x6a effects_offset
+    READ_SHORT 0x70 num_effects
+
+    PATCH_IF (temp_type == 190) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d1~) BEGIN // bucklers
+      // remove +X penalty to piercing weapons
+      SET type = 4 // piercing
+      SET specific_amount = 0
+      LAUNCH_PATCH_MACRO ~ADD_AC_VS_TYPE~
+
+      // update description
+      SPRINT text_update ~revised_shield_bonuses_buckler_english~
+      LAUNCH_PATCH_MACRO ~update_item_descriptions~
+
+      // clean up
+      WRITE_SHORT 0x1c 12 // resets item type to shield
+    END
+
+    PATCH_IF (temp_type == 191) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d2~) BEGIN // small shields
+      // remove +X penalty to missile weapons
+      SET type = 2 // missile
+      SET specific_amount = 0
+      LAUNCH_PATCH_MACRO ~ADD_AC_VS_TYPE~
+
+      // update description
+      SPRINT text_update ~revised_shield_bonuses_small_english~
+      LAUNCH_PATCH_MACRO ~update_item_descriptions~
+
+      // clean up
+      WRITE_SHORT 0x1c 12 // resets item type to shield
+    END
+
+    PATCH_IF (temp_type = 192) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d3~) BEGIN // medium shields
+      SET found = 0
+      SET new_ac = 0
+      FOR (i0 = 0; i0 < num_effects && found == 0; i0 += 1) BEGIN
+        READ_SHORT (effects_offset + 0x30*i0) current_opcode
+        READ_LONG  (effects_offset + 0x30*i0 + 0x04) param1
+        READ_LONG  (effects_offset + 0x30*i0 + 0x08) param2
+        PATCH_IF (current_opcode == 0 && param2 == 0) BEGIN // AC bonus vs all
+          // increase AC bonus by one
+          SET new_ac = param1 + 1
+          WRITE_SHORT (effects_offset + 0x30*i0 + 0x04) new_ac
+          SET found = 1 // prevents the loop from continuing
+        END
+      END
+      // add -1 penalty to attack rolls
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=54 target=1 timing=2 parameter1= 0 - 1 END
+
+      // update description
+      SPRINT text_update ~revised_shield_bonuses_medium_english~
+      LAUNCH_PATCH_MACRO ~update_item_descriptions~
+
+      // clean up
+      WRITE_SHORT 0x1c 12 // resets item type to shield
+    END
+
+    PATCH_IF (temp_type = 194) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d4~) BEGIN // large/tower shields
+      // add another +1 bonus to missile weapons
+      SET type = 2 // missile
+      SET specific_amount = 1
+      LAUNCH_PATCH_MACRO ~ADD_AC_VS_TYPE~
+      // increase AC by 2
+      SET found = 0
+      SET new_ac = 0
+      FOR (i0 = 0; i0 < num_effects && found == 0; i0 += 1) BEGIN
+        READ_SHORT (effects_offset + 0x30*i0) current_opcode
+        READ_LONG  (effects_offset + 0x30*i0 + 0x04) param1
+        READ_LONG  (effects_offset + 0x30*i0 + 0x08) param2
+        PATCH_IF (current_opcode == 0 && param2 == 0) BEGIN // AC bonus vs all
+          SET new_ac = param1 + 2
+          WRITE_SHORT (effects_offset + 0x30*i0 + 0x04) new_ac // increase AC bonus by two
+          SET found = 1 // prevents the loop from continuing
+        END
+      END
+      // add -2 penalty to attack rolls
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=54 target=1 timing=2 parameter1= 0 - 2 END
+
+      // update description
+      SPRINT text_update ~revised_shield_bonuses_large_english~
+      LAUNCH_PATCH_MACRO ~update_item_descriptions~
+
+      // clean up
+      WRITE_SHORT 0x1c 12 // resets item type to shield
+    END
+
+  END
+  BUT_ONLY_IF_IT_CHANGES

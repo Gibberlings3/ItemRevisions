@@ -1,0 +1,74 @@
+
+
+///////////////////////////////////////////////////////////////////
+
+// marker dummy
+
+<<<<<<<<ag#dummy
+>>>>>>>>
+
+///////////////////////////////////////////////////////////////////
+
+// detecting already installed mods
+
+// Item Revisions - main component
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
+  OUTER_SET comp_ir=1  END ELSE BEGIN
+  OUTER_SET comp_ir=0  END
+
+// Item Revisions - Potion Revisions
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 1020 BEGIN
+  OUTER_SET comp_ir_potions=1  END ELSE BEGIN
+  OUTER_SET comp_ir_potions=0  END
+
+// Item Revisions - Weapon Changes
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 17 BEGIN
+  OUTER_SET comp_ir_wc=1  END ELSE BEGIN
+  OUTER_SET comp_ir_wc=0  END
+
+// Item Revisions - Enchantment Doesn't Affect Speed Factor of Weapons
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 1080 BEGIN
+  OUTER_SET comp_ir_sf=1  END ELSE BEGIN
+  OUTER_SET comp_ir_sf=0  END
+
+// Spell Revisions v3 - main component
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv3.mrk~ BEGIN
+  OUTER_SET comp_sr=1  END ELSE BEGIN
+  OUTER_SET comp_sr=0  END
+
+// Cursed Items
+ACTION_IF MOD_IS_INSTALLED ~cursed_items/cursed_items.tp2~ 0 BEGIN
+  OUTER_SET comp_cursed=1  END ELSE BEGIN
+  OUTER_SET comp_cursed=0  END
+
+// Rogue Rebalancing - Additional equipment for Thieves and Bards
+ACTION_IF FILE_EXISTS_IN_GAME ~rr#guara.itm~ BEGIN
+  OUTER_SET comp_rr_equip=1  END ELSE BEGIN
+  OUTER_SET comp_rr_equip=0  END
+
+// SCS2 - No Arrows of Dispelling
+ACTION_IF FILE_EXISTS_IN_GAME ~dw#nodispel.mrk~ BEGIN
+  OUTER_SET comp_nodispel=1  END ELSE BEGIN
+  OUTER_SET comp_nodispel=0  END
+
+// aTweaks - Expanded Tepmle Services
+ACTION_IF MOD_IS_INSTALLED ~atweaks/setup-atweaks.tp2~ 600 BEGIN
+  OUTER_SET comp_atweaks_temples=1  END ELSE BEGIN
+  OUTER_SET comp_atweaks_temples=0  END
+
+// Aurora's Shoes and Boots - main component
+ACTION_IF MOD_IS_INSTALLED ~aurora/setup-aurora.tp2~ 0 BEGIN
+  OUTER_SET comp_aurora=1  END ELSE BEGIN
+  OUTER_SET comp_aurora=0  END
+
+///////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+

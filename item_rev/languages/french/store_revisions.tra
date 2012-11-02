@@ -1,0 +1,41 @@
+@200100 = ~Salutations, je suis Joluv. Je suis arrivé il y a peu de l'île de Lantan. Ce fut une longue traversée, mais je voulais tirer le plus de bénéfice possible des potions et mixtures que j'ai échangées là-bas.~
+@200101 = ~Bonjour à vous. Je vous ai observé depuis que vous êtes entré... Je pense que j'ai quelque chose dont vous avez besoin.~ ~Bonjour à vous. Je vous ai observée depuis que vous êtes entrée... Je pense que j'ai quelque chose dont vous avez besoin.~
+@200102 = ~Qu'est-ce que vous avez là ?~
+@200103 = ~Des parchemins magiques. Provenant de... d'un de mes fournisseurs indépendants, ce qui explique pourquoi ils peuvent s'affranchir des taxes de la licence.~
+@200104 = ~Maliat~
+@200105 = ~De bonnes affaires pour vous, mon seigneur... Maliat vous souhaite la bienvenue dans son humble établissement. Vous êtes nouveau sur les Docks n'est-ce pas ? Puis-je vous demander votre nom ?~ ~De bonnes affaires pour vous, ma dame... Maliat vous souhaite la bienvenue dans son humble établissement. Vous êtes nouvelle sur les Docks n'est-ce pas ? Puis-je vous demander votre nom ?~
+
+// these are unique names for vanilla stores, based on vendor's names or their dialogue lines
+@200106 = ~Humble Établissement~ // #22407, also set by @200105
+@200107 = ~Bazar de Magie~ // #61544
+@200108 = ~Les Mixtures du Lantan~ // @200100
+@200109 = ~Les Potions de Mira~ // #23300
+@200110 = ~Arnolinus l'Armurier~ // #23298
+@200111 = ~Les Marchandises de Maheer~ // #23302
+@200112 = ~La Boutique d'Enge~ // #23307
+@200113 = ~Perter le Fléchier~ // #23542
+@200114 = ~Hes le Joaillier~ // #23571
+@200115 = ~Vendeuse d'Armes~ // #9408 :)
+@200117 = ~Maître de la Caravane~
+@200118 = ~Bijouterie Peddler~
+@200119 = ~Vendeur d'Artefacts~
+@200121 = ~Boutique de Sortilèges~
+@200122 = ~Les Babioles de Jahaboam~ // #23638
+@200123 = ~Marchandises Tout à Fait Légales~ // #25856
+@200124 = ~Les Charmes d'Elence~ // #34749
+@200125 = ~Min le Gnome~ // #34752
+@200126 = ~Bénédictions de la Nature~
+@200129 = ~Pickpocket Halfling~
+@200131 = ~Receleur Demi-Orque~
+@200133 = ~Marchand des Voleurs de l'Ombre~
+@200134 = ~Vendeur d'Armes Elfe Noir~
+@200135 = ~Vendeur de Potions Elfe Noir~
+@200136 = ~Vendeur de Sorts Elfe Noir~
+
+// Order of the Radiant Heart store
+@200200 = ~Certainement, <CHARNAME>.~
+@200201 = ~Seuls les membres de l'Ordre sont autorisés à utiliser ses ressources. Cependant, bien que vous ne fassiez pas partie de l'Ordre, vous servez notre cause tout autant. Je pense qu'il serait injuste de vous en refuser l'accès alors que vous en avez besoin.~
+@200202 = ~Seuls les membres de l'Ordre sont autorisés à utiliser ses ressources. Cependant, votre dévotion à la cause du Bien et de la Justice est indéniable, c'est pourquoi je pense qu'il serait injuste de vous en refuser l'accès alors que vous en avez besoin.~
+@200203 = ~L'on m'a dit du bien de vous, cependant les ressources de l'Ordre sont réservées uniquement à ses membres. Je me dois malheureusement de décliner votre demande.~
+@200204 = ~Je voulais vous demander si je pouvais avoir accès à quelques pièces d'équipement de l'Ordre.~
+@200205 = ~L'Ordre du Coeur Radieux~

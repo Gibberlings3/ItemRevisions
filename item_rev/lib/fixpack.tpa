@@ -1,0 +1,436 @@
+
+//////////////////////////////////////////////
+//  general macros
+
+// read headers
+DEFINE_PATCH_MACRO read_file BEGIN
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x12 speed
+    READ_SHORT res+0x14 thaco
+    READ_SHORT res+0x16 size
+    READ_SHORT res+0x18 dice
+    READ_SHORT res+0x1a damage
+    old_speed=99 old_thaco=99 old_dice=99 old_size=99 old_damage=99
+    new_speed=99 new_thaco=99 new_dice=99 new_size=99 new_damage=99
+    LPM file_fix
+  END
+END
+
+
+// due to how WeiDU handles \1's, we have to cut the line in two halves and then stitch them back after evaluation is done
+OUTER_SPRINT colon @100100
+OUTER_SPRINT plus  @100144
+OUTER_SPRINT minus @100145
+
+// inner part of desc fixer
+DEFINE_PATCH_MACRO fix BEGIN
+  // id=0 - unidentified only, id=1 - identified only, id=2 - both
+  PATCH_IF (id>0 && ident) || (id !=1 && ident=0) BEGIN
+
+    REPLACE_EVALUATE ~%main%~ BEGIN
+      SPRINT line ~%MATCH1%~
+      INNER_PATCH_SAVE temp ~%line%~ BEGIN
+        REPLACE_EVALUATE ~\(%cut%\)~ BEGIN // cut off the beginning on the line
+          SPRINT start ~%MATCH1%~ // memorize what we've cut
+        END ~~
+        once=1
+        REPLACE_EVALUATE ~\(%catch%\)~ BEGIN
+          PATCH_IF once BEGIN
+            once=0
+            SPRINT t4 ~%MATCH1%~ // aka ~%catch%~
+            PATCH_IF (~%t4%~ STRING_MATCHES_REGEXP ~%check%~)=0 BEGIN
+              SPRINT t5 ~%replace%~
+            END ELSE BEGIN
+              SPRINT t5 ~%t4%~
+            END
+          END
+        END ~%t5%~
+
+      END
+    END ~%start%%temp%~
+
+  END
+END
+
+// outer part of desc fixer
+DEFINE_PATCH_MACRO fix_desc BEGIN
+  PATCH_IF old_speed !=99 BEGIN
+    SPRINT main @100101 // main speed factor line
+    SPRINT cut @100138
+    SPRINT catch @100139
+
+    SPRINT check @100140
+    SPRINT replace @100141
+
+    LPM fix
+  END
+
+  PATCH_IF old_thaco !=99 BEGIN
+    SPRINT main @100106 // main thaco line
+    SPRINT cut @100142
+    SPRINT catch @100143
+
+    PATCH_IF old_thaco>0 BEGIN
+      SPRINT sign ~%plus%~
+    END
+    PATCH_IF old_thaco<0 BEGIN
+      old_thaco = ABS old_thaco
+      SPRINT sign ~%minus%~
+    END
+    SPRINT check @100151
+
+    PATCH_IF new_thaco>0 BEGIN
+      SPRINT sign ~%plus%~
+    END
+    PATCH_IF new_thaco<0 BEGIN
+      new_thaco = ABS new_thaco
+      SPRINT sign ~%minus%~
+    END
+    SPRINT replace @100152
+
+    LPM fix
+  END
+
+  PATCH_IF old_dice !=99 BEGIN
+    SPRINT main @100124 // main damage line
+    SPRINT cut @100153
+    SPRINT catch @100154
+
+    // careful! do not define zero damage!!!
+    PATCH_IF old_damage>0 BEGIN
+      SPRINT sign ~%plus%~
+    END ELSE
+    PATCH_IF old_damage<0 BEGIN
+      SPRINT sign ~%minus%~
+      old_damage = ABS old_damage
+    END
+    PATCH_IF old_dice>0 && old_size>0 && old_damage !=0 BEGIN
+      SPRINT check @100155
+    END ELSE
+    PATCH_IF old_dice>0 && old_size>0 && old_damage=0 BEGIN
+      SPRINT check @100156
+    END ELSE
+    PATCH_IF (old_dice<1 || old_size<1) && old_damage !=0 BEGIN
+      SPRINT check @100157
+    END
+
+    PATCH_IF new_damage>0 BEGIN
+      SPRINT sign ~%plus%~
+    END ELSE
+    PATCH_IF new_damage<0 BEGIN
+      SPRINT sign ~%minus%~
+      new_damage = ABS new_damage
+    END
+    PATCH_IF new_dice>0 && new_size>0 && new_damage !=0 BEGIN
+      SPRINT replace @100158
+    END ELSE
+    PATCH_IF new_dice>0 && new_size>0 && new_damage=0 BEGIN
+      SPRINT replace @100159
+    END ELSE
+    PATCH_IF (new_dice<1 || new_size<1) && new_damage !=0 BEGIN
+      SPRINT replace @100160
+    END
+
+    LPM fix
+  END
+END
+
+
+//////////////////////////////////////////////
+//  delete unused descriptions, they generate irrelevant warnings
+
+ACTION_FOR_EACH item IN
+  // detected by "Weapon Changes"
+  ~DEMOSUM4~
+  ~FLAM01~
+  ~FRAG01~
+  ~FROSTY~
+  ~GORCAMB~
+  ~GORWOM4~
+  ~HGBER01~
+  ~LASER~
+  ~LIGHT~
+  ~PULS01~
+  ~PULS02~
+  ~SENDAI~
+  ~SHARSWD~
+  // detected by "Enchantment Doesn't Affect Speed Factor of Weapons"
+  ~DARTMEL~
+  ~GITH~
+  ~KILLSW01~
+  ~MARILI~
+  // more
+  ~halbrd01~
+  ~SW1H68C~
+  ~SW1H69C~
+  // ever so more
+  ~ANGAROW~
+  ~ARROPHE2~
+  ~ARROPHEO~
+  ~AURSTAF~
+  ~BOW98~
+  ~BOWPHEO~
+  ~CARSOMYR~
+  ~CHALCY1~
+  ~CHALCY2~
+  ~DAGGSHIT~
+  ~DEVA~
+  ~FLIND1~
+  ~GIANTS01~
+  ~HGSALF~
+  ~KUOBOW~
+  ~MDK2BULL~
+  ~MYBOLT~
+  ~PLYMSTAR~
+  ~RAVAG02~
+  ~SALGRFIR~
+  ~SHAKTI1~
+  ~SPERMEL~
+  ~TASLOIIL~
+  ~XVARTIL~
+  ~ZOMSEA~
+  // more
+  ~plyflind~
+  ~sw1h57~
+  ~sw1h14~
+  ~sw2h05~
+  ~ttsword2~
+  ~sw2h99~
+  ~barlfl~
+  ~dart06~
+  ~dax1h01~
+  ~gorwom2~
+  ~hgwra01~
+  ~salgrice~
+  ~skelclub~
+  ~telswd~
+  ~sw1h98~
+  ~aegis~
+  
+BEGIN 
+  ACTION_IF FILE_EXISTS_IN_GAME ~%item%.itm~ BEGIN
+    COPY_EXISTING ~%item%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+      WRITE_LONG 0x50 ~-1~
+      WRITE_LONG 0x54 ~-1~
+    END BUT_ONLY
+  END
+END
+
+
+//////////////////////////////////////////////
+//  misc fixes and adjustments
+
+// Arrow of Fire (kobold commandos)
+COPY_EXISTING arow08.itm ~override/arowkc.itm~
+
+// Arrow +2 (unknown origin)
+COPY_EXISTING arow11.itm ~override/arow1a.itm~
+
+// Tuigan Bow +1
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  PATCH_IF ident BEGIN
+    SPRINT t1 @100161
+    SPRINT t2 @100162
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+END
+COPY_EXISTING bow14.itm override
+  SPRINT text_update wc_pre_fix
+  LPM update_item_descriptions
+BUT_ONLY
+
+// Embarl's Dagger
+COPY_EXISTING misc4u.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  WRITE_LONG 0x54 ~-1~
+END BUT_ONLY
+
+// Azuredge, fucked up by BG2Fixpack
+ACTION_IF (MOD_IS_INSTALLED ~BG2FIXPACK/SETUP-BG2FIXPACK.TP2~ 0) BEGIN // // Core Fixes
+  COPY_EXISTING ax1h10.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    GET_OFFSET_ARRAY header ITM_V10_HEADERS
+    PHP_EACH header AS ind => res BEGIN
+      READ_BYTE res type
+      READ_SHORT res+0x14 thaco
+      READ_SHORT res+0x1a damage
+      PATCH_IF (type=1 || type=2) && thaco=3 && damage=3 BEGIN
+        WRITE_SHORT res+0x14 0
+        WRITE_SHORT res+0x1a 0
+      END
+    END
+  END BUT_ONLY
+END
+
+// Moonblade
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  PATCH_IF ident BEGIN
+    SPRINT t1 @100163
+    REPLACE_TEXTUALLY ~%t1%~ ~~
+    SPRINT t1 @100164
+    SPRINT t2 @100165
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+END
+COPY_EXISTING sw1h13.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  SPRINT text_update wc_pre_fix LPM update_item_descriptions
+END BUT_ONLY
+
+// Sling of Everard +5, bugged with or without help of GTU
+ACTION_IF (MOD_IS_INSTALLED ~BG2FIXPACK/SETUP-BG2FIXPACK.TP2~ 1001) BEGIN // GTU
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  PATCH_IF ident BEGIN
+    SPRINT t1 @100166
+    SPRINT t2 @100167
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+END
+COPY_EXISTING wasling.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x16 size
+    READ_SHORT res+0x18 dice
+    READ_SHORT res+0x1a damage
+    PATCH_IF type=2 && dice=1 && size=4 && damage=2 BEGIN
+      SPRINT text_update wc_pre_fix LPM update_item_descriptions
+    END
+  END
+END BUT_ONLY
+END ELSE BEGIN
+DEFINE_PATCH_MACRO file_fix BEGIN
+  PATCH_IF type=2 && dice=1 && size=4 && damage=2 BEGIN
+    id=1
+    old_dice=0 old_size=0 old_damage=2
+    new_dice=1 new_size=4 new_damage=2
+    SPRINT text_update fix_desc LPM update_item_descriptions
+  END
+END
+COPY_EXISTING wasling.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  LPM read_file
+END BUT_ONLY
+END
+
+// BG2Fixpack GTU had bugged few more items
+ACTION_IF (MOD_IS_INSTALLED ~BG2FIXPACK/SETUP-BG2FIXPACK.TP2~ 1001) BEGIN // GTU
+
+// Flame Tongue +4
+DEFINE_PATCH_MACRO file_fix BEGIN
+  PATCH_IF type=1 && dice=1 && size=8 && damage=1 BEGIN
+    id=1
+    old_dice=1 old_size=8 old_damage=2
+    new_dice=1 new_size=8 new_damage=1
+    SPRINT text_update fix_desc LPM update_item_descriptions
+  END
+END
+COPY_EXISTING sw1h24.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  LPM read_file
+END BUT_ONLY
+
+// Flail +2
+DEFINE_PATCH_MACRO file_fix BEGIN
+  PATCH_IF type=1 && dice=1 && size=6 && damage=3 BEGIN
+    id=1
+    old_dice=1 old_size=6 old_damage=2
+    new_dice=1 new_size=6 new_damage=3
+    SPRINT text_update fix_desc LPM update_item_descriptions
+  END
+END
+COPY_EXISTING blun13.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  LPM read_file
+END BUT_ONLY
+
+END
+
+//////////////////////////////////////////////
+//  fix bugs in descriptions
+
+DEFINE_PATCH_MACRO file_fix BEGIN
+  PATCH_IF type=1 || type=2 || type=4 BEGIN
+    id=1
+    PATCH_IF old_sp !=99 && new_sp=speed BEGIN
+      old_speed=old_sp
+      new_speed=new_sp
+    END
+    PATCH_IF old_th !=99 && new_th=thaco BEGIN
+      old_thaco=old_th
+      new_thaco=new_th
+    END
+    PATCH_IF old_d !=99 && new_d=dice && new_s=size && new_dam=damage BEGIN
+      old_dice=old_d old_size=old_s old_damage=old_dam
+      new_dice=new_d new_size=new_s new_damage=new_dam
+    END
+    SPRINT text_update fix_desc LPM update_item_descriptions
+  END
+END
+
+<<<<<<<<item_rev/lib/fixpack.2da
+itm       old_sp new_sp  old_th new_th  old_d new_d  old_s new_s  old_dam new_dam
+
+ax1h06    99     99      99     99      1     1      6     6      3       2
+ax1h07    7      5       99     99      99    99     99    99     99      99
+blun14d   7      5       99     99      99    99     99    99     99      99
+blun14e   7      5       99     99      99    99     99    99     99      99
+blun14f   7      5       99     99      99    99     99    99     99      99
+blun35    4      3       99     99      99    99     99    99     99      99
+bow11     4      5       99     99      99    99     99    99     99      99
+bow25     5      4       99     99      99    99     99    99     99      99
+halb04    9      6       99     99      99    99     99    99     99      99
+misc4u    1      2       99     99      99    99     99    99     99      99
+misc5t    1      4       99     99      99    99     99    99     99      99
+npstaf    1      2       99     99      99    99     99    99     99      99
+npsw05    0      1       99     99      99    99     99    99     99      99
+npsw06    0      1       99     99      99    99     99    99     99      99
+sper03    6      3       99     99      99    99     99    99     99      99
+sper11    6      2       99     99      99    99     99    99     99      99
+sper12    2      0       99     99      99    99     99    99     99      99
+staf10    4      3       99     99      99    99     99    99     99      99
+staf11    4      2       99     99      99    99     99    99     99      99
+staf13    4      2       99     99      99    99     99    99     99      99
+staf15    1      2       99     99      99    99     99    99     99      99
+staf16    1      2       99     99      99    99     99    99     99      99
+staf17    1      2       99     99      99    99     99    99     99      99
+staf18    1      2       99     99      99    99     99    99     99      99
+staf23    1      2       99     99      99    99     99    99     99      99
+sw1h13    5      2       99     99      1     1      8     8      0       3
+sw1h40    99     99      99     99      2     1      4     8      3       3
+sw1h52    4      2       99     99      99    99     99    99     99      99
+sw1h60    0      1       99     99      99    99     99    99     99      99
+sw1h69    1      0       99     99      99    99     99    99     99      99
+sw2h03    10     7       99     99      99    99     99    99     99      99
+sw2h10    99     99      99     99      1     1      12    10     5       5
+sw2h15    10     7       99     99      99    99     99    99     99      99
+wa2halb   9      6       99     99      99    99     99    99     99      99
+waflail   99     99      2      3       1     1      6     6      2       4
+>>>>>>>>
+COPY - ~item_rev/lib/fixpack.2da~ override
+  READ_2DA_ENTRIES_NOW fixpack 11
+  FOR (i=1;i<fixpack;i+=1) BEGIN
+    READ_2DA_ENTRY_FORMER fixpack i 0 file
+    PATCH_IF FILE_EXISTS_IN_GAME ~%file%.itm~ BEGIN
+      READ_2DA_ENTRY_FORMER fixpack i 1 old_sp
+      READ_2DA_ENTRY_FORMER fixpack i 2 new_sp
+      READ_2DA_ENTRY_FORMER fixpack i 3 old_th
+      READ_2DA_ENTRY_FORMER fixpack i 4 new_th
+      READ_2DA_ENTRY_FORMER fixpack i 5 old_d
+      READ_2DA_ENTRY_FORMER fixpack i 6 new_d
+      READ_2DA_ENTRY_FORMER fixpack i 7 old_s
+      READ_2DA_ENTRY_FORMER fixpack i 8 new_s
+      READ_2DA_ENTRY_FORMER fixpack i 9 old_dam
+      READ_2DA_ENTRY_FORMER fixpack i 10 new_dam
+      INNER_ACTION BEGIN
+        COPY_EXISTING ~%file%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+          LPM read_file
+        END BUT_ONLY
+      END
+    END
+  END
+
+//////////////////////////////////////////////
+
+
+
+
+
+
+

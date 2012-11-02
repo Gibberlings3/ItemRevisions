@@ -1,0 +1,192 @@
+INCLUDE ~item_rev/lib/multiclass_standard.tpa~
+
+//////////////////////////////////////////////
+
+// requires R2EN ~r2en_weapprof~ be run, and variables single_col and multi_col defined,
+// the column numbers for e.g. Fighters and Fighter/Clerics respectively
+DEFINE_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~ BEGIN
+  SET max_stars = 0
+  
+  // determine how many stars this multiclass can put in weapons (especially important for
+  // warrior multi-classes and those affected by the multi-class grandmastery component of tweak pack) 
+  FOR (i = 3; i < 31; i += 1) BEGIN
+    READ_2DA_ENTRY_FORMER ~r2en_weapprof~ i multi_col current
+    PATCH_IF (current > max_stars) BEGIN
+      SET max_stars = current
+    END
+  END
+
+  PATCH_IF option=3 || option=4 BEGIN
+    max_stars /= 2
+  END
+
+  // give max_stars in a proficiency if the single class can put more points in it than the multi can (note for
+  // both loops: our indices should ensure we hit all the valid proficiencies and don't go into weapon style territory)
+  FOR (i = 3; i < 31; i += 1) BEGIN
+    READ_2DA_ENTRY_FORMER ~r2en_weapprof~ i single_col single_stars
+    READ_2DA_ENTRY_FORMER ~r2en_weapprof~ i multi_col multi_stars
+    PATCH_IF (single_stars > multi_stars) && (max_stars > multi_stars) BEGIN // single can invest & current (multi_stars) is lower than max_stars
+      SET_2DA_ENTRY_LATER ~s2el_weapprof~ i multi_col max_stars
+    END
+  END
+END
+
+// patch items to allow use
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c item
+    PATCH_IF item=0x5 || (item>0xd && item<0x20) BEGIN
+      READ_LONG  0x1e usabilities
+      PATCH_IF ((usabilities & BIT13) == 0) BEGIN // usable by f/m
+        usabilities &= `BIT15                     // make usable by f/m/c
+      END
+      PATCH_IF ((usabilities & BIT11) == 0) BEGIN // usable by f
+        usabilities &= `BIT14                     // make usable by f/c
+      END
+      PATCH_IF ((usabilities & BIT22) == 0) BEGIN // usable by t
+        usabilities &= `BIT9                      // make usable by c/t
+      END
+      PATCH_IF ((usabilities & BIT21) == 0) BEGIN // usable by r
+        usabilities &= `BIT10                     // make usable by c/r
+      END
+      PATCH_IF ((usabilities & BIT18) == 0) BEGIN // usable by m
+        usabilities &= `BIT8                      // make usable by c/m
+      END
+      PATCH_IF (option=2 || option=4) && ((usabilities & BIT11)=0) BEGIN // usable by f
+        usabilities &= `BIT12
+      END
+      WRITE_LONG 0x1e usabilities
+    END
+  END
+BUT_ONLY_IF_IT_CHANGES
+
+// patch 2da to allow profiency points in those items
+COPY_EXISTING ~weapprof.2da~ ~override~
+  READ_2DA_ENTRIES_NOW ~r2en_weapprof~ 1
+  
+  // cleric/mage
+  SET single_col = 4
+  SET multi_col = 17
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  // fighter/cleric
+  SET single_col = 5
+  SET multi_col = 13
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  // cleric/thief
+  SET single_col = 7
+  SET multi_col = 18
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+
+  // cleric/ranger
+  SET single_col = 11
+  SET multi_col = 21
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  // fighter/mage/cleric
+  SET single_col = 12
+  SET multi_col = 20
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+
+  PATCH_IF option=2 || option=4 BEGIN
+    // fighter/druid
+    single_col = 5
+    multi_col = 19
+    LPM ~MC_CLERIC_PROFICIENCIES~
+  END
+
+  SET_2DA_ENTRIES_NOW ~s2el_weapprof~ 1
+  PRETTY_PRINT_2DA
+BUT_ONLY_IF_IT_CHANGES
+
+
+
+//////////////////////////////////////////////
+//  class descriptions
+
+OUTER_PATCH ~~ BEGIN
+
+  GET_STRREF 9573 fc
+  INNER_PATCH_SAVE fc ~%fc%~ BEGIN
+    PATCH_IF option=1 || option=2 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~~
+    END
+    PATCH_IF option=3 || option=4 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~%new_clr%~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~%new_clr%~
+    END
+  END
+
+  GET_STRREF 9577 mc
+  INNER_PATCH_SAVE mc ~%mc%~ BEGIN
+    PATCH_IF option=1 || option=2 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~~
+    END
+    PATCH_IF option=3 || option=4 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~%new_clr%~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~%new_clr%~
+    END
+  END
+
+  GET_STRREF 9578 tc
+  INNER_PATCH_SAVE tc ~%tc%~ BEGIN
+    PATCH_IF option=1 || option=2 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~~
+    END
+    PATCH_IF option=3 || option=4 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~%new_clr%~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~%new_clr%~
+    END
+  END
+
+  GET_STRREF 9579 fd
+  INNER_PATCH_SAVE fd ~%fd%~ BEGIN
+    PATCH_IF option=2 BEGIN
+      REPLACE_TEXTUALLY ~%van_drd%~ ~~
+      REPLACE_TEXTUALLY ~%gtu_drd%~ ~~
+    END
+    PATCH_IF option=4 BEGIN
+      REPLACE_TEXTUALLY ~%van_drd%~ ~%new_drd%~
+      REPLACE_TEXTUALLY ~%gtu_drd%~ ~%new_drd%~
+    END
+  END
+
+  GET_STRREF 9580 cr
+  INNER_PATCH_SAVE cr ~%cr%~ BEGIN
+    PATCH_IF option=1 || option=2 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~~
+    END
+    PATCH_IF option=3 || option=4 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~%new_clr%~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~%new_clr%~
+    END
+  END
+
+  GET_STRREF 9581 fmc
+  INNER_PATCH_SAVE fmc ~%fmc%~ BEGIN
+    PATCH_IF option=1 || option=2 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~~
+    END
+    PATCH_IF option=3 || option=4 BEGIN
+      REPLACE_TEXTUALLY ~%van_clr%~ ~%new_clr%~
+      REPLACE_TEXTUALLY ~%gtu_clr%~ ~%new_clr%~
+    END
+  END
+
+END
+
+STRING_SET 9573 ~%fc%~
+STRING_SET 9577 ~%mc%~
+STRING_SET 9578 ~%tc%~
+STRING_SET 9579 ~%fd%~
+STRING_SET 9580 ~%cr%~
+STRING_SET 9581 ~%fmc%~
+
+
+

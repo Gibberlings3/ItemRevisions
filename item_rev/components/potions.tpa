@@ -1,0 +1,368 @@
+INCLUDE ~item_rev/lib/compatibility.tpa~
+
+//////////////////////////////////////////////
+
+// Potion of Fire Resistance
+COPY ~item_rev/itm/potn02.itm~ ~override~
+  SAY NAME2 @3000
+  SAY DESC  @3001
+COPY ~item_rev/itm/potn02.spl~ ~override~
+  SAY NAME1 @3000
+
+// Potion of Hill Giant Strength
+COPY ~item_rev/itm/potn03.itm~ ~override~
+  SAY NAME2 @3002
+  SAY DESC  @3003
+COPY ~item_rev/itm/potn03.spl~ ~override~
+  SAY NAME1 @3002
+
+// Potion of Frost Giant Strength
+COPY ~item_rev/itm/potn04.itm~ ~override~
+  SAY NAME2 @3004
+  SAY DESC  @3005
+COPY ~item_rev/itm/potn04.spl~ ~override~
+  SAY NAME1 @3004
+
+// Potion of Fire Giant Strength
+COPY ~item_rev/itm/potn05.itm~ ~override~
+  SAY NAME2 @3006
+  SAY DESC  @3007
+COPY ~item_rev/itm/potn05.spl~ ~override~
+  SAY NAME1 @3006
+
+// Potion of Cloud Giant Strength
+COPY ~item_rev/itm/potn06.itm~ ~override~
+  SAY NAME2 @3008
+  SAY DESC  @3009
+COPY ~item_rev/itm/potn06.spl~ ~override~
+  SAY NAME1 @3008
+
+// Potion of Storm Giant Strength
+COPY ~item_rev/itm/potn07.itm~ ~override~
+  SAY NAME2 @3010
+  SAY DESC  @3011
+COPY ~item_rev/itm/potn07.spl~ ~override~
+  SAY NAME1 @3010
+
+// Potion of Healing
+COPY ~item_rev/itm/potn08.itm~ ~override~
+  SAY NAME2 @3012
+  SAY DESC  @3013
+COPY ~item_rev/itm/potn08.spl~ ~override~
+  SAY NAME1 @3012
+
+// Potion of Heroism
+COPY ~item_rev/itm/potn09.itm~ ~override~
+  SAY NAME2 @3014
+  SAY DESC  @3015
+COPY ~item_rev/itm/potn09.spl~ ~override~
+  SAY NAME1 @3014
+
+// Potion of Invisibility
+COPY ~item_rev/itm/potn10.itm~ ~override~
+  SAY NAME2 @3016
+  SAY DESC  @3017
+COPY ~item_rev/itm/potn10.spl~ ~override~
+  SAY NAME1 @3016
+
+// Potion of Invulnerability
+COPY ~item_rev/itm/potn11.itm~ ~override~
+  SAY NAME2 @3018
+  SAY DESC  @3019
+COPY ~item_rev/itm/potn11.spl~ ~override~
+  SAY NAME1 @3018
+
+// Potion of Stone Giant Strength
+COPY ~item_rev/itm/potn12.itm~ ~override~
+  SAY NAME2 @3020
+  SAY DESC  @3021
+COPY ~item_rev/itm/potn12.spl~ ~override~
+  SAY NAME1 @3020
+
+// Oil of Fiery Burning
+COPY ~item_rev/itm/potn13.itm~ ~override~
+  SAY NAME2 @3022
+  SAY DESC  @3023
+COPY ~item_rev/itm/potn13.spl~ ~override~
+  SAY NAME1 @3022
+COPY ~item_rev/itm/potn13.eff~ ~override~
+
+// Potion of Speed
+COPY ~item_rev/itm/potn14.itm~ ~override~
+  SAY NAME2 @3024
+  SAY DESC  @3025
+COPY ~item_rev/itm/potn14.spl~ ~override~
+  SAY NAME1 @3024
+
+// Red Potion
+COPY ~item_rev/itm/potn15.itm~ ~override~
+  SAY NAME2 @3026
+  SAY DESC  @3027
+COPY ~item_rev/itm/potn15.spl~ ~override~
+  SAY NAME1 @3026
+
+// Violet Potion
+COPY ~item_rev/itm/potn16.itm~ ~override~
+  SAY NAME2 @3028
+  SAY DESC  @3029
+COPY ~item_rev/itm/potn16.spl~ ~override~
+  SAY NAME1 @3028
+
+// Elixir of Health
+COPY ~item_rev/itm/potn17.itm~ ~override~
+  SAY NAME2 @3030
+  SAY DESC  @3031
+COPY ~item_rev/itm/potn17.spl~ ~override~
+  SAY NAME1 @3030
+
+// Potion of Absorption
+COPY ~item_rev/itm/potn18.itm~ ~override~
+  SAY NAME2 @3032
+  SAY DESC  @3033
+COPY ~item_rev/itm/potn18.spl~ ~override~
+  SAY NAME1 @3032
+
+// Potion of Agility
+COPY ~item_rev/itm/potn19.itm~ ~override~
+  SAY NAME2 @3034
+  SAY DESC  @3035
+COPY ~item_rev/itm/potn19.spl~ ~override~
+  SAY NAME1 @3034
+
+// Antidote
+COPY ~item_rev/itm/potn20.itm~ ~override~
+  SAY NAME2 @3036
+  SAY DESC  @3037
+COPY ~item_rev/itm/potn20.spl~ ~override~
+  SAY NAME1 @3036
+
+// Potion of Clarity
+COPY ~item_rev/itm/potn21.itm~ ~override~
+  SAY NAME2 @3038
+  SAY DESC  @3039
+COPY ~item_rev/itm/potn21.spl~ ~override~
+  SAY NAME1 @3038
+
+// Potion of Cold Resistance
+COPY ~item_rev/itm/potn22.itm~ ~override~
+  SAY NAME2 @3040
+  SAY DESC  @3041
+COPY ~item_rev/itm/potn22.spl~ ~override~
+  SAY NAME1 @3040
+
+// Strange Potion of Speed
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
+COPY ~item_rev/itm/potn23.itm~ ~override~
+  SAY NAME2 @3042
+  SAY DESC  @3043
+COPY ~item_rev/itm/potn23.spl~ ~override~
+  SAY NAME1 @3042
+
+END
+
+// Potion of Defense
+COPY ~item_rev/itm/potn24.itm~ ~override~
+  SAY NAME2 @3044
+  SAY DESC  @3045
+COPY ~item_rev/itm/potn24.spl~ ~override~
+  SAY NAME1 @3044
+
+// Strange Potion of Healing
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
+COPY ~item_rev/itm/potn25.itm~ ~override~
+  SAY NAME2 @3046
+  SAY DESC  @3047
+COPY ~item_rev/itm/potn25.spl~ ~override~
+  SAY NAME1 @3046
+
+END
+
+// Potion of Explosions
+COPY ~item_rev/itm/potn26.itm~ ~override~
+  SAY NAME2 @3048
+  SAY DESC  @3049
+COPY ~item_rev/itm/potn26.spl~ ~override~
+  SAY NAME1 @3048
+
+// Potion of Firebreath
+COPY ~item_rev/itm/potn27.itm~ ~override~
+  SAY NAME2 @3050
+  SAY DESC  @3051
+COPY ~item_rev/itm/potn27.spl~ ~override~
+  SAY NAME1 @3050
+
+// Potion of Fortitude
+COPY ~item_rev/itm/potn28.itm~ ~override~
+  SAY NAME2 @3052
+  SAY DESC  @3053
+COPY ~item_rev/itm/potn28.spl~ ~override~
+  SAY NAME1 @3052
+
+// Potion of Genius
+COPY ~item_rev/itm/potn29.itm~ ~override~
+  SAY NAME2 @3054
+  SAY DESC  @3055
+COPY ~item_rev/itm/potn29.spl~ ~override~
+  SAY NAME1 @3054
+
+// Potion of Sharp Eyes
+COPY ~item_rev/itm/potn30.itm~ ~override~
+  SAY NAME2 @3056
+  SAY DESC  @3057
+COPY ~item_rev/itm/potn30.spl~ ~override~
+  SAY NAME1 @3056
+COPY ~item_rev/itm/potn30d.spl~ ~override~
+
+// Potion of Insulation
+COPY ~item_rev/itm/potn31.itm~ ~override~
+  SAY NAME2 @3058
+  SAY DESC  @3059
+COPY ~item_rev/itm/potn31.spl~ ~override~
+  SAY NAME1 @3058
+
+// Strange Antidote
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
+COPY ~item_rev/itm/potn32.itm~ ~override~
+  SAY NAME2 @3060
+  SAY DESC  @3061
+COPY ~item_rev/itm/potn32.spl~ ~override~
+  SAY NAME1 @3060
+
+END
+
+// Potion of Magic Blocking
+COPY ~item_rev/itm/potn33.itm~ ~override~
+  SAY NAME2 @3062
+  SAY DESC  @3063
+COPY ~item_rev/itm/potn33.spl~ ~override~
+  SAY NAME1 @3062
+
+// Potion of Magic Protection
+COPY ~item_rev/itm/potn34.itm~ ~override~
+  SAY NAME2 @3064
+  SAY DESC  @3065
+COPY ~item_rev/itm/potn34.spl~ ~override~
+  SAY NAME1 @3064
+
+// Potion of Magic Shielding
+COPY ~item_rev/itm/potn35.itm~ ~override~
+  SAY NAME2 @3066
+  SAY DESC  @3067
+COPY ~item_rev/itm/potn35.spl~ ~override~
+  SAY NAME1 @3066
+
+// Potion of Master Thievery
+COPY ~item_rev/itm/potn36.itm~ ~override~
+  SAY NAME2 @3068
+  SAY DESC  @3069
+COPY ~item_rev/itm/potn36.spl~ ~override~
+  SAY NAME1 @3068
+
+// Potion of Mind Focusing
+COPY ~item_rev/itm/potn37.itm~ ~override~
+  SAY NAME2 @3070
+  SAY DESC  @3071
+COPY ~item_rev/itm/potn37.spl~ ~override~
+  SAY NAME1 @3070
+
+// Potion of Mirrored Eyes
+COPY ~item_rev/itm/potn38.itm~ ~override~
+  SAY NAME2 @3072
+  SAY DESC  @3073
+COPY ~item_rev/itm/potn38.spl~ ~override~
+  SAY NAME1 @3072
+
+// Potion of Perception
+COPY ~item_rev/itm/potn39.itm~ ~override~
+  SAY NAME2 @3074
+  SAY DESC  @3075
+COPY ~item_rev/itm/potn39.spl~ ~override~
+  SAY NAME1 @3074
+
+// Strange Potion of Invulnerability
+COPY ~item_rev/itm/potn40.itm~ ~override~
+  SAY NAME2 @3076
+  SAY DESC  @3077
+COPY ~item_rev/itm/potn40.spl~ ~override~
+  SAY NAME1 @3076
+
+// Potion of Power
+COPY ~item_rev/itm/potn41.itm~ ~override~
+  SAY NAME2 @3078
+  SAY DESC  @3079
+COPY ~item_rev/itm/potn41.spl~ ~override~
+  SAY NAME1 @3078
+
+// Potion of Regeneration
+COPY ~item_rev/itm/potn42.itm~ ~override~
+  SAY NAME2 @3080
+  SAY DESC  @3081
+COPY ~item_rev/itm/potn42.spl~ ~override~
+  SAY NAME1 @3080
+
+// Potion of Insight
+COPY ~item_rev/itm/potn43.itm~ ~override~
+  SAY NAME2 @3082
+  SAY DESC  @3083
+COPY ~item_rev/itm/potn43.spl~ ~override~
+  SAY NAME1 @3082
+
+// Potion of Strength
+COPY ~item_rev/itm/potn44.itm~ ~override~
+  SAY NAME2 @3084
+  SAY DESC  @3085
+COPY ~item_rev/itm/potn44.spl~ ~override~
+  SAY NAME1 @3084
+
+// Potion of Freedom
+COPY ~item_rev/itm/potn45.itm~ ~override~
+  SAY NAME2 @3086
+  SAY DESC  @3087
+COPY ~item_rev/itm/potn45.spl~ ~override~
+  SAY NAME1 @3086
+
+// Potion of Stone Form
+COPY ~item_rev/itm/potn46.itm~ ~override~
+  SAY NAME2 @3088
+  SAY DESC  @3089
+COPY ~item_rev/itm/potn46.spl~ ~override~
+  SAY NAME1 @3088
+
+// Marek's Potion of Antidote
+COPY ~item_rev/itm/potn47.itm~ ~override~
+  SAY NAME2 @3090
+  SAY DESC  @3091
+/* COPY ~item_rev/itm/potn47.spl~ ~override~
+  SAY NAME1 @3090 */
+
+// Vial of Mysterious Liquid
+COPY ~item_rev/itm/potn48.itm~ ~override~
+  SAY NAME2 @3092
+  SAY DESC  @3093
+
+// Potion of Extra Healing
+COPY ~item_rev/itm/potn52.itm~ ~override~
+  SAY NAME2 @3094
+  SAY DESC  @3095
+COPY ~item_rev/itm/potn52.spl~ ~override~
+  SAY NAME1 @3094
+
+// Festule the Alchemist's Potion
+COPY ~item_rev/itm/potn53.itm~ ~override~
+  SAY NAME2 @3096
+  SAY DESC  @3097
+
+// Potion of Superior Healing
+COPY ~item_rev/itm/potn55.itm~ ~override~
+  SAY NAME2 @3098
+  SAY DESC  @3099
+COPY ~item_rev/itm/potn55.spl~ ~override~
+  SAY NAME1 @3098
+
+// Rogue's Potion of Frost Giant Strength
+COPY ~item_rev/itm/potn56.itm~ ~override~
+  SAY NAME2 @3100
+  SAY DESC  @3101

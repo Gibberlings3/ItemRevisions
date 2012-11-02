@@ -1,0 +1,165 @@
+INCLUDE ~item_rev/lib/compatibility.tpa~
+INCLUDE ~item_rev/lib/descriptions.tpa~
+ACTION_IF comp_ir_wc=0 && comp_ir_sf=0 BEGIN // only run it once
+  INCLUDE ~item_rev/lib/fixpack.tpa~
+END
+INCLUDE ~item_rev/lib/identify_fix.tpa~
+INCLUDE ~item_rev/lib/identify_weapon.tpa~
+INCLUDE ~item_rev/lib/weapon_changes_main.tpa~
+OUTER_SPRINT debug_file ~item_rev/debug/weapon_debug.log~
+
+/////////////////////////////////////////////////////
+//  Read tables
+
+ACTION_IF comp_ir_wc BEGIN
+  OUTER_SPRINT old_weapon_table ~item_rev/lib/irv3_weapon_stats.txt~
+  OUTER_SPRINT new_weapon_table ~item_rev/lib/irv3_weapon_stats.txt~
+END ELSE BEGIN
+  OUTER_SPRINT old_weapon_table ~item_rev/lib/bg2_weapon_stats.txt~
+  OUTER_SPRINT new_weapon_table ~item_rev/lib/bg2_weapon_stats.txt~
+END
+LAM wc_table_read
+
+/////////////////////////////////////////////////////
+//  Special cases
+
+DEFINE_PATCH_MACRO special BEGIN
+  TO_LOWER ~SOURCE_RES~
+
+  PATCH_IF type=1 || type=2 || type=4 BEGIN // melee/ranged/launcher
+
+  // mark the item as ready for updating
+  // also we can unflag it later if needed
+  patched=1
+
+  /////////////////////////
+  //    global stuff     //
+  /////////////////////////
+
+  // set speed to base value
+  iden_delta_speed = (EVAL ~old_%itemtype%_speed~) - speed
+
+  // halberds, dual mode
+  PATCH_IF halberd && comp_ir_wc && type=1 BEGIN // melee
+    READ_SHORT off+0x1c damtype
+    PATCH_IF damtype=3 BEGIN // slashing
+      iden_delta_speed +=1
+      reupdate=1
+      update_line = 2
+    END
+  END
+
+  /////////////////////////
+  //    weird things     //
+  /////////////////////////
+
+  // vanilla bugs that i'm too lazy to deal with in 'fixpack.tpa'
+  // Demi had kindly fixed most of them within IR's main component :bow: , so I see no reason to bother 
+  //
+  // also items that intentionally don't match their descriptions
+
+  PATCH_IF comp_ir=0 BEGIN
+
+    // Throwing Axe +2, Mace, Werebane, Spear, Sword of Balduran, The Vampire's Revenge,
+    // Spider's Bane - bugged and seemingly unused, don't touch
+    PATCH_IF
+      ~%SOURCE_RES%~ STRING_EQUAL ~ax1h06~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~blun11~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~dagg09~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~sper04~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~sw1h18~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~sw1h19~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~sw2h13~
+    BEGIN
+      patched=0
+    END
+
+    // Flasher Mates, Bruenor's Axe, Flame Blade, Flasher Launcher - bugged yet used, but don't touch for now
+    PATCH_IF
+      ~%SOURCE_RES%~ STRING_EQUAL ~bolt07~   ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~bruenaxe~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~sw1h11~   ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~xbow12~
+    BEGIN
+      patched=0
+    END
+
+  END ELSE BEGIN // comp_ir=0
+
+    // Spear, Flame Blade - still bugged and seemingly unused, don't touch
+    PATCH_IF
+      ~%SOURCE_RES%~ STRING_EQUAL ~sper04~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~sw1h11~
+    BEGIN
+      patched=0
+    END
+
+  END // comp_ir=0
+
+  /////////////////////////
+  //  "hardcoded" items  //
+  /////////////////////////
+
+  // hardcode special items
+
+  // Staff Spear +2 - use spear's speed
+  PATCH_IF
+    ~%SOURCE_RES%~ STRING_EQUAL ~staf07~
+  BEGIN
+    iden_delta_speed  = old_spear_speed - speed
+  END
+
+  // Moonblade - use longsword's stats
+  PATCH_IF
+    ~%SOURCE_RES%~ STRING_EQUAL ~sw1h13~
+  BEGIN
+    iden_delta_speed  = old_long_sword_speed - speed
+  END
+
+  // Kundane +2, The Answerer +4 - they have fixed values, don't touch
+  PATCH_IF
+    ~%SOURCE_RES%~ STRING_EQUAL ~sw1h25~ ||
+    ~%SOURCE_RES%~ STRING_EQUAL ~sw1h77~
+  BEGIN
+    iden_delta_speed = 0
+  END
+
+  // IR-specific
+  PATCH_IF comp_ir BEGIN
+
+    // Storm Star +3, Storm Star +4 - they have +2 speed bonus
+    PATCH_IF
+      ~%SOURCE_RES%~ STRING_EQUAL ~blun28~ ||
+      ~%SOURCE_RES%~ STRING_EQUAL ~blun29~
+    BEGIN
+      iden_delta_speed -=2
+    END
+
+    // Blade of Sharpness +1 - use short sword's speed
+    PATCH_IF
+      ~%SOURCE_RES%~ STRING_EQUAL ~wa2s1h~
+    BEGIN
+      iden_delta_speed = old_short_sword_speed - speed
+    END
+
+  END
+
+  /////////////////////////
+
+  END // type=1 || type=2 || type=4
+
+END
+
+/////////////////////////////////////////////////////
+//  Patching
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  LPM identify_item
+  PATCH_IF is_weapon BEGIN
+    SPRINT macro special
+    LPM wc_patch
+  END
+END BUT_ONLY
+
+/////////////////////////////////////////////////////
+

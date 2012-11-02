@@ -1,0 +1,558 @@
+BACKUP ~item_rev/backup~
+AUTHOR ~Demivrgvs, Ardanis and Mike1072 at forums.gibberlings3.net~
+
+README ~item_rev/readme-item_rev.html~
+
+ASK_EVERY_COMPONENT
+
+VERSION ~V3 Beta 1.13~
+
+NO_IF_EVAL_BUG
+
+LANGUAGE ~English~
+         ~english~
+         ~item_rev/languages/english/setup.tra~
+         ~item_rev/languages/english/description_updates.tra~
+
+LANGUAGE ~French~
+         ~french~
+         ~item_rev/languages/french/setup.tra~
+         ~item_rev/languages/french/description_updates.tra~
+
+LANGUAGE ~Russian~
+         ~russian~
+         ~item_rev/languages/russian/setup.tra~
+         ~item_rev/languages/russian/description_updates.tra~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Item Revisions by Demivrgvs (Main Component) -  Installs all items    //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @1
+DESIGNATED 0
+REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9000
+
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_descriptions.tra~
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_upgrades.tra~
+INCLUDE ~item_rev/components/main_component.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Executable Patch                                                      //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// ToBEx v20
+
+BEGIN @35
+DESIGNATED 1010
+SUBCOMPONENT @34
+REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9002
+
+OUTER_SPRINT ~TOBEX_MOD_DIRECTORY~ ~item_rev~
+LOAD_TRA ~item_rev/tobex_redist/tobex.tra~
+INCLUDE ~item_rev/tobex_redist/tobex.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// ToB_Hacks - Casting Level Modifier and Repeating EFF Fix
+
+BEGIN @36
+DEPRECATED @9006
+DESIGNATED 1011
+SUBCOMPONENT @34
+REQUIRE_PREDICATE (ENGINE_IS ~tob~ && NOT (FILE_EXISTS ~tobex.dll~)) @9002
+
+INCLUDE ~item_rev/lib/tob_hacks_repeating_eff.tpa~
+INCLUDE ~item_rev/lib/tob_hacks_caster_level.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// ToB_Hacks - Casting Level Modifier Fix
+
+BEGIN @37
+DEPRECATED @9006
+DESIGNATED 1012
+SUBCOMPONENT @34
+REQUIRE_PREDICATE (ENGINE_IS ~tob~ && NOT (FILE_EXISTS ~tobex.dll~)) @9002
+
+INCLUDE ~item_rev/lib/tob_hacks_caster_level.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Potion Revisions                                                      //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @24
+DESIGNATED 1020
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
+INCLUDE ~item_rev/components/potions.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Change +1 Items to Masterwork Quality                                 //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @2
+DESIGNATED 1
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9001
+
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/masterwork.tra~
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/components/masterwork.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Store Revisions                                                       //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @33
+DESIGNATED 1030
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+// a bit rough for now... will fine-tune once BG1 revision is complete
+ACTION_IF (GAME_IS ~tob bgt~) BEGIN
+  LOAD_TRA ~item_rev/languages/%LANGUAGE%/store_revisions.tra~
+  INCLUDE ~item_rev/components/store_revisions.tpa~
+  INCLUDE ~item_rev/components/item_reallocation.tpa~
+  COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override
+    LPF items_to_order END
+  BUT_ONLY
+END ELSE BEGIN
+  INCLUDE ~item_rev/lib/identify_weapon.tpa~
+  INCLUDE ~item_rev/lib/store_rev_macros.tpa~
+  COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override
+    LPF items_to_order END
+  BUT_ONLY
+END
+
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+//  GLOBAL CHANGES                                                       //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Spellcasting in Armor                                                 //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Chance of Arcane Casting Failure
+
+BEGIN @3
+DESIGNATED 2
+SUBCOMPONENT @4
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET option=1
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/spellcasting_armor.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Casting Speed Penalties for Arcane Casters
+
+BEGIN @5
+DESIGNATED 3
+SUBCOMPONENT @4
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+
+OUTER_SET option=2
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/spellcasting_armor.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Casting Speed Penalties for All Casters
+
+BEGIN @6
+DESIGNATED 4
+SUBCOMPONENT @4
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+
+OUTER_SET option=3
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/spellcasting_armor.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// without Penalties
+
+BEGIN @7
+DESIGNATED 5
+SUBCOMPONENT @4
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET option=4
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/spellcasting_armor.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Heavy Armor Encumbrance                                               //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Movement Speed, Dexterity and Speed Factor Penalties
+
+BEGIN @25
+DESIGNATED 1040
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+
+OUTER_SET move = 1
+OUTER_SET dex  = 1
+OUTER_SET sf   = 1
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Movement Speed and Dexterity Penalties
+
+BEGIN @8
+DESIGNATED 6
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+
+OUTER_SET move = 1
+OUTER_SET dex  = 1
+OUTER_SET sf   = 0
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Movement Speed and Speed Factor Penalties
+
+BEGIN @26
+DESIGNATED 1041
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+
+OUTER_SET move = 1
+OUTER_SET dex  = 0
+OUTER_SET sf   = 1
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Dexterity and Speed Factor Penalties
+
+BEGIN @27
+DESIGNATED 1042
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET move = 0
+OUTER_SET dex  = 1
+OUTER_SET sf   = 1
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Movement Speed Penalties
+
+BEGIN @10
+DESIGNATED 7
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+
+OUTER_SET move = 1
+OUTER_SET dex  = 0
+OUTER_SET sf   = 0
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Dexterity Penalties
+
+BEGIN @11
+DESIGNATED 8
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET move = 0
+OUTER_SET dex  = 1
+OUTER_SET sf   = 0
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Speed Factor Penalties
+
+BEGIN @28
+DESIGNATED 1043
+SUBCOMPONENT @9
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET move = 0
+OUTER_SET dex  = 0
+OUTER_SET sf   = 1
+INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Allow Thieving Skills in Armor                                        //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Stealth is Penalized by Armor
+
+BEGIN @43
+DESIGNATED 9
+SUBCOMPONENT @12
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+OUTER_SET option=1
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/thieving_armor.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Stealth is Penalized by Armor and Shields
+
+BEGIN @44
+DESIGNATED 1101
+SUBCOMPONENT @12
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+OUTER_SET option=2
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/thieving_armor.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Revised Armor Bonuses                                                 //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @29
+DESIGNATED 1050
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+INCLUDE ~item_rev/components/revised_armor.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Revised Shield Bonuses                                                //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @13
+DESIGNATED 10
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+INCLUDE ~item_rev/components/revised_shields.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Dual Wielding Changes for Light and Heavy Weapons                     //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @14
+DESIGNATED 11
+REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9003
+
+INCLUDE ~item_rev/components/dual_wielding.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Items of Protection Can Be Worn with Magical Armor                    //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @15
+DESIGNATED 12
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+INCLUDE ~item_rev/components/items_of_protection.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Halberds Can Slash, Too                                               //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @16
+DESIGNATED 13
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+INCLUDE ~item_rev/components/halberds.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Weapon Restrictions from Multi-classed Divine Spellcasters     //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Clerics Only
+
+BEGIN @39
+DESIGNATED 1090
+SUBCOMPONENT @17
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+OUTER_SET option=1
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/multiclass_divine.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Clerics and Druids
+
+BEGIN @40
+DESIGNATED 1091
+SUBCOMPONENT @17
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+OUTER_SET option=2
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/multiclass_divine.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Clerics Only, With Halved Specialization
+
+BEGIN @41
+DESIGNATED 1092
+SUBCOMPONENT @17
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+OUTER_SET option=3
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/multiclass_divine.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Clerics and Druids, With Halved Specialization
+
+BEGIN @42
+DESIGNATED 1093
+SUBCOMPONENT @17
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+OUTER_SET option=4
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/multiclass_divine.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// PnP Equipment for Druids                                              //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Druids only
+
+BEGIN @18
+DESIGNATED 15
+SUBCOMPONENT @38
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET option=1
+INCLUDE ~item_rev/components/druid_usability.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Druids and Fighter/Druids
+
+BEGIN @19
+DESIGNATED 16
+SUBCOMPONENT @38
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+OUTER_SET option=2
+INCLUDE ~item_rev/components/druid_usability.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Kensai Can Wear Bracers                                               //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @30
+DESIGNATED 1060
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+
+INCLUDE ~item_rev/components/kensai_use_bracers.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Thieves Can Use Wands                                                 //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @31
+DESIGNATED 1070
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+INCLUDE ~item_rev/components/wands.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Weapon Changes                                                        //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @20
+DESIGNATED 17
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2161
+                 && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2162
+                 && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2163
+                 && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2164) @9005
+
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/proficiencies.tra~
+INCLUDE ~item_rev/components/weapon_changes.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Enchantment Doesn't Affect Speed Factor of Weapons                    //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @32
+DESIGNATED 1080
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+
+INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
+
+
+///////////////////////////////////////////////////////////////////////////
+// Revised Backstabbing                                                  //
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Penalties with Thief-only Weapons
+
+BEGIN @21
+DESIGNATED 18
+SUBCOMPONENT @22
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
+
+OUTER_SET option=1
+INCLUDE ~item_rev/components/backstabbing.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Penalties with More Weapons Usable for Backstabbing
+
+BEGIN @23
+DESIGNATED 19
+SUBCOMPONENT @22
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
+
+OUTER_SET option=2
+INCLUDE ~item_rev/components/backstabbing.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// All Melee and Ranged Weapons Usable For Backstabbing
+
+BEGIN @45
+DESIGNATED 20
+SUBCOMPONENT @22
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
+
+OUTER_SET option=3
+INCLUDE ~item_rev/components/backstabbing.tpa~
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+// component designation sucks in this mod... i have a daring suggestion to
+// reorder it properly, when it is out of beta - several components will be
+// deprecated and/or merged anyway
+
+
+

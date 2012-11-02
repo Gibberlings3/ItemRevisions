@@ -1,0 +1,122 @@
+INCLUDE ~item_rev/lib/armor_list.tpa~
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/usability_description.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO druid BEGIN
+  PATCH_IF ident BEGIN
+    SPRINT add_class @100411
+    SPRINT catch_class @100412
+    LPF usable_desc INT_VAR make_usable STR_VAR add_class catch_class END
+  END
+END
+
+DEFINE_PATCH_MACRO beastmaster BEGIN
+  PATCH_IF ident BEGIN
+    SPRINT add_class @100417
+    SPRINT catch_class @100418
+    LPF usable_desc INT_VAR make_usable add_where STR_VAR add_class catch_class END
+  END
+END
+
+//////////////////////////////////////////////
+//  headgear
+
+OUTER_SET make_usable=0
+OUTER_SET add_where=2
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c item_type
+    READ_BYTE  0x21 usability4
+    PATCH_IF (item_type == 0x07) BEGIN // headgear
+      PATCH_IF ((usability4 BAND 0b00100000) == 0b00100000) &&       // if unusable by monks
+               (~%SOURCE_RES%~ STRING_COMPARE_CASE ~helm21~) &&      // not the Dragon Helm
+               (~%SOURCE_RES%~ STRING_COMPARE_CASE ~DSCDRUID~) BEGIN // not smth looking like from DSotSC
+        WRITE_BYTE 0x21 (usability4 BOR 0b01000000) // make unusable by druids
+        SPRINT text_update druid
+        LPM update_item_descriptions
+
+        WRITE_BYTE 0x2b (THIS | 2)                // make unusable by beastmasters
+        PATCH_IF ((BYTE_AT 0x20) & 32) = 0 BEGIN  // if usable by rangers
+          SPRINT text_update beastmaster
+          LPM update_item_descriptions
+        END
+
+      END
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+//////////////////////////////////////////////
+//  armor
+
+OUTER_SET make_usable=1
+OUTER_SET add_where=0
+ACTION_PHP_EACH armor AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+  COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    PATCH_IF ( (res>>3) & 3 ) = 2 BEGIN // armor material is scale
+      WRITE_BYTE 0x21 (THIS & `64)  // make usable by druids
+      SPRINT text_update druid
+      LPM update_item_descriptions
+
+      WRITE_BYTE 0x2b (THIS & `2)                // make usable by beastmasters
+      PATCH_IF ((BYTE_AT 0x20) & 32) = 32 BEGIN  // if unusable by rangers
+        SPRINT text_update beastmaster
+        LPM update_item_descriptions
+      END
+
+    END
+  END BUT_ONLY END
+END
+
+//////////////////////////////////////////////
+//  special cases
+
+COPY_EXISTING helm21.itm override // dragon helm
+              shld21.itm override // dragon shield
+  WRITE_BYTE 0x21 (THIS & `64)
+  SPRINT text_update druid
+  LPM update_item_descriptions
+
+  WRITE_BYTE 0x2b (THIS & `2)
+  PATCH_IF ((BYTE_AT 0x20) & 32) = 32 BEGIN  // if unusable by rangers
+    SPRINT text_update beastmaster
+    LPM update_item_descriptions
+  END
+
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
+  COPY_EXISTING shld26.itm override // nature's ward
+    WRITE_BYTE 0x21 (THIS & `64)
+    SPRINT text_update druid
+    LPM update_item_descriptions
+
+    WRITE_BYTE 0x2b (THIS & `2)
+    PATCH_IF ((BYTE_AT 0x20) & 32) = 32 BEGIN  // if unusable by rangers
+      SPRINT text_update beastmaster
+      LPM update_item_descriptions
+    END
+
+END
+
+//////////////////////////////////////////////
+//  fighter/druids
+
+ACTION_IF option=2 BEGIN
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c item_type
+    READ_BYTE  0x1f usability2
+    READ_BYTE  0x21 usability4
+    PATCH_IF (item_type=2 || item_type=3 || item_type=6 || item_type=7 || item_type == 0x0c) BEGIN // armour, belts, bracers, helmets, shields
+      PATCH_IF ((usability4 BAND 0b01000000) == 0b01000000) BEGIN // if unusable by druids
+        WRITE_BYTE 0x1f (usability2 BOR 0b00010000) // make unusable by fighter/druids
+      END
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+END
+
+

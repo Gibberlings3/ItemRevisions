@@ -1,0 +1,72 @@
+
+DEFINE_PATCH_FUNCTION usable_desc INT_VAR
+  make_usable=0 // 0 = description will indicate the item is unusable by our class, 1 = usable
+  add_where=1 // 0 = don't add our class' name at all, 1 = add at the beginning of the list, 2 = add to the end of the list
+BEGIN
+  SPRINT usab @100400 // ~Usable[ %tab%]+[Bb]y[ %tab%]*:~
+  SPRINT unus @100401 // ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+  SPRINT char @100403 // ~[a-zA-Z]~
+
+  PATCH_IF make_usable BEGIN
+    SPRINT add_to ~%usab%~
+    SPRINT del_from ~%unus%~
+  END ELSE BEGIN
+    SPRINT add_to ~%unus%~
+    SPRINT del_from ~%usab%~
+  END
+
+  REPLACE_EVALUATE ~\(\([%lnl%%mnl%%wnl%][ %tab%]*\(%usab%\|%unus%\)[ %tab%]*\)\(\([%lnl%%mnl%%wnl%].*\)*\)?\)~ BEGIN
+    SPRINT line1 ~%MATCH1%~ // '(un)usable by' line with classes listed  -  ~\(\(%usab%\|%unus%\)\)\(\([%lnl%%mnl%%wnl%].*\)*\)?~
+    SPRINT line2 ~%MATCH2%~ // '(un)usable by' line only  -  ~\(%usab%\|%unus%\)~
+
+    // if we need to add new class name
+    PATCH_IF (~%line2%~ STRING_MATCHES_REGEXP ~[%lnl%%mnl%%wnl%][ %tab%]*%add_to%[ %tab%]*~) = 0 && add_where BEGIN
+
+      // check if it's already present
+      INNER_PATCH_SAVE list ~%line1%~ BEGIN
+        exists=0
+        REPLACE_EVALUATE ~\([%lnl%%mnl%%wnl%][ %tab%]*%catch_class%[ %tab%]*$\)~ BEGIN
+          exists=1
+        END ~%MATCH1%~
+        REPLACE_TEXTUALLY ~%line2%~ ~~ // leave only classes listed, without '(un)usable by' line
+      END
+
+      PATCH_IF exists=0 BEGIN
+        // if it's not, then try to determine the space length before the class name
+        INNER_PATCH ~%list%~ BEGIN
+          SPRINT space ~~
+          f=0
+          REPLACE_EVALUATE ~\([%lnl%%mnl%%wnl%]\([ %tab%]*\).*\)~ BEGIN // check the usability list line by line
+            PATCH_IF (~%MATCH1%~ STRING_CONTAINS_REGEXP ~%char%~) = 0 BEGIN // if the line contains any charater
+              PATCH_IF (add_where=1 && f=0 ) || add_where=2 BEGIN // if we add to the top, we read the first line's space, otherwise - the last
+                SPRINT space ~%MATCH2%~
+                f=1
+              END
+            END
+          END ~~
+        END
+
+        PATCH_IF (~%WEIDU_OS%~ STR_CMP ~mac~)=0 BEGIN SPRINT nl ~%mnl%~ END
+        PATCH_IF (~%WEIDU_OS%~ STR_CMP ~unix~)=0 BEGIN SPRINT nl ~%lnl%~ END
+        PATCH_IF (~%WEIDU_OS%~ STR_CMP ~win32~)=0 BEGIN SPRINT nl ~%wnl%~ END
+
+        PATCH_IF add_where=1 BEGIN
+          SPRINT line1 ~%line2%~^~%nl%%space%%add_class%~^~%list%~
+        END ELSE BEGIN
+          SPRINT line1 ~%line2%~^~%list%~^~%nl%%space%%add_class%~
+        END
+      END
+    END
+
+    // if we need to remove a class name from description, then it's quite simplier
+    PATCH_IF (~%line2%~ STRING_MATCHES_REGEXP ~[%lnl%%mnl%%wnl%][ %tab%]*%del_from%[ %tab%]*~) = 0 BEGIN
+      INNER_PATCH_SAVE line1 ~%line1%~ BEGIN
+        REPLACE_TEXTUALLY ~[%lnl%%mnl%%wnl%][ %tab%]*%catch_class%[ %tab%]*$~ ~~
+      END
+      // we could also delete emptied '(un)usable by' blocks, but on a second thought let's not to
+//      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~\(%usab%\|%unus%\)[%lnl%%mnl%%wnl%%tab% ]*~) = 0 BEGIN // if nothing is left
+//        SPRINT line1 ~~
+//      END
+    END
+  END ~%line1%~
+END

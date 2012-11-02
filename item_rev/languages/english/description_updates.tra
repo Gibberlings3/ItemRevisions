@@ -1,0 +1,637 @@
+
+//    !!! WARNING !!!
+//
+//  Do NOT translate this blindly! Refer to "description_updates.doc" to see which exact symbols need translation!
+//  In fact, you may want to translate DOC and then copypaste the result to TRA.
+
+
+//////////////////
+//    Colon     //
+//////////////////
+
+// %colon%, catch it along with preceding text in parenthesis after "Damage" (or smth else) in ~Damage(Piercing) :~, ~Damage:~, but not in ~Damage type:~
+@100100 = ~[ %tab]*\(([ %tab%a-zA-Z]*)\)?[ %tab]*:~
+
+//////////////////
+// Speed Factor //
+//////////////////
+
+// catch the main speed factor line
+@100101 = ~\([%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor%colon%.*\)~
+
+//////////////////
+//    THAC0     //
+//////////////////
+
+// %old_line%, catch ~4 bonus~ and ~+ 4~
+@100102 = ~\([+]\|[+][ %tab%]+\)?%othaco%\([ %tab%]+[Bb]onus\)?~
+
+// %old_line%, catch ~-3   Penalty~
+@100103 = ~%othaco%\([ %tab%]+[Pp]enalty\)?~
+
+// %new_line%
+@100104 = ~+%nthaco% bonus~
+@100105 = ~%nthaco% penalty~
+
+// catch the main thaco line
+@100106 = ~\([%lnl%%mnl%%wnl%]T[Hh][Aa][Cc][Oo0]%colon%.*\)~
+
+// old thaco, catch ~Thac0%colon%  %old_line%~ and ~THACO%colon%  %old_line% (some text in here),~
+@100107 = ~T[Hh][Aa][Cc][Oo0]\(%colon%\)[ %tab%]+%old_line%\([ %tab%a-zA-Z()]*,\)?~
+
+// replace @100107 with ~THAC0%colon%~, %col% here matches %colon%
+@100108 = ~THAC0%col%~
+
+// catch ~ThAc0%colon%~
+@100109 = ~T[Hh][Aa][Cc][Oo0]\(%colon%\)~
+
+// add %new_line% to @100109
+@100110 = ~THAC0%col% %new_line%~
+
+// catch any integer except 0
+@100111 = ~[1-9]~
+
+// catch the main damage line
+@100112 = ~[%lnl%%mnl%%wnl%]Damage\(%colon%\)~
+
+// add thaco line to @100112
+@100113 = ~
+THAC0: %new_line%
+Damage\1~
+
+// catch the main weight line
+@100114 = ~[%lnl%%mnl%%wnl%]Weight:~
+
+// add thaco line to @100114
+@100115 = ~
+THAC0: %new_line%
+Weight:~
+
+
+//////////////////
+//    Damage    //
+//////////////////
+
+// %old_line%, catch ~2D4  +1~, ~2d4~, ~+ 1 Bonus~ and ~-2 penalty~ respectively
+@100116 = ~%odice%[Dd]%osize%[ %tab%]*[+][ %tab%]*%odamage%~
+@100117 = ~%odice%[Dd]%osize%~
+@100118 = ~\([+]\|[+][ %tab%]+\)?%odamage%\([ %tab%]*[Bb]onus\)?~
+@100119 = ~%odamage%\([ %tab%]*[Pp]enalty\)?~
+
+// %new_line%
+@100120 = ~%ndice%D%nsize% + %ndamage%~
+@100121 = ~%ndice%D%nsize%~
+@100122 = ~+%ndamage% bonus~
+@100123 = ~%ndamage% penalty~
+
+// catch the main damage line
+@100124 = ~\([%lnl%%mnl%%wnl%]Damage%colon%.*\)~
+
+// catch ~(Phantom Arrows) %old_line%~ and ~%old_line% piercing~
+@100125 = ~Damage\(%colon%\)\([ %tab%a-zA-Z()]*\)?%old_line%\([ %tab%a-zA-Z()]*,\)?~
+
+// replace @100125 with ~Damage%colon%~
+@100126 = ~Damage%col%~
+
+// catch ~Damage%colon%~
+@100127 = ~Damage\(%colon%\)~
+
+// add %new_line% to @100127
+@100128 = ~Damage%col% %new_line%~
+
+// add damage line to @100114
+@100129 = ~
+Damage: %new_line%
+Weight:~
+
+// catch the main speed factor line
+@100130 = ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(%colon%\)~
+
+// add damage line to @100130
+@100131 = ~
+Damage: %new_line%
+Speed Factor\1~
+
+
+//////////////////
+// Damage Type  //
+//////////////////
+
+// catch ~Damage type: slashing~
+@100132 = ~Damage[ %tab%]+[Tt]ype:[ %tab%]+[Ss]lashing~
+
+// replace @100132
+@100133 = ~Damage type: piercing~
+
+// catch ~Damage type: piercing~
+@100134 = ~Damage[ %tab%]+[Tt]ype:[ %tab%]+[Pp]iercing~
+
+// replace @100134
+@100135 = ~Damage type: slashing~
+
+// catch ~Damage type: crushing~
+@100136 = ~Damage[ %tab%]+[Tt]ype:[ %tab%]+\([Cc]rushing\|[Bb]ludgeon\(ing\)?\)~
+
+// replace @100136
+@100137 = ~Damage type: crushing and piercing~
+
+
+//////////////////
+//    Fixes     //
+//////////////////
+
+// 138-145, 151-199
+
+// catch ~Speed Factor: ~
+@100138 = ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(%colon%\)[ %tab%]+~
+
+// catch the first number after cutting off @100138 from @100101
+@100139 = ~[0-9]+~
+
+// check if @100139 matches the preset %old_speed% value
+@100140 = ~%old_speed%~
+
+// replace @100139
+@100141 = ~%new_speed%~
+
+// catch ~Thaco: ~
+@100142 = ~[%lnl%%mnl%%wnl%]T[Hh][Aa][Cc][Oo0]\(%colon%\)[ %tab%]+~
+
+// catch the first number after cutting off @100142 from @100106
+@100143 = ~\([+-][ %tab%]*\)?[0-9]+~
+
+// the plus sign
+@100144 = ~+~
+
+// the minus sign
+@100145 = ~-~
+
+// check if @100143 matches the preset %old_thaco% value
+@100151 = ~\([%sign%][ %tab%]*\)?%old_thaco%~
+
+// replace @100143
+@100152 = ~%sign%%new_thaco%~
+
+// catch ~Damage: (Phantom Arrows) ~
+@100153 = ~[%lnl%%mnl%%wnl%]Damage\(%colon%\)\([ %tab%a-zA-Z()]*\)?~
+
+// catch the first damage formula after cutting off @100153 from @100124 - try to find 2d4+1, else find 2d4, else +1
+@100154 = ~\([0-9]+[Dd][0-9]+[ %tab%]*[+-][ %tab%]*[0-9]+\|[0-9]+[Dd][0-9]+\|\([+-][ %tab%]*\)?[0-9]+\)~
+
+// check if @100154 matches preset values
+@100155 = ~%old_dice%[Dd]%old_size%[ %tab%]*[%sign%][ %tab%]*%old_damage%~
+
+// check if @100154 matches preset values
+@100156 = ~%old_dice%[Dd]%old_size%~
+
+// check if @100154 matches preset values
+@100157 = ~[%sign%][ %tab%]*%old_damage%~
+
+// replace @100154
+@100158 = ~%new_dice%D%new_size% %sign% %new_damage%~
+
+// replace @100154
+@100159 = ~%new_dice%D%new_size%~
+
+// replace @100154
+@100160 = ~%sign%%new_damage%~
+
+// #39515, Tuigan Bow +1 (BOW14) description, use regexp for the space if necessary
+@100161 = ~3 shots per round~
+
+// replace @100161
+@100162 = ~+1 attack per round~
+
+// #10303, Moonblade (SW1H13) description, use regexp for the space if necessary
+@100163 = ~[%lnl%%mnl%%wnl%]Bonus to damage:  3~
+
+// #10303, Moonblade (SW1H13) description, use regexp for the space if necessary
+@100164 = ~Bonus to hit:  3~
+
+// replace @100164
+@100165 = ~THAC0:  +3 bonus~
+
+// @1032143 from "gtu.tra", BG2Fixpack
+@100166 = ~Damage: 1D4 + 3 (+2 bonus missile damage)~
+
+// replace @100166
+@100167 = ~Damage: 1D4 + 2~
+
+
+//////////////////
+// Proficiency  //
+//////////////////
+
+// catch ~Proficiency type:~
+@100146 = ~Proficiency[ %tab%]+[Tt]ype:.*~
+
+// replace @100146
+@100147 = ~Proficiency Type: Katana/Wakizashi~
+
+// replace @100146
+@100148 = ~Proficiency Type: Flail~
+
+// replace @100146
+@100149 = ~Proficiency Type: Scimitar~
+
+// replace @100146
+@100150 = ~Proficiency Type: Mace/Morning Star~
+
+// replace @100146
+@100199 = ~Proficiency Type: Short Sword~
+
+
+//////////////////
+//   Halberds   //
+//////////////////
+
+// catch ~Damage:\(anything\)
+@100200 = ~[%lnl%%mnl%%wnl%]Damage[ %tab%]*\(:.*\)~
+
+// replace @100200
+@100201 = ~
+Damage (Piercing)\1
+Damage (Slashing)\1~
+
+// catch ~Speed Factor:\(anything\)~
+@100202 = ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(:.*\)~
+
+// replace @100202
+@100203 = ~
+Speed Factor (Piercing)\1
+Speed Factor (Slashing)\1~
+
+// replace @100134
+@100204 = ~Damage type: piercing or slashing~
+
+// tooltip for piercing mode
+@100205 = ~Piercing~
+
+// tooltip for slashing mode
+@100206 = ~Slashing~
+
+// new (default?) string, needed for halberds somewhere deep within Mike's code
+@100207 = ~Halberd~
+
+
+//////////////////
+// Spellcasting //
+//////////////////
+
+// catch ~ Miscast Arcane Magic:\(anything\)~
+@100300 = ~[%lnl%%mnl%%wnl%][ %tab%]*Miscast[ %tab%]*\([Aa]rcane[ %tab%]*\)?[Mm]agic:.*~
+
+// catch ~ Arcane Spell Failure:\(anything\)~
+@100301 = ~[%lnl%%mnl%%wnl%][ %tab%]*Arcane[ %tab%]*[Ss]pell[ %tab%]*[Ff]ailure:.*~
+
+// catch ~ Spellcasting Time:\(anything\)~
+@100302 = ~[%lnl%%mnl%%wnl%][ %tab%]*Spellcasting[ %tab%]*[Tt]ime:.*~
+
+// catch ~ Spell failure:\(anything\)~
+@100303 = ~[%lnl%%mnl%%wnl%][ %tab%]*Spell[ %tab%]*[Ff]ailure:.*~
+
+// catch ~ Allows arcane spellcasting without penalties\(anything\)~
+@100304 = ~[%lnl%%mnl%%wnl%][ %tab%]*Allows arcane spellcasting without penalties.*~
+
+// add spellcasting failure line to @100114
+@100305 = ~
+Arcane Spell Failure: %xfail%%
+Weight:~
+
+// add spellcasting speed line to @100114
+@100306 = ~
+Arcane Casting Time Penalty: +%xspd%
+Weight:~
+
+// add spellcasting speed line to @100114
+@100307 = ~
+Casting Time Penalty: +%xspd%
+Weight:~
+
+
+//////////////////
+// Encumbrance //
+//////////////////
+
+// add DEX penalty line to @100114
+@100308 = ~
+Dexterity Penalty: %xdex%%
+Weight:~
+
+// add movement penalty line to @100114
+@100309 = ~
+Movement Rate Penalty: %xmove%%
+Weight:~
+
+// add speed factor penalty line to @100114
+@100310 = ~
+Speed Factor Penalty: +%xsf%
+Weight:~
+
+
+//////////////////
+//   Shields    //
+//////////////////
+
+// 321-323 are disabled for v3, unless Demi or Mike uncomment them in macros
+
+// catch ~Special: No Piercing Attack Protection~
+@100311 = ~[%lnl%%mnl%%wnl%]Special:[ %tab%]*No Piercing \(Attack\|Weapon\) Protection.*~
+
+// catch ~Special: No Missile~
+@100312 = ~Special:[ %tab%]*No Missile.*~
+
+// catch ~Special: No Missile Weapon Protection~
+@100313 = ~Special: No Missile Weapon Protection~
+
+// catch ~Special: No Missile~
+@100314 = ~[%lnl%%mnl%%wnl%]Special:[ %tab%]*No Missile.*~
+
+// catch ~Armor Class Bonus:~
+@100315 = ~Armor Class\([ %tab%]*Bonus[ %tab%]*\)?:.*~
+
+// replace @100315
+@100316 = ~Armor Class Bonus: %new_ac%~
+
+// replace @100315
+@100317 = ~Armor Class Bonus: 2~
+
+// replace @100315
+@100318 = ~Armor Class Bonus: 3~
+
+// catch ~Armor Class Bonus:~
+@100319 = ~\(Armor Class\([ %tab%]*Bonus[ %tab%]*\)?:.*\)~
+
+// add thaco line to @100319
+@100320 = ~\1
+THAC0: -2 Penalty~
+
+// catch ~Special: +1 vs. Missile Weapons~
+@100321 = ~[%lnl%%mnl%%wnl%]Special:[ %tab%]*\+[0-9]* vs. Missile Weapons~
+
+// catch ~Special: +1 AC bonus vs. Missile Weapons~
+@100322 = ~Special:[ %tab%]*\+[0-9]* \(AC \)?\(bonus \)?vs. Missile Weapons~
+
+// replace @100322
+@100323 = ~Special: +%new_type% vs. Missile Weapons~
+
+// add thaco line to @100319
+@100324 = ~\1
+THAC0: -1 Penalty~
+
+// replace @100321
+@100407 = ~
+Special: +2 vs. Missile Weapons~
+
+
+//////////////////
+//   Thieving   //
+//////////////////
+
+// catch ~Lock Picking:~
+@100325 = ~[%lnl%%mnl%%wnl%]Lock Picking:.*~
+
+// catch ~Find/Remove Traps:~
+@100326 = ~[%lnl%%mnl%%wnl%]\(Find/\)?Remove Traps:.*~
+
+// catch ~Pick Pockets:~
+@100327 = ~[%lnl%%mnl%%wnl%]Pick Pockets:.*~
+
+// catch ~Move Silently:~
+@100328 = ~[%lnl%%mnl%%wnl%]Move Silently:.*~
+
+// catch ~Hide in Shadows:~
+@100329 = ~[%lnl%%mnl%%wnl%]Hide\( in Shadows\)?:.*~
+
+// catch ~Stealth:~
+@100330 = ~[%lnl%%mnl%%wnl%]Stealth:.*~
+
+// add stealth line to @100114
+@100331 = ~
+Stealth Penalty: -%value%%
+Weight:~
+
+
+//////////////////
+//  Masterwork  //
+//////////////////
+// 335-363 catches are for identified weapon descriptions, +1 items
+// the list of replacements was assembled by Mike1072, so i (Ardanis) can't tell offhand which string is for which ITM
+
+// in any case, we were going (i think) to re-do the Masterwork component, so these strings may not be needed for v4
+
+// catch ~Damage:~
+@100332 = ~Damage:.*~
+
+// replace @100332
+@100333 = ~Damage: %a%D%b% + %c%~
+
+// replace @100332
+@100334 = ~Damage: %a%D%b%~
+
+// catch
+@100335 = ~This \([^.]+\) is particularly good at its job, as it has been enchanted with a few magical properties.~
+
+// replace @100335
+@100336 = ~This weapon in particular is of masterwork quality and offers better performance than common \1s.~
+
+// catch
+@100337 = ~This particular weapon has been enhanced magically to compliment the skill of the wielder.~
+
+// replace @100337
+@100338 = ~This weapon in particular is of masterwork quality and offers better performance than common ones.~
+
+// catch
+@100339 = ~The blade hums slightly in your hand, the only overt evidence that magic runs through it.~
+
+// replace @100339
+@100340 = ~This weapon in particular is of masterwork quality and offers better performance than common swords.~
+
+// catch
+@100341 = ~This is a magical bastard sword.~
+
+// replace @100341
+@100342 = ~This particular blade is of masterwork quality and offers better performance than common swords.~
+
+// catch
+@100343 = ~This short blade is magical, improving accuracy and damage.~
+
+// replace @100343
+@100344 = ~This short sword is of masterwork quality, boasting improved accuracy.~
+
+// catch
+@100345 = ~This is a magical axe.~
+
+// replace @100345
+@100346 = ~This axe in particular is of masterwork quality and offers better performance than common ones.~
+
+// catch
+@100347 = ~The weapon has been enhanced magically, effectively forming a bond between the weapon and its wielder.~
+
+// replace @100347
+@100348 = ~This one in particular is of masterwork quality and offers better performance than common flails.~
+
+// catch
+@100349 = ~In this case, the head is pyramidal and seems to glow with an inner blue light, as it sits atop a polished oak shaft.~
+
+// replace @100349
+@100350 = ~The design of the head varies: some are spiked, others flanged, and still others have pyramidal knobs. This one in particular is of masterwork quality and offers better performance than common maces.~
+
+// catch
+@100351 = ~This particular one is mounted with a golden head that has been magically enhanced so as to improve performance and escape the malleability of gold.~
+
+// replace @100351
+@100352 = ~Such weapons have round, oval, or cylindrical shaped heads studded with spikes. Extending from most morning star heads, regardless of design, is a long point for thrusting. This morning star in particular is of masterwork quality and offers better performance than common ones.~
+
+// catch
+@100353 = ~This particular dagger is magical, having special bonuses to its speed, accuracy, and damage it causes.  Also, since it is magical, is it capable of striking opponents that are immune to normal weapons, such as vampires, elementals and mummies.~
+
+// replace @100353
+@100354 = ~This dagger in particular is of masterwork quality and offers better performance than common ones.~
+
+// catch
+@100355 = ~This particular \([^.]+\) is magical, having special bonuses to its speed, accuracy, and damage it causes.~
+
+// replace @100355
+@100356 = ~This \1 in particular is of masterwork quality and offers better performance than common ones.~
+
+// catch
+@100357 = ~It has also been bestowed with a small number of magical properties, however, thus~
+
+// replace @100357
+@100358 = ~This weapon in particular is of masterwork quality, thus~
+
+// catch
+@100359 = ~This spear is slightly different though, as it has been imbued with certain magical properties.~
+
+// replace @100359
+@100360 = ~This particular weapon is of masterwork quality and offers better performance than common spears.~
+
+// catch
+@100361 = ~This one is particularly special as it has been imbued with magical properties.~
+
+// replace @100361
+@100362 = ~This one is particularly special, as it has been finely crafted and performs better than common staves. ~
+
+// catch
+@100363 = ~The typical dagger has a pointed, usually double-edged blade, as opposed to a knife, which has a single edge and is a bit shorter than the dagger. 
+
+STATISTICS:~
+
+// replace @100363
+@100364 = ~The typical dagger has a pointed, usually double-edged blade, as opposed to a knife, which has a single edge and is a bit shorter than the dagger. This dagger in particular is of masterwork quality and offers better performance than common ones.
+
+STATISTICS:~
+
+//////////////////
+//    Wands     //
+//////////////////
+
+// catch ~Usable by:~
+@100400 = ~Usable[ %tab%]+[Bb]y[ %tab%]*:~
+
+// catch ~Not usable by~
+@100401 = ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+
+// add "Thief" to \(@100400\|@100401\)
+@100402 = ~Thief~
+
+// catch any letter
+@100403 = ~[a-zA-Z]~
+
+// catch ~Thief~
+@100404 = ~[Tt]hief~
+
+// catch ~Requires:\(anything\)~
+@100405 = ~[ %tab%]*Requires[ %tab%]*:\(.*\)~
+
+// replace @100405
+@100406 = ~Requires:  %res% Intelligence~
+
+// add requirement line to \(@100400\|@100401\)
+@100408 = ~Requires:  %res% Intelligence
+\1~
+
+// replace @100405
+@100409 = ~Requires: 9 Intelligence, 14 Wisdom~
+
+// add requirement line to \(@100400\|@100401\)
+@100410 = ~Requires:  9 Intelligence, 14 Wisdom
+\1~
+
+//////////////////
+//    Druids    //
+//////////////////
+
+// add "Druid" to \(@100400\|@100401\)
+@100411 = ~Druid~
+
+// catch ~Druid~
+@100412 = ~[Dd]ruid~
+
+//////////////////
+//    Kensai    //
+//////////////////
+
+// catch from kit description
+// get the string number from "kitlist.2da" table, line #3 (KENSAI), column #4 (HELP) - unless changed by mods, it's 25204
+@100413 = ~May not wear gauntlets or bracers~
+
+// replace @100413
+@100414 = ~May not wear gauntlets~
+
+// add "Kensai" to \(@100400\|@100401\)
+@100415 = ~Kensai~
+
+// catch ~Kensai~
+@100416 = ~[Kk]ensai~
+
+//////////////////
+//  Beastmaster //
+//////////////////
+
+// add "Beast Master" to \(@100400\|@100401\)
+@100417 = ~Beast Master~
+
+// catch ~Beastmaster~ or ~Beast Master~
+@100418 = ~[Bb]east[ %tab%]*[Mm]aster~
+
+
+
+
+
+
+
+
+
+/*
+// 
+@100419 = ~~
+
+// 
+@100420 = ~~
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

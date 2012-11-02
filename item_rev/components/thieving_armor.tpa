@@ -1,0 +1,162 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/armor_list.tpa~
+INCLUDE ~item_rev/lib/common_shield_list.tpa~
+INCLUDE ~item_rev/lib/multiclass_standard.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO ~cleanup~ BEGIN
+  SPRINT t1 @100325
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100326
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100327
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100328
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100329
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100330
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+END
+
+DEFINE_PATCH_MACRO ~stealth~ BEGIN
+  SPRINT t1 @100114
+  SPRINT t2 @100331
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+
+//////////////////////////////////////////////
+//  reading table
+
+COPY - ~item_rev/lib/armor_penalty_table.txt~ override
+  READ_2DA_ENTRIES_NOW rn 2
+
+//////////////////////////////////////////////
+//  patching armors
+
+ACTION_PHP_EACH armor AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+
+      READ_LONG  0x64 ab_off
+      READ_SHORT 0x68 ab_num
+      READ_LONG  0x6a ef_off
+      READ_SHORT 0x70 ef_num
+      delta=0
+      FOR (i=0;i<ef_num;i+=1) BEGIN
+        READ_SHORT ef_off+i*0x30 op
+        READ_LONG ef_off+i*0x30+4 p1
+        PATCH_IF (op=144 && (p1=0 || p1=1))                             // disables thief buttons
+              || ((op=59 || op=90 || op=91 || op=92 || op=275) && p1<0) // penalizes thief skills
+        BEGIN
+          DELETE_BYTES ef_off+i*0x30 0x30
+          delta -= 1
+          ef_num -= 1
+          i -= 1
+        END
+      END
+      WRITE_SHORT 0x70 ef_num
+      FOR (i=0;i<ab_num;i+=1) BEGIN      WRITE_SHORT ab_off+i*0x38+0x20 (THIS+delta)    END
+      PATCH_IF ab_off>ef_off BEGIN      WRITE_LONG 0x64 (THIS+delta*0x30)    END
+      
+      SPRINT text_update cleanup
+      LPM update_item_descriptions
+
+      thief = ( res >> 6 ) & 1 // can sneak without penalties in this armor
+      armor =   res & 7
+      PATCH_IF thief=0 && armor BEGIN
+        subst = ( res >> 3 ) & 3 // 1=mithral, 2=scale
+        elven = ( res >> 5 ) & 1
+
+        READ_2DA_ENTRY_FORMER rn armor 1 value
+        PATCH_IF subst=2 BEGIN value+= EVAL ~rn_8_1~ END // scale
+        PATCH_IF subst=1 BEGIN value+= EVAL ~rn_9_1~ END // mithral
+        PATCH_IF elven BEGIN value+= EVAL ~rn_10_1~ END
+        value= value>0 ? value : 0
+
+        PATCH_IF value BEGIN
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode=59 target=1 timing=2 parameter1=(0 - value) END
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode=275 target=1 timing=2 parameter1=(0 - value) END
+          SPRINT text_update stealth
+          LPM update_item_descriptions
+        END
+      END
+
+    END BUT_ONLY
+  END
+END
+
+//////////////////////////////////////////////
+//  patching shields
+
+ACTION_IF option=2 BEGIN
+
+LAM shields
+
+COPY_EXISTING_REGEXP ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  READ_SHORT 0x1c item
+  READ_ASCII 0x22 anim (2)
+
+  type=0
+  PATCH_IF item=190 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d1~) ) BEGIN // buckler
+    LPM cleanup
+    type=11
+    WRITE_SHORT 0x1c 0xc
+  END
+  PATCH_IF item=191 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d2~) ) BEGIN // light
+    LPM cleanup
+    type=12
+    WRITE_SHORT 0x1c 0xc
+  END
+  PATCH_IF item=192 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d3~) ) BEGIN // heavy
+    LPM cleanup
+    type=13
+    WRITE_SHORT 0x1c 0xc
+  END
+  PATCH_IF item=194 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d4~) ) BEGIN // tower
+    LPM cleanup
+    type=14
+    WRITE_SHORT 0x1c 0xc
+  END
+
+  PATCH_IF type BEGIN
+    READ_2DA_ENTRY_FORMER rn type 1 value
+    PATCH_IF value>0 BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=59 target=1 timing=2 parameter1=(0 - value) END
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=275 target=1 timing=2 parameter1=(0 - value) END
+      SPRINT text_update stealth
+      LPM update_item_descriptions
+    END
+  END
+
+END BUT_ONLY
+
+END
+
+//////////////////////////////////////////////
+//  class descriptions
+
+OUTER_PATCH ~~ BEGIN
+  GET_STRREF 9572 ft
+  INNER_PATCH_SAVE ft ~%ft%~ BEGIN
+    REPLACE_TEXTUALLY ~%van_thv%~ ~%new_thv%~
+    REPLACE_TEXTUALLY ~%gtu_thv%~ ~%new_thv%~
+  END
+  GET_STRREF 9576 fmt
+  INNER_PATCH_SAVE fmt ~%fmt%~ BEGIN
+    REPLACE_TEXTUALLY ~%van_thv%~ ~%new_thv%~
+    REPLACE_TEXTUALLY ~%gtu_thv%~ ~%new_thv%~
+  END
+  GET_STRREF 9578 tc
+  INNER_PATCH_SAVE tc ~%tc%~ BEGIN
+    REPLACE_TEXTUALLY ~%van_thv%~ ~%new_thv%~
+    REPLACE_TEXTUALLY ~%gtu_thv%~ ~%new_thv%~
+  END
+END
+STRING_SET 9572 ~%ft%~
+STRING_SET 9576 ~%fmt%~
+STRING_SET 9578 ~%tc%~
+

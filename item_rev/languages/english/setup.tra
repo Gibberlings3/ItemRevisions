@@ -1,0 +1,85 @@
+@-1004= ~Please submit a report regarding this problem, including the information contained in~
+
+// Ardanis: re-ordered strings to match components in TP2
+
+@1    = ~Item Revisions by Demivrgvs~
+
+@34   = ~Executable Patch~
+@35   = ~ToBEx v20 (beta)~
+@36   = ~ToB_Hacks - Casting Level Modifier and Repeating EFF Fix (not compatible with ToBEx)~
+@37   = ~ToB_Hacks - Casting Level Modifier Fix (safe)~
+
+@24   = ~Potion Revisions~
+
+@2    = ~Masterwork Weapons~
+
+@33   = ~Store Revisions~
+
+@4    = ~Allow Spellcasting in Armor~
+@3    = ~With a Chance of Arcane Casting Failure~
+@5    = ~With Casting Speed Penalties for Arcane Casters~
+@6    = ~With Casting Speed Penalties for All Casters~
+@7    = ~Without Penalties~
+
+@9    = ~Heavy Armor Encumbrance~
+@25   = ~Movement Speed, Dexterity and Speed Factor Penalties~
+@8    = ~Movement Speed and Dexterity Penalties~
+@26   = ~Movement Speed and Speed Factor Penalties~
+@27   = ~Dexterity and Speed Factor Penalties~
+@10   = ~Movement Speed Penalties~
+@11   = ~Dexterity Penalties~
+@28   = ~Speed Factor Penalties~
+
+@12   = ~Allow Thieving Skills in Armor~
+@43   = ~Stealth is Penalized by Armor~
+@44   = ~Stealth is Penalized by Armor and Shields~
+
+@29   = ~Revised Armor Bonuses~
+
+@13   = ~Revised Shield Bonuses~
+
+@14   = ~Dual Wielding Changes for Light and Heavy Weapons~
+
+@15   = ~Items of Protection Can Be Worn with Magical Armor~
+
+@16   = ~Halberds Can Slash, Too~
+
+@17   = ~Remove Weapon Restrictions from Multi-classed Divine Spellcasters~
+@39   = ~Clerics Only~
+@40   = ~Clerics and Druids~
+@41   = ~Clerics Only, With Halved Specialization~
+@42   = ~Clerics and Druids, With Halved Specialization~
+
+@38   = ~PnP Equipment for Druids~
+@18   = ~Druids Only~
+@19   = ~Druids and Fighter/Druids~
+
+@30   = ~Kensai Can Wear Bracers~
+
+@31   = ~Thieves Can Use Wands~
+
+@20   = ~Weapon Changes~
+
+@32   = ~Enchantment Doesn't Affect Speed Factor of Weapons~
+
+@22   = ~Backstabbing Penalties for Inappropriate Weapons~
+@21   = ~Backstabbing Penalties Only~
+@23   = ~Backstabbing Penalties with More Weapons Usable for Backstabbing~
+@45   = ~All Melee and Ranged Weapons Usable For Backstabbing~
+
+///////
+
+// the next free value
+@46   = ~~
+
+///////
+
+@9000 = ~This component may only be installed on BG2, and it requires ToB be installed.~
+@9001 = ~This component may only be installed on BG2.~
+@9002 = ~This component is not compatible with your game.~
+@9003 = ~This component requires BG2: Throne of Bhaal's engine enhancements.~
+@9004 = ~This component is conceptually incompatible with the Improved Backstabbing component from Ding0's Tweak Pack (d0tweak).~
+@9005 = ~This component is currently incompatible with the Altered Weapon Proficiency System from the BG2 Tweak Pack.~
+
+@9006 = ~This component has been deprecated.~
+

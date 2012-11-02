@@ -1,0 +1,714 @@
+
+/*
+Type:
+ other   = 0
+ leather = 1
+ studded = 2
+ hide    = 3
+ chain   = 4
+ splint  = 5
+ plate   = 6
+ full    = 7
+
+Material:
+ normal  = 0
+ mithral = 1
+ scale   = 2
+ adamant = 3 // dunno if we'd ever need it
+
+Elven:
+ non-elven = 0
+ elven     = 1
+
+Theiving:
+ no  = 0
+ yes = 1
+
+Spellcasting:
+ no  = 0
+ yes = 1
+
+
+End value:
+ type + 8 * material + 32 * elven + 64 * thieving + 128 * spellcasting
+
+
+Yes, that's bitwise:
+ base type    = value & 7 
+ material     = ( value >> 3 ) & 3
+ elven        = ( value >> 5 ) & 1
+ thieving     = ( value >> 6 ) & 1
+ spellcasting = ( value >> 7 ) & 1
+
+
+Elven (-30% penalty, can cast) Mithral (penalty reduced by 2 category) Fullplate = 47
+*/
+
+/*
+ other   = 0
+ leather = 1
+ studded = 2
+ hide    = 3
+ chain   = 4
+ splint  = 5
+ plate   = 6
+ full    = 7
+ mtrl chain = 12
+ mtrl plate = 14
+ mtrl full  = 15
+ scl splint = 21
+ scl plate  = 22
+ scl full   = 23
+ elv chain  = 36
+*/
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY armor BEGIN
+
+// vanilla armors
+
+bruenpla => 15 // Mithral Field Plate Armor +2
+chalarm  => 7  // Pride of the Legion +2
+chan01   => 4  // Chain Mail Armor
+chan02   => 4  // Chain Mail +1
+chan03   => 4  // Mail of the Dead +2
+chan04   => 5  // Splint Mail
+chan05   => 5  // Splint Mail +1
+chan06   => 12 // Mithril Chain Mail +4
+chan07   => 12 // Chain Mail +3
+chan08   => 4  // Chain Mail +2
+chan09   => 4  // Darkmail +3
+chan10   => 4  // Jester's Chain +4
+chan11   => 4  // Crimson Chain +5
+chan12   => 36 // Elven Chain Mail
+chan13   => 36 // Elven Chain +1
+chan14   => 36 // Sylvan Chain +2
+chan15   => 36 // Melodic Chain +3
+chan16   => 36 // Bladesinger Chain +4
+chan17   => 21 // Ashen Scales +2
+chan18   => 5  // Armor of Faith +3
+chan19   => 36 // Aslyferund Elven Chain +5
+chan20   => 21 // White Dragon Scale
+chan21   => 4  // Chain Mail +3
+clolth   => 36 // Dark Elven Chain
+dleat10  => 3  // Hide Armor
+dwchan01 => 164 // Drow Elven Chain +3
+dwchan02 => 36 // Drow Adamantine Chain +5
+dwplat01 => 39 // Drow Full Plate +5
+ichan01  => 4  // Chain Mail Armor
+ichan04  => 5  // Splint Mail
+ileat04  => 2  // Studded Leather Armor
+iplat01  => 6  // Plate Mail Armor
+leat01   => 1  // Leather Armor
+leat02   => 1  // Leather Armor +1
+leat03   => 1  // Protector of the Second +2
+leat04   => 2  // Studded Leather Armor
+leat05   => 2  // Studded Leather Armor +1
+leat06   => 2  // Missile Attraction +2 
+leat07   => 2  // Studded Leather Armor +2
+leat08   => 66 // Shadow Armor
+leat09   => 1  // Karajah's Leather Armor
+leat10   => 3  // Hide Armor
+leat11   => 1  // Leather Armor +2
+leat12   => 1  // Leather Armor +3
+leat13   => 1  // Skin of the Ghoul +4
+leat14   => 1  // The Night's Gift +5
+leat15   => 2  // Studded Leather Armor +2
+leat16   => 2  // Orc Leather +3
+leat17   => 2  // Armor of Deep Night +4
+leat18   => 2  // Armor of the Viper +5
+leat19   => 2  // Shadow Dragon Scale 
+leat20   => 3  // Aeger's Hide +3
+leat21   => 1  // Human Flesh +5
+leat22   => 1  // Human Flesh
+leat23   => 2  // Studded Leather of Thorns +6
+leat24   => 2  // Grandmaster's Armor +6
+npchan   => 68 // Corthala Family Armor
+npplat   => 7  // Firecam Full-Plate Armor
+palplat  => 7  // Armor of the Hart +3
+plat01   => 6  // Plate Mail Armor
+plat02   => 6  // Plate Mail +1
+plat04   => 7  // Full Plate Mail
+plat05   => 7  // Full Plate Mail +1
+plat06   => 22 // Ankheg Plate Mail
+plat07   => 6  // Plate Mail Armor
+plat08   => 6  // Plate Mail Armor<Invalid Strref -1>
+plat09   => 15 // Mithral Field Plate Armor +2
+plat10   => 6  // Plate Mail +1
+plat11   => 6  // Delver's Plate +2
+plat12   => 6  // Doomplate +3
+plat13   => 6  // Gorgon Plate +4
+plat14   => 7  // Full Plate Mail +1
+plat15   => 7  // Pride of the Legion +2
+plat16   => 7  // Armor of the Hart +3
+plat17   => 6  // T'rahcie's Plate +5
+plat18   => 22 // Red Dragon Scale
+plat19   => 7  // Full Plate + 2
+plat20   => 23 // Blue Dragon Plate
+plat21   => 7  // Enkidu's Full Plate +3
+plat22   => 14 // Shuruppak's Plate
+plat23   => 7  // Full Plate Mail +2
+plat98   => 6  // Plate Mail Armor
+plat99   => 6  // Plate Mail Armor
+secret05 => 7  // Big Metal Unit
+shararm  => 4  // Darkmail +3
+tamchain => 4  // Darkmail +3
+ttleat   => 2  // Leather Armor +2
+vischan1 => 4  // Chain Mail Armor
+vischan2 => 5  // Splint Mail
+visleat1 => 1  // Leather Armor
+visleat2 => 2  // Studded Leather Armor
+visplat1 => 6  // Plate Mail Armor
+visplat2 => 7  // Mithral Field Plate Armor +2
+wa2plat  => 7  // Plate of Balduran
+
+// more armors from expert-BWP installation, list provided by micbaldur
+
+60chancd => 196 // Chain of Drakkas' Fury
+~a!bchan1~ => 164 // Caster's Chain
+~a!bleat1~ => 130 // Bardic leathers
+~a!bleat2~ => 130 // Bardic leathers +1
+adleath  => 130 // Angelo's Leathers
+adred    => 4  // Last Regrets +2
+ar#r4    => 7  // Onyx Plate +6
+ardeadx  => 2  // Armour of the Dead +3
+~b!jaslet~ => 1  // Leather Armor of Stealth +3
+b#leat01 => 3  // Hide Armor ????????
+band01   => 4  // Banded Mail
+band02   => 4  // Banded Mail +1
+band03   => 4  // Banded Mail +2
+band04   => 4  // Eternal Age
+blacplat => 6  // Plate Mail Armor of the Darkness +2
+bleat01  => 3  // Hide Armor ????????
+bleat02  => 3  // Hide Armor ????????
+bleat03  => 3  // Hide Armor ????????
+blood    => 6  // Bathed in Blood
+bsingchn => 172 // Mirathar
+bw05cm1  => 4  // Chainmail +2
+bw05grch => 0  // BW05_SPEC_ITM ????????
+bw05icm1 => 4  // BW05_SPEC_ITM ????????
+bw05ifp1 => 7  // BW05_SPEC_ITM ????????
+bw05ipm1 => 6  // BW05_SPEC_ITM ????????
+bw05juar => 4  // Jusam's Armor
+bw05pl1  => 6  // Plate Mail +3, Stormshield
+~c!gplate~ => 7  // Geirthan's Plate
+c2chan01 => 36 // Incarnadine Elven Chain
+c2hide01 => 3  // Aeger's Hide +5
+c2keld01 => 7  // Improved Firecam Full-Plate Armor
+c2leat01 => 1  // Improved Human Flesh
+c2plat01 => 22 // Improved Ankheg Plate Mail
+c2valy01 => 68 // Corthala Family Armor
+callar   => 4  // Chain Mail +4 "Vengeance"
+cb351g01 => 0  // ????????
+cbbdarmr => 23 // Blue Dragon Plate
+cbblkchn => 4  // ????????
+cbbnlch8 => 5  // ????????
+cbchanp4 => 4  // Chain Mail +4
+cbcl013  => 4  // Baleful Mail
+cbcl027  => 22 // Winter King's Plate
+cbcl033  => 4  // Mail of Life
+cblarsob => 4  // ????????
+cblyplat => 6  // Lyrar's Plate
+cbmilt01 => 0  // ????????
+cbmilt11 => 0  // ????????
+cbmilt21 => 0  // ????????
+cbmtchan => 196 // Chain of Drakkas' Fury
+cbparsob => 0  // ????????
+cbplat13 => 6  // Gorgon Plate +5
+cbrjr017 => 7  // Laeral's Storm Armor
+cbsbmltk => 4  // Chain Mail +3
+cbsbmltr => 1  // Leather Armor +1
+cbsbmlts => 1  // Leather Armor +3
+cbsbmltt => 6  // Plate Mail Armor
+cbsbmltu => 15 // Mithral Field Plate Armor +2
+cbsbmltv => 7  // Full Plate +2
+cbtsch01 => 4  // Chain Mail +5
+cbtspt01 => 7  // Full Plate Mail +5
+cbtsst01 => 5  // Splint Mail +4
+cbuhgvar => 6  // Holy Armor of Torm
+cbxtgcdd => 4  // Masterwork Chain Mail Armor +1
+cbxtshdd => 2  // Masterwork Leather Armor +4
+celebros => 5  // Mail of Celebros
+chainbm  => 4  // Baleful Mail
+chan6xx  => 4  // Sanctured Armour
+chandrw  => 36 // Drow Chainmail +2
+chanethe => 4  // Ethereal Chain Mail +5
+cmarq01  => 7  // Dwarven Plate +3
+cmarq02  => 36 // Elven Chain Mail +3
+cmarq03  => 2  // Armor of Thorns
+cmarq04  => 2  // Stormcloud
+cmarq05  => 66 // Assassin's Armor
+cmarq06  => 7  // Emberwilde's Plate
+cmarq07  => 2  // Studded Leather Armor +3
+cmarq08  => 2  // Dragon Armor
+cmarq09  => 197 // Splint Mail of  Oghma
+cmarq10  => 1  // Woodland Armor
+cmarq11  => 7  // Lathander Armor
+cmarq12  => 36 // Elven Chain Mail +1
+cmchan01 => 164 // Chainmail +4
+cmchan02 => 12 // Mithril Chain Mail +4
+cmchan03 => 12 // Mithril Chain Mail +3
+cmchan04 => 12 // Durlag's Mithril Chainmail +4
+cmchan05 => 4  // Chainmail +2
+cmchan07 => 5  // Splint Mail +2
+cmgcha01 => 1  // Black Dragon Scale
+cmgforg7 => 7  // Improved Plate of Balduran
+cmleat1  => 2  // Studded Leather Armor +4 "Nature's Gift"
+cmleat2  => 3  // Armor of the North
+cmleat3  => 2  // Woodland Armor
+cmleat4  => 66 // Shadow Masters Leather
+cmleat5  => 1  // Nature's Divine
+cmleat6  => 1  // Hobbin's Leather Armor
+cmplat03 => 38 // Plate Mail +5
+cmplat04 => 6  // Plate Mail "Apocalypse"
+cmplat05 => 7  // Plate of Balduran
+cmplat07 => 7  // Kiel's Full Plate Mail +3
+cmplat10 => 6  // Najara's Plate Mail +3
+cmplat11 => 7  // Full Plate Mail of Flame
+cmtuch01 => 36 // Elven Chain +2
+cmtuch02 => 5  // Splint Mail +4 "Vengeance"
+cmtule01 => 66 // Shadow Armor +4
+cmtule02 => 2  // Armor of Locks +4
+cmtule03 => 2  // Studded Leather of the Forest +3
+cmtupl01 => 6  // Callisto's Plate Mail +3
+cmtupl02 => 7  // Durlag's Full Plate +2
+coma04   => 7  // Armor of Valor
+coma05   => 6  // Death Plate +3
+coma06   => 4  // Legionnaire's Chain +5
+coma07   => 6  // Sacrifice of Kali
+coma11   => 135 // Green Dragon's Plate
+cota     => 164 // Harmony
+d0leat08 => 66 // Shadow Armor
+d1chan01 => 4  // Mail of Life
+d1leat01 => 2  // Chauntea's Vest
+d1plat01 => 7  // The Glory of Suffering
+d2#armo1 => 7  // Tyrael's Might
+d2#armo2 => 2  // The Gladiator's Bane
+d2#armo3 => 6  // Arkaine's Valor
+d2#armo4 => 7  // Leviathan
+d2#armo5 => 6  // Duriel's Shell
+d2#armo6 => 129 // Skin of the Vipermagi
+d2#armo7 => 4  // Shaftstop
+d2#armo8 => 6  // Skullder's Ire
+d2#run03 => 7  // Fortitude
+d2#run07 => 4  // Enigma
+d2#run10 => 5  // Bramble
+d2#run12 => 7  // Stone
+d2#set02 => 132 // Tal Rasha's Guardianship
+darchain => 6  // Plate Mail +3
+ddhrtles => 1  // Armor of the Heartless +3
+deitm053 => 12 // Mithril Chain Mail
+deitm086 => 7  // Armour of the Shield
+deitm087 => 4  // Brukkar's Chain
+deitm088 => 6  // Falgar's Plate
+deitm090 => 7  // Baelden's Armour
+deitm096 => 7  // The Black Plate
+dgi001   => 2  // Red Leather Armour
+dgi002   => 22 // Green Bark Plate Mail
+dgi003   => 4  // Blue Chain Mail
+dplate   => 7  // Full Plate +2
+dschan01 => 4  // Chain Mail +3
+dschan02 => 5  // Crusader's Armor
+dschan03 => 4  // Chain Mail +2 'Blessed Chain Mail'
+dschan04 => 5  // Sukien Holy Armor
+dscoarm  => 7  // Conchobhair Strongblade's Blessed Plate Mail Armor
+dscryarm => 6  // Crystal Plate Mail
+dscuarm  => 66 // CúChoinneach's Personal Leather Armor +4
+dsebplat => 7  // Full plate armor +1:  'Ebon Plate'
+dsfearm  => 14 // Ferthgil's Dwarven Mithril Plate Battle Armor
+dsjearm  => 36 // Jet'laya's Chainmail
+dskearm  => 130 // Keiria Silverstring's Studded Leather Bard Armor +1
+dskorim  => 133 // Splint Mail Armor +4 - Korim's Skin
+dsleat01 => 2  // Gnomish Workman's Leather +2
+dsleat02 => 3  // Thorfinn's Hide Armor
+dsthrarm => 2  // Armor of Thorns
+dswrkarm => 2  // Stormcloud 'Kraken's Bane'
+dvplat   => 0  // ????????
+echan01  => 36 // Elven Chainmail +2
+echan02  => 36 // Underdark Mail +1
+elfmail  => 236 // Elven Mithril +5
+elvarmx  => 52 // Armour of the High Forest
+enterisa => 1  // Shade Walker's Armor +5
+esliarm0 => 1  // Aurumvorax Armor +2
+esliarm1 => 1  // Armor of the Master Thief
+esliarm2 => 7  // Sacred Plate Mail
+esliarm3 => 4  // Chain Mail +1: Protected against Evil
+esliarm4 => 6  // False Dragonscale Armor +3: Blue Mountain
+esxcha   => 196 // Chain Mail of Eilistraee
+flamplat => 6  // Plate of Smoldering
+flat01   => 6  // Field Plate
+flat02   => 6  // Field Plate +1
+flat03   => 6  // Field Plate +2
+flat04   => 6  // Dwarven Field Plate
+frostar  => 7  // Armor of the Frost +3
+frozplat => 7  // Frozen Full Plate Mail +2
+fwchan01 => 132 // Improved Jesters Chain
+fwchan02 => 164 // Melodic Chain +3
+fwchan03 => 4  // Suldanessellar Chain
+fwchan04 => 4  // Sunus Graywar's Chainmail +6
+fwleat01 => 1  // Armor of Agility
+fwleat02 => 20 // Beastmens Leather +5
+fwleat03 => 3  // Desert Troll Hide
+fwleat04 => 1  // The Oaken Protector
+fwleat05 => 1  // Deathbane
+fwleat06 => 130 // Caster's Leather
+fwplat01 => 7  // Ferra's Diamond
+fwplat02 => 7  // Full Plate of Blades
+fwplat03 => 6  // Tyr's Guard
+fwplat04 => 47 // Death Knight's Armor
+f_aleat  => 2  // Snake Soul
+f_bruepl => 15  // Mithril Field Plate Armor +2
+f_drgpla => 22 // Green Dragon Scale
+f_jarlpl => 6  // Jarlaxle’s Personal Plate
+f_mithch => 12 // Mithril Chain Mail +4
+f_opalpl => 7  // Dark Opal Plate
+f_wulfhi => 3  // Wulfgar's Fur Armor
+g#leat01 => 2  // Studded Leather +4 !?!?!?!?
+g#tfamr2 => 130 // Tyris Flare's Armour
+g#tfarmr => 130 // Tyris Flare's Armour
+gcmch01  => 36 // Elven Chainmail of the Hand +3
+gcmpl01  => 6  // Bathed-In-Blood
+glory    => 6  // The Glory of Suffering
+glowchan => 4  // Glowing Chain Mail Armor + 4
+gmd02    => 4  // Chain Mail +2
+guarp    => 7  // ????????
+haene06  => 1  // Winter Wolf Fur Armor
+hanarm01 => 7  // Larrend's Full Plate Mail  
+haymail  => 6  // Haybath's Mail +1
+holyplat => 7  // God's Eye Full Plate Mail +5
+iceplat  => 6  // Ice Plate
+illas04  => 36 // Sylvan Chain +2
+ishcha   => 21 // Golden Dragon Scale Armor
+j#indi01 => 132 // Indi's Chain Vest
+j#spli06 => 5  // Splint Mail +2
+jadplat  => 6  // Jade Burial Plate
+jera     => 7  // Sacred Plate of Jerhonem
+kimchain => 36 // Elvish Dwarven Chain mail
+king     => 22 // Winter King's Plate
+kreeplat => 7  // Full Metal Plate of Stone +2
+leatbal  => 3  // Bala's Leather
+leatbar  => 3  // Barbarian Hide
+leatraid => 2  // Studded Leather Armor
+leatrat  => 1  // Leather Armor
+li#gwer  => 0  // ????????
+li#were  => 0  // ????????
+lk#amb   => 66 // Amuana's Blessing
+lk#xarm  => 12 // Mithril Chain +4
+lotharmo => 7  // Lothaullan ????????
+m#asleat => 66 // Apprentice Shadow Armor
+machan01 => 0  // Splint Mail "Mystra's Armor" ????????
+macmle01 => 1  // Woodland Armor
+macmle02 => 2  // Studded Leather "The Coming Storm"
+maforg07 => 4  // Improved Chainmail +3
+maillif  => 4  // Mail of Life
+mapla001 => 6  // Duragons Plate +4
+maplat02 => 15 // Dwarven Mithril Plate
+mau006   => 36 // Mark of the Magus
+maue05   => 132 // Armor of Lum the Mad ????????
+mdsiplat => 7  // Armour of the Avalanche
+mgmthrl  => 15 // Diamond Mithril Full Plate
+mgvleat1 => 2  // Cured Leaf Hauberk +3
+mgvplat1 => 7  // Restless Spirit +1
+minbalpl => 7  // Plate of Balduran(Fused)
+minplatx => 7  // The Plate of the Rock +6
+mintanx  => 1  // Leather Armor
+miriama1 => 66 // Miriam's Armor
+miriama2 => 66 // Miriam's Armor
+miriama3 => 66 // Miriam's Armor
+miriama4 => 66 // Miriam's Armor
+mitharmr => 12 // Mithril Armor +6
+mmplat   => 0  // ????????
+mplat01  => 7  // King's Plate Mail
+mwararm  => 3  // Ariena's Armor
+newchde  => 4  // Chain Mail of the Dead +4
+newchhe  => 4  // Henrik's Chain +5
+newfp01  => 7  // Angmar's Full Plate +5
+newfp02  => 7  // Armor of Darkness +4
+newfp03  => 7  // Armor of Regeneration +3
+newgar   => 18 // Dragon Armor
+newle01  => 2  // Studded Leather +4
+newle02  => 1  // Spell Protector +5
+newle03  => 2  // Leather Armor of Freedom +5
+newpl01  => 6  // Plate Mail of the Sun +4
+newpl02  => 6  // Fading Plate +5
+newpl03  => 6  // Malver's Plate +3
+ntchan03 => 4  // Chain Mail +3: 'Sage's Armor'
+ntchan04 => 164 // Elven Chainmail of Sorcery
+ntchan05 => 4  // Chailmail +5: 'Ebon Chain'
+ntchan06 => 4  // Chainmail of the Firewine
+ntleat01 => 66 // Improved Shadow Armor
+ntleat02 => 130 // Will's Armor with Cloak
+ntleat03 => 130 // Will's Armor with Cloak
+ntleat04 => 2  // Studded Leather Armor +3
+ntleat05 => 2  // Studded Leather of Resistance
+ntplat01 => 6  // Plate Mail +1
+~o!bom001~ => 7  // Mother’s Curse
+~o!bom002~ => 68 // Ranger Mail +5
+~o!bom003~ => 4  // Tangor’s Mystical Chain
+~o!bom004~ => 0  // Abdel's Mage Chain
+~o!bom005~ => 0  // Abdel's Mage Chain +1
+~o!bom006~ => 0  // Abdel's Mage Chain +2
+~o!bom007~ => 0  // Abdel's Mage Plate
+~o!bom008~ => 0  // Abdel's Mage Plate +1
+~o!bom009~ => 0  // Abdel's Mage Plate +2
+~o!bom011~ => 3  // Troll Hide +4
+ornatef  => 7  // Ornate Full Plate Mail +3
+pal201   => 7  // Armor of the Messiah
+plat05xx => 7  // Warlord's Sacrifice Plate
+plat74   => 7  // Full Plate Mail of Unknown Origin
+platblk  => 7  // Kresselack's Full Plate Mail
+platblue => 2  // Blue Dragon Scale 
+platgr01 => 6  // Crystal Plate Mail
+platj4   => 1  // Trolls skin +4
+platraid => 6  // Plate Mail Armor
+platwy   => 22 // Wyvern's Scale
+psmade27 => 6  // Plate Mail +4
+psmade28 => 6  // Plate of Ethereality +2
+psmade29 => 7  // Full Plate of <CHARNAME>
+psmade30 => 2  // Studded Leather Armour of <CHARNAME> +5
+psmade31 => 1  // Fragrant Armor +5
+~r!kitplt~ => 6  // Bringer of Vengeance:  Kitanya's Plate Mail
+r#aspchn => 4  // Loren's Chain +5
+r#plat   => 7  // Thordek's Full Plate
+r#swan   => 4  // Black Swan Armor
+raidplat => 7  // Full Plate Mail
+rbchan01 => 21 // Yuan-Ti Scales ????????
+rbleat01 => 0  // Goblin's Banded Armor ????????
+rbplat01 => 6  // Jyssev Plate +5
+rbplat02 => 6  // Blessed of the Triad
+rbplat03 => 6  // Enchanted of the Triad
+rbplat04 => 6  // Cursed of the Triad
+ritdrag  => 2  // Yellow Dragon Armor
+rr#abih  => 3  // Abishai Hide
+rr#chn01 => 164 // Drow Chain Mail
+rtt007   => 7  // Elaborate Drow Full Plate Armour +5
+rtt008   => 4  // Coat of the Dwarf
+rtt029   => 7  // Wondrous Armor
+rtt030   => 6  // Mechanical Plate Mail
+runeplat => 6  // Rune Plate of Sanctuary
+s#chan01 => 20 // Scaly Armour 'Two Dragons'
+s#leat01 => 2  // Dream of the Thief
+s#plat02 => 7  // Full Plate +4
+samarmx1 => 1  // Samurai Armour
+scal01   => 21 // Scale Mail
+scal02   => 21 // Scale Mail +1
+scal03   => 21 // Scale Mail +2
+scal04   => 53 // Sea-elven Scale +2
+sd_vs    => 66 // Vengeful Shadows
+sgchan06 => 12 // Mithril Chain Mail +4
+sgchan1  => 132 // Master bard's chainmail
+sgchan2  => 164 // Celendal's armour
+sgchan3  => 4  // Blessed chain of Tyr
+sgleat1  => 66 // Elven leather armour
+sgleat2  => 2  // Serkval
+sgleat3  => 1  // Assassin's suit
+sgleat4  => 1  // Burglar's outfit
+sgplat1  => 7  // Mithril Full Plate Mail
+sgplat2  => 22 // Chitin exoskeleton
+sgsplt1  => 5  // Titanium Splint Mail +5
+sgsplt2  => 5  // Frozen plain armours
+sgsplt3  => 21 // Great Wyrm scalemail
+shar20   => 3  // Blade Master Leather
+sileat   => 2  // Aran's Love +6
+soaitm01 => 4  // Mecorima's Chain Mail
+soaitm02 => 6  // Kalindra's Armor
+soularm2 => 7  // Soul Armor +2
+soularm3 => 7  // Soul Armor +3
+soularmr => 7  // Soul Armor +2
+swanarm  => 6  // Black Swan Armor
+tg#bsp2  => 2  // Studded Leather Armor +2
+tg#gwer  => 0  // ????????
+tg#spi2  => 0  // ????????
+tg#were  => 0  // ????????
+trollarm => 7  // Troll Flesh !?!?!?!?
+tzchan01 => 36 // Elven Chainmail +1
+tzchan02 => 12 // Dwarven Mithril Chain
+tzplat01 => 7  // Wise man's plate
+u#chan01 => 164 // Adamantine Chain
+u#chan07 => 36 // Elven Chainmail of the Hand +3
+u#hfheah => 3  // Cornugan Hide Armor
+u#leat01 => 66 // Pikim's Armor
+u#leat02 => 66 // Hide of Shades
+u#plat01 => 7  // Adamantine Plate
+u#plat02 => 22 // Plate of Many Dragons
+ucmgch01 => 164 // Drow Elven Chain +3
+ucmgch02 => 36 // Drow Adamantine Chain +5
+ucmgle01 => 2  // Woodland Armor +6
+ucmgpl01 => 22 // Winter King's Plate
+uhlkp    => 22 // Umber Hulk Plate
+x#garch  => 132 // Bardic Chain
+x#garch2 => 132 // Bardic Chain
+xarm001  => 6  // Golden Olympus Plate
+xarm002  => 85 // Behir Scale Mail
+xarm003  => 6  // Ifrit Mail
+xarm004  => 1  // Nemesis' Skin
+xarm005  => 6  // Plate of Camelot
+xarm006  => 22 // Wyvern Plate Mail
+zilfgt   => 2  // Shadow Dragon Scale 
+zombskin => 1  // Skin of the Zombie  +2
+zychann1 => 4  // Chain Mail Armor
+zyleatn1 => 2  // Studded Leather Armor +1
+zyplatn0 => 6  // Plate Mail Armor
+zyplatn1 => 6  // Plate Mail Armor
+zyplatn2 => 6  // Plate Mail Armor
+zyplatn3 => 6  // Plate Mail Armor
+zyplatn8 => 164 // Bladesinger Chain +4 ????????
+
+// more armors from expert-BWP installation, list provided by Eric P.
+
+anoplat  => 7  // Anomen's Armour
+cmnikl1  => 67 // Nikita's Leather Armor
+dw#gplat => 134 // Plate Mail
+ep#mela2 => 2  // Studded Leather Armor +2
+ep#mela3 => 2  // Studded Leather Armor +1 ????????
+kiyoarm1 => 36 // Verdant Vigil
+kiyoarm2 => 36 // Verdant Vigilant +2
+kiyoarm3 => 36 // Verdant Vigilante +4
+kiyowed1 => 36 // Bladesinger Chain +4
+mgarmor1 => 2  // Shadowpact Armor +6
+vicarm   => 2  // Shar's Blessing
+yxy1     => 2  // Burning Actress
+z_redled => 1  // Leather +2
+
+// Selune' Armory
+
+mgileat1 => 2  // Cured Leaf Hauberk +3
+mgiplat1 => 7  // Restless Spirit +1
+
+// Improved Anvil
+
+~s!chan01~ => 4  // Supreme Chain Mail +6
+~s!chan02~ => 164 // Eternal Melody +5
+~s!leat01~ => 1  // Improved Human Flesh
+~s!leat02~ => 66 // Spirit of the Night
+~s!leat03~ => 68 // Improved Corthala Family Armor
+~s!leat04~ => 2  // Green Leaves Armor +3
+~s!leat05~ => 2  // Red Coral Armor +6
+~s!plat01~ => 7  // Enhanced Pride of the Legion +4
+~s!plat02~ => 7  // Huskar Lord's Armor +5
+~s!plat03~ => 22 // Improved Ankheg Mail
+~s!plat04~ => 7  // Improved Firecam Armor +3
+~s!plat05~ => 23 // Green Wyrm Plate +4
+~s!plat06~ => 23 // Great Wyrm Armor +5
+
+// !!! UNCONFIRMED !!!
+
+  ~_chan01~ => 4
+  ~_chan02~ => 4
+  ~_chan03~ => 4
+  ~_chan06~ => 4
+  ~_chan07~ => 4
+  ~_ichan01~ => 4
+  ~_juschan~ => 4
+  ~chands01~ => 4  // chain mail +2, blessed chain mail (chain mail)
+  ~chands09~ => 4  // chain mail +3 (chain mail)
+  ~i1ch002~ => 4   // voice of doom (chain mail)
+  ~juschan~ => 4
+  ~kkchain~ => 4   // chain mail +3 (chain mail)
+  ~slayer3~ => 4   // jet'laya's chainmail (chain mail armour)
+
+  ~chands06~ => 36  // elven chainmail +1 (elven chain mail)
+  ~drowchn1~ => 36  // drow adamantite mesh armor +1 (drow mesh armour)
+  ~drowchn2~ => 36  // drow adamantite mesh armor +2 (drow mesh armour)
+  ~drowchn3~ => 36  // drow adamantite mesh armor +3 (drow mesh armour)
+  ~efml01~ => 36
+  ~pchan~ => 36
+
+  ~_plat04~ => 7
+  ~_plat05~ => 7
+  ~ebonplt~ => 7   // full plate armor +1: 'ebon plate (full plate armour)
+  ~elemplat~ => 7
+  ~kinplat~ => 7   // kindrek's full plate (full plate armour)
+  ~platsar~ => 7
+  ~psq64~ => 7
+
+  ~_leat10~ => 3
+  ~ararmor~ => 3   // ariena's armor (hide armour)
+  ~leatds03~ => 3  // thorfinn's hide armor (hide armour)
+
+  ~_iplat01~ => 6
+  ~_plat01~ => 6
+  ~_plat02~ => 6
+  ~_plat06~ => 6
+  ~_plat07~ => 6
+  ~_plat08~ => 6
+  ~_plat98~ => 6
+  ~brueplt1~ => 6  // bruenor's armor, plate mail +2 (plate armour)
+  ~cbuhgvct~ => 6
+  ~drowplt1~ => 6  // drow adamantite plate armor +3 (drow plate armour)
+  ~drowplt2~ => 6  // drow adamantite plate armor +4 (drow plate armour)
+  ~drowplt3~ => 6  // drow adamantite plate armor +5 (drow plate armour)
+  ~i1pl001~ => 6   // gubbie armor (plate armour)
+  ~platds01~ => 6  // crystal plate mail (plate armour)
+  ~platds03~ => 6  // ferthgil's dwarven mithril plate battle armor (plate armour)
+  ~platds04~ => 6  // conchobhair strongblade's blessed plate mail armor (plate armour
+  ~platds05~ => 6  // plate mail +3 : 'the practical defense (plate armour)
+  ~psq62~ => 6
+  ~psq63~ => 6
+  ~vhaarm00~ => 6
+
+  ~_chan04~ => 5
+  ~_chan05~ => 5
+  ~_ichan04~ => 5
+  ~chands05~ => 5  // sukien holy armor (splint mail armour)
+  ~chands08~ => 5  // crusaders armor (splint mail armour)
+  ~korim~ => 5     // splint mail armor +4 - korim's skin (splint mail armour)
+
+  ~_ileat04~ => 2
+  ~_leat04~ => 2
+  ~_leat05~ => 2
+  ~_leat07~ => 2
+  ~cyleat~ => 2
+  ~d0t#leat~ => 2  // studded leather armour +3 (studded leather armour)
+  ~gnwml~ => 2     // gnomish workman's leather +2 (studded leather armour)
+  ~leata7~ => 2    // studded leather armor +3 (studded leather armour)
+  ~leatds01~ => 2  // armor of thorns (studded leather armour)
+  ~leatveng~ => 2  // vengeful shadows (studded leather armour)
+  ~psq65~ => 2
+  ~sdim526~ => 2
+
+  ~_leat01~ => 1
+  ~_leat02~ => 1
+  ~_leat03~ => 1
+  ~_leat09~ => 1
+  ~dakleat0~ => 1
+  ~deitm089~ => 1
+  ~i1lt001~ => 1   // skeleton ribcage (leather armour?)
+  ~i1lt002~ => 1   // anti-imprisonment armor (leather armour?, move silently: -20, lock picking: -10, find/remove traps: -10, pick pockets: -10)
+  ~leatds02~ => 1  // cúchoinneach personal leather armor +4 (leather armour)
+  ~leatds05~ => 1  // cúchoinneach personal leather armor +4 (leather armour)
+  ~psq66~ => 1
+  ~warlkarm~ => 1  // stormcloud "kraken's bane" (leather armour)
+  ~wlfleat~ => 1   // wulfgar's fur armor (leather armour)
+  ~wulfhide~ => 1  // wulfgar's fur armor (leather armour)
+
+  ~_leat08~ => 66
+  ~leat08a~ => 66   // improved shadow armor (shadow studded armour with +15% hide in shadows)
+
+END
+
+
+
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
+
+OUTER_SET $armor("chan16")   = 164 // Bladesinger Chain +4
+OUTER_SET $armor("chan19")   = 164 // Aslyferund Elven Chain +5
+OUTER_SET $armor("leat08")   = 194 // Shadow Armor
+OUTER_SET $armor("leat13")   = 3  // Skin of the Ghoul +4
+OUTER_SET $armor("leat19")   = 3  // Shadow Dragon Scale 
+OUTER_SET $armor("leat23")   = 3  // Trollhide +4
+OUTER_SET $armor("leat24")   = 1  // Grandmaster's Armor +5
+OUTER_SET $armor("plat17")   = 7  // Armor of the Hart +3
+
+END
+
+
+
+
+
+
+
+
+
+
+
+

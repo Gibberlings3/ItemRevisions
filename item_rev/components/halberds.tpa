@@ -1,0 +1,61 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/macros.tpa~
+INCLUDE ~item_rev/lib/tooltip_macro.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO halberd BEGIN
+  SPRINT t1 @100200 // ~[%lnl%%mnl%%wnl%]Damage[ %tab%]*\(:.*\)~
+  SPRINT t2 @100201 // ~%lnl%Damage (Piercing)\1%lnl%Damage (Slashing)\1~
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  SPRINT t1 @100202 // ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(:.*\)~
+  SPRINT t2 @100203 // ~%lnl%Speed Factor (Piercing)\1%lnl%Speed Factor (Slashing)\1~
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  SPRINT t1 @100134 // ~Damage[ %tab%]+[Tt]ype:[ %tab%]+[Pp]iercing~
+  SPRINT t2 @100204 // ~Damage type: piercing or slashing~
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+
+//////////////////////////////////////////////
+//  patching
+
+OUTER_SET pierce = RESOLVE_STR_REF (@100205)
+OUTER_SET slash = RESOLVE_STR_REF (@100206)
+
+COPY_EXISTING_REGEXP GLOB ~.+\.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  PATCH_IF (BYTE_AT 0x31)=0x63 BEGIN // halberd
+    READ_LONG 0x64 ho
+    READ_SHORT 0x68 hc
+
+    FOR (i=0;i<hc;i+=1) BEGIN
+      READ_BYTE ho+i*0x38 type
+      READ_SHORT ho+i*0x38+0x1c damage
+      READ_SHORT ho+0x24 deplete
+      PATCH_IF type=1 && damage=1 && (hc<3 || deplete=0) BEGIN // melee, piercing, either <3 headers or the 1st one doesn't deplete
+        WRITE_SHORT ho+i*0x38+0x2c 10 // overhand
+        WRITE_SHORT ho+i*0x38+0x2e 25 // slashing
+        WRITE_SHORT ho+i*0x38+0x30 65 // thrusting
+
+        LPF ADD_ITEM_HEADER INT_VAR copy_header=i+1 RET ip=insert_point END
+        WRITE_SHORT ho+ip*0x38+0x1c 3 // damage type -> slashing
+        WRITE_SHORT ho+ip*0x38+0x2c 50 // overhand
+        WRITE_SHORT ho+ip*0x38+0x2e 50 // slashing
+        WRITE_SHORT ho+ip*0x38+0x30 0 // thrusting
+
+        i+=1
+        ip+=1
+        INNER_ACTION BEGIN
+          LAF tooltips INT_VAR $ EVAL tip("%i%")=slash  $ EVAL tip("%ip%")=pierce  STR_VAR item= EVAL ~%SOURCE_RES%~ END
+        END
+        SPRINT text_update halberd
+        LPM update_item_descriptions
+        i=hc
+      END
+    END
+
+  END
+END BUT_ONLY
+
+

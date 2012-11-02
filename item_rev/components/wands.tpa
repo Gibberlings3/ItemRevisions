@@ -1,0 +1,95 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/usability_description.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO wand BEGIN
+  PATCH_IF ident BEGIN
+
+    // make usable by thieves
+    SPRINT add_class @100402
+    SPRINT catch_class @100404
+    LPF usable_desc INT_VAR make_usable=1 STR_VAR add_class catch_class END
+
+    // add INT requirement
+    exists=0
+    SPRINT t1 @100405
+    REPLACE_EVALUATE ~%t1%~ BEGIN
+      exists=1
+      SPRINT t2 @100406
+    END ~%t2%~
+    PATCH_IF exists=0 BEGIN
+      SPRINT t1 @100400
+      SPRINT t2 @100401
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~\(%t1%\|%t2%\)~) = 0 BEGIN
+        SPRINT t3 @100408
+        REPLACE_TEXTUALLY ~\(%t1%\|%t2%\)~ ~%t3%~
+      END
+    END
+
+  END
+END
+
+DEFINE_PATCH_MACRO wand_of_heaven BEGIN
+  PATCH_IF ident BEGIN
+    exists=0
+    SPRINT t1 @100405
+    REPLACE_EVALUATE ~%t1%~ BEGIN
+      exists=1
+      SPRINT t2 @100409
+    END ~%t2%~
+    PATCH_IF exists=0 BEGIN
+      SPRINT t1 @100400
+      SPRINT t2 @100401
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~\(%t1%\|%t2%\)~) = 0 BEGIN
+        SPRINT t3 @100410
+        REPLACE_TEXTUALLY ~\(%t1%\|%t2%\)~ ~%t3%~
+      END
+    END
+  END
+END
+
+//////////////////////////////////////////////
+//  patching
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY wand BEGIN
+  wand02 => 11 // fear
+  wand03 => 10 // magic missiles
+  wand04 => 14 // paralyzation
+  wand05 => 12 // fire
+  wand06 => 13 // frost
+  wand07 => 12 // lightning
+  wand08 => 10 // sleep
+  wand09 => 13 // polymorphing
+  wand10 => 14 // monster summoning
+  wand12 => 10 // wonder
+  wand13 => 14 // cloudkill
+  wand14 => 11 // web
+  wand15 => 14 // apprenti
+  wand18 => 15 // spell striking
+  wand19 => 13 // cursing
+  wand99 => 10 // magic missile
+END
+
+ACTION_PHP_EACH wand AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+  COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    WRITE_BYTE 0x2a res
+    WRITE_SHORT 0x1f (THIS & `0x4202)
+    SPRINT text_update wand
+    LPM update_item_descriptions
+  END BUT_ONLY END
+END
+
+COPY_EXISTING ttwand.itm override
+              wand11.itm override
+PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  WRITE_BYTE 0x2a 9  // INT req
+  WRITE_BYTE 0x2e 14 // WIS req
+  SPRINT text_update wand_of_heaven
+  LPM update_item_descriptions
+END
+
+
+

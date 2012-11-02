@@ -1,0 +1,30 @@
+// these are from macros.tpa
+// i put them separately to avoid any conflict with Mike's older code for components
+
+// stolen from BG2 Tweak Pack at G3
+OUTER_INNER_PATCH ~12~ BEGIN
+  WRITE_BYTE 1 0x09
+  READ_ASCII 1 tab (1)  // 0x09, tab
+  WRITE_BYTE 1 0x0a
+  READ_ASCII 1 lnl (1)  // 0x0a, Linux
+  WRITE_BYTE 0 0x0d
+  READ_ASCII 0 mnl (1)  // 0x0d, Mac
+  READ_ASCII 0 wnl (2)  // 0x0d0a, Windows
+END
+
+// stolen from BG2 Tweak Pack at G3 and modified to take parameter ~%text_update%~, the macro name of the REPLACE_TEXTUALLY to execute
+DEFINE_PATCH_MACRO ~update_item_descriptions~ BEGIN
+  ident=1
+  FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+    READ_LONG "%index%" "valid"
+    PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+      READ_STRREF "%index%" "description"
+      INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+        LAUNCH_PATCH_MACRO ~%text_update%~
+      END
+      SAY_EVALUATED "%index%" ~%new_desc%~
+  //    PATCH_PRINT ~%new_desc%~
+      ident -=1
+    END
+  END
+END

@@ -1,0 +1,20 @@
+
+COPY_EXISTING ~itemexcl.2da~ ~override~
+  READ_2DA_ENTRIES_NOW num_rows 2
+  FOR (i = 1; i < num_rows; i += 1) BEGIN
+    READ_2DA_ENTRY_FORMER num_rows i 0 current_item
+    SET isArmor = 0
+    PATCH_IF (FILE_EXISTS_IN_GAME ~%current_item%.itm~) BEGIN
+      INNER_PATCH_FILE ~%current_item%.itm~ BEGIN
+        READ_SHORT 0x1c item_type
+        PATCH_IF (%item_type% == 0x02) BEGIN
+          SET isArmor = 1
+        END
+      END
+    END
+    PATCH_IF (%isArmor% == 1) BEGIN
+      REPLACE_TEXTUALLY ~[%LNL%%MNL%%WNL%][ %TAB%]*%current_item%[ %TAB%].*~
+        ~~
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES

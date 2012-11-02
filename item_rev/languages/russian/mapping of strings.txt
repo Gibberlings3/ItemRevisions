@@ -1,0 +1,28 @@
+
+[0;99] - TP2 components
+
+[100;999] - item upgrades
+
+[1000;2999], 21651 - Item Revisions (the core component)
+
+[3000;3999] - Potion Revisions
+
+[4000;4999] - tooltips
+
+[5000;5999] - muliclasses
+
+[9000;9999] - installation warnings
+
+[50000;50099] - Masterwork Weapons
+
+[100000;100099] - proficiencies
+
+[100100;109999] - description updates (the complicated stuff)
+
+[200000;209999] - Store Revisions
+
+
+
+free space:
+[6000;8999], [10000;21650], [21652;49999], [50100;99999], [110000;199999], [210000;+]
+

@@ -1,0 +1,294 @@
+/* SHAMELESSLY STOLEN FROM G3 BG2 Tweak Pack
+
+Rather than a series of huge CEs, we temporarily set the item types here so we only need one REGEXP.
+
+190 - Buckler
+191 - Small Shield
+192 - Medium Shield
+194 - Large/Tower Shield
+
+*/
+DEFINE_ACTION_MACRO shields BEGIN
+
+// bucklers
+ACTION_FOR_EACH ~item~ IN
+  ~_shld08.itm~
+  ~_shld09.itm~
+  ~_shld10.itm~
+  ~_shld20.itm~
+  ~a!brsb.itm~
+  ~buck01.itm~
+  ~buck02.itm~
+  ~buck03.itm~
+  ~buck04.itm~
+  ~buck05.itm~
+  ~buck06.itm~
+  ~c2shld01.itm~
+  ~deitm121.itm~
+  ~drowshd1.itm~  // drow adamantite buckler +1 (drow buckler)
+  ~drowshd2.itm~  // drow adamantite buckler +2 (drow buckler)
+  ~drowshd3.itm~  // drow adamantite buckler +3 (drow buckler)
+  ~dsshld01.itm~
+  ~m#buck2.itm~   // buckler +2, thorard's saucer (buckler)
+  ~o!bom027.itm~  // beren's buckler of baleful woe (buckler)
+  ~rr#buc01.itm~  // kiel's buckler (buckler +1)
+  ~rr#buc02.itm~  // buckler +1 (also present in tutu and the bg1 portion of bgt)
+  ~rr#buc03.itm~  // buckler +2 (also present in tutu and the bg1 portion of bgt)
+  ~rr#buc04.itm~  // buckler +3
+  ~rr#rward.itm~  // rogue's ward (buckler +2)
+  ~rr#shl01.itm~  // last defense (buckler +1, also present in tutu and the bg1 portion of bgt)
+  ~rr#shl02.itm~  // safeguard (buckler +2, also present in tutu and the bg1 portion of bgt)
+  ~s!shld03.itm~  // buckler +3 (buckler)
+  ~shld08.itm~
+  ~shld09.itm~
+  ~shld10.itm~
+  ~shld17.itm~
+  ~shld20.itm~
+  ~skelshld.itm~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+    COPY_EXISTING ~%item%~ ~override~
+      PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+        WRITE_SHORT 0x1C 190
+      END
+      BUT_ONLY_IF_IT_CHANGES
+  END
+END
+
+
+// small shields
+ACTION_FOR_EACH ~item~ IN
+  ~_ishld02.itm~
+  ~_shld01.itm~
+  ~_shld02.itm~
+  ~_shld11.itm~
+  ~_shld12.itm~
+  ~_shld99.itm~
+  ~brueshld.itm~  // small shield +1 (small shield)
+  ~bruensh.itm~
+  ~c2shld02.itm~
+  ~cbcl058.itm~   // waukeen's defender
+  ~cbsbmltw.itm~
+  ~cmtusd01.itm~
+  ~dscushld.itm~
+  ~dshld01.itm~
+  ~dsjeshld.itm~
+  ~dsshld51.itm~
+  ~ishld02.itm~
+  ~mgishld2.itm~  // small shield +2, shield of fortitude (small shield)
+  ~newss01.itm~
+  ~newss02.itm~
+  ~newss02.itm~
+  ~ntshld01.itm~  // small shield +2, 'shield of free action' (small shield)
+  ~psq60.itm~
+  ~rtt020.itm~
+  ~shld01.itm~
+  ~shld02.itm~
+  ~shld11.itm~
+  ~shld12.itm~
+  ~shld24.itm~
+  ~shld25.itm~
+  ~shld28.itm~
+  ~shld51.itm~    // small shield +2 'sun shield' (small shield)
+  ~shld99.itm~
+  ~shldds01.itm~  // cúchoinneach's small shield +3 "the moon" (small shield)
+  ~shldoth.itm~
+  ~slayer1.itm~   // small shield +2 (small shield)
+  ~starshld.itm~
+  ~waukeen.itm~   // waukeen's defender (small shield)
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+    COPY_EXISTING ~%item%~ ~override~
+      PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+        WRITE_SHORT 0x1C 191
+      END
+      BUT_ONLY_IF_IT_CHANGES
+  END
+END
+
+
+// medium shields
+ACTION_FOR_EACH ~item~ IN
+  ~_ishld03.itm~
+  ~_shld03.itm~
+  ~_shld04.itm~
+  ~_shld13.itm~
+  ~_shld14.itm~
+  ~c2anom01.itm~
+  ~cbcl005.itm~   // the argent shield (medium shield)
+  ~cbpdofcm.itm~  // shield of the purple dragon (medium shield)
+  ~cbrjr015.itm~  // dzance's guardian (medium shield?)
+  ~cbshldwk.itm~  // waukeen's defender (medium shield?)
+  ~cbshsoub.itm~
+  ~chalshld.itm~
+  ~cmgforg8.itm~
+  ~coms01.itm~
+  ~coms02.itm~
+  ~deitm119.itm~
+  ~deitm120.itm~
+  ~dsshld52.itm~
+  ~dsshld53.itm~
+  ~dwshld01.itm~
+  ~elemshld.itm~
+  ~fireshld.itm~
+  ~gcmsh01.itm~
+  ~ishld03.itm~
+  ~mgishld1.itm~  // medium shield +2, featherweight (medium shield)
+  ~newsm01.itm~
+  ~npshld.itm~
+  ~nsshld01.itm~  // hermes' shield +1 (medium shield)
+  ~nsshld02.itm~  // elemental shield +4 (medium shield)
+  ~psq59.itm~
+  ~psq61.itm~
+  ~r!kitshd.itm~  // mageslayer shield (large shield/medium shield, i can't see the item icon without installing)
+  ~r#runed.itm~
+  ~rr#guara.itm~  // the guardian (medium shield +2, non-metallic, usable by druids)
+  ~s!shld01.itm~  // delryn family legacy +4 (as per anomen's existing shield)
+  ~sgshld1.itm~
+  ~shghost.itm~
+  ~shld03.itm~
+  ~shld04.itm~
+  ~shld13.itm~
+  ~shld14.itm~
+  ~shld21.itm~
+  ~shld22.itm~
+  ~shld26.itm~
+  ~shld27.itm~
+  ~shld29.itm~
+  ~shld32.itm~
+  ~shld52.itm~    // medium shield +2 (medium shield)
+  ~shld53.itm~    // medium shield +2 'heart of the dragon' (medium shield)
+  ~shldgraz.itm~
+  ~shldred.itm~   // the red knight's shield (medium shield)
+  ~sshldmag.itm~
+  ~ttshld01.itm~
+  ~u#shld01.itm~
+  ~ucmgsh01.itm~  // medium shield +3 (medium shield)
+  ~ucmgsh02.itm~  // drow shield +3 (medium shield)
+  ~wa2shiel.itm~
+  ~x#ajshld.itm~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+    COPY_EXISTING ~%item%~ ~override~
+      PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+        WRITE_SHORT 0x1C 192
+      END
+      BUT_ONLY_IF_IT_CHANGES
+  END
+END
+
+
+// large/tower shields
+ACTION_FOR_EACH ~item~ IN
+  ~_shld05.itm~
+  ~_shld06.itm~
+  ~_shld07.itm~
+  ~_shld15.itm~
+  ~_shld16.itm~
+  ~_shld18.itm~
+  ~_shld19.itm~
+  ~cb351g03.itm~
+  ~cbcl037.itm~   // mystery of the dead (large shield)
+  ~cblyshld.itm~  // lyrar's shield (large shield)
+  ~cbmhshld.itm~  // large shield +3 (large shield)
+  ~cbmilt03.itm~
+  ~cbmilt13.itm~
+  ~cbrolfsh.itm~  // rolf sureblade's shield (medium shield? or tower shield?)
+  ~cbsbmltx.itm~
+  ~cbsbmlty.itm~
+  ~cbtempus.itm~  // holy shield of tempus (large shield)
+  ~cbtssd01.itm~  // large shield +5 (large shield)
+  ~cbwtni5a.itm~  // shield of belvin (large shield?)
+  ~cmshld01.itm~  // shield +3 (kite/tower/body shield)
+  ~deitm122.itm~
+  ~dsshld02.itm~
+  ~dsshld54.itm~
+  ~frozshld.itm~
+  ~fwshld01.itm~
+  ~gcmsh02.itm~
+  ~guardshz.itm~  // soul guard (tower shield)
+  ~holyshld.itm~
+  ~jers.itm~
+  ~mashld01.itm~  // large mithril shied +3 (large shield)
+  ~mystery.itm~
+  ~newshp1.itm~
+  ~newshpo.itm~
+  ~newsl01.itm~
+  ~newsl02.itm~
+  ~ntshld02.itm~  // shield of the firewine (large shield)
+  ~ntshld03.itm~  // reinforced large shield (large shield)
+  ~orrshld.itm~   // orrick's rhino beetle shield (tower shield)
+  ~psq117.itm~
+  ~psq58.itm~
+  ~s!shld02.itm~  // supreme shelter +6 (tower shield)
+  ~shld05.itm~
+  ~shld06.itm~
+  ~shld07.itm~
+  ~shld15.itm~
+  ~shld16.itm~
+  ~shld18.itm~
+  ~shld19.itm~
+  ~shld23.itm~
+  ~shld30.itm~
+  ~shld31.itm~
+  ~shld54.itm~    // large shield +2, +7 vs. missiles: 'the wall' (large shield)
+  ~shldraid.itm~
+  ~shldxz.itm~
+  ~tzshld01.itm~
+  ~ushld3b.itm~   // storming shield +3 (tower shield)
+  ~x#fash01.itm~
+BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+    COPY_EXISTING ~%item%~ ~override~
+      PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+        WRITE_SHORT 0x1C 194
+      END
+      BUT_ONLY_IF_IT_CHANGES
+  END
+END
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
+//                        If IR is installed...                              //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+
+ACTION_IF (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) BEGIN
+  // buckler
+  ACTION_FOR_EACH ~item~ IN
+    ~shld24.itm~
+  BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+      COPY_EXISTING ~%item%~ ~override~
+        PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+          WRITE_SHORT 0x1C 190
+        END
+        BUT_ONLY_IF_IT_CHANGES
+    END
+  END
+
+
+  // small shields
+  ACTION_FOR_EACH ~item~ IN
+    ~shld27.itm~
+  BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+      COPY_EXISTING ~%item%~ ~override~
+        PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+          WRITE_SHORT 0x1C 191
+        END
+        BUT_ONLY_IF_IT_CHANGES
+    END
+  END
+
+END
+
+///////////////////////////////////////////////////////////////////////////////
+
+END // end of macro
+
+

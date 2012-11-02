@@ -1,0 +1,405 @@
+
+// 'wc_table_read' - action macro
+//     Purpose:
+//         read basic weapon parameters from tables
+//     Required variable input:
+//         "old_weapon_table" - TXT file (with path) which contains current basic parameters of weapons
+//         "new_weapon_table" - TXT file (with path) which contains desired basic parameters of weapons
+//     Produced variable output:
+//         "old_%itemtype%_%stat%"
+//         "new_%itemtype%_%stat%"
+//            where %itemtype% iterates the first entries in input tables' rows, and %stat% iterates 'speed', 'thaco', 'dice', 'size' and 'damage'
+// 
+// 
+// 'wc_patch' - patch macro
+//     Purpose:
+//         iterate through ITM's ability headers
+//         set default values using readings from 'wc_table_read' macro
+//         launch pre-defined custom macro to confirm changes
+//         if confirmed, then write new values and launch 'wc_update' macro to update descriptions
+//     Required variable input:
+//         "weapon" - what type of weapon this item is, set by 'identify_item' macro from 'identify_weapon.tpa' lib
+//         "macro" - pre-defined custom macro that will be used for confirmation of default changes and adding optional new custom ones
+//     Produced variable output:
+//         "type" - ability header's attack type
+//         "speed", "thaco", "dice", "size", "damage" - readings from the current header, what they mean is obvious
+//         "off" - header's starting offset
+// 
+// 
+// 'wc_update' - patch macro
+//     Purpose:
+//         update both item's descriptions to match new basic weapon parameters
+//         log ITMs with incorrect descriptions
+//     Required variable input:
+//         "ident" - type of description, (un-)identified, set by 'update_item_descriptions' macro from 'descriptions.tpa' lib
+//         "debug_file" - TXT file (with path) where information about ITM/description mismatches will be stored
+//         @100100-@100131 - translatable strings with all the necessary regexp
+//     Produced variable output:
+//         not really
+// 
+
+
+/////////////////////////////////////////////////////
+// Preliminary table read
+
+DEFINE_ACTION_MACRO wc_table_read BEGIN
+
+COPY - ~%old_weapon_table%~ override
+  READ_2DA_ENTRIES_NOW old 6
+  FOR (i=1;i<old;i+=1) BEGIN
+    READ_2DA_ENTRY_FORMER old i 0 itemtype
+    SET EVAL ~old_%itemtype%_speed~  = EVAL ~old_%i%_1~
+    SET EVAL ~old_%itemtype%_thaco~  = EVAL ~old_%i%_2~
+    SET EVAL ~old_%itemtype%_dice~   = EVAL ~old_%i%_3~
+    SET EVAL ~old_%itemtype%_size~   = EVAL ~old_%i%_4~
+    SET EVAL ~old_%itemtype%_damage~ = EVAL ~old_%i%_5~
+  END
+
+COPY - ~%new_weapon_table%~ override
+  READ_2DA_ENTRIES_NOW new 6
+  FOR (i=1;i<new;i+=1) BEGIN
+    READ_2DA_ENTRY_FORMER new i 0 itemtype
+    SET EVAL ~new_%itemtype%_speed~  = EVAL ~new_%i%_1~
+    SET EVAL ~new_%itemtype%_thaco~  = EVAL ~new_%i%_2~
+    SET EVAL ~new_%itemtype%_dice~   = EVAL ~new_%i%_3~
+    SET EVAL ~new_%itemtype%_size~   = EVAL ~new_%i%_4~
+    SET EVAL ~new_%itemtype%_damage~ = EVAL ~new_%i%_5~
+  END
+
+END
+
+/////////////////////////////////////////////////////
+// Main ITM patching macro
+
+DEFINE_PATCH_MACRO wc_patch BEGIN
+  READ_LONG  0x64 ab_off
+  READ_SHORT 0x68 ab_num
+  reupdate=1
+
+  FOR (i=0;i<ab_num;i+=1) BEGIN
+    patched=0
+    off=ab_off+i*0x38
+    READ_BYTE  off      type
+    READ_SHORT off+0x12 speed
+    READ_SHORT off+0x14 thaco
+    READ_SHORT off+0x16 size
+    READ_SHORT off+0x18 dice
+    READ_SHORT off+0x1a damage
+
+    // get old stats
+    unid_old_speed  = EVAL ~old_%itemtype%_speed~
+    unid_old_thaco  = EVAL ~old_%itemtype%_thaco~
+    unid_old_dice   = EVAL ~old_%itemtype%_dice~
+    unid_old_size   = EVAL ~old_%itemtype%_size~
+    unid_old_damage = EVAL ~old_%itemtype%_damage~
+
+    // get new stats
+    unid_delta_speed  = (EVAL ~new_%itemtype%_speed~ ) - (EVAL ~old_%itemtype%_speed~ )
+    unid_delta_thaco  = (EVAL ~new_%itemtype%_thaco~ ) - (EVAL ~old_%itemtype%_thaco~ )
+    unid_delta_damage = (EVAL ~new_%itemtype%_damage~) - (EVAL ~old_%itemtype%_damage~)
+    unid_new_dice = EVAL ~new_%itemtype%_dice~
+    unid_new_size = EVAL ~new_%itemtype%_size~
+    PATCH_IF dice = (EVAL ~old_%itemtype%_dice~) && size = (EVAL ~old_%itemtype%_size~) BEGIN
+      iden_new_dice = unid_new_dice
+      iden_new_size = unid_new_size
+    END ELSE BEGIN
+      iden_new_dice = dice
+      iden_new_size = size
+    END
+    iden_delta_speed  = unid_delta_speed
+    iden_delta_thaco  = unid_delta_thaco
+    iden_delta_damage = unid_delta_damage
+
+    // for special cases, by how much ITM's value is greater than it's identified description
+    iden_bonus_speed=0
+    iden_bonus_thaco=0
+    iden_bonus_damage=0
+
+    update_line=1
+    LPM ~%macro%~
+
+    PATCH_IF patched=1 BEGIN
+      new_speed= ( (speed+iden_delta_speed) < 0 ) ? 0 : ( (speed+iden_delta_speed) > 10 ) ? 10 : (speed+iden_delta_speed) // [0;10]
+      new_thaco= ( thaco+iden_delta_thaco )
+      new_damage= ( (damage+iden_delta_damage) < 0 ) ? 0 : (damage+iden_delta_damage) // [0;-)
+
+      WRITE_SHORT off+0x12 new_speed
+      WRITE_SHORT off+0x14 new_thaco
+      WRITE_SHORT off+0x16 iden_new_size
+      WRITE_SHORT off+0x18 iden_new_dice
+      WRITE_SHORT off+0x1a new_damage
+
+      PATCH_IF reupdate=1 BEGIN // update description only once
+        reupdate=0
+        SPRINT text_update wc_update
+        LPM update_item_descriptions
+      END
+    END
+
+  END
+END
+
+/////////////////////////////////////////////////////
+// Main description update macro
+
+DEFINE_PATCH_MACRO wc_update BEGIN
+  SPRINT colon @100100
+  PATCH_IF ident BEGIN
+    SPRINT where id
+  END ELSE BEGIN
+    SPRINT where unid
+  END
+
+  // speed factor
+  PATCH_IF iden_delta_speed !=0 || unid_delta_speed !=0 BEGIN // SF was changed
+    PATCH_IF ident BEGIN
+      nspeed=speed - iden_bonus_speed + iden_delta_speed
+      ospeed=speed - iden_bonus_speed
+    END ELSE BEGIN
+      nspeed=unid_old_speed + unid_delta_speed
+      ospeed=unid_old_speed
+    END
+    nspeed=(nspeed<0) ? 0 : (nspeed>10) ? 10 : nspeed // use [0;10] interval
+    PATCH_IF nspeed != ospeed BEGIN // aka BUT_ONLY
+
+    linenum=0
+    SPRINT t1 @100101
+    REPLACE_EVALUATE ~%t1%~ BEGIN // main speed factor line
+      linenum+=1
+      SPRINT line ~%MATCH1%~
+      PATCH_IF linenum=update_line BEGIN
+        log=0
+        INNER_PATCH_SAVE line ~%line%~ BEGIN
+          once=0
+          REPLACE_EVALUATE ~%ospeed%~ BEGIN
+            PATCH_IF once=0 BEGIN
+              ospeed=nspeed
+              once=1
+              log=1
+            END
+          END ~%ospeed%~
+        END
+      END
+      PATCH_IF log=0 BEGIN
+        INNER_ACTION BEGIN
+          ACTION_IF NOT FILE_CONTAINS_EVALUATED (~%debug_file%~ ~%SOURCE_RES%   - Speed Factor (%where%)~) BEGIN
+            APPEND_OUTER ~%debug_file%~ ~%SOURCE_RES%   - Speed Factor (%where%)~
+          END
+        END
+      END
+    END ~%line%~
+
+    END
+  END
+
+
+  // thaco
+  PATCH_IF iden_delta_thaco !=0 || unid_delta_thaco !=0 BEGIN // thaco was changed
+    PATCH_IF ident BEGIN
+      nthaco=thaco - iden_bonus_thaco + iden_delta_thaco
+      othaco=thaco - iden_bonus_thaco
+    END ELSE BEGIN
+      nthaco=unid_old_thaco + unid_delta_thaco
+      othaco=unid_old_thaco
+    END
+    PATCH_IF nthaco != othaco BEGIN // aka BUT_ONLY
+
+    PATCH_IF othaco>0 BEGIN
+      SPRINT old_line @100102 // ~+1 bonus~
+    END
+    PATCH_IF othaco<0 BEGIN
+      SPRINT old_line @100103 // ~-1 penalty~
+    END
+    PATCH_IF nthaco>0 BEGIN
+      SPRINT new_line @100104
+    END
+    PATCH_IF nthaco<0 BEGIN
+      SPRINT new_line @100105
+    END
+
+    linenum=0
+    exists=0
+    SPRINT t1 @100106
+    REPLACE_EVALUATE ~%t1%~ BEGIN // main thaco line
+      exists=1
+      linenum+=1
+      SPRINT line ~%MATCH1%~
+      PATCH_IF linenum=update_line BEGIN
+        log=0
+        INNER_PATCH_SAVE line ~%line%~ BEGIN
+          PATCH_IF othaco !=0 && nthaco !=0 BEGIN
+            once=0
+            REPLACE_EVALUATE ~%old_line%~ BEGIN // only replace the first match of ~THAC0: +2, +2 vs undead~
+              PATCH_IF once=0 BEGIN
+                TEXT_SPRINT old_line ~%new_line%~
+                once=1
+                log=1
+              END
+            END ~%old_line%~
+          END
+          PATCH_IF othaco !=0 && nthaco=0 BEGIN
+            SPRINT t1 @100107
+            SPRINT t2 @100108
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          PATCH_IF othaco=0 && nthaco !=0 BEGIN
+            SPRINT t1 @100109
+            SPRINT t2 @100110
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          // "thaco=0 && new_thaco=0" is already covered by "delta_thaco !=0" in the main thaco condition
+        END
+        PATCH_IF nthaco=0 BEGIN
+          SPRINT t1 @100111
+          PATCH_IF ~%line%~ STRING_CONTAINS_REGEXP ~%t1%~ BEGIN // there're no numbers left after deleting old thaco
+            SPRINT line ~~
+          END
+        END
+      END
+      PATCH_IF log=0 BEGIN
+        INNER_ACTION BEGIN
+          ACTION_IF NOT FILE_CONTAINS_EVALUATED (~%debug_file%~ ~%SOURCE_RES%   - Thaco (%where%)~) BEGIN
+            APPEND_OUTER ~%debug_file%~ ~%SOURCE_RES%   - Thaco (%where%)~
+          END
+        END
+      END
+    END ~%line%~
+
+    PATCH_IF exists=0 && nthaco !=0 BEGIN
+      SPRINT t1 @100112
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%t1%~) = 0 BEGIN
+        SPRINT t2 @100113
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END ELSE BEGIN
+        SPRINT t1 @100114
+        SPRINT t2 @100115
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END
+    END
+
+    END
+  END
+
+
+  // damage
+  PATCH_IF iden_new_dice !=dice          || iden_new_size !=size          || iden_delta_damage !=0 ||
+           unid_new_dice !=unid_old_dice || unid_new_size !=unid_old_size || unid_delta_damage !=0 BEGIN // damage was changed
+    PATCH_IF ident BEGIN
+      ndamage=damage - iden_bonus_damage + iden_delta_damage
+      odamage=damage - iden_bonus_damage
+      nsize=iden_new_size
+      osize=size
+      ndice=iden_new_dice
+      odice=dice
+    END ELSE BEGIN
+      ndamage=unid_old_damage + unid_delta_damage
+      odamage=unid_old_damage
+      nsize=unid_new_size
+      osize=unid_old_size
+      ndice=unid_new_dice
+      odice=unid_old_dice
+    END
+    ndamage=(ndamage<0) ? 0 : ndamage // use [0;+) interval
+    PATCH_IF ndamage != odamage || nsize != osize || ndice != odice BEGIN // aka BUT_ONLY
+
+    PATCH_IF (odice !=0 && osize !=0) && odamage !=0 BEGIN
+      SPRINT old_line @100116
+    END
+    PATCH_IF (odice !=0 && osize !=0) && odamage=0 BEGIN
+      SPRINT old_line @100117
+    END
+    PATCH_IF (odice=0 || osize=0) && odamage>0 BEGIN
+      SPRINT old_line @100118
+    END
+    PATCH_IF (odice=0 || osize=0) && odamage<0 BEGIN
+      SPRINT old_line @100119
+    END
+    PATCH_IF (ndice !=0 && nsize !=0) && ndamage !=0 BEGIN
+      SPRINT new_line @100120
+    END
+    PATCH_IF (ndice !=0 && nsize !=0) && ndamage=0 BEGIN
+      SPRINT new_line @100121
+    END
+    PATCH_IF (ndice=0 || nsize=0) && ndamage>0 BEGIN
+      SPRINT new_line @100122
+    END
+ //   PATCH_IF (ndice=0 || nsize=0) && ndamage<0 BEGIN // usused due to [0;+) cap
+ //     SPRINT new_line @100123
+ //   END
+
+    linenum=0
+    exists=0
+    SPRINT t1 @100124
+    REPLACE_EVALUATE ~%t1%~ BEGIN // main damage line
+      exists=1
+      linenum+=1
+      SPRINT line ~%MATCH1%~
+      PATCH_IF linenum=update_line BEGIN
+        log=0
+        INNER_PATCH_SAVE line ~%line%~ BEGIN
+          PATCH_IF ((odice !=0 && osize !=0) || odamage !=0) && ((ndice !=0 && nsize !=0) || ndamage !=0) BEGIN // old !=0, new !=0
+            once=0
+            REPLACE_EVALUATE ~%old_line%~ BEGIN // only replace the first match of ~Damage: 2, +2 fire~
+              PATCH_IF once=0 BEGIN
+                TEXT_SPRINT old_line ~%new_line%~
+                once=1
+                log=1
+              END
+            END ~%old_line%~
+          END
+          PATCH_IF ((odice !=0 && osize !=0) || odamage !=0) && ((ndice=0 || nsize=0) && ndamage=0) BEGIN // old !=0, new=0
+            SPRINT t1 @100125
+            SPRINT t2 @100126
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          PATCH_IF ((odice=0 && osize=0) && odamage=0) && ((ndice !=0 && nsize !=0) || ndamage !=0) BEGIN // old=0, new !=0
+            SPRINT t1 @100127
+            SPRINT t2 @100128
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          // "new damage=0 && old damage=0" is already covered by "delta damage !=0" in the main damage condition
+        END
+        PATCH_IF ((ndice=0 || nsize=0) && ndamage=0) BEGIN // new=0
+          SPRINT t1 @100111
+          PATCH_IF ~%line%~ STRING_CONTAINS_REGEXP ~%t1%~ BEGIN // there're no numbers left after deleting old damage
+            SPRINT line ~~
+          END
+        END
+      END
+      PATCH_IF log=0 BEGIN
+        INNER_ACTION BEGIN
+          ACTION_IF NOT FILE_CONTAINS_EVALUATED (~%debug_file%~ ~%SOURCE_RES%   - Damage (%where%)~) BEGIN
+            APPEND_OUTER ~%debug_file%~ ~%SOURCE_RES%   - Damage (%where%)~
+          END
+        END
+      END
+    END ~%line%~
+
+    PATCH_IF exists=0 && ((ndice !=0 && nsize !=0) || ndamage !=0) BEGIN
+      SPRINT t1 @100114
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%t1%~) = 0 BEGIN
+        SPRINT t2 @100129
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END ELSE BEGIN
+        SPRINT t1 @100130
+        SPRINT t2 @100131
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END
+    END
+
+    END
+  END
+
+END

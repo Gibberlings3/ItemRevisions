@@ -1,0 +1,216 @@
+INCLUDE ~item_rev/lib/armor_list.tpa~
+
+//////////////////////////////////////////////
+//  reading table
+
+// new AC modifiers vs type
+// yes, you can safely alter these numbers
+<<<<<<<<item_rev/lib/armortable.txt
+armor     slash pierc blunt missl
+leather       0    -1     1    -1
+studded       2     1    -1     1
+hide          0    -1     1    -1
+chainmail     2     1    -1     1
+splint        1     0     2     0
+platemail     2     1     0     1
+fullplate     3     2     0     2
+>>>>>>>>
+COPY - ~item_rev/lib/armortable.txt~ override
+  READ_2DA_ENTRIES_NOW rn 5
+
+
+//////////////////////////////////////////////
+//  patching
+
+ACTION_PHP_EACH armor AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+  COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+
+    armor = (res & 7)
+    PATCH_IF armor BEGIN
+
+      // delete old AC modifiers vs type
+      // ideally i should have updated Mike's macro lib, but for now this will do
+      READ_LONG  0x64 ab_off
+      READ_SHORT 0x68 ab_num
+      READ_LONG  0x6a ef_off
+      READ_SHORT 0x70 ef_num
+      delta=0
+      FOR (i=0;i<ef_num;i+=1) BEGIN
+        READ_SHORT ef_off+i*0x30 opcode
+        PATCH_IF opcode=0 BEGIN // AC modifier
+          READ_LONG ef_off+i*0x30+8 type
+          PATCH_IF type=1 || type=2 || type=4 || type=8 BEGIN
+            DELETE_BYTES ef_off+i*0x30 0x30
+            delta -= 1
+            ef_num -= 1
+            i -= 1
+          END
+        END          
+      END
+      WRITE_SHORT 0x70 ef_num
+      FOR (i=0;i<ab_num;i+=1) BEGIN      WRITE_SHORT ab_off+i*0x38+0x20 (THIS+delta)    END
+      PATCH_IF ab_off>ef_off BEGIN      WRITE_LONG 0x64 (THIS+delta*0x30)    END
+
+      // now the interesting part begins
+      READ_2DA_ENTRY_FORMER rn armor 1 slash
+      READ_2DA_ENTRY_FORMER rn armor 2 pierc
+      READ_2DA_ENTRY_FORMER rn armor 3 blunt
+      READ_2DA_ENTRY_FORMER rn armor 4 missl
+
+      PATCH_IF blunt!=0 BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=blunt parameter2=1 END
+      END
+      PATCH_IF missl!=0 BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=missl parameter2=2 END
+      END
+      PATCH_IF pierc!=0 BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=pierc parameter2=4 END
+      END
+      PATCH_IF slash!=0 BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=slash parameter2=8 END
+      END
+
+    END
+  END BUT_ONLY END
+END
+
+//////////////////////////
+// handle special cases
+
+COPY_EXISTING leat06.itm override // Missile Attraction +2 
+  GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+  found=0
+  PHP_EACH global AS ind => res BEGIN
+    PATCH_IF (SHORT_AT res)=0 && (LONG_AT (res+8))=2 BEGIN // AC modifier vs missile
+      found=1
+      WRITE_LONG res+4 (0 - 10)
+    END
+  END
+  PATCH_IF found=0 BEGIN
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=(0 - 10) parameter2=2 END
+  END
+BUT_ONLY
+
+ACTION_IF NOT (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) BEGIN
+  COPY_EXISTING plat13.itm override // Gorgon Plate +4
+    GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+    PHP_EACH global AS ind => res BEGIN
+      PATCH_IF (SHORT_AT res)=0 BEGIN // AC modifier
+        READ_LONG res+8 p2
+        PATCH_IF p2=1 || p2=2 || p2=4 || p2=8 BEGIN
+          WRITE_LONG res+4 (THIS * 2)
+        END
+      END
+    END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME bsingchn.itm) BEGIN
+  COPY_EXISTING bsingchn.itm override // Mirathar
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=2 parameter2=8 END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME cblyplat.itm) BEGIN
+  COPY_EXISTING cblyplat.itm override // Lyrar's Plate
+    GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+    found=0
+    PHP_EACH global AS ind => res BEGIN
+      PATCH_IF (SHORT_AT res)=0 BEGIN // AC modifier
+        READ_LONG res+8 p2
+        PATCH_IF p2=8 BEGIN
+          found=1
+          WRITE_LONG res+4 4
+        END
+      END
+    END
+    PATCH_IF found=0 BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=4 parameter2=8 END
+    END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME cbplat13.itm) BEGIN
+  COPY_EXISTING cbplat13.itm override // Gorgon Plate +5
+    GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+    PHP_EACH global AS ind => res BEGIN
+      PATCH_IF (SHORT_AT res)=0 BEGIN // AC modifier
+        READ_LONG res+8 p2
+        PATCH_IF p2=1 || p2=2 || p2=4 || p2=8 BEGIN
+          WRITE_LONG res+4 (THIS * 2)
+        END
+      END
+    END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d2#arm07.itm~) BEGIN
+  COPY_EXISTING ~d2#arm07.itm~ override // Shaftstop
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=2 parameter2=2 END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME esliarm0.itm) BEGIN
+  COPY_EXISTING esliarm0.itm override // Aurumvorax Armor +2
+    GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+    found=0
+    found2=0
+    PHP_EACH global AS ind => res BEGIN
+      PATCH_IF (SHORT_AT res)=0 BEGIN // AC modifier
+        READ_LONG res+8 p2
+        PATCH_IF p2=8 BEGIN
+          found=1
+          WRITE_LONG res+4 3
+        END
+        PATCH_IF p2=4 BEGIN
+          found2=1
+          WRITE_LONG res+4 3
+        END
+      END
+    END
+    PATCH_IF found=0 BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=3 parameter2=8 END
+    END
+    PATCH_IF found2=0 BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=3 parameter2=4 END
+    END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ntplat01.itm) BEGIN
+  COPY_EXISTING ntplat01.itm override // Plate Mail +1
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=3 parameter2=2 END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME kiyoarm1.itm) BEGIN
+  COPY_EXISTING kiyoarm1.itm override // Verdant Vigil
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=1 parameter2=2 END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME kiyoarm2.itm) BEGIN
+  COPY_EXISTING kiyoarm2.itm override // Verdant Vigilant +2
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=2 parameter2=2 END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME kiyoarm3.itm) BEGIN
+  COPY_EXISTING kiyoarm3.itm override // Verdant Vigilante +4
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=4 parameter2=2 END
+  BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~s!plat02.itm~) BEGIN
+  COPY_EXISTING ~s!plat02.itm~ override // Huskar Lord's Armor +5
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=5 parameter2=2 END
+  BUT_ONLY
+END
+
+
+
+
+
+
+

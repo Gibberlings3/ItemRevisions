@@ -1,0 +1,44 @@
+@99999 =~// these descriptions are 99.999% stolen from bg2 tweak pack~
+@100000 = ~Short Sword~
+@100001 = ~SHORT SWORD/NINJA-TO:  The preferred weapon of many a thief and halfling, short swords and ninja-tos are light but useful weapons.
+
+<DOTS1>
+<DOTS2>
+<DOTS3>
+<DOTS4>
+<DOTS5>~
+@100002 = ~Katana~
+@100003 = ~KATANA/WAKIZASHI:  Katanas and wakizashis are the finest examples of the swordsmith's craft, and require great care to use.  As skill develops, the wielder and blade become a single being, dedicated completely to the art of warfare.  These weapons are hard to find outside of Kara-Tur, so care must be taken when considering this proficiency.  After all, skill with katanas and wakizashis is only helpful if you can find them.
+
+WARNING:  Magical katanas and wakizashis are very rare in Baldur's Gate 2!
+
+<DOTS1>
+<DOTS2>
+<DOTS3>
+<DOTS4>
+<DOTS5>~
+@100004 = ~Scimitar~
+@100005 = ~SCIMITAR:  This weapon class allows the character to use curved, bladed weapons such as scimitars.
+
+<DOTS1>
+<DOTS2>
+<DOTS3>
+<DOTS4>
+<DOTS5>~
+@100006 = ~Flail~
+@100007 = ~FLAIL: Flails are blunt weapons used to knock your enemies senseless.  They are difficult to use, but with skill and practice these weapons can be quite powerful.
+
+<DOTS1>
+<DOTS2>
+<DOTS3>
+<DOTS4>
+<DOTS5>~
+@100008 = ~Mace~
+@100009 = ~MACE/MORNING STAR:  The mace is most often associated with clerics.  It is a powerful blunt weapon, similar to the club, but designed to do more damage. A morning star is similar to a mace, typically with spikes instead of flanges.
+
+<DOTS1>
+<DOTS2>
+<DOTS3>
+<DOTS4>
+<DOTS5>~
+

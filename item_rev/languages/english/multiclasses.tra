@@ -1,0 +1,101 @@
+
+
+// modify multiclass' descriptions to use standardized version
+
+
+// vanilla class descriptions
+
+// #9572, ft
+@5000 = ~, though they cannot use their thieving skills while wearing more than studded leather armor.~
+
+// #9573, fc
+@5001 = ~, though weapons are restricted to only those allowed by the cleric's ethos.~
+
+// #9574, fm
+@5002 = ~, though they cannot cast spells while wearing armor.~
+
+// #9575, mt
+@5003 = ~, though they will not be able to cast spells while wearing armor.~
+
+// #9576, fmt
+@5004 = ~. They cannot use their thieving skills while wearing armor heavier than studded leather, and cannot cast spells while wearing any armor at all.~
+
+// #9577, mc
+@5005 = ~, though they will not be able to cast mage spells while wearing armor.~
+
+// #9578, tc
+@5006 = ~, though weapons are restricted to only those allowed by the cleric's ethos.~
+
+// #9579, fd
+@5007 = ~, though weapons are restricted to only those allowed by the druid's ethos.~
+
+// #9580, cr
+@5008 = ~, though weapons are restricted to only those allowed by the cleric's ethos.~
+
+// #9581, fmc
+@5009 = ~, though they cannot cast spells while wearing any armor, and are restricted to weapons allowed by the cleric's ethos.~
+
+
+// from gtu.tra, BG2Fixpack
+
+// @1009572, ft
+@5010 = ~, though they cannot use their thieving skills while wearing armor other than leather, studded leather or elven chainmail.~
+
+// @1009573, fc
+@5011 = ~, though weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+// @1009574, fm, !!! a typo here - 'then' rather than 'than' !!!
+@5012 = ~, though they cannot cast spells while wearing armor other then elven chainmail.~
+
+// @1009575, mt
+@5013 = ~, though they will not be able to cast spells while wearing armor other than elven chainmail.~
+
+// @1009576, fmt
+@5014 = ~. They cannot use their thieving skills while wearing armor other than leather, studded leather or elven chainmail, and cannot cast spells while wearing any armor other than elven chainmail.~
+
+// @1009577, mc, !!! a typo here - 'then' rather than 'than' !!!
+@5015 = ~, though they will not be able to cast mage spells while wearing armor other then elven chainmail.~
+
+// @1009578, tc
+@5016 = ~, though weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+// @1009579, fd
+@5017 = ~, though weapons are restricted to only those allowed by the druid's ethos (scimitar, dagger, club, spear, quarterstaff, dart and sling.)~
+
+// @1009580, cr
+@5018 = ~, though weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+// @1009581, fmc
+@5019 = ~, though they cannot cast mage spells while wearing any armor other than elven chainmail, and are restricted to weapons allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+
+// new standard for vanilla
+
+@5020 = ~ They cannot use thieving skills while wearing heavy armor.~
+@5021 = ~ Weapons are restricted to only those allowed by the cleric's ethos.~
+@5022 = ~ They cannot cast spells while wearing armor.~
+@5023 = ~ They cannot cast arcane spells while wearing armor.~
+@5024 = ~ Weapons are restricted to only those allowed by the druid's ethos.~
+
+
+// new standard for BG2Fixpack's GTU
+
+@5025 = ~ They cannot use thieving skills while wearing armor other than leather, studded leather or elven chainmail.~
+@5026 = ~ Weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+@5027 = ~ They cannot cast spells while wearing armor other than elven chainmail.~
+@5028 = ~ They cannot cast arcane spells while wearing armor other than elven chainmail.~
+@5029 = ~ Weapons are restricted to only those allowed by the druid's ethos (scimitar, dagger, club, spear, quarterstaff, dart and sling).~
+
+
+// new standard for IR's components, we'll use GTU's style
+
+@5030 = ~ Thieving skills will be hindered while wearing armor other than leather or elven chainmail.~
+@5031 = ~ They can put only half as many proficiency points in weapons not allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+@5032 = ~ Spellcasting will be impaired when using shields or wearing armor other than elven chainmail.~
+@5033 = ~ Arcane spellcasting will be impaired when using shields or wearing armor other than elven chainmail.~
+@5034 = ~ They can put only half as many proficiency points in weapons not allowed by the druid's ethos, which prohibits the use of weapons other than scimitar, dagger, club, spear, quarterstaff, dart and sling.~
+
+// a dot
+@5035 = ~.~
+
+

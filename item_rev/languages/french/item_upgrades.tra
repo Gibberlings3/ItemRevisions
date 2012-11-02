@@ -1,0 +1,25 @@
+// Hammer of Thunderbolts
+@100 = ~Ce parchemin jauni décrit le processus employé par le mythique forgeron nain Silverblade pour forger le premier Marteau de Tonnerre, ainsi que les méthodes qu'il comptait employer pour atteindre la forme ultime de cette arme. En combinant le Marteau de Tonnerre, des Gantelets de Puissance d'Ogre et un Ceinturon de Force de Géant... et en utilisant le pouvoir du véritable nom du marteau, "Crom Faeyr"... l'arme la plus dévastatrice de tous les temps pourrait être mise au point en utilisant ce parchemin.~
+@101 = ~Vous avez un parchemin portant le véritable nom du grondemarteau, Crom Faeyr. Si vous possédiez également un Marteau de Tonnerre, des Gantelets de Puissance d'Ogre, et un Ceinturon de Force de Géant, il me serait possible de combiner les trois et de forger Crom Faeyr.~
+@102 = ~Est-ce un Marteau de Tonnerre que vous avez là ? Si vous possédiez également des Gantelets de Puissance d'Ogre, un Ceinturon de Force de Géant ainsi qu'un parchemin portant le véritable nom du grondemarteau, je pourrais vous forger une arme très puissante.~ 
+@103 = ~Ah ah ! Vous avez là un Marteau de Tonnerre et un parchemin portant le véritable nom du grondemarteau, Crom Faeyr. Si vous possédiez également des Gantelets de Puissance d'Ogre ainsi qu'un Ceinturon de Force de Géant, je pourrais forger cette arme excellente.~
+@104 = ~Mmmh... Voyons voir. Vous avez là un Marteau de Tonnerre, des Gantelets de Puissance d'Ogre, un Ceinturon de Force de Géant ainsi qu'un parchemin portant le véritable nom du grondemarteau... Crom Faeyr.~
+
+// Staff of the Ram
+@205 = ~Tu as Anneau du Bélier peut-être ? Non ? Si tu le trouves, j'ai recette pour Bâton du Bélier.~
+@206 = ~Tu as le Bâton du Bélier... 5 000 pièces d'or avec l'Anneau du Bélier, et je peux l'améliorer. Tu veux bien ?~
+
+// Cloak of Protection +3
+@207 = ~Tu sais, j'ai une bonne recette pour améliorer Cape de Protection +2. Mais il te faut un parchemin de Manteau pour ça, alors, plus tard, peut-être.~
+@208 = ~J'ai une bonne recette pour une Cape de Protection +2. Il faut 20.000 pièces d'or et un parchemin de Manteau. C'est une bonne cape, beaucoup mieux qu'une nappe de table. Tu veux ?~
+
+// Quiver of Bolts
+@209 = ~Hmmm. Tu sais que tu as un Carquois de Carreaux, hein ? Je peux l'améliorer pour faire des carreaux +3. Les arbalètes c'est nul, mais c'est moins nul avec des bons carreaux. 5 000 pièces d'or et il est à toi !~
+
+// Erinne Sling
+@210 = ~Hmmpf. Mais j'ai recette pour la Fronde d'Erinne. Imagine. Il te faut seulement Anneau d'Énergie et 5 000 pièces d'or et je peux te faire une fronde meilleure. Mais ce sera qu'une fronde, hein...~
+@211 = ~Tu vas laisser passer ça ? Booooon, c'est toi qui vois, après tout.~
+@212 = ~Hmmpf. Mais j'ai recette pour la Fronde d'Erinne. Imagine. Si tu trouves Anneau d'Énergie, je peux te faire une fronde meilleure.~
+
+
+/* @105 = ~Slayed~ string 14053 */

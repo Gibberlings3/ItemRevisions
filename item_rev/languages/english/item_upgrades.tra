@@ -1,0 +1,25 @@
+// Hammer of Thunderbolts
+@100 = ~This yellowed sheet of parchment describes the process used by the ancient dwarven smith Silverblade to forge the original Hammer of Thunderbolts, as well as the means by which he intended to continue to shape the weapon into its ultimate form.  By the combining of the Hammer of Thunderbolts, Gauntlets of Ogre Power and a Girdle of Giant Strength... and using the power of the hammer's true name "Crom Faeyr"... an ultimate weapon of destruction could still be completed using this scroll.~
+@101 = ~Ye've a scroll with the true name of the thunderhammer, Crom Faeyr. Had ye a Hammer of Thunderbolts, Gauntlets of Ogre Power, and Girdle of Giant Strength, I could combine 'em and forge it.~
+@102 = ~I see ye've the Hammer of Thunderbolts?  Had ye Gauntlets of Ogre Power, Girdle of Giant strength, and scroll with the thunderhammer's True Name, I could forge a mighty weapon.~
+@103 = ~Ah, ye've a Hammer of Thunderbolts and a scroll with the true name of the thunderhammer, Crom Faeyr. If ye had Gauntlets of Ogre Power and Girdle of Giant strength, I could forge the great weapon.~
+@104 = ~Hmm... Ye've a Hammer of Thunderbolts, Gauntlets of Ogre Power, Girdle of Giant strength, and a scroll with the thunderhammer's true name... Crom Faeyr.~
+
+// Staff of the Ram
+@205 = ~You has Ring of the Ram, maybe?  No?  If you gets it, I has recipe for Staff of the Ram.~
+@206 = ~You has Staff of the Ram...5,000 gp and the Ring of the Ram and upgrades it I can.  Would you like?~
+
+// Cloak of Protection +3
+@207 = ~Well, I haves a good recipe to make Cloak of Protection +2 better.  You needs scroll of Mantle, though, so maybe later~
+@208 = ~I haves good recipe for Cloak of Protection +2.  I uses 20,000 gp and scroll of Mantle.  Good cloak, better than tablecloth.  You wants?~
+
+// Quiver of Bolts
+@209 = ~Hmmm.  You know you gots Quiver of Bolts, here, right?  I can upgrades it, so it makes +3 Bolts.  Crossbows be sucky, but not quite so sucky with better bolts.  5000 gold and it be yours.~
+
+// Erinne Sling
+@210 = ~Hmph.  Well, I haves a recipe for Erinne Sling, anyways.  Imagine that.  All you needs is a Ring of Energy and 5,000 gp and I can go and make sling better.  As good as slings get, anyhow.~
+@211 = ~You wants pass it up?  Hoookay, is your game, I supposes.~
+@212 = ~Hmph.  Well, I haves a recipe for Erinne Sling, anyways.  Imagine that.  If you find a Ring of Energy, I can go and make sling better.~
+
+
+/* @105 = ~Slayed~ string 14053 */

@@ -1,0 +1,52 @@
+INCLUDE ~item_rev/lib/identify_fix.tpa~
+INCLUDE ~item_rev/lib/identify_weapon.tpa~
+
+//////////////////////////////////////////////
+//  patching
+
+OUTER_SET tobex=0
+ACTION_IF FILE_EXISTS ~tobex_ini/tobexcore.ini~ BEGIN
+  ACTION_IF FILE_CONTAINS_EVALUATED (~tobex_ini/tobexcore.ini~ ~Configurable Backstab Restrictions=1~) BEGIN
+    OUTER_SET tobex=1
+  END
+END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  LPM identify_item
+
+  PATCH_IF long_sword || (katana && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~npsw04~)) || scimitar || handaxe || dart || light_xbow BEGIN
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 1) END
+  END
+  PATCH_IF battleaxe || bastard_sword || mace || morning_star || staff || hammer || heavy_xbow || short_bow BEGIN
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 2) END
+  END
+  PATCH_IF flail || twohanded_sword || spear || halberd || sling || long_bow || comp_long_bow BEGIN
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 3) END
+  END
+
+  PATCH_IF ~%anim%~ STRING_EQUAL_CASE ~fs~ || ~%anim%~ STRING_EQUAL_CASE ~f2~ BEGIN
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=275 target=1 timing=2 parameter1=(0 - 50) END
+  END
+
+  PATCH_IF option=2 || option=3 BEGIN
+    READ_BYTE 0x20 us3
+    PATCH_IF tobex=1 BEGIN
+      GET_OFFSET_ARRAY abil ITM_V10_HEADERS
+      PHP_EACH abil AS ind => res BEGIN
+        PATCH_IF (BYTE_AT res)=1 && (us3 & 64)=64 BEGIN // melee & unusable by thieves
+          WRITE_BYTE res+0x29 (THIS | 2)
+        END
+        PATCH_IF option=3 BEGIN
+          PATCH_IF BYTE_AT res=2 || BYTE_AT res=4 BEGIN // ranged
+            WRITE_BYTE res+0x29 (THIS | 2)
+          END
+        END
+      END
+    END ELSE BEGIN
+      READ_BYTE 0x1f us2
+      PATCH_IF (us2 & 2)!=2 || (us3 & 11)!=11 BEGIN // usable by any thief multiclass
+        WRITE_BYTE 0x20 (us3 & `64)
+      END
+    END
+  END
+END BUT_ONLY

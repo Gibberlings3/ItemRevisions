@@ -1,0 +1,34 @@
+@-1004= ~Por favor, envia un informe con este problema, incluyendo la información contenida en~
+
+@1    = ~Item Revisions por Demivrgvs~
+@2    = ~Armas de gran calidad~
+@3    = ~Permitir el lanzamiento de conjuros con armadura con una Probabilidad de Fallo Arcano~
+@4    = ~Lanzamiento de conjuros con armadura~
+@5    = ~Permitir el lanzamiento de conjuros con armadura con una penalizacion a la velocidad de lanzamiento para los lanzadores arcanos~
+@6    = ~Permitir el lanzamiento de conjuros con armadura con una penalizacion a la velocidad de lanzamiento para todos los lanzadores~
+@7    = ~Permitir el lanzamiento de conjuros con armadura sin penalizaciones~
+@8    = ~Penalizaciones a la velocidad de movimiento y a la destreza con armaduras pesadas~
+@9    = ~Gravamen de armaduras pesadas~
+@10   = ~Penalizacion a la velocidad de movimiento con armaduras pesadas~
+@11   = ~Penalizacion a la destreza con armaduras pesadas~
+@12   = ~Permitir las Habilidades de ladron con armadura~
+@13   = ~Bonificadores revisados de escudos~
+@14   = ~Cambios al Usar dos armas para armas ligeras y pesadas~
+@15   = ~Los objetos de proteccion se pueden llevar junto con armaduras magicas~
+@16   = ~Las alabardas tambien pueden cortar~
+@17   = ~Eliminar restricciones de clerigos en armas para los clerigos multiclase~
+@18   = ~Impedir que los druidas lleven yelmos~
+@19   = ~Restringir a los luchadores/druidas las armaduras que los druidas pueden usar~
+@20   = ~Cambios en armas~
+@21   = ~Penalizaciones a apuñalar por la espalda simples~
+@22   = ~Penalizaciones a apuñalar por la espalda con armas inapropiadas~
+@23   = ~Penalizaciones a apuñalar por la espada con las armas mas practicas para apuñalar~
+
+
+
+@24   = ~Solo se podrá instalar este componente en BG2, y requiere que ToB esté instalado.~
+@25   = ~Este componente sólo puede instalarse en BG2.~
+@26   = ~Este componente no es compatible con tu juego.~
+@27   = ~Este componente requiere las mejoras del motor de BG2: Throne of Bhaal.~
+@28   = ~Este componente es conceptualmente incompatible con el componente Improved Backstabbing de Ding0's Tweak Pack (d0tweak).~
+@29   = ~Actualmente, este componente es incompatible con los Cambios al sistema de talentos marciales del BG2 Tweak Pack.~

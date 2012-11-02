@@ -1,0 +1,248 @@
+INCLUDE ~item_rev/lib/macros.tpa~
+
+// requires a, b, c: replaces damage line with Damage: aDb + c and updates magical lines
+DEFINE_PATCH_MACRO ~masterwork_english~ BEGIN
+  PATCH_IF (%index% != 0x50) BEGIN // identified descriptions
+    PATCH_IF (c > 0) BEGIN
+      SPRINT t1 @100332
+      SPRINT t2 @100333
+      REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    END ELSE BEGIN
+      SPRINT t1 @100332
+      SPRINT t2 @100334
+      REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    END
+  
+  SPRINT t1 @100335
+  SPRINT t2 @100336
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100337
+  SPRINT t2 @100338
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+
+  SPRINT t1 @100339
+  SPRINT t2 @100340
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100341
+  SPRINT t2 @100342
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    
+  SPRINT t1 @100343
+  SPRINT t2 @100344
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    
+  SPRINT t1 @100345
+  SPRINT t2 @100346
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+
+  SPRINT t1 @100347
+  SPRINT t2 @100348
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    
+  SPRINT t1 @100349
+  SPRINT t2 @100350
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100351
+  SPRINT t2 @100352
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+
+  SPRINT t1 @100353
+  SPRINT t2 @100354
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100355
+  SPRINT t2 @100356
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100357
+  SPRINT t2 @100358
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100359
+  SPRINT t2 @100360
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  
+  SPRINT t1 @100361
+  SPRINT t2 @100362
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+
+  SPRINT t1 @100363
+  SPRINT t2 @100364
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+
+  END
+END
+
+DEFINE_PATCH_MACRO ~MAKE_MASTERWORK~ BEGIN
+  READ_BYTE  0x18 flags1
+  READ_LONG  0x64 abilities_offset
+  READ_SHORT 0x68 num_abilities
+  
+  WRITE_BYTE  0x18 (flags1 BAND 0b10111111) // remove magical flag
+  
+  PATCH_IF (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) BEGIN
+    WRITE_LONG  0x34 500 // set cost to purchase
+    WRITE_SHORT 0x42 10 // set lore to identify
+  END
+  
+  WRITE_LONG  0x60 0 // set enchantment level
+  
+  FOR (i = 0; i < num_abilities; i += 1) BEGIN
+    READ_SHORT (abilities_offset + 0x38*i + 0x1a) damage_bonus
+    WRITE_SHORT (abilities_offset + 0x38*i + 0x1a) (damage_bonus - 1)
+  END
+  
+  // update description
+  SPRINT text_update ~masterwork_english~
+  LAUNCH_PATCH_MACRO ~update_item_descriptions~
+END
+
+COPY_EXISTING ~ax1h02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50000
+    SET a = 1
+    SET b = 8
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+  
+COPY_EXISTING ~blun03.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50001
+    SET a = 1
+    SET b = 6
+    SET c = 1
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~blun05.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50002
+    SET a = 1
+    SET b = 6
+    SET c = 1
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~blun07.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50003
+    SET a = 2
+    SET b = 4
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~dagg02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50004
+    SET a = 1
+    SET b = 4
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+    
+    PATCH_IF (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) BEGIN
+      WRITE_LONG  0x34 250 // cost to purchase - daggers are cheaper
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~halb02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50005
+    SET a = 1
+    SET b = 10
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~hamm02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50006
+    SET a = 1
+    SET b = 4
+    SET c = 1
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~sper02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50007
+    SET a = 1
+    SET b = 6
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~staf02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50008
+    SET a = 1
+    SET b = 6
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~sw1h02.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50009
+    SET a = 2
+    SET b = 4
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~sw1h05.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50010
+    SET a = 1
+    SET b = 8
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~sw1h08.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50011
+    SET a = 1
+    SET b = 6
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~sw1h22.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    SAY NAME2 @50012
+    SET a = 1
+    SET b = 8
+    SET c = 0
+    
+    LAUNCH_PATCH_MACRO ~MAKE_MASTERWORK~
+  END
+  BUT_ONLY_IF_IT_CHANGES
