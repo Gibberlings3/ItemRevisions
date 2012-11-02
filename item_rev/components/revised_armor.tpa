@@ -78,21 +78,23 @@ END
 //////////////////////////
 // handle special cases
 
-COPY_EXISTING leat06.itm override // Missile Attraction +2 
-  GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
-  found=0
-  PHP_EACH global AS ind => res BEGIN
-    PATCH_IF (SHORT_AT res)=0 && (LONG_AT (res+8))=2 BEGIN // AC modifier vs missile
-      found=1
-      WRITE_LONG res+4 (0 - 10)
+ACTION_IF (FILE_EXISTS_IN_GAME ~leat06.itm~) BEGIN
+  COPY_EXISTING leat06.itm override // Missile Attraction +2 
+    GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+    found=0
+    PHP_EACH global AS ind => res BEGIN
+      PATCH_IF (SHORT_AT res)=0 && (LONG_AT (res+8))=2 BEGIN // AC modifier vs missile
+        found=1
+        WRITE_LONG res+4 (0 - 10)
+      END
     END
-  END
-  PATCH_IF found=0 BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=(0 - 10) parameter2=2 END
-  END
-BUT_ONLY
+    PATCH_IF found=0 BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=(0 - 10) parameter2=2 END
+    END
+    BUT_ONLY
+END
 
-ACTION_IF NOT (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) BEGIN
+ACTION_IF (NOT (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) && FILE_EXISTS_IN_GAME ~plat13.itm~) BEGIN
   COPY_EXISTING plat13.itm override // Gorgon Plate +4
     GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
     PHP_EACH global AS ind => res BEGIN
@@ -207,10 +209,3 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~s!plat02.itm~) BEGIN
     LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=5 parameter2=2 END
   BUT_ONLY
 END
-
-
-
-
-
-
-

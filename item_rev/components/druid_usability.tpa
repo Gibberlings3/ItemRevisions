@@ -74,20 +74,22 @@ END
 
 //////////////////////////////////////////////
 //  special cases
+ACTION_FOR_EACH file IN helm21 shld21 BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%file%.itm~) BEGIN
+    COPY_EXISTING ~%file.itm%~ ~override~
+      WRITE_BYTE 0x21 (THIS & `64)
+      SPRINT text_update druid
+      LPM update_item_descriptions
 
-COPY_EXISTING helm21.itm override // dragon helm
-              shld21.itm override // dragon shield
-  WRITE_BYTE 0x21 (THIS & `64)
-  SPRINT text_update druid
-  LPM update_item_descriptions
-
-  WRITE_BYTE 0x2b (THIS & `2)
-  PATCH_IF ((BYTE_AT 0x20) & 32) = 32 BEGIN  // if unusable by rangers
-    SPRINT text_update beastmaster
-    LPM update_item_descriptions
+      WRITE_BYTE 0x2b (THIS & `2)
+      PATCH_IF ((BYTE_AT 0x20) & 32) = 32 BEGIN  // if unusable by rangers
+        SPRINT text_update beastmaster
+        LPM update_item_descriptions
+      END
   END
+END
 
-ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
+ACTION_IF (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 && FILE_EXISTS_IN_GAME shld26.itm) BEGIN
   COPY_EXISTING shld26.itm override // nature's ward
     WRITE_BYTE 0x21 (THIS & `64)
     SPRINT text_update druid
