@@ -4,17 +4,31 @@ INCLUDE ~item_rev/lib/identify_weapon.tpa~
 //////////////////////////////////////////////
 //  patching
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override  PATCH_IF SOURCE_SIZE>0x71 BEGIN
-  LPM identify_item
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    LPM ~identify_item~
+    
+    PATCH_IF (dagger || short_sword || ninjato || wakizashi || club || handaxe
+                    || (~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~blun2[89]~) == 0) BEGIN // Storm Star +3/+5
+      LPF ~ADD_ITEM_EQEFFECT~
+        INT_VAR
+          opcode = 305
+          target = 1
+          timing = 2
+          parameter1 = 1
+      END
+    END
 
-  PATCH_IF dagger || short_sword || ninjato || wakizashi || club || handaxe
-                  || (~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~\(blun28\|blun29\)~)=0 BEGIN // Storm Star +3/+5
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=305 target=1 timing=2 parameter1=1 END
-  END
+    PATCH_IF (bastard_sword || morning_star || flail || (battleaxe && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bruenaxe~))
+                           || (katana && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~npsw04~))) BEGIN
+      LPF ~ADD_ITEM_EQEFFECT~
+        INT_VAR
+          opcode = 305
+          target = 1
+          timing = 2
+          parameter1 = (0 - 1)
+      END
+    END
 
-  PATCH_IF bastard_sword || morning_star || flail || (battleaxe && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bruenaxe~))
-                         || (katana && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~npsw04~)) BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=305 target=1 timing=2 parameter1=(0 - 1) END
-  END
-
-END BUT_ONLY
+  END 
+  BUT_ONLY
