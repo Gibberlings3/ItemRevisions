@@ -84,7 +84,7 @@ INCLUDE ~item_rev/lib/tob_hacks_caster_level.tpa~
 
 BEGIN @24
 DESIGNATED 1020
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
 INCLUDE ~item_rev/components/potions.tpa~
@@ -96,7 +96,7 @@ INCLUDE ~item_rev/components/potions.tpa~
 
 BEGIN @2
 DESIGNATED 1
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9001
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9001
 
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/masterwork.tra~
 INCLUDE ~item_rev/lib/descriptions.tpa~
@@ -109,7 +109,7 @@ INCLUDE ~item_rev/components/masterwork.tpa~
 
 BEGIN @33
 DESIGNATED 1030
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 // a bit rough for now... will fine-tune once BG1 revision is complete
 ACTION_IF (GAME_IS ~tob bgt~) BEGIN
@@ -144,7 +144,7 @@ END
 BEGIN @3
 DESIGNATED 2
 SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET option=1
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -156,7 +156,7 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 BEGIN @5
 DESIGNATED 3
 SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee~) @9002
 
 OUTER_SET option=2
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -168,7 +168,7 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 BEGIN @6
 DESIGNATED 4
 SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee~) @9002
 
 OUTER_SET option=3
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -180,7 +180,7 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 BEGIN @7
 DESIGNATED 5
 SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET option=4
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -197,7 +197,7 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 BEGIN @25
 DESIGNATED 1040
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee~) @9002
 
 OUTER_SET move = 1
 OUTER_SET dex  = 1
@@ -210,7 +210,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @8
 DESIGNATED 6
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee~) @9002
 
 OUTER_SET move = 1
 OUTER_SET dex  = 1
@@ -223,7 +223,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @26
 DESIGNATED 1041
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee~) @9002
 
 OUTER_SET move = 1
 OUTER_SET dex  = 0
@@ -236,7 +236,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @27
 DESIGNATED 1042
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET move = 0
 OUTER_SET dex  = 1
@@ -249,7 +249,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @10
 DESIGNATED 7
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee~) @9002
 
 OUTER_SET move = 1
 OUTER_SET dex  = 0
@@ -262,7 +262,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @11
 DESIGNATED 8
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET move = 0
 OUTER_SET dex  = 1
@@ -275,7 +275,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @28
 DESIGNATED 1043
 SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET move = 0
 OUTER_SET dex  = 0
@@ -293,7 +293,7 @@ INCLUDE ~item_rev/components/heavy_armor_encumbrance.tpa~
 BEGIN @43
 DESIGNATED 9
 SUBCOMPONENT @12
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 OUTER_SET option=1
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -306,7 +306,7 @@ INCLUDE ~item_rev/components/thieving_armor.tpa~
 BEGIN @44
 DESIGNATED 1101
 SUBCOMPONENT @12
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 OUTER_SET option=2
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -319,7 +319,7 @@ INCLUDE ~item_rev/components/thieving_armor.tpa~
 
 BEGIN @29
 DESIGNATED 1050
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 INCLUDE ~item_rev/components/revised_armor.tpa~
 
@@ -330,7 +330,7 @@ INCLUDE ~item_rev/components/revised_armor.tpa~
 
 BEGIN @13
 DESIGNATED 10
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 INCLUDE ~item_rev/components/revised_shields.tpa~
 
@@ -341,7 +341,7 @@ INCLUDE ~item_rev/components/revised_shields.tpa~
 
 BEGIN @14
 DESIGNATED 11
-REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9003
+REQUIRE_PREDICATE (ENGINE_IS ~tob bgee~) @9003
 
 INCLUDE ~item_rev/components/dual_wielding.tpa~
 
@@ -352,7 +352,7 @@ INCLUDE ~item_rev/components/dual_wielding.tpa~
 
 BEGIN @15
 DESIGNATED 12
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 INCLUDE ~item_rev/components/items_of_protection.tpa~
 
@@ -363,7 +363,7 @@ INCLUDE ~item_rev/components/items_of_protection.tpa~
 
 BEGIN @16
 DESIGNATED 13
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 INCLUDE ~item_rev/components/halberds.tpa~
 
@@ -378,7 +378,7 @@ INCLUDE ~item_rev/components/halberds.tpa~
 BEGIN @39
 DESIGNATED 1090
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 OUTER_SET option=1
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -391,7 +391,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @40
 DESIGNATED 1091
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 OUTER_SET option=2
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -404,7 +404,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @41
 DESIGNATED 1092
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 OUTER_SET option=3
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -417,7 +417,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @42
 DESIGNATED 1093
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 OUTER_SET option=4
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
@@ -434,7 +434,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @18
 DESIGNATED 15
 SUBCOMPONENT @38
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET option=1
 INCLUDE ~item_rev/components/druid_usability.tpa~
@@ -446,7 +446,7 @@ INCLUDE ~item_rev/components/druid_usability.tpa~
 BEGIN @19
 DESIGNATED 16
 SUBCOMPONENT @38
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 OUTER_SET option=2
 INCLUDE ~item_rev/components/druid_usability.tpa~
@@ -458,7 +458,7 @@ INCLUDE ~item_rev/components/druid_usability.tpa~
 
 BEGIN @30
 DESIGNATED 1060
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 
 INCLUDE ~item_rev/components/kensai_use_bracers.tpa~
 
@@ -469,7 +469,7 @@ INCLUDE ~item_rev/components/kensai_use_bracers.tpa~
 
 BEGIN @31
 DESIGNATED 1070
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 INCLUDE ~item_rev/components/wands.tpa~
 
@@ -480,7 +480,7 @@ INCLUDE ~item_rev/components/wands.tpa~
 
 BEGIN @20
 DESIGNATED 17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2161
                  && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2162
                  && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2163
@@ -496,7 +496,7 @@ INCLUDE ~item_rev/components/weapon_changes.tpa~
 
 BEGIN @32
 DESIGNATED 1080
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee~) @9002
 
 INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
 
@@ -511,7 +511,7 @@ INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
 BEGIN @21
 DESIGNATED 18
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
 OUTER_SET option=1
@@ -523,7 +523,7 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 BEGIN @23
 DESIGNATED 19
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
 OUTER_SET option=2
@@ -535,7 +535,7 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 BEGIN @45
 DESIGNATED 20
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
 OUTER_SET option=3
