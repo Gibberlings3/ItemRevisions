@@ -1,17 +1,17 @@
 
-armor     stealth  spell_failure  casting_speed  dexterity  movement  speed_factor  phys_res
+armor     stealth  spell_failure  casting_speed  dexterity  movement  speed_factor  phys_res  slashing  piercing  blunt  missile
 
-leather         0             10              2          0         0             0         5
-studded        20             15              2          0         0             1         5
-hide           30             20              2          0        10             1         5
-chain          40             30              3          5        10             2        10
-splint         50             40              3         10        20             2        10
-plate          60             40              4         10        20             3        15
-full           80             50              4         15        30             4        15
+leather         0             10              2          0         0             0         5         0        -1      1       -1
+studded        20             15              2          0         0             1         5         2         1     -1        1
+hide           30             20              2          0        10             1        10         0        -1      1       -1
+chain          40             30              3          5        10             2        10         2         1     -1        1
+splint         50             40              3         10        20             2        15         1         0      2        0
+plate          60             40              4         10        20             3        15         2         1      0        1
+full           80             50              4         15        30             4        20         3         2      0        2
 
-scale         -10            -10             -1         -5       -10             0
-mithral       -30            -20             -1         -5       -10            -1
-elven         -30            -30             -3        -10       -20            -3
+scale         -10            -10             -1         -5       -10             0         0         0         0      0        0
+mithral       -30            -20             -1         -5       -10            -1         0         0         0      0        0
+elven         -30            -30             -3        -10       -20            -3         0         0         0      0        0
 
 buckler         0              5              1                                   
 small          10              5              1                                   

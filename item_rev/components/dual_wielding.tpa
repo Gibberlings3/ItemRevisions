@@ -1,5 +1,5 @@
 INCLUDE ~item_rev/lib/identify_fix.tpa~
-INCLUDE ~item_rev/lib/identify_weapon.tpa~
+INCLUDE ~item_rev/lib/identify_item.tpa~
 
 //////////////////////////////////////////////
 //  patching

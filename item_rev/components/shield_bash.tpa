@@ -1,0 +1,386 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/shield_list.tpa~
+INCLUDE ~item_rev/lib/macros.tpa~
+INCLUDE ~item_rev/lib/tooltip_macro.tpa~
+INCLUDE ~item_rev/ds/ds.tph~
+
+OUTER_SET sb = RESOLVE_STR_REF ( @100420 )
+OUTER_SET wi = RESOLVE_STR_REF ( @100421 ) // would have been ~Weapon Ineffective.~, but alas...
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO shield_bash BEGIN
+  size= (type<3) ? 4 : 6
+  PATCH_IF ident && t BEGIN
+    SPRINT bon ~ + %t%~
+  END ELSE BEGIN
+    SPRINT bon ~~
+  END
+  SPRINT t1 @100114
+  SPRINT t2 @100419
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+
+/////////////////////////////////////////////////////
+// detection stuff
+
+ACTION_IF FILE_EXISTS ~tobex_ini/tobexcore.ini~ BEGIN
+
+OUTER_SET detectable_shield_bash = 1
+OUTER_SET detectable_opcode = 318
+
+LAM ds_sort_stats_ids
+LAF ds_resolve_stat STR_VAR id=~AG#_SHIELD_BASH_ENCHANTMENT~ RET stat_ind=stat_ind END
+
+DEFINE_PATCH_FUNCTION add_detection BEGIN
+  READ_LONG  0x64 ab_off
+  READ_SHORT 0x68 ab_num
+  READ_LONG  0x6a ef_off
+  READ_SHORT 0x6e ef_ind
+  READ_SHORT 0x70 ef_num
+  ex=0
+  ench = t + 1
+  FOR (i=0;i<ef_num;i+=1) BEGIN
+    READ_SHORT (ef_off+0x30*i) op
+    READ_LONG (ef_off+0x30*i+4) p1
+    READ_LONG (ef_off+0x30*i+8) p2
+    PATCH_IF (op=detectable_opcode && p2=stat_ind) BEGIN
+      PATCH_IF p1 != ench BEGIN
+        WRITE_LONG (ef_off+0x30*i+4) ench
+      END
+      i=ef_num
+      ex=1
+    END
+  END
+  PATCH_IF ex=0 BEGIN
+    INSERT_BYTES ef_off 0x30
+    WRITE_SHORT ef_off detectable_opcode
+    WRITE_BYTE ef_off+2 1
+    WRITE_LONG ef_off+4 ench
+    WRITE_LONG ef_off+8 stat_ind
+    WRITE_BYTE ef_off+0xc 2
+    WRITE_LONG ef_off+0x12 100
+    FOR (i=0;i<ab_num;i+=1) BEGIN
+      WRITE_SHORT ab_off+i*0x38+0x20 THIS+1
+    END
+    ef_num+=1
+    WRITE_SHORT 0x70 ef_num
+  END
+END
+
+END ELSE BEGIN
+
+OUTER_SET detectable_shield_bash = 0
+
+END
+
+
+/////////////////////////////////////////////////////
+// patching shields
+
+ACTION_IF (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 10) BEGIN // Revised Shields
+  OUTER_SET bs=1 // default AC value for bucklers
+  OUTER_SET ss=1 // small shields
+  OUTER_SET ms=2 // medium
+  OUTER_SET ts=3 // tower
+END ELSE BEGIN
+  OUTER_SET bs=1
+  OUTER_SET ss=1
+  OUTER_SET ms=1
+  OUTER_SET ts=1
+END
+OUTER_SET bs=0 // disable bashing for bucklers
+OUTER_SET ts=0 // and towers
+
+  
+ACTION_PHP_EACH shield AS ind => type BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+
+  d = type=1 ? bs // default AC value for bucklers
+    : type=2 ? ss // small shields
+	  : type=3 ? ms // medium
+	  : type=4 ? ts // tower
+  	: 0
+
+  // if it's a shield
+  PATCH_IF d BEGIN
+    READ_SHORT 0x68 hc
+    PATCH_IF hc<3 BEGIN // only if it has <3 abilities
+
+      // get the enchantment value from item's identified name
+      READ_STRREF 0xc id
+      n=0
+      INNER_PATCH ~%id%~ BEGIN
+        SET ~MATCH1~ = 0
+        REPLACE_EVALUATE ~.[+]\([1-9]+\).*~ BEGIN // surely, \(1-6\) has to be enough :D
+          n=MATCH1
+        END ~~
+      END
+
+      // get ITM enchantment value
+      READ_LONG 0x60 e
+
+      // get AC bonus, above the base value
+      b=0
+      GET_OFFSET_ARRAY eff ITM_V10_GEN_EFFECTS
+      PHP_EACH eff AS i => r BEGIN
+        READ_LONG r+4 p1
+        PATCH_IF ((SHORT_AT r)=0 && (LONG_AT (r+8))=0 && p1>0) BEGIN
+          b = (p1 < d) ? 0 : (p1 - d)
+        END
+      END
+
+      // using these three values, estimate shield's true enchantment
+      PATCH_IF e=n && e=b BEGIN // if all three are equal
+        t=e
+      END ELSE BEGIN
+        PATCH_IF (e=n && e)||(e=b && e)||(b=n && b) BEGIN // if at least two are non-zero and equal
+          PATCH_IF (e=n && b=0)||(e=b && n=0)||(b=n && e=0) BEGIN // and the third is not set
+            t= (e=n)? e : b
+          END ELSE BEGIN // if the third is set too
+            PATCH_IF (e=n)||(b=n) BEGIN // if name matches ITM ench or AC bonus
+              t=n
+            END ELSE BEGIN // if name is set, but both ITM ench and AC bonus are set to another same value
+              t=b
+            END
+          END
+        END ELSE BEGIN
+          PATCH_IF n BEGIN // if ench is mention in item's name
+            t=n
+          END ELSE BEGIN // if name tells nothing
+            t=b
+          END
+        END
+      END
+
+      // update description
+      SPRINT text_update shield_bash
+      LPM update_item_descriptions
+
+      // set some vars
+      s= t*4 + type // SPL index
+      SET $bash("%t%""%type%""%s%")=1 // true enchantment, shield type, SPL index
+      PATCH_IF hc BEGIN
+        SET $tt("%SOURCE_RES%") = hc
+      END
+ //     SPRINT $debug("%SOURCE_RES%""%e%""%b%""%n%") ~%id%~
+      b+=d
+
+      // add ability header
+      READ_ASCII 0x3a icon
+      LPF ADD_ITEM_HEADER INT_VAR range=1 insert_point=0 STR_VAR icon END
+      LPF ADD_ITEM_EFFECT INT_VAR target=1 duration=5 parameter1=(0 - b) header=1 END // negate AC bonus for 5 sec
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=138 target=1 parameter2=11 header=1 END // play swinging animation
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=146 target=2 timing=1 parameter2=1 header=1 STR_VAR resource=EVAL ~ag#irb%s%~ END
+
+      // add tooltip
+      INNER_ACTION BEGIN
+        LAF tooltips INT_VAR $insert(1)=sb STR_VAR item= EVAL ~%SOURCE_RES%~ END
+      END
+      
+      PATCH_IF detectable_shield_bash BEGIN
+        LPF add_detection END
+      END
+    END
+  END
+  
+    END BUT_ONLY
+  END
+END
+
+
+/////////////////////////////////////////////////////
+// creating secondary files
+
+// create wing buffet effect and immunity to it
+LAF CREATE_EFFECT INT_VAR opcode=206 parameter1=(0 - 1) STR_VAR effect=~ag#irbim~ resource=~ag#irbwi~ END
+LAF CREATE_SPELL STR_VAR spell=~ag#irbwi~ END
+COPY_EXISTING ~ag#irbwi.spl~ override
+  LPF ADD_SPELL_HEADER INT_VAR range=30 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode=235 target=2 duration=1 parameter1=3 parameter2=2 END // wing buffet
+
+// create bash SPLs
+ACTION_PHP_EACH bash AS i => r BEGIN
+  OUTER_SET e=i_0 // ench
+  OUTER_SET type=i_1 // shield type
+  OUTER_SET s=i_2 // SPL index
+
+  LAF CREATE_SPELL STR_VAR spell= EVAL ~ag#irb%s%~ END
+  COPY_EXISTING ~ag#irb%s%.spl~ override
+    WRITE_LONG NAME1 sb
+    LPF ADD_SPELL_HEADER INT_VAR range=30 END
+
+    PATCH_IF type=1 || type=2 BEGIN // light shields
+      LPF ADD_SPELL_EFFECT INT_VAR opcode=12 target=2 timing=1 parameter1=e dicenumber=1 dicesize=4 END // damage 1d4+%e%
+      LPF ADD_SPELL_EFFECT INT_VAR opcode=45 target=2 duration=3 savingthrow=4 savebonus=(0 - e) END // stun for 3 sec, save vs death
+    END
+    PATCH_IF type=3 || type=4 BEGIN // heavy shields
+      LPF ADD_SPELL_EFFECT INT_VAR opcode=12 target=2 timing=1 parameter1=e dicenumber=1 dicesize=6 END // damage 1d6+%e%
+      LPF ADD_SPELL_EFFECT INT_VAR opcode=45 target=2 duration=6 savingthrow=4 savebonus=(0 - e) END // stun for 1 round, save vs death
+      LPF ADD_SPELL_EFFECT INT_VAR opcode=39 target=2 duration=6 savingthrow=4 savebonus=(0 - e) END // uncon for 1 round, save vs death
+    END
+
+    LPF ADD_SPELL_EFFECT INT_VAR opcode=41 target=2 timing=1 parameter1=3 parameter2=1 END // fancy sparkle graphics
+
+    // wing buffet and immunity to it
+    PATCH_FOR_EACH parameter1 IN 130 132 133 134 136 142 144 146 199 BEGIN // umberhulks, incorporeals, giants, golems, dragons
+      LPF ADD_SPELL_EFFECT INT_VAR opcode=177 target=2 duration=1 parameter1 parameter2=4 STR_VAR resource=~ag#irbim~ END
+    END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=2 timing=1 parameter2=1 STR_VAR resource=~ag#irbwi~ END // apply wing buffet SPL
+END
+
+
+/////////////////////////////////////////////////////
+// interaction with PFMW effects
+
+// add immunity to shield bashing to PFMW effects
+DEFINE_PATCH_MACRO pfmw BEGIN
+  ld=0
+  FOR (k=0;k<ec;k+=1) BEGIN
+    off=eo+(ei+k+d)*0x30
+    READ_SHORT off op
+    PATCH_IF op=120 BEGIN // PFMW
+      READ_LONG off+4 p1
+      READ_LONG off+8 p2
+      READ_ASCII off clone (0x30)
+      PHP_EACH bash AS i => r BEGIN // i = ench, i_2 = SPL index
+        PATCH_IF (p2=2 && i=0) || (p2=1 && i>0) || (p2=0 && i=p1) BEGIN
+          INSERT_BYTES off+0x30 0x30
+          WRITE_ASCIIE off+0x30 ~%clone%~ (0x30)
+          WRITE_SHORT off+0x30 206 // immunity to SPL
+          WRITE_LONG off+0x34 wi // ~Weapon Ineffective.~
+          WRITE_ASCIIE off+0x44 ~ag#irb%i_2%~ (8)
+          d+=1
+          ld+=1
+        END
+      END
+    END
+  END
+END
+
+COPY_EXISTING_REGEXP GLOB ~.*\.spl~ override
+                          ~.+\.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    LPF ~FJ_SPL_ITM_REINDEX~ END
+  //  PATCH_PRINT ~%i2%~
+    READ_LONG  0x64 ho
+    READ_SHORT 0x68 hc
+    READ_LONG  0x6a eo
+    READ_SHORT 0x6e ei
+    READ_SHORT 0x70 ec
+    PATCH_IF ~%SOURCE_EXT%~ STRING_EQUAL_CASE ~spl~ BEGIN s=0x28 END
+                                               ELSE BEGIN s=0x38 END
+    d=0
+    LPM pfmw
+    WRITE_SHORT 0x70 ec+d
+    FOR (j=0;j<hc;j+=1) BEGIN
+      READ_SHORT ho+j*s+0x20 ei
+      READ_SHORT ho+j*s+0x1e ec
+      LPM pfmw
+      WRITE_SHORT ho+j*s+0x20 ei+d
+      WRITE_SHORT ho+j*s+0x1e ec+ld
+    END
+END BUT_ONLY
+
+
+/////////////////////////////////////////////////////
+// patching charge amounts in ARE/CRE/STO
+
+// now, finally, update charge amounts in other game resources
+//
+// Note:
+// 
+// I am not patching saves, so (un-)installing in the middle of the play may shuffle charge amounts on shields
+// which already have special abilities with >1 charges - like Anomen's one. Call me lazy, or just plain tired.
+//
+// Also not mass patching CREs - too much time for too little gain
+//
+// Same goes for updating the CreateItem() and GiveItemCreate() actions in scripts/dialogs - with SCS installed
+// it would take an eternity to parse all scripts
+DEFINE_PATCH_MACRO upd BEGIN
+  PHP_EACH item AS i => r BEGIN
+    READ_ASCII r itm (8) NULL
+    PHP_EACH tt AS i2 => r2 BEGIN // SOURCE_RES => ab_num
+      PATCH_IF ~%itm%~ STRING_EQUAL_CASE ~%i2%~ BEGIN
+        PATCH_IF r2=2 BEGIN
+          READ_SHORT r+12 c
+          WRITE_SHORT r+14 c
+        END
+        READ_SHORT r+10 c
+        WRITE_SHORT r+12 c
+        WRITE_SHORT r+10 0
+      END
+    END
+  END
+END
+
+COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~ ~ar0087.are~ ~override/xr2600.are~
+COPY_EXISTING_REGEXP GLOB ~.*\.are~ override PATCH_IF SOURCE_SIZE>0x11b BEGIN
+  GET_OFFSET_ARRAY item 0x78 4 0x76 2 0 0 0x14
+  LPM upd
+END BUT_ONLY
+COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+  GET_OFFSET_ARRAY item 0x34 4 0x38 4 0 0 0x1c
+  LPM upd
+END BUT_ONLY
+//COPY_EXISTING_REGEXP GLOB ~.*\.cre~ override PATCH_IF SOURCE_SIZE>0x2d3 BEGIN
+COPY_EXISTING_REGEXP GLOB ~anomen[0-9]+\.cre~ override PATCH_IF SOURCE_SIZE>0x2d3 BEGIN
+  GET_OFFSET_ARRAY item 0x2bc 4 0x2c0 4 0 0 0x14
+  LPM upd
+END BUT_ONLY
+
+
+/////////////////////////////////////////////////////
+// debugging
+
+/*
+ACTION_PHP_EACH debug AS i => r BEGIN
+  OUTER_PATCH_SAVE id ~        ~ BEGIN
+    WRITE_ASCIIE 0 ~%i_0%~
+    t=0
+    e=i_1 // ITM enchantment value
+    b=i_2 // bonus AC value
+    n=i_3 // enchantment stated in item's name
+    PATCH_IF e=n && e=b BEGIN // if all three are equal
+      t=e
+      SPRINT m ~      ~
+    END ELSE BEGIN
+      PATCH_IF (e=n && e)||(e=b && e)||(b=n && b) BEGIN // if at least two are non-zero and equal
+        PATCH_IF (e=n && b=0)||(e=b && n=0)||(b=n && e=0) BEGIN // and the third is not set
+          t= (e=n)? e : b
+          SPRINT m ~*     ~
+        END ELSE BEGIN // if the third is set too
+          PATCH_IF (e=n)||(b=n) BEGIN // if name matches ITM ench or AC bonus
+            t=n
+            SPRINT m ~**    ~
+          END ELSE BEGIN // if name is set, but both ITM ench and AC bonus are set to another same value
+            t=b
+            SPRINT m ~***   ~
+          END
+        END
+      END ELSE BEGIN
+        PATCH_IF n BEGIN // if ench is mention in item's name
+          t=n
+          SPRINT m ~****  ~
+        END ELSE BEGIN // if name tells nothing
+          t=b
+          PATCH_IF e=0 BEGIN // ITM ench is not set
+            SPRINT m ~***** ~
+          END ELSE BEGIN
+            SPRINT m ~******~
+          END
+        END
+      END
+    END
+  END
+  PRINT ~%id%: %t% %m% ench = %e%; bonus = %b%; name = %r%~
+END
+*/
+
+
+
+
+
+

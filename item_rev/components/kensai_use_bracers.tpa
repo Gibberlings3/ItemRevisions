@@ -26,103 +26,101 @@ DEFINE_PATCH_MACRO kensai_bracers BEGIN
 END
 
 //////////////////////////////////////////////
+//  bracer/glove list
+
+ACTION_DEFINE_ARRAY bracers BEGIN
+  ~AGBRAC01~  // Bracelet of Wisdom (Aurora's Shoes and Boots)
+  ~ARBRAC~    // Bracers of Defense AC 2 (Region of Terror)
+  ~BRAC01~    // Bracers of Defense AC 8
+  ~BRAC02~    // Bracers of Defense AC 7
+  ~BRAC03~    // Bracers of Defense AC 6
+  ~BRAC05~    // Bracers
+  ~BRAC12~    // Bracers
+  ~BRAC13~    // Bracers of Defense AC 5
+  ~BRAC14~    // Bracers of Defense AC 4
+  ~BRAC15~    // Bracers of Defense AC 3
+  ~BRAC16~    // Bracers of the Blinding Strike
+  ~BRAC17~    // Gloves of the Burglar
+  ~BRAC18~    // Gloves of Missile Snaring
+  ~BRAC22~    // Paladin's Bracers
+  ~BRAC23~    // Blessed Bracers
+  ~BRAC24~    // Bard's Gloves
+  ~BRAC25~    // Wondrous Gloves
+  ~BRAC26~    // Bands of Focus
+  ~BRAC74~    // Gloves of ???? (KWolf)
+  ~BRACWC~    // Bracers of the Wizard Champion (Region of Terror)
+  ~C2BRAC01~  // Gloves of the Master Thief (Item Upgrade: Shadows Of Amn Item Upgrades)
+  ~CBBRACRV~  // Bracers of Revelation
+  ~CBILMATA~  // Holy Bonds of Ilmater (Check the Bodies)
+  ~CBXTLTCC~  // Blessed Bracers of Lathander (Check the Bodies)
+  ~CMTUBR02~  // Mage Gloves (The Undying)
+  ~CMTUBR03~  // Fighter's Bracers (The Undying)
+  ~DEITM102~  // Kandalmar's Bracers (Reign of Virtue (ToB))
+  ~DRAGBRCX~  // Silver Dragon Bracers
+  ~DSBRAC01~  // Otrad Atwah: 'Gloves of the Magi' (DSotSC)
+  ~DSBRAC02~  // Gift of the Woods (DSotSC)
+  ~DSBRAC03~  // Mage's Bracers (DSotSC)
+  ~DSDRGSKN~  // Dragon Skin Bracers (DSotSC)
+  ~ENTERISB~  // Kohrim's Bracers (Region of Terror)
+  ~ESLIBRA0~  // Veteran Pickpocketer's Gloves
+  ~FWBRAC01~  // Bracers of Infinite Daggers +3 (Revised Forgotten Wars Projects: Item Pack)
+  ~FWBRAC02~  // Bracers of Infinite Daggers +5 (Revised Forgotten Wars Projects: Item Pack)
+  ~FWBRAC03~  // Bracers of the Summoner (Revised Forgotten Wars Projects: Item Pack)
+  ~FWBRAC05~  // Bracers of the Sage (Revised Forgotten Wars Projects: Item Pack)
+  ~FWBRAC06~  // Gloves of Spell Speed (Revised Forgotten Wars Projects: Item Pack)
+  ~KEDL~      // Silver Bracers of Kedl (Tortured Souls)
+  ~M#GFEAT~   // Gloves of Feather Touch (Amber)
+  ~MAU011~    // The Warrior's Arm
+  ~NEWBR01~   // Bracers of Yuan-Ti (Region of Terror)
+  ~NTBRAC01~  // Gloves of Master Thievery (NTotSC)
+  ~O!BOM024~  // Laiwethel's Gloves of Extraordinary Arcane Skills (Boards of Magick item pack!)
+  ~O!BOM026~  // Colthrun's Blinding Gloves (Boards of Magick item pack!)
+  ~O!TALI09~  // Laiwethel's Gloves of Extraordinary Arcane Skills (Boards of Magick item pack!)
+  ~O#DCBRA1~  // Bracers of Defense AC +2 (Dungeon Crawl)
+  ~PITGLOVZ~  // Pit Gloves
+  ~PSBRAC01~  // Gloves of Spell Weaving (PlanarSphereMod)
+  ~QUAG~      // Gloves of Detection
+  ~RTT011~    // Bracers of Dexterity (RTT Item Pack)
+  ~RTT012~    // King Strohm's Bracers (RTT Item Pack)
+  ~RTT018~    // Bracers of the Mephit (RTT Item Pack)
+  ~RTT028~    // Gloves of Strength (RTT Item Pack)
+  ~S#BRAC03~  // Improved Gloves of Healing
+  ~SGBRAC01~  // Archmage's gloves (Munchmod)
+  ~SGBRAC03~  // Quicksilver bracers (Munchmod)
+  ~TSJBRAC~   // Tsujatha's bridal bracelet.
+  ~TZBRAC01~  // Bracers of Genius
+  ~TZBRAC02~  // Magnet Bracers
+  ~U#BRAC01~  // Mits of Shaiman (Ruad Ro'fhessa (ToB))
+  ~U#BRAC02~  // Fluent Fingers (Ruad Ro'fhessa (SoA))
+  ~UBGLOVE1~  // Gloves of Pick Pocketing (BG1UB: Shilo Chen and the Ogre-Magi)
+  
+  ~ohbbrac1~  // Enforcer Bracers
+END
+
+ACTION_IF (!comp_ir) BEGIN
+  OUTER_SPRINT $bracers(~BRAC20~) ~BRAC20~ // Gloves of Healing
+END
+
+ACTION_IF (!comp_cursed) BEGIN
+  OUTER_SPRINT $bracers(~BRAC11~) ~BRAC11~ // Bracers of Binding
+END
+
+//////////////////////////////////////////////
 //  patching
 
-/*
-ACTION_FOR_EACH bracer IN
-  brac01 // Bracers of Defense AC 8
-  brac02 // Bracers of Defense AC 7
-  brac03 // Bracers of Defense AC 6
-  brac05 // Bracers
-  brac11 // Bracers of Binding
-  brac12 // Bracers
-  brac13 // Bracers of Defense AC 5
-  brac14 // Bracers of Defense AC 4
-  brac15 // Bracers of Defense AC 3
-  brac16 // Bracers of Blinding Strike
-  brac26 // Tzu-Zan's Bracers
-BEGIN
-  ACTION_IF FILE_EXISTS_IN_GAME ~%bracer%.itm~ BEGIN
+ACTION_PHP_EACH bracers AS i => bracer BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%bracer%.itm~) BEGIN
     COPY_EXISTING ~%bracer%.itm~ override
-      PATCH_IF SOURCE_SIZE>0x71 BEGIN
-        WRITE_BYTE 0x2f (THIS & `4)
+      PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+        // make usable by kensais
+        WRITE_BYTE 0x2f (THIS BAND 0b11111011)
+        // update description
+        SPRINT text_update ~kensai_bracers~
+        LAUNCH_PATCH_MACRO ~update_item_descriptions~
       END
+      BUT_ONLY
   END
 END
-*/
-
-// use Mike's version, it's much better
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
-  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    READ_BYTE  0x18 flags1
-    READ_SHORT 0x1c type
-    PATCH_IF (type == 0x06) BEGIN // bracers/gauntlets
-      PATCH_IF ((flags1 BAND 0b00000100) == 0b00000100) BEGIN // players can use
-        TO_UPPER ~SOURCE_RES~
-        READ_BYTE 0x2f kit_usability4
-        // if unusable by kensais
-        PATCH_IF ((kit_usability4 BAND 0b00000100) == 0b00000100) BEGIN
-          // check that the item is not a pair of gauntlets
-          PATCH_IF (
-              (~%SOURCE_RES%~ STR_CMP ~_BRAC04~) && // Bracers of Archery [kensais can't use missile weapons either]
-              (~%SOURCE_RES%~ STR_CMP ~_BRAC06~) && // Gauntlets of Ogre Power
-              (~%SOURCE_RES%~ STR_CMP ~_BRAC07~) && // Gauntlets of Dexterity
-              (~%SOURCE_RES%~ STR_CMP ~_BRAC08~) && // Gauntlets of Fumbling
-              (~%SOURCE_RES%~ STR_CMP ~_BRAC09~) && // Gauntlets of Parrying
-              (~%SOURCE_RES%~ STR_CMP ~_BRAC10~) && // Gauntlets of Power Attacks
-              (~%SOURCE_RES%~ STR_CMP ~ADGAUNT~) && // Sembian Spellbreaks
-              (~%SOURCE_RES%~ STR_CMP ~AGGUAN01~) && // Gauntlets of Time Stopping
-              (~%SOURCE_RES%~ STR_CMP ~BRAC04~) && // Bracers of Archery [kensais can't use missile weapons either]
-              (~%SOURCE_RES%~ STR_CMP ~BRAC06~) && // Gauntlets of Ogre Power
-              (~%SOURCE_RES%~ STR_CMP ~BRAC07~) && // Gauntlets of Dexterity
-              (~%SOURCE_RES%~ STR_CMP ~BRAC08~) && // Gauntlets of Fumbling
-              (~%SOURCE_RES%~ STR_CMP ~BRAC09~) && // Gauntlets of Parrying
-              (~%SOURCE_RES%~ STR_CMP ~BRAC10~) && // Gauntlets of Power Attacks
-           (comp_cursed=0 || ((~%SOURCE_RES%~ STR_CMP ~BRAC11~) && comp_cursed) ) && // Gauntlets of the Drow [only when Cursed Items is installed]
-              (~%SOURCE_RES%~ STR_CMP ~BRAC19~) && // Gauntlets of Crushing
-              (~%SOURCE_RES%~ STR_CMP ~BRAC20~) && // Gloves of Healing
-              (~%SOURCE_RES%~ STR_CMP ~BRAC21~) && // Gauntlets of Extraordinary Specialization
-              (~%SOURCE_RES%~ STR_CMP ~BRAC22~) && // Paladin's Bracers
-              (~%SOURCE_RES%~ STR_CMP ~BRAC23~) && // Blessed Bracers
-              (~%SOURCE_RES%~ STR_CMP ~BRAC24~) && // Bard's Gloves
-              (~%SOURCE_RES%~ STR_CMP ~BRAC25~) && // Wondrous Gloves
-              (~%SOURCE_RES%~ STR_CMP ~BRACGR01~) && // Gauntlets of the Faithful Warrior
-              (~%SOURCE_RES%~ STR_CMP ~BRC01~) && // Gauntlets of Might
-              (~%SOURCE_RES%~ STR_CMP ~CBBRCSPL~) && // Gauntlets of Spell Casting
-              (~%SOURCE_RES%~ STR_CMP ~CBCL023A~) && // Gauntlets of Valor
-              (~%SOURCE_RES%~ STR_CMP ~CMTUBR01~) && // Mage Gauntlets
-              (~%SOURCE_RES%~ STR_CMP ~COMG01~) && // Gauntlets of Valor
-              (~%SOURCE_RES%~ STR_CMP ~DEITM092~) && // Baelden's Gauntlets
-              (~%SOURCE_RES%~ STR_CMP ~DEITM103~) && // Gauntlets of Shau'Usi
-              (~%SOURCE_RES%~ STR_CMP ~DEITM104~) && // Gauntlets of Verova
-              (~%SOURCE_RES%~ STR_CMP ~DSBRAC04~) && // Gauntlets of the Faithful Warrior
-              (~%SOURCE_RES%~ STR_CMP ~DSBRACDX~) && // Gauntlets of Dexterity
-              (~%SOURCE_RES%~ STR_CMP ~FWBRAC04~) && // Sunus Graywar's Gauntlets
-              (~%SOURCE_RES%~ STR_CMP ~FWBRAC07~) && // Gauntlets of Shocking
-              (~%SOURCE_RES%~ STR_CMP ~NEWBRLI~) && // Gauntlets of Life
-              (~%SOURCE_RES%~ STR_CMP ~O!BOM025~) && // Gauntlets of the Silver Knight
-              (~%SOURCE_RES%~ STR_CMP ~O#DCBRA2~) && // Gauntlets of Heavy Strike
-              (~%SOURCE_RES%~ STR_CMP ~R#ASMGAU~) && // Minor Mage Gauntlets
-              (~%SOURCE_RES%~ STR_CMP ~S#BRAC01~) && // Gauntlets of Grandmastery
-              (~%SOURCE_RES%~ STR_CMP ~S#BRAC02~) && // Gauntlets of Crushing 'Hand of Vampire'
-              (~%SOURCE_RES%~ STR_CMP ~SGBRAC02~) && // Bloodlust gauntlets
-              (~%SOURCE_RES%~ STR_CMP ~THBRAC01~) && // Gauntlets of Grandmastery
-              (~%SOURCE_RES%~ STR_CMP ~U#BRAC03~) && // Gauntlets of Assassination
-              (~%SOURCE_RES%~ STR_CMP ~ULFISTS~) && // Fighting Gauntlets
-              (~%SOURCE_RES%~ STR_CMP ~WZRDBRAC~) // Gauntlets of the Magi
-          ) BEGIN
-            // make usable by kensais
-            WRITE_BYTE 0x2f (kit_usability4 BAND 0b11111011)
-            // update description
-            SPRINT text_update ~kensai_bracers~
-            LAUNCH_PATCH_MACRO ~update_item_descriptions~
-          END
-        END
-      END
-    END
-  END
-  BUT_ONLY
-
 
 
 

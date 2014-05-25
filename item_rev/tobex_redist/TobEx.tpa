@@ -1,4 +1,10 @@
-OUTER_SET tobex_redist_version = 20
+OUTER_SET tobex_redist_version = 26
+
+DEFINE_ACTION_FUNCTION tobex_copy STR_VAR file = "nul" BEGIN
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "%file%" BEGIN
+    COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/override/%file%" "override/%file%"
+  END
+END
 
 ACTION_IF NOT (FILE_EXISTS "TobEx_ini/TobExVer.txt") BEGIN
 
@@ -8,12 +14,19 @@ ACTION_IF NOT (FILE_EXISTS "TobEx_ini/TobExVer.txt") BEGIN
 
   MKDIR "TobEx_ini"
   COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobExLoader.exe" "TobExLoader.exe"
-  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/detoured.dll" "detoured.dll"
   COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.dll" "TobEx.dll"
   COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/default_core.ini" "TobEx_ini/TobExCore.ini"
   COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/default_tweak.ini" "TobEx_ini/TobExTweak.ini"
   COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx_ini.txt" "TobEx_ini/TobEx_ini.txt"
   COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobExVer.txt" "TobEx_ini/TobExVer.txt"
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/AsmJit.dll" "AsmJit.dll"
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.lua" "TobEx_ini/TobEx.lua"
+
+  MKDIR "TobEx_ini/lua"
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/lua" "TobEx_ini/lua"
+
+  MKDIR "TobEx_ini/patch"
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/patch" "TobEx_ini/patch"
 
   //ASCII 'TobEx.dll'
   OUTER_PATCH_SAVE orig_bytes_1 ~~ BEGIN
@@ -114,6 +127,13 @@ ACTION_IF NOT (FILE_EXISTS "TobEx_ini/TobExVer.txt") BEGIN
     END ELSE INNER_ACTION BEGIN FAIL @-10002 END
   BUT_ONLY
 
+  //ugly compatibility stuff
+  ACTION_IF (MOD_IS_INSTALLED ~DQ/SETUP-DQ.TP2~ 0) BEGIN
+    COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY ~Externalise Race Selection StrRef=1~ ~Externalise Race Selection StrRef=0~
+    BUT_ONLY
+  END
+
 END
 ELSE BEGIN
 
@@ -129,6 +149,9 @@ ELSE BEGIN
     COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/default_core.ini" "TobEx_ini/TobExCore.ini"
     COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx_ini.txt" "TobEx_ini/TobEx_ini.txt"
     COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobExVer.txt" "TobEx_ini/TobExVer.txt"
+
+    MKDIR "TobEx_ini/patch"
+    COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/patch" "TobEx_ini/patch"
 
   END
   ELSE BEGIN
@@ -160,4 +183,42 @@ ACTION_IF (%tobex_installed_version% < 20) BEGIN
 
   COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
     APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0020t.txt"
+END
+
+ACTION_IF (%tobex_installed_version% < 21) BEGIN
+  INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0021.tpa"
+END
+
+ACTION_IF (%tobex_installed_version% < 22) BEGIN
+  INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0022.tpa"
+END
+
+ACTION_IF (%tobex_installed_version% < 23) BEGIN
+  INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0023.tpa"
+
+  COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+    REPLACE_TEXTUALLY "Trigger:Enable PickpocketFailed Trigger" "Trigger:PickpocketFailed Trigger Only"
+    REPLACE_TEXTUALLY "Engine:Remain Hidden On Pickpocket Success" "Action:Remain Hidden On Pickpocket Success"
+    APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0023t.txt"
+  BUT_ONLY_IF_IT_CHANGES
+END
+
+ACTION_IF (%tobex_installed_version% < 24) BEGIN
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/AsmJit.dll" "AsmJit.dll"
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.lua" "TobEx_ini/TobEx.lua"
+
+  MKDIR "TobEx_ini/lua"
+  COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/lua" "TobEx_ini/lua"
+
+  INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0024.tpa"
+
+  COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+    APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0024t.txt"
+END
+
+ACTION_IF (%tobex_installed_version% < 25) BEGIN
+  INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx0025.tpa"
+END
+
+ACTION_IF (%tobex_installed_version% < 26) BEGIN
 END

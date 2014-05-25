@@ -4,9 +4,16 @@ ACTION_IF comp_ir_wc=0 && comp_ir_sf=0 BEGIN // only run it once
   INCLUDE ~item_rev/lib/fixpack.tpa~
 END
 INCLUDE ~item_rev/lib/identify_fix.tpa~
-INCLUDE ~item_rev/lib/identify_weapon.tpa~
+INCLUDE ~item_rev/lib/identify_item.tpa~
 INCLUDE ~item_rev/lib/weapon_changes_main.tpa~
 OUTER_SPRINT debug_file ~item_rev/debug/weapon_debug.log~
+
+/////////////////////////////////////////////////////
+//  Halberds can slash too
+
+ACTION_IF halberds_can_slash_too = 1 BEGIN
+  INCLUDE ~item_rev/components/halberds.tpa~
+END
 
 /////////////////////////////////////////////////////
 //  Read tables
@@ -184,17 +191,17 @@ DEFINE_PATCH_MACRO special BEGIN
   // change damage type to "piercing"
   PATCH_IF ninjato BEGIN
     WRITE_SHORT off+0x1c 1  // piercing
-    WRITE_SHORT off+0x26 10 // overhand
-    WRITE_SHORT off+0x28 25 // backhand
-    WRITE_SHORT off+0x2a 65 // thrust
+    WRITE_SHORT off+0x2c 10 // overhand
+    WRITE_SHORT off+0x2e 25 // backhand
+    WRITE_SHORT off+0x30 65 // thrust
   END
 
   // change damage type to "slashing"
-  PATCH_IF wakizashi BEGIN
+  PATCH_IF wakizashi || short_sword BEGIN
     WRITE_SHORT off+0x1c 3  // slashing
-    WRITE_SHORT off+0x26 50 // overhand
-    WRITE_SHORT off+0x28 50 // backhand
-    WRITE_SHORT off+0x2a 0  // thrust
+    WRITE_SHORT off+0x2c 50 // overhand
+    WRITE_SHORT off+0x2e 50 // backhand
+    WRITE_SHORT off+0x30 0  // thrust
   END
 
   // change damage type to "crushing and piercing" - it picks either crushing or piercing AC/resistance (two separate checks)
@@ -209,9 +216,9 @@ DEFINE_PATCH_MACRO special BEGIN
     WRITE_SHORT off+0x1c 6
 
     // specially for Ardanis - flails get extended range
- //   PATCH_IF FILE_CONTAINS ~item_rev/item_rev.ini~ ~flails_have_extended_range = 1~ BEGIN
- //     WRITE_SHORT off+0xe 2 // increase range
- //   END
+    PATCH_IF flails_have_extended_range = 1 BEGIN
+      WRITE_SHORT off+0xe 2 // increase range
+    END
   END
 
   // extend spear's (melee only) range
@@ -221,6 +228,22 @@ DEFINE_PATCH_MACRO special BEGIN
     END
     PATCH_IF type=2 BEGIN
       WRITE_BYTE off+0x26 THIS|1 // use STR bonus
+      WRITE_SHORT off+0xe 15 // range
+    END
+  END
+
+  // change range of throwing weapons
+  PATCH_IF dart || dagger || handaxe || hammer BEGIN // spears are handled one block above
+    PATCH_IF type=2 BEGIN // ranged
+      WRITE_SHORT off+0xe 15 // range
+    END
+  END
+  
+  PATCH_IF scimitar BEGIN
+    // specially for Ardanis, change scimitars to DnD 3.5 version
+    PATCH_IF dnd_3e_scimitars = 1 BEGIN
+      unid_new_size = 6
+      iden_new_size = 6
     END
   END
 
@@ -737,11 +760,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
       LPM update_item_descriptions
 
       // specially for Ardanis, change scimitars to DnD 3.5 version
- //     PATCH_IF FILE_CONTAINS ~item_rev/item_rev.ini~ ~dnd_3e_scimitars = 1~ BEGIN
- //       LPF ADD_ITEM_EQEFFECT INT_VAR opcode=301 target=1 timing=2 parameter1=1 END // +5% crit
- //       unid_new_size = 6
- //       iden_new_size = 6
- //     END
+      PATCH_IF dnd_3e_scimitars = 1 BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR opcode=301 target=1 timing=2 parameter1=1 END // +5% crit
+      END
     END
 
     ninjato
@@ -762,6 +783,13 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
       WRITE_BYTE 0x31 0x5e
       SPRINT text_update katana_waki_prof
       LPM update_item_descriptions
+      SPRINT text_update wc_pierce_to_slash
+      LPM update_item_descriptions
+    END
+
+    short_sword
+    // change damage type to slashing
+    BEGIN
       SPRINT text_update wc_pierce_to_slash
       LPM update_item_descriptions
     END
@@ -813,6 +841,21 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
         END
       END
     END
+    
+    light_xbow
+    // add reload time to crossbows, duration = 1 second
+    BEGIN
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=1 parameter1=0 parameter2=1 type=2 END // type 2 = ranged, no ammo required
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=1 parameter1=0 parameter2=1 type=4 END // type 4 = ranged, requires ammo
+    END
+    
+    heavy_xbow
+    // add reload time to crossbows, duration = 2 seconds
+    BEGIN
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=2 parameter1=0 parameter2=1 type=2 END
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=2 parameter1=0 parameter2=1 type=4 END
+    END
+    
 
     // if ammo's prof is 0 (none), then archer suffers no thaco penalty even without any points in launcher's proficiency
 

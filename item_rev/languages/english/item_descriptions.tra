@@ -12,7 +12,7 @@ Equipped Abilities:
 Not Usable By:
  Wizard Slayer~
 @1004 = ~Shield Amulet~
-@1005 = ~Made by the Harpell clan of wizards in Longsaddle, these simple but elegant amulets generate a large shield-sized invisible wall of force that stays with the wearer and protects him as if it were a normal shield. This special creation can be activated and deactivated at will, and so does not encumber nor it interfere with arcane spellcasting.
+@1005 = ~Made by the Harpell clan of wizards in Longsaddle, these simple but elegant amulets generate a large shield-sized invisible wall of force that stays with the wearer and protects him as if it were a normal shield. This special creation can be activated and deactivated at will, and so does not encumber nor does it interfere with arcane spellcasting.
 
 STATISTICS:
 
@@ -52,7 +52,7 @@ Equipped Abilities:
 
 Not Usable By:
  Wizard Slayer~
-@1010 = ~Silver Amulet~
+@1010 = ~Silver Charm~
 @1011 = ~Amulets are necklaces with some form of large decoration or symbol. Most are ornamental, but some such as this one are potent magic items. Lore holds that shapeshifters and some fiends are especially vulnerable to the bite of silver weaponry, and this amulet containing powdered silver seems to protect the wearer from the attacks of those creatures.
 
 STATISTICS:
@@ -158,7 +158,7 @@ Thus a group of barbarian shamans once congregated to find a way to better harne
 STATISTICS:
 
 Special Abilities (once per day):
- Improved Haste (15th caster level)
+ Improved Haste
 
 Equipped Abilities:
  Dexterity: +1 bonus
@@ -488,8 +488,8 @@ Note: always considered to be of +3 enchantment when determining what it can hit
 STATISTICS:
 
 Combat Abilities:
- Disruption: undead creatures must save vs. death or be destroyed
- Undead Bane: additional +2 bonus to THAC0 and +8 to damage against undead
+ Disruption: undead creatures must save vs. spell or be destroyed
+ Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
  Returning: returns to the wielder's hand instantly after an attack is made
 
 THAC0: +1 bonus
@@ -746,7 +746,7 @@ Weight: 1
 Not Usable By:
  Wizard Slayer~
 @1101 = ~Belt of Inertial Barrier~
-@1102 = ~When worn, this belt creates a dense curtain of air around the wearer, forming a barrier which provides superior protection against breath attacks as well as missile weapons. The barrier is not enough strong to keep enemies out, but it can slow them a bit. By the scorch marks on the worn leather, it is obvious that this belt has been worn at least once against a dragon.
+@1102 = ~When worn, this belt creates a dense curtain of air around the wearer, forming a barrier which provides superior protection against breath attacks as well as missile weapons. The barrier is not strong enough to keep enemies out, but it can slow them a bit. By the scorch marks on the worn leather, it is obvious that this belt has been worn at least once against a dragon.
 
 STATISTICS:
 
@@ -936,8 +936,8 @@ STATISTICS:
 
 Combat Abilities:
  Entangling: 33% chance target must save vs. breath or be entangled for 2 rounds
- Monster Bane: additional +2 bonus to THAC0 and +8 to damage against monsters
- Undead Bane: additional +2 bonus to THAC0 and +8 to damage against undead
+ Monster Bane: additional +2 bonus to THAC0 and +6 to damage against monsters
+ Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
 
 THAC0: +1
 Damage: 1D6 + 1
@@ -958,8 +958,8 @@ Note: always considered to be of +3 enchantment when determining what it can hit
 STATISTICS:
 
 Combat Abilities:
- Disruption: undead creatures must save vs. death or be destroyed
- Undead Bane: additional +2 bonus to THAC0 and +8 to damage against undead
+ Disruption: undead creatures must save vs. spell or be destroyed
+ Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
 
 THAC0: +1 bonus
 Damage: 1D6 + 2
@@ -1094,7 +1094,7 @@ STATISTICS:
 Combat Abilities:
  Bone Breaking: each hit reduces target's maximum hit points by 3 for 1 turn
  Crushing Blow: 5% chance of dealing 20 additional points of crushing damage
- Human Bane: additional +2 bonus to THAC0 and +8 to damage against humanoids
+ Human Bane: additional +2 bonus to THAC0 and +6 to damage against humanoids
 
 THAC0: +1 bonus
 Damage: 1D6 + 2
@@ -1200,7 +1200,7 @@ STATISTICS:
 
 Combat Abilities:
  Dooming: target must save vs. spell or suffer -2 penalty to attack rolls, damage rolls and saving throws for 5 rounds
- Undead Bane: additional +2 bonus to THAC0 and +8 to damage against undead
+ Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
 
 THAC0: +1 bonus
 Damage: 1D6 + 1
@@ -1244,8 +1244,8 @@ Equipped Abilities:
  Immunity to level drain effects
 
 Combat Abilities:
- Disruption: undead creatures must save vs. death or be destroyed
- Undead Bane: additional +2 bonus to THAC0 and +8 to damage against undead
+ Disruption: undead creatures must save vs. spell or be destroyed
+ Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
 
 THAC0: +2 bonus
 Damage: 1D6 + 3
@@ -1663,7 +1663,7 @@ Usable By:
  All~
 @1200 = ~Boots of Avoidance~
 @1201 = ~Elves' Bane
-An infamous highwayman in his day, Pandar of Scardale made quite a name for himself vexing the elves of Cormanthor forest. To their annoyance, he continually used the wood to escape the law; and with the aid of these boots, the elves' arrows as well. Unfortunately for Pandar, pit-traps and starvation proved a slower, but effective, substitut.
+An infamous highwayman in his day, Pandar of Scardale made quite a name for himself vexing the elves of Cormanthor forest. To their annoyance, he continually used the wood to escape the law; and with the aid of these boots, the elves' arrows as well. Unfortunately for Pandar, pit-traps and starvation proved a slower, but effective, substitute.
 
 STATISTICS:
 
@@ -1686,7 +1686,7 @@ Weight: 3
 Usable By:
  All~
 @1204 = ~Boots of Elvenkind~
-@1205 = ~Several pairs of this type of boots were made for elven battalions during the Year os Singing Arrows, 884 DR. These boots allow their wearer to walk freely and silently among the briars and thorns of the most dense forests, and the scouts equipped with this stealthy footwear turned the tide of at least two major battles against Sembian mercenaries. Thieves love to get their hands on these boots, but the elves are reluctant about exporting them, fearful that they may be used for illegal purposes.
+@1205 = ~Several pairs of this type of boots were made for elven battalions during the Year of Singing Arrows, 884 DR. These boots allow their wearer to walk freely and silently among the briars and thorns of the most dense forests, and the scouts equipped with this stealthy footwear turned the tide of at least two major battles against Sembian mercenaries. Thieves love to get their hands on these boots, but the elves are reluctant about exporting them, fearful that they may be used for illegal purposes.
 
 STATISTICS:
 
@@ -1721,7 +1721,7 @@ Said to be sewn together from scraps of the planes themselves, these strange boo
 STATISTICS:
 
 Special Abilities (once per day):
- Etherealness: wearer becomes ethereal for 5 rounds. While in this state he is immune to normal and magical weapons, has 100% magic resistance and improved invisibility. Anyway he is also unable to attack or cast spell.
+ Etherealness: wearer becomes ethereal for 5 rounds. While in this state he is immune to normal and magical weapons, has 100% magic resistance and improved invisibility. He is also unable to attack or cast spell.
 
 Equipped Abilities:
  Dimensional Anchor: wearer is unaffected by Teleport Field, Maze, Imprisonment and similar effects
@@ -3167,7 +3167,7 @@ Not Usable By:
 STATISTICS:
 
 Special Abilities (once per day):
- Blinding Beauty: opponents within 30 feet must save vs. spell or be blinded for 1 turn
+ Blinding Beauty: opponents within 20 feet must save vs. spell or be blinded for 1 turn
 
 Equipped Abilities:
  Charisma: +2 bonus
@@ -5725,7 +5725,7 @@ Not Usable By:
 STATISTICS:
 
 Special Abilities (once per day):
- Sonic Wave: everyone within 10 feet takes 2d10 points of damage, and is stunned for two rounds (save vs. breath for half damage and to avoid being stunned)
+ Sonic Blast: an area of 10 feet radius around the user is balsted with a tremendous sonic wave, dealing 4d4 points of damage to opponents within it, and stunning them for 1 round unless a save vs. breath is made
 
 Not Usable By:
  Wizard Slayer~
@@ -6727,7 +6727,7 @@ STATISTICS:
 
 Equipped Abilities:
  Immunity to backstab
- Magic Resistance: +5% bonus
+ Saving Throws: +1 bonus
 
 Armor Class: -3
 Weight: 60
@@ -7109,25 +7109,29 @@ Not Usable By:
  Wizard Slayer~
 @1915 = ~Rod~
 @1916 = ~Rod of Smiting +4~
-@1917 = ~Rods are about three feet long and as thick as your thumb. They are normally found in cases or similar storage places. Rods can be fashioned from metal, wood, ivory, or bone. They can be plain or decorated and carved, tipped, or not. Rods are powered by charges, unless noted otherwise in the description of a particular rod. Each time the rod is used, one or more charge may be expended.~
-@1918 = ~This long, thin rod can be wielded as a staff. This rod has been designed to destroy golems. Any golem struck by the rod must make a saving throw or be destroyed. In the hands of any other than a cleric or mage the rod becomes unusable.
+@1917 = ~Rods are about three feet long and as thick as your thumb. They are normally found in cases or similar storage places. Rods can be fashioned from metal, wood, ivory, or bone. They can be plain or decorated and carved, tipped, or not. Rods are powered by charges, unless noted otherwise in the description of a particular rod. Each time the rod is used, one or more charge may be expended.
+
+STATISTICS:
+
+Weight: 3
+~
+@1918 = ~Rods of Smiting are extremely uncommon weapons, though they can be very useful against some foes. This particular rod was last in the possession of a priest of Gond named Debian of Urmlaspyr. Debian was an eccentric adventurer, who took it upon himself to investigate every type of golem that had been reported in the realms. In many cases, the creator of the golem would send his or her creations after Debian for his snooping. Debian usually escaped without much personal harm. Unfortunately for Debian, his luck ran out when he investigated the lair of the Machinery Man, a bizarre lich who happened to be the creator of golems and other animated constructs. The Machinery Man's lab full of iron golems proved to be too much for Debian to overcome.
 
 STATISTICS:
 
 Combat Abilities:
- Smiting: golems must save vs. death or be destroyed
- Golem Bane: additional +2 bonus to THAC0 and +8 to damage against golems
+ Shattering: golems must save vs. polymorph or be destroyed
+ Golem Bane: additional +2 bonus to THAC0 and +6 to damage against golems
 
 THAC0: +2 bonus
-Damage: 1D8 + 2
+Damage: 1D6 + 2
 Damage type: crushing
-Weight: 4
+Weight: 3
 Speed Factor: 2
-Proficiency Type: Quarterstaff
-Type: 2-handed
-Usable By:
- Mage
- Cleric~
+Proficiency Type: Club
+Type: 1-handed
+Not Usable By:
+ Mage~
 @1920 = ~Sling~
 @1921 = ~Slings have existed since the beginning of recorded history. The basic sling consists of a leather or fabric strap with a pouch for holding the missile. The weapon is held by both ends of the strap and twirled around the wielder's head. When top speed is attained, the missile is launched by releasing one of the strap's ends.
 
@@ -7197,7 +7201,7 @@ Equipped Abilities:
  Saving Throws: +3 vs. breath
 
 Combat Abilities:
- Dragon Bane: additional +2 bonus to THAC0 and +8 to damage against dragons
+ Dragon Bane: additional +2 bonus to THAC0 and +6 to damage against dragons
 
 THAC0: +1 bonus
 Damage: +1 bonus
@@ -7631,7 +7635,7 @@ Not Usable By:
  Thief
  Monk
  Kensai~
-@1982 = ~Light Tower Shield +2~
+@1982 = ~Large Shield +2~
 @1983 = ~A shield of the elite Calimport Standing Dragoons mercenary company, a group long since disbanded due to political backstabbing. Having the best of equipment, their shields were extremely light and powerfully protective in combat. The size of the shield precludes the use of the shield hand for anything else and fighting results more difficult because of the shield's encumbrance.
 
 STATISTICS:
@@ -8874,7 +8878,7 @@ Equipped Abilities:
  Immunity to fear effects
 
 Combat Abilities:
- Dragon Bane: additional +2 bonus to THAC0 and +8 to damage against dragons
+ Dragon Bane: additional +2 bonus to THAC0 and +6 to damage against dragons
  Slicing Blow: 15% chance of dealing 20 additional points of slashing damage
 
 THAC0: +1 bonus
@@ -10329,27 +10333,31 @@ Equipped Abilities:
 Usable By:
  Cleric~
 @2223 = ~Dak'kon's Zerth Blade +2~
-@2224 = ~This sword was the weapon of choice of the famous githzerai Dak'kon. Dak'kon was killed by a powerful entity while working for a creature known as the Nameless One. Perhaps the strange circumstances of his death preserved this blade, as it would otherwise have lost its form when his will no longer shaped it.
+@2224 = ~This sword was the weapon of choice of the famous githzerai Dak'kon who was killed by a powerful entity while working for a creature known as the Nameless One. Perhaps the strange circumstances of his death preserved this blade, as it would otherwise have lost its form when his will no longer shaped it.
+On the githzerai's home plane of Limbo, solid matter is something of a rarity. Limbo itself is a soupy mass of elements, and only through force of will can the githzerai shape these elements into stable matter.
+A substance called "karach" is a material that can be shaped with the mind. Dak'kon's blade is composed of this substance and through mental discipline alone, the wielder must maintain the integrity of the blade. He can shape it slightly depending on his skill, adjusting its length, sharpness of the edge and to a lesser extent, its magical properties. Presumably more powerful and experienced minds may be able to manipulate the blade in new ways.
 
 STATISTICS:
 
 Equipped Abilities:
- Armor Class: +1 bonus
- Memorize one extra spell of each level from 1st to 4th
+  Armor Class: +1 bonus
+
+Combat Abilities:
+ Spell Stealer: arcane casters hit by this weapon must save vs. spell or lose one memorized spell, while the wielder gets back into memory a spell that has been previously cast
 
 THAC0: +2 bonus
 Damage: 1D10 + 2
 Damage type: slashing
 Weight: 5
-Speed Factor: 2
-Proficiency Type: Katana
+Speed Factor: 3
+Proficiency Type: Katana/Wakizashi
 Type: 1-handed
 Requires: 6 Strength
-Not usable by:
- Cleric
- Druid
- Mage
- Beast Master~
+Usable by:
+ Bard
+ Fighter/Mage
+ Fighter/Mage/Thief
+ Mage/Thief~
 @2225 = ~Shadow Veil~
 @2226 = ~Made of blackened silver and dark blue steel, this helm is rumored to slowly corrupt its wearer to bend to Shar's whim, so that ultimately the Dark Goddess gains a powerful follower by greatly warding the victim in what her clerics often refer to as the subject's "infancy."
 The helm is capable of absorbing significant amounts of cold damage, and with a command word, it can create a shadow clone of the wearer to fight alongside him. Those who possess it inevitably become creatures of the night themselves, operating as easily in the dark as they would during the day - and under the watchful eye of Shar.
@@ -10534,7 +10542,7 @@ Usable By:
  Bard
  Mage~
 @2251 = ~Wand of Lightning~
-@2252 = ~A Wand of Lightning causes bolts of electrical energy to be discharged from its tip to strike at specified opponents. The possessor of the wand can discharge three bolts of lightning, and may target up to six different enemies. Each bolt does 3D6 points of electrical damage, with a save vs. wand at -3 penalty for half damage. Like all wands, the Wand of Lightning has a limited number of uses. Once these have been expended, the wand is reduced to little more than a chunk of scarred and twisted metal.
+@2252 = ~A Wand of Lightning causes bolts of electrical energy to be discharged from its tip to strike at specified opponents. The possessor of the wand can discharge three bolts of lightning, and may target up to three different enemies. Each bolt does 3D6 points of electrical damage, with a save vs. wand at -3 penalty for half damage. Like all wands, the Wand of Lightning has a limited number of uses. Once these have been expended, the wand is reduced to little more than a chunk of scarred and twisted metal.
 
 STATISTICS:
 
@@ -10593,8 +10601,8 @@ Requires: 9 Intelligence, 13 Wisdom
 Usable By:
  Cleric
  Druid~
-@2261 = ~Wand of Wonder~
-@2262 = ~Only those with a gambling streak dare use this wand in battle. When triggered, it is at best unpredictable, and at worst, suicidal. The whimsical mage Malimak created it as a gift for a rival, though more as a prank than with hurtful intent. The recipient's reaction is not known, though Malimak relocated shortly thereafter. It should be used with caution, or not at all. Almost any class of character of moderate intelligence can learn how to use this wand.
+@2261 = ~Rod of Wonder~
+@2262 = ~Only those with a gambling streak dare use this rod in battle. When triggered, it is at best unpredictable, and at worst, suicidal. The whimsical mage Malimak created it as a gift for a rival, though more as a prank than with hurtful intent. The recipient's reaction is not known, though Malimak relocated shortly thereafter. It should be used with caution, or not at all. Almost any class of character of moderate intelligence can learn how to use this rod.
 
 STATISTICS:
 
@@ -10867,6 +10875,7 @@ Not Usable By:
  Cleric
  Druid
  Mage
+ Thief
  Monk
  Kensai
  Cavalier~
@@ -11263,14 +11272,14 @@ Not Usable By:
 
 
 @2319 = ~Necklace~
-@2320 = ~Necklace of Fireballs~
 @2321 = ~A necklace is a piece of ornamental metal jewelry usually made of silver, gold, platinum, or other precious metals, and adorned with gems. A necklace is always worn on the neck and can be of any length.~
-@2322 = ~When Szass Tam was a living mage, he faced a competitor who was famous for his skill at evocation. Not wanting to be outdone by someone from another school of magic, Szass Tam came prepared to the duel. He threw twelve fireballs in a row, much to the consternation of his opponent, who came ready to face the powers of a necromancer. When the Necklace of Fireballs was used up, Tam began to actually cast his own spells, while his opponent had already used most of his up.
+@2320 = ~Amulet of Health~
+@2322 = ~When Jacin Maltis, a petty lord in Sembia, paid for the crafting of an amulet to increase his health, he expected a tasteful necklace with a small, but precious gem mounted in it. When he placed the necklace around his neck and the diamond turned a gaudy blood red, he refused to pay the wizard who created it. The wizard simply smiled, and loosed a spell that instantly destroyed the noble. Copies of this amulet were found circulating months later in the distant city of Waterdeep.
 
 STATISTICS:
 
-Special Abilities (consume charges):
- Fireball: 6d6 fire damage in a 30' radius on impact (save vs. breath half)
+Equipped Abilities:
+ Maximum Hit Points: +10 bonus
 
 Not Usable By:
  Wizard Slayer~
@@ -11391,7 +11400,7 @@ STATISTICS:
 
 Equipped Abilities:
  THAC0: -4 penalty
- Srength: +3 bonus
+ Strength: +3 bonus
  Dexterity: -2 penalty
 
 Weight: 1
@@ -11632,7 +11641,7 @@ STATISTICS:
 *CURSED*
 
 Equipped Abilities:
- Srength: -1 penalty
+ Strength: -1 penalty
  Dexterity: +3 bonus
  Constitution: -2 penalty
 
@@ -11731,14 +11740,108 @@ Not Usable By:
 /*-------new strings for V3.1-------*/
 
 
-@2383 = ~~
-@2384 = ~~
-@2385 = ~~
-@2386 = ~~
-@2387 = ~~
-@2388 = ~~
-@2389 = ~~
-@2390 = ~~
+@2383 = ~Bloodaxe +2~
+@2384 = ~It was the Year of Slaughter, 1090 DR, and countless victims lay slain at the Battle of the Bones. Today the site contains layers of dry white bone, but at the time it was all blood and bile, oozing from each shattered corpse and saturating the fallen equipment. No amount of polishing has been able to restore any weapon retrieved from that dread place, or even begin to remove the taint acquired there.
+
+STATISTICS:
+
+Combat Abilities:
+ Bloodlust: each successful hit grants the wielder a +1 cumulative bonus to melee damage for 2 rounds
+
+THAC0: +2 bonus
+Damage: 1D8 + 2
+Damage type: slashing
+Weight: 6
+Speed Factor: 5
+Proficiency Type: Axe
+Type: 1-handed
+Requires: 10 Strength
+Usable By:
+ Berserker~
+@2385 = ~Web Sack~
+@2386 = ~When used, this wand shoots forth many-layered mass of strong, sticky strands similar to spider webs but far larger and tougher. They cover an area of about 20 feet in radius, and creatures caught within webs, or simply touching them, become stuck among the gluey fibers. Each round that a creature remains in the web, he must make a saving throw vs. breath or be unable to move. The webs will dissipate after approximately 1 turn.
+
+Special Abilities (consumes charges):
+ Web
+
+Requires: 11 Intelligence
+Usable By:
+ Bard
+ Mage~
+@2387 = ~Rod of Absorption~
+@2388 = ~This rod acts as a magnet, drawing magic spells of any nature (priest or wizard) into itself. It then nullifies their effects. The magic absorbed must have been directed at the character possessing the rod. Activating this absorption ability takes an instant and the user will be protected for one round or until the absorption disappears. The rod will absorb nine levels of spells and can defend against spells up to ninth level in power.
+
+STATISTICS:
+
+Special Abilities (twice per day):
+ Spell Absorption
+
+Usable By:
+ Bard
+ Mage~
+@2389 = ~Rod of Lordly Might~
+@2390 = ~Also called The Wrath of Three Kings, though not associated with any named king in particular, this rod was likely made in 1090DR.  It saw use during The Battle of the Bones, but for which side is uncertain as it was found amongst the dead after a larger skirmish.
+
+STATISTICS:
+
+Special Abilities (once per day):
+ Paralyze: a target within 30 feet must save vs. rod at -2 penalty or be paralyzed for 5 rounds
+ Fear: opponents within 20 feet must save vs. rod or flee in terror
+ Life Drain: drains 10 hit points from a target and transfers it to the wielder
+
+Weight: 2
+Not Usable By:
+ Wizard Slayer~
+@2391 = ~Rod of Resurrection~
+@2392 = ~This rod enables anyone to resurrect the dead as if they were a priest of high enough level. No rest is required, as the rod bestows the life giving effects, but each use of the rod expends one charge. With the power to restore life itself, these rods are extremely prized. It is not known if this particular example was created to aid in the good works of a saint or prolong the ills of an overlord, for such rods serve indiscriminately.
+
+STATISTICS:
+
+Special Abilities (twice per day):
+ Raise Dead
+
+Requires: 11 Wisdom
+Not Usable By:
+ Wizard Slayer~
+@2393 = ~Rod of Terror~
+@2394 = ~These twisted rods emanate an aura of evil even while inactive, and fill all who gaze upon them with unease. They are capable of projecting a wave of unspeakable horror upon a single foe, filling even the hardiest soul with acute dread, and were certainly created for nefarious use.
+
+STATISTICS:
+
+Equipped Abilities:
+ Charisma: -2 penalty
+
+Combat Abilities:
+ Fearsome: 33% chance target must save vs. spell or flee in terror for 2 rounds
+
+Thac0: +3 bonus
+Damage:  1D6 + 3
+Damage type: crushing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Club
+Type:  1-handed
+Not Usable By:
+ Mage~
+@2395 = ~Rod of Reversal~
+@2396 = ~These powerful items allow a wielder to quickly dispel the magic of friend or foe alike. Those who hunt spellcasters particularly prize them, although casters themselves are also quick to snatch them up on the open market.
+
+STATISTICS:
+
+Special Abilities (twice per day):
+ Reverse Magic: removes all magical effects upon the target unless a save vs. rod at -4 penalty is made
+
+Weight: 2
+Not Usable By:
+ Wizard Slayer~
+@2397 = ~Wand of the Apprenti~
+@2398 = ~This wand was created for you by your apprentices, and will randomly cast a variety of three spells, each from a separate elemental source.  It apparently has 50 charges.
+
+Requires: 9 Intelligence
+Usable By:
+ Bard
+ Mage~
+@2399 = ~~
 
 
 // Tooltips - mostly they're spells' names
@@ -11822,5 +11925,10 @@ Not Usable By:
 @4077 = ~Simulacrum~
 @4078 = ~Greater Malison~
 @4079 = ~Gaze of Despair~
-@4080 = ~Magic Resistance~
+@4080 = ~Spell Absorption~
+@4081 = ~Paralyze~
+@4082 = ~Cause Fear~
+@4083 = ~Life Drain~
+@4084 = ~Raise Dead~
+@4085 = ~Reverse Magic~
 

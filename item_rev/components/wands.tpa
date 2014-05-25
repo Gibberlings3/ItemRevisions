@@ -70,6 +70,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY wand BEGIN
   wand18 => 15 // spell striking
   wand19 => 13 // cursing
   wand99 => 10 // magic missile
+  ohdwand1 => 11 // glitterdust
+  ohnwand1 => 14 // whips
 END
 
 ACTION_PHP_EACH wand AS ind => res BEGIN

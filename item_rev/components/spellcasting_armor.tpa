@@ -1,7 +1,7 @@
 INCLUDE ~item_rev/lib/descriptions.tpa~
 INCLUDE ~item_rev/lib/macros.tpa~
 INCLUDE ~item_rev/lib/armor_list.tpa~
-INCLUDE ~item_rev/lib/common_shield_list.tpa~
+INCLUDE ~item_rev/lib/shield_list.tpa~
 INCLUDE ~item_rev/lib/multiclass_standard.tpa~
 
 //////////////////////////////////////////////
@@ -169,33 +169,12 @@ END
 //////////////////////////////////////////////
 //  patching shields
 
-LAM shields
+ACTION_PHP_EACH shield AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+      LPM cleanup
 
-COPY_EXISTING_REGEXP ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
-  READ_SHORT 0x1c item
-  READ_ASCII 0x22 anim (2)
-
-  type=0
-  PATCH_IF item=190 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d1~) ) BEGIN // buckler
-    LPM cleanup
-    type=11
-    WRITE_SHORT 0x1c 0xc
-  END
-  PATCH_IF item=191 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d2~) ) BEGIN // light
-    LPM cleanup
-    type=12
-    WRITE_SHORT 0x1c 0xc
-  END
-  PATCH_IF item=192 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d3~) ) BEGIN // heavy
-    LPM cleanup
-    type=13
-    WRITE_SHORT 0x1c 0xc
-  END
-  PATCH_IF item=194 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d4~) ) BEGIN // tower
-    LPM cleanup
-    type=14
-    WRITE_SHORT 0x1c 0xc
-  END
+      type = res=1 ? 11 : res=2 ? 12 : res=3 ? 13 : 14
 
   PATCH_IF option=1 && type BEGIN
     xfail=0
@@ -240,8 +219,9 @@ COPY_EXISTING_REGEXP ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
     END
   END
 
-END BUT_ONLY
-
+    END BUT_ONLY
+  END
+END
 
 //////////////////////////////////////////////
 //  class descriptions

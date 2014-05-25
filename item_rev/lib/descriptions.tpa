@@ -10,6 +10,8 @@ OUTER_INNER_PATCH ~12~ BEGIN
   WRITE_BYTE 0 0x0d
   READ_ASCII 0 mnl (1)  // 0x0d, Mac
   READ_ASCII 0 wnl (2)  // 0x0d0a, Windows
+  WRITE_SHORT 0 0x2014
+  READ_ASCII 0 emdash (2)
 END
 
 // stolen from BG2 Tweak Pack at G3 and modified to take parameter ~%text_update%~, the macro name of the REPLACE_TEXTUALLY to execute

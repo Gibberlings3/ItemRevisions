@@ -1,4 +1,4 @@
-//1230 This file contains descriptions for all the hack options found in TobEx .ini files
+//1640 This file contains descriptions for all the hack options found in TobEx .ini files
 
 Description format:
 -------------------
@@ -32,6 +32,30 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1520 AttackOnce Action Fix [F]
+Makes the following fixes to the standard attack action:
+1. With X/2 attacks, the attack that occurs once every two rounds now always occurs every two rounds (rather than a random probability of the attack taking place every single round)
+2. With 3/2 attacks, the attack that occurs once every two rounds now always uses the offhand if an offhand weapon is present (rather than the offhand never being used)
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1530 Attacks Are All Genuine [T, X]
+The LIGHT_GREEN, YELLOW, BLUE, FUCHSIA, LIGHT_BLUE, LIGHT_GREY and RED pixels only play the melee attack animation if a statistical attack takes place
+To make all animations attacks statistical attacks, the RNDBASE files need to be modified
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1560 ChangeAnimation Action Fix [F]
+Corrects an error where state flags are not inherited by the creature replacing the old creature
+
+Options:
+-0: disabled
+-1: enabled
+
 -----770 EquipRanged Action Fix [F]
 Corrects an error in the EquipRanged() action where an equipped shield would prevent one-handed ranged weapons in the weapon slot to be equipped
 
@@ -45,6 +69,84 @@ Enables the use of new actions
 Descriptions
 352 LoseGame()
 Plays the ending cutscene as if the protagonist died. If the action is used in a pausing dialogue, the ending cutscene will play after the dialogue ends. This action does nothing in the arenas game type.
+
+353 DialogueSetGlobal(S:Name*,S:Area*,I:Value*)
+Sets the variable 'Name' in the scope 'Area' to 'Value' immediately instead of being added through the dialogue owner's action queue. This allows variables to be set instantaneously and checked immediately afterwards in the same dialogue. ActionOverride() is supported. If used outside dialogue, this action behaves exactly as SetGlobal().
+Limitations: Variables become set asynchronously to the order in which the action is present on the script block. This can cause issues when an action is purposely sandwiched between two modifications of the same variable.
+
+354 DialogueIncrementGlobal(S:Name*,S:Area*,I:Value*)
+Increments the variable 'Name' in the scope 'Area' by 'Value' immediately instead of being added through the dialogue owner's action queue. This allows variables to be set instantaneously and checked immediately afterwards in the same dialogue. ActionOverride() is supported. If used outside dialogue, this action behaves exactly as IncrementGlobal().
+Limitations: Variables become set asynchronously to the order in which the action is present on the script block. This can cause issues when an action is purposely sandwiched between two modifications of the same variable.
+
+355 DialogueSG(S:Name*,I:Num*)
+Sets the global variable 'Name' to 'Num' immediately instead of being added through the dialogue owner's action queue. This allows variables to be set instantaneously and checked immediately afterwards in the same dialogue. ActionOverride() is supported. If used outside dialogue, this action behaves exactly as SG().
+Limitations: Variables become set asynchronously to the order in which the action is present on the script block. This can cause issues when an action is purposely sandwiched between two modifications of the same variable.
+
+356 Assign(S:Statement*,I:Type*ArgType,I:Local*)
+356 AssignFromObject(S:Statement*,O:Object*,I:Type*ArgType,I:Local*)
+Assigns a value determined by Statement of the type Type from ARGTYPE.IDS (INT integer, or STR string) to a local action block variable.
+The general form of Statement is "prefix[params]".
+If Object is specified, the value of Statement is determined relative to Object instead of the object that owns the script.
+This action is ignored by prior Eval() actions.
+The general form of Statement is "prefix[params]"
+-"prefix" can be:
+* 'c' - assigns a constant value; params is a number, e.g. c[1], or string, e.g. c[FOO]
+* 'e' - assigns the value of an expression; params is an expression, e.g. e[6 + 7]; see 0x411B Eval() for the format of Expression
+* 'id' - assigns the index of a IDS file value; params is file.value, e.g. id[EA.CHARMED]
+* 's' - assigns the value of the stat specified of the current object; params is the stat name, e.g. s[LEVEL]
+* 'sp' - assigns a special value specified; params is the special name from ASGNSPEC.IDS, e.g. sp[SPRITE_POS_X]
+* 'tn' - assigns the value of a 2DA file value by coordinates; params is file.x.y, e.g. tn[IMPORT01.0.0]
+* 'ts' - assigns the value of a 2DA file value by column and row name; params is file.column.row, e.g. tn[IMPORT01.ITEMS.1]
+* 'v' - assigns the value of a variable; params is name.scope, e.g. [foo.GLOBAL]
+-"params" values containing #<num> and @<num> are replaced by the integer and string values, respectively, stored in local action block variables of index "num".
+Avoid using integer variables in expressions of string type. Avoid using string variables in expressions of integer type. The range of "num" is 0 to 24.
+
+357 Eval(S:Expression*,I:Type*ArgType,I:Loc*)
+Overwrites the (Loc)th argument of type Type from ARGTYPE.IDS (INT integer, or STR string) in the next action with the value returned by Expression.
+To replace point X and point Y, use a Loc value of 4 and 5, respectively.
+This action skips subsequent Assign() and Eval() actions when determining in which action to overwrite a value.
+This action does not overwrite values of actions beyond ClearBlockVariables() actions.
+-Expression is a math expression that can use the following symbols:
+=+-*/%^()
+min(x, y), max(x, y), avg(x, y)
+ceil(x), floor(x), round(x)
+abs(x)
+reciprocal(x)
+sqrt(x), pow(x, y)
+log(x), log10(x)
+sin(x), cos(x), tan(x), sinh(x), cosh(x), tanh(x), asin(x), acos(x), atan(x), atan2(x)
+Custom: and(x, y), or(x, y), band(x, y), bor(x, y)
+-Any text in Expression of form #<num> and @<num> is replaced by the integer and string values, respectively, stored in local action block variables of index "num".
+Avoid using integer variables in expressions of string type. Avoid using string variables in expressions of integer type. The range of "num" is 0 to 24.
+
+358 ClearBlockVariables()
+Sets all action block integer variables to 0 and empties all actions block string variables.
+
+Options:
+-0: disabled
+-1: enabled
+
+----1300 JoinParty Action Class Ability Refresh Fix [F]
+Fixes an exploit whereby the JoinParty() action restores all class abilities, allowing players to re-use class abilities over and over again
+
+Options:
+-0: disabled
+-1: enabled
+
+-----590 Remain Hidden On Pickpocket Success [C, T]
+(Different implementation to, and overrides tob_hacks)
+If pickpocketing is successful, the character does not become visible
+Limitation: Hide In Shadows will still terminate at the end of the round
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1610 TakePartyItem Fix [F]
+Fixes two issues with non-party characters using TakePartyItem() and TakeItemListParty() actions and their variants:
+-no longer puts the items in the magical weapon slot
+-no longer puts the items in the quick item slot
+-removes a buffer overflow in some cases when putting items into the magical weapon slot or last two inventory slots
 
 Options:
 -0: disabled
@@ -95,6 +197,14 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1550 Expanded LUA Console [D]
+Greatly expands the in-game LUA console to provide more debugging features
+Restores the function of CLUAConsole:StartStore(), which originally crashed the game
+
+Options:
+-0: disabled
+-1: enabled
+
 -----390 Externalise Logging [D]
 Duplicates the game's logging text onto the console and TobEx.log (with timestamp)
 Requires 'Logging On=1' under baldur.ini [Program Options]
@@ -107,6 +217,8 @@ Options:
 Logs assertion failures in the game to console and TobEx.log (with timestamp)
 These are logged even when the game is unable to display them
 Assertions will display a return address to facilitate debugging
+The following are also changed:
+-Missing spell icons for spells in the spell selection screen correctly display an assertion failure
 Does not require "Logging On=1" in baldur.ini
 
 Options:
@@ -179,18 +291,6 @@ Options:
 -----710 Verbose Logging [D]
 Prints to console and logs excessive amounts of internal TobEx debug messages
 Do not use this unless you are troubleshooting and need to report TobEx debug messages
-
-Options:
--0: disabled
--1: enabled
-
-/////////////////////////////////////// DIALOGUE
-
------1180 Instantly Set Dialogue Variables [M]
-Dialogue actions containing SetGlobal(), IncrementGlobal(), SG(), including through ActionOverride(), will set the variables immediately instead of being added through the dialogue owner's action queue
-This allows interactive updates to responses by dialogue transitions
-
-Limitations: Variables become set asynchronously to the order in which the action is present on the script block. This could possibly cause issues, but so far none have been identified.
 
 Options:
 -0: disabled
@@ -399,6 +499,14 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1310 Charisma Mod Fix [F]
+Fixes a bug so that a net negative charisma value will limit to 0 rather than wrap to 25
+This removes an exploit involving the Rod of Terror and the Ring of Human Influence
+
+Options:
+-0: disabled
+-1: enabled
+
 -----130 Configurable Backstab Every Hit [C, M]
 (Incompatible with tob_hacks)
 Modifies the backstab every hit opcode parameter 2 to configure whether STATE_INVISIBLE and position matters in a backstab
@@ -422,9 +530,21 @@ Options:
 -1: enabled
 
 -----160 Configurable Damage Effect Bypasses Mirror Images [C, M]
-(Identical to tob_hacks, SCS, SCSII, Spell Revisions)
-Adds new bit 24 to effect feature block save type 'Bypass Mirror Images'
+(Different implementation to tob_hacks, SCS, SCSII, Spell Revisions)
+Adds new bit 24 to effect save type field 'Bypass Mirror Images'
 Only for the damage effect opcode, if this bit is set, the mirror image check is skipped when checking saving throw
+
+Options:
+-0: disabled
+-1: enabled
+
+-----240 Configurable Effect Stacking [M]
+Adds bit 25 (Limit Effect Stacking) of the EFF V2.0 Header offset 0x0040 (Save Type), ITM V1.0 Feature Block offset 0x0024 (Save Type), and SPL V1.0 Feature Block offset 0x0024 (Save Type).
+When set, TobEx checks EFF V2.0 Header offset 0x0048 (Special), ITM V1.0 Feature Block offset 0x002C (Special), and SPL V1.0 Feature Block offset 0x002C (Special)
+for a unique stacking ID. If two effects of the same opcode are applied, both have Limit Effect Stacking Set, and both have the same stacking ID, then the latter applied effect is suspended in application until the former effect expires.
+Regardless of whether it is applied, the latter effect will expire at the same time that it would expire if it was applied. In other words, the total duration of some non-stacking effect opcode is not extended because more than one copy of the effect was applied.
+Stacking IDs are unique to the opcode being applied. To maintain uniqueness of stacking IDs between different mods, one recommendation is to use the higher word of Special as the modder's Infinity Engine Community Prefix, then use the lower word as an identifying ID. For example, 0x41360001 ('A6' 0x0001).
+TobEx also implements bit 26 (Internal: Suspend Effect Application) of the EFF V2.0 Header offset 0x0040 (Save Type), ITM V1.0 Feature Block offset 0x0024 (Save Type), and SPL V1.0 Feature Block offset 0x0024 (Save Type) to prevent effects with limited stacking from being applied.
 
 Options:
 -0: disabled
@@ -459,6 +579,13 @@ With 'Type' of 1 or 2, the base chance of successfully dispelling is 50%. This c
 Each level below target gives a -10% chance, each level above target gives a +5% chance. There is always a 1% chance of success or failure.
 
 2. Adds new bit 24 to the item flags 'Not dispellable in magical weapon slot'
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1320 Constitution Mod Fix [F]
+Fixes a bug so that a net negative constitution value will limit to 0 rather than wrap to 25
 
 Options:
 -0: disabled
@@ -507,12 +634,14 @@ Options:
 Fixes the following bugs with the damage opcode:
 1. Killing someone with magic fire damage would cause a WEIRD damage assertion failure
 2. Hitting someone with magic cold damage would not play a hit sound
+3. Memory leak when fist damage would make the target unconscious
 
 Options:
 -0: disabled
 -1: enabled
 
------450 Dexterity Mod [M, X]
+-----450 Dexterity Mod [F, M, X]
+Fixes a bug so that a net negative dexterity value will limit to 0 rather than wrap to 25
 Adds the Icewind Dale Type 3 Cat's Grace Spell to the dexterity modifier effect opcode
 
 #15 (0x00F)  Stat: Dexterity Modifier [15]
@@ -561,7 +690,7 @@ Options:
 -1: enabled
 
 -----290 Dispel Formula Fix [C, F]
-(Different implementation to, and clashes with tob_hacks, SCS, SCSII, Spell Revisions)
+(Different implementation to, and overrides tob_hacks, SCS, SCSII, Spell Revisions)
 Corrects the formula used for the dispel opcode
 
 Options:
@@ -576,9 +705,37 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1360 Fatigue Mod Fix [F]
+Fixes a bug so that a net negative fatigue limit value will limit to 0 rather than wrap to 100
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1440 Find Traps Mod Fix [F]
+Fixes a bug so that an out of bounds find traps skill will limit to 0 or 255 rather than wrap around
+
+Options:
+-0: disabled
+-1: enabled
+
 -----420 Forbid Item Type Fix [C, F]
 (Identical to tob_hacks)
 Fixes an engine bug that caused the forbidden item type information to be placed in an unused list whenever parameter 2 was non-zero
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1330 Intelligence Mod Fix [F]
+Fixes a bug so that a net negative intelligence value will limit to 0 rather than wrap to 25
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1370 Intoxication Mod Fix [F]
+Fixes a bug so that a net negative intoxication value will limit to 0 rather than wrap to 100
 
 Options:
 -0: disabled
@@ -613,6 +770,20 @@ Bit 4: If the spell is already learnt, no experience is given (excludes inventor
 Bit 5: Learning the spell obeys mage school exclusions (excludes inventory screen)
 Bit 6: The spell cannot be learnt by sorcerer class (excludes inventory screen)
 Bit 7: Learning fails if the target has already learnt the maximum number of spells as per INTMOD.2DA for the spell's level (excludes inventory screen)
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1380 Level Mod Fix [F]
+Fixes a bug so that a net negative level will limit to 0 rather than wrap to 100
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1340 Lore Mod Fix [F]
+Fixes a bug so that a net negative lore value will limit to 0 rather than wrap to 100
 
 Options:
 -0: disabled
@@ -656,12 +827,19 @@ Description:
 Applies the modifier value specified by the 'Statistic Modifier' field in the style specified by the 'Type' field.
 
 Known values for 'Type' are:
-0   Cumulative Modifier -> Value = Value + 'Statistic Modifier' value
+0   Instantaneous Cumulative Modifier -> Value = Value + 'Statistic Modifier' value
 1   Flat Value Modifier -> Value = 'Statistic Modifier' value
 2   Percentage Modifier -> Value = (Value * 'Statistic Modifier' value) / 100
-3   Instantaneous Cumulative Modifier -> Value = Value + 'Statistic Modifier' value
+3   Cumulative Modifier -> Value = Value + 'Statistic Modifier' value
 
 For a non-permanent timing, the instantaneous cumulative modifier immediately adds the 'Statistic Modifier' value, unlike the cumulative modifier which adds the 'Statistic Modifier' after all effects are applied. The former has the disadvantage that it will be overriden by any subsequent flat value modifiers. Percentage modifiers override all other modifiers.
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1410 Morale Break Mod Fix [F]
+Fixes a bug so that an out of bounds morale break value will limit to 0 or 255 rather than wrap around
 
 Options:
 -0: disabled
@@ -674,10 +852,51 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1450 Open Locks Mod Fix [F]
+Fixes a bug so that an out of bounds open locks skill will limit to 0 or 255 rather than wrap around
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1430 Pick Pockets Mod Fix [F]
+Fixes a bug so that an out of bounds pick pockets skill will limit to 0 or 255 rather than wrap around
+
+Options:
+-0: disabled
+-1: enabled
+
 -----570 Poison Fix [C, F]
 (Different implementation to, and clashes with tob_hacks)
 Fixes a bug with the poison opcode where a creature with multiple instances of disease, poison, wing buffet, 
 regeneration and/or repeating effect opcodes would only have the highest frequency instance applied 
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1630 Poison Resistance Mod [M]
+Adds sum (1), percentage modifier (2), and instantaneous sum (3) types
+
+Description
+#173 (0x0AD) Stat: Set Poison Resistance [173]
+Applies the modifier value specified by the 'Statistic Modifier' field in the style specified by the 'Type' field.
+
+Known values for 'Type' are:
+0   Flat Value Modifier -> Value = 'Statistic Modifier' value
+1   Cumulative Modifier -> Value = Value + 'Statistic Modifier' value
+2   Percentage Modifier -> Value = (Value * 'Statistic Modifier' value) / 100
+3   Instantaneous Cumulative Modifier -> Value = Value + 'Statistic Modifier' value
+
+Note that the 'Percentage Modifier' type (2) is applied before the 'Cumulative Modifier' types (1) are applied.
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1510 Polymorph Fix [F]
+Fixes a bug with param2=1 (Appearance only) where changes to the character's colour would either not work,
+or revert back to normal colours on refreshing the character
 
 Options:
 -0: disabled
@@ -760,7 +979,15 @@ Options:
 -0: disabled
 -1: enabled
 
------1130 Save Vs Breath Mod [M]
+-----1400 Reputation Mod Fix [F]
+Fixes a bug so that an out of bounds reputation value will limit to 0 or 255 rather than wrap around
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1130 Save Vs Breath Mod [F, M]
+Fixes a bug so that the save value correctly limits to -20 or 20, rather than a net negative save value wrapping to 20
 Adds instantaneous sum type (3)
 
 Description
@@ -780,7 +1007,8 @@ Known values for 'Type' are:
 
 For a non-permanent timing, the instantaneous cumulative modifier immediately adds the 'Statistic Modifier' value, unlike the cumulative modifier which adds the 'Statistic Modifier' after all effects are applied. The former has the disadvantage that it will be overriden by any subsequent flat value modifiers. Percentage modifiers override all other modifiers.
 
------1140 Save Vs Death Mod [M]
+-----1140 Save Vs Death Mod [F, M]
+Fixes a bug so that the save value correctly limits to -20 or 20, rather than a net negative save value wrapping to 20
 Adds instantaneous sum type (3)
 
 Description
@@ -800,7 +1028,8 @@ Known values for 'Type' are:
 
 For a non-permanent timing, the instantaneous cumulative modifier immediately adds the 'Statistic Modifier' value, unlike the cumulative modifier which adds the 'Statistic Modifier' after all effects are applied. The former has the disadvantage that it will be overriden by any subsequent flat value modifiers. Percentage modifiers override all other modifiers.
 
------1150 Save Vs Poly Mod [M]
+-----1150 Save Vs Poly Mod [F, M]
+Fixes a bug so that the save value correctly limits to -20 or 20, rather than a net negative save value wrapping to 20
 Adds instantaneous sum type (3)
 
 Description
@@ -820,7 +1049,8 @@ Known values for 'Type' are:
 
 For a non-permanent timing, the instantaneous cumulative modifier immediately adds the 'Statistic Modifier' value, unlike the cumulative modifier which adds the 'Statistic Modifier' after all effects are applied. The former has the disadvantage that it will be overriden by any subsequent flat value modifiers. Percentage modifiers override all other modifiers.
 
------1160 Save Vs Spells Mod [M]
+-----1160 Save Vs Spells Mod [F, M]
+Fixes a bug so that the save value correctly limits to -20 or 20, rather than a net negative save value wrapping to 20
 Adds instantaneous sum type (3)
 
 Description
@@ -840,7 +1070,8 @@ Known values for 'Type' are:
 
 For a non-permanent timing, the instantaneous cumulative modifier immediately adds the 'Statistic Modifier' value, unlike the cumulative modifier which adds the 'Statistic Modifier' after all effects are applied. The former has the disadvantage that it will be overriden by any subsequent flat value modifiers. Percentage modifiers override all other modifiers.
 
------1170 Save Vs Wands Mod [M]
+-----1170 Save Vs Wands Mod [F, M]
+Fixes a bug so that the save value correctly limits to -20 or 20, rather than a net negative save value wrapping to 20
 Adds instantaneous sum type (3)
 
 Description
@@ -860,7 +1091,33 @@ Known values for 'Type' are:
 
 For a non-permanent timing, the instantaneous cumulative modifier immediately adds the 'Statistic Modifier' value, unlike the cumulative modifier which adds the 'Statistic Modifier' after all effects are applied. The former has the disadvantage that it will be overriden by any subsequent flat value modifiers. Percentage modifiers override all other modifiers.
 
------480 Strength Mod [M, X]
+-----1570 Saving Throw Fix [F]
+Fixes three issues with effect saving throws:
+1. For multiple saving throw types, TobEx fixes an internal inconsistency when flagging which saving throw type is used to check save.
+TobEx determines which is the best saving throw type, then checks and flags only that one
+2. TobEx fixes an issue where if a saving throw fails by type, but modifiers result in a successful save, a successful save is not reported in the dialogue bar
+3. TobEx fixes an issue where targets with improved invisibility did not get a +4 saving throw against effects from creatures that cannot see invisible
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1460 Stealth Mod Fix [F]
+Fixes a bug so that an out of bounds move silently skill will limit to 0 or 255 rather than wrap around
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1390 Strength Extra Mod Fix [F]
+Fixes a bug so that a net negative strength extra value will limit to 0 rather than wrap to 100
+
+Options:
+-0: disabled
+-1: enabled
+
+-----480 Strength Mod [F, M, X]
+Fixes a bug so that a net negative strength value will limit to 0 rather than wrap to 25
 Alters the strength modifier effect opcode to work similar to Icewind Dale behaviour
 
 Description
@@ -876,8 +1133,7 @@ Known values for 'Type' are:
 2 Percentage Modifier -> Strength = (Strength * 'Statistic Modifier' value) / 100
 3 Strength Spell
 
-For a Type of 0 (Cumulative Modifier), unit increments from 17 upwards occurs as 17 -> 18 -> 18/01 -> 18/51 -> 18/76 -> 18/91 -> 18/00 -> 19 -> ...
-For a Type of 3 (Strength Spell), strength is modified as per Icewind Dale Strength spell behaviour, externalised to CLSSPLAB.2DA, in which 1Dx strength is gained up to a maximum of 18/<STREX value> depending on the player's class (defaults to 1D6 if class is not present), where x is specified by the STR column. Unit increments from 17 upwards occurs as 17 -> 18 -> 18/10 -> 18/20 -> 18/30 -> 18/40 -> 18/50 -> 18/60 -> 18/70 -> 18/80 -> 18/90 -> 18/00. The 'Statistic Modifier' value overrides the CLSSPLAB.2DA entry, specifying the die size and allowing a maximum strength of 18/00.
+For a Type of 3 (Strength Spell), strength is modified as per Icewind Dale Strength spell behaviour, externalised to CLSSPLAB.2DA, in which 1Dx strength is gained up to a maximum of 18/<STREX value> depending on the player's class (defaults to 1D6 if class is not present), where x is specified by the STR column. Unit increments between 18 and 19 depend on differences detected in the STRMODEX.2DA table. The 'Statistic Modifier' value overrides the CLSSPLAB.2DA entry, specifying the die size and allowing a maximum strength of 18/00.
 
 FlameWing's description of Strength Spell:
 "IWD1/P&P Strength Spell With a slight change, in that param1 != 0 means dice size to roll for all classes and allows exceptional strength bonuses for non-warrior classes. For example, param1 = 4 rolls a d4 for strength increase,
@@ -890,6 +1146,30 @@ Options:
 -----700 Use Caster Level On Mirror Image [C, M, T]
 (Identical to tob_hacks, SCS, SCSII, Spell Revisions)
 Modifies the mirror image opcode to keeps caster level so dispel formulae will work on it
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1420 Tracking Mod Fix [F]
+Fixes a bug so that an out of bounds tracking skill will limit to 0 or 255 rather than wrap around
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1500 Use EFF File Fix [F]
+Fixes a bug where child EFF file opcode implementations that store information in internal structures are not saved correctly
+For example:
+-this fixes a stutter issues associated with the Polymorph opcode when param2=1
+-this is required for Poison Fix, Disease Fix, Regeneration Fix, Repeating EFF Fix, Dexterity Mod, and Strength Mod hacks to work correctly
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1350 Wisdom Mod Fix [F]
+Fixes a bug so that a net negative wisdom value will limit to 0 rather than wrap to 25
 
 Options:
 -0: disabled
@@ -965,9 +1245,8 @@ Options:
 -0: disabled
 -1: enabled
 
------180 Correct Experience Reporting [F]
-Fixes a bug where the game incorrectly reports the amount of experience gained by the party
-While the party normally gains 110% experience of that coded in creatures, the game reports the 100% amount instead
+-----1580 Clone Creature Fix [F]
+Fixed a bug where a character who transitions between areas can cause a hostile creature chasing them through the area transition to clone
 
 Options:
 -0: disabled
@@ -989,13 +1268,6 @@ Options:
 -(-1): disabled
 -Other value: Throne of Bhaal starting experience set to this value
 
------240 Disable Duplicate Effect Stacking [B]
-Alters stacking behaviour of effects such that a duplicate effect applied from the same item/spell is not applied if the original effect is still active. If the duration of the duplicate effect continues beyond the original effect, the duplicate effect will apply when the original effect expires.
-
-Options:
--0: disabled
--1: enabled
-
 -----1110 Disable End On Player1 Dead [T]
 Disables the ending cutscene when the protagonist dies
 
@@ -1015,6 +1287,7 @@ Options:
 
 -----930 Disable Experience Boost [T]
 Disables the hard-coded feature where the party gains 110% of the experience actually coded in creatures
+Also, fixes a bug where the game incorrectly reports the amount of experience gained by the party
 
 Options:
 -0: disabled
@@ -1023,6 +1296,17 @@ Options:
 -----250 Disable Silence On Charm [T]
 Allows dialogue with charmed/dominated creatures
 Charmed/dominated creatures also keep their soundsets
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1480 Enable Auto-Pause On All Screens [T]
+In single player, auto-pause will work on any screen, not just the game screen
+Used by itself, this tweak will generally have effect on the map screen, because all other screens pause the game automatically
+Changing to a different screen from the map screen with the game unpaused keeps the game unpaused, so auto-pause will also work in these situations
+
+When combined with the Disable Force Inventory Pause hack, this tweak will also have effect in the inventory screen
 
 Options:
 -0: disabled
@@ -1137,6 +1421,19 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1620 Externalise Difficulty Settings [M, X]
+Externalises the difficulty-based damage percentage modifier to DIFFMOD.2DA
+
+DIFFMOD.2DA
+Description
+DAMAGE_MOD: The percentage to add to base damage
+LUCK_MOD: The amount to add to luck of party members
+[ROWNAME]: Difficulty level based on DIFFLEV.IDS
+
+Options:
+-0: disabled
+-1: enabled
+
 -----790 Externalise Encumbrance Restrictions [M, X]
 Externalises the thresholds for low and high encumbrance to ENCUMBER.2DA
 
@@ -1144,6 +1441,54 @@ ENCUMBER.2DA
 Description
 THRESHOLD: The percentage weight above which [ROWNAME] applies. If the THRESHOLD is set to 0, [ROWNAME] never applies. If the THRESHOLD is set to a negative number, the value is treated as invalid and the default hard-coded value is applied.
 [ROWNAME]: Either LOW_ENCUMBRANCE (slowed) or HIGH_ENCUMBRANCE (cannot move)
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1180 Externalise Mage Spells Cap [M]
+Externalises the number of spells cap per level of mage spells to SPELLS.2DA
+The cap for level 1-8 spells can be set to 99
+The cap for level 9 spells can be set to 199, for which spells 100-199 refer to SPWI0**.SPL
+
+Modding Note
+If this hack is used, it is recommended you use this hack with Externalize Mage Spell Hiding
+Otherwise, unwanted spells will show up on spell selection screens
+Also, assuming you provide maximum values for the number of spells in SPELLS.2DA,
+you should add to HIDESPL.2DA the following vanilla Throne of Bhaal spells:
+SPWI298-299
+SPWI399
+SPWI483-491, 493-499
+SPWI590-97
+SPWI853, 888, 897-899
+SPWI926-965, 979-999
+SPWI001-027, 050-056
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1290 Externalise Stealable Item Slots [M]
+Externalises and expands the configuration of which item slots are amenable to pickpocketing to SLTSTEAL.2DA
+
+SLTSTEAL.2DA
+Description
+SKILL: The minimum pickpocketing skill with which the item in the item slot can be stolen. If the skill is set to 0, the item slot can never be stolen from. Note that the SLOT_FIST value is ignored.
+[ROWNAME]: The name of the item slot. The row numbers are mapped to the item slot, not the name, except for SLOT_EQUIPPED. SLOT_EQUIPPED refers to the currently equipped weapon slot, or the currently equipped ammo slot and its launcher slot.
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1280 Fake Talk Exploit Fix [F]
+Fixes an exploit where players could intend to initiate dialogue with a neutral creature, cancel their action, and then perform a hostile action instead, resulting in the creature wasting up to 10 seconds doing nothing before becoming hostile
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1590 Launcher Proficiency Fix [F]
+Fixes a bug where no penalties were applied for having no proficiency in launcher weapons (bows, crossbows, slings)
 
 Options:
 -0: disabled
@@ -1158,10 +1503,16 @@ Options:
 -0: disabled
 -1: enabled
 
------590 Remain Hidden On Pickpocket Success [C, T]
-(Different implementation to, and clashes with tob_hacks)
-If pickpocketing is successful, the character does not become visible
-Limitation: Hide In Shadows will still terminate at the end of the round
+-----1250 Move Areas Fix [F]
+This hack tries to fix a bug where a creature that is moving between areas may have multiple requests to do so and thus creates multiple copies of the creature in the area and thus the saved game
+Courtesy of the Throne of Bhaal 26499 beta patch
+
+Options:
+-0: disabled
+-1: enabled
+
+----1540 Optimise Variables Code [F]
+Improves and find and add code for variables
 
 Options:
 -0: disabled
@@ -1170,6 +1521,21 @@ Options:
 -----780 Rest Spawns Advance Time [T]
 If resting is interrupted by rest spawns, a random amount of time up to eight hours (minus one tick) will pass
 This feature already existed in the code, but was never utilised
+
+Options:
+-0: disabled
+-1: enabled
+
+----1260 Spell Turning Fix [F]
+Fixes a bug where some memory that is not zeroed causes spells to be absorbed instead of bounced
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1240 Summon Limit Fix [F]
+This hack fixes a bug where the summon count can increment permanently, preventing any further summoning
+Courtesy of the Throne of Bhaal 26499 beta patch
 
 Options:
 -0: disabled
@@ -1285,28 +1651,29 @@ Options:
 -1: enabled
 
 -----740 Externalise Item-Creature Exclusions [M, X]
-Externalises creature-specific item restrictions to ITCREXCL.2DA.
+Externalises creature-specific item restrictions to ITEM_USE.2DA.
 
-ITCREXCL.2DA
+ITEM_USE.2DA
 Description
-[ROWNAME]: Death variable/Script name of creature (not case-sensitive)
-ITEM: the resource name of the item that the item-creature restrictions apply to
-NO_PICKUP_E: if set to non-zero, the ITEM cannot be removed from any equipment slot of the creature with associated death variable
-STRREF_PE: the string reference to display in the inventory screen when the ITEM is attempted to be removed from an equipment slot of the creature with associated death variable
-ONLY_EQUIP: if set to non-zero, the ITEM can only be equipped by the creature with associated death variable (this is 'stackable', in that multiple ITEM entries under different death variables mean that multiple creatures with associated death variables can equip the ITEM)
-STRREF_E: the string reference to display in when a creature other than that with the associated death variables tries to equip the ITEM
-NO_PICKUP_I: if set to non-zero, the ITEM cannot be removed from any inventory slot of the creature with associated death variable
-STRREF_I: the string reference to display in the inventory screen when the ITEM is attempted to be removed from an equipment slot of the creature with associated death variable
-NO_DROP_I: if set to non-zero, the ITEM cannot be placed in any inventory slot of the creature with associated death variable
-STRREF_DI: the string reference to display in the inventory screen when the ITEM is attempted to be placed in any inventory slot of the creature with associated death variable
-NO_DROP_E: if set to non-zero, the ITEM cannot be placed in any equipment slot of the creature with associated death variable
-STRREF_DE: the string reference to display in the inventory screen when the ITEM is attmpted to be placed in any equipment slot of the creature with associated death variable
+[ROWNAME]: the resource name of the item that the item-creature restrictions apply to
+USER: death variable/script name of creature (not case-sensitive)
+STRREF#: the string reference to display in the inventory screen when the restriction indicated by the flag value of # applies
+FLAG: bitfield indicating the type/s of restriction to apply
+
+FLAG bits
+bit 0 [1]: the item cannot be picked up from any slot of the creature (this overrides bits 3 and 4)
+bit 1 [2]: the item can only be equipped by the creature (this is 'stackable', so multiple item entries with different creatures mean that each of the listed creatures can equip the item)
+bit 2 [4]: no restrictions (this bit is reserved for GemRB)
+bit 3 [8]: the item cannot be picked up from any equipped slot of the creature
+bit 4 [16]: the item cannot be picked up from any inventory slot of the creature
+bit 5 [32]: the item cannot be dropped into any equipped slot of the creature
+bit 6 [64]: the item cannot be dropped into any inventory slot of the creature
 
 For example,
-	ITEM	NO_PICKUP_E	STRREF_PE	ONLY_EQUIP	STRREF_E	NO_PICKUP_I	STRREF_I	NO_DROP_I	STRREF_DI	NO_DROP_E	STRREF_DE
-MINSC	MISC84	1	10218	1	10218	1	10218	0	-1	0	-1
+	USER	STRREF	FLAG	STRREF2	STRREF4	STRREF8	STRREF16	STRREF32	STRREF64
+MISC84	MINSC	10218	3	10218	-1	-1	-1	-1	-1
 
-Item MISC84 cannot be removed from "Minsc"'s equipment slots or inventory slots, and can only be equipped by "Minsc".
+Item MISC84 cannot be picked up from any slot of "Minsc", and can only be equipped by "Minsc".
 
 Options:
 -0: disabled
@@ -1446,6 +1813,19 @@ Options:
 
 /////////////////////////////////////// SPELLS
 
+-----180 Casting Fixes [F]
+Fixes a number of issues with casting sounds and graphics:
+1. Modifies the way that the gender of casting sound selection is handled
+Normally, female gender uses female sound, other and niether gender uses unvoiced sound, and all other genders uses male sound
+This caused problems with spells like Project Image where illusory female creatures used male casting sounds
+This hack modifies so that female gender uses female sound, other and niether gender uses unvoiced sound, male gender uses male sound, and all other genders check the Sex field (0x237) in the CRE file format. If the Sex field is male, male sound is used. If female, female sound is used. For any other Sex field, an unvoiced sound is used
+
+2. Takes into account the MENTALSPEED stat when determining whether to play a casting sound at all, whether to play a gendered or unvoiced casting sound, and whether to play the casting animation
+
+Options:
+-0: disabled
+-1: enabled
+
 -----1010 Configurable Spells Can Be Unvoiced [M]
 Adds new bit 25 to spell flags 'Can Be Cast When Silenced'
 When a spell is being cast while silenced using this flag, the silenced casting sound "CHA_S*" is used
@@ -1470,11 +1850,32 @@ Options:
 -0: disabled
 -1: enabled
 
+-----1600 Externalise Bard Song Effects [M, X]
+Externalises the standard bard song effects list to a spell file bardsong.spl, allowing it to be modded
+
+Options:
+-0: disabled
+-1: enabled
+
+/////////////////////////////////////// STORE
+
+-----1470 Item Recharge Mod [F, M]
+Modifies the following in relation to usages for non-stackable items with charges:
+1. Items in a store with usages of 0 are no longer loaded with usages of 1
+2. Putting items in bags no longer recharges the items (unless bit 14 of the store flags is set, see below)
+3. Adds bit 14 (toggle recharge) to store flags. For bags, setting this bit will allow items to be recharged when placed in the bag. For stores, setting this bit will prevent items from recharging when sold to the store.
+4. The buy and sell prices of items that recharge now take into account the fact that they recharge (hence, depleted rechargable items no longer buy/sell with a price of 1)
+
+Options:
+-0: disabled
+-1: enabled
+
 /////////////////////////////////////// TRIGGER
 
------320 Enable PickpocketFailed Trigger [C, M, T]
-(Identical to tob_hacks)
-When pickpocketing fails, a PickPocketFailed() trigger is sent instead of Attacked()
+-----320 Enable PickpocketFailed Trigger [C, M]
+(Different implementation to, and overrides tob_hacks)
+When pickpocketing fails, a PickPocketFailed() trigger is sent in addition to AttackedBy()
+Compare this behaviour with PickpocketFailed Trigger Only, where only PickPocketFailed() is sent
 
 Options:
 -0: disabled
@@ -1482,11 +1883,14 @@ Options:
 
 -----1000 Expanded Triggers [M]
 Enables the use of new triggers
+Expands trigger constructions to make use of the following parameter combinations:
+(S,I,I) (S,I,I,I) (S,O,I,I) (S,O,I,I,I) (S,S,O)
 
-Descriptions
+New Trigger Descriptions
 0x4100 NextTriggerObject(O:Object*)
 Defines the object that the next trigger will be evaluated in reference to
-The trigger itself does not evaluate and does not count as a trigger in an OR() block
+This trigger itself does not evaluate and does not count as a trigger in an OR() block
+This trigger does not count as a trigger modified by Eval*()
 If the object cannot be found, the next trigger will evaluate to false
 
 0x4101 MovementRate(O:Object*,I:Value*)
@@ -1540,6 +1944,46 @@ Returns true if the target creature specified by Object is dual-classed and the 
 0x4119 HPLostLT(O:Object*,I:Hit Points*)
 Compares the absolute number of hit points short of maximum hit points on the target creature specified by Object to Amount.
 
+0x411A Assign(S:Statement*,I:Type*ArgType,I:Local*)
+Assigns a value determined by Statement of the type Type from ARGTYPE.IDS (INT integer, or STR string) to a local trigger block variable.
+The general form of Statement is "prefix[params]".
+This trigger does not evaluate and does not count as a trigger in an OR() block.
+-"prefix" can be:
+* 'c' - assigns a constant value; params is a number, e.g. c[1], or string, e.g. c[FOO]
+* 'e' - assigns the value of an expression; params is an expression, e.g. e[6 + 7]; see 0x411B Eval() for the format of Expression
+* 'id' - assigns the index of a IDS file value; params is file.value, e.g. id[EA.CHARMED]
+* 's' - assigns the value of the stat specified of the current object; params is the stat name, e.g. s[LEVEL]
+* 'sp' - assigns a special value specified; params is the special name from ASGNSPEC.IDS, e.g. sp[SPRITE_POS_X]
+* 'tn' - assigns the value of a 2DA file value by coordinates; params is file.x.y, e.g. tn[IMPORT01.0.0]
+* 'ts' - assigns the value of a 2DA file value by column and row name; params is file.column.row, e.g. tn[IMPORT01.ITEMS.1]
+* 'v' - assigns the value of a variable; params is name.scope, e.g. [foo.GLOBAL]
+-"params" values containing #<num> and @<num> are replaced by the integer and string values, respectively, stored in local trigger block variables of index "num".
+Avoid using integer variables in expressions of string type. Avoid using string variables in expressions of integer type. The range of "num" is 0 to 24.
+
+0x411B Eval(S:Expression*,I:Type*ArgType,I:Loc*)
+Overwrites the (Loc)th argument of type Type from ARGTYPE.IDS (INT integer, or STR string) in the next trigger with the value returned by Expression.
+This trigger does not evaluate and does not count as a trigger in an OR() block.
+This trigger does not overwrite values of the Assign(), NextTriggerObject() and OR() triggers.
+The NextTriggerObject() trigger ignores this trigger.
+-Expression is a math expression that can use the following symbols:
+=+-*/%^()
+min(x, y), max(x, y), avg(x, y)
+ceil(x), floor(x), round(x)
+abs(x)
+reciprocal(x)
+sqrt(x), pow(x, y)
+log(x), log10(x)
+sin(x), cos(x), tan(x), sinh(x), cosh(x), tanh(x), asin(x), acos(x), atan(x), atan2(x)
+Custom: and(x, y), or(x, y), band(x, y), bor(x, y)
+-Any text in Expression of form #<num> and @<num> is replaced by the integer and string values, respectively, stored in local trigger block variables of index "num".
+Avoid using integer variables in expressions of string type. Avoid using string variables in expressions of integer type. The range of "num" is 0 to 24.
+
+0x411C E(I:Num1*,I:Num2*)
+0x411D GT(I:Num1*,I:Num2*)
+0x411E LT(I:Num1*,I:Num2*)
+Compares "Num1" to "Num2", where E is equals, GT is greater than, and LT is less than.
+To make use of these triggers, the 0x411B Eval() trigger should be used prior to this trigger.
+
 Options:
 -0: disabled
 -1: enabled
@@ -1555,6 +1999,15 @@ Options:
 -----1090 Optimise Bag Search Code [F, O]
 Greatly reduces the amount of overhead with triggers that check bags for the presence of items (i.e. HasItem() and variants)
 Also fixes the PartyHasItemIdentified() trigger, which had identical behaviour to the PartyHasItem() trigger in single player
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1490 PickpocketFailed Trigger Only [C, M, T]
+(Different implementation to, and overrides tob_hacks)
+When pickpocketing fails, a PickPocketFailed() trigger is sent instead of AttackedBy()
+Compare this behaviour with Enable PickpocketFailed Trigger, where both triggers are sent 
 
 Options:
 -0: disabled
@@ -1687,6 +2140,13 @@ Options:
 -----440 IWD Animation Attack 3 Fix [F]
 Fixed IWD animations (0xE***) using the 3rd attack animation (A3) that would display the
 2nd attack animation in northeast and east orientations when 'Sprite Mirror' is disabled in 'baldur.ini'
+
+Options:
+-0: disabled
+-1: enabled
+
+-----1270 Spell Turning Animation Fix [F]
+Fixes a bug introduced somewhere between builds 22941 and 23037 of Shadows of Amn where the specific spell bouncing animation (SPSTURNI.VVC) was not being played correctly
 
 Options:
 -0: disabled

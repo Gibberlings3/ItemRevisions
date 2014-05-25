@@ -70,3 +70,25 @@ BEGIN
     END
   END ~%line1%~
 END
+
+
+////////////////////////////////////////////////////////////////
+
+OUTER_SPRINT usab @100400 // ~Usable[ %tab%]+[Bb]y[ %tab%]*:~
+OUTER_SPRINT unus @100401 // ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+
+DEFINE_PATCH_FUNCTION ~update_item_descriptions_to_bgee~ BEGIN
+  PATCH_IF GAME_IS bgee BEGIN
+    FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+      READ_LONG "%index%" "valid"
+      PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+        READ_STRREF "%index%" "description"
+        INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+          REPLACE_TEXTUALLY ~\(\([%LNL%%MNL%%WNL%][ %TAB%]*\(%usab%\|%unus%\)[ %TAB%]*\)\(\([%LNL%%MNL%%WNL%].*\)*\)?\)~  ~~
+        END
+        SAY_EVALUATED "%index%" ~%new_desc%~
+      END
+    END
+  END
+END
+

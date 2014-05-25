@@ -1,0 +1,105 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO ~revised_crit_aversion~ BEGIN
+
+  PATCH_IF is_helmet BEGIN // it's a helmet
+  
+    PATCH_IF add_ac || ident=0 BEGIN // either we added AC bonus to it, or it's unidentified description 
+      ac_added=0
+      SPRINT t2 @100424
+  
+      SPRINT t1 @100422
+      REPLACE_EVALUATE ~%t1%~ BEGIN
+        ac_added=1
+      END ~%t2%~
+    
+      SPRINT t1 @100423
+      PATCH_IF ac_added=0 BEGIN
+        REPLACE_EVALUATE ~%t1%~ BEGIN
+          ac_added=1
+        END ~%t2%~
+      END ELSE BEGIN
+        REPLACE_TEXTUALLY ~%t1%~ ~~
+      END
+  
+      PATCH_IF ac_added=0 BEGIN
+        SPRINT t1 @100114
+        SPRINT t2 @100425
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END
+      
+    END ELSE BEGIN // didn't add AC bonus and it's identified description
+    
+      SPRINT t1 @100422
+      REPLACE_TEXTUALLY ~%t1%~ ~~
+      
+    END
+    
+  END ELSE BEGIN // not a helmet
+  
+    SPRINT t1 @100422
+    REPLACE_TEXTUALLY ~%t1%~ ~~
+    
+  END
+  
+END
+
+
+//////////////////////////////////////////////
+//  patching
+
+OUTER_SET tobex=0
+ACTION_IF FILE_EXISTS ~tobex_ini/tobexcore.ini~ BEGIN
+  ACTION_IF FILE_CONTAINS_EVALUATED (~tobex_ini/tobexcore.ini~ ~Configurable Critical Hit Aversion=1~) BEGIN
+    OUTER_SET tobex=1
+  END
+END
+
+ACTION_IF tobex BEGIN
+  STRING_SET 20696 @48
+
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+ // COPY_EXISTING ~helm01.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    READ_SHORT 0x1c item
+    READ_ASCII 0x22 anim (2)
+    PATCH_IF item=7 BEGIN
+      READ_BYTE 0x18 flags
+      PATCH_IF ( (flags & 4) = 4 ) BEGIN // movable
+        WRITE_BYTE 0x1b THIS | 2 // disable critical protection
+        
+        add_ac=0
+        is_helmet=0
+        
+        // add +1 AC bonus
+        PATCH_IF (~%anim%~ STRING_MATCHES_REGEXP ~ +~) && !(~%anim%~ STRING_EQUAL_CASE ~JB~) BEGIN // has animation, not a circlet
+          is_helmet=1
+          ac_exists=0
+          GET_OFFSET_ARRAY ar ITM_V10_GEN_EFFECTS
+          PHP_EACH ar AS i => r BEGIN
+            READ_SHORT r opcode
+            PATCH_IF opcode=0 BEGIN // AC modifier
+              ac_exists=1            
+            END
+          END
+          PATCH_IF ac_exists=0 BEGIN
+            add_ac=1
+            LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 timing=2 target=1 parameter1=1 END
+          END
+        END
+
+        SPRINT text_update revised_crit_aversion
+        LPM update_item_descriptions
+        
+      END
+    END
+    
+  END BUT_ONLY
+END ELSE BEGIN
+  FAIL ~This component requires ToBEx installed~
+END
+
+
+

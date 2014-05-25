@@ -5,7 +5,7 @@
 @1    = ~Item Revisions by Demivrgvs~
 
 @34   = ~Executable Patch~
-@35   = ~ToBEx v20 (beta)~
+@35   = ~ToBEx v26 (beta)~
 @36   = ~ToB_Hacks - Casting Level Modifier and Repeating EFF Fix (not compatible with ToBEx)~
 @37   = ~ToB_Hacks - Casting Level Modifier Fix (safe)~
 
@@ -26,15 +26,16 @@
 @8    = ~Movement Speed and Dexterity Penalties~
 @26   = ~Movement Speed and Speed Factor Penalties~
 @27   = ~Dexterity and Speed Factor Penalties~
-@10   = ~Movement Speed Penalties~
+@10   = ~With Movement Speed Penalties~
 @11   = ~Dexterity Penalties~
 @28   = ~Speed Factor Penalties~
+@46   = ~Without Movement Speed Penalties~
 
 @12   = ~Allow Thieving Skills in Armor~
 @43   = ~Stealth is Penalized by Armor~
 @44   = ~Stealth is Penalized by Armor and Shields~
 
-@29   = ~Revised Armor Bonuses~
+@29   = ~Revised Armor~
 
 @13   = ~Revised Shield Bonuses~
 
@@ -67,10 +68,16 @@
 @23   = ~Backstabbing Penalties with More Weapons Usable for Backstabbing~
 @45   = ~All Melee and Ranged Weapons Usable For Backstabbing~
 
+
+@47   = ~Revised Critical Hit Aversion~
+@48   = ~Critical Hit Averted~
+
+@49   = ~Shields Can Bash~
+
 ///////
 
 // the next free value
-@46   = ~~
+@50   = ~~
 
 ///////
 

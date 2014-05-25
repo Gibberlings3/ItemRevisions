@@ -1,6 +1,7 @@
 INCLUDE ~item_rev/lib/descriptions.tpa~
 INCLUDE ~item_rev/lib/macros.tpa~
-INCLUDE ~item_rev/lib/common_shield_list.tpa~
+INCLUDE ~item_rev/lib/shield_list.tpa~
+INCLUDE ~item_rev/lib/identify_item.tpa~
 
 //////////////////////////////////////////////
 //  descriptions
@@ -119,18 +120,16 @@ END
 //////////////////////////////////////////////
 // patching
 
-LAM shields
-
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    READ_SHORT 0x1c temp_type ELSE 0
-    READ_ASCII 0x22 animation (2)
+    LPM identify_item
+  
     READ_LONG  0x64 abilities_offset
     READ_SHORT 0x68 num_abilities
     READ_LONG  0x6a effects_offset
     READ_SHORT 0x70 num_effects
 
-    PATCH_IF (temp_type == 190) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d1~) BEGIN // bucklers
+    PATCH_IF buckler BEGIN // bucklers
       // remove +X penalty to piercing weapons
       SET type = 4 // piercing
       SET specific_amount = 0
@@ -139,12 +138,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
       // update description
       SPRINT text_update ~revised_shield_bonuses_buckler_english~
       LAUNCH_PATCH_MACRO ~update_item_descriptions~
-
-      // clean up
-      WRITE_SHORT 0x1c 12 // resets item type to shield
     END
 
-    PATCH_IF (temp_type == 191) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d2~) BEGIN // small shields
+    PATCH_IF small_shield BEGIN // small shields
       // remove +X penalty to missile weapons
       SET type = 2 // missile
       SET specific_amount = 0
@@ -153,12 +149,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
       // update description
       SPRINT text_update ~revised_shield_bonuses_small_english~
       LAUNCH_PATCH_MACRO ~update_item_descriptions~
-
-      // clean up
-      WRITE_SHORT 0x1c 12 // resets item type to shield
     END
 
-    PATCH_IF (temp_type = 192) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d3~) BEGIN // medium shields
+    PATCH_IF medium_shield BEGIN // medium shields
       SET found = 0
       SET new_ac = 0
       FOR (i0 = 0; i0 < num_effects && found == 0; i0 += 1) BEGIN
@@ -178,12 +171,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
       // update description
       SPRINT text_update ~revised_shield_bonuses_medium_english~
       LAUNCH_PATCH_MACRO ~update_item_descriptions~
-
-      // clean up
-      WRITE_SHORT 0x1c 12 // resets item type to shield
     END
 
-    PATCH_IF (temp_type = 194) || (temp_type=12 && ~%animation%~ STRING_EQUAL_CASE ~d4~) BEGIN // large/tower shields
+    PATCH_IF tower_shield BEGIN // large/tower shields
       // add another +1 bonus to missile weapons
       SET type = 2 // missile
       SET specific_amount = 1
@@ -207,9 +197,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
       // update description
       SPRINT text_update ~revised_shield_bonuses_large_english~
       LAUNCH_PATCH_MACRO ~update_item_descriptions~
-
-      // clean up
-      WRITE_SHORT 0x1c 12 // resets item type to shield
     END
 
   END

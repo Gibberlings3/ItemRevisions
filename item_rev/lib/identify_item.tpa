@@ -1,0 +1,450 @@
+
+
+// some updates here, based on Mike's work:
+//   - slightly optimized processing
+//   - crossbows are distinguished by STR requirement
+//   - axes are distinguished by the presence of ranged attack header
+
+// PS screw the last bit, can tell NOT a dual-wieldable version of handaxe from a battleaxe
+// really, why do they have to be allowed to be used offhands? sigh...
+// 
+// ok, lets do the STR check here as well. i sure hope it will suffice (4 for handaxe, 10 for battleaxe)
+// 
+// and let us not to forget i wanted to slightly raise minimum STR reqs on most of the items - just to keep it in mind
+
+// more updates - identify everything, not just weapons/ammo
+
+
+DEFINE_PATCH_MACRO identify_item BEGIN
+
+READ_SHORT 0x1c item
+READ_ASCII 0x22 anim (2)
+READ_BYTE  0x26 strreq
+READ_BYTE  0x31 prof
+
+dagger          =0
+short_sword     =0
+long_sword      =0
+scimitar        =0
+bastard_sword   =0
+battleaxe       =0
+handaxe         =0
+ninjato         =0
+wakizashi       =0
+katana          =0
+club            =0
+hammer          =0
+mace            =0
+morning_star    =0
+flail           =0
+staff           =0
+spear           =0
+halberd         =0
+twohanded_sword =0
+dart            =0
+sling           =0
+short_bow       =0
+long_bow        =0
+comp_long_bow   =0
+light_xbow      =0
+heavy_xbow      =0
+arrow           =0
+bolt            =0
+bullet          =0
+leather         =0
+chainmail       =0
+plate           =0
+robe            =0
+buckler         =0
+small_shield    =0
+medium_shield   =0
+tower_shield    =0
+amulet          =0
+belt            =0
+boots           =0
+bracers         =0
+helmet          =0
+cloak           =0
+ring            =0
+potion          =0
+scroll          =0
+wand            =0
+gem             =0
+bag             =0
+misc            =0
+
+SPRINT itemtype ~misc~
+
+// shortcuts for "Weapon Changes"
+is_ammo=0
+is_weapon=0
+
+
+PATCH_IF item=0x1 BEGIN
+  amulet=1
+  SPRINT itemtype ~amulet~
+END ELSE
+
+
+PATCH_IF item=0x2 BEGIN
+  PATCH_IF VARIABLE_IS_SET $armor("RESOURCE_RES%") BEGIN
+    itemtype = $armor("RESOURCE_RES%") & 7
+
+    PATCH_IF itemtype=1 || itemtype=2 || itemtype=3 BEGIN
+      leather=1
+      SPRINT itemtype ~leather~
+    END ELSE
+
+    PATCH_IF itemtype=4 || itemtype=5 BEGIN
+      chainmail=1
+      SPRINT itemtype ~chainmail~
+    END ELSE
+
+    PATCH_IF itemtype=6 || itemtype=7 BEGIN
+      plate=1
+      SPRINT itemtype ~plate~
+    END
+  END ELSE
+
+  PATCH_IF NOT VARIABLE_IS_SET $armor("RESOURCE_RES%") BEGIN
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~2a~) BEGIN
+      leather=1
+      SPRINT itemtype ~leather~
+    END ELSE
+
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~3a~) BEGIN
+      chainmail=1
+      SPRINT itemtype ~chainmail~
+    END ELSE
+
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~4a~) BEGIN
+      plate=1
+      SPRINT itemtype ~plate~
+    END
+  END ELSE
+
+  PATCH_IF (~%anim%~ STRING_COMPARE_REGEXP ~[2-4][Ww]~) = 0 BEGIN
+    robe=1
+    SPRINT itemtype ~robe~
+  END
+END ELSE
+
+
+PATCH_IF item=0x3 BEGIN
+  belt=1
+  SPRINT itemtype ~belt~
+END ELSE
+
+
+PATCH_IF item=0x4 BEGIN
+  boots=1
+  SPRINT itemtype ~boots~
+END ELSE
+
+
+PATCH_IF item=0x5 BEGIN
+  arrow=1
+  SPRINT itemtype ~arrow~
+  is_ammo=1
+END ELSE
+
+
+PATCH_IF item=0x6 BEGIN
+  bracers=1
+  SPRINT itemtype ~bracers~
+END ELSE
+
+
+PATCH_IF item=0x7 BEGIN
+  helmet=1
+  SPRINT itemtype ~helmet~
+END ELSE
+
+
+PATCH_IF item=0x9 BEGIN
+  potion=1
+  SPRINT itemtype ~potion~
+END ELSE
+
+
+PATCH_IF item=0xa BEGIN
+  ring=1
+  SPRINT itemtype ~ring~
+END ELSE
+
+
+PATCH_IF item=0xb BEGIN
+  scroll=1
+  SPRINT itemtype ~scroll~
+END ELSE
+
+
+PATCH_IF item=0xc BEGIN
+  PATCH_IF VARIABLE_IS_SET $shield("RESOURCE_RES%") BEGIN
+    PATCH_IF $shield("RESOURCE_RES%")=1 BEGIN
+      buckler=1
+      SPRINT itemtype ~buckler~
+    END ELSE
+
+    PATCH_IF $shield("RESOURCE_RES%")=2 BEGIN
+      small_shield=1
+      SPRINT itemtype ~small_shield~
+    END ELSE
+
+    PATCH_IF $shield("RESOURCE_RES%")=3 BEGIN
+      medium_shield=1
+      SPRINT itemtype ~medium_shield~
+    END ELSE
+
+    PATCH_IF $shield("RESOURCE_RES%")=4 BEGIN
+      tower_shield=1
+      SPRINT itemtype ~tower_shield~
+    END
+  END ELSE BEGIN
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~d1~) BEGIN
+      buckler=1
+      SPRINT itemtype ~buckler~
+    END ELSE
+
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~d2~) BEGIN
+      small_shield=1
+      SPRINT itemtype ~small_shield~
+    END ELSE
+
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~d3~) || (~%anim%~ STRING_EQUAL_CASE ~c0~) BEGIN
+      medium_shield=1
+      SPRINT itemtype ~medium_shield~
+    END ELSE
+
+    PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~d4~) || (~%anim%~ STRING_EQUAL_CASE ~c4~) BEGIN
+      tower_shield=1
+      SPRINT itemtype ~tower_shield~
+    END
+  END
+END ELSE
+
+
+PATCH_IF item=0xe BEGIN
+  bullet=1
+  SPRINT itemtype ~bullet~
+  is_ammo=1
+END ELSE
+
+
+PATCH_IF item=0xf BEGIN
+  PATCH_IF prof=0x69 BEGIN
+    short_bow=1
+    SPRINT itemtype ~short_bow~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x68 BEGIN
+    PATCH_IF strreq<16 BEGIN
+      long_bow=1
+      SPRINT itemtype ~long_bow~
+      is_weapon=1
+    END ELSE
+
+    BEGIN
+      comp_long_bow=1
+      SPRINT itemtype ~comp_long_bow~
+      is_weapon=1
+    END
+  END
+END ELSE
+
+
+PATCH_IF item=0x10 BEGIN
+  dagger=1
+  SPRINT itemtype ~dagger~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x11 BEGIN
+  PATCH_IF prof=0x73 BEGIN
+    club=1
+    SPRINT itemtype ~club~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x65 BEGIN
+    mace=1
+    SPRINT itemtype ~mace~
+    is_weapon=1
+  END
+END ELSE
+
+
+PATCH_IF item=0x12 BEGIN
+  sling=1
+  SPRINT itemtype ~sling~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x13 BEGIN
+  PATCH_IF prof=0x5b BEGIN
+    short_sword=1
+    SPRINT itemtype ~short_sword~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x5e || prof=0x5f BEGIN
+    wakizashi=1
+    SPRINT itemtype ~wakizashi~
+    is_weapon=1
+  END
+END ELSE
+
+
+PATCH_IF item=0x14 BEGIN
+  PATCH_IF prof=0x59 BEGIN
+    bastard_sword=1
+    SPRINT itemtype ~bastard_sword~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x5a BEGIN
+    long_sword=1
+    SPRINT itemtype ~long_sword~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF (prof=0x5b || prof=0x5f) && (~%anim%~ STRING_EQUAL_CASE ~s1~) BEGIN
+    ninjato=1
+    SPRINT itemtype ~ninjato~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x5d BEGIN
+    twohanded_sword=1
+    SPRINT itemtype ~twohanded_sword~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x5e BEGIN
+    katana=1
+    SPRINT itemtype ~katana~
+    is_weapon=1
+  END ELSE
+
+  PATCH_IF prof=0x5f && (~%anim%~ STRING_EQUAL_CASE ~sc~ || ~%SOURCE_RES%~ STRING_EQUAL_CASE ~sw1h53~) BEGIN
+    scimitar=1
+    SPRINT itemtype ~scimitar~
+    is_weapon=1
+  END
+END ELSE
+
+
+PATCH_IF item=0x15 BEGIN
+  hammer=1
+  SPRINT itemtype ~hammer~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x16 BEGIN
+  morning_star=1
+  SPRINT itemtype ~morning_star~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x17 BEGIN
+  flail=1
+  SPRINT itemtype ~flail~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x18 BEGIN
+  dart=1
+  SPRINT itemtype ~dart~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x19 BEGIN
+  PATCH_IF strreq>9 BEGIN
+    battleaxe=1
+    SPRINT itemtype ~battleaxe~
+    is_weapon=1
+  END ELSE
+
+  BEGIN
+    handaxe=1
+    SPRINT itemtype ~handaxe~
+    is_weapon=1
+  END
+END ELSE
+
+
+PATCH_IF item=0x1a BEGIN
+  staff=1
+  SPRINT itemtype ~staff~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x1b BEGIN
+  PATCH_IF strreq<10 BEGIN
+    light_xbow=1
+    SPRINT itemtype ~light_xbow~
+    is_weapon=1
+  END ELSE
+
+  BEGIN
+    heavy_xbow=1
+    SPRINT itemtype ~heavy_xbow~
+    is_weapon=1
+  END
+END ELSE
+
+
+PATCH_IF item=0x1d BEGIN
+  spear=1
+  SPRINT itemtype ~spear~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x1e BEGIN
+  halberd=1
+  SPRINT itemtype ~halberd~
+  is_weapon=1
+END ELSE
+
+
+PATCH_IF item=0x1f BEGIN
+  bolt=1
+  SPRINT itemtype ~bolt~
+  is_ammo=1
+END
+
+
+PATCH_IF item=0x20 BEGIN
+  cloak=1
+  SPRINT itemtype ~cloak~
+END ELSE
+
+
+PATCH_IF item=0x22 BEGIN
+  gem=1
+  SPRINT itemtype ~gem~
+END ELSE
+
+
+PATCH_IF item=0x23 BEGIN
+  wand=1
+  SPRINT itemtype ~wand~
+END ELSE
+
+
+PATCH_IF item=0x24 BEGIN
+  bag=1
+  SPRINT itemtype ~bag~
+END
+
+END
+

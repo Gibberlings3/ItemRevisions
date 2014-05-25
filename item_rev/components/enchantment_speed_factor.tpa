@@ -4,7 +4,7 @@ ACTION_IF comp_ir_wc=0 && comp_ir_sf=0 BEGIN // only run it once
   INCLUDE ~item_rev/lib/fixpack.tpa~
 END
 INCLUDE ~item_rev/lib/identify_fix.tpa~
-INCLUDE ~item_rev/lib/identify_weapon.tpa~
+INCLUDE ~item_rev/lib/identify_item.tpa~
 INCLUDE ~item_rev/lib/weapon_changes_main.tpa~
 OUTER_SPRINT debug_file ~item_rev/debug/weapon_debug.log~
 

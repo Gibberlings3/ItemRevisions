@@ -1,5 +1,3 @@
-
-
 v3 Beta 1.5 (9 Nov 2011)
 
  - White Dragonscale Armor +5 now can't be used by Stalkers and Archers
@@ -223,20 +221,61 @@ v3 Beta 1.14 (21 October 2012)
 
 - Text updates:
     "item_descriptions.tra":
-
       @1659 - name changed/fixed into "Skin of the Forest +3"
       @1660 - added "Note: Barkskin effect is not cumulative with other similar magic."
       @2144 - changed Equalizer usability flags from
       @2252 - "three bolts" instead of "six bolts"
 
 
- TO DO:
- - include Demi's work on rods
+v3 Beta 1.15 (22 August 2013)
+
+ - Fixed various typos
+ - Potion of Heroism/Power were missing thac0/dmg bonuses
+ - Potion of Sight now correctly "cures" blindness from imbiber
+ - Obsidian Ioun Stone had incorrect bonus to saves vs. spell instead of vs. death
+
+
+v3 Beta 1.16 (12 September 2013)
+
+ - re-fixed old bug relating to 1PP shield animations
+
+
+v3 Beta 1.17 (insert date)
+
+ - Demi has added rods! Woo-hoo!!!
+ - Revised Armor and Heavy Armor Encumbrance components have been merged
+ - Added Revised Critical Hit Aversion component
+ - Added physical resistance bonus to armors in Revised Armor component
+ - Weapon Changes no longer breaks ninja-tos and wakizashis
+ - Updated ToBEx to v26
+ - Added several advanced options to the ini file
+ - Drow stores can no longer be stolen from in Store Revisions component
+ - Daystar +4 can be used by thieves and mage/thieves
+ - Staff of Rynn +3 had incorrect icon for its Greater Malison ability
+ - Purifier +4 had incorrect icons for its Greater Restoration and Draw Upon Holy Might abilities
+ - Robe of Arcane Might and Golden Ioun Stone now *REALLY* grant caster level bonus to both divine and arcane spells
+ - Fixed tooltips strrefs for Celestial Fury +3
+ - Fixed item amounts in Joluv's stock in Store Revisions
+
+- Text updates:
+    "setup.tra":
+      @10 - changed from "Movement Speed Penalties" to "With Movement Speed Penalties"
+      @29 - changed from "Revised Armor Bonuses" to "Revised Armor"
+      added @46, @47, @48, 49
+
+    "item_descriptions.tra":
+      @1859 - changed "Magic Resistance: +5% bonus" to "Saving Throws: +1 bonus"
+      @2252 - changed "up to six" to "up to three"
+      
+    "description_updates.tra":
+      added @100419, @100420, @100421, @100422
+
+
+
+
+TO DO:
  - Fix @1822
- - add critical hit revision
- - add physical resistance for armor
  - add shield bash attack
- - update tobex
  - update masterwork component
  - update spell-like abilities on items (?!?)
  - cover bg1 portion of the game with store revisions

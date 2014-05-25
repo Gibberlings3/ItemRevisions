@@ -596,20 +596,48 @@ STATISTICS:~
 // catch ~Beastmaster~ or ~Beast Master~
 @100418 = ~[Bb]east[ %tab%]*[Mm]aster~
 
+//////////////////
+//  Shield Bash //
+//////////////////
+
+// 
+@100419 = ~
+Shield Bash Damage:  1D%size%%bon%
+Weight:~
+
+// 
+@100420 = ~Shield Bash~
+
+// 
+@100421 = ~Unaffected By Weapon.~
 
 
+/////////////////////////////////////
+//  Revised Critical Hit Aversion  //
+/////////////////////////////////////
 
+// remove ~Protects Against Critical Hits~ from the description
+@100422 = ~[%LNL%%MNL%%WNL%]\([ %TAB%%emdash%]*\)\(Special:[ %TAB%]+\)?Protects[ %TAB%]+[Aa]gainst[ %TAB%]+[Cc]ritical[ %TAB%]+[Hh]its~
 
+// remove ~Armor Class Bonus: None~ from the description
+@100423 = ~[%LNL%%MNL%%WNL%]\([ %TAB%%emdash%]*\)Armou?r[ %TAB%]+[Cc]lass[ %TAB%]+[Bb]onus:[ %TAB%]+[Nn]one~
 
+// replace @100422 or @100423, \1 matches [ %TAB%%emdash%]*
+@100424 = ~
+\1Armor Class Bonus: +1~
 
-
+// add AC line to @100114
+@100425 = ~
+Armor Class Bonus: +1
+Weight:~
 
 /*
-// 
-@100419 = ~~
 
 // 
-@100420 = ~~
+@100426 = ~~
+
+// 
+@100427 = ~~
 */
 
 

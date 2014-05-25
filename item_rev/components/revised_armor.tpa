@@ -1,82 +1,164 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
 INCLUDE ~item_rev/lib/armor_list.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO encumbrance BEGIN
+  PATCH_IF xdex<0 BEGIN
+    SPRINT t1 @100114
+    SPRINT t2 @100308
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  PATCH_IF xmove<0 BEGIN
+    SPRINT t1 @100114
+    SPRINT t2 @100309
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  PATCH_IF xsf>0 BEGIN
+    SPRINT t1 @100114
+    SPRINT t2 @100310
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+END
+
 
 //////////////////////////////////////////////
 //  reading table
 
-// new AC modifiers vs type
-// yes, you can safely alter these numbers
-<<<<<<<<item_rev/lib/armortable.txt
-armor     slash pierc blunt missl
-leather       0    -1     1    -1
-studded       2     1    -1     1
-hide          0    -1     1    -1
-chainmail     2     1    -1     1
-splint        1     0     2     0
-platemail     2     1     0     1
-fullplate     3     2     0     2
->>>>>>>>
-COPY - ~item_rev/lib/armortable.txt~ override
-  READ_2DA_ENTRIES_NOW rn 5
+DEFINE_PATCH_MACRO calc BEGIN
+  READ_2DA_ENTRY_FORMER rn armor column value
+  PATCH_IF subst=2 BEGIN value+= EVAL ~rn_8_%column%~ END // scale
+  PATCH_IF subst=1 BEGIN value+= EVAL ~rn_9_%column%~ END // mithral
+  PATCH_IF elven BEGIN value+= EVAL ~rn_10_%column%~ END
+  value= value>0 ? value : 0
+END
 
+COPY - ~item_rev/lib/armor_penalty_table.txt~ override
+  READ_2DA_ENTRIES_NOW rn 11
 
 //////////////////////////////////////////////
 //  patching
 
 ACTION_PHP_EACH armor AS ind => res BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
-  COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+      armor =   res & 7
+      subst = ( res >> 3 ) & 3 // 1=mithral, 2=scale
+      elven = ( res >> 5 ) & 1
 
-    armor = (res & 7)
-    PATCH_IF armor BEGIN
-
-      // delete old AC modifiers vs type
-      // ideally i should have updated Mike's macro lib, but for now this will do
-      READ_LONG  0x64 ab_off
-      READ_SHORT 0x68 ab_num
-      READ_LONG  0x6a ef_off
-      READ_SHORT 0x70 ef_num
-      delta=0
-      FOR (i=0;i<ef_num;i+=1) BEGIN
-        READ_SHORT ef_off+i*0x30 opcode
-        PATCH_IF opcode=0 BEGIN // AC modifier
-          READ_LONG ef_off+i*0x30+8 type
-          PATCH_IF type=1 || type=2 || type=4 || type=8 BEGIN
-            DELETE_BYTES ef_off+i*0x30 0x30
-            delta -= 1
-            ef_num -= 1
-            i -= 1
+      PATCH_IF armor BEGIN
+      
+        // dexterity penalties
+        xdex=0
+        PATCH_IF armor_dexterity_penalty BEGIN
+          column=4 LPM calc
+          PATCH_IF value BEGIN
+            xdex=0 - value
+            LPF ADD_ITEM_EQEFFECT INT_VAR opcode=15 target=1 timing=2 parameter1=(100 - value) parameter2=2 END
           END
-        END          
-      END
-      WRITE_SHORT 0x70 ef_num
-      FOR (i=0;i<ab_num;i+=1) BEGIN      WRITE_SHORT ab_off+i*0x38+0x20 (THIS+delta)    END
-      PATCH_IF ab_off>ef_off BEGIN      WRITE_LONG 0x64 (THIS+delta*0x30)    END
+        END
 
-      // now the interesting part begins
-      READ_2DA_ENTRY_FORMER rn armor 1 slash
-      READ_2DA_ENTRY_FORMER rn armor 2 pierc
-      READ_2DA_ENTRY_FORMER rn armor 3 blunt
-      READ_2DA_ENTRY_FORMER rn armor 4 missl
+        // movement speed penalties
+        xmove=0
+        PATCH_IF armor_movement_penalty BEGIN
+          column=5 LPM calc
+          PATCH_IF value BEGIN
+            xmove=0 - value
+            LPF ADD_ITEM_EQEFFECT INT_VAR opcode=176 target=1 timing=2 parameter1=(100 - value) parameter2=2 END
+          END
+        END
 
-      PATCH_IF blunt!=0 BEGIN
-        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=blunt parameter2=1 END
-      END
-      PATCH_IF missl!=0 BEGIN
-        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=missl parameter2=2 END
-      END
-      PATCH_IF pierc!=0 BEGIN
-        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=pierc parameter2=4 END
-      END
-      PATCH_IF slash!=0 BEGIN
-        LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=slash parameter2=8 END
+        // speed factor penalties
+        xsf=0
+        PATCH_IF armor_speed_factor_penalty BEGIN
+          column=6 LPM calc
+          PATCH_IF value BEGIN
+            xsf=value
+            LPF ADD_ITEM_EQEFFECT INT_VAR opcode=190 target=1 timing=2 parameter1=(0 - value) END
+          END
+        END
+
+        // physical resistance bonuses
+        xres=0
+        PATCH_IF armor_physical_resistance BEGIN
+          column=7 LPM calc
+          PATCH_IF value BEGIN
+            xres=value
+            GET_OFFSET_ARRAY effects ITM_V10_GEN_EFFECTS
+            FOR (opcode=86;opcode<90;++opcode) BEGIN
+              PHP_EACH effects AS i => r BEGIN // check if the resistance opcode already exists
+                READ_SHORT r op
+                exists=0
+                PATCH_IF op=opcode BEGIN
+                  WRITE_LONG r+4 (THIS+value)>100 ? 100 : (THIS+value) // don't go over 100
+                  exists=1
+                END
+              END
+              PATCH_IF exists=0 BEGIN // if doesn't exist
+                LPF ADD_ITEM_EQEFFECT INT_VAR opcode target=1 timing=2 parameter1=value END
+              END
+            END
+          END
+        END
+        
+        // AC vs type modifiers
+        PATCH_IF armor_ac_modifiers BEGIN
+          // delete old AC modifiers vs type
+          // ideally i should have updated Mike's macro lib, but for now this will do
+          READ_LONG  0x64 ab_off
+          READ_SHORT 0x68 ab_num
+          READ_LONG  0x6a ef_off
+          READ_SHORT 0x70 ef_num
+          delta=0
+          FOR (i=0;i<ef_num;i+=1) BEGIN
+            READ_SHORT ef_off+i*0x30 opcode
+            PATCH_IF opcode=0 BEGIN // AC modifier
+              READ_LONG ef_off+i*0x30+8 type
+              PATCH_IF type=1 || type=2 || type=4 || type=8 BEGIN
+                DELETE_BYTES ef_off+i*0x30 0x30
+                delta -= 1
+                ef_num -= 1
+                i -= 1
+              END
+            END          
+          END
+          WRITE_SHORT 0x70 ef_num
+          FOR (i=0;i<ab_num;i+=1) BEGIN      WRITE_SHORT ab_off+i*0x38+0x20 (THIS+delta)    END
+          PATCH_IF ab_off>ef_off BEGIN      WRITE_LONG 0x64 (THIS+delta*0x30)    END
+      
+          // now the interesting part begins
+          READ_2DA_ENTRY_FORMER rn armor 8  slash
+          READ_2DA_ENTRY_FORMER rn armor 9  pierc
+          READ_2DA_ENTRY_FORMER rn armor 10 blunt
+          READ_2DA_ENTRY_FORMER rn armor 11 missl
+
+          PATCH_IF blunt!=0 BEGIN
+            LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=blunt parameter2=1 END
+          END
+          PATCH_IF missl!=0 BEGIN
+            LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=missl parameter2=2 END
+          END
+          PATCH_IF pierc!=0 BEGIN
+            LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=pierc parameter2=4 END
+          END
+          PATCH_IF slash!=0 BEGIN
+            LPF ADD_ITEM_EQEFFECT INT_VAR target=1 timing=2 parameter1=slash parameter2=8 END
+          END
+        END
+
+        SPRINT text_update encumbrance
+        LPM update_item_descriptions
       END
 
-    END
-  END BUT_ONLY END
+    END BUT_ONLY
+  END
 END
 
 //////////////////////////
 // handle special cases
+
+ACTION_IF armor_ac_modifiers BEGIN
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~leat06.itm~) BEGIN
   COPY_EXISTING leat06.itm override // Missile Attraction +2 
@@ -209,3 +291,5 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~s!plat02.itm~) BEGIN
     LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=5 parameter2=2 END
   BUT_ONLY
 END
+
+END // ACTION_IF ac_mod

@@ -590,7 +590,25 @@ mgiplat1 => 7  // Restless Spirit +1
 ~s!plat05~ => 23 // Green Wyrm Plate +4
 ~s!plat06~ => 23 // Great Wyrm Armor +5
 
-// !!! UNCONFIRMED !!!
+// enhanced edition
+
+ohchan50 => 5 // Splint Mail +2
+ohdarmor => 22 // Silver Dragon Scale
+ohleat50 => 3 // Hide Armor +1
+ohleat51 => 3 // Hide Armor +2
+ohleat52 => 3 // Hide Armor +3
+ohleat53 => 2 // Studded Leather Armor +3
+ohplat50 => 6 // Plate Mail +2
+
+
+  ~DW#ABYDA~ => 18 // Yellow Dragon Scale Armor
+
+
+/////////////////////////////////////////////////
+//                                             //
+//             !!! UNCONFIRMED !!!             //
+//                                             //
+/////////////////////////////////////////////////
 
   ~_chan01~ => 4
   ~_chan02~ => 4
@@ -683,7 +701,113 @@ mgiplat1 => 7  // Restless Spirit +1
 
   ~_leat08~ => 66
   ~leat08a~ => 66   // improved shadow armor (shadow studded armour with +15% hide in shadows)
+  
+  ~BGSX16~   => 1 // Jerkin of the Brazen Rogue
+  ~CMNIKRL1~ => 1 // Nikita's Leather Armor (HiS bonus)
+  ~DEPO10~   => 1 // Feytouched Armor
+  ~DEPO156~  => 1 // Shark Skin Leather Armor
+  ~DEPO24~   => 1 // Royal Leather Armor
+  ~DEPO37~   => 1 // Hydra Armor
+  ~KOVAARM1~ => 1 // Haeloven
+  ~KOVAARM2~ => 1 // Haeloven +2
+  ~KOVAARM5~ => 1 // Haeloven +4
+  ~LEAT25~   => 1 // Squeaky Leather Armor +2 (Leather Armor) (bgee, applies extra MS penalty)
+  ~WQXLE2~   => 1 // Hood 'Tranquility'
+  ~_leat06~  => 2 // Missile Attraction +2
+  ~AAITM164~ => 2 // Leather Armor of Freedom +5
+  ~DEPO93~   => 2 // Centaur Battle Armor
+  ~DEPO60~   => 3 // Behemoth Armor
+  ~DEPO70~   => 3 // Celestial Armor of Cold Energy
+  ~AASHRARM~ => 4 // Darkmail +3
+  ~BGSX14~   => 4 // Deep Gnome Chainmail
+  ~CHAN01B~  => 4 // Chain Mail Armor
+  ~CHAN02B~  => 4 // Chain Mail +1
+  ~CHAN03B~  => 4 // Mail of the Dead +2
+  ~CHAN12ZZ~ => 4 // Armour of the forest
+  ~D2#RUN08~ => 4 // Enigma
+  ~DEPO155~  => 4 // Master Noble Drenium Chainmail
+  ~DEPO221~  => 4 // Dwarven Ringmail Tunic
+  ~DEPO23~   => 4 // Resplendent Chain Mail
+  ~DEPO28~   => 4 // Sparking Mail
+  ~DEPO30~   => 4 // Hawkmail
+  ~DEPO35~   => 4 // Cyclops Chainmail
+  ~DEPO54~   => 4 // Chain Mail of the Undead
+  ~DEPO83~   => 4 // Invulnerable Coat of Arnd
+  ~DEPO88~   => 4 // Eclipse Armor
+  ~X#FAI4~   => 4 // Battered Armor
+  ~CHAN04B~  => 5 // Splint Mail
+  ~DEPO209~  => 5 // Splint Mail of Oghma
+  ~DEPO215~  => 5 // Runed Crusader Armor
+  ~_MISC99~  => 6 // Plate Mail Armor
+  ~_plat99~  => 6 // Plate Mail Armor
+  ~DEPO137~  => 6 // Adamantine Plate Mail
+  ~DEPO144~  => 6 // Demon Psycho Armor
+  ~DEPO166~  => 6 // Kraken Shell Armor
+  ~DEPO170~  => 6 // Black Swan Armor
+  ~DEPO177~  => 6 // Armor of the Forgotten Hero
+  ~DEPO201~  => 6 // Plate of the Dryad
+  ~DEPO216~  => 6 // Ranger Plate Armor
+  ~DEPO22~   => 6 // Phantom Armor
+  ~DEPO29~   => 6 // Leviathan Armor
+  ~DEPO43~   => 6 // Slime Armor
+  ~DEPO51~   => 6 // Armor of the Blue Knight
+  ~DEPO69~   => 6 // Armor of Gloom
+  ~DEPO72~   => 6 // Barbed Armor
+  ~DEPO75~   => 6 // Gremlin's Armor
+  ~DEPO91~   => 6 // Lilium Armor
+  ~DEPO92~   => 6 // Frostfield Plate
+  ~DEPO94~   => 6 // Campaign Plate Armor
+  ~JA#PLAT1~ => 6 // Fallorain's Plate
+  ~MISC99~   => 6 // Plate Mail Armor
+  ~PLAT24~   => 6 // The Magma Bulwark (Plate Mail, bgee)
+  ~AAITM106~ => 7 // Experimental Exo Armor
+  ~AAITM108~ => 7 // Elaborate Drow Full Plate Armor +5
+  ~AAITM118~ => 7 // Thordek's Full Plate
+  ~AAITM137~ => 7 // Full Plate Mail +5
+  ~AAITM150~ => 7 // Armor of Darkness +4
+  ~AAITM174~ => 7 // Armor of the Frost +3
+  ~BGSX15~   => 7 // Gnomish Mecha Armor
+  ~DEPO143~  => 7 // Armor of the Avatar
+  ~DEPO207~  => 7 // Defender of Dorn's Deep
+  ~DEPO217~  => 7 // Soulbound Armor
+  ~JA#PLAT2~ => 7 // Plate of the Dark
+  ~MYTH003~  => 7 // Drenophild Wraithmeal
 
+  // special studded leather allows casting
+  ~AE002~    => 130 // Armor of Myth
+  ~DEPO42~   => 130 // Raven's Armor
+  // special chain that only gets thieving penalties (but is not elven)
+  ~DEPO46~   => 132 // Mystic Aura Chainmail
+  // elven chain
+  ~AAITM107~ => 36 // Drow Adamantine Chain +5
+  ~AAITM127~ => 36 // Incarnadine Elven Chain
+  ~BGSX10~   => 36 // Fruit Armor
+  ~KOVAWED1~ => 36 // Bladesinger Chain +4
+  // special plate that only gets thieving penalties
+  ~DEPO149~  => 134 // Silver Swan Plate
+  ~DEPO154~  => 134 // Drow Half Plate +5
+  ~DEPO193~  => 134 // Kitrax's Pride
+  ~DEPO33~   => 134 // Heavenly Garb
+  // special full plate (!) that allows casting
+  ~AAITM136~ => 135 // Laeral's Storm Armor
+  //special leather that allows casting
+  ~WQXLE1~   => 129 // White Leather
+  ~DEPO21~   => 129 // Viper Mage Armor
+  
+  
+  // !!! NO IDEA WHATSOEVER ABOUT THESE ARMORS' CLASS !!!
+  
+  // temporarily flagged them as splint mail
+  
+  // scale mail
+  ~DEPO134~  => 5 // Elite Drakescale Armor
+  ~DEPO145~  => 5 // Green Dragon Scale Armor
+  ~DEPO85~   => 5 // Ultima Dragon Armor
+  ~ETBITM6~  => 5 // Wyvern Hide Scale Mail
+  ~MOURNER~  => 5 // Mourner’s Armor
+  // armor that allows casting, no thieving penalties
+  ~DEPO203~  => 197 // Behir Scale Mail (scale, "Thieving abilities not hindered")
+  ~I1CH001~  => 197 // Smoke Armor ("imposes no restrictions your actions.")
 END
 
 
@@ -700,7 +824,6 @@ OUTER_SET $armor("leat24")   = 1  // Grandmaster's Armor +5
 OUTER_SET $armor("plat17")   = 7  // Armor of the Hart +3
 
 END
-
 
 
 

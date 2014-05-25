@@ -5354,8 +5354,10 @@ Inutilisable par :
  Kensai
  Moine
  Métamorphe~
-@1659 = ~Don de Mailikki +3~
+@1659 = ~Peau de la Forêt +3~
 @1660 = ~Cette armure était celle du rôdeur Seffer Ekr, et un signe de la faveur de la déesse Mailikki. Elle avait récompensé sa loyauté en lui promettant que jamais il ne mourrait au combat, et pendant des années il défia la mort, repoussant de sa forêt des hordes de monstres. Quand son temps fut venu, il succomba non pas à la lame d'un adversaire, mais à une crise cardiaque.
+
+Note : l'effet de la peau d'écorce ne se cumule pas avec d'autres magies similaires. 
 
 PARAMÈTRES :
 
@@ -5461,7 +5463,7 @@ Inutilisable par :
  Kensai
  Moine
  Métamorphe~
-@1673 = ~Chair Humaine +5~
+@1673 = ~Chair Humaine +4~
 @1674 = ~Faite de peau humaine traitée avec le sang d'un noble dragon, cette armure émet une puanteur de mort. Elle ne peut être portée que par une personne entièrement vouée aux forces du mal.
 
 PARAMÈTRES :
@@ -5470,7 +5472,7 @@ Capacités d'équipement :
  Jets de Sauvegarde : bonus de +2
  Résistance à la Magie : bonus de +20 %
 
-Classe d'armure : 3
+Classe d'armure : 4
 Poids : 15
 Force nécessaire : 3
 Utilisable par :
@@ -10533,7 +10535,7 @@ Utilisable par :
  Barde
  Mage~
 @2251 = ~Baguette de Foudre~
-@2252 = ~Une Baguette de Foudre lance des éclairs d'énergie électrique qui doivent se décharger sur la cible spécifiée. Le possesseur de la baguette peut lancer six éclairs, et cibler jusqu'à six créatures différentes. Chaque éclair inflige 3D6 points de dégâts électriques avec un jet de sauvegarde contre les baguettes à -3 pour n'en subir que la moitié. À l'instar de ses semblables, une Baguette de Foudre ne peut être utilisée qu'un nombre de fois limité. Une fois qu'elle a consommé toutes ses charges, elle se transforme en un bout de métal tordu et calciné.
+@2252 = ~Une Baguette de Foudre lance des éclairs d'énergie électrique qui doivent se décharger sur la cible spécifiée. Le possesseur de la baguette peut lancer trois éclairs, et cibler jusqu'à six créatures différentes. Chaque éclair inflige 3D6 points de dégâts électriques avec un jet de sauvegarde contre les baguettes à -3 pour n'en subir que la moitié. À l'instar de ses semblables, une Baguette de Foudre ne peut être utilisée qu'un nombre de fois limité. Une fois qu'elle a consommé toutes ses charges, elle se transforme en un bout de métal tordu et calciné.
 
 PARAMÈTRES :
 

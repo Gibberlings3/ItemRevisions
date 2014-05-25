@@ -1,5 +1,5 @@
 INCLUDE ~item_rev/lib/compatibility.tpa~
-INCLUDE ~item_rev/lib/identify_weapon.tpa~
+INCLUDE ~item_rev/lib/identify_item.tpa~
 INCLUDE ~item_rev/lib/store_rev_macros.tpa~
 
 ///////////////////////////////////////////////////////////////////
@@ -6677,7 +6677,7 @@ COPY_EXISTING uddrow23.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   LPF store INT_VAR
     sell=165
     buy=25
-    steal=90
+    steal=0
     fence=0
   END
 
@@ -6757,7 +6757,7 @@ COPY_EXISTING uddrow24.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   LPF store INT_VAR
     sell=165
     buy=25
-    steal=70
+    steal=0
     fence=0
   END
 
@@ -6871,7 +6871,7 @@ COPY_EXISTING uddrow25.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   LPF store INT_VAR
     sell=185
     buy=25
-    steal=70
+    steal=0
     fence=0
   END
 
@@ -9315,10 +9315,10 @@ COPY_EXISTING wmart1.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
     WAWAK     // Kachiko's Wakizashi +3
     WAFLAIL   // Defender of Easthaven +2
 
-  ADD_STORE_ITEM WA2AMU   LAST #1 #0 #0 IDENTIFIED #0   // Sensate Amulet
-  ADD_STORE_ITEM WA2HARP  LAST #1 #0 #0 IDENTIFIED #3   // Harp of Pandemonium
-  ADD_STORE_ITEM WA2HALB  LAST #1 #0 #0 IDENTIFIED #0   // Harmonium Halberd
-  ADD_STORE_ITEM WA2RING  LAST #1 #0 #0 IDENTIFIED #0   // Mercykiller Ring
+  ADD_STORE_ITEM WA2AMU   LAST #1 #0 #0 IDENTIFIED #1   // Sensate Amulet
+  ADD_STORE_ITEM WA2HARP  LAST #3 #0 #0 IDENTIFIED #1   // Harp of Pandemonium
+  ADD_STORE_ITEM WA2HALB  LAST #1 #0 #0 IDENTIFIED #1   // Harmonium Halberd
+  ADD_STORE_ITEM WA2RING  LAST #1 #0 #0 IDENTIFIED #1   // Mercykiller Ring
 
 END BUT_ONLY
 
