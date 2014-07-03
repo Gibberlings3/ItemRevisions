@@ -87,8 +87,8 @@ END ELSE
 
 
 PATCH_IF item=0x2 BEGIN
-  PATCH_IF VARIABLE_IS_SET $armor("RESOURCE_RES%") BEGIN
-    itemtype = $armor("RESOURCE_RES%") & 7
+  PATCH_IF VARIABLE_IS_SET $armor("%SOURCE_RES%") BEGIN
+    itemtype = $armor("%SOURCE_RES%") & 7
 
     PATCH_IF itemtype=1 || itemtype=2 || itemtype=3 BEGIN
       leather=1
@@ -106,7 +106,7 @@ PATCH_IF item=0x2 BEGIN
     END
   END ELSE
 
-  PATCH_IF NOT VARIABLE_IS_SET $armor("RESOURCE_RES%") BEGIN
+  PATCH_IF NOT VARIABLE_IS_SET $armor("%SOURCE_RES%") BEGIN
     PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~2a~) BEGIN
       leather=1
       SPRINT itemtype ~leather~
@@ -180,23 +180,23 @@ END ELSE
 
 
 PATCH_IF item=0xc BEGIN
-  PATCH_IF VARIABLE_IS_SET $shield("RESOURCE_RES%") BEGIN
-    PATCH_IF $shield("RESOURCE_RES%")=1 BEGIN
+  PATCH_IF VARIABLE_IS_SET $shield("%SOURCE_RES%") BEGIN
+    PATCH_IF $shield("%SOURCE_RES%")=1 BEGIN
       buckler=1
       SPRINT itemtype ~buckler~
     END ELSE
 
-    PATCH_IF $shield("RESOURCE_RES%")=2 BEGIN
+    PATCH_IF $shield("%SOURCE_RES%")=2 BEGIN
       small_shield=1
       SPRINT itemtype ~small_shield~
     END ELSE
 
-    PATCH_IF $shield("RESOURCE_RES%")=3 BEGIN
+    PATCH_IF $shield("%SOURCE_RES%")=3 BEGIN
       medium_shield=1
       SPRINT itemtype ~medium_shield~
     END ELSE
 
-    PATCH_IF $shield("RESOURCE_RES%")=4 BEGIN
+    PATCH_IF $shield("%SOURCE_RES%")=4 BEGIN
       tower_shield=1
       SPRINT itemtype ~tower_shield~
     END
