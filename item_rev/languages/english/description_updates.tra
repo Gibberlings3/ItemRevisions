@@ -328,6 +328,11 @@ Weight:~
 Speed Factor Penalty: +%xsf%
 Weight:~
 
+// add speed factor penalty line to @100114
+@100299 = ~
+Physical Resistance Bonus: +%xres%%
+Weight:~
+
 
 //////////////////
 //   Shields    //
