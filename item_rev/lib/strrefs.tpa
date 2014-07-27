@@ -1,0 +1,47 @@
+// adds the string associated with a string or tra reference to dialog.tlk and returns its strref
+DEFINE_PATCH_FUNCTION RESOLVE_REF
+  STR_VAR ref = ~~ // reference in format @123 or #123
+  RET strref
+BEGIN
+  INNER_ACTION BEGIN
+    ACTION_IF (~%ref%~ STRING_COMPARE_REGEXP ~^[@#]-?[0-9]+$~ == 0) BEGIN
+      <<<<<<<< .../inlined/MI_RSR_%ref%.tpp
+        OUTER_SET strref = RESOLVE_STR_REF (>>>>>>>>
+        
+      SILENT
+      COPY - ~.../inlined/MI_RSR_%ref%.tpp~ ~.../inlined/MI_RSR_%ref%.tpp~
+        INSERT_BYTES SOURCE_SIZE (STRING_LENGTH ~%ref%)~)
+        WRITE_ASCIIE SOURCE_SIZE ~%ref%)~
+      VERBOSE
+        
+      INCLUDE ~.../inlined/MI_RSR_%ref%.tpp~
+    END
+    ELSE BEGIN
+      OUTER_SPRINT strref ~*~
+    END
+  END
+END
+
+// fetches the string associated with a string or tra reference
+DEFINE_PATCH_FUNCTION FETCH_STRING
+  STR_VAR ref = ~~ // reference in format @123 or #123
+  RET string
+BEGIN
+  INNER_ACTION BEGIN
+    ACTION_IF (~%ref%~ STRING_COMPARE_REGEXP ~^[@#]-?[0-9]+$~ == 0) BEGIN
+      <<<<<<<< .../inlined/MI_FS_%ref%.tpp
+        OUTER_SPRINT string >>>>>>>>
+      
+      SILENT
+      COPY - ~.../inlined/MI_FS_%ref%.tpp~ ~.../inlined/MI_FS_%ref%.tpp~
+        INSERT_BYTES SOURCE_SIZE (STRING_LENGTH ~%ref%~)
+        WRITE_ASCIIE SOURCE_SIZE ~%ref%~
+      VERBOSE
+        
+      INCLUDE ~.../inlined/MI_FS_%ref%.tpp~
+    END
+    ELSE BEGIN
+      OUTER_SPRINT string ~*~
+    END
+  END
+END

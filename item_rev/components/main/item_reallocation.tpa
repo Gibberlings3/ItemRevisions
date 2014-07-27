@@ -1,0 +1,36 @@
+// reallocate items to match with SCS
+
+// Remove Shadow Veil and Robe of Larloch from Deidre
+ACTION_IF (FILE_EXISTS_IN_GAME ~wmart2.sto~) BEGIN
+  COPY_EXISTING ~wmart2.sto~ ~override~ // Deidre
+    PATCH_IF (SOURCE_SIZE > 0x9b) BEGIN
+      REMOVE_STORE_ITEM ~wa2helm~ ~wa2robe~
+    END
+    BUT_ONLY
+END
+
+// Robe of Larloch moved to Azamantes
+ACTION_IF (FILE_EXISTS_IN_GAME ~gorlic01.cre~) BEGIN
+  COPY_EXISTING ~gorlic01.cre~ ~override~ LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+    ADD_CRE_ITEM ~wa2robe~ #0 #0 #0 ~NONE~ ~ARMOR~
+  END BUT_ONLY
+END
+
+// Shadow Veil moved to Gromnir
+ACTION_IF (FILE_EXISTS_IN_GAME ~gromnir.cre~) BEGIN
+  COPY_EXISTING ~gromnir.cre~ ~override~ LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+    REMOVE_CRE_ITEM ~helmnoan~
+    ADD_CRE_ITEM ~wa2helm~ #1 #0 #0 NONE HELMET
+  END BUT_ONLY
+END
+
+// Replace BG1's Boots of Stealth with the improved ones for BG2
+/*
+ACTION_IF (FILE_EXISTS_IN_GAME ~ar0303.are~) BEGIN
+  COPY_EXISTING ~ar0303.are~ ~override~ // Druid's Grove
+    PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+      LAUNCH_PATCH_FUNCTION ~REPLACE_AREA_ITEM~ STR_VAR old_item = ~boot02~ new_item = ~dvboot02~ END
+    END
+    BUT_ONLY
+END
+*/
