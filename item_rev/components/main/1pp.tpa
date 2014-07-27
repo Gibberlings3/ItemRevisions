@@ -1,0 +1,53 @@
+/*-----------------1PP Content-------------------*/
+
+COPY ~item_rev/components/main/1pp/v2~ ~override~
+COPY ~item_rev/components/main/1pp/v3_paperdolls~ ~override~
+
+COPY ~item_rev/components/main/1pp/helmets~ ~override~
+
+COPY ~item_rev/components/main/1pp/flaming_swords~ ~override~
+
+COPY ~item_rev/components/main/1pp/shields/d1_bg1_buckler~ ~override~
+COPY ~item_rev/components/main/1pp/shields/d2_bg1_small~ ~override~
+COPY ~item_rev/components/main/1pp/shields/d3_bg1_medium~ ~override~
+COPY ~item_rev/components/main/1pp/shields/d4_bg1_large~ ~override~
+
+COPY ~item_rev/components/main/1pp/shields/c0_bg2_small~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c1_bg2_medium~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c2_bg2_large~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c3_bg2_medium2~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c4_bg2_buckler~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c5_bg2_small2~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c6_bg2_large2~ ~override~
+COPY ~item_rev/components/main/1pp/shields/c7_bg2_scale~ ~override~
+
+// add c0-c7 creature animations
+ACTION_FOR_EACH set IN ~C0~ ~C5~ BEGIN
+  ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+    ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~  BEGIN
+     COPY_EXISTING ~WP%category%D2%sequence%.bam~ ~override/WP%category%%set%%sequence%.bam~
+    END
+  END
+END
+
+ACTION_FOR_EACH set IN ~C1~ ~C3~ ~C7~ BEGIN
+  ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+    ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~ BEGIN
+     COPY_EXISTING ~WP%category%D3%sequence%.bam~ ~override/WP%category%%set%%sequence%.bam~
+    END
+  END
+END
+
+ACTION_FOR_EACH set IN ~C2~ ~C6~ BEGIN
+  ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+    ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~ BEGIN
+     COPY_EXISTING ~WP%category%D4%sequence%.bam~ ~override/WP%category%%set%%sequence%.bam~
+    END
+  END
+END
+
+ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+  ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~ BEGIN
+   COPY_EXISTING ~WP%category%D1%sequence%.bam~ ~override/WP%category%C4%sequence%.bam~
+  END
+END

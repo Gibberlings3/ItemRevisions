@@ -41,9 +41,9 @@ LANGUAGE ~Russian~
 
 BEGIN @1
 DESIGNATED 0
-REQUIRE_PREDICATE (ENGINE_IS ~tob bg2ee~) @9000
+REQUIRE_PREDICATE (GAME_IS ~tob bgt tutu tutu_totsc bgee bg2ee~) @9000
 
-ACTION_IF install_tobex=1 && (ENGINE_IS ~tob~) BEGIN
+ACTION_IF install_tobex && (ENGINE_IS ~tob~) BEGIN
   OUTER_SPRINT ~TOBEX_MOD_DIRECTORY~ ~item_rev~
   LOAD_TRA ~item_rev/tobex_redist/TobEx.tra~
   INCLUDE ~item_rev/tobex_redist/TobEx.tpa~
@@ -55,10 +55,11 @@ LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_upgrades.tra~
 INCLUDE ~item_rev/components/main_component.tpa~
 
-LOAD_TRA ~item_rev/languages/english/potion_descriptions.tra~
-LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
-INCLUDE ~item_rev/components/potions.tpa~
-
+ACTION_IF install_potion_revisions BEGIN
+  LOAD_TRA ~item_rev/languages/english/potion_descriptions.tra~
+  LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
+  INCLUDE ~item_rev/components/potions.tpa~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // Store Revisions                                                       //
@@ -85,7 +86,7 @@ END ELSE BEGIN
   BUT_ONLY
 END
 
-ACTION_IF install_masterwork_weapons=1 BEGIN
+ACTION_IF install_masterwork_weapons BEGIN
   LOAD_TRA ~item_rev/languages/english/masterwork.tra~
   LOAD_TRA ~item_rev/languages/%LANGUAGE%/masterwork.tra~
   INCLUDE ~item_rev/lib/descriptions.tpa~
@@ -171,7 +172,7 @@ DESIGNATED 9
 SUBCOMPONENT @12
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 
-OUTER_SET option=1
+OUTER_SET option = 1
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/thieving_armor.tpa~
@@ -185,7 +186,7 @@ DESIGNATED 1101
 SUBCOMPONENT @12
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 
-OUTER_SET option=2
+OUTER_SET option = 2
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/thieving_armor.tpa~
@@ -236,7 +237,7 @@ DESIGNATED 1090
 SUBCOMPONENT @17
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 
-OUTER_SET option=1
+OUTER_SET option = 1
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/multiclass_divine.tpa~
@@ -250,7 +251,7 @@ DESIGNATED 1091
 SUBCOMPONENT @17
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 
-OUTER_SET option=2
+OUTER_SET option = 2
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/multiclass_divine.tpa~
@@ -264,7 +265,7 @@ DESIGNATED 1092
 SUBCOMPONENT @17
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 
-OUTER_SET option=3
+OUTER_SET option = 3
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/multiclass_divine.tpa~
@@ -278,7 +279,7 @@ DESIGNATED 1093
 SUBCOMPONENT @17
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 
-OUTER_SET option=4
+OUTER_SET option = 4
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/multiclass_divine.tpa~
@@ -296,7 +297,7 @@ DESIGNATED 15
 SUBCOMPONENT @38
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
 
-OUTER_SET option=1
+OUTER_SET option = 1
 INCLUDE ~item_rev/components/druid_usability.tpa~
 
 
@@ -308,7 +309,7 @@ DESIGNATED 16
 SUBCOMPONENT @38
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
 
-OUTER_SET option=2
+OUTER_SET option = 2
 INCLUDE ~item_rev/components/druid_usability.tpa~
 
 
@@ -375,7 +376,7 @@ SUBCOMPONENT @22
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
-OUTER_SET option=1
+OUTER_SET option = 1
 INCLUDE ~item_rev/components/backstabbing.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
@@ -387,7 +388,7 @@ SUBCOMPONENT @22
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
-OUTER_SET option=2
+OUTER_SET option = 2
 INCLUDE ~item_rev/components/backstabbing.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
@@ -399,7 +400,7 @@ SUBCOMPONENT @22
 REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9002 // ranged backstabs are tobex only, i.e. tob
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
-OUTER_SET option=3
+OUTER_SET option = 3
 INCLUDE ~item_rev/components/backstabbing.tpa~
 
 
