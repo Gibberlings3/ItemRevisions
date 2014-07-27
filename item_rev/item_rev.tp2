@@ -5,7 +5,7 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V3 Beta 1.17~
+VERSION ~V3 Beta 1.19~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
@@ -36,46 +36,6 @@ LANGUAGE ~Russian~
 
 
 ///////////////////////////////////////////////////////////////////////////
-// Executable Patch                                                      //
-///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// ToBEx v26
-
-BEGIN @35
-DESIGNATED 1010
-//SUBCOMPONENT @34
-REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9002
-
-OUTER_SPRINT ~TOBEX_MOD_DIRECTORY~ ~item_rev~
-LOAD_TRA ~item_rev/tobex_redist/TobEx.tra~
-INCLUDE ~item_rev/tobex_redist/TobEx.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// ToB_Hacks - Casting Level Modifier and Repeating EFF Fix
-
-BEGIN @36
-DEPRECATED @9006
-DESIGNATED 1011
-SUBCOMPONENT @34
-REQUIRE_PREDICATE (ENGINE_IS ~tob~ && NOT (FILE_EXISTS ~tobex.dll~)) @9002
-
-INCLUDE ~item_rev/lib/tob_hacks_repeating_eff.tpa~
-INCLUDE ~item_rev/lib/tob_hacks_caster_level.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// ToB_Hacks - Casting Level Modifier Fix
-
-BEGIN @37
-DEPRECATED @9006
-DESIGNATED 1012
-SUBCOMPONENT @34
-REQUIRE_PREDICATE (ENGINE_IS ~tob~ && NOT (FILE_EXISTS ~tobex.dll~)) @9002
-
-INCLUDE ~item_rev/lib/tob_hacks_caster_level.tpa~
-
-
-///////////////////////////////////////////////////////////////////////////
 // Item Revisions by Demivrgvs (Main Component) -  Installs all items    //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -83,39 +43,21 @@ BEGIN @1
 DESIGNATED 0
 REQUIRE_PREDICATE (ENGINE_IS ~tob bg2ee~) @9000
 
+ACTION_IF install_tobex=1 && (ENGINE_IS ~tob~) BEGIN
+  OUTER_SPRINT ~TOBEX_MOD_DIRECTORY~ ~item_rev~
+  LOAD_TRA ~item_rev/tobex_redist/TobEx.tra~
+  INCLUDE ~item_rev/tobex_redist/TobEx.tpa~
+END
+
 LOAD_TRA ~item_rev/languages/english/item_descriptions.tra~
 LOAD_TRA ~item_rev/languages/english/item_upgrades.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_upgrades.tra~
 INCLUDE ~item_rev/components/main_component.tpa~
 
-
-///////////////////////////////////////////////////////////////////////////
-// Potion Revisions                                                      //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @24
-DESIGNATED 1020
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
-
 LOAD_TRA ~item_rev/languages/english/potion_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
 INCLUDE ~item_rev/components/potions.tpa~
-
-
-///////////////////////////////////////////////////////////////////////////
-// Change +1 Items to Masterwork Quality                                 //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @2
-DEPRECATED @9006
-DESIGNATED 1
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9001
-
-LOAD_TRA ~item_rev/languages/english/masterwork.tra~
-LOAD_TRA ~item_rev/languages/%LANGUAGE%/masterwork.tra~
-INCLUDE ~item_rev/lib/descriptions.tpa~
-INCLUDE ~item_rev/components/masterwork.tpa~
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -143,69 +85,18 @@ END ELSE BEGIN
   BUT_ONLY
 END
 
+ACTION_IF install_masterwork_weapons=1 BEGIN
+  LOAD_TRA ~item_rev/languages/english/masterwork.tra~
+  LOAD_TRA ~item_rev/languages/%LANGUAGE%/masterwork.tra~
+  INCLUDE ~item_rev/lib/descriptions.tpa~
+  INCLUDE ~item_rev/components/masterwork.tpa~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 //  GLOBAL CHANGES                                                       //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// Spellcasting in Armor                                                 //
-///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// Chance of Arcane Casting Failure
-
-BEGIN @3
-DESIGNATED 2
-SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
-
-OUTER_SET option=1
-LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
-LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
-INCLUDE ~item_rev/components/spellcasting_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Casting Speed Penalties for Arcane Casters
-
-BEGIN @5
-DESIGNATED 3
-SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
-
-OUTER_SET option=2
-LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
-LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
-INCLUDE ~item_rev/components/spellcasting_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Casting Speed Penalties for All Casters
-
-BEGIN @6
-DESIGNATED 4
-SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
-
-OUTER_SET option=3
-LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
-LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
-INCLUDE ~item_rev/components/spellcasting_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// without Penalties
-
-BEGIN @7
-DESIGNATED 5
-SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
-
-OUTER_SET option=4
-LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
-LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
-INCLUDE ~item_rev/components/spellcasting_armor.tpa~
-
 
 ///////////////////////////////////////////////////////////////////////////
 // Revised Armor                                                         //
@@ -217,32 +108,6 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 BEGIN @10
 DESIGNATED 1040
 SUBCOMPONENT @29
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
-
-OUTER_SET armor_movement_penalty = 1
-
-INCLUDE ~item_rev/components/revised_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Movement Speed and Dexterity Penalties
-
-BEGIN @8
-DESIGNATED 6
-DEPRECATED ~~
-SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
-
-OUTER_SET armor_movement_penalty = 1
-
-INCLUDE ~item_rev/components/revised_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Movement Speed and Speed Factor Penalties
-
-BEGIN @26
-DESIGNATED 1041
-DEPRECATED ~~
-SUBCOMPONENT @9
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
 
 OUTER_SET armor_movement_penalty = 1
@@ -262,43 +127,36 @@ OUTER_SET armor_movement_penalty = 0
 INCLUDE ~item_rev/components/revised_armor.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
-// Movement Speed Penalties
+// Spellcasting in Armor                                                 //
+///////////////////////////////////////////////////////////////////////////
 
-BEGIN @10
-DESIGNATED 7
-DEPRECATED ~~
-SUBCOMPONENT @9
+///////////////////////////////////////////////////////////////////////////
+// Chance of Arcane Casting Failure
+
+BEGIN @3
+DESIGNATED 2
+SUBCOMPONENT @4
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+
+OUTER_SET option = armor_free_casting ? 4 : 1
+
+LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/spellcasting_armor.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Casting Speed Penalties for Arcane Casters
+
+BEGIN @5
+DESIGNATED 3
+SUBCOMPONENT @4
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
 
-OUTER_SET armor_movement_penalty = 1
+OUTER_SET option = armor_free_casting ? 4 : armor_casting_speed_penalty_clerics ? 3 : 2
 
-INCLUDE ~item_rev/components/revised_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Dexterity Penalties
-
-BEGIN @11
-DESIGNATED 8
-DEPRECATED ~~
-SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
-
-OUTER_SET armor_movement_penalty = 0
-
-INCLUDE ~item_rev/components/revised_armor.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Speed Factor Penalties
-
-BEGIN @28
-DESIGNATED 1043
-DEPRECATED ~~
-SUBCOMPONENT @9
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
-
-OUTER_SET armor_movement_penalty = 0
-
-INCLUDE ~item_rev/components/revised_armor.tpa~
+LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
+INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -334,20 +192,6 @@ INCLUDE ~item_rev/components/thieving_armor.tpa~
 
 
 ///////////////////////////////////////////////////////////////////////////
-// Revised Armor Bonuses                                                 //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @29
-DESIGNATED 1050
-DEPRECATED ~~
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
-
-OUTER_SET armor_movement_penalty = 0
-
-INCLUDE ~item_rev/components/revised_armor.tpa~
-
-
-///////////////////////////////////////////////////////////////////////////
 // Revised Shield Bonuses                                                //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -378,18 +222,6 @@ DESIGNATED 12
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
 
 INCLUDE ~item_rev/components/items_of_protection.tpa~
-
-
-///////////////////////////////////////////////////////////////////////////
-// Halberds Can Slash, Too                                               //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @16
-DESIGNATED 13
-DEPRECATED ~~
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
-
-INCLUDE ~item_rev/components/halberds.tpa~
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -606,5 +438,7 @@ INCLUDE ~item_rev/components/shield_bash.tpa~
 // BWS installation batches, but be welcome to undertake the responsibility
 // if you wish ;) - Yaro, 20/11/2013
 
-
+// actually, feel free to shuffle it as you see fit. we've re-arranged some
+// of the components, so it's not like it matters anymore. just let me know
+// if you do - i'll update "item_rev/lib/compatibility.tpa" - Yaro, 26/7/2014
 

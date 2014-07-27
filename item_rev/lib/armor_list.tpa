@@ -826,8 +826,11 @@ OUTER_SET $armor("plat17")   = 7  // Armor of the Hart +3
 END
 
 
-
-
+// WeiDU is now on my hate list as well - Yaro, 7/26
+ACTION_PHP_EACH armor AS i => r BEGIN
+  ACTION_TO_UPPER i
+  OUTER_SET $armor2("%i%") = r
+END
 
 
 

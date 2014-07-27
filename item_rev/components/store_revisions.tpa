@@ -7,6 +7,9 @@ INCLUDE ~item_rev/lib/store_rev_macros.tpa~
 // use this detection check - 'FILE_EXISTS_IN_GAME ag#store_revisions.mrk'
 COPY ag#dummy ~override/ag#store_revisions.mrk~
 
+COPY ~item_rev/2da/chrmodst.2da~ ~override~
+COPY ~item_rev/2da/repmodst.2da~ ~override~
+
 LAM buy_group
 LAM spelldesc
 LAF make_scrolls END
@@ -370,7 +373,7 @@ COPY_EXISTING ribald.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   ADD_STORE_ITEM POTN02   LAST #1 #0 #0 IDENTIFIED #4   // Potion of Fire Resistance
   ADD_STORE_ITEM POTN34   LAST #1 #0 #0 IDENTIFIED #3   // Potion of Magic Protection
   ADD_STORE_ITEM POTN35   LAST #1 #0 #0 IDENTIFIED #2   // Potion of Magic Shielding
-  PATCH_IF comp_ir_potions BEGIN
+  PATCH_IF comp_ir BEGIN
     ADD_STORE_ITEM potn33   LAST #1 #0 #0 IDENTIFIED #5   // potion of magic dispelling
   END ELSE BEGIN
     ADD_STORE_ITEM potn33   LAST #1 #0 #0 IDENTIFIED #2   // potion of magic blocking
@@ -561,7 +564,7 @@ COPY_EXISTING ribald3.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   ADD_STORE_ITEM potn41   LAST #1 #0 #0 IDENTIFIED #1   // power
   ADD_STORE_ITEM potn34   LAST #1 #0 #0 IDENTIFIED #1   // magic protection
   ADD_STORE_ITEM potn35   LAST #1 #0 #0 IDENTIFIED #1   // magic shielding
-  PATCH_IF comp_ir_potions=0 BEGIN
+  PATCH_IF comp_ir=0 BEGIN
     ADD_STORE_ITEM potn33   LAST #1 #0 #0 IDENTIFIED #1   // magic blocking
   END
 
@@ -2786,7 +2789,7 @@ COPY_EXISTING uhmer01.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
 
   ADD_STORE_ITEM CLCK07   LAST #1 #0 #0 IDENTIFIED #1   // Nymph Cloak
 
-  PATCH_IF comp_ir_potions BEGIN
+  PATCH_IF comp_ir BEGIN
     ADD_STORE_ITEM potn43   LAST #1 #0 #0 IDENTIFIED #3   // Potion of Insight/Memory
   END
 
@@ -3139,7 +3142,7 @@ COPY_EXISTING bhelm.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   ADD_STORE_ITEM SCRLPET  LAST #1 #0 #0 IDENTIFIED #1   // Stone to Flesh Scroll
 
   ADD_STORE_ITEM POTN08   LAST #1 #0 #0 IDENTIFIED #10  // Potion of Healing
-  PATCH_IF comp_ir_potions BEGIN
+  PATCH_IF comp_ir BEGIN
     ADD_STORE_ITEM POTN30   LAST #1 #0 #0 IDENTIFIED #1   // Potion of Infravision/Sight
   END ELSE BEGIN
     ADD_STORE_ITEM POTN44   LAST #1 #0 #0 IDENTIFIED #1   // Potion of Strength
@@ -3570,7 +3573,7 @@ COPY_EXISTING kpchap01.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
 
   ADD_STORE_ITEM POTN08   LAST #1 #0 #0 IDENTIFIED #17  // Potion of Healing
   ADD_STORE_ITEM POTN52   LAST #1 #0 #0 IDENTIFIED #8   // Potion of Extra Healing
-  PATCH_IF comp_ir_potions BEGIN
+  PATCH_IF comp_ir BEGIN
     ADD_STORE_ITEM POTN37   LAST #1 #0 #0 IDENTIFIED #4   // Potion of Mind Focusing/Restoration
   END
   ADD_STORE_ITEM POTN44   LAST #1 #0 #0 IDENTIFIED #9   // Potion of Strength/Rage
@@ -3699,7 +3702,7 @@ COPY_EXISTING temhelm.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   ADD_STORE_ITEM POTN52   LAST #1 #0 #0 IDENTIFIED #3   // Potion of Extra Healing
   ADD_STORE_ITEM POTN24   LAST #1 #0 #0 IDENTIFIED #1   // Potion of Defense
   ADD_STORE_ITEM POTN21   LAST #1 #0 #0 IDENTIFIED #2   // Potion of Clarity
-  PATCH_IF comp_ir_potions BEGIN
+  PATCH_IF comp_ir BEGIN
     ADD_STORE_ITEM POTN30   LAST #1 #0 #0 IDENTIFIED #4   // Potion of Infravision/Sight
   END ELSE BEGIN
     ADD_STORE_ITEM POTN44   LAST #1 #0 #0 IDENTIFIED #1   // Potion of Strength
@@ -3809,7 +3812,7 @@ COPY_EXISTING temlath.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
   ADD_STORE_ITEM POTN08   LAST #1 #0 #0 IDENTIFIED #12  // Potion of Healing
   ADD_STORE_ITEM POTN52   LAST #1 #0 #0 IDENTIFIED #5   // Potion of Extra Healing
   ADD_STORE_ITEM POTN17   LAST #1 #0 #0 IDENTIFIED #2   // Elixir of Health
-  PATCH_IF comp_ir_potions BEGIN
+  PATCH_IF comp_ir BEGIN
     ADD_STORE_ITEM POTN37   LAST #1 #0 #0 IDENTIFIED #5   // Potion of Mind Focusing/Restoration
   END ELSE BEGIN
     ADD_STORE_ITEM POTN44   LAST #1 #0 #0 IDENTIFIED #1   // Potion of Strength

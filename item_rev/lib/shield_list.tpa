@@ -330,3 +330,8 @@ OUTER_SET $shield("shld27")   = 2 //
 END
 
 
+// WeiDU is now on my hate list as well - Yaro, 7/26
+ACTION_PHP_EACH shield AS i => r BEGIN
+  ACTION_TO_UPPER i
+  OUTER_SET $shield2("%i%") = r
+END

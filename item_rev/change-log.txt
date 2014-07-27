@@ -271,6 +271,24 @@ v3 Beta 1.17 (insert date)
       added @100419, @100420, @100421, @100422
 
 
+v3 Beta 1.18 (insert date)
+
+ - I assume this version happened at some point...
+
+
+v3 Beta 1.19 (26 July 2014)
+
+ - Re-arranged the installer TP2
+ - Fixed the issue with some shields not being patched by the "Revised Shields" component
+ - Restored the missing debug log file. Who had stolen?
+ - Bonus to physical damage resistance is now displayed in "Revised Armor" component
+
+- Text updates:
+      
+    "description_updates.tra":
+      added @100299
+
+
 
 
 TO DO:

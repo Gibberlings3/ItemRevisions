@@ -285,7 +285,7 @@ COPY ~item_rev/itm/dvstench.spl~ ~override~
 
 /*------------------Shared Files-----------------*/
 
-COPY ~item_rev/2da~ ~override~
+COPY ~item_rev/2da/lore.2da~ ~override~
 COPY ~item_rev/bams~ ~override~
 COPY ~item_rev/ioun_stones~ ~override~
 
