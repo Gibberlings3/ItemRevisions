@@ -4,8 +4,10 @@
 // reasoning: the +4 immunity does not match up with the immunities of other demons
 // and the availability of high-enchantment weapons is limited prior to the underdark
 
-COPY_EXISTING ~uddemon.cre~ ~override~
-  PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-    LPF DELETE_CRE_EFFECT INT_VAR opcode_to_delete = 120 END
-  END
-  BUT_ONLY
+ACTION_IF (FILE_EXISTS_IN_GAME ~uddemon.cre~) BEGIN
+  COPY_EXISTING ~uddemon.cre~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+      LPF DELETE_CRE_EFFECT INT_VAR opcode_to_delete = 120 END
+    END
+    BUT_ONLY
+END

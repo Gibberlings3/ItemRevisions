@@ -27,20 +27,22 @@ COPY ~%source%/AMULET_OF_HEALTH.tpa~ ~%target%~
 
   /*
   // add charge to item
-  COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
-  PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
-    READ_LONG 0x78 "io" // offset to list of items
-    FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
-      READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
-      PATCH_IF (~%in%~ STRING_EQUAL_CASE ~AMUL17~) BEGIN
-        WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 1 // Mind Shield
-        WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 0 // none
-        WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
-        SET "ic" = 0x00
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ar2101.are~) BEGIN
+    COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
+      PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+        READ_LONG 0x78 "io" // offset to list of items
+        FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+          READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+          PATCH_IF (~%in%~ STRING_EQUAL_CASE ~AMUL17~) BEGIN
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 1 // Mind Shield
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 0 // none
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+            SET "ic" = 0x00
+          END
+        END
       END
-    END
+      BUT_ONLY
   END
-  BUT_ONLY
   */
 >>>>>>>>
 COPY ~%source%/GREENSTONE_AMULET.tpa~ ~%target%~
@@ -48,20 +50,22 @@ COPY ~%source%/GREENSTONE_AMULET.tpa~ ~%target%~
 
 <<<<<<<< .../item_rev-inlined/item/KALIGUNS_AMULET_OF_MAGIC_RESISTANCE.tpa
   // add charge to item
-  COPY_EXISTING ~uddrow24.sto~ ~override~ // store
-    PATCH_IF (SOURCE_SIZE > 0xad) BEGIN
-      READ_LONG 0x34 items_offset
-      READ_LONG 0x38 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~AMUL20~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 1 // Magic Resistance
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 0 // none
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+  ACTION_IF (FILE_EXISTS_IN_GAME ~uddrow24.sto~) BEGIN
+    COPY_EXISTING ~uddrow24.sto~ ~override~ // store
+      PATCH_IF (SOURCE_SIZE > 0xad) BEGIN
+        READ_LONG 0x34 items_offset
+        READ_LONG 0x38 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~AMUL20~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 1 // Magic Resistance
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 0 // none
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/KALIGUNS_AMULET_OF_MAGIC_RESISTANCE.tpa~ ~%target%~
 
@@ -70,20 +74,22 @@ COPY ~%source%/KALIGUNS_AMULET_OF_MAGIC_RESISTANCE.tpa~ ~%target%~
   COPY ~item_rev/itm/amul25.spl~ ~override~
 
   // add charge to item
-  COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
-    PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
-      READ_LONG 0x78 "io" // offset to list of items
-      FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
-        READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
-        PATCH_IF (~%in%~ STRING_EQUAL_CASE ~AMUL25~) BEGIN
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 1 // Spell Turning
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 0 // none
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
-          SET "ic" = 0x00
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ar2101.are~) BEGIN
+    COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
+      PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+        READ_LONG 0x78 "io" // offset to list of items
+        FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+          READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+          PATCH_IF (~%in%~ STRING_EQUAL_CASE ~AMUL25~) BEGIN
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 1 // Spell Turning
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 0 // none
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+            SET "ic" = 0x00
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/AMULET_OF_SPELL_WARDING.tpa~ ~%target%~
 
@@ -129,8 +135,8 @@ COPY ~%source%/GARGOYLE_BOOTS.tpa~ ~%target%~
 <<<<<<<< .../item_rev-inlined/item/IRON_BOW_OF_GESEN_4.tpa
   ADD_PROJECTILE ~item_rev/itm/dvgesbow.pro~
 
-  COPY_EXISTING ~bow19.itm~ ~override~
-    WRITE_SHORT 0x9c ~%dvgesbow%~
+  COPY_EXISTING ~%IRON_BOW_OF_GESEN_4%.itm~ ~override~
+    WRITE_SHORT 0x9c dvgesbow
 >>>>>>>>
 COPY ~%source%/IRON_BOW_OF_GESEN_4.tpa~ ~%target%~
 
@@ -210,26 +216,29 @@ COPY ~%source%/CLOAK_OF_THE_SEWERS.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/IMPROVED_CLOAK_OF_PROTECTION_2.tpa
-  COPY_EXISTING ~botsmith.dlg~ ~override~ // Cespenar's dialog
-    DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY ~OR(2)
-                           !PartyHasItem("scrl90")
-                           !PartyHasItem("scrl7q")~
-                        ~!PartyHasItem("scrl8j")~
-      REPLACE_TEXTUALLY ~PartyHasItem("scrl90")
-                         PartyHasItem("scrl7q")~
-                        ~PartyHasItem("scrl8j")~
-      REPLACE_TEXTUALLY ~TakePartyItemNum("scrl90",1)
-                         DestroyItem("scrl90")
-                         TakePartyItemNum("scrl7q",1)
-                         DestroyItem("scrl7q")~
-                        ~TakePartyItemNum("scrl8j",1)
-                         DestroyItem("scrl8j")~
-    END
-    BUT_ONLY
+  // Cespenar's dialogue
+  ACTION_IF (FILE_EXISTS_IN_GAME ~botsmith.dlg~) BEGIN
+    COPY_EXISTING ~botsmith.dlg~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~OR(2)
+                             !PartyHasItem("scrl90")
+                             !PartyHasItem("scrl7q")~
+                          ~!PartyHasItem("scrl8j")~
+        REPLACE_TEXTUALLY ~PartyHasItem("scrl90")
+                           PartyHasItem("scrl7q")~
+                          ~PartyHasItem("scrl8j")~
+        REPLACE_TEXTUALLY ~TakePartyItemNum("scrl90",1)
+                           DestroyItem("scrl90")
+                           TakePartyItemNum("scrl7q",1)
+                           DestroyItem("scrl7q")~
+                          ~TakePartyItemNum("scrl8j",1)
+                           DestroyItem("scrl8j")~
+      END
+      BUT_ONLY
 
-  STRING_SET ~66933~ @207
-  STRING_SET ~66934~ @208
+    STRING_SET ~66933~ @207
+    STRING_SET ~66934~ @208
+  END
 >>>>>>>>
 COPY ~%source%/IMPROVED_CLOAK_OF_PROTECTION_2.tpa~ ~%target%~
 
@@ -376,20 +385,22 @@ COPY ~%source%/DEATH_KNIGHT_ARMOR_3.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/RING_OF_ENERGY.tpa
-  COPY_EXISTING ~ribald.sto~ ~override~ // store
-    PATCH_IF (SOURCE_SIZE > 0xad) BEGIN
-      READ_LONG 0x34 items_offset
-      READ_LONG 0x38 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~RING20~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 1 // Energy Blast
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 0 // none
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ribald.sto~) BEGIN
+    COPY_EXISTING ~ribald.sto~ ~override~ // store
+      PATCH_IF (SOURCE_SIZE > 0xad) BEGIN
+        READ_LONG 0x34 items_offset
+        READ_LONG 0x38 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~RING20~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 1 // Energy Blast
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 0 // none
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/RING_OF_ENERGY.tpa~ ~%target%~
 
@@ -422,13 +433,16 @@ COPY ~%source%/RING_OF_HUMAN_INFLUENCE.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/RING_OF_THE_RAM.tpa
-  COPY_EXISTING ~botsmith.dlg~ ~override~ // Cespenar's dialog
-    DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY ~"compon05"~ ~"ring33"~
-    END
-
-  STRING_SET ~66686~ @205
-  STRING_SET ~66691~ @206
+  // Cespenar's dialogue
+  ACTION_IF (FILE_EXISTS_IN_GAME ~botsmith.dlg~) BEGIN
+    COPY_EXISTING ~botsmith.dlg~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~"compon05"~ ~"ring33"~
+      END
+    
+    STRING_SET ~66686~ @205
+    STRING_SET ~66691~ @206
+  END
 
   COPY ~item_rev/itm/ring33a.eff~ ~override~ // Monk's Knockback effect
   COPY ~item_rev/itm/ring33b.eff~ ~override~
@@ -452,13 +466,15 @@ COPY ~%source%/RING_OF_KANGAXX.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/LARLOCHS_SOUL_STEALER.tpa
-  COPY_EXISTING ~amlich01.cre~ ~override~
-  LPF FJ_CRE_VALIDITY RET valid=valid END
-  PATCH_IF valid BEGIN
-    REMOVE_CRE_ITEM ring46
-    ADD_CRE_ITEM ring46 #0 #0 #0 NONE INV1
+  ACTION_IF (FILE_EXISTS_IN_GAME ~amlich01.cre~) BEGIN
+    COPY_EXISTING ~amlich01.cre~ ~override~
+      LPF FJ_CRE_VALIDITY RET valid=valid END
+      PATCH_IF valid BEGIN
+        REMOVE_CRE_ITEM ring46
+        ADD_CRE_ITEM ring46 #0 #0 #0 NONE INV1
+      END
+      BUT_ONLY
   END
-  BUT_ONLY
 
   COPY ~item_rev/itm/ring46a.eff~ ~override~ // Soul Stealing
   COPY ~item_rev/itm/ring46b.eff~ ~override~
@@ -510,19 +526,22 @@ COPY ~%source%/SAVING_GRACE_3.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/ERINNES_SLING.tpa
-  COPY_EXISTING ~botsmith.dlg~ ~override~
-    DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY ~TakePartyItemNum("slng08",1)~
-                        ~TakePartyItemNum("slng08",1) TakePartyItemNum("ring20",1)~
-      REPLACE_TEXTUALLY ~DestroyItem("slng08")~
-                        ~DestroyItem("slng08") DestroyItem("ring20")~
-    END
-    BUT_ONLY
+  // Cespenar's dialogue
+  ACTION_IF (FILE_EXISTS_IN_GAME ~botsmith.dlg~) BEGIN
+    COPY_EXISTING ~botsmith.dlg~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~TakePartyItemNum("slng08",1)~
+                          ~TakePartyItemNum("slng08",1) TakePartyItemNum("ring20",1)~
+        REPLACE_TEXTUALLY ~DestroyItem("slng08")~
+                          ~DestroyItem("slng08") DestroyItem("ring20")~
+      END
+      BUT_ONLY
 
-  STRING_SET ~66871~ @210
-  STRING_SET ~66876~ @211
+    STRING_SET ~66871~ @210
+    STRING_SET ~66876~ @211
 
-  COMPILE ~item_rev/components/main/cespy_erinne.d~
+    COMPILE ~item_rev/components/main/cespy_erinne.d~
+  END
 >>>>>>>>
 COPY ~%source%/ERINNES_SLING.tpa~ ~%target%~
 
@@ -535,20 +554,22 @@ COPY ~%source%/ERINNES_SLING.tpa~ ~%target%~
 
   COPY ~item_rev/itm/staf09.spl~ ~override~ // Domination
 
-  COPY_EXISTING ~ar2400.are~ ~override~ // Illithid City
-    PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
-      READ_LONG 0x78 "io" // offset to list of items
-      FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
-        READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
-        PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF09~) BEGIN
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Dominate
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
-          SET "ic" = 0x00
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ar2400.are~) BEGIN
+    COPY_EXISTING ~ar2400.are~ ~override~ // Illithid City
+      PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+        READ_LONG 0x78 "io" // offset to list of items
+        FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+          READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+          PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF09~) BEGIN
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Dominate
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+            SET "ic" = 0x00
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_COMMAND_3.tpa~ ~%target%~
 
@@ -566,20 +587,22 @@ COPY ~%source%/STAFF_OF_CURING_1.tpa~ ~%target%~
   COPY ~item_rev/itm/staf11a.spl~ ~override~ // Remove Magic
   COPY ~item_rev/itm/staf11b.spl~ ~override~ // Spell Trap
 
-  COPY_EXISTING ~hllayen.cre~ ~override~ // Layene
-    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-      READ_LONG 0x02bc items_offset
-      READ_LONG 0x02c0 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x014) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF11~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Remove Magic
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Spell Trap
+  ACTION_IF (FILE_EXISTS_IN_GAME ~hllayen.cre~) BEGIN
+    COPY_EXISTING ~hllayen.cre~ ~override~ // Layene
+      PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+        READ_LONG 0x02bc items_offset
+        READ_LONG 0x02c0 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF11~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Remove Magic
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Spell Trap
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_THE_MAGI_5.tpa~ ~%target%~
 
@@ -588,35 +611,39 @@ COPY ~%source%/STAFF_OF_THE_MAGI_5.tpa~ ~%target%~
   COPY ~item_rev/itm/staf12a.spl~ ~override~ // Hold Monster
   COPY ~item_rev/itm/staf12b.spl~ ~override~ // Globe of Invulnerability
 
-  COPY_EXISTING ~chsam01.cre~ ~override~ // Semaj
-    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-      READ_LONG 0x02bc items_offset
-      READ_LONG 0x02c0 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x014) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF12~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Hold Monster
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Globe of Invulnerability
+  ACTION_IF (FILE_EXISTS_IN_GAME ~chsam01.cre~) BEGIN
+    COPY_EXISTING ~chsam01.cre~ ~override~ // Semaj
+      PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+        READ_LONG 0x02bc items_offset
+        READ_LONG 0x02c0 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF12~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Hold Monster
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Globe of Invulnerability
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 
-  COPY_EXISTING ~chsam02.cre~ ~override~ // Semaj
-    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-      READ_LONG 0x02bc items_offset
-      READ_LONG 0x02c0 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x014) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF12~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Hold Monster
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Globe of Invulnerability
+  ACTION_IF (FILE_EXISTS_IN_GAME ~chsam02.cre~) BEGIN
+    COPY_EXISTING ~chsam02.cre~ ~override~ // Semaj
+      PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+        READ_LONG 0x02bc items_offset
+        READ_LONG 0x02c0 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF12~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Hold Monster
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Globe of Invulnerability
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_POWER_2.tpa~ ~%target%~
 
@@ -625,27 +652,31 @@ COPY ~%source%/STAFF_OF_POWER_2.tpa~ ~%target%~
   COPY ~item_rev/itm/staf13a.spl~ ~override~ // Lightning Stroke
   COPY ~item_rev/itm/staf13b.spl~ ~override~ // Thunder & Lightning
 
-  COPY_EXISTING ~ar1515.are~ ~override~ // Spellhold
-    PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
-      READ_LONG 0x78 "io" // offset to list of items
-      FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
-        READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
-        PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF13~) BEGIN
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Lightning Stroke
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 1 // Thunder & Lightning
-          SET "ic" = 0x00
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ar1515.are~) BEGIN
+    COPY_EXISTING ~ar1515.are~ ~override~ // Spellhold
+      PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+        READ_LONG 0x78 "io" // offset to list of items
+        FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+          READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+          PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF13~) BEGIN
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Lightning Stroke
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 1 // Thunder & Lightning
+            SET "ic" = 0x00
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 
-  COPY_EXISTING ~cechalle.dlg~ ~override~
-    DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY ~GiveItemCreate("STAF13",LastTalkedToBy,0,25,25)~
-                        ~GiveItemCreate("STAF13",LastTalkedToBy,0,1,1)~
-    END
-    BUT_ONLY
+  ACTION_IF (FILE_EXISTS_IN_GAME ~cechalle.dlg~) BEGIN
+    COPY_EXISTING ~cechalle.dlg~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~GiveItemCreate("STAF13",LastTalkedToBy,0,25,25)~
+                          ~GiveItemCreate("STAF13",LastTalkedToBy,0,1,1)~
+      END
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_THUNDER_AND_LIGHTNING_2.tpa~ ~%target%~
 
@@ -659,12 +690,14 @@ COPY ~%source%/STAFF_OF_THUNDER_AND_LIGHTNING_2.tpa~ ~%target%~
   COPY ~item_rev/itm/smoundsu.cre~ ~override~
   COPY ~item_rev/itm/smoundsu.itm~ ~override~
 
-  COPY_EXISTING ~suavatar.dlg~ ~override~
-    DECOMPILE_AND_PATCH BEGIN
-      REPLACE_TEXTUALLY ~GiveItemCreate("staf14",Player1,20,20,20)~
-                        ~GiveItemCreate("staf14",Player1,0,1,1)~
-    END
-    BUT_ONLY
+  ACTION_IF (FILE_EXISTS_IN_GAME ~suavatar.dlg~) BEGIN
+    COPY_EXISTING ~suavatar.dlg~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~GiveItemCreate("staf14",Player1,20,20,20)~
+                          ~GiveItemCreate("staf14",Player1,0,1,1)~
+      END
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_THE_WOODLANDS_4.tpa~ ~%target%~
 
@@ -673,20 +706,22 @@ COPY ~%source%/STAFF_OF_THE_WOODLANDS_4.tpa~ ~%target%~
   COPY ~item_rev/itm/staf15.spl~ ~override~ // Gust of Wind
     SAY NAME1 @4060
 
-  COPY_EXISTING ~pmaster.cre~ ~override~ // Master of Thralls
-    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-      READ_LONG 0x02bc items_offset
-      READ_LONG 0x02c0 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x014) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF15~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Gust of Wind
-          WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 0 // none
+  ACTION_IF (FILE_EXISTS_IN_GAME ~pmaster.cre~) BEGIN
+    COPY_EXISTING ~pmaster.cre~ ~override~ // Master of Thralls
+      PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+        READ_LONG 0x02bc items_offset
+        READ_LONG 0x02c0 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF15~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Gust of Wind
+            WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 0 // none
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_AIR_2.tpa~ ~%target%~
 
@@ -695,20 +730,22 @@ COPY ~%source%/STAFF_OF_AIR_2.tpa~ ~%target%~
   COPY ~item_rev/itm/staf16.spl~ ~override~ // Earth Grasp
     SAY NAME1 @4061
 
-  COPY_EXISTING ~uddrow23.sto~ ~override~ // store
-    PATCH_IF (SOURCE_SIZE > 0xad) BEGIN
-      READ_LONG 0x34 items_offset
-      READ_LONG 0x38 num_items
-      FOR (i = 0; i < num_items; i += 1) BEGIN
-        READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
-        PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF16~) BEGIN
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 0 // Melee
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 1 // Earth Grasp
-          WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+  ACTION_IF (FILE_EXISTS_IN_GAME ~uddrow23.sto~) BEGIN
+    COPY_EXISTING ~uddrow23.sto~ ~override~ // store
+      PATCH_IF (SOURCE_SIZE > 0xad) BEGIN
+        READ_LONG 0x34 items_offset
+        READ_LONG 0x38 num_items
+        FOR (i = 0; i < num_items; i += 1) BEGIN
+          READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
+          PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF16~) BEGIN
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 0 // Melee
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 1 // Earth Grasp
+            WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_EARTH_2.tpa~ ~%target%~
 
@@ -717,20 +754,22 @@ COPY ~%source%/STAFF_OF_EARTH_2.tpa~ ~%target%~
   COPY ~item_rev/itm/staf17.spl~ ~override~ // Fireball
     SAY NAME1 @4062
 
-  COPY_EXISTING ~ar0412.are~ ~override~ // Planar Sphere, Fire Chamber
-    PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
-      READ_LONG 0x78 "io" // offset to list of items
-      FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
-        READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
-        PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF17~) BEGIN
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Fireball
-          WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
-          SET "ic" = 0x00
+  ACTION_IF (FILE_EXISTS_IN_GAME ~ar0412.are~) BEGIN
+    COPY_EXISTING ~ar0412.are~ ~override~ // Planar Sphere, Fire Chamber
+      PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+        READ_LONG 0x78 "io" // offset to list of items
+        FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+          READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+          PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF17~) BEGIN
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Fireball
+            WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+            SET "ic" = 0x00
+          END
         END
       END
-    END
-    BUT_ONLY
+      BUT_ONLY
+  END
 >>>>>>>>
 COPY ~%source%/STAFF_OF_FIRE_2.tpa~ ~%target%~
 
@@ -839,6 +878,26 @@ COPY ~%source%/WAND_OF_FEAR.tpa~ ~%target%~
 
 <<<<<<<< .../item_rev-inlined/item/WAND_OF_MAGIC_MISSILES.tpa
   COPY ~item_rev/itm/wand03.spl~ ~override~
+  
+  // clone an already identified version for Tutu/BGT/BGEE
+  ACTION_IF (GAME_IS ~tutu tutu_totsc bgee bgt~) BEGIN
+    OUTER_TEXT_SPRINT id ~wand12~
+    
+    ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+      OUTER_TEXT_SPRINT id ~_wand12~
+    END
+    ELSE ACTION_IF (GAME_IS ~bgt~) BEGIN
+      OUTER_TEXT_SPRINT id ~bgwand12~
+    END
+    
+    COPY_EXISTING ~%WAND_OF_MAGIC_MISSILES%.itm~ ~override/%id%.itm~
+      WRITE_SHORT 0x42 0 // lore to identify
+      READ_LONG   0x64 abilities_off
+      READ_SHORT  0x68 num_abilities
+      FOR (ability = 0; ability < num_abilities; ability += 1) BEGIN
+        WRITE_BYTE (abilities_off + 0x38 * ability + 0x01) 0 // no ID requirement
+      END
+  END
 >>>>>>>>
 COPY ~%source%/WAND_OF_MAGIC_MISSILES.tpa~ ~%target%~
 

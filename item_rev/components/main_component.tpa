@@ -79,19 +79,19 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
     // based on reading information from the column associated with the current platform
     TEXT_SPRINT output ~%itm%~
     SET install = 0
-    PATCH_IF (is_bg2 && NOT (~bg2~ STRING_EQUAL ~0~)) BEGIN // if bg2 column is 1, use itm column
+    PATCH_IF (is_bg2 && NOT (~%bg2%~ STRING_EQUAL ~0~)) BEGIN // if bg2 column is 1, use itm column
       SET install = 1
       PATCH_IF (NOT (~%bg2%~ STRING_EQUAL ~1~)) BEGIN
         TEXT_SPRINT output ~%bg2%~
       END
     END
-    ELSE PATCH_IF (is_bgt && NOT (~bgt~ STRING_EQUAL ~0~)) BEGIN // if bgt column is 1, use itm column
+    ELSE PATCH_IF (is_bgt && NOT (~%bgt%~ STRING_EQUAL ~0~)) BEGIN // if bgt column is 1, use itm column
       SET install = 1
       PATCH_IF (NOT (~%bgt%~ STRING_EQUAL ~1~)) BEGIN
         TEXT_SPRINT output ~%bgt%~
       END
     END
-    ELSE PATCH_IF (is_tutu && NOT (~tutu~ STRING_EQUAL ~0~)) BEGIN // if tutu column is 1, use itm column but prepend an underscore (_)
+    ELSE PATCH_IF (is_tutu && NOT (~%tutu%~ STRING_EQUAL ~0~)) BEGIN // if tutu column is 1, use itm column but prepend an underscore (_)
       SET install = 1
       PATCH_IF (NOT (~%tutu%~ STRING_EQUAL ~1~)) BEGIN
         TEXT_SPRINT output ~%tutu%~
@@ -100,7 +100,7 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
         TEXT_SPRINT output ~_%itm%~
       END
     END
-    ELSE PATCH_IF (is_bgee && NOT (~bgee~ STRING_EQUAL ~0~)) BEGIN // if bgee column is 1, use itm column
+    ELSE PATCH_IF (is_bgee && NOT (~%bgee%~ STRING_EQUAL ~0~)) BEGIN // if bgee column is 1, use itm column
       SET install = 1
       PATCH_IF (NOT (~%bgee%~ STRING_EQUAL ~1~)) BEGIN
         TEXT_SPRINT output ~%bgee%~
@@ -116,6 +116,7 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
     PATCH_IF (install) BEGIN
       PATCH_LOG ~Installing %id%...~
       
+      PATCH_SILENT
       LPF RESOLVE_REF STR_VAR ref = EVAL ~%name%~ RET rname = strref END
       LPF RESOLVE_REF STR_VAR ref = EVAL ~%id_name%~ RET rid_name = strref END
       LPF RESOLVE_REF STR_VAR ref = EVAL ~%desc%~ RET rdesc = strref END
@@ -123,6 +124,7 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
       LPF RESOLVE_REF STR_VAR ref = EVAL ~%tooltip1%~ RET rtooltip1 = strref END
       LPF RESOLVE_REF STR_VAR ref = EVAL ~%tooltip2%~ RET rtooltip2 = strref END
       LPF RESOLVE_REF STR_VAR ref = EVAL ~%tooltip3%~ RET rtooltip3 = strref END
+      PATCH_VERBOSE
       
       INNER_ACTION BEGIN
         // copy item and set name and description
@@ -139,6 +141,7 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
           PATCH_IF (IS_AN_INT ~%rid_desc%~) BEGIN
             WRITE_LONG IDENTIFIED_DESC rid_desc
           END
+          LPF update_item_descriptions_to_bgee END
         
         // update item tooltips
         ACTION_IF (NOT (~%rtooltip1%~ STRING_EQUAL ~*~)) BEGIN
@@ -153,10 +156,13 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
         
         // install additional content for the item
         ACTION_IF (FILE_EXISTS ~item_rev/components/main/item_content/%id%.tpa~) BEGIN
+          OUTER_TEXT_SPRINT EVAL ~%id%~ ~%output%~ // assign the filename to a variable named the same as the item ID
           INCLUDE ~item_rev/components/main/item_content/%id%.tpa~
         END
       END
     END
   END
 
-  
+
+/*------------------Iron Crisis-----------------*/
+INCLUDE ~item_rev/lib/iron_crisis.tpa~
