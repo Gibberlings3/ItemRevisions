@@ -373,7 +373,7 @@ INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
 BEGIN @21
 DESIGNATED 18
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
 OUTER_SET option = 1
@@ -385,7 +385,7 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 BEGIN @23
 DESIGNATED 19
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
 FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
 
 OUTER_SET option = 2
