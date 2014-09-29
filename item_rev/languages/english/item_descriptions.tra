@@ -595,7 +595,7 @@ Equipped Abilities:
  Regeneration: wearer regenerates 1 hit point every 4 rounds
 
 Combat Abilities:
- Vorpal: 5% chance target must save vs. death at -4 penalty or die
+ Vorpal: 10% chance target must save vs. death at -2 penalty or die
 
 THAC0: +4 bonus
 Damage: 1D8 + 4
@@ -753,7 +753,7 @@ STATISTICS:
 Equipped Abilities:
  Saving Throws: +3 bonus vs. breath
  Missile Damage Resistance: +20% bonus
- Inertial Barrier: opponents within 10 feet must save vs. breath each round or be slowed
+ Inertial Barrier: opponents within 10 feet must save vs. breath each round or have their movement rate halved
 
 Weight: 1
 Not Usable By:
@@ -3007,17 +3007,15 @@ Not Usable By:
  Shapeshifter
  Kensai
  Monk~
-@1365 = ~Armor of Faith +1~
+@1365 = ~Armor of Faith +3~
 @1366 = ~This armor is a combination of chainmail with metal plates (breastplate, epaulettes, elbow guards, gauntlets, tasses, and greaves) covering vital areas. Buckles and straps hold the whole suit together and distribute the weight, but the armor still hangs more loosely than full plate. Created in a forge blessed by gods to match the resolve shown by the wearer this armor almost glows with its own light. Worn by divine champions and paladins it is a symbol of the righteous and the bold.
-
-Note: Armor of Faith effect is not cumulative with other similar magic.
 
 STATISTICS:
 
 Equipped Abilities:
- Armor of Faith: +20% physical resistance
+ Casting Speed: +1 bonus
 
-Armor Class: 3
+Armor Class: 1
 Weight: 45
 Requires: 10 Strength
 Usable By:
@@ -5450,7 +5448,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Animal Rage: when the wearer drops below 25% hit points, he gains +2 bonus to attack rolls, damage rolls, and movement rate, but loses control of himself
+ Strength: +1 bonus
  Elemental Resistance: +10% bonus
 
 Armor Class: 3
@@ -5469,6 +5467,7 @@ STATISTICS:
 Equipped Abilities:
  Saving Throws: +2 bonus
  Magic Resistance: +20% bonus
+ Hideous: +2 bonus to AC and saving throws vs. humanoids
 
 Armor Class: 4
 Weight: 15
@@ -5491,8 +5490,8 @@ Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Acid Resistance: -25% penalty
- Fire Resistance: -25% penalty
+ Acid Resistance: -15% penalty
+ Fire Resistance: -15% penalty
  Regeneration: wearer regenerates 1 hit point every 3 seconds
 
 Armor Class: 2
@@ -5511,6 +5510,7 @@ Notes: Haste effect is not cumulative with other similar magic.
 STATISTICS:
 
 Equipped Abilities:
+ Immunity to slow effects
  Haste: wearer's movement rate is doubled, he gains an additional attack per round, +1 bonus to attack rolls, armor class and saves vs. breath
 
 Armor Class: 3
@@ -6452,15 +6452,15 @@ Not Usable By:
  Beast Master
  Kensai
  Monk~
-@1833 = ~Ankheg Plate Mail +2~
+@1833 = ~Ankheg Plate Mail +1~
 @1834 = ~This magical plate mail has been expertly crafted. Sheathed in the chitinous scales of the ankheg, it provides a greater degree of protection than traditional plate mail and is not susceptible to rust. As any world-weary adventurer will tell you, however, the best appreciated aspect of ankheg mail is its light weight and low encumbrance. Monsters come and go but fatigue is a constant enemy.
 
 STATISTICS:
 
 Equipped Abilities:
- Acid Resistance: +25% bonus
+ Acid Resistance: +40% bonus
 
-Armor Class: 1
+Armor Class: 2
 Weight: 35
 Requires: 8 Strength
 Not Usable By:
@@ -7479,7 +7479,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Force Absorbing: wielder is immune to everything, magical and otherwise, that pushes him away
+ Force Absorbing: wielder gets +2 bonus to saves vs. breath and is immune to everything, magical and otherwise, that pushes him away
  Fire Resistance: +30% bonus
 
 Armor Class Bonus: 3
@@ -7531,12 +7531,12 @@ Not Usable By:
  Monk
  Kensai~
 @1970 = ~Reflection Shield +1~
-@1971 = ~Thought only a decoration from some forgotten festhall, this shield languished in the backroom of a shop until a young noble purchased it as parade armor. Its dormant enchantments were discovered when a later attempt on his life was foiled as the shield reflected each attack back at the would-be assassins. Subsequent study has linked it to Myth Rhynn, or perhaps some other ancient excavation.
+@1971 = ~Thought only a decoration from some forgotten festhall, this shield languished in the backroom of a shop until a young noble purchased it as parade armor. Its dormant enchantments were discovered when a later attempt on his life was foiled as the shield reflected away each attack back at the would-be assassins. Subsequent study has linked it to Myth Rhynn, or perhaps some other ancient excavation.
 
 STATISTICS:
 
 Equipped Abilities:
- Physical Mirror: reflects missile weapons back to their user
+ Deflect Missiles: deflects ranged weapons
 
 Armor Class Bonus: 2
 Special: No Piercing Attack Protection
@@ -7591,7 +7591,7 @@ Once a holy artifact used by the elite sect of clerics and holy warriors called 
 STATISTICS:
 
 Equipped Abilities:
- Searing Light: all who strike the wearer in melee must save vs. spell or be blinded for 1 round, undead creatures also suffer 2d6 points of damage
+ Searing Light: all who attack the wearer in melee must save vs. spell or be blinded for 1 round, undead creatures also suffer 2d6 points of damage
 
 Armor Class Bonus: 4
 Special: No Missile Weapon Protection
@@ -10149,7 +10149,7 @@ STATISTICS:
 
 Combat Abilities:
  Keen: +10% chance to score critical hits
- Vorpal: 10% chance of severing target's head (save vs. death at -4 penalty neg.)
+ Vorpal: 15% chance target must save vs. death at -2 penalty or die
 
 THAC0: +4 bonus
 Damage: 1D10 + 4
@@ -10903,7 +10903,7 @@ Not Usable By:
  Kensai
  Cavalier~
 @2293 = ~Firetooth +4~
-@2294 = ~A human adventurer from the Dalelands named Arioth Cooper used this heavy crossbow on many of his journeys. Arioth had lived in a small community near the edge of Anauroch, the great desert. When a mysterious force emerged from the sands to destroy the village, Arioth's wife was killed. Through circumstance, Arioth became a wandering mercenary. Over time, Arioth became a great hero and champion for the innocents of Cormyr and the Dalelands, though he shied away from such praise. His worn, heavy crossbow was probably the secret of his many successes, though how he came in possession of such a powerful tool is not known. When Arioth died of old age, his wishes were that his equipment be sold off at an auction in Essembra, Battledale, and the proceeds given to the citizens of that village.
+@2294 = ~A human adventurer from the Dalelands named Arioth Cooper used this crossbow on many of his journeys. Arioth had lived in a small community near the edge of Anauroch, the great desert. When a mysterious force emerged from the sands to destroy the village, Arioth's wife was killed. Through circumstance, Arioth became a wandering mercenary. Over time, Arioth became a great hero and champion for the innocents of Cormyr and the Dalelands, though he shied away from such praise. His worn, light crossbow was probably the secret of his many successes, though how he came in possession of such a powerful tool is not known. When Arioth died of old age, his wishes were that his equipment be sold off at an auction in Essembra, Battledale, and the proceeds given to the citizens of that village.
 
 One of the most powerful crossbows in the realms, Firetooth has no need for ammunition, as it automatically launches magical bolts of fire.
 
@@ -10929,7 +10929,7 @@ Not Usable By:
  Kensai
  Cavalier~
 @2295 = ~Firetooth +5~
-@2296 = ~A human adventurer from the Dalelands named Arioth Cooper used this heavy crossbow on many of his journeys. Arioth had lived in a small community near the edge of Anauroch, the great desert. When a mysterious force emerged from the sands to destroy the village, Arioth's wife was killed. Through circumstance, Arioth became a wandering mercenary. Over time, Arioth became a great hero and champion for the innocents of Cormyr and the Dalelands, though he shied away from such praise. His worn, heavy crossbow was probably the secret of his many successes, though how he came in possession of such a powerful tool is not known. When Arioth died of old age, his wishes were that his equipment be sold off at an auction in Essembra, Battledale, and the proceeds given to the citizens of that village.
+@2296 = ~A human adventurer from the Dalelands named Arioth Cooper used this crossbow on many of his journeys. Arioth had lived in a small community near the edge of Anauroch, the great desert. When a mysterious force emerged from the sands to destroy the village, Arioth's wife was killed. Through circumstance, Arioth became a wandering mercenary. Over time, Arioth became a great hero and champion for the innocents of Cormyr and the Dalelands, though he shied away from such praise. His worn, light crossbow was probably the secret of his many successes, though how he came in possession of such a powerful tool is not known. When Arioth died of old age, his wishes were that his equipment be sold off at an auction in Essembra, Battledale, and the proceeds given to the citizens of that village.
 
 The magical bowstring of Gond makes even the Firetooth Crossbow's enchanted missiles more accurate and more powerful.
 
@@ -11491,7 +11491,10 @@ Usable By:
 
 STATISTICS:
 
-Armor Class: 3
+Equipped Abilities:
+ Intelligence: +1 bonus
+ Memorize one extra spell of each level from 1st to 4th
+
 Weight: 3
 Usable By:
  Mage~
@@ -11841,7 +11844,41 @@ Requires: 9 Intelligence
 Usable By:
  Bard
  Mage~
-@2399 = ~~
+
+/*-------new strings for V4-------*/
+
+@2400 = ~Girdle of Gender~
+@2401 = ~The cursed girdle of gender, a rare yet oft-discussed magical item, is wrought with a most powerful magic. Anyone unfortunate enough to secure it around their waist instantly finds their gender to be transformed. It is said that, not fifty years past, a nameless court jester was beheaded for presenting the girdle as a gift to Duke Lobelahn's lover
+
+Weight: 2
+Not Usable By:
+ Wizard Slayer.~
+@2402 = ~Moonblade +3~
+@2403 = ~This potent weapon was created by the smiths of ancient Myth Drannor.  Moonblades are used in the long process of selecting a ruler for the isle of Evermeet. A Moonblade chooses its owner, and in the case of this sword it has chosen the elf, Xan. Only Xan can use this blade, anyone else who tries will find themselves unable to lift the sword.
+
+STATISTICS:
+
+Equipped Abilities:
+  Xan wields the moonblade as if it was a long sword but he suffers no penalty for non-proficiency
+ Armor Class: +2 bonus
+ Fire Resistance: +40% bonus
+
+THAC0: +3 bonus
+Damage: 1D8 + 3
+Damage type: slashing
+Weight: 4
+Speed Factor: 2
+Proficiency Type: Long Sword
+Type: 1-handed
+Requires: 6 Strength
+Usable By:
+ Xan~
+@2404 = ~~
+@2405 = ~~
+@2406 = ~~
+@2407 = ~~
+@2408 = ~~
+@2409 = ~~
 
 
 // Tooltips - mostly they're spells' names

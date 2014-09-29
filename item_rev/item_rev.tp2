@@ -5,7 +5,7 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V3 Beta 1.19~
+VERSION ~V4 Beta 3~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
@@ -153,7 +153,7 @@ DESIGNATED 3
 SUBCOMPONENT @4
 REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
 
-OUTER_SET option = armor_free_casting ? 4 : armor_casting_speed_penalty_clerics ? 3 : 2
+OUTER_SET option = armor_free_casting ? 4 : armor_casting_speed_clerics ? 3 : 2
 
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~

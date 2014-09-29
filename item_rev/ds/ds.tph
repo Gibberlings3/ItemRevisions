@@ -94,7 +94,6 @@ SPCL213.SPL    233     1     117   142    n     A          //  PALADIN_PROTECTIO
 SPCL222.SPL    282     2     22    142    n     A          //  CAVALIER_REMOVE_FEAR
 SPCL232.SPL    233     1     118   142    n     A          //  INQUISITOR_TRUE_SIGHT
 SPCL233.SPL    233     1     117   142    n     A          //  ___PROTECTION_FROM_EVIL_TEN_FEET
-SPCL237.SPL    233     1     125   142    n     A          //  GREATER_SUN
 SPCL321.SPL    282     1     3     169    n     A          //  BERSERKER_ENRAGE
 SPCL321.SPL    101     0     45    169    n     A          //  BERSERKER_ENRAGE
 SPCL423.SPL    282     4     3     142    n     A          //  ASSASSIN_POISON_WEAPON
