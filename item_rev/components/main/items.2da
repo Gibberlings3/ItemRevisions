@@ -331,9 +331,9 @@ WAR_HAMMER_1                               hamm02   1        1        1        1
 RIFT_HAMMER_2                              hamm03   1        1        1        1        @1544    @1549    @1545    @1550    *        *        *        *
 HAMMER_OF_CORROSION_1                      hamm04   1        1        1        1        @1544    @1551    @1545    @1552    *        *        *        *
 ASHIDEENA_2                                hamm05   1        1        0        0        @1544    @1553    @1545    @1554    *        *        *        *
-DWARVEN_THROWER_3                          hamm06   1        1        0        0        @1544    @1555    @1545    @1556    *        *        *        *
-DWARVEN_THROWER_3#A                        hamm06a  1        1        0        0        @1544    @1555    @1545    @1556    *        *        *        *
-DWARVEN_THROWER_3#B                        hamm06b  1        1        0        0        @1544    @1555    @1545    @1556    *        *        *        *
+DWARVEN_THROWER_2                          hamm06   1        1        0        0        @1544    @1555    @1545    @1556    *        *        *        *
+DWARVEN_THROWER_2#A                        hamm06a  1        1        0        0        @1544    @1555    @1545    @1556    *        *        *        *
+DWARVEN_THROWER_2#B                        hamm06b  1        1        0        0        @1544    @1555    @1545    @1556    *        *        *        *
 HAMMER_OF_THUNDERBOLTS_3                   hamm07   1        1        0        0        @1544    @1557    @1545    @1558    *        *        *        *
 WAR_HAMMER_2                               hamm08   1        1        0        0        @1544    @1559    @1545    @1560    *        *        *        *
 CROM_FAEYR_5                               hamm09   1        1        0        0        @1544    @1561    @1545    @1562    *        *        *        *
