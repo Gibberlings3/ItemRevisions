@@ -5,11 +5,11 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V4 Beta 3~
+VERSION ~V4 Beta 4~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
-    PATCH_INCLUDE ~item_rev/ir_settings.ini~
+    PATCH_INCLUDE ~item_rev/settings.ini~
   END
 END
 
