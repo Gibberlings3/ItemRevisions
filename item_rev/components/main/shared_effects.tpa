@@ -1,5 +1,18 @@
 /*-----------------Shared Effects-----------------*/
 
+// increase speed of throwing weapons
+/*COPY_EXISTING ~axe.pro~ ~override~  // Throwing Axe
+  WRITE_SHORT 0x0a 30  // Increase speed from 20 to 30
+  BUT_ONLY_IF_IT_CHANGES
+  
+COPY_EXISTING ~dagger.pro~ ~override~  // Throwing Dagger
+  WRITE_SHORT 0x0a 30  // Increase speed from 20 to 30
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~dart.pro~ ~override~  // Dart
+  WRITE_SHORT 0x0a 30  // Increase speed from 20 to 30
+  BUT_ONLY_IF_IT_CHANGES*/
+
 COPY ~item_rev/itm/axiom1.eff~ ~override~
 COPY ~item_rev/itm/axiom2.eff~ ~override~
 COPY ~item_rev/itm/axiom3.eff~ ~override~
@@ -89,7 +102,12 @@ COPY ~item_rev/itm/dvbrnwnd.eff~ ~override~
 
 ADD_PROJECTILE ~item_rev/itm/dvflbrst.pro~ // Burst of Flames
 COPY ~item_rev/itm/dvflbrst.spl~ ~override~
-  WRITE_SHORT 0x98 %dvflbrst%
+  WRITE_SHORT 0x98 dvflbrst
+  
+COPY ~item_rev/itm/dvvtrsph.spl~ ~override~ // Burst of Acid
+  WRITE_SHORT 0x98 dvflbrst
+COPY ~item_rev/itm/dvvtrsph.vvc~ ~override~
+COPY ~item_rev/itm/dvvtrsph.bam~ ~override~
 
 COPY ~item_rev/itm/dvchill.spl~ ~override~ // Chilling
 COPY ~item_rev/itm/dvchill.eff~ ~override~
@@ -108,6 +126,10 @@ COPY ~item_rev/itm/dvcutthr.eff~ ~override~
 
 COPY ~item_rev/itm/dvdehydr.spl~ ~override~ // Dehydrating
 COPY ~item_rev/itm/dvdehydr.eff~ ~override~
+
+ADD_PROJECTILE ~item_rev/itm/dvdeton.pro~ // Detonation
+COPY ~item_rev/itm/dvdeton.spl~ ~override~
+  WRITE_SHORT 0x98 dvdeton
 
 COPY ~item_rev/itm/dvdispel.spl~ ~override~ // Dispelling
 
@@ -157,6 +179,12 @@ COPY ~item_rev/itm/dvknback.eff~ ~override~
 COPY ~item_rev/itm/dvkndown.spl~ ~override~ // Knockdown
 COPY ~item_rev/itm/dvkndown.eff~ ~override~
 
+COPY ~item_rev/itm/dvmindbr.spl~ ~override~ // Mindbreaking
+COPY ~item_rev/itm/dvmindbr.eff~ ~override~
+
+COPY ~item_rev/itm/dvmslatr.spl~ ~override~ // Missile Attraction
+COPY ~item_rev/itm/dvmslatr.eff~ ~override~
+
 COPY ~item_rev/itm/dvprlyze.spl~ ~override~ // Paralyzing
 COPY ~item_rev/itm/dvprlyze.eff~ ~override~
 
@@ -183,11 +211,11 @@ COPY ~item_rev/itm/dvsleep.spl~ ~override~ // Sleep
 COPY ~item_rev/itm/dvsleep.eff~ ~override~
 
 COPY ~item_rev/itm/dvswave.spl~ ~override~ // Smashing Wave
-COPY ~item_rev/itm/dvswave.spl~ ~override~
+  WRITE_SHORT 0x98 dvflbrst
 COPY ~item_rev/itm/dvswavex.bam~ ~override~
 COPY ~item_rev/itm/dvswave.vvc~ ~override~
 
-COPY ~item_rev/itm/dvsburst.spl~ ~override~ // Sound Burst
+COPY ~item_rev/itm/dvsburst.spl~ ~override~ // Sonic Blast
   WRITE_SHORT 0x98 dvsburst
 COPY ~item_rev/itm/dvsburst.eff~ ~override~
 

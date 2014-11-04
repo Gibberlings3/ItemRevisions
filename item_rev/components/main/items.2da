@@ -127,6 +127,7 @@ BOLT_2                                     bolt06   1        1        1        1
 FLASHER_MASTER_BRUISER_MATE_1              bolt07   1        1        0        0        @1179    @2329    @1182    @2330    *        *        *        *
 BLESSED_BOLT_3                             bolt08   1        1        0        0        @1179    @2331    @1182    @2332    *        *        *        *
 BOLT_3                                     bolt09   1        1        0        0        @1179    @1190    @1182    @1191    *        *        *        *
+PARALYTIC_BOLT_1                           sahbolt  1        1        0        0        @1179    @2359    @1182    @2360    *        *        *        *
 KUO-TOA_BOLT_1                             kuobolt  1        1        0        0        @1179    @2361    @1182    @2362    *        *        *        *
 KUO-TOA_BOLT_2                             kuobolt2 1        1        0        0        @1179    @2363    @1182    @2364    *        *        *        *
 KUO-TOA_BOLT_3                             kuobolt3 1        1        0        0        @1179    @2365    @1182    @2366    *        *        *        *

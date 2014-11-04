@@ -1,6 +1,42 @@
 TO DO LIST
+- increased projectile speed of darts, throwing daggers and throwing handaxes from 20 to 30
+- Crimson Chain's Blood Rage no longer cause loss of control
 - make dwarven large shield a medium shield +2 for BG1
 - Shield of the Fallen Stars enchantment raised to +2, removed +10 hp bonus
+- Suryris's Blade could use a Staggering effect (-1/2 apr, -2 reduced movement and casting rate?)
+- Sword of Balduran need something
+- Purifier should be more unique and more appealing than Foebane for paladins
+
+V4 - Beta 5 (26 October 2014)
+- renamed settings.ini and changed it to use Windows newlines
+- updated G3 icons used by the mod
+- started work on updating the readme
+- disabled Shield Bash component (at least until Arda comes back to fix all the issues it causes)
+- minor fixes (effects targeting, % chance, displayed icons/strings, etc.)
+- vorpal effect no longer work on demiliches
+- Cursed Armor of Missile Attraction was not working because of a missing .eff file
+- Doomplate's Aura of Despair was not working because of a missing .eff file
+- Horned Helm of the Rock had hidden immunity to stun and sleep
+- Greenstone Amulet was missing immunity to stun
+- Gauntlets of Parrying now grants +2 AC bonus vs. melee weapons 
+- Nature's Vengeance fireshield-like effect now has range (Call Lightning animation) but allows a save vs. breath
+- Cloak of Mirroring's image is triggered "when attacked" instead of "when struck"
+- Pearly White Ioun Stone regeneration rate from 1 every 2 rounds to 1 every round, added -10% fire/acid resistance penalty
+- Axe of the Unyelding AC bonus removed, regeneration rate from 1 every 4 rounds to 1 every round
+- Blackblood's Acid Splash now has a small AoE, new animation stolen from IWD
+- Bone Club's Dooming effect can stack, but causes -1 penalty and lasts only 4 rounds
+- Club of Detonation now uses a custom party-friendly but smaller 15' fireball
+- Paralytic Bolt added to IR, paralyze for 2 rounds instead of stunning for 6 rounds
+- Suryris's Blade inflicts additional 1d10 slashing dmg on each hit, -1/2 apr penalty, Stunning effect removed
+- The Wave's Fire Eating triggers when Smashing Wave does, the latter also knockdown for 1 round (save vs breath negates)
+- Ravager's Dooming effect can stack, but causes -1 penalty and lasts only 4 rounds
+- Staff of Command was missing its Mindbreaking combat ability (15% chance target must save vs spell at -4 or be feebleminded)
+- Psion's Blade now has +3 enchantment, Mind Shield replaced by Mind Barrier (+2 AC/saves vs psionics) added Mindbreaking
+- Soul Reaver inflicts 1d6 additional negative energy dmg (aka magic dmg which affects only living targets)
+- Gram the Sword of Grief has a slightly extended background now
+- Necaradan's Xbow now has +2 enchantment but grants +20% bonus to hide and move silently
+- Drowcraft Adamantine Chain get +5% physical resistance instead of 10% (stack with base 10% from Revised Armor component)
+- Drowcraft Adamantine Plate get +5% physical resistance instead of 15% (stack with base 20% from Revised Armor component)
 
 V4 - Beta 4 (9 August 2014)
 - major re-work to hopefully achieve full compatibility with BGEE, BGT and TuTu
@@ -24,7 +60,7 @@ V4 - Beta 4 (9 August 2014)
 - Ankheg Plate Mail enchantment lowered by 1, acid res increased from 25% to 40%
 - Robe of the Apprenti now grants +1 INT and +1 spell slot for spell levels 1-4
 - Reflection Shield no longer use "physical mirror" opcode (with its hardcoded animation) but "immunity to projectiles"
-- Saving Grace's Searing Light is triggered "every round when attacked" instead of "when struck
+- Saving Grace's Searing Light is triggered "when attacked" instead of "when struck"
 - Dragon Scale Shield's Force Absorbing now grants additional +2 to saves vs. breath
 - Belt of Inertial Barrier -> slow opcode replaced with a 50% movement rate penalty
 - Axe of the Unyelding -> Vorpal effect chance from 5% to 10%, save at -2 instead of -4

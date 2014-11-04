@@ -373,6 +373,7 @@ COPY ~%source%/FIRECAM_FULL_PLATE_MAIL_2.tpa~ ~%target%~
   ADD_PROJECTILE ~item_rev/itm/dvdoompl.pro~ // Aura of Despair
   COPY ~item_rev/itm/dvdoompl.spl~ ~override~
     WRITE_SHORT 0x98 %dvdoompl%
+  COPY ~item_rev/itm/dvdoompl.eff~ ~override~
 >>>>>>>>
 COPY ~%source%/DOOMPLATE_3.tpa~ ~%target%~
 

@@ -5,7 +5,7 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V4 Beta 4~
+VERSION ~V4 Beta 5~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
@@ -419,11 +419,11 @@ INCLUDE ~item_rev/components/critical_hits.tpa~
 // Shields Can Bash                                                      //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @49
+/* BEGIN @49
 DESIGNATED 1300
 REQUIRE_PREDICATE (ENGINE_IS ~tob bgee bg2ee~) @9002
 
-INCLUDE ~item_rev/components/shield_bash.tpa~
+INCLUDE ~item_rev/components/shield_bash.tpa~ */
 
 
 

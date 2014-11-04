@@ -562,9 +562,8 @@ This was the weapon of a cursed soul, doomed to wander the length and breadth of
 STATISTICS:
 
 Equipped Abilities:
- Armor Class: +1 bonus
  Maximum Hit Points: +10 bonus
- Regeneration: wearer regenerates 1 hit point every 4 rounds
+ Regeneration: wearer regenerates 1 hit point every round
 
 THAC0: +3 bonus
 Damage: 1D8 + 3
@@ -590,9 +589,8 @@ Enhanced by the magic of the Baalor's Claw, the Axe of the Unyielding is now a m
 STATISTICS:
 
 Equipped Abilities:
- Armor Class: +1 bonus
  Maximum Hit Points: +10 bonus
- Regeneration: wearer regenerates 1 hit point every 4 rounds
+ Regeneration: wearer regenerates 1 hit point every round
 
 Combat Abilities:
  Vorpal: 10% chance target must save vs. death at -2 penalty or die
@@ -937,7 +935,6 @@ STATISTICS:
 Combat Abilities:
  Entangling: 33% chance target must save vs. breath or be entangled for 2 rounds
  Monster Bane: additional +2 bonus to THAC0 and +6 to damage against monsters
- Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
 
 THAC0: +1
 Damage: 1D6 + 1
@@ -1179,7 +1176,7 @@ STATISTICS:
 
 Combat Abilities:
  Acidic: creatures struck suffer 1D4 additional points of acid damage
- Acid Splash: 5% chance of dealing 20 additional points of acid damage
+ Acid Splash: 10% chance of inflicting 4D4 points of acid damage to target and opponents within 5 feet
 
 THAC0: +2 bonus
 Damage: 1D6 + 2
@@ -1194,12 +1191,12 @@ Not Usable By:
 @1150 = ~Bone Club +3~
 @1151 = ~This vicious club was created hundreds of years ago, reportedly by a shaman on a quest for revenge. His family had fallen to undead, and so personal was his rage that he amputated his own leg, using the femur for the body of the weapon. Magical runes empower it, though it is likely the sheer force of his hatred would have served on its own.
 
-Notes: always considered to be of +3 enchantment when determining what it can hit. Dooming effect is not cumulative with itself or with other similar magic.
+Notes: always considered to be of +3 enchantment when determining what it can hit.
 
 STATISTICS:
 
 Combat Abilities:
- Dooming: target must save vs. spell or suffer -2 penalty to attack rolls, damage rolls and saving throws for 5 rounds
+ Dooming: target must save vs. spell or suffer -1 penalty to attack rolls, damage rolls and saving throws for 4 rounds
  Undead Bane: additional +2 bonus to THAC0 and +6 to damage against undead
 
 THAC0: +1 bonus
@@ -1275,8 +1272,7 @@ Equipped Abilities:
  Immunity to normal weapons
 
 Combat Abilities:
- Detonation: 10% chance a 5d6 fireball will detonate with each successful attack
- Fiery Blow: 5% chance of dealing 20 additional points of fire damage
+ Detonation: 5% chance of inflicting 6D6 points of fire damage to target and opponents within 15 feet
  Flaming: creatures struck suffer 1D6 additional points of fire damage
 
 THAC0: +3 bonus
@@ -1307,8 +1303,7 @@ Equipped Abilities:
  Fire Resistance: +40% bonus
 
 Combat Abilities:
- Detonation: 5% chance a 5d6 fireball will detonate with each successful attack
- Fiery Blow: 5% chance of dealing 20 additional points of fire damage
+ Detonation: 10% chance of inflicting 6D6 points of fire damage to target and opponents within 15 feet
  Flaming: creatures struck suffer 1D6 additional points of fire damage
 
 THAC0: +4 bonus
@@ -3340,7 +3335,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Vengeance: all who strike the wearer in melee suffer 1d10 points of electrical damage
+ Vengeance: all who strike the wearer must save vs. breath or suffer 1d10 points of electrical damage
 
 Weight: 3
 Not Usable By:
@@ -3946,7 +3941,7 @@ STATISTICS:
 
 Equipped Abilities:
  Drowcraft: increased armor class
- Physical Resistance: +10% bonus
+ Physical Resistance: +5% bonus
 
 Armor Class: 0
 Weight: 40
@@ -4012,7 +4007,7 @@ STATISTICS:
 
 Equipped Abilities:
  Drowcraft: increased armor class
- Physical Resistance: +15% bonus
+ Physical Resistance: +5% bonus
 
 Armor Class: -4
 Weight: 60
@@ -4196,7 +4191,8 @@ Not Usable By:
 STATISTICS:
 
 Combat Abilities:
- Stunning: target must save vs. spells or be stunned for 1 round
+ Slashing: creatures struck suffer 1D10 additional points of slashing damage
+ Unbalanced: -1/2  attack per round
 
 Damage: 1D10 + 2
 THAC0: +2 bonus
@@ -4342,8 +4338,8 @@ Equipped Abilities:
  Protection from Spell: Horrid Wilting
 
 Combat Abilities:
- Smashing Wave: 15% chance of inflicting 4D6 points of crushing damage to target and opponents within 5 feet
- Fire Eating: efreeti, fire elementals, fire giants and fire salamanders must save vs. death at -4 penalty or be slayed
+ Smashing Wave: 15% chance target and opponents within 5 feet suffer 4d6 points of crushing damage and must save vs. breath or be knocked unconscious for 1 round
+ Fire Eating: efreeti, fire elementals, fire giants and fire salamanders struck by the Smashing Wave must save vs. death or be slayed
 
 THAC0: +4 bonus
 Damage: 1D10 + 4
@@ -4363,15 +4359,13 @@ Not Usable By:
 @1538 = ~Ravager +4~
 @1539 = ~The guards upon the walls of the evil fortress, Darkhold, carry halberds of ancient, demonic creation. The halberds were purchased from the forges of hell in trade for the souls of captured heroes, so each halberd is a valued possession. Those who wield these weapons outside the walls of Darkhold do so at their own peril, for the master of the hold is said to be linked to each one. Only taking the blood-soaked shaft of this weapon in hand brings a sudden chill along the spine and the very sight of this cursed halberd has been known to strike terror into the heart of an opponent.
 
-Note: Dooming effect is not cumulative with itself or with other similar magic.
-
 STATISTICS:
 
 Special Abilities (twice per day):
  Cloak of Fear
 
 Combat Abilities:
- Dooming: target must save vs. spell or suffer -2 penalty to attack rolls, damage rolls and saving throws for 5 rounds
+ Dooming: target must save vs. spell or suffer -1 penalty to attack rolls, damage rolls and saving throws for 4 rounds
 
 THAC0: +4 bonus
 Damage: 1D10 + 4
@@ -4394,15 +4388,13 @@ Not Usable By:
 
 Combined with the Serpent Shaft, this dark halberd has the ability to slay an opponent with a single blow - unless they can survive the lethal poison injected by the vicious weapon.
 
-Note: Dooming effect is not cumulative with itself or with other similar magic.
-
 STATISTICS:
 
 Special Abilities (three times per day):
  Cloak of Fear
 
 Combat Abilities:
- Dooming: target must save vs. spell or suffer -2 penalty to attack rolls, damage rolls and saving throws for 5 rounds
+ Dooming: target must save vs. spell or suffer -1 penalty to attack rolls, damage rolls and saving throws for 4 rounds
  Viperous: 15% chance to inject a lethal poison which inflicts 10 points of damage every second for 2 rounds unless a save vs. poison at -4 penalty is made
 
 THAC0: +5 bonus
@@ -4950,8 +4942,9 @@ Not Usable By:
  Kensai~
 @1596 = ~Ioun Stone~
 @1597 = ~Pearly White Ioun Stone~
-@1598 = ~This is a small stone that floats in an orbit around the owner's head. Simply equip the stone to set it in its orbit. These obviously magical stones have different properties depending on their color.~
-@1599 = ~Legend tells us that this particular type of ioun stone is crafted with the enslaved soul of a troll. This pearly white ioun stone will grant the wearer regenerating features, and the ability to polymorph into a giant troll.
+@1598 = ~Legend tells us that this particular type of ioun stone is crafted with the enslaved soul of a troll. This pearly white ioun stone will grant the wearer regenerating features, and the ability to polymorph into a giant troll.
+
+Although the dark rites bind the trolls' regenerative properties into this, they also include a dose of their weaknesses as well.
 
 STATISTICS:
 
@@ -4959,7 +4952,9 @@ Special Abilities (once per day):
  Polymorph (Troll)
 
 Equipped Abilities:
- Regeneration: wearer regenerates 1 hit point every 2 rounds
+ Acid Resistance: -10% penalty
+ Fire Resistance: -10% penalty
+ Regeneration: wearer regenerates 1 hit point every round
 
 Armor Class Bonus: None
 Protects Against Critical Hits
@@ -10010,7 +10005,7 @@ Not Usable By:
 STATISTICS:
 
 Combat Abilities:
- Enervating: each hit drains 1 level from the target (save vs. death neg.)
+ Enervating: living creatures struck suffer 1D6 additional points of damage and must save vs. death or lose 1 level
 
 THAC0: +4 bonus
 Damage: 1D10 + 4
@@ -10191,7 +10186,7 @@ Not Usable By:
  Paladin
  Beast Master~
 @2211 = ~Gram the Sword of Grief +4~
-@2212 = ~This is one of the many weapons of the great hero Siegfried. The blade is particularly sharp and well-balanced, and in a certain light one can see the faint image of a serpent within the hilt.
+@2212 = ~Some weapons are evil from their inception, imbued with corrupting magics by cruel mages. But there are also weapons that owe their natures not to any particular enchantment, but to dastardly acts performed in the hands of their wielders. Gram, once a legendary sword of the great hero Siegfried, is now forever stained with the blood of countless innocents.
 
 STATISTICS:
 
@@ -10218,7 +10213,7 @@ Not usable by:
  Monk
  Beast Master~
 @2213 = ~Gram the Sword of Grief +5~
-@2214 = ~This is one of the many weapons of the great hero Siegfried. The blade is particularly sharp and well-balanced, and in a certain light one can see the faint image of a serpent within the hilt.
+@2214 = ~Some weapons are evil from their inception, imbued with corrupting magics by cruel mages. But there are also weapons that owe their natures not to any particular enchantment, but to dastardly acts performed in the hands of their wielders. Gram, once a legendary sword of the great hero Siegfried, is now forever stained with the blood of countless innocents.
 
 Siegfried's fearsome blade is even more powerful with the Heart of the Damned set into its pommel.
 
@@ -10295,20 +10290,23 @@ Not Usable By:
  Thief
  Monk
  Beast Master~
-@2219 = ~Psion's Blade +4~
+@2219 = ~Psion's Blade +3~
 @2220 = ~Some believe this massive blade to be of Drow origin, though others dispute this claim. However, all agree this great sword was fashioned with a single purpose... to rid the world of the Illithid. A threat Mind Flayers don't take kindly.
 The illithid brain known as Kwukgixrin sent its followers to scouring the underdark for this blade that it discovered when it absorbed the mind of a powerful human warrior. After countless fights the warrior had hidden the sword when he realized that he was too wounded to survive another attack from the illithid thralls. Before the illithid thralls could find the sword, the warrior's twin brother discovered it. The twin was in strong health and he made short work of the thralls and many illithids before leaving the Underdark.
 
 STATISTICS:
 
 Equipped Abilities:
- Mind Shield: confers protection against many forms of mind-control magic, such as charm, confusion, domination, fear, feeblemind, hold, sleep, stun, and psionics
+ Mind Barrier: +2 bonus to AC and saving throws vs. psionics
 
-THAC0: +4 bonus
-Damage: 1D10 + 4
+Combat Abilities:
+ Mindbreaking: 15% chance target must save vs. spell at -4 or be feebleminded
+
+THAC0: +3 bonus
+Damage: 1D10 + 3
 Damage type: slashing
 Weight: 8
-Speed Factor: 6
+Speed Factor: 7
 Proficiency Type: Two-Handed Sword
 Type: 2-handed
 Requires: 14 Strength
@@ -10832,18 +10830,22 @@ Not Usable By:
  Monk
  Kensai
  Cavalier~
-@2287 = ~Necaradan's Crossbow +3~
+@2287 = ~Necaradan's Crossbow +2~
 @2288 = ~This menacing crossbow was once the property of Necaradan, the most feared hit man of the Dying Light, an order of assassins known for their stealth, subtlety, and lethal precision. So feared were they, it was said that their victims were, for all practical purposes, dead from the moment the Dying Light accepted the contract to end their lives. Though this crossbow and its owner's fame remain, the Dying Light is but a memory, its membership having succumbed to Time, the ultimate assassin.
 
 STATISTICS:
 
+Equipped Abilities:
+ Hide In Shadows: +20% bonus
+ Move Silently: +20% bonus
+
 Combat Abilities:
  Sharpshoot: 25% chance the user remains invisible for 1 round after an attack, also gaining +4 bonus to the next attack roll
 
-THAC0: +3 bonus
-Damage: +3 bonus
+THAC0: +2 bonus
+Damage: +2 bonus
 Weight: 4
-Speed Factor: 2
+Speed Factor: 3
 Proficiency Type: Crossbow
 Type: 2-handed
 Requires: 8 Strength
@@ -11577,8 +11579,20 @@ Protects Against Critical Hits
 Weight: 1
 Not Usable By:
  Good-aligned characters~
-@2359 = ~Korgan's Bloodaxe~
-@2360 = ~bla bla bla~
+@2359 = ~Paralytic Bolt +1~
+@2360 = ~Quarrels or bolts are the ammunition fired by crossbows regardless of the weapon's size.
+Bolts coated in this poison are aften used by sahaugins.
+
+STATISTICS:
+
+Combat Abilities:
+ Paralyzing: target must save vs. paralyze or be held for 2 rounds
+
+THAC0: +1 bonus
+Damage: 1D8
+Damage type: missile
+Weight: 0
+Launcher: Crossbow~
 @2361 = ~Kuo-Toa Bolt +1~
 @2362 = ~This slender bolt is coated with a special poison, developed by Kuo-Toa alchemists, which can quickly paralyze any living creature.
 
