@@ -15,12 +15,7 @@
 ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
   OUTER_SET comp_ir=1  END ELSE BEGIN
   OUTER_SET comp_ir=0  END
-/*
-// Item Revisions - Potion Revisions
-ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 1020 BEGIN
-  OUTER_SET comp_ir_potions=1  END ELSE BEGIN
-  OUTER_SET comp_ir_potions=0  END
-*/
+
 // Item Revisions - Weapon Changes
 ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 17 BEGIN
   OUTER_SET comp_ir_wc=1  END ELSE BEGIN

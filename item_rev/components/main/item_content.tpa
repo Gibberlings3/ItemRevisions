@@ -977,3 +977,341 @@ COPY ~%source%/WAND_OF_CURSING.tpa~ ~%target%~
 >>>>>>>>
 COPY ~%source%/DAKKONS_ZERTH_BLADE_2.tpa~ ~%target%~
 
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_FIRE_RESISTANCE.tpa
+  COPY ~item_rev/itm/potn02.spl~ ~override~
+    SAY NAME1 @3000
+>>>>>>>>
+COPY ~%source%/POTION_OF_FIRE_RESISTANCE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_HILL_GIANT_STRENGTH.tpa
+  COPY ~item_rev/itm/potn03.spl~ ~override~
+    SAY NAME1 @3002
+>>>>>>>>
+COPY ~%source%/POTION_OF_HILL_GIANT_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_FROST_GIANT_STRENGTH.tpa
+  COPY ~item_rev/itm/potn04.spl~ ~override~
+    SAY NAME1 @3004
+>>>>>>>>
+COPY ~%source%/POTION_OF_FROST_GIANT_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_FIRE_GIANT_STRENGTH.tpa
+  COPY ~item_rev/itm/potn05.spl~ ~override~
+    SAY NAME1 @3006
+>>>>>>>>
+COPY ~%source%/POTION_OF_FIRE_GIANT_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_CLOUD_GIANT_STRENGTH.tpa
+  COPY ~item_rev/itm/potn06.spl~ ~override~
+    SAY NAME1 @3008
+>>>>>>>>
+COPY ~%source%/POTION_OF_CLOUD_GIANT_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_STORM_GIANT_STRENGTH.tpa
+  COPY ~item_rev/itm/potn07.spl~ ~override~
+    SAY NAME1 @3010
+>>>>>>>>
+COPY ~%source%/POTION_OF_STORM_GIANT_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_HEALING.tpa
+  COPY ~item_rev/itm/potn08.spl~ ~override~
+    SAY NAME1 @3012
+>>>>>>>>
+COPY ~%source%/POTION_OF_HEALING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_HEROISM.tpa
+  COPY ~item_rev/itm/potn09.spl~ ~override~
+    SAY NAME1 @3014
+>>>>>>>>
+COPY ~%source%/POTION_OF_HEROISM.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_INVISIBILITY.tpa
+  COPY ~item_rev/itm/potn10.spl~ ~override~
+    SAY NAME1 @3016
+>>>>>>>>
+COPY ~%source%/POTION_OF_INVISIBILITY.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_INVULNERABILITY.tpa
+  COPY ~item_rev/itm/potn11.spl~ ~override~
+    SAY NAME1 @3018
+>>>>>>>>
+COPY ~%source%/POTION_OF_INVULNERABILITY.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_STONE_GIANT_STRENGTH.tpa
+  COPY ~item_rev/itm/potn12.spl~ ~override~
+    SAY NAME1 @3020
+>>>>>>>>
+COPY ~%source%/POTION_OF_STONE_GIANT_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/OIL_OF_FIERY_BURNING.tpa
+  COPY ~item_rev/itm/potn13.spl~ ~override~
+    SAY NAME1 @3022
+  COPY ~item_rev/itm/potn13.eff~ ~override~
+>>>>>>>>
+COPY ~%source%/OIL_OF_FIERY_BURNING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_SPEED.tpa
+  COPY ~item_rev/itm/potn14.spl~ ~override~
+    SAY NAME1 @3024
+>>>>>>>>
+COPY ~%source%/POTION_OF_SPEED.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/RED_POTION.tpa
+  COPY ~item_rev/itm/potn15.spl~ ~override~
+    SAY NAME1 @3026
+>>>>>>>>
+COPY ~%source%/RED_POTION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/VIOLET_POTION.tpa
+  COPY ~item_rev/itm/potn16.spl~ ~override~
+    SAY NAME1 @3028
+>>>>>>>>
+COPY ~%source%/VIOLET_POTION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/ELIXIR_OF_HEALTH.tpa
+  COPY ~item_rev/itm/potn17.spl~ ~override~
+    SAY NAME1 @3030
+>>>>>>>>
+COPY ~%source%/ELIXIR_OF_HEALTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_ABSORPTION.tpa
+  COPY ~item_rev/itm/potn18.spl~ ~override~
+    SAY NAME1 @3032
+>>>>>>>>
+COPY ~%source%/POTION_OF_ABSORPTION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_AGILITY.tpa
+  COPY ~item_rev/itm/potn19.spl~ ~override~
+    SAY NAME1 @3034
+>>>>>>>>
+COPY ~%source%/POTION_OF_AGILITY.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/ANTIDOTE.tpa
+  COPY ~item_rev/itm/potn20.spl~ ~override~
+    SAY NAME1 @3036
+>>>>>>>>
+COPY ~%source%/ANTIDOTE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_CLARITY.tpa
+  COPY ~item_rev/itm/potn21.spl~ ~override~
+    SAY NAME1 @3038
+>>>>>>>>
+COPY ~%source%/POTION_OF_CLARITY.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_COLD_RESISTANCE.tpa
+  COPY ~item_rev/itm/potn22.spl~ ~override~
+    SAY NAME1 @3040
+>>>>>>>>
+COPY ~%source%/POTION_OF_COLD_RESISTANCE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/STRANGE_POTION_OF_SPEED.tpa
+  COPY ~item_rev/itm/potn23.spl~ ~override~
+    SAY NAME1 @3042
+>>>>>>>>
+COPY ~%source%/STRANGE_POTION_OF_SPEED.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_DEFENSE.tpa
+  COPY ~item_rev/itm/potn24.spl~ ~override~
+    SAY NAME1 @3044
+>>>>>>>>
+COPY ~%source%/POTION_OF_DEFENSE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/STRANGE_POTION_OF_HEALING.tpa
+  COPY ~item_rev/itm/potn25.spl~ ~override~
+    SAY NAME1 @3046
+>>>>>>>>
+COPY ~%source%/STRANGE_POTION_OF_HEALING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_EXPLOSIONS.tpa
+  COPY ~item_rev/itm/potn26.spl~ ~override~
+    SAY NAME1 @3048
+>>>>>>>>
+COPY ~%source%/POTION_OF_EXPLOSIONS.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_FIREBREATH.tpa
+  COPY ~item_rev/itm/potn27.spl~ ~override~
+    SAY NAME1 @3050
+>>>>>>>>
+COPY ~%source%/POTION_OF_FIREBREATH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_FORTITUDE.tpa
+  COPY ~item_rev/itm/potn28.spl~ ~override~
+    SAY NAME1 @3052
+>>>>>>>>
+COPY ~%source%/POTION_OF_FORTITUDE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_GENIUS.tpa
+  COPY ~item_rev/itm/potn29.spl~ ~override~
+    SAY NAME1 @3054
+>>>>>>>>
+COPY ~%source%/POTION_OF_GENIUS.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_SHARP_EYES.tpa
+  COPY ~item_rev/itm/potn30.spl~ ~override~
+    SAY NAME1 @3056
+  COPY ~item_rev/itm/potn30d.spl~ ~override~
+>>>>>>>>
+COPY ~%source%/POTION_OF_SHARP_EYES.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_INSULATION.tpa
+  COPY ~item_rev/itm/potn31.spl~ ~override~
+    SAY NAME1 @3058
+>>>>>>>>
+COPY ~%source%/POTION_OF_INSULATION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/STRANGE_ANTIDOTE.tpa
+  COPY ~item_rev/itm/potn32.spl~ ~override~
+    SAY NAME1 @3060
+>>>>>>>>
+COPY ~%source%/STRANGE_ANTIDOTE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_MAGIC_BLOCKING.tpa
+  COPY ~item_rev/itm/potn33.spl~ ~override~
+    SAY NAME1 @3062
+>>>>>>>>
+COPY ~%source%/POTION_OF_MAGIC_BLOCKING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_MAGIC_PROTECTION.tpa
+  COPY ~item_rev/itm/potn34.spl~ ~override~
+    SAY NAME1 @3064
+>>>>>>>>
+COPY ~%source%/POTION_OF_MAGIC_PROTECTION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_MAGIC_SHIELDING.tpa
+  COPY ~item_rev/itm/potn35.spl~ ~override~
+    SAY NAME1 @3066
+>>>>>>>>
+COPY ~%source%/POTION_OF_MAGIC_SHIELDING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_MASTER_THIEVERY.tpa
+  COPY ~item_rev/itm/potn36.spl~ ~override~
+    SAY NAME1 @3068
+>>>>>>>>
+COPY ~%source%/POTION_OF_MASTER_THIEVERY.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_MIND_FOCUSING.tpa
+  COPY ~item_rev/itm/potn37.spl~ ~override~
+    SAY NAME1 @3070
+>>>>>>>>
+COPY ~%source%/POTION_OF_MIND_FOCUSING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_MIRRORED_EYES.tpa
+  COPY ~item_rev/itm/potn38.spl~ ~override~
+    SAY NAME1 @3072
+>>>>>>>>
+COPY ~%source%/POTION_OF_MIRRORED_EYES.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_PERCEPTION.tpa
+  COPY ~item_rev/itm/potn39.spl~ ~override~
+    SAY NAME1 @3074
+>>>>>>>>
+COPY ~%source%/POTION_OF_PERCEPTION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/STRANGE_POTION_OF_INVULNERABILITY.tpa
+  COPY ~item_rev/itm/potn40.spl~ ~override~
+    SAY NAME1 @3076
+>>>>>>>>
+COPY ~%source%/STRANGE_POTION_OF_INVULNERABILITY.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_POWER.tpa
+  COPY ~item_rev/itm/potn41.spl~ ~override~
+    SAY NAME1 @3078
+>>>>>>>>
+COPY ~%source%/POTION_OF_POWER.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_REGENERATION.tpa
+  COPY ~item_rev/itm/potn42.spl~ ~override~
+    SAY NAME1 @3080
+>>>>>>>>
+COPY ~%source%/POTION_OF_REGENERATION.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_INSIGHT.tpa
+  COPY ~item_rev/itm/potn43.spl~ ~override~
+    SAY NAME1 @3082
+>>>>>>>>
+COPY ~%source%/POTION_OF_INSIGHT.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_STRENGTH.tpa
+  COPY ~item_rev/itm/potn44.spl~ ~override~
+    SAY NAME1 @3084
+>>>>>>>>
+COPY ~%source%/POTION_OF_STRENGTH.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_FREEDOM.tpa
+  COPY ~item_rev/itm/potn45.spl~ ~override~
+    SAY NAME1 @3086
+>>>>>>>>
+COPY ~%source%/POTION_OF_FREEDOM.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_STONE_FORM.tpa
+  COPY ~item_rev/itm/potn46.spl~ ~override~
+    SAY NAME1 @3088
+>>>>>>>>
+COPY ~%source%/POTION_OF_STONE_FORM.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/MAREKS_POTION_OF_ANTIDOTE.tpa
+  /* COPY ~item_rev/itm/potn47.spl~ ~override~
+    SAY NAME1 @3090 */
+>>>>>>>>
+COPY ~%source%/MAREKS_POTION_OF_ANTIDOTE.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_EXTRA_HEALING.tpa
+  COPY ~item_rev/itm/potn52.spl~ ~override~
+    SAY NAME1 @3094
+>>>>>>>>
+COPY ~%source%/POTION_OF_EXTRA_HEALING.tpa~ ~%target%~
+
+
+<<<<<<<< .../item_rev-inlined/item/POTION_OF_SUPERIOR_HEALING.tpa
+  COPY ~item_rev/itm/potn55.spl~ ~override~
+    SAY NAME1 @3098
+>>>>>>>>
+COPY ~%source%/POTION_OF_SUPERIOR_HEALING.tpa~ ~%target%~
+

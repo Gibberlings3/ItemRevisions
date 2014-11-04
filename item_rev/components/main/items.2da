@@ -769,3 +769,56 @@ MALAKARS_COMPANION_2                       wawak    1        1        0        0
 
 // NEW_ITEMS
 FLAIL_OF_SUBMISSION_2                      dvflail  1        1        0        0        @1107    @2315    @1110    @2316    *        *        *        *
+
+// POTIONS
+POTION_OF_FIRE_RESISTANCE                  potn02   1        1        1        1        #6976    @3000    #16264   @3001    *        *        *        *           //extra_content
+POTION_OF_HILL_GIANT_STRENGTH              potn03   1        1        1        1        #6976    @3002    #16264   @3003    *        *        *        *           //extra_content
+POTION_OF_FROST_GIANT_STRENGTH             potn04   1        1        1        1        #6976    @3004    #16264   @3005    *        *        *        *           //extra_content
+POTION_OF_FIRE_GIANT_STRENGTH              potn05   1        1        1        1        #6976    @3006    #16264   @3007    *        *        *        *           //extra_content
+POTION_OF_CLOUD_GIANT_STRENGTH             potn06   1        1        1        1        #6976    @3008    #16264   @3009    *        *        *        *           //extra_content
+POTION_OF_STORM_GIANT_STRENGTH             potn07   1        1        1        1        #6976    @3010    #16264   @3011    *        *        *        *           //extra_content
+POTION_OF_HEALING                          potn08   1        1        1        1        #6976    @3012    #16264   @3013    *        *        *        *           //extra_content
+POTION_OF_HEROISM                          potn09   1        1        1        1        #6976    @3014    #16264   @3015    *        *        *        *           //extra_content
+POTION_OF_INVISIBILITY                     potn10   1        1        1        1        #6976    @3016    #16264   @3017    *        *        *        *           //extra_content
+POTION_OF_INVULNERABILITY                  potn11   1        1        1        1        #6976    @3018    #16264   @3019    *        *        *        *           //extra_content
+POTION_OF_STONE_GIANT_STRENGTH             potn12   1        1        1        1        #6976    @3020    #16264   @3021    *        *        *        *           //extra_content
+OIL_OF_FIERY_BURNING                       potn13   1        1        1        1        #6976    @3022    #16264   @3023    *        *        *        *           //extra_content
+POTION_OF_SPEED                            potn14   1        1        1        1        #6976    @3024    #16264   @3025    *        *        *        *           //extra_content
+RED_POTION                                 potn15   1        1        1        1        #6976    @3026    #16264   @3027    *        *        *        *           //extra_content
+VIOLET_POTION                              potn16   1        1        1        1        #6976    @3028    #16264   @3029    *        *        *        *           //extra_content
+ELIXIR_OF_HEALTH                           potn17   1        1        1        1        #6976    @3030    #16264   @3031    *        *        *        *           //extra_content
+POTION_OF_ABSORPTION                       potn18   1        1        1        1        #6976    @3032    #16264   @3033    *        *        *        *           //extra_content
+POTION_OF_AGILITY                          potn19   1        1        1        1        #6976    @3034    #16264   @3035    *        *        *        *           //extra_content
+ANTIDOTE                                   potn20   1        1        1        1        #6976    @3036    #16264   @3037    *        *        *        *           //extra_content
+POTION_OF_CLARITY                          potn21   1        1        1        1        #6976    @3038    #16264   @3039    *        *        *        *           //extra_content
+POTION_OF_COLD_RESISTANCE                  potn22   1        1        1        1        #6976    @3040    #16264   @3041    *        *        *        *           //extra_content
+STRANGE_POTION_OF_SPEED                    potn23   1        1        1        1        #6976    @3042    #16264   @3043    *        *        *        cursed      //extra_content
+POTION_OF_DEFENSE                          potn24   1        1        1        1        #6976    @3044    #16264   @3045    *        *        *        *           //extra_content
+STRANGE_POTION_OF_HEALING                  potn25   1        1        1        1        #6976    @3046    #16264   @3047    *        *        *        cursed      //extra_content
+POTION_OF_EXPLOSIONS                       potn26   1        1        1        1        #6976    @3048    #16264   @3049    *        *        *        *           //extra_content
+POTION_OF_FIREBREATH                       potn27   1        1        1        1        #6976    @3050    #16264   @3051    *        *        *        *           //extra_content
+POTION_OF_FORTITUDE                        potn28   1        1        1        1        #6976    @3052    #16264   @3053    *        *        *        *           //extra_content
+POTION_OF_GENIUS                           potn29   1        1        1        1        #6976    @3054    #16264   @3055    *        *        *        *           //extra_content
+POTION_OF_SHARP_EYES                       potn30   1        1        1        1        #6976    @3056    #16264   @3057    *        *        *        *           //extra_content
+POTION_OF_INSULATION                       potn31   1        1        1        1        #6976    @3058    #16264   @3059    *        *        *        *           //extra_content
+STRANGE_ANTIDOTE                           potn32   1        1        1        1        #6976    @3060    #16264   @3061    *        *        *        cursed      //extra_content
+POTION_OF_MAGIC_BLOCKING                   potn33   1        1        1        1        #6976    @3062    #16264   @3063    *        *        *        *           //extra_content
+POTION_OF_MAGIC_PROTECTION                 potn34   1        1        1        1        #6976    @3064    #16264   @3065    *        *        *        *           //extra_content
+POTION_OF_MAGIC_SHIELDING                  potn35   1        1        1        1        #6976    @3066    #16264   @3067    *        *        *        *           //extra_content
+POTION_OF_MASTER_THIEVERY                  potn36   1        1        1        1        #6976    @3068    #16264   @3069    *        *        *        *           //extra_content
+POTION_OF_MIND_FOCUSING                    potn37   1        1        1        1        #6976    @3070    #16264   @3071    *        *        *        *           //extra_content
+POTION_OF_MIRRORED_EYES                    potn38   1        1        1        1        #6976    @3072    #16264   @3073    *        *        *        *           //extra_content
+POTION_OF_PERCEPTION                       potn39   1        1        1        1        #6976    @3074    #16264   @3075    *        *        *        *           //extra_content
+STRANGE_POTION_OF_INVULNERABILITY          potn40   1        1        1        1        #6976    @3076    #16264   @3077    *        *        *        *           //extra_content
+POTION_OF_POWER                            potn41   1        1        1        1        #6976    @3078    #16264   @3079    *        *        *        *           //extra_content
+POTION_OF_REGENERATION                     potn42   1        1        1        1        #6976    @3080    #16264   @3081    *        *        *        *           //extra_content
+POTION_OF_INSIGHT                          potn43   1        1        1        1        #6976    @3082    #16264   @3083    *        *        *        *           //extra_content
+POTION_OF_STRENGTH                         potn44   1        1        1        1        #6976    @3084    #16264   @3085    *        *        *        *           //extra_content
+POTION_OF_FREEDOM                          potn45   1        1        1        1        #6976    @3086    #16264   @3087    *        *        *        *           //extra_content
+POTION_OF_STONE_FORM                       potn46   1        1        1        1        #6976    @3088    #16264   @3089    *        *        *        *           //extra_content
+MAREKS_POTION_OF_ANTIDOTE                  potn47   1        1        1        1        #6976    @3090    #16264   @3091    *        *        *        *           //extra_content
+VIAL_OF_MYSTERIOUS_LIQUID                  potn48   1        1        1        1        #6976    @3092    #16264   @3093    *        *        *        *           
+POTION_OF_EXTRA_HEALING                    potn52   1        1        1        1        #6976    @3094    #16264   @3095    *        *        *        *           //extra_content
+FESTULE_THE_ALCHEMISTS_POTION              potn53   1        1        0        0        #6976    @3096    #16264   @3097    *        *        *        *           
+POTION_OF_SUPERIOR_HEALING                 potn55   1        1        0        0        #6976    @3098    #16264   @3099    *        *        *        *           
+ROGUES_POTION_OF_FROST_GIANT_STRENGTH      potn56   1        1        0        0        #6976    @3100    #16264   @3101    *        *        *        *           

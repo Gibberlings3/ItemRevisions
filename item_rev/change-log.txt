@@ -7,6 +7,10 @@ TO DO LIST
 - Sword of Balduran need something
 - Purifier should be more unique and more appealing than Foebane for paladins
 
+V4 - Beta 6 (3 November 2014)
+- merged potions into the main component item table
+- reintroduced unidentified ioun stone description to prevent installation failure
+
 V4 - Beta 5 (26 October 2014)
 - renamed settings.ini and changed it to use Windows newlines
 - updated G3 icons used by the mod

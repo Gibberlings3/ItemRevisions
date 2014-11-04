@@ -5,7 +5,7 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V4 Beta 5~
+VERSION ~V4 Beta 6~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
@@ -51,15 +51,11 @@ END
 
 LOAD_TRA ~item_rev/languages/english/item_descriptions.tra~
 LOAD_TRA ~item_rev/languages/english/item_upgrades.tra~
+LOAD_TRA ~item_rev/languages/english/potion_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_upgrades.tra~
+LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
 INCLUDE ~item_rev/components/main_component.tpa~
-
-ACTION_IF install_potion_revisions BEGIN
-  LOAD_TRA ~item_rev/languages/english/potion_descriptions.tra~
-  LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
-  INCLUDE ~item_rev/components/potions.tpa~
-END
 
 ///////////////////////////////////////////////////////////////////////////
 // Store Revisions                                                       //
