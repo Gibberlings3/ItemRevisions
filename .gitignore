@@ -10,6 +10,3 @@ setup-item_rev.command
 item_rev/debug/*
 !item_rev/debug/debug.txt
 item_rev/backup/*
-!item_rev/backup/g3.ico
-!item_rev/backup/g3_sfx.ico
-!item_rev/backup/g3readme.css
