@@ -63,7 +63,7 @@ INCLUDE ~item_rev/components/main_component.tpa~
 
 BEGIN @33
 DESIGNATED 1030
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+REQUIRE_PREDICATE (GAME_IS ~soa tob bgt bgee bg2ee~) @9002
 
 // a bit rough for now... will fine-tune once BG1 revision is complete
 ACTION_IF (GAME_IS ~tob bgt bg2ee~) BEGIN
@@ -105,7 +105,7 @@ END
 BEGIN @10
 DESIGNATED 1040
 SUBCOMPONENT @29
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 OUTER_SET armor_movement_penalty = 1
 
@@ -117,7 +117,7 @@ INCLUDE ~item_rev/components/revised_armor.tpa~
 BEGIN @46
 DESIGNATED 1042
 SUBCOMPONENT @29
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET armor_movement_penalty = 0
 
@@ -133,7 +133,7 @@ INCLUDE ~item_rev/components/revised_armor.tpa~
 BEGIN @3
 DESIGNATED 2
 SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 OUTER_SET option = armor_free_casting ? 4 : 1
 
@@ -146,8 +146,8 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 
 BEGIN @5
 DESIGNATED 3
-SUBCOMPONENT @4
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob totsc bgee bg2ee~) @9002
+SUBCOMPONENT @4 (ENGINE_IS ~soa tob totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) // not compatible with bg1 without totsc
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET option = armor_free_casting ? 4 : armor_casting_speed_clerics ? 3 : 2
 
@@ -166,7 +166,7 @@ INCLUDE ~item_rev/components/spellcasting_armor.tpa~
 BEGIN @43
 DESIGNATED 9
 SUBCOMPONENT @12
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 OUTER_SET option = 1
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
@@ -180,7 +180,7 @@ INCLUDE ~item_rev/components/thieving_armor.tpa~
 BEGIN @44
 DESIGNATED 1101
 SUBCOMPONENT @12
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET option = 2
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
@@ -194,7 +194,7 @@ INCLUDE ~item_rev/components/thieving_armor.tpa~
 
 BEGIN @13
 DESIGNATED 10
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 INCLUDE ~item_rev/components/revised_shields.tpa~
 
@@ -205,7 +205,7 @@ INCLUDE ~item_rev/components/revised_shields.tpa~
 
 BEGIN @14
 DESIGNATED 11
-REQUIRE_PREDICATE (ENGINE_IS ~tob bgee bg2ee~) @9003
+REQUIRE_PREDICATE (ENGINE_IS ~tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 INCLUDE ~item_rev/components/dual_wielding.tpa~
 
@@ -216,7 +216,7 @@ INCLUDE ~item_rev/components/dual_wielding.tpa~
 
 BEGIN @15
 DESIGNATED 12
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 INCLUDE ~item_rev/components/items_of_protection.tpa~
 
@@ -231,7 +231,7 @@ INCLUDE ~item_rev/components/items_of_protection.tpa~
 BEGIN @39
 DESIGNATED 1090
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 OUTER_SET option = 1
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
@@ -245,7 +245,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @40
 DESIGNATED 1091
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET option = 2
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
@@ -259,7 +259,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @41
 DESIGNATED 1092
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET option = 3
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
@@ -273,7 +273,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @42
 DESIGNATED 1093
 SUBCOMPONENT @17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET option = 4
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
@@ -291,7 +291,7 @@ INCLUDE ~item_rev/components/multiclass_divine.tpa~
 BEGIN @18
 DESIGNATED 15
 SUBCOMPONENT @38
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 OUTER_SET option = 1
 INCLUDE ~item_rev/components/druid_usability.tpa~
@@ -303,7 +303,7 @@ INCLUDE ~item_rev/components/druid_usability.tpa~
 BEGIN @19
 DESIGNATED 16
 SUBCOMPONENT @38
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
 
 OUTER_SET option = 2
 INCLUDE ~item_rev/components/druid_usability.tpa~
@@ -315,7 +315,7 @@ INCLUDE ~item_rev/components/druid_usability.tpa~
 
 BEGIN @30
 DESIGNATED 1060
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 INCLUDE ~item_rev/components/kensai_use_bracers.tpa~
 
@@ -326,7 +326,7 @@ INCLUDE ~item_rev/components/kensai_use_bracers.tpa~
 
 BEGIN @31
 DESIGNATED 1070
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 INCLUDE ~item_rev/components/wands.tpa~
 
@@ -337,11 +337,10 @@ INCLUDE ~item_rev/components/wands.tpa~
 
 BEGIN @20
 DESIGNATED 17
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~) @9002
-REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2161
-                 && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2162
-                 && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2163
-                 && NOT MOD_IS_INSTALLED ~setup-bg2_tweaks.tp2~ 2164) @9005
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
+REQUIRE_PREDICATE (NOT FILE_EXISTS_IN_GAME ~cdt02160.g3~
+                && NOT FILE_EXISTS_IN_GAME ~cdt02161.g3~
+                && NOT FILE_EXISTS_IN_GAME ~cdt02162.g3~) @9005
 
 LOAD_TRA ~item_rev/languages/english/proficiencies.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/proficiencies.tra~
@@ -354,7 +353,7 @@ INCLUDE ~item_rev/components/weapon_changes.tpa~
 
 BEGIN @32
 DESIGNATED 1080
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~) @9002
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 
 INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
 
@@ -369,8 +368,8 @@ INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
 BEGIN @21
 DESIGNATED 18
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
-FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
+REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-d0tweak.tp2~ ~18~) @9004
 
 OUTER_SET option = 1
 INCLUDE ~item_rev/components/backstabbing.tpa~
@@ -381,8 +380,8 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 BEGIN @23
 DESIGNATED 19
 SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~soa tob~) @9002
-FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
+//REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-d0tweak.tp2~ ~18~) @9004 // implicit
 
 OUTER_SET option = 2
 INCLUDE ~item_rev/components/backstabbing.tpa~
@@ -392,9 +391,9 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 
 BEGIN @45
 DESIGNATED 20
-SUBCOMPONENT @22
-REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9002 // ranged backstabs are tobex only, i.e. tob
-FORBID_COMPONENT ~setup-d0tweak.tp2~ ~18~ @9004
+SUBCOMPONENT @22 (FILE_EXISTS ~TobEx_ini/TobExVer.txt~) // ranged backstabs are tobex only, i.e. tob
+//REQUIRE_PREDICATE (ENGINE_IS ~soa tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002 // implicit
+//REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-d0tweak.tp2~ ~18~) @9004 // implicit
 
 OUTER_SET option = 3
 INCLUDE ~item_rev/components/backstabbing.tpa~
@@ -406,36 +405,17 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 
 BEGIN @47
 DESIGNATED 1200
-REQUIRE_PREDICATE (ENGINE_IS ~tob~) @9002
+REQUIRE_PREDICATE (FILE_EXISTS ~TobEx_ini/TobExVer.txt~) @9007
 
 INCLUDE ~item_rev/components/critical_hits.tpa~
 
 
-///////////////////////////////////////////////////////////////////////////
-// Shields Can Bash                                                      //
-///////////////////////////////////////////////////////////////////////////
-
-/* BEGIN @49
-DESIGNATED 1300
-REQUIRE_PREDICATE (ENGINE_IS ~tob bgee bg2ee~) @9002
-
-INCLUDE ~item_rev/components/shield_bash.tpa~ */
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////
-
-// component designation sucks in this mod... i have a daring suggestion to
-// reorder it properly, when it is out of beta - several components will be
-// deprecated and/or merged anyway
-
-// prime reason i kept the existing designation is to not break the existing
-// BWS installation batches, but be welcome to undertake the responsibility
-// if you wish ;) - Yaro, 20/11/2013
-
-// actually, feel free to shuffle it as you see fit. we've re-arranged some
-// of the components, so it's not like it matters anymore. just let me know
-// if you do - i'll update "item_rev/lib/compatibility.tpa" - Yaro, 26/7/2014
-
+/////////////////////////////////////////////////////////////////////////////
+//// Shields Can Bash                                                      //
+/////////////////////////////////////////////////////////////////////////////
+//
+//BEGIN @49
+//DESIGNATED 1300
+//REQUIRE_PREDICATE (ENGINE_IS ~tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
+//
+//INCLUDE ~item_rev/components/shield_bash.tpa~

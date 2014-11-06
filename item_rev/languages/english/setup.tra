@@ -81,12 +81,12 @@
 
 ///////
 
-@9000 = ~This component may only be installed on BG2, and it requires ToB be installed.~
+@9000 = ~This component may only be installed on BG2:ToB, BGT, Tutu, BGEE, or BG2EE.~
 @9001 = ~This component may only be installed on BG2.~
 @9002 = ~This component is not compatible with your game.~
 @9003 = ~This component requires BG2: Throne of Bhaal's engine enhancements.~
 @9004 = ~This component is conceptually incompatible with the Improved Backstabbing component from Ding0's Tweak Pack (d0tweak).~
-@9005 = ~This component is currently incompatible with the Altered Weapon Proficiency System from the BG2 Tweak Pack.~
+@9005 = ~This component is incompatible with the Altered Weapon Proficiency System from the BG2 Tweak Pack.~
 
 @9006 = ~This component has been deprecated.~
-
+@9007 = ~This component requires features provided by ToBEx.~

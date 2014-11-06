@@ -47,7 +47,7 @@ COPY - ~item_rev/lib/armor_penalty_table.txt~ override
 
 ACTION_PHP_EACH armor AS ind => res BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
-    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE > 0x71 && SHORT_AT 0x1c == 2 BEGIN // make sure item is armor
       armor =   res & 7
       subst = ( res >> 3 ) & 3 // 1=mithral, 2=scale
       elven = ( res >> 5 ) & 1
