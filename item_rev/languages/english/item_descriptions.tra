@@ -751,7 +751,7 @@ STATISTICS:
 Equipped Abilities:
  Saving Throws: +3 bonus vs. breath
  Missile Damage Resistance: +20% bonus
- Inertial Barrier: opponents within 10 feet must save vs. breath each round or have their movement rate halved
+ Inertial Barrier: opponents within 10 feet suffer -1 penalty to weapon speed factor, damage and attack rolls
 
 Weight: 1
 Not Usable By:
@@ -2399,7 +2399,7 @@ It was the infamous swashbuckler, Eisneid Clume who first requested magical assi
 STATISTICS:
 
 Equipped Abilities:
- Parry: +1 bonus to AC (none vs. missile)
+ Parry: +2 bonus to AC (none vs. missile)
 
 Weight: 1
 Not Usable By:
@@ -2725,6 +2725,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
+ Protects Against Critical Hits
  Saving Throws: +3 bonus vs. death
 
 Armor Class: 3
@@ -2899,7 +2900,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Blood Rage: 5% chance when struck the wearer enrages, gaining +2 bonus to attack rolls, damage rolls, and saving throws, but losing control of himself for 5 rounds
+ Blood Rage: 5% chance when struck the wearer enrages, gaining +2 bonus to attack and damage rolls for 5 rounds
  Tireless Rage: wearer doesn't become winded at the end of any rage state
 
 Armor Class: 0
@@ -3246,7 +3247,7 @@ Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Physical Damage Resistance: +10% bonus
+ Protects Against Critical Hits
 
 Weight: 4
 Usable By:
@@ -3335,7 +3336,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Vengeance: all who strike the wearer must save vs. breath or suffer 1d10 points of electrical damage
+ Vengeance: all who strike the wearer have a 20% chance to be struck back by a lightning and suffer 6d6 points of electrical damage
 
 Weight: 3
 Not Usable By:
@@ -3484,18 +3485,19 @@ Not Usable By:
  Cleric
  Beast Master~
 @1437 = ~Silver Dagger~
-@1438 = ~Werebane +2~
-@1439 = ~The typical dagger has a pointed, usually double-edged blade, as opposed to a knife, which has a single edge and is a bit shorter than the dagger. This plain silver dagger has a pointed, double-edged blade.~
-@1440 = ~Dynala Goldenhand, an elven ranger who wished to rid her homeland of its were-jackal problem, forged the dagger. She was killed by a tribe of orcs in the Greypeak Mountains as she tracked the were-jackal leader.
+@1438 = ~Silver Throwing Dagger +2~
+@1439 = ~Werebane
+Dynala Goldenhand, an elven ranger who wished to rid her homeland of its were-jackal problem, forged the dagger. She was killed by a tribe of orcs in the Greypeak Mountains as she tracked the were-jackal leader.
 
 STATISTICS:
 
 Combat Abilities:
  Silver Blade: inflicts 4 additional points of damage against lycanthropes and vampires
+ Returning: returns to the wielder's hand instantly after an attack is made
 
 THAC0: +2 bonus
 Damage: 1D4 + 2
-Damage type: piercing
+Damage type: missile
 Weight: 1
 Speed Factor: 0
 Proficiency Type: Dagger
@@ -3907,7 +3909,7 @@ Damage: 1D8
 Damage type: missile
 Weight: 0
 Launcher: Crossbow~
-@1487 = ~Drowcraft Elven Chain +1~
+@1487 = ~Drowcraft Spellchain +1~
 @1488 = ~Many parts of the Underdark of Faerun are suffused with a magical radiation that the drow call faerzress. A remnant of the mighty forces that originally shaped the terrain of the Underdark, faerzress distorts and interferes with certain types of magic.
 The drow have long sought out places of powerful faerzress in which to raise their cities, since the magical radiation helps to frustrate spying and protect against enemy assaults. The magical energy can also be used in the construction of various powerful magic items.
 A drowcraft armor is energized by local earth nodes and the surrounding aura of faerzress. As long as it remains within an earth node or a zone of faerzress, it grants its wearer exceptional protection. Drowcraft armor will dissolve to dust if exposed to sunlight and shouldn't be removed from the Underdark.
@@ -4192,6 +4194,7 @@ STATISTICS:
 
 Combat Abilities:
  Slashing: creatures struck suffer 1D10 additional points of slashing damage
+ Staggering: target must save vs. breath or be staggered for 1 round, suffering -1/2 reduced attack rate and -4 penalty to casting speed
  Unbalanced: -1/2  attack per round
 
 Damage: 1D10 + 2
@@ -4217,7 +4220,7 @@ Note: always considered to be of +3 enchantment when determining what it can hit
 STATISTICS:
 
 Combat Abilities:
- Cleave: with each successful hit there's a 33% chance of gaining one extra attack in the next round
+ Cleaving: with each successful hit there's a 33% chance of gaining one extra attack in the next round
  Dragon Bane: additional +2 bonus to THAC0 and +8 to damage against dragons
  Keen: +10% chance to score critical hits
 
@@ -5183,7 +5186,7 @@ STATISTICS:
 
 Equipped Abilities:
  Saving Throws: +1 bonus
- Protection from Spell: Entangle
+ Protects Against Critical Hits
 
 Armor Class: 6
 Weight: 15
@@ -6118,7 +6121,6 @@ STATISTICS:
 
 Equipped Abilities:
  Non-Detection
- Immunity to charm effects
 
 Armor Class: 2
 Weight: 20
@@ -6130,9 +6132,9 @@ Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Armor Class: +1 bonus
- Saving Throws: +1 bonus
- Regeneration: 3 hp/turn
+ Elemental Resistance: +10% bonus
+ Regeneration: wearer regenerates 1 hit point every 2 rounds
+ Protection from Spells: Summon Insects, Insect Plague, and Creeping Doom
 
 Weight: 3
 Usable By:
@@ -6176,8 +6178,8 @@ Usable By:
 STATISTICS:
 
 Equipped Abilities:
+ Casting speed: +1 bonus
  Elemental Resistance: +10% bonus
- Protection from Spells: Entangle, Summon Insects, Insect Plague, and Creeping Doom
 
 THAC0: +2 bonus
 Damage: 1D6 + 2
@@ -6194,7 +6196,7 @@ Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Magic Damage Resistance: +50% bonus
+ Magic Damage Resistance: +40% bonus
  Retribution: all who strike the wearer in melee suffer 5 points of magic damage
 
 Armor Class: -1
@@ -6235,7 +6237,7 @@ Usable By:
 STATISTICS:
 
 Combat Abilities:
- Enfeebling: each hit reduces target's AC, THAC0, and movement rate by 1 for 2 rounds
+ Enfeebling: target must save vs. spell or be slowed, and suffer -1 penalty to attack rolls and armor class for 1 round
 
 THAC0: +2 bonus
 Damage: 1D6 + 2
@@ -6266,7 +6268,7 @@ Usable By:
  Yoshimo~
 @1811 = ~Two-Handed Sword~
 @1812 = ~Hallowed Redeemer +2~
-@1813 = ~Keldorn distinguished himself early in his career as a paladin, and since he was ordered this powerful sword has always been at his side. The blessed weapon is imbued with holy power, and it has been forged to eradicate any source of evil wherever it lies. Furthermore the inquisitor's blade is the bane of  evil practitioners of arcane and divine magic alike because of it's power to silence which leave them defenceless while judgement falls upon them.
+@1813 = ~Keldorn distinguished himself early in his career as a paladin, and since he was ordered this powerful sword has always been at his side. The blessed weapon is imbued with holy power, and it has been forged to eradicate any source of evil wherever it lies. Furthermore the inquisitor's blade is the bane of evil practitioners of arcane and divine magic alike because of it's power to silence which leave them defenceless while judgement falls upon them.
 
 STATISTICS:
 
@@ -6722,7 +6724,7 @@ STATISTICS:
 
 Equipped Abilities:
  Immunity to backstab
- Saving Throws: +1 bonus
+  Protects Against Critical Hits
 
 Armor Class: -3
 Weight: 60
@@ -7385,17 +7387,16 @@ Not Usable By:
  Thief
  Monk
  Kensai~
-@1952 = ~Shield of the Falling Stars +1~
+@1952 = ~Shield of the Falling Stars +2~
 @1953 = ~The body shield, also known as the kite or tower shield, is a massive metal or wooden shield reaching nearly from the chin to the toe of the user. It must be firmly fastened to the forearm and the shield hand must firmly grip it at all times. Naturally, this precludes use of the shield hand for anything but holding the body shield in place and fighting results more difficult because of the shield's encumbrance.~
 @1954 = ~Ilmater himself enchanted this shield upon seeing a young squire's willingness to endure untold agony for the wellbeing of his mount. During a fierce battle between a human cavalry division and a hobgoblin horde, the young man was sent for reinforcements. He was beset by a cascade of arrows that nearly blocked out the sun, and he knew that even if he avoided the arrows himself, should his horse fall he would surely be doomed. With his shield and body he positioned himself to take the brunt of the onslaught, and was mortally wounded for it. His horse remained unscathed allowing for their escape, and his body was carried back to the nearest town, where he was resurrected from death.
 
 STATISTICS:
 
 Equipped Abilities:
- Maximum Hit Points: +10 bonus
  Shield Others: allies within 6 feet gain +2 bonus to armor class
 
-Armor Class Bonus: 2
+Armor Class Bonus: 3
 Special: +1 vs. Missile Weapons
 Weight: 45
 Requires: 15 Strength
@@ -7433,8 +7434,8 @@ Not Usable By:
  Mage
  Kensai
  Monk~
-@1960 = ~Dwarven Large Shield +2~
-@1961 = ~This dwarven-made shield was commissioned by Pellan of Tyr, a brash paladin known for unquestioning courage and an almost total lack of common sense. Upon hearing that a red dragon was ravaging the countryside, Pellan mounted his horse and rode off to do battle. As it happened, Pellan and his armor digested readily enough, but the shield gave the dragon severe stomach cramps. Subsequently coughed up, it lay in a hoard for years until retrieved by Pellan's son, a warrior who knew when to sneak. Superior craftsmanship is supplemented by a permanent lightness spell, which makes the shield easier to wield compared to most large shields.
+@1960 = ~Dwarven Shield +2~
+@1961 = ~This dwarven-made shield was commissioned by Pellan of Tyr, a brash paladin known for unquestioning courage and an almost total lack of common sense. Upon hearing that a red dragon was ravaging the countryside, Pellan mounted his horse and rode off to do battle. As it happened, Pellan and his armor digested readily enough, but the shield gave the dragon severe stomach cramps. Subsequently coughed up, it lay in a hoard for years until retrieved by Pellan's son, a warrior who knew when to sneak.
 
 STATISTICS:
 
@@ -7442,9 +7443,8 @@ Equipped Abilities:
  Saving Throws: +1 bonus
 
 Armor Class Bonus: 3
-Special: +1 vs. Missile Weapons
-Weight: 25
-Requires: 13 Strength
+Weight: 15
+Requires: 12 Strength
 Not Usable By:
  Bard
  Druid
@@ -7573,7 +7573,6 @@ Weight: 15
 Requires: 12 Strength
 Not Usable By:
  Bard
- Druid
  Mage
  Thief
  Monk
@@ -8663,7 +8662,7 @@ Not Usable By:
 STATISTICS:
 
 Combat Abilities:
- Cleave: with each successful hit there's a 20% chance of gaining one extra attack in the next round
+ Cleaving: with each successful hit there's a 20% chance of gaining one extra attack in the next round
 
 THAC0: +2 bonus
 Damage: 1D8 + 2
@@ -8756,11 +8755,11 @@ One of many created in the name of the mage who first discovered how to enchant 
 
 STATISTICS:
 
-Special Abilities (once per day):
- Haste (2 rounds)
-
 Equipped Abilities:
  Immunity to entangle, grease, slow & web
+
+Combat Abilities:
+ Hastening: 10% chance to gain +1/2 attack per round, and +2 bonus to movement rate for 2 rounds
 
 THAC0: +2 bonus
 Damage: 1D6 + 2
@@ -11200,7 +11199,7 @@ Equipped Abilities:
  Maximum Hit Points: +10 bonus
 
 Combat Abilities:
- Cleave: with each successful hit there's a 20% chance of gaining one extra attack in the next round
+ Cleaving: with each successful hit there's a 20% chance of gaining one extra attack in the next round
 
 THAC0: +2 bonus
 Damage: 1D6 + 3
@@ -11504,6 +11503,9 @@ Usable By:
 @2350 = ~There are no records of this weapon's creator; nevertheless, its existence can be traced back among thieves and murderers to the time before Dalereckoning. Its blackened blade was apparently forged from the arcane metals of an iron golem, giving the weapon an appearance as dark as its history.
 
 STATISTICS:
+
+Equipped Abilities:
+ Armor Class: +1 bonus
 
 THAC0: +2 bonus
 Damage: 1D4 + 2
@@ -11873,8 +11875,8 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
-  Xan wields the moonblade as if it was a long sword but he suffers no penalty for non-proficiency
- Armor Class: +2 bonus
+ Xan wields the moonblade as if it was a long sword but he suffers no penalty for non-proficiency
+ Armor Class: +1 bonus
  Fire Resistance: +40% bonus
 
 THAC0: +3 bonus
@@ -11887,12 +11889,105 @@ Type: 1-handed
 Requires: 6 Strength
 Usable By:
  Xan~
-@2404 = ~~
-@2405 = ~~
-@2406 = ~~
-@2407 = ~~
-@2408 = ~~
-@2409 = ~~
+@2404 = ~Shazzellim +1~
+@2405 = ~This scimitar seems of rather poor quality but beneath its surface lies great power and evil. Created for the sole purpose of slaying Harpers, Shazzellim is more than capable of that task. With one strike of the blade a bard must make a saving throw vs. spells or die. Crafted by a Red Wizard of Thay, the sword also has the ability to vocalize, which is why it was often given to fighter-mages in the service of the Wizards. Needless to say, possession of this sword would not be looked upon very highly by Harpers.
+
+STATISTICS:
+
+Equipped Abilities:
+ Vocalize
+
+Combat Abilities:
+ Any bard hit must make saving throw vs. spells with a -4 penalty or die
+
+THAC0: +1 bonus
+Damage: 1D8 + 1
+Damage type: slashing
+Weight: 3
+Speed Factor: 4
+Proficiency Type: Scimitar
+Type:  1-handed
+Requires: 10 Strength
+Not Usable By:
+ Cleric
+ Mage~
+@2406 = ~The Claw~
+@2407 = ~The Claw of Kazgoroth~
+@2408 = ~This appears to be the claw of some great beast, perhaps a dragon of sorts.~
+@2409 = ~The origins of Kazgoroth lurk in the past, nearly as distant as those of the goddess Earthmother herself. In the pantheon of the Realms, the Beast is manifested as an aspect of Bhaal that takes the form of anything it wants to and drinks human blood, as well as feasts on human flesh. On the Moonshaes, however, this aspect has a specific purpose: the disruption of the Balance.
+Little is known about this item, other than that the claw itself was taken from the corpse of the great beast. It has multiple enchantments that all become activated when the claw is worn as a ring, but it seems to fuel its power with the blood of its wearer. Because of this, the wearer of the claw will often be more sickly and therefore more susceptible to poisons.
+
+STATISTICS:
+
+*CURSED*
+
+Equipped Abilities:
+ Armor Class: +1 bonus, additional +4 bonus vs. missiles
+ Saving Throws: +3 bonus vs. breath, polymorph, wands and spells; -3 penalty vs. death
+ Constitution: -2 penalty
+
+Weight: 2
+Not Usable By
+ Paladin
+ Wizard Slayer~
+@2410 = ~The Horn~
+@2411 = ~The Horn of Kazgoroth~
+@2412 = ~This seems to be the horn of some monster. It is blackened and twisted.~
+@2413 = ~This horn is thought to be made from one of the tusks of the great beast Kazgoroth. Who imbued it with enchantments is unknown, but it is a very potent item. When blown upon, no sound issues from the horn. Instead the user of the horn is incased in a globe of power for a short duration. The bubble gives the user partial magic resistance and a saving throw bonus, as well as partially deflecting incoming missile attacks. The effect only lasts 18 seconds, and the horn draws from the life force of the user everytime it is used.
+
+STATISTICS:
+
+Special Abilities (once per day):
+ Globe of Power: grants the user immunity to first and second level spells, +2 bonus to all saves, +4 bonus to armor class vs. missiles
+
+Weight: 1
+Not Usable By:  
+ Cleric
+ Druid
+ Thief~
+@2414 = ~Handmaiden's Mace +3~
+@2415 = ~This mace has been crafted finely by the drow, and specially treated to survive the glare of the sun. It is made for surface raids by the subterranean race and its black metal glistens with a dark poison that seems to be generated from within and causes incredible damage upon a successful impact.
+The mace seems almost alive and warm to the touch, and slithers away from those whom it does not like...namely drow or those who are similar enough to not make a difference. In the hands of anyone else, the mace becomes mere dead weight.
+
+STATISTICS:
+
+Combat Abilities:
+ Envenomed: creatures struck by the weapon must save vs. poison or suffer 1 point of damage each second for 3 rounds
+ Web: 33% chance target must save vs. breath or be held for 2 rounds
+
+THAC0: +3 bonus
+Damage: 1D6 + 4
+Damage type: crushing
+Weight: 7
+Speed Factor: 4
+Proficiency Type: Mace
+Type: 1-handed
+Requires: 9 Strength
+Usable By:
+ Drow Cleric~
+@2416 = ~Sword of Chaos +4~
+@2417 = ~The blade of Sarevok, brother of <CHARNAME>, used in the battle they fought in faraway Baldur's Gate.  <CHARNAME> prevailed, destroying Sarevok's plans and rescuing the Sword Coast from the brink of war. Now Sarevok has joined with <CHARNAME>'s cause and his blade has been restored to him.  Sarevok describes the weapon as a Deathbringer blade and has restored some of the weapon's old power. Without his Bhaalspawn essence to channel through the sword, however, it cannot achieve the power it once had. Still, however, it is a formidable weapon...and one that Sarevok warns would become increasingly difficult to wield in the hands of one who was not a Deathbringer, if they could use it at all.
+
+STATISTICS:
+
+Equipped Abilities:
+ Saving Throws: +2 bonus
+
+Combat Abilities:
+ Vampiric: drains one to four hit points from the target and transfers it to the wielder
+
+THAC0: +4 bonus
+Damage: 1D10 + 4
+Damage type: slashing
+Weight: 8
+Speed Factor: 6
+Proficiency Type: Two-Handed Sword
+Type: 2-handed
+Requires: 18 Strength
+Usable By:
+ Sarevok~
+@2418 = ~~
+@2419 = ~~
 
 
 // Tooltips - mostly they're spells' names

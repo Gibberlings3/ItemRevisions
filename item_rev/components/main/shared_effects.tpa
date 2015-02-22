@@ -1,18 +1,5 @@
 /*-----------------Shared Effects-----------------*/
 
-// increase speed of throwing weapons
-/*COPY_EXISTING ~axe.pro~ ~override~  // Throwing Axe
-  WRITE_SHORT 0x0a 30  // Increase speed from 20 to 30
-  BUT_ONLY_IF_IT_CHANGES
-  
-COPY_EXISTING ~dagger.pro~ ~override~  // Throwing Dagger
-  WRITE_SHORT 0x0a 30  // Increase speed from 20 to 30
-  BUT_ONLY_IF_IT_CHANGES
-
-COPY_EXISTING ~dart.pro~ ~override~  // Dart
-  WRITE_SHORT 0x0a 30  // Increase speed from 20 to 30
-  BUT_ONLY_IF_IT_CHANGES*/
-
 COPY ~item_rev/itm/axiom1.eff~ ~override~
 COPY ~item_rev/itm/axiom2.eff~ ~override~
 COPY ~item_rev/itm/axiom3.eff~ ~override~
@@ -219,6 +206,9 @@ COPY ~item_rev/itm/dvsburst.spl~ ~override~ // Sonic Blast
   WRITE_SHORT 0x98 dvsburst
 COPY ~item_rev/itm/dvsburst.eff~ ~override~
 
+COPY ~item_rev/itm/dvstag.spl~ ~override~ // Staggering
+COPY ~item_rev/itm/dvstag.eff~ ~override~
+
 COPY ~item_rev/itm/dvstnhld.spl~ ~override~ // Stonehold
 COPY ~item_rev/itm/dvstnhld.eff~ ~override~
 
@@ -283,7 +273,7 @@ COPY ~item_rev/itm/dvfrbolt.spl~ ~override~
 ADD_PROJECTILE ~item_rev/itm/dvmslatr.pro~ // Missile Attraction
 COPY ~item_rev/itm/dvmslatr.spl~ ~override~
   WRITE_SHORT 0x98 dvmslatr
-ADD_PROJECTILE ~item_rev/itm/dvmslatr.eff~
+COPY ~item_rev/itm/dvmslatr.eff~ ~override~
 
 ADD_PROJECTILE ~item_rev/itm/dvnamarr.pro~ // Namarra's Silence 15' Radius
 COPY ~item_rev/itm/dvnamarr.spl~ ~override~

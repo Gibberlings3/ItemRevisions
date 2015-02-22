@@ -14,18 +14,20 @@ END
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
   LPM identify_item
 
-  PATCH_IF long_sword || (katana && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~npsw04~)) || scimitar || handaxe || dart || light_xbow BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 1) END
-  END
-  PATCH_IF battleaxe || bastard_sword || mace || morning_star || staff || hammer || heavy_xbow || short_bow BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 2) END
-  END
-  PATCH_IF flail || twohanded_sword || spear || halberd || sling || long_bow || comp_long_bow BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 3) END
-  END
+  PATCH_IF add_backstabbing_penalties || option=1 BEGIN
+    PATCH_IF long_sword || (katana && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~npsw04~)) || scimitar || handaxe || dart || light_xbow BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 1) END
+    END
+    PATCH_IF battleaxe || bastard_sword || mace || morning_star || staff || hammer || heavy_xbow || short_bow BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 2) END
+    END
+    PATCH_IF flail || twohanded_sword || spear || halberd || sling || long_bow || comp_long_bow BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=263 target=1 timing=2 parameter1=(0 - 3) END
+    END
 
-  PATCH_IF ~%anim%~ STRING_EQUAL_CASE ~fs~ || ~%anim%~ STRING_EQUAL_CASE ~f2~ BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=275 target=1 timing=2 parameter1=(0 - 50) END
+    PATCH_IF ~%anim%~ STRING_EQUAL_CASE ~fs~ || ~%anim%~ STRING_EQUAL_CASE ~f2~ BEGIN
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=275 target=1 timing=2 parameter1=(0 - 50) END
+    END
   END
 
   PATCH_IF option=2 || option=3 BEGIN

@@ -1,18 +1,59 @@
 TO DO LIST
-- increased projectile speed of darts, throwing daggers and throwing handaxes from 20 to 30
-- Crimson Chain's Blood Rage no longer cause loss of control
+- update armor, shield, and bracer lists for IWDEE
+- Protector of the Second -> something useful for a WS or ranger?
+- Armor of the Viper -> poison when struck? Which class would benefit from it though?
+- we "need" to add a +4 splint mail specimen and I'm tempted to propose using Shuruppak's Plate
 - make dwarven large shield a medium shield +2 for BG1
 - Shield of the Fallen Stars enchantment raised to +2, removed +10 hp bonus
-- Suryris's Blade could use a Staggering effect (-1/2 apr, -2 reduced movement and casting rate?)
+- Ring of Human Influence -> humans within x radius suffer -2 saves vs. spell
 - Sword of Balduran need something
 - Purifier should be more unique and more appealing than Foebane for paladins
-- update armor, shield, and bracer lists for IWDEE
+- Ilbratha: replace permanent AC with Blurring (each hit raises AC)
 
-V4 - Beta 6 (5 November 2014)
+V4 - Beta 7 (x February 2015)
+- Readme major update
+- re-organized installer
+- Revised Critical Hit Aversion should now work on EE too, Ioun Stones no longer get +1 AC (only helmets do)
+- minor fixes (e.g. descriptions, small effects targeting, displayed icons, etc.)
+- increased projectile speed of darts, throwing daggers and throwing handaxes from 20 to 40 (arrows/bolts have 60)
+- light and heavy xbows reload pauses user for 1-2 sec respectively instead of setting movement rate to 0
+- Protector of the Second grants immunity to critical hits
+- Mail of the Dead grants immunity to critical hits
+- Enkidu's Full Plate grants immunity to critical hits
+- Helmet of Defense keeps immunity to critical hits when Revised Critical Hit Aversion is installed
+- Adventurer's Robe grants immunity to critical hits
+- Dwarven Shield turned into a medium shield (BG1 had not a single unique specimen)
+- Shield of the Falling Stars enchantment lvl raised by 1, +10HP bonus removed
+
+V4 - Beta 6 (25 January 2015)
 - merged potions into the main component item table
 - reintroduced unidentified ioun stone description to prevent installation failure
 - fixed bug where some headbands were misidentified as banded armor
 - updated component predicates for various games
+- Cleaving enhacement also grants +10 bonus to weapon speed factor for 2 seconds
+- minor fixes (effects targeting, displayed icons, etc.)
+- Crimson Chain's Blood Rage no longer causes loss of control, still grants +2 thac0/dmg but not +2 to all saves
+- Girdle of Beatification uses again vanilla's Girdle of Hill Giant icon (V3 red sash wasn't blending in enough imo)
+- Girdle of Trollish Fortitude uses a new icon
+- Belt of Inertial Barrier no longer halves mov rate, but causes -1 penalty to weapon speed/thac0/dmg
+- Cloak of Vengeance tweaked to not spam the screen with lightning bolts (20% chance, 6d6 dmg)
+- Silver Dagger (Werebane) is now a returning throwing dagger, uses a new icon (it was almost identical to Longtooth)
+- Heart of the Golem no longer share the icon with Nester/Kylee/Hentold daggers, added +1 AC while equipped
+- Dagger of Venom now uses a unique icon with a greenish blade (in-game color tweaked to match it)
+- Suryris's Blade gets a Staggering effect (save vs. breath or suffer -1/2 apr and -4 casting speed penalty for 1 round)
+- Arbane's 1/day Haste replaced with Hastening effect (10% chance +1/2 apr and +2 mov rate for 2 rounds, cumulative)
+- Shazzelim added to IR
+- Sword of Flame no longer share Flame Tongue's icon
+- The Claw of Kazgoroth added to IR, minor tweaks (e.g name changed from Kazgaroth to match PnP, extended lore)
+- The Horn of Kazgoroth added to IR, minor tweaks (e.g. changed from x charges to 1/day)
+- Staff of the High Forest gains +1 casting speed bonus, no longer grants protection against insect spells
+- Cloak of the High Forest gets immunity to insects and +10% elemental res, regen rate improved, +1 to AC/saves removed
+- Firecam Full Plate Mail magic dmg resistance lowered from 50% to 40%
+- Sword of Arvoreen's Enfeebling enhancement sligthly tweaked, now works via spl as per Ardulia's Mace
+- Corthala Family Armor no longer grants immunity to charm
+- Handmaiden's Mace added to IR, enchantment raised by 1, added 33% to cast Web on target, still Envenomed, new icon
+- Dark Elven Chain now grants immunity to poison and +10% bonus to magic resistance
+- Sword of Chaos +4 (Ascension only) added to IR, 10% magic resistance replaced by +2 to all saves
 
 V4 - Beta 5 (26 October 2014)
 - renamed settings.ini and changed it to use Windows newlines

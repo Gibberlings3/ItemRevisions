@@ -19,7 +19,7 @@ END
 //  Read tables
 
 OUTER_SPRINT old_weapon_table ~item_rev/lib/bg2_weapon_stats.txt~
-OUTER_SPRINT new_weapon_table ~item_rev/lib/irv3_weapon_stats.txt~
+OUTER_SPRINT new_weapon_table ~item_rev/lib/ir_weapon_stats.txt~
 LAM wc_table_read
 
 //                           !!! IMPORTANT NOTE !!!
@@ -845,15 +845,15 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
     light_xbow
     // add reload time to crossbows, duration = 1 second
     BEGIN
-      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=1 parameter1=0 parameter2=1 type=2 END // type 2 = ranged, no ammo required
-      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=1 parameter1=0 parameter2=1 type=4 END // type 4 = ranged, requires ammo
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=165 target=1 duration=1 parameter1=0 parameter2=1 type=2 END // type 2 = ranged, no ammo required
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=165 target=1 duration=1 parameter1=0 parameter2=1 type=4 END // type 4 = ranged, requires ammo
     END
     
     heavy_xbow
     // add reload time to crossbows, duration = 2 seconds
     BEGIN
-      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=2 parameter1=0 parameter2=1 type=2 END
-      LPF ADD_ITEM_EFFECT INT_VAR opcode=176 target=1 duration=2 parameter1=0 parameter2=1 type=4 END
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=165 target=1 duration=2 parameter1=0 parameter2=1 type=2 END
+      LPF ADD_ITEM_EFFECT INT_VAR opcode=165 target=1 duration=2 parameter1=0 parameter2=1 type=4 END
     END
     
 
@@ -890,6 +890,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
   END
 
 END BUT_ONLY
+
+  // increase speed of throwing weapons
+  COPY_EXISTING ~axe.pro~ ~override~  // Throwing Axe
+    WRITE_SHORT 0x0a 40  // Increase speed from 20 to 40
+    BUT_ONLY_IF_IT_CHANGES
+    
+  COPY_EXISTING ~dagger.pro~ ~override~  // Throwing Dagger
+    WRITE_SHORT 0x0a 40  // Increase speed from 20 to 40
+    BUT_ONLY_IF_IT_CHANGES
+  
+  COPY_EXISTING ~dart.pro~ ~override~  // Dart
+    WRITE_SHORT 0x0a 40  // Increase speed from 20 to 40
+  BUT_ONLY_IF_IT_CHANGES
 
 /////////////////////////////////////////////////////
 // update strings for proficiency changes

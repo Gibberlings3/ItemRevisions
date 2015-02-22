@@ -58,7 +58,7 @@ ACTION_IF FILE_EXISTS ~tobex_ini/tobexcore.ini~ BEGIN
   END
 END
 
-ACTION_IF tobex BEGIN
+ACTION_IF tobex || GAME_IS "eet bgee bg2ee iwdee" BEGIN
   STRING_SET 20696 @48
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
@@ -74,14 +74,17 @@ ACTION_IF tobex BEGIN
         is_helmet=0
         
         // add +1 AC bonus
-        PATCH_IF (~%anim%~ STRING_MATCHES_REGEXP ~ +~) && !(~%anim%~ STRING_EQUAL_CASE ~JB~) BEGIN // has animation, not a circlet
+        PATCH_IF ~%anim%~ STR_CMP "" && ~%anim%~ STR_CMP "  " && ~%anim%~ STR_CMP ~JB~ BEGIN // has animation, not a circlet
           is_helmet=1
           ac_exists=0
-          GET_OFFSET_ARRAY ar ITM_V10_GEN_EFFECTS
-          PHP_EACH ar AS i => r BEGIN
-            READ_SHORT r opcode
-            PATCH_IF opcode=0 BEGIN // AC modifier
-              ac_exists=1            
+          READ_LONG 0x6a fx_of
+          READ_SHORT 0x70 fx_co
+          WHILE (fx_co >= 0) BEGIN
+            fx_co -= 1
+            READ_SHORT (fx_of + 0x38 * fx_co) op
+            READ_LONG (fx_of + 0x38 * fx_co + 0x8) par2
+            PATCH_IF par2 = 0 && op = 0 BEGIN
+              ac_exists=1
             END
           END
           PATCH_IF ac_exists=0 BEGIN
@@ -98,8 +101,6 @@ ACTION_IF tobex BEGIN
     
   END BUT_ONLY
 END ELSE BEGIN
-  FAIL ~This component requires ToBEx installed~
+  FAIL ~This component requires ToBEx installed or an Enhanced Edition game.~
 END
-
-
 

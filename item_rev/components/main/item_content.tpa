@@ -150,10 +150,10 @@ COPY ~%source%/IRON_BOW_OF_GESEN_4.tpa~ ~%target%~
 COPY ~%source%/GAUNTLETS_OF_WEAPON_EXPERTISE.tpa~ ~%target%~
 
 
-<<<<<<<< .../item_rev-inlined/item/IR_MAIN_BRACERS_OF_SPEED.tpa
+<<<<<<<< .../item_rev-inlined/item/MAIN_BRACERS_OF_SPEED.tpa
   COPY ~item_rev/itm/brac11.eff~ ~override~ // Exhausting effect
 >>>>>>>>
-COPY ~%source%/IR_MAIN_BRACERS_OF_SPEED.tpa~ ~%target%~
+COPY ~%source%/MAIN_BRACERS_OF_SPEED.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/CLOAK_OF_DISPLACEMENT.tpa
@@ -197,7 +197,8 @@ COPY ~%source%/CLOAK_OF_ELVENKIND.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/NATURES_VENGEANCE.tpa
-  COPY ~item_rev/itm/clck25.spl~ ~override~
+  COPY ~item_rev/itm/clck25a.spl~ ~override~
+  COPY ~item_rev/itm/clck25b.spl~ ~override~
 >>>>>>>>
 COPY ~%source%/NATURES_VENGEANCE.tpa~ ~%target%~
 

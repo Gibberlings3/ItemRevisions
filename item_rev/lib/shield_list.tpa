@@ -324,6 +324,7 @@ END
 
 ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
 
+OUTER_SET $shield("shld19")   = 3 //
 OUTER_SET $shield("shld24")   = 1 // 
 OUTER_SET $shield("shld27")   = 2 // 
 

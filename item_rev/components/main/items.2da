@@ -23,7 +23,7 @@ AMULET_OF_THE_MASTER                       amul28   1        1        0        0
 ARROW                                      arow01   1        1        1        1        @1032    @1032    @1033    @1033    *        *        *        *
 ARROW_1                                    arow02   1        1        1        1        @1032    @1034    @1035    @1036    *        *        *        *
 ARROW_OF_SLAYING_1                         arow03   1        1        1        1        @1032    @2323    @1035    @2324    *        *        *        *
-ACID_ARROW_1                               arow04   1        1        1        1        @1032    @1037    @1035    @1038    *        *        *        *
+ACID_ARROW_2                               arow04   1        1        1        1        @1032    @1037    @1035    @1038    *        *        *        *
 ARROW_OF_BITING                            arow05   1        1        1        1        @1032    @1039    @1035    @1040    *        *        *        *
 ARROW_OF_DETONATION                        arow06   1        1        1        1        @1032    @1041    @1035    @1042    *        *        *        *
 ARROW_OF_DISPELLING_1                      arow07   1        1        1        1        @1032    @1043    @1035    @1044    *        *        *        *
@@ -41,12 +41,12 @@ THROWING_AXE                               ax1h04   1        1        1        1
 THROWING_AXE_1                             ax1h05   1        1        1        1        @1062    @2311    @1063    @2312    *        *        *        *
 THROWING_AXE_2                             ax1h06   1        1        0        1        @1062    @2325    @1063    @2326    *        *        *        *
 BALAS_AXE                                  ax1h07   1        1        1        1        @1055    @1064    @1058    @1065    *        *        *        *
-HANGARDS_AXE_2                             ax1h08   1        1        0        0        @1062    @1066    @1067    @1068    *        *        *        *
-HANGARDS_AXE_2#A                           ax1h08a  1        1        0        0        @1062    @1066    @1067    @1068    *        *        *        *
-HANGARDS_AXE_2#B                           ax1h08b  1        1        0        0        @1062    @1066    @1067    @1068    *        *        *        *
-RIFTHOME_AXE_3                             ax1h09   1        1        0        0        @1062    @1069    @1067    @1070    *        *        *        *
-RIFTHOME_AXE_3#A                           ax1h09a  1        1        0        0        @1062    @1069    @1067    @1070    *        *        *        *
-RIFTHOME_AXE_3#B                           ax1h09b  1        1        0        0        @1062    @1069    @1067    @1070    *        *        *        *
+HANGARDS_AXE_1                             ax1h08   1        1        0        0        @1062    @1066    @1067    @1068    *        *        *        *
+HANGARDS_AXE_1#A                           ax1h08a  1        1        0        0        @1062    @1066    @1067    @1068    *        *        *        *
+HANGARDS_AXE_1#B                           ax1h08b  1        1        0        0        @1062    @1066    @1067    @1068    *        *        *        *
+RIFTHOME_AXE_2                             ax1h09   1        1        0        0        @1062    @1069    @1067    @1070    *        *        *        *
+RIFTHOME_AXE_2#A                           ax1h09a  1        1        0        0        @1062    @1069    @1067    @1070    *        *        *        *
+RIFTHOME_AXE_2#B                           ax1h09b  1        1        0        0        @1062    @1069    @1067    @1070    *        *        *        *
 AZUREDGE_3                                 ax1h10   1        1        0        0        @1062    @1071    @1067    @1072    *        *        *        *
 AZUREDGE_3#A                               ax1h10a  1        1        0        0        @1062    @1071    @1067    @1072    *        *        *        *
 AZUREDGE_3#B                               ax1h10b  1        1        0        0        @1062    @1071    @1067    @1072    *        *        *        *
@@ -266,7 +266,7 @@ DAGGER_1                                   dagg02   1        1        1        1
 HEART_OF_THE_GOLEM_2                       dagg03   1        1        1        1        @1428    @2349    @1431    @2350    *        *        *        *
 LONGTOOTH_2                                dagg04   1        1        1        1        @1428    @1433    @1431    @1434    *        *        *        *
 THROWING_DAGGER                            dagg05   1        1        1        1        @1435    @1435    @1436    @1436    *        *        *        *
-WEREBANE_2                                 dagg09   1        1        1        1        @1437    @1438    @1439    @1440    *        *        *        *
+WEREBANE_2                                 dagg09   1        1        1        1        @1437    @1438    @1436    @1439    *        *        *        *
 SOULTAKER                                  dagg10   1        1        1        1        @1428    @2351    @1431    @2352    *        *        *        *
 BOOMERANG_DAGGER_2                         dagg11   1        1        0        0        @1435    @1441    @1442    @1443    *        *        *        *
 BOOMERANG_DAGGER_2#A                       dagg11a  1        1        0        0        @1435    @1441    @1442    @1443    *        *        *        *
@@ -413,7 +413,6 @@ BRUENORS_WARAXE_3                          bruenaxe 1        1        0        0
 MITHRAL_FIELD_PLATE_MAIL_2                 bruenpla 1        1        0        0        @1497    @1683    @1499    @1684    *        *        *        *
 TAULMARIL_3                                cattibow 1        1        0        0        @1217    @2343    @1220    @2344    *        *        *        *
 RORANACHS_HORN                             compon05 1        1        0        0        @1569    @1685    @1579    @1686    *        *        *        *
-DARK_ELVEN_CHAIN_3                         clolth   1        1        0        0        @1328    @1687    @1355    @1688    *        *        *        *
 BOOK_OF_INFINITE_SPELLS                    misc3a   1        1        0        0        @1689    @1689    @1690    @1691    *        *        *        *
 BOOK_OF_INFINITE_SPELLS#1                  misc3a1  1        1        0        0        @1689    @1689    @1690    @1692    *        *        *        *
 BOOK_OF_INFINITE_SPELLS#2                  misc3a2  1        1        0        0        @1689    @1689    @1690    @1693    *        *        *        *
@@ -438,6 +437,8 @@ METHILDS_HARP                              misc3o   1        1        0        0
 GLASSES_OF_IDENTIFICATION                  misc3p   1        1        0        0        @1732    @1732    @1733    @1733    *        *        *        *
 AMULET_OF_HARPER_PIN                       misc5x   1        1        0        0        @1734    @1735    @1736    @1736    *        *        *        *
 WOODEN_STAKE                               misc6w   1        1        0        0        @1737    @1737    @1738    @1738    *        *        *        *
+CLAW_OF_KAZGAROTH                          misc72   1        1        1        1        @2406    @2407    @2408    @2409    *        *        *        *
+HORN_OF_KAZGAROTH                          misc73   1        1        1        1        @2410    @2411    @2412    @2413    *        *        *        *
 DAGGER_OF_VENOM_2                          misc75   1        1        1        1        @1428    @1739    @1431    @1740    *        *        *        *
 BLACKRAZOR_3                               miscbc   1        1        0        0        @1513    @1741    @1515    @1742    *        *        *        *
 NEBS_NASTY_CUTTER_2                        nebdag   1        1        0        0        @1428    @1743    @1431    @1744    *        *        *        *
@@ -478,7 +479,10 @@ CORTHALA_FAMILY_BLADE_2                    npsw04   1        1        0        0
 ENTROPY_2                                  npsw05   1        1        0        0        @1816    @1816    #-1      @1817    *        *        *        *
 CHAOS_2                                    npsw06   1        1        0        0        @1818    @1818    #-1      @1819    *        *        *        *
 SHARS_BLESSING                             vicarm   1        1        0        0        @1820    @1821    @1649    @1822    *        *        *        *
+DARK_ELVEN_CHAIN_3                         clolth   1        1        0        0        @1328    @1687    @1355    @1688    *        *        *        *
+HANDMAIDEN_MACE_3                          hlolth   1        1        0        0        @1112    @2414    @1113    @2414    *        *        *        *
 FLASHER_LAUNCHER                           xbow12   1        1        0        0        @1823    @1823    #-1      @1824    *        *        *        *
+SWORD_OF_CHAOS_4                           finsarev 1        1        0        0        @1760    @2416    @1762    @2417    *        *        *        *
 
 // PLATE_MAIL/FULL_PLATE_MAIL_ARMOURS
 PLATE_MAIL                                 plat01   1        1        1        1        @1825    @1825    @1826    @1826    *        *        *        *
@@ -671,6 +675,7 @@ WAKIZASHI                                  sw1h46   1        1        sw1h46   1
 WAKIZASHI_1                                sw1h47   1        1        sw1h47   1        @2127    @2129    @2130    @2131    *        *        *        *
 NINJA-TO                                   sw1h48   1        1        sw1h48   1        @2132    @2132    @2133    @2133    *        *        *        *
 NINJA-TO_1                                 sw1h49   1        1        sw1h49   1        @2132    @2134    @2135    @2136    *        *        *        *
+SHAZZELIM_1                                sw1h50   1        1        0        0        @1509    @2404    @1511    @2405    *        *        *        *
 CELESTIAL_FURY_3                           sw1h51   1        1        0        0        @1808    @2137    @2123    @2138    @2137    @4068    @4069    *
 WATERS_EDGE_3                              sw1h52   1        1        0        0        @1509    @2139    @1511    @2140    *        *        *        *
 SWORD_OF_FLAME_1                           sw1h53   1        1        0        0        @1509    @2141    @1511    @2142    *        *        *        *
