@@ -17,7 +17,7 @@
 <h1>Item Revisions</h1>
 <div class="section">
   <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a>
-    <br />Authors: <a href="http://forums.gibberlings3.net/index.php?showuser=1419">Demivrgvs</a>, <a href="http://forums.gibberlings3.net/index.php?showuser=1412">Mike1072</a> and <a href="http://forums.gibberlings3.net/index.php?showuser=1269">Ardanis</a>
+    <br />Authors: <a href="http://gibberlings3.net/forums/index.php?showuser=1419">Demivrgvs</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=1412">Mike1072</a> and <a href="http://gibberlings3.net/forums/index.php?showuser=1269">Ardanis</a>
     <br />On the web: <a href="http://www.gibberlings3.net/item_rev/">Home page</a></strong> and <strong><a href="http://gibberlings3.net/forums/index.php?showforum=157">discussion forum</a></strong>
   </p>
   <p><strong>Version 4 - <a href="http://www.gibberlings3.net/downloads/#item_rev">Check for the most recent version</a></strong><br />
@@ -31,7 +31,7 @@
 </div>
 <h2>Important Notes</h2>
 <div class="section">
-  <p>If we discover bugs in the current version of the mod, we correct them in a hotfix package. Before installing <acronym title="Item Revisions">IR</acronym>, check <a href="http://forums.gibberlings3.net/index.php?showtopic=15698">here</a> to see if a hotfix package has been released.</p>
+  <p>If we discover bugs in the current version of the mod, we correct them in a hotfix package. Before installing <acronym title="Item Revisions">IR</acronym>, check <a href="http://gibberlings3.net/forums/index.php?showtopic=15698">here</a> to see if a hotfix package has been released.</p>
 </div>
 <h2>Compatibility</h2>
 <div class="section">
@@ -125,7 +125,7 @@
     <br />SAY NAME2 @2199
     <br />SAY UNIDENTIFIED_DESC @1762
     <br />SAY DESC @2200<span class="red"> */</span></em>
-    <br /><br />Congratulations, Carsomyr +4 will no longer be changed when you install the mod! But wait, doesn't Carsomyr have an upgrade in <acronym title="Throne of Bhaal">ToB</acronym>? To prevent that from being installed, you'd need to keep searching for Carsomyr and comment out the +5 version when you find it, too. If you have any questions or require assistance with any of the above, feel free to drop us a line in the <a href="http://forums.gibberlings3.net/index.php?showforum=157">forum</a>.
+    <br /><br />Congratulations, Carsomyr +4 will no longer be changed when you install the mod! But wait, doesn't Carsomyr have an upgrade in <acronym title="Throne of Bhaal">ToB</acronym>? To prevent that from being installed, you'd need to keep searching for Carsomyr and comment out the +5 version when you find it, too. If you have any questions or require assistance with any of the above, feel free to drop us a line in the <a href="http://gibberlings3.net/forums/index.php?showforum=157">forum</a>.
   </p>
 </div>
 <h2>Contents</h2>
@@ -137,75 +137,75 @@
     <br /><br />This component contains all of the changes made to specific items, and as of V4 it also automatically includes the executable patch ToBEx (the engine modification is needed for several changes to function properly). For full details on each item check the online <a href="http://gibberlings3.net/forums/index.php?showtopic=15700">Item Index</a>.
     <br /><strong>This component has been designed in tandem with other optional components, and may not be balanced without them installed. Components that are deemed critical for balance when installing the main component will carry a red asterisk (<span class="red">*</span>). In cases where a component has multiple options, a blue asterisk (<span class="blue">*</span>) will be used for recommended options.</strong>
     <br /><br />Listed below are some of the philosophical changes.
+    <ul>
+      <li class="spaced_item"><strong>Characteristics Set by Items</strong>
+        <br />Items that previously set character attributes to X now increase the base value by Y. This change is aimed to remove some exploits (like having characters with 3 charisma suddenly becoming more charismatic than King Arthur just by equipping a standard magic item), and to make characters' starting attributes more important.
+        <br /><br />
+        <ul>
+          <li>Items that previously set characteristics to 18 or 19 will now grant +2 instead, 20 to 21 are now +3, 22 to 23 are +4, and 24 to 25 become +5. </li>
+        </ul>
+      </li>
+      <li class="spaced_item"><strong>Sensible Prices</strong>
+        <br />I found the prices of items in vanilla <acronym title="Baldur's Gate II">BG2</acronym> to often be quite random, and I wanted to tie them to the actual value of the item. I've used the following table as a guideline to standardize item prices, adjusting it a little when needed.
+        <br />
+        <table>
+          <tr>
+            <th class="leftalign">Total Enhancement Bonus</th>
+            <th>Price</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td class="leftalign">Base Item</td>
+            <td>As Per <acronym title="Advanced Dungeons &amp; Dragons">AD&amp;D</acronym> 2nd Edition Player's Handbook</td>
+            <td>&nbsp;
+          </td></tr>
+          <tr>
+            <td class="leftalign">Masterwork</td>
+            <td>500gp</td>
+            <td>Daggers: Only 250gp</td>
+          </tr>
+          <tr>
+            <td class="leftalign">+1</td>
+            <td>1000gp</td>
+            <td>Regular Full Plate Is Treated as +1 Quality</td>
+          </tr>
+          <tr>
+            <td class="leftalign">+2</td>
+            <td>3000gp</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="leftalign">+3</td>
+            <td>5000gp</td>
+            <td>Stonefire as a +2 Axe with the Flaming Property Is Treated as +3 Quality</td>
+          </tr>
+          <tr>
+            <td class="leftalign">+4</td>
+            <td>7500gp</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="leftalign">+5</td>
+            <td>10000gp</td>
+            <td>And So On...</td>
+          </tr>
+        </table>
+        <ul>
+          <li>
+            Sensible prices combined with Store Revisions will make money a real issue. Think twice before buying every cool thing you see.
+          </li>
+        </ul>
+      </li>
+      <li class="spaced_item"><strong>Sensible Lore System</strong>
+        <br />In my opinion, the lore system in the vanilla game was broken, having random lore values and allowing a level 10 bard to identify just about everything. I've changed both the lore table and the required lore to identify every item. The effect of intelligence and wisdom on lore is unchanged.
+        <br /><br />
+        <ul>
+          <li>Lore Table: Fighters/Paladins/Rangers (+1 lore/level), Clerics/Druids (+2 lore/level), Thieves/Blades (+3 lore/level), Mages (+4 lore/level), Bards (+6 lore/level). </li>
+          <li>Lore Required to Identify: Every item will require 10 lore per enchantment bonus, plus an additional 5, 10, or 15, depending on whether the item is common, rare, or unique. For example, Arrows +1 have a +1 bonus and are quite common, thus they will require 15 lore to be identified. </li>
+        </ul>
+      </li>
+    </ul>
   </p>
-  <ul>
-    <li class="spaced_item"><strong>Characteristics Set by Items</strong>
-      <br />Items that previously set character attributes to X now increase the base value by Y. This change is aimed to remove some exploits (like having characters with 3 charisma suddenly becoming more charismatic than King Arthur just by equipping a standard magic item), and to make characters' starting attributes more important.
-      <br /><br />
-      <ul>
-        <li>Items that previously set characteristics to 18 or 19 will now grant +2 instead, 20 to 21 are now +3, 22 to 23 are +4, and 24 to 25 become +5. </li>
-      </ul>
-    </li>
-    <li class="spaced_item"><strong>Sensible Prices</strong>
-      <br />I found the prices of items in vanilla <acronym title="Baldur's Gate II">BG2</acronym> to often be quite random, and I wanted to tie them to the actual value of the item. I've used the following table as a guideline to standardize item prices, adjusting it a little when needed.
-      <br />
-      <table>
-        <tr>
-          <th class="leftalign">Total Enhancement Bonus</th>
-          <th>Price</th>
-          <th>Notes</th>
-        </tr>
-        <tr>
-          <td class="leftalign">Base Item</td>
-          <td>As Per <acronym title="Advanced Dungeons &amp; Dragons">AD&amp;D</acronym> 2nd Edition Player's Handbook</td>
-          <td>&nbsp;
-        </td></tr>
-        <tr>
-          <td class="leftalign">Masterwork</td>
-          <td>500gp</td>
-          <td>Daggers: Only 250gp</td>
-        </tr>
-        <tr>
-          <td class="leftalign">+1</td>
-          <td>1000gp</td>
-          <td>Regular Full Plate Is Treated as +1 Quality</td>
-        </tr>
-        <tr>
-          <td class="leftalign">+2</td>
-          <td>3000gp</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td class="leftalign">+3</td>
-          <td>5000gp</td>
-          <td>Stonefire as a +2 Axe with the Flaming Property Is Treated as +3 Quality</td>
-        </tr>
-        <tr>
-          <td class="leftalign">+4</td>
-          <td>7500gp</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td class="leftalign">+5</td>
-          <td>10000gp</td>
-          <td>And So On...</td>
-        </tr>
-      </table>
-      <ul>
-        <li>
-          Sensible prices combined with Store Revisions will make money a real issue. Think twice before buying every cool thing you see.
-        </li>
-      </ul>
-    </li>
-    <li class="spaced_item"><strong>Sensible Lore System</strong>
-      <br />In my opinion, the lore system in the vanilla game was broken, having random lore values and allowing a level 10 bard to identify just about everything. I've changed both the lore table and the required lore to identify every item. The effect of intelligence and wisdom on lore is unchanged.
-      <br /><br />
-      <ul>
-        <li>Lore Table: Fighters/Paladins/Rangers (+1 lore/level), Clerics/Druids (+2 lore/level), Thieves/Blades (+3 lore/level), Mages (+4 lore/level), Bards (+6 lore/level). </li>
-        <li>Lore Required to Identify: Every item will require 10 lore per enchantment bonus, plus an additional 5, 10, or 15, depending on whether the item is common, rare, or unique. For example, Arrows +1 have a +1 bonus and are quite common, thus they will require 15 lore to be identified. </li>
-      </ul>
-    </li>
-
 
   <h3>Store Revisions</h3>
   <p>The structure of this component may be a subject to change in future versions, with possibility of splitting it into several components. Full documentation of changes is pending.
@@ -248,7 +248,7 @@
 
   <p><strong>Revised Armors (<span class="red">*</span>)</strong>
     <br />This component aims at making each armor type appealing in its own way: light armors allow high mobility while heavier armors offer higher protection in exchange for reduced mobility.
-    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
   <ul>
   <p><strong>With Movement Speed Penalties (<span class="blue">*</span>)</strong>
     <br />This option applies a reduction to movement speed, dexterity and speed factor while adding a small amount of damage resistance while wearing armor. The following table elaborates on the penalties and damage resistance.
@@ -459,10 +459,10 @@
   </table>
 
   <p><strong>Allow Spellcasting in Armor (<span class="red">*</span>)</strong>
-    <br />Normally armor fully prevents casting of arcane spells. This component slightly loosens this limitation for mages and allows bards to cast spells normally while wearing light armors.
-    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize shields and armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+    <br />Normally, wearing armor prevents casting arcane spells. These components enable arcane spellcasting while wearing armor, with some limitations. Bards ignore all limitations associated with spellcasting in leather, studded leather, hide, or chain mail armor.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize shields and armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
     <ul><strong>With a Chance of Arcane Casting Failure</strong>
-    <br />This option allows those arcane spellcasters who can equip armor to be able to cast spells in them, albeit with a chance of failing miserably. The following table elaborates on the penalties. <strong>Bards suffer no spell failure while wearing leather armor, studded leather, hide armor or chain mails.</strong>
+    <br />With this option, arcane spells cast while wearing armor have a chance to completely fail. The chance of failure depends on the type of armor worn.
   </p>
   <table>
     <tr>
@@ -519,7 +519,7 @@
     </tr>
     <tr>
       <th class="leftalign">Special Types of Armor</th>
-      <th>Chance of Arcane Casting Failure is Reduced by</th>
+      <th>Chance of Arcane Casting Failure Modification</th>
     </tr>
     <tr>
       <td class="leftalign">Made from Scales</td>
@@ -535,7 +535,7 @@
     </tr>
   </table>
   <p><strong>With Casting Speed Penalties for Arcane Casters (<span class="blue">*</span>)</strong>
-    <br />This option allows those arcane spellcasters who can equip armor to be able to cast spells in them, albeit at a slower rate than normal. To give a little overview, a spellcaster can cast only 1 spell per round (in most circumstances), but those spells have a casting time that denotes how much of the round it takes between starting to cast the spell and witnessing its effect. The default spells usually have a casting time between 1 and 10. 10 is a full round, while 1 is near-instantaneous. This option will increase the casting time of all spells while equipping armor and shields by the values indicated in the table below. <strong>Bards suffer no casting time penalty while wearing leather armor, studded leather, hide armor or chain mails.</strong><strong>Due to engine limitations, this causes innate abilities and divine spells (in case of cleric/mages and fighter/mage/clerics) to suffer the same penalty.</strong> Feedback on balancing this component would be appreciated.
+    <br />With this option, spells cast while wearing armor take longer to complete. The casting time penalty depends on the type of armor worn. Spells with longer casting times are easier for enemies to interrupt. A casting time of 10 is equivalent to a full round. Due to engine limitations, innate abilities and divine spells cast by arcane casters while wearing armor will also be affected by this change.</strong>
   </p>
   <table>
     <tr>
@@ -592,7 +592,7 @@
     </tr>
     <tr>
       <th class="leftalign">Special Types of Armor</th>
-      <th>Casting Time Penalty is Reduced by</th>
+      <th>Casting Time Penalty Modification</th>
     </tr>
     <tr>
       <td class="leftalign">Made from Scales</td>
@@ -611,7 +611,7 @@
 
   <p><strong>Allow Thieving Skills in Armor (<span class="red">*</span>)</strong>
     <br />This component allows the use of all thieving skills in all armors, but with a penalty to the Move Silently and Hide skills (denoted in-game as a Stealth penalty). The following table elaborates on the penalties.
-    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
   </p>
   <table>
     <tr>
@@ -678,7 +678,7 @@
 
   <p><strong>Revised Shield Bonuses (<span class="red">*</span>)</strong>
     <br />This component changes the base stats of all shields.
-    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize shields into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize shields into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
   </p>
   <table>
     <tr>
@@ -720,7 +720,7 @@
 
   <p><strong>Weapon Changes (<span class="red">*</span>)</strong>
     <br />This component alters the basic stats of many weapons.
-    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
   </p>
   <table>
       <tr>
@@ -949,7 +949,7 @@
 
   <p><strong>Enchantment Doesn't Affect Speed Factor of Weapons (<span class="red">*</span>)</strong>
     <br />This component removes the enchantment bonus to speed factor from magical weapons.
-    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
   </p>
 
   <p><strong>Dual Wielding Changes for Light and Heavy Weapons (<span class="red">*</span>)</strong> <br />
@@ -1042,7 +1042,7 @@
 
   <p><strong>Revised Critical Hit Aversion (<span class="red">*</span>)</strong>
     <br />This component will remove "immunity to critical hits" feature from all head slot items, making criticals something players should fear again (right now the whole party is immune to it because even Ioun Stones protect from them), and allowing the Main Component to use "immunity to critical hits" as a valuable special feature of selected items (e.g. a fortified armor). In exchange for losing the protection from critical hits, helmets will get 1 point of AC bonus. Circlets, ioun stones, and similar items won't get this AC bonus.
-    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
   </p>
 
     <p><strong>Items of Protection Can Be Worn with Magical Armor (<span class="red">*</span>)</strong>
@@ -1055,7 +1055,7 @@
 
     <p><strong>PnP Equipment for Druids (<span class="red">*</span>)</strong>
     <br />According to PnP, druids shun metal, but instead may wear equipment made from natural sources (namely scales of beasts). Items include armor, shields and headgear.
-    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of items. If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of items. If you find an item that appears unaffected by this change, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
     </p>
     <ul>
       <p><strong>Druids only (<span class="blue">*</span>)</strong>
@@ -1068,18 +1068,18 @@
 
     <p><strong>Kensai Can Wear Bracers (<span class="red">*</span>)</strong>
       <br />This component allows the kensai kit to wear bracers.
-      <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of bracers. If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+      <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of bracers. If you find an item that appears unaffected by this change, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
     </p>
 
     <p><strong>Thieves Can Use Wands (<span class="red">*</span>)</strong>
       <br />Thieves can use magic wands, as long as they meet the intelligence requirement.
-      <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of wands. If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+      <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of wands. If you find an item that appears unaffected by this change, please submit a report <a href="http://gibberlings3.net/forums/index.php?showforum=157">here</a>.</em>
   </p>
 
 </div>
 <h2>Contact Information</h2>
 <div class="section">
-  <p><a href="http://forums.gibberlings3.net/index.php?showuser=1419">Demivrgvs</a> , <a href="http://forums.gibberlings3.net/index.php?showuser=1412">Mike1072</a> and <a href="http://gibberlings3.net/forums/index.php?showuser=1269">Ardanis</a> created this mod. You can find out more about Item Revisions by visiting the <a href="http://forums.gibberlings3.net/index.php?showforum=157">forum</a> or the <a href="http://www.gibberlings3.net/item_rev/">project page</a>. Visit the <a href="http://forums.gibberlings3.net/">Gibberlings Three Forums</a> for information on this and any other Gibberlings Three mods on which we may be working.
+  <p><a href="http://gibberlings3.net/forums/index.php?showuser=1419">Demivrgvs</a> , <a href="http://gibberlings3.net/forums/index.php?showuser=1412">Mike1072</a> and <a href="http://gibberlings3.net/forums/index.php?showuser=1269">Ardanis</a> created this mod. You can find out more about Item Revisions by visiting the <a href="http://gibberlings3.net/forums/index.php?showforum=157">forum</a> or the <a href="http://www.gibberlings3.net/item_rev/">project page</a>. Visit the <a href="http://gibberlings3.net/forums/">Gibberlings Three Forums</a> for information on this and any other Gibberlings Three mods on which we may be working.
   </p>
 </div>
 <h2>Shout Outs</h2>
