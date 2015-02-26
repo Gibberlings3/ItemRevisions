@@ -1,29 +1,33 @@
 TO DO LIST
 - update armor, shield, and bracer lists for IWDEE
-- Protector of the Second -> something useful for a WS or ranger?
+- Protector of the Second -> something useful for a WS or ranger? +1 saves -> +2 or +3 vs. spells?
 - Armor of the Viper -> poison when struck? Which class would benefit from it though?
 - we "need" to add a +4 splint mail specimen and I'm tempted to propose using Shuruppak's Plate
-- make dwarven large shield a medium shield +2 for BG1
-- Shield of the Fallen Stars enchantment raised to +2, removed +10 hp bonus
+- Cloak of the Wolf regen increased, werewolf replaced with dire wolf
 - Ring of Human Influence -> humans within x radius suffer -2 saves vs. spell
 - Sword of Balduran need something
 - Purifier should be more unique and more appealing than Foebane for paladins
 - Ilbratha: replace permanent AC with Blurring (each hit raises AC)
+- Store Rev (Trollhide, Gauntlets of Dexterity, Gloves of Missile Snaring, Paladin Bracers, Rifthome Axe, Crimson Dart, ...)
+- Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. - clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
 
-V4 - Beta 7 (x February 2015)
+V4 - Beta 7 (26 February 2015)
 - Readme major update
 - re-organized installer
+- Allow Spellcasting in Armor makes Bards cast spells without penalties while wearing light armors (up to chain mail)
 - Revised Critical Hit Aversion should now work on EE too, Ioun Stones no longer get +1 AC (only helmets do)
 - minor fixes (e.g. descriptions, small effects targeting, displayed icons, etc.)
 - increased projectile speed of darts, throwing daggers and throwing handaxes from 20 to 40 (arrows/bolts have 60)
 - light and heavy xbows reload pauses user for 1-2 sec respectively instead of setting movement rate to 0
 - Protector of the Second grants immunity to critical hits
 - Mail of the Dead grants immunity to critical hits
-- Enkidu's Full Plate grants immunity to critical hits
+- Enkidu's Full Plate +1 to all saves replaced by immunity to critical hits
 - Helmet of Defense keeps immunity to critical hits when Revised Critical Hit Aversion is installed
-- Adventurer's Robe grants immunity to critical hits
+- Adventurer's Robe +10% physical dmg resistance replaced with immunity to critical hits
 - Dwarven Shield turned into a medium shield (BG1 had not a single unique specimen)
 - Shield of the Falling Stars enchantment lvl raised by 1, +10HP bonus removed
+- Kovera's Ring tweaked to reflect its unique role, grants +1 luck, custom bam and lore
+- Ring of the Phantom Wraith also grants immunity to critical hits
 
 V4 - Beta 6 (25 January 2015)
 - merged potions into the main component item table

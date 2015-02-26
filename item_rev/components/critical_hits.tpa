@@ -63,6 +63,7 @@ ACTION_IF tobex || GAME_IS "eet bgee bg2ee iwdee" BEGIN
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
  // COPY_EXISTING ~helm01.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    PATCH_IF NOT ~%SOURCE_RES%~ STRING_EQUAL_CASE ~helm04~ BEGIN
     READ_SHORT 0x1c item
     READ_ASCII 0x22 anim (2)
     PATCH_IF item=7 BEGIN
@@ -79,10 +80,10 @@ ACTION_IF tobex || GAME_IS "eet bgee bg2ee iwdee" BEGIN
           ac_exists=0
           READ_LONG 0x6a fx_of
           READ_SHORT 0x70 fx_co
-          WHILE (fx_co >= 0) BEGIN
+          WHILE (fx_co >= 0 && ac_exists == 0) BEGIN
             fx_co -= 1
-            READ_SHORT (fx_of + 0x38 * fx_co) op
-            READ_LONG (fx_of + 0x38 * fx_co + 0x8) par2
+            READ_SHORT (fx_of + 0x30 * fx_co) op
+            READ_LONG (fx_of + 0x30 * fx_co + 0x8) par2
             PATCH_IF par2 = 0 && op = 0 BEGIN
               ac_exists=1
             END
@@ -98,7 +99,7 @@ ACTION_IF tobex || GAME_IS "eet bgee bg2ee iwdee" BEGIN
         
       END
     END
-    
+    END
   END BUT_ONLY
 END ELSE BEGIN
   FAIL ~This component requires ToBEx installed or an Enhanced Edition game.~

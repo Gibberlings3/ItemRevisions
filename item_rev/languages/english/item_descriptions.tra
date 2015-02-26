@@ -6724,7 +6724,7 @@ STATISTICS:
 
 Equipped Abilities:
  Immunity to backstab
-  Protects Against Critical Hits
+ Protects Against Critical Hits
 
 Armor Class: -3
 Weight: 60
@@ -11154,7 +11154,7 @@ Equipped Abilities:
  Regeneration: wearer regenerates 1 hit point every round
 
 Armor Class Bonus: 1
-Special: Protects Against Critical Hits
+Protects Against Critical Hits
 Usable By:
  Monk
  Fighter~
@@ -11986,8 +11986,27 @@ Type: 2-handed
 Requires: 18 Strength
 Usable By:
  Sarevok~
-@2418 = ~~
-@2419 = ~~
+@2418 = ~Ring of Opportunity~
+@2419 = ~Ring of Opportunity
+This ring was given to <CHARNAME> by Koveras in Candlekeep. Its polished black surface is cold to the touch and engraved with powerful incantations. The ring's design and crafting material suggest western workmanship. On the inside you see what appears to be a thick figure eight with a slash mark through it.
+
+STATISTICS:
+ 
+Equipped Abilities:
+ Luck: +1 bonus (+5% for skills)
+ 
+Not Usable By:
+ Wizard Slayer~
+@2420 = ~~
+@2421 = ~~
+@2422 = ~~
+@2423 = ~~
+@2424 = ~~
+@2425 = ~~
+@2426 = ~~
+@2427 = ~~
+@2428 = ~~
+@2429 = ~~
 
 
 // Tooltips - mostly they're spells' names

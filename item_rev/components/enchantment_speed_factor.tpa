@@ -12,8 +12,8 @@ OUTER_SPRINT debug_file ~item_rev/debug/weapon_debug.log~
 //  Read tables
 
 ACTION_IF comp_ir_wc BEGIN
-  OUTER_SPRINT old_weapon_table ~item_rev/lib/irv3_weapon_stats.txt~
-  OUTER_SPRINT new_weapon_table ~item_rev/lib/irv3_weapon_stats.txt~
+  OUTER_SPRINT old_weapon_table ~item_rev/lib/ir_weapon_stats.txt~
+  OUTER_SPRINT new_weapon_table ~item_rev/lib/ir_weapon_stats.txt~
 END ELSE BEGIN
   OUTER_SPRINT old_weapon_table ~item_rev/lib/bg2_weapon_stats.txt~
   OUTER_SPRINT new_weapon_table ~item_rev/lib/bg2_weapon_stats.txt~

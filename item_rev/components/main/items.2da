@@ -520,7 +520,7 @@ RING_OF_ENERGY                             ring20   1        1        1        1
 NIGHTS_EMBRACE                             ring21   1        1        1        1        @1800    @1879    @1802    @1880    *        *        *        *
 RING_OF_HOLINESS                           ring22   1        1        1        1        @1800    @1881    @1802    @1882    *        *        *        *
 RING_OF_FOLLY                              ring23   1        1        1        1        @1800    @2373    @1802    @2374    *        *        *        cursed
-RING_OF_PROTECTION_1#2                     ring25   1        1        1        1        @1800    @1869    @1802    @1870    *        *        *        *
+KOVERAS_RING                               ring25   1        1        1        1        @1800    @2418    @1802    @2419    *        *        *        *
 RING_OF_DJINNI_SUMMONING                   ring26   1        1        0        0        @1800    @1883    @1802    @1884    @4036    *        *        *
 RING_OF_FIRE_CONTROL                       ring27   1        1        0        1        @1800    @1885    @1802    @1886    @4037    @4038    *        *           //extra_content
 RING_OF_AIR_CONTROL                        ring28   1        1        0        0        @1800    @1887    @1802    @1888    @4039    @4040    *        *           //extra_content

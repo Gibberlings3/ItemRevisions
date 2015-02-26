@@ -284,7 +284,7 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 
 BEGIN @47
 DESIGNATED 1200
-REQUIRE_PREDICATE (FILE_EXISTS ~TobEx_ini/TobExVer.txt~) @9007
+REQUIRE_PREDICATE GAME_IS "eet bg2ee bgee" || FILE_EXISTS ~TobEx_ini/TobExVer.txt~ @9007
 
 INCLUDE ~item_rev/components/critical_hits.tpa~
 
@@ -316,6 +316,7 @@ OUTER_SET option = 1
 LOAD_TRA ~item_rev/languages/english/multiclasses.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/multiclasses.tra~
 INCLUDE ~item_rev/components/multiclass_divine.tpa~
+/* INCLUDE ~item_rev/lib/7c#usability_tweaks.tph~ */
 
 ///////////////////////////////////////////////////////////////////////////
 // Clerics and Druids
