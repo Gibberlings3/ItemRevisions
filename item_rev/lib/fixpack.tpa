@@ -430,3 +430,20 @@ ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
   //////////////////////////////////////////////
   
 END
+
+ACTION_IF (GAME_IS ~tutu tutu_totsc bgt bgee eet~) BEGIN
+
+  // replace Erik's long bow with a short bow to prevent injury when training in Candlekeep
+  OUTER_TEXT_SPRINT tutu_var ~~
+  ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+    OUTER_TEXT_SPRINT tutu_var ~_~
+  END
+  
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%tutu_var%erik.cre~) BEGIN
+    COPY_EXISTING ~%tutu_var%erik.cre~ ~override~
+      PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+        REPLACE_CRE_ITEM ~%tutu_var%bow05~ #0 #0 #0 ~none~ ~weapon1~ EQUIP TWOHANDED
+      END
+      BUT_ONLY
+  END
+END
