@@ -72,6 +72,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY wand BEGIN
   wand99 => 10 // magic missile
   ohdwand1 => 11 // glitterdust
   ohnwand1 => 14 // whips
+  o#llwa => 14 // from sellswords
+  bgwand12 => 10 // from bgt
 END
 
 ACTION_PHP_EACH wand AS ind => res BEGIN
@@ -92,6 +94,3 @@ PATCH_IF SOURCE_SIZE>0x71 BEGIN
   SPRINT text_update wand_of_heaven
   LPM update_item_descriptions
 END
-
-
-

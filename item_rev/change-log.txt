@@ -8,6 +8,7 @@ TO DO LIST
 - Sword of Balduran need something
 - Purifier should be more unique and more appealing than Foebane for paladins
 - Ilbratha: replace permanent AC with Blurring (each hit raises AC)
+- Jamato infinite loop need fix
 - Potion of Haste tweaked to not use haste opcode
 - Store Rev (Trollhide, Gauntlets of Dexterity, Gloves of Missile Snaring, Paladin Bracers, Rifthome Axe, Crimson Dart, ...)
 - Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. - clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
