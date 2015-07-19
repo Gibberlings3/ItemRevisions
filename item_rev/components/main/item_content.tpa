@@ -150,10 +150,10 @@ COPY ~%source%/IRON_BOW_OF_GESEN_4.tpa~ ~%target%~
 COPY ~%source%/GAUNTLETS_OF_WEAPON_EXPERTISE.tpa~ ~%target%~
 
 
-<<<<<<<< .../item_rev-inlined/item/MAIN_BRACERS_OF_SPEED.tpa
+<<<<<<<< .../item_rev-inlined/item/BRACERS_OF_SPEED.tpa
   COPY ~item_rev/itm/brac11.eff~ ~override~ // Exhausting effect
 >>>>>>>>
-COPY ~%source%/MAIN_BRACERS_OF_SPEED.tpa~ ~%target%~
+COPY ~%source%/BRACERS_OF_SPEED.tpa~ ~%target%~
 
 
 <<<<<<<< .../item_rev-inlined/item/CLOAK_OF_DISPLACEMENT.tpa
