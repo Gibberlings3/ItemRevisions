@@ -41,6 +41,8 @@ OUTER_SET is_bg2 = 0
 OUTER_SET is_bgt = 0
 OUTER_SET is_tutu = 0
 OUTER_SET is_bgee = 0
+OUTER_SET is_bg2ee = 0
+OUTER_SET is_eet = 0
 
 ACTION_IF (GAME_IS ~tob bg2ee~ AND NOT GAME_IS ~bgt~) BEGIN
   OUTER_SET is_bg2 = 1
@@ -54,11 +56,17 @@ END
 ELSE ACTION_IF (GAME_IS ~bgee~) BEGIN
   OUTER_SET is_bgee = 1
 END
+ELSE ACTION_IF (GAME_IS ~bg2ee~) BEGIN
+  OUTER_SET is_bg2ee = 1
+END
+ELSE ACTION_IF (GAME_IS ~eet~) BEGIN
+  OUTER_SET is_eet = 1
+END
 
 
 // install items by looping through our array
 COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
-  READ_2DA_ENTRIES_NOW ~r2en_items~ 14
+  READ_2DA_ENTRIES_NOW ~r2en_items~ 16
   FOR (row = 0; row < r2en_items; row += 1) BEGIN
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 0  id
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 1  itm
@@ -66,14 +74,16 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 3  bgt
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 4  tutu
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 5  bgee
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 6  name
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 7  id_name
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 8  desc
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 9  id_desc
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 10 tooltip1
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 11 tooltip2
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 12 tooltip3
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 13 restrictions
+	READ_2DA_ENTRY_FORMER ~r2en_items~ row 6  bg2ee
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 7  eet
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 8  name
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 9  id_name
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 10  desc
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 11  id_desc
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 12 tooltip1
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 13 tooltip2
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 14 tooltip3
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 15 restrictions
     
     // figure out if the item should be installed and what filename it should have
     // based on reading information from the column associated with the current platform
@@ -104,6 +114,18 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
       SET install = 1
       PATCH_IF (NOT (~%bgee%~ STRING_EQUAL ~1~)) BEGIN
         TEXT_SPRINT output ~%bgee%~
+      END
+    END
+    ELSE PATCH_IF (is_bg2ee && NOT (~%bg2ee%~ STRING_EQUAL ~0~)) BEGIN // if bg2ee column is 1, use itm column
+      SET install = 1
+      PATCH_IF (NOT (~%bg2ee%~ STRING_EQUAL ~1~)) BEGIN
+        TEXT_SPRINT output ~%bg2ee%~
+      END
+    END
+    ELSE PATCH_IF (is_eet && NOT (~%eet%~ STRING_EQUAL ~0~)) BEGIN // if eet column is 1, use itm column
+      SET install = 1
+      PATCH_IF (NOT (~%eet%~ STRING_EQUAL ~1~)) BEGIN
+        TEXT_SPRINT output ~%eet%~
       END
     END
     
