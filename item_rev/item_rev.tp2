@@ -284,7 +284,7 @@ INCLUDE ~item_rev/components/backstabbing.tpa~
 
 BEGIN @47
 DESIGNATED 1200
-REQUIRE_PREDICATE GAME_IS "eet bgee bg2ee iwdee" || FILE_EXISTS ~TobEx_ini/TobExVer.txt~ @9007
+REQUIRE_PREDICATE (ENGINE_IS ~bgee bg2ee iwdee~ || FILE_EXISTS ~TobEx_ini/TobExVer.txt~) @9007
 
 INCLUDE ~item_rev/components/critical_hits.tpa~
 

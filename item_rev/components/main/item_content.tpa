@@ -894,7 +894,7 @@ COPY ~%source%/WAND_OF_FEAR.tpa~ ~%target%~
     ELSE ACTION_IF (GAME_IS ~eet~) BEGIN
       OUTER_TEXT_SPRINT id ~wand12_~
     END
-	
+    
     COPY_EXISTING ~%WAND_OF_MAGIC_MISSILES%.itm~ ~override/%id%.itm~
       WRITE_SHORT 0x42 0 // lore to identify
       READ_LONG   0x64 abilities_off

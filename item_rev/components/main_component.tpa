@@ -74,12 +74,12 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 3  bgt
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 4  tutu
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 5  bgee
-	READ_2DA_ENTRY_FORMER ~r2en_items~ row 6  bg2ee
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 6  bg2ee
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 7  eet
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 8  name
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 9  id_name
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 10  desc
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 11  id_desc
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 10 desc
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 11 id_desc
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 12 tooltip1
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 13 tooltip2
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 14 tooltip3
