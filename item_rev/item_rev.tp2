@@ -5,11 +5,21 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V4 Beta 7~
+VERSION ~V4 Beta 8~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
     PATCH_INCLUDE ~item_rev/settings.ini~
+  END
+  
+  // On EE games, convert tra files to utf-8 so that games don't crash for non-English
+  ACTION_IF NOT VARIABLE_IS_SET cd_always THEN BEGIN
+    OUTER_SET cd_always = 1
+    
+    ACTION_DEFINE_ARRAY cdnoconvert BEGIN setup END // List of tra files that contain ONLY strings for the WeiDU installer and NOT game content
+    ACTION_DEFINE_ARRAY cdreload BEGIN description_updates END // List of tra files that contain strings used for game content that get converted in the next step
+    
+    LAF HANDLE_CHARSETS INT_VAR infer_charset = 1 STR_VAR tra_path = EVAL ~%MOD_FOLDER%/languages~ noconvert_array = cdnoconvert reload_array = cdreload  END
   END
 END
 
