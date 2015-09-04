@@ -565,7 +565,7 @@ LARGE_SHIELD#2                             shld15   1        1        1        1
 LARGE_SHIELD#3                             shld16   1        1        1        1        1        1        @1947    @1947    @1948    @1948    *        *        *        *
 BUCKLER_1                                  shld17   1        1        0        1        1        1        @1955    @1957    @1958    @1959    *        *        *        *
 LARGE_SHIELD#4                             shld18   1        1        1        1        1        1        @1947    @1947    @1948    @1948    *        *        *        *
-DWARVEN_LARGE_SHIELD_2                     shld19   1        1        1        1        1        1        @1947    @1960    @1953    @1961    *        *        *        *
+DWARVEN_LARGE_SHIELD_2                     shld19   1        1        1        1        1        1        @1501    @1960    @1944    @1961    *        *        *        *
 KIELS_BUCKLER_2                            shld20   1        1        1        1        1        1        @1955    @1962    @1958    @1963    *        *        *        *
 DRAGON_SCALE_SHIELD_2                      shld21   1        1        0        0        1        1        @1501    @1964    @1503    @1965    *        *        *        *
 SHIELD_OF_BALDURAN_2                       shld22   1        1        0        0        1        1        @1501    @1966    @1503    @1967    *        *        *        *

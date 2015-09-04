@@ -13,11 +13,14 @@ TO DO LIST
 - Store Rev (Trollhide, Gauntlets of Dexterity, Gloves of Missile Snaring, Paladin Bracers, Rifthome Axe, Crimson Dart, ...)
 - Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. - clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
 
-V4 - Beta 8 (8 August 2015)
+V4 - Beta 8 (4 September 2015)
 - Improve EE support by converting text to UTF-8
 - Add support for EET
 - Stop Erik beating up <CHARNAME> in Candlekeep
 - Update to WeiDU 238
+- Disable Belt of Inertial Barrier animation for gameplay reasons (too spammy, applied to invisible targets, etc.)
+- Change Dwarven Shield from large shield to medium
+- Fix incorrect usabilities for various items, including a number of daggers
 
 V4 - Beta 7 (26 February 2015)
 - Readme major update

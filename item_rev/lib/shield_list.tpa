@@ -126,6 +126,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY shield BEGIN
   ~_shld04~ => 3
   ~_shld13~ => 3
   ~_shld14~ => 3
+  ~_shld19~ => 3
   ~c2anom01~ => 3
   ~cbcl005~ => 3   // the argent shield (medium shield)
   ~cbpdofcm~ => 3  // shield of the purple dragon (medium shield)
@@ -162,6 +163,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY shield BEGIN
   ~shld04~ => 3
   ~shld13~ => 3
   ~shld14~ => 3
+  ~shld19~ => 3
   ~shld21~ => 3
   ~shld22~ => 3
   ~shld26~ => 3
@@ -237,7 +239,6 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY shield BEGIN
   ~_shld15~ => 4
   ~_shld16~ => 4
   ~_shld18~ => 4
-  ~_shld19~ => 4
   ~cb351g03~ => 4
   ~cbcl037~ => 4   // mystery of the dead (large shield)
   ~cblyshld~ => 4  // lyrar's shield (large shield)
@@ -278,7 +279,6 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY shield BEGIN
   ~shld15~ => 4
   ~shld16~ => 4
   ~shld18~ => 4
-  ~shld19~ => 4
   ~shld23~ => 4
   ~shld30~ => 4
   ~shld31~ => 4
