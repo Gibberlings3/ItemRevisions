@@ -4,9 +4,12 @@
 *.debug
 *.log
 *.exe
+!iconv.exe
+!oggdec.exe
+!tisunpack.exe
 !TobExLoader.exe
 setup-item_rev
 setup-item_rev.command
+item_rev/backup/*
 item_rev/debug/*
 !item_rev/debug/debug.txt
-item_rev/backup/*
