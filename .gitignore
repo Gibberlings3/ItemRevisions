@@ -1,6 +1,7 @@
 *.7z
 *.rar
 *.zip
+*.tar.gz
 *.debug
 *.log
 *.exe
