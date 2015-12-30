@@ -39,7 +39,7 @@ Usable By:
  Paladin
  Ranger~
 @1008 = ~Greenstone Amulet~
-@1009 = ~Creatures that attack the mind are the stuff of nightmares, so it is not surprising that items protecting against them might acquire some of their disrepute. Greenstone amulets, for example, have been linked to a claim that when the drow first retreated underground they fed on intellect devourers, and that eating such a creature without wearing a greenstone amulet produced a mind flayer. This is all, of course, nothing more than superstitious tavern talk. Nonetheless these mind shielding amulets are indeed used by drows who have to deal with the illithids, as they call them, being it a peaciful deal, or a not so peaciful one.
+@1009 = ~Creatures that attack the mind are the stuff of nightmares, so it is not surprising that items protecting against them might acquire some of their disrepute. Greenstone amulets, for example, have been linked to a claim that when the drow first retreated underground they fed on intellect devourers, and that eating such a creature without wearing a greenstone amulet produced a mind flayer. This is all, of course, nothing more than superstitious tavern talk. Nonetheless these mind shielding amulets are indeed used by drows who have to deal with the illithids, as they call them, being it a peaceful deal, or a not so peaceful one.
 
 These highly prized items are fist-sized green stone worked into some kind of smooth shape, usually like a flattened egg, but sometimes like a shield or helmet. When worn, the greenstone protects the wearer from all forms of mind attacks, including psionics.
 
@@ -235,7 +235,7 @@ Launcher: Bow~
 STATISTICS:
 
 Combat Abilities:
- Envenomed: creatures struck by the weapon must save vs. poison or suffer 2 point of damage each second for 2 rounds
+ Envenomed: creatures struck by the weapon must save vs. poison or suffer 1 point of damage each second for 4 rounds
 
 Damage: 1D6
 Damage type: missile
@@ -797,7 +797,7 @@ Damage: 1D6 + 1
 Damage type: crushing
 Weight: 10
 Speed Factor: 7
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -817,7 +817,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 10
 Speed Factor: 6
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -835,7 +835,7 @@ Damage: 1D6 + 1
 Damage type: crushing
 Weight: 8
 Speed Factor: 7
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -855,7 +855,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 8
 Speed Factor: 6
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -873,7 +873,7 @@ Damage: 2D4
 Damage type: crushing
 Weight: 9
 Speed Factor: 7
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -893,7 +893,7 @@ Damage: 2D4 + 1
 Damage type: crushing
 Weight: 9
 Speed Factor: 6
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -918,7 +918,7 @@ Damage: 2D4 + 3
 Damage type: crushing
 Weight: 9
 Speed Factor: 4
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -967,7 +967,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 8
 Speed Factor: 6
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -986,7 +986,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 10
 Speed Factor: 5
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -1012,7 +1012,7 @@ Damage: 1D6 + 4
 Damage type: crushing
 Weight: 10
 Speed Factor: 4
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -1032,7 +1032,7 @@ Damage: 2D4 + 2
 Damage type: crushing
 Weight: 9
 Speed Factor: 5
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -1054,7 +1054,7 @@ Damage: 2D4 + 2
 Damage type: crushing
 Weight: 9
 Speed Factor: 5
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -1076,7 +1076,7 @@ Damage: 2D4 + 2
 Damage type: crushing
 Weight: 9
 Speed Factor: 5
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -1087,6 +1087,8 @@ Not Usable By:
  Beast Master~
 @1140 = ~Skullcrusher +3~
 @1141 = ~This mace is permanently bloodstained, a telltale trace of its many years spent bashing heads. The weapon would have been the bane of humanoids throughout its history, but those who wielded it seem to have been purposely left out of historic records.
+
+Note: always considered to be of +3 enchantment when determining what it can hit.
 
 STATISTICS:
 
@@ -1100,7 +1102,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 8
 Speed Factor: 6
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -1122,7 +1124,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 8
 Speed Factor: 6
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Not Usable By:
  Druid
@@ -1143,7 +1145,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 8
 Speed Factor: 5
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -1162,7 +1164,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 8
 Speed Factor: 5
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -1251,7 +1253,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 8
 Speed Factor: 5
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -1335,7 +1337,7 @@ Damage: 1D6 + 4
 Damage type: crushing
 Weight: 4
 Speed Factor: 2
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 5 Strength
 Not Usable By:
@@ -1362,7 +1364,7 @@ Damage: 1D6 + 5
 Damage type: crushing
 Weight: 4
 Speed Factor: 1
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 5 Strength
 Not Usable By:
@@ -1392,7 +1394,7 @@ Damage: 1D6 + 6
 Damage type: crushing
 Weight: 10
 Speed Factor: 2
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -1421,7 +1423,7 @@ Damage: 1D6 + 5
 Damage type: crushing
 Weight: 10
 Speed Factor: 3
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -1449,7 +1451,7 @@ Damage: 1D6 + 5
 Damage type: crushing
 Weight: 10
 Speed Factor: 3
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -1483,7 +1485,7 @@ Damage: 1D6 + 4
 Damage type: crushing
 Weight: 10
 Speed Factor: 4
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -1502,7 +1504,7 @@ Damage: 1D6 + 4
 Damage type: crushing
 Weight: 8
 Speed Factor: 4
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Mace
 Type: 1-handed
 Requires: 10 Strength
 Not Usable By:
@@ -1521,7 +1523,7 @@ Damage: 2D4 + 3
 Damage type: crushing
 Weight: 9
 Speed Factor: 4
-Proficiency Type: Mace/Morningstar
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -1546,7 +1548,7 @@ Damage: 2D4 +4
 Damage type: crushing
 Weight: 9
 Speed Factor: 3
-Proficiency Type: Mace/Morning Star
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 11 Strength
 Not Usable By:
@@ -1629,7 +1631,7 @@ These enchanted boots were once the property of a deadly Sword Coast assassin wh
 STATISTICS:
 
 Equipped Abilities:
- Movement rate: +4 bonus
+ Movement Rate: +4 bonus
 
 Weight: 2
 Usable By:
@@ -1791,7 +1793,7 @@ STATISTICS:
 
 THAC0: +1 bonus
 Weight: 3
-Speed Factor: 8
+Speed Factor: 7
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -1811,7 +1813,7 @@ STATISTICS:
 
 THAC0: +2 bonus
 Weight: 3
-Speed Factor: 7
+Speed Factor: 6
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -1909,7 +1911,7 @@ Not Usable By:
 
 STATISTICS:
 
-Equipped Abilities:
+Combat Abilities:
  Sundering: each hit reduces target's armor class by 1 for 2 rounds
 
 THAC0: +3 bonus
@@ -1935,7 +1937,7 @@ Note: certain creatures (such as elementals, golems, and undead) do not have hea
 
 STATISTICS:
 
-Equipped Abilities:
+Combat Abilities:
  Seeking: additional +3 to attack rolls
  Heartseeking: 10% chance target must save vs. death or die
 
@@ -1986,7 +1988,7 @@ Equipped Abilities:
 
 THAC0: +4 bonus
 Weight: 3
-Speed Factor: 5
+Speed Factor: 4
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -2011,7 +2013,7 @@ Combat Abilities:
 
 THAC0: +5 bonus
 Weight: 3
-Speed Factor: 4
+Speed Factor: 3
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -2097,7 +2099,7 @@ STATISTICS:
 
 THAC0: +3 bonus
 Weight: 3
-Speed Factor: 6
+Speed Factor: 5
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -2165,6 +2167,8 @@ Special Abilities (once per day):
 Equipped Abilities:
  Fire Resistance: +10% bonus
  Cold Resistance: +10% bonus
+
+Combat Abilities:
  Darkfire: inflicts additional 1D4 points of either fire or cold damage
 
 THAC0: +4 bonus
@@ -2193,6 +2197,8 @@ Special Abilities (once per day):
 Equipped Abilities:
  Fire Resistance: +20% bonus
  Cold Resistance: +20% bonus
+
+Combat Abilities:
  Darkfire: inflicts additional 1D4 points of fire and 1D4 points of cold damage
 
 THAC0: +5 bonus
@@ -2221,7 +2227,7 @@ Combat Abilities:
 
 THAC0: +5 bonus
 Weight: 3
-Speed Factor: 4
+Speed Factor: 3
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -2249,7 +2255,7 @@ Combat Abilities:
 
 THAC0: +6 bonus
 Weight: 3
-Speed Factor: 3
+Speed Factor: 2
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -2289,7 +2295,7 @@ STATISTICS:
 
 THAC0: +4 bonus
 Weight: 3
-Speed Factor: 5
+Speed Factor: 4
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -2460,6 +2466,7 @@ Special Abilities (once per day):
 Armor Class: 4
 Weight: 1
 Not Usable By:
+ Kensai
  Wizard Slayer~
 @1295 = ~Gloves of the Rogue~
 @1296 = ~The elderly Oghmanyte Milladolin found that age was affecting her and her fellows quite rapidly, causing their hands to shake and preventing them from performing many of their priestly duties. With Oghma's blessings, Milladolin created magical gloves that steadied their hands and heightened their muscle control. Years later, a young Oghmanyte was caught for thievery - guilty of using the gloves. Word spread, and soon the gloves themselves were stolen away.
@@ -2998,7 +3005,6 @@ Not Usable By:
  Thief
  Archer
  Stalker
- Beast Master
  Shapeshifter
  Kensai
  Monk~
@@ -3056,7 +3062,9 @@ Not Usable By:
  Monk
  Shapeshifter
  Avenger
- Kensai~
+ Kensai
+ Archer
+ Stalker~
 @1371 = ~Typical golden chainmail worn by Balthazar's Mercenaries.
 
 STATISTICS:
@@ -3291,6 +3299,8 @@ Usable By:
  Mage~
 @1410 = ~Cloak of the Shield~
 @1411 = ~This cloak projects a shielding field of invisible force that protects the wearer from physical attacks just as though he were wearing armor. This sphere of energy is particularly effective against missile weapons which are slowed somewhat and often end up falling to the ground before reaching the target. The barrier also protects the wearer from the spell Magic Missile.
+
+Note: multiple Shield effects are not cumulative.
 
 STATISTICS:
 
@@ -3859,7 +3869,7 @@ Damage: 1D6 + 4
 Damage type: crushing
 Weight: 10
 Speed Factor: 4
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -4087,7 +4097,7 @@ Damage: 1D8 + 3
 Damage type: slashing
 Weight: 3
 Speed Factor: 2
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -4336,7 +4346,7 @@ Equipped Abilities:
  Protection from Spell: Horrid Wilting
 
 Combat Abilities:
- Dehydrate: 15% chance of draining victim of water, dealing 4D6 points of damage, and reducing strength, dexterity and constitution by 2 points
+ Smashing Wave: 15% chance of inflicting 4D6 points of crushing damage to target and opponents within 5 feet
  Fire Eating: efreeti, fire elementals, fire giants and fire salamanders must save vs. death at -4 penalty or be slayed
 
 THAC0: +4 bonus
@@ -5343,8 +5353,10 @@ Not Usable By:
  Kensai
  Monk
  Shapeshifter~
-@1659 = ~Mielikki's Gift +3~
+@1659 = ~Skin of the Forest +3~
 @1660 = ~This was the armor of Seffer Ekr, and a sign of the goddess Mielikki's favor. She had rewarded the ranger's loyalty with the promise that he would never die in battle, and he defied death for many years, holding hordes of monsters back from his home forest. A heart attack claimed him when his time was done, not an enemy's blade.
+
+Note: Barkskin effect is not cumulative with other similar magic.
 
 STATISTICS:
 
@@ -5450,7 +5462,7 @@ Not Usable By:
  Kensai
  Monk
  Shapeshifter~
-@1673 = ~Human Flesh +5~
+@1673 = ~Human Flesh +4~
 @1674 = ~Made from human skin and treated with the blood of a noble dragon, this armor emits the stench of bitter death. The malevolent armor can only be used by a truly evil person.
 
 STATISTICS:
@@ -5459,7 +5471,7 @@ Equipped Abilities:
  Saving Throws: +2 bonus
  Magic Resistance: +20% bonus
 
-Armor Class: 3
+Armor Class: 4
 Weight: 15
 Requires: 3 Strength
 Usable By:
@@ -5475,12 +5487,14 @@ Requires: 3 Strength
 Usable By:
  Evil Characters~
 @1677 = ~Trollhide Armor +4~
-@1678 = ~Some might argue that trolls are the natural enemy of most rangers. Inherently violent and aggressive, trolls frequently attack with little or no provocation. They attack humans and small human settlements regularly, destroying everything in their path. Trolls are not only feared for their large, powerful limbs, but for their ability to rapidly regenerate most wounds inflicted on them. This magically enhanded suit of of armor, made with the thick hide of trolls, grants the wearer the same regenerative properties.
+@1678 = ~Some might argue that trolls are the natural enemy of most rangers. Inherently violent and aggressive, trolls frequently attack with little or no provocation. They attack humans and small human settlements regularly, destroying everything in their path. Trolls are not only feared for their large, powerful limbs, but for their ability to rapidly regenerate most wounds inflicted on them. This magically enhanced suit of armor, made with the thick hide of trolls, grants the wearer the same regenerative properties.
 
 STATISTICS:
 
 Equipped Abilities:
- Regeneration: wearer regenerates 2 hit points every round
+ Acid Resistance: -25% penalty
+ Fire Resistance: -25% penalty
+ Regeneration: wearer regenerates 1 hit point every 3 seconds
 
 Armor Class: 2
 Weight: 25
@@ -5511,14 +5525,14 @@ Not Usable By:
  Shapeshifter~
 @1681 = ~Aegis Fang +3~
 @1682 = ~Aegis-Fang is a mighty battlehammer forged by King Bruenor Battlehammer, and is considered his masterwork. Crafted for Wulfgar, the gods imbued it, making it unbreakable and able to return on command.
-The hammer's head was forged of Mithral while the handle crafted with adamantite. Upon the hammer's head there are three drawven symbols edged in diamond dust. On one side is a set of crossed axe's the symbol of Clanggedin the dwarven got of battle. On the other side is an anvil and hammer, the symbol of Mordin the soulforger. Carefully detailed and layed upon both sides is also the symbol of Dumathion the keeper of secrets.
+The hammer's head was forged of Mithral while the handle crafted with adamantite. Upon the hammer's head there are three dwarven symbols edged in diamond dust. On one side is a set of crossed axe's the symbol of Clangeddin the dwarven god of battle. On the other side is an anvil and hammer, the symbol of Moradin the soulforger. Carefully detailed and layed upon both sides is also the symbol of Dumathoin the keeper of secrets.
 
 This weapon was made specifically for Wulfgar by Bruenor Battlehammer, and the strongest of its enchantments only functions while in the young warrior's hands. Anyone else wields Aegis-Fang as a War Hammer +3.
 
 STATISTICS:
 
 THAC0: +3 bonus
-Damage: 2D4 + 3
+Damage: 2D4 + 4
 Damage type: crushing
 Weight: 3
 Speed Factor: 1
@@ -5532,7 +5546,7 @@ Not Usable By:
  Thief
  Beast Master~
 @1683 = ~Mithral Full Plate +2~
-@1684 = ~Field Plate is the heaviest of all mundane armor, and despite its great weight, it offers unparalleled protection against attacks. Mobility is not very easy in this type of armor and as such dexterity  while wearing field plates is highly restricted but they are to be worn by heavy infantry, and movement is not a priority. However, this magical specimen is made of mithral, a very rare, silvery, glistening metal that is lighter than iron but just as hard. As a result this field plate does not encoumber more than a chain mail and is treated as a medium armor for purposes of movement and other limitations.
+@1684 = ~Full Plate is the heaviest of all mundane armor, and despite its great weight, it offers unparalleled protection against attacks. Mobility is not very easy in this type of armor and as such dexterity  while wearing full plates is highly restricted but they are to be worn by heavy infantry, and movement is not a priority. However, this magical specimen is made of mithral, a very rare, silvery, glistening metal that is lighter than iron but just as hard. As a result this full plate does not encoumber more than a chain mail and is treated as a medium armor for purposes of movement and other limitations.
 
 This is the personal armor of Bruenor Battlehammer, and never a finer kit have you seen. It is truly a marvel of battlefield craftsmanship.
 
@@ -5885,20 +5899,20 @@ Not Usable By:
  Druid
  Mage
  Beast Master~
-@1743 = ~Neb's Nasty Cutter +2~
+@1743 = ~Neb's Nasty Cutter +1~
 @1744 = ~This is a vicious weapon used by Neb. It is covered with old blood, and its keen blade is coated in a poison that is both quick-acting and extremely deadly. Only the truly evil would stoop to using such an item.
 
 STATISTICS:
 
 Combat Abilities:
- Keen: +10% chance to score critical hits
- Envenomed: target must save vs. poison or be slowed and suffer 2 hp/2 sec for 2 rounds
+Keen: +5% chance to score critical hits
+Diseasing: target must save vs. poison or suffer 2 point of damage each round and be slowed for 4 rounds
 
-THAC0: +2 bonus
-Damage: 1D4 + 2
+THAC0: +1 bonus
+Damage: 1D4 + 1
 Damage type: piercing
 Weight: 1
-Speed Factor: 0
+Speed Factor: 1
 Proficiency Type: Dagger
 Type: 1-handed
 Not Usable By:
@@ -5969,7 +5983,7 @@ Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Unlimited +1 bolts
+ Unlimited +1 bullets
 
 Weight: 2
 Usable By:
@@ -6002,7 +6016,7 @@ Combat Abilities:
  Unholy: deals 6 additional points of damage against all of good alignment
 
 THAC0: +5 bonus
-Damage: 2D6 + 5
+Damage: 1D10 + 5
 Damage type: slashing
 Weight: 8
 Speed Factor: 5
@@ -6012,44 +6026,44 @@ Usable By:
  Anti-paladin~
 @1764 = ~Protection Scroll~
 @1765 = ~Protection from Acid~
-@1766 = ~A protection scroll is a set of magical runes imprinted on enchanted parchment. These scrolls are unique in that any class of chracter can read them, whether adept in magic or not. When the runes are read aloud the protective magic is released upon the target of the reader's choice. These scrolls can have a wide variety of beneficial effects, though care should be taken with scrolls gained from suspicious sources.~
-@1767 = ~A Protection from Acid scroll protects its beneficiary from all acid-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like acidic dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Melf's Acid Arrow and Acid Fog. The effect is not permanent, however, and will wear off after 10 turns.
+@1766 = ~A protection scroll is a set of magical runes imprinted on enchanted parchment. These scrolls are unique in that any class of character can read them, whether adept in magic or not. When the runes are read aloud the protective magic is released upon the reader. These scrolls can have a wide variety of beneficial effects, though care should be taken with scrolls gained from suspicious sources.~
+@1767 = ~A Protection from Acid scroll protects its reader from all acid-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like acidic dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Melf's Acid Arrow and Acid Fog. The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
  Wizard Slayer~
 @1768 = ~Protection from Cold~
-@1769 = ~A Protection from Cold scroll protects its beneficiary from all cold-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like icy dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Ice Storm and Cone of Cold. The effect is not permanent, however, and will wear off after 10 turns.
+@1769 = ~A Protection from Cold scroll protects its reader from all cold-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like icy dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Ice Storm and Cone of Cold. The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
  Wizard Slayer~
 @1770 = ~Protection from Electricity~
-@1771 = ~A Protection from Electricity scroll protects its beneficiary from all electrical-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like electric dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Lightning Bolt, Glyph of Warding, Call Lightning, and Chain Lightning. The effect is not permanent, however, and will wear off after 10 turns.
+@1771 = ~A Protection from Electricity scroll protects its reader from all electrical-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like electric dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Lightning Bolt, Glyph of Warding, Call Lightning, and Chain Lightning. The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
  Wizard Slayer~
 @1772 = ~Protection from Fire~
-@1773 = ~A Protection from Fire scroll protects its beneficiary from all fire-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like fiery dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Burning Hands, Fireball, Flame Strike, and Fire Storm. The effect is not permanent, however, and will wear off after 10 turns.
+@1773 = ~A Protection from Fire scroll protects its reader from all fire-based attacks, whether magical or non-magical in origin. 100% of the damage from attacks like fiery dragon breath will be absorbed, and the target creature will become completely immune to the effects of spells such as Burning Hands, Fireball, Flame Strike, and Fire Storm. The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
  Wizard Slayer~
 @1774 = ~Protection from Magic~
-@1775 = ~A Protection from Magic scroll creates a very powerful globe of anti-magic in a 3' radius around the target. No form of magic can pass into it or out from it, and any spell effects currently affecting the target will be removed. The globe cannot be dispelled, nor breached by most anti-magic attacks, but a Spellstrike spell can destroy it. The effect is not permanent, however, and will wear off after 10 turns.
+@1775 = ~A Protection from Magic scroll creates a very powerful globe of anti-magic in a 3' radius around the reader. No form of magic can pass into it or out from it, and any spell effects currently affecting the target will be removed. The globe cannot be dispelled, nor breached by most anti-magic attacks, but a Spellstrike spell can destroy it. The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
  Wizard Slayer~
 @1776 = ~Protection from Ailments~
-@1777 = ~A Protection from Ailments scroll will protect the target from all forms of poison and disease, be they of a natural or magical nature.The effect is not permanent, however, and will wear off after 10 turns.
+@1777 = ~A Protection from Ailments scroll will protect the reader from all forms of poison and disease, be they of a natural or magical nature.The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
  Wizard Slayer~
 @1778 = ~Protection from Undead~
-@1779 = ~A Protection from Undead scroll creates creates a magical barrier around the recipient at a distance of one foot. The barrier moves with the recipient and protects him from all forms of attack made by undead creatures. The recipient is immune to level drain effects, attacks made by undead creatures against the protected creature receive a -2 penalty to their attack roll, and any saving throws caused by such attacks are made by the protected creature with a +2 bonus. The effect is not permanent, however, and will wear off after 10 turns.
+@1779 = ~A Protection from Undead scroll creates a magical barrier around the reader at a distance of one foot. The barrier moves with the recipient and protects him from all forms of attack made by undead creatures. The recipient is immune to level drain effects, attacks made by undead creatures against the protected creature receive a -2 penalty to their attack roll, and any saving throws caused by such attacks are made by the protected creature with a +2 bonus. The effect is not permanent, however, and will wear off after 10 turns.
 
 Requires: 9 Intelligence
 Not Usable By:
@@ -6104,7 +6118,7 @@ STATISTICS:
 Usable By:
  Imoen~
 @1788 = ~Corthala Family Armor +3~
-@1789 = ~This armor, long in the Corthala bloodline, is a heavily enchanted mithral chain mail. The armor has been crafted by powerful mages of the Corthala family in order to effectively fight other mages. The armor makes the wearer immune to charm and detection by magical means ensuring he can plans his actions and pursues his targets without worring about external interference. As it is specially fitted for Valygar, few other than he may wear it.
+@1789 = ~This armor, long in the Corthala bloodline, is a heavily enchanted mithral chain mail. The armor has been crafted by powerful mages of the Corthala family in order to effectively fight other mages. The armor makes the wearer immune to charm and detection by magical means ensuring he can plan his actions and pursue his targets without worring about external interference. As it is specially fitted for Valygar, few other than he may wear it.
 
 STATISTICS:
 
@@ -6251,8 +6265,8 @@ THAC0: +2 bonus
 Damage: 1D10 + 2
 Damage type: slashing
 Weight: 5
-Speed Factor: 3
-Proficiency Type: Katana/Wakizashi
+Speed Factor: 2
+Proficiency Type: Katana
 Type: 1-handed
 Usable By:
  Yoshimo~
@@ -6267,7 +6281,7 @@ Combat Abilities:
  Holy: deals 3 additional points of damage against all of evil alignment
 
 THAC0: +2 bonus
-Damage: 2D6 + 2
+Damage: 1D10 + 2
 Damage type: slashing
 Weight: 8
 Speed Factor: 8
@@ -6289,8 +6303,8 @@ Combat Abilities:
 Damage: 1D10 + 2
 Damage type: slashing
 Weight: 5
-Speed Factor: 3
-Proficiency Type: Katana/Wakizashi
+Speed Factor: 2
+Proficiency Type: Katana
 Type: 1-handed
 Usable By:
  Valygar~
@@ -6301,7 +6315,7 @@ STATISTICS:
 
 Combat Abilities:
  Entropy: each hit reduces target's saves vs. spell by 1 for 4 rounds
- Envenomed: creatures struck suffer 1D6 points of additional damage
+ Envenomed: creatures struck suffer 1D6 points of additional poison damage
 
 THAC0: +2 bonus
 Damage: 1D6 + 2
@@ -6459,6 +6473,7 @@ Not Usable By:
  Barbarian
  Kensai
  Monk
+ Avenger
  Shapeshifter~
 @1835 = ~Radiant Plate +2~
 @1836 = ~This brilliant golden armor has a short history. A priestess of Lathander named Iraeni of Suzail had it constructed for the champion of her church, a warrior-priest named Beldan Miller. Beldan employed the armor frequently, as Iraeni was often attacked by agents of Myrkul. After twenty years of serving Lathander, Iraeni decided to step down from her office, as did Beldan. They were married shortly after. Beldan gave the armor to an errant paladin of Lathander, who is believed to have died fighting a powerful undead creature in Amn.
@@ -6482,7 +6497,7 @@ Not Usable By:
  Beast Master
  Kensai
  Monk~
-@1837 = ~Full Plate is the heaviest of all mundane armor, and despite its great weight, it offers unparalleled protection against attacks. Mobility is not very easy in this type of armor and as such dexterity  while wearing field plates is highly restricted but they are to be worn by heavy infantry, and movement is not a priority. However, this magical specimen is made of mithral, a very rare, silvery, glistening metal that is lighter than iron but just as hard. As a result this field plate does not encoumber more than a chain mail and is treated as a medium armor for purposes of movement and other limitations.
+@1837 = ~Full Plate is the heaviest of all mundane armor, and despite its great weight, it offers unparalleled protection against attacks. Mobility is not very easy in this type of armor and as such dexterity  while wearing full plates is highly restricted but they are to be worn by heavy infantry, and movement is not a priority. However, this magical specimen is made of mithral, a very rare, silvery, glistening metal that is lighter than iron but just as hard. As a result this full plate does not encoumber more than a chain mail and is treated as a medium armor for purposes of movement and other limitations.
 
 STATISTICS:
 
@@ -6548,7 +6563,7 @@ STATISTICS:
 
 Equipped Abilities:
  Aura of Despair: opponents within 10 feet suffer -2 penalty to attack rolls, damage rolls and saving throws
- Luck: -1 penalty  (-5% for skills)
+ Luck: -1 penalty (-5% for skills)
 
 Armor Class: 0
 Weight: 50
@@ -6661,6 +6676,7 @@ Not Usable By:
  Stalker
  Barbarian
  Beast Master
+ Avenger
  Shapeshifter
  Kensai
  Monk~
@@ -6702,6 +6718,7 @@ Not Usable By:
  Stalker
  Barbarian
  Shapeshifter
+ Avenger
  Kensai
  Monk~
 @1858 = ~Enkidu's Full Plate +4~
@@ -6776,7 +6793,7 @@ The grand mage Batalista intended this item to aid him in his travels in the pla
 STATISTICS:
 
 Equipped Abilities:
- Fire Resistance: +50%
+ Fire Resistance: +50% bonus
 
 Not Usable By:
  Wizard Slayer~
@@ -6969,7 +6986,7 @@ STATISTICS:
 Special Abilities (Once per day):
  Battering Ram: target is knocked back 20 feet suffering 5d6 points of crushing damage, and he must save vs. death or be unconscious for 1 round
 
-Equipped Abilities (monks only):
+Combat Abilities (monks only):
  Knockdown: 33% chance on each melee hit target must save vs. death or be knocked down unconscious for 1 round
 
 Not Usable By:
@@ -6980,7 +6997,7 @@ Not Usable By:
 STATISTICS:
 
 Special Abilities (once per day):
- Spell turning
+ Spell Turning
 
 Equipped Abilities:
  Magic Resistance: +10% bonus
@@ -6994,7 +7011,7 @@ STATISTICS:
 
 Equipped Abilities:
  Dexterity: +1 bonus
- Lock Picking: +20% bonus
+ Lockpicking: +20% bonus
 
 Usable By:
  Thief~
@@ -7039,7 +7056,7 @@ STATISTICS:
 Equipped Abilities:
  Memorize one extra spell of each level from 5th to 7th
 
-Only Usable By:
+Usable By:
  Mage~
 @1907 = ~Ring of Protection +3~
 @1908 = ~The Warder's Signet
@@ -7085,7 +7102,9 @@ STATISTICS:
 
 Equipped Abilities:
  Maximum Hit Points: +10 bonus
- Soul Stealing: wearer's melee hits drain one to four hit points from the target and transfers it to the wielder
+
+Combat Abilities:
+ Soul Stealing: wearer's melee hits drain 1D4 hit points from the target and transfers it to the wielder
 
 Not Usable By:
  Wizard Slayer~
@@ -7174,9 +7193,11 @@ Not Usable By:
 
 STATISTICS:
 
-Combat Abilities:
- Movement rate: +1 bonus
+Equipped Abilities:
+ Movement Rate: +1 bonus
  Saving Throws: +3 vs. breath
+
+Combat Abilities:
  Dragon Bane: additional +2 bonus to THAC0 and +8 to damage against dragons
 
 THAC0: +1 bonus
@@ -7196,7 +7217,7 @@ The sling has the ability to rend the senses of the wielder's enemies with a wal
 STATISTICS:
 
 Combat Abilities:
- Sound Burst: 15% chance to blast an area of 10 feet radius with a tremendous sonic wave, dealing 4d4 points of damage to opponents within it, and stunning them for 1 round unless a save vs. spell is made
+ Sonic Blast: 15% chance to blast an area of 10 feet radius with a tremendous sonic wave, dealing 4d4 points of damage to opponents within it, and stunning them for 1 round unless a save vs. spell is made
 
 THAC0: +2 bonus
 Damage: +2 bonus
@@ -7477,7 +7498,7 @@ STATISTICS:
 Equipped Abilities:
  Magic Resistance: +10% bonus
 
-Armor Class Bonus: 5
+Armor Class Bonus: 3
 Weight: 15
 Requires: 12 Strength
 Not Usable By:
@@ -7848,7 +7869,7 @@ STATISTICS:
 
 Combat Abilities:
  Contagious: 15% chance target must save vs. death at -4 penalty or be afflicted by a disease, suffering 1 point of damage per second and being slowed for 1 turn
- Envenomed: creatures struck suffer 1D6 points of additional damage
+ Envenomed: creatures struck suffer 1D6 points of additional poison damage
 
 THAC0: +3 bonus
 Damage: 1D6 + 3
@@ -8157,6 +8178,7 @@ Damage: 1D6 +4
 Damage type: crushing
 Weight: 2
 Speed Factor: 0
+Proficiency Type: Quarterstaff
 Type: 2-handed
 Requires: 5 Strength
 Usable By
@@ -8244,6 +8266,8 @@ Not Usable By:
  Monk~
 @2042 = ~Cleric's Staff +3~
 @2043 = ~The faithful teach that staves like this are the will of a deity made manifest. While this is debatable, these items do tend to find their way to the hands of the truly righteous, by accident or design. Still, the number of these staffs in circulation makes the miraculous origin theory somewhat unlikely.
+
+Note: always considered to be of +3 enchantment when determining what it can hit.
 
 STATISTICS:
 
@@ -8335,7 +8359,7 @@ Not Usable By:
 STATISTICS:
 
 Combat Abilities:
- Venomous: creatures struck suffer 1D6 points of additional damage
+ Venomous: creatures struck suffer 1D6 points of additional poison damage
  Viperous: 15% chance to inject a lethal poison which inflicts 10 points of damage every second for 2 rounds unless a save vs. poison at -4 penalty is made
 
 THAC0: +3 bonus
@@ -8569,14 +8593,16 @@ STATISTICS:
 
 Equipped Abilities:
  Fire Resistance: +50% bonus
+
+Combat Abilities:
  Icy: deals 1D6 additional points of cold damage
 
 THAC0: +3 bonus
 Damage: 1D8 + 3
 Damage type: slashing
 Weight: 4
-Proficiency Type: Scimitar
 Speed Factor: 2
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -8595,8 +8621,8 @@ THAC0: +3 bonus
 Damage: 1D8 + 3
 Damage type: slashing
 Weight: 4
-Proficiency Type: Scimitar
 Speed Factor: 2
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -8610,7 +8636,7 @@ Damage: 1D8
 Damage type: slashing
 Weight: 4
 Speed Factor: 5
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -8626,7 +8652,7 @@ Damage: 1D8 + 1
 Damage type: slashing
 Weight: 4
 Speed Factor: 4
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -8646,7 +8672,7 @@ Damage: 1D8 + 2
 Damage type: slashing
 Weight: 4
 Speed Factor: 3
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -8803,7 +8829,7 @@ Damage: 1D8 + 2
 Damage type: slashing
 Weight: 4
 Speed Factor: 3
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -8871,7 +8897,7 @@ Beroalf was a barbarian who traveled from the cold north in search of adventure.
 
 STATISTICS:
 
-Special Abilities:
+Special Abilities (once per day):
  Dancing: the sword can attack on its own for 10 rounds
 
 THAC0: +2 bonus
@@ -8887,7 +8913,7 @@ Not Usable By:
  Druid
  Mage
  Beast Master~
-@2103 = ~Albruin +2~
+@2103 = ~Albruin +1~
 @2104 = ~Albruin was held for decades in the royal house of Cormyr, kept as a family treasure and often borne by the kings of that land due to its defensive abilities which foiled many assassination attempts. It was stolen from the palace at Suzail in the Year of Daystar (1286 DR) by the thief Nypan, a halfling who was soon arrested in Wheloon by soldiers of Cormyr and slain when he attempted to escape. Unfortunately, Nipe did not have the blade when sized, and he did not reveal its whereabouts.
 
 STATISTICS:
@@ -8950,7 +8976,7 @@ Equipped Abilities:
  Wall of Silence: wielder is immune to sound-based spells or attacks such as Command, (Un)Holy Word, Power Word, Wail of the Banshee and similar effects
 
 Combat Abilities:
- Silence: target and opponents within 15 feet must save vs. spell or be silenced
+ Silence: target and opponents within 15 feet must save vs. spell or be silenced for 2 rounds
 
 THAC0: +2 bonus
 Damage: 1D8 + 2
@@ -8971,7 +8997,7 @@ Taragarth is believed to have been forged by Elfgar of Silverymoon in the early 
 
 STATISTICS:
 
-Equipped Abilities:
+Combat Abilities:
  Acidic: creatures struck suffer 1D4 additional points of acid damage
 
 THAC0: +2 bonus
@@ -9105,7 +9131,7 @@ Damage: 1D10
 Damage type: slashing
 Weight: 5
 Speed Factor: 4
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not Usable By:
@@ -9124,7 +9150,7 @@ Damage: 1D10 + 1
 Damage type: slashing
 Weight: 5
 Speed Factor: 3
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not Usable By:
@@ -9146,9 +9172,9 @@ Damage: 1D10 + 2
 Damage type: slashing
 Weight: 4
 Speed Factor: 2
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Katana
 Type: 1-handed
-Requires: 13 Strength, 17 Dexterity
+Requires: 6 Strength, 16 Dexterity
 Not Usable By:
  Cleric
  Druid
@@ -9164,7 +9190,7 @@ Damage: 1D8
 Damage type: piercing
 Weight: 3
 Speed Factor: 3
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 5 Strength
 Not Usable By:
@@ -9183,7 +9209,7 @@ Damage: 1D8 + 1
 Damage type: piercing
 Weight: 3
 Speed Factor: 2
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 5 Strength
 Not Usable By:
@@ -9200,7 +9226,7 @@ Damage: 1D8
 Damage type: slashing
 Weight: 3
 Speed Factor: 4
-Proficiency Type: Short Sword
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 6 Strength
 Not Usable By:
@@ -9219,7 +9245,7 @@ Damage: 1D8 + 1
 Damage type: slashing
 Weight: 3
 Speed Factor: 3
-Proficiency Type: Short Sword
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 6 Strength
 Not Usable By:
@@ -9248,7 +9274,7 @@ Damage: 1D10 + 3
 Damage type: slashing
 Weight: 5
 Speed Factor: 1
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not Usable By:
@@ -9272,7 +9298,7 @@ Damage: 1D8 + 3
 Damage type: slashing
 Weight: 4
 Speed Factor: 2
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -9294,7 +9320,7 @@ Damage: 1D8 + 1
 Damage type: slashing
 Weight: 4
 Speed Factor: 4
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -9339,7 +9365,7 @@ Damage: 1D10 + 2
 Damage type: slashing
 Weight: 5
 Speed Factor: 2
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not Usable By:
@@ -9386,7 +9412,7 @@ Combined with the Heart of the Damned into a single lethal weapon, this deadly b
 STATISTICS:
 
 Combat Abilities:
- Envenomed: creatures struck suffer 1D6 points of additional damage
+ Envenomed: creatures struck suffer 1D6 points of additional poison damage
  Paralyzing: 50% chance target must save vs. paralyze or be held for 2 rounds
  Stealthblade: 20% chance of making the user improved invisible for 5 rounds
 
@@ -9466,7 +9492,7 @@ Equipped Abilities:
 
 Combat Abilities:
  Foe Bane: additional +2 bonus to THAC0 and damage against undead, shapeshifters, and all extra-planar beings
- Vampiric: drains one to four hit points from the target and transfers it to the wielder
+ Vampiric: drains 1D4 hit points from the target and transfers it to the wielder
 
 THAC0: +2 bonus
 Damage: 2D4 + 2
@@ -9498,8 +9524,9 @@ Equipped Abilities:
  Saving Throws: +2 bonus
 
 Combat Abilities:
- Foe Bane: additional +2 bonus to THAC0 and damage against undead, shapeshifters, and all extra-planar beings; deals +6 additional damage against evil creatures
- Vampiric: drains one to four hit points from the target and transfers it to the wielder
+ Holy: deals 6 additional points of damage against all of evil alignment
+ Foe Bane: additional +2 bonus to THAC0 and damage against undead, shapeshifters, and all extra-planar beings
+ Vampiric: drains 1D4 hit points from the target and transfers it to the wielder
 
 THAC0: +3 bonus
 Damage: 2D4 + 3
@@ -9591,7 +9618,7 @@ Damage: 1D8 + 3
 Damage type: piercing
 Weight: 3
 Speed Factor: 0
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 5 Strength
 Not usable by:
@@ -9605,7 +9632,7 @@ Not usable by:
 STATISTICS:
 
 Equipped Abilities:
-  Movement rate: +1 bonus
+  Movement Rate: +1 bonus
 
 Combat Abilities:
  Shocking Blow: 5% chance of dealing 20 additional points of electrical damage
@@ -9613,10 +9640,10 @@ Combat Abilities:
 
 THAC0: +3 bonus
 Damage: 1D8 + 3
-Damage type: slashing
+Damage type: piercing
 Weight: 3
 Speed Factor: 0
-Proficiency Type: Katana/Wakizashi
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 6 Strength
 Not usable by:
@@ -9642,7 +9669,7 @@ Damage: 1D8 + 3
 Damage type: slashing
 Weight: 4
 Speed Factor: 2
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -9673,7 +9700,7 @@ Damage: 1D8 + 4
 Damage type: slashing
 Weight: 4
 Speed Factor: 1
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -9699,8 +9726,8 @@ THAC0: +3 bonus
 Damage: 1D10 + 3
 Damage type: slashing
 Weight: 5
-Speed Factor: 2
-Proficiency Type: Katana/Wakizashi
+Speed Factor: 1
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not usable by:
@@ -9730,8 +9757,8 @@ THAC0: +4 bonus
 Damage: 1D10 + 4
 Damage type: slashing
 Weight: 5
-Speed Factor: 1
-Proficiency Type: Katana/Wakizashi
+Speed Factor: 0
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not usable by:
@@ -9804,8 +9831,8 @@ THAC0: +3 bonus
 Damage: 1D10 + 3
 Damage type: slashing
 Weight: 5
-Speed Factor: 2
-Proficiency Type: Katana/Wakizashi
+Speed Factor: 1
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not usable by:
@@ -9823,7 +9850,7 @@ Damage: 1D8 + 3
 Damage type: slashing
 Weight: 4
 Speed Factor: 2
-Proficiency Type: Scimitar
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type: 1-handed
 Requires: 8 Strength
 Not Usable By:
@@ -10143,7 +10170,7 @@ Not Usable By:
 STATISTICS:
 
 Combat Abilities:
- Vampiric: drains one to four hit points from the target and transfers it to the wielder
+ Vampiric: drains 1D4 hit points from the target and transfers it to the wielder
 
 THAC0: +2 bonus
 Damage: 1D10 + 2
@@ -10171,7 +10198,7 @@ Equipped Abilities:
 
 Combat Abilities:
  Sharpness: target must save vs. death or suffer -1 penalty to strength and dexterity for 5 rounds
- Envenomed: 20% chance of dealing 2D12 additional points of damage
+ Envenomed: 20% chance of dealing 2D12 additional points of poison damage
 
 THAC0: +4 bonus
 Damage: 1D10 + 4
@@ -10201,7 +10228,7 @@ Equipped Abilities:
 Combat Abilities:
  Wounding: target suffer 1 point of bleeding damage every round for 5 rounds
  Sharpness: target must save vs. death or suffer -1 penalty to strength and dexterity for 5 rounds
- Envenomed: 20% chance of dealing 2D12 additional points of damage
+ Envenomed: 20% chance of dealing 2D12 additional points of poison damage
 
 THAC0: +5 bonus
 Damage: 1D10 + 5
@@ -10315,8 +10342,8 @@ THAC0: +2 bonus
 Damage: 1D10 + 2
 Damage type: slashing
 Weight: 5
-Speed Factor: 3
-Proficiency Type: Katana/Wakizashi
+Speed Factor: 2
+Proficiency Type: Katana
 Type: 1-handed
 Requires: 6 Strength
 Not usable by:
@@ -10456,8 +10483,7 @@ Special Abilities (consumes charges):
 Requires: 11 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2243 = ~Wand of Magic Missiles~
 @2244 = ~When activated, this wand will eject three missiles of magical energy that dart forth and unerringly strike its target, which must be visible to be hit. Each missile will inflict 1D4 + 1 points of magic damage. Almost anyone of moderate intelligence can learn how to use this wand.
 
@@ -10480,8 +10506,7 @@ Special Abilities (consumes charges):
 Requires: 14 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2247 = ~Wand of Fire~
 @2248 = ~When used, this wand will cough forth a huge, burning ball of fire that streaks out to the desired range (a maximum of 90 feet) and bursts in a fiery, violent blast of 30ft radius. Creatures within the area take 6d6 points of fire damage, those who successfully save vs. wands at -2 penalty take only half damage.
 The second ability of the wand is akin to the wizard spell 'Agannazar's Scorcher' in that a column of flame will streak towards a victim, inflicting 5d6 points of fire damage to everyone in his path. The victim(s) may make a save vs. wands at -1 in order to reduce the damage dealt by half.
@@ -10496,8 +10521,7 @@ Special Abilities (consume charges):
 Requires: 12 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2249 = ~Wand of Frost~
 @2250 = ~A Wand of Frost acts in a similar fashion to the Cone of Cold spell. Crystallized particles of snow and ice fan out from the wand's tip, defining an area wherein the temperature drops to -100 degrees F. When used, white crystalline motes spray forth from the wand in a column towards the victim, striking him or her square in the chest with numbing force. The temperature inside the column is deadly, and causes 6d6 points of cold damage, and slows the target for 5 rounds. A successful save vs. wands at -3 penalty reduces the damage by half. Like all wands, the Wand of Frost can only be used a limited number of times before it melts into a harmless pool of water.
 
@@ -10509,10 +10533,9 @@ Special Abilities (consume charges):
 Requires: 13 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2251 = ~Wand of Lightning~
-@2252 = ~A Wand of Lightning causes bolts of electrical energy to be discharged from its tip to strike at specified opponents. The possessor of the wand can discharge six bolts of lightning, and may target up to six different enemies. Each bolt does 3D6 points of electrical damage, with a save vs. wand at -3 penalty for half damage. Like all wands, the Wand of Lightning has a limited number of uses. Once these have been expended, the wand is reduced to little more than a chunk of scarred and twisted metal.
+@2252 = ~A Wand of Lightning causes bolts of electrical energy to be discharged from its tip to strike at specified opponents. The possessor of the wand can discharge three bolts of lightning, and may target up to six different enemies. Each bolt does 3D6 points of electrical damage, with a save vs. wand at -3 penalty for half damage. Like all wands, the Wand of Lightning has a limited number of uses. Once these have been expended, the wand is reduced to little more than a chunk of scarred and twisted metal.
 
 STATISTICS:
 
@@ -10522,8 +10545,7 @@ Special Abilities (consumes charges):
 Requires: 13 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2253 = ~Wand of Sleep~
 @2254 = ~When used, this wand emits a gold beam of energy at its targets up to a maximum range of 90 feet, affecting a 30 foot cube. If the target creatures fail their save vs. wands, they will fall into a deep, comatose sleep for 1 turn. Creatures with more than 10 Hit Dice/Levels are unaffected. Almost anyone of moderate intelligence can learn how to use this wand. As with other wands, the Wand of Sleep dissolves after a limited number of uses.
 
@@ -10547,8 +10569,7 @@ Requires: 13 Intelligence
 Usable By:
  Bard
  Druid
- Mage
- Thief~
+ Mage~
 @2257 = ~Wand of Monster Summoning~
 @2258 = ~A Wand of Monster Summoning teleports an array of monsters to the wielder's side, placing them under his or her complete control. As the controller wearies from this exertion, the monsters slowly disappear. This wand will summon 12 HD of monsters, which appear within the area of effect and attack the user's enemies. They remain until the spell duration expires, or the monsters are slain. These creatures vanish when slain. If no opponent exists to fight and the wizard can communicate with them, the summoned monsters can perform other services for the summoning wizard. As with other wands, the Wand of Monster Summoning can only be used a limited number of times before crumbling into a pile of dust.
 
@@ -10560,8 +10581,7 @@ Special Abilities (consumes charges):
 Requires: 14 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2259 = ~Wand of the Heavens~
 @2260 = ~When used, this wand will cause a pillar of flame to shoot from the sky and strike the target of the invoker. The flames will do 9d6 points of fire damage to the target unless the target makes a save vs. wands at -3 penalty, in which case it will take half damage. The wand has a limited amount of charges, and will be destroyed when they are all used.
 
@@ -10596,8 +10616,7 @@ Special Abilities (consumes charges):
 Requires: 14 Intelligence
 Usable By:
  Bard
- Mage
- Thief~
+ Mage~
 @2265 = ~Wand of Spell Striking~
 @2266 = ~Ironically, these wands are both prized and hated by wizards. They can tear down an enemy mage's defenses, but of course every mage knows the wands can also be turned against themselves.
 
@@ -10610,8 +10629,7 @@ Special Abilities (consume charges):
 Requires: 15 Intelligence
 Usable By:
  Mage
- Bard
- Thief~
+ Bard~
 @2267 = ~Wand of Cursing~
 @2268 = ~This wand instantly afflicts targets with blindness and deafness, and renders them mute for 1 turn unless a successful save vs. wands at -2 penalty is made. But perhaps the most dangerous aspect of this terrible device is that almost anyone can use it.
 
@@ -10819,7 +10837,7 @@ Combat Abilities:
 THAC0: +3 bonus
 Damage: +3 bonus
 Weight: 4
-Speed Factor: 4
+Speed Factor: 2
 Proficiency Type: Crossbow
 Type: 2-handed
 Requires: 8 Strength
@@ -10845,6 +10863,7 @@ Weight: 8
 Speed Factor: 6
 Proficiency Type: Crossbow
 Type: 2-handed
+Requires: 12 Strength
 Not Usable By:
  Cleric
  Druid
@@ -10890,7 +10909,7 @@ Combat Abilities:
 THAC0: +4 bonus
 Damage: 1D8 + 4
 Weight: 4
-Speed Factor: 3
+Speed Factor: 1
 Proficiency Type: Crossbow
 Type: 2-handed
 Requires: 8 Strength
@@ -10917,7 +10936,7 @@ THAC0: +5 bonus
 Damage: 1D8 + 5
 Damage type: missile
 Weight: 4
-Speed Factor: 2
+Speed Factor: 0
 Proficiency Type: Crossbow
 Type: 2-handed
 Requires: 8 Strength
@@ -10956,7 +10975,7 @@ STATISTICS:
 THAC0: +3 bonus
 Damage: +3 bonus
 Weight: 4
-Speed Factor: 4
+Speed Factor: 2
 Proficiency Type: Crossbow
 Type: 2-handed
 Requires: 8 Strength
@@ -10986,7 +11005,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 10
 Speed Factor: 5
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11010,7 +11029,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 10
 Speed Factor: 5
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11034,7 +11053,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 10
 Speed Factor: 5
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11058,7 +11077,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 10
 Speed Factor: 6
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11081,7 +11100,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 10
 Speed Factor: 6
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11104,7 +11123,7 @@ Damage: 1D6 + 2
 Damage type: crushing
 Weight: 10
 Speed Factor: 6
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11178,7 +11197,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 10
 Speed Factor: 5
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11201,7 +11220,7 @@ Damage: 1D6 + 3
 Damage type: crushing
 Weight: 10
 Speed Factor: 5
-Proficiency Type: Flail
+Proficiency Type: Flail/Morning Star
 Type: 1-handed
 Requires: 13 Strength
 Not Usable By:
@@ -11408,7 +11427,7 @@ THAC0: +3 bonus
 Damage: 1D10 + 3
 Damage type: slashing
 Weight: 3
-Speed Factor: 4
+Speed Factor: 1
 Proficiency Type: Axe
 Type: 1-handed
 Requires: 4 Strength
@@ -11436,7 +11455,7 @@ Combat Abilities:
 THAC0: +4 bonus
 Damage: 1d6
 Weight: 3
-Speed Factor: 5
+Speed Factor: 4
 Proficiency Type: Long Bow
 Type: 2-handed
 Requires: 6 Strength
@@ -11521,7 +11540,7 @@ This emerald-studded dagger is Entreri's signature weapon, and is the most recog
 STATISTICS:
 
 Combat Abilities:
- Vampiric: drains one to four hit points from the target and transfers it to the wielder
+ Vampiric: drains 1D4 hit points from the target and transfers it to the wielder
 
 THAC0: +4 bonus
 Damage: 1D4 + 4
@@ -11699,14 +11718,15 @@ THAC0: +2 bonus
 Damage:  1D8 + 2
 Damage type:  piercing
 Weight:  2
-Speed Factor: 0
+Speed Factor: 1
 Proficiency Type: Scimitar/Wakizashi/Ninja-To
 Type:  1-handed
 Requires: 5 Strength, 17 Dexterity
 Not Usable By:
  Druid
  Cleric
- Mage~
+ Mage
+ Beast Master~
 @2383 = ~~
 @2384 = ~~
 @2385 = ~~
@@ -11797,5 +11817,6 @@ Not Usable By:
 @4076 = ~Dispel Magic~
 @4077 = ~Simulacrum~
 @4078 = ~Greater Malison~
-
+@4079 = ~Gaze of Despair~
+@4080 = ~Magic Resistance~
 

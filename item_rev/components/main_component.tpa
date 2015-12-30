@@ -1,3 +1,8 @@
+INCLUDE ~item_rev/lib/compatibility.tpa~
+INCLUDE ~item_rev/lib/tooltip_macro.tpa~
+
+//////////////////////////////////////////////
+
 /*-----------------Shared Effects-----------------*/
 
 COPY ~item_rev/itm/axiom1.eff~      ~override~
@@ -16,6 +21,7 @@ COPY ~item_rev/itm/dopphit2.eff~      ~override~
 COPY ~item_rev/itm/doppdam2.eff~      ~override~
 COPY ~item_rev/itm/draghit2.eff~      ~override~
 COPY ~item_rev/itm/dragbane.eff~      ~override~
+COPY ~item_rev/itm/elemdam4.eff~      ~override~
 COPY ~item_rev/itm/giandam4.eff~      ~override~
 COPY ~item_rev/itm/golehit2.eff~      ~override~
 COPY ~item_rev/itm/goledam8.eff~      ~override~
@@ -49,7 +55,9 @@ COPY ~item_rev/itm/vampdam4.eff~      ~override~
 COPY ~item_rev/itm/wolfhit2.eff~      ~override~
 COPY ~item_rev/itm/wolfdam2.eff~      ~override~
 
-COPY ~item_rev/itm/dvwinded.spl~      ~override/dvwinded.spl~  // Fatigue
+COPY ~item_rev/itm/dvnatfrm.spl~      ~override~  // Shapeshift Natural Form
+
+COPY ~item_rev/itm/dvwinded.spl~      ~override~  // Fatigue
 
 
 /*-----------------Weapon Enhancements-----------------*/
@@ -176,6 +184,11 @@ COPY ~item_rev/itm/dvslay.eff~      ~override~
 COPY ~item_rev/itm/dvsleep.spl~      ~override~  // Sleep
 COPY ~item_rev/itm/dvsleep.eff~      ~override~
 
+COPY ~item_rev/itm/dvswave.spl~      ~override~  // Smashing Wave
+COPY ~item_rev/itm/dvswave.spl~      ~override~
+COPY ~item_rev/itm/dvswavex.bam~      ~override~
+COPY ~item_rev/itm/dvswave.vvc~      ~override~
+
 COPY ~item_rev/itm/dvsburst.spl~      ~override~  // Sound Burst
   WRITE_SHORT 0x98 %dvsburst%
 COPY ~item_rev/itm/dvsburst.eff~      ~override~
@@ -291,59 +304,40 @@ COPY ~item_rev/1pp/shields/c3_spiky_large~      ~override~
 COPY ~item_rev/1pp/shields/c4_fortress_bg2_large~      ~override~
 COPY ~item_rev/1pp/shields/c5_star_small~      ~override~
 COPY ~item_rev/1pp/shields/c6_polished_large~      ~override~
-COPY ~item_rev/1pp/shields/c7_bg2_small~      ~override~
 
-// add c0-c6 creature animations
-ACTION_FOR_EACH size IN ~l~ ~m~ ~s~ BEGIN // creature sizes
-  ACTION_FOR_EACH sequence IN ~a1~ ~a1e~ ~a3~ ~a3e~ ~a5~ ~a5e~ ~g1~ ~g1e~ ~w2~ ~w2e~ BEGIN // animation sequences
-    // small shields
-    ACTION_FOR_EACH animation IN ~c5~ BEGIN
-      ACTION_IF (FILE_EXISTS_IN_GAME ~wp%size%d2%sequence%.bam~) BEGIN
-        COPY_EXISTING ~wp%size%d2%sequence%.bam~ ~override/wp%size%%animation%%sequence%.bam~
-      END
+// add c0-c7 creature animations
+ACTION_FOR_EACH set IN ~C0~ ~C5~ BEGIN
+  ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+    ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~  BEGIN
+     COPY_EXISTING ~WP%category%D2%sequence%.bam~ ~override/WP%category%%set%%sequence%.bam~
     END
-    // medium shields
-    ACTION_FOR_EACH animation IN ~c0~ ~c1~
-    BEGIN
-      ACTION_IF (FILE_EXISTS_IN_GAME ~wp%size%d3%sequence%.bam~) BEGIN
-        COPY_EXISTING ~wp%size%d3%sequence%.bam~ ~override/wp%size%%animation%%sequence%.bam~
-      END
+  END
+END
+
+ACTION_FOR_EACH set IN ~C1~ ~C3~ ~C7~ BEGIN
+  ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+    ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~ BEGIN
+     COPY_EXISTING ~WP%category%D3%sequence%.bam~ ~override/WP%category%%set%%sequence%.bam~
     END
-    // large shields
-    ACTION_FOR_EACH animation IN ~c2~ ~c3~ ~c4~ ~c6~ BEGIN
-      ACTION_IF (FILE_EXISTS_IN_GAME ~wp%size%d4%sequence%.bam~) BEGIN
-        COPY_EXISTING ~wp%size%d4%sequence%.bam~ ~override/wp%size%%animation%%sequence%.bam~
-      END
+  END
+END
+
+ACTION_FOR_EACH set IN ~C2~ ~C6~ BEGIN
+  ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+    ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~ BEGIN
+     COPY_EXISTING ~WP%category%D4%sequence%.bam~ ~override/WP%category%%set%%sequence%.bam~
     END
+  END
+END
+
+ACTION_FOR_EACH category IN ~L~ ~M~ ~S~ BEGIN
+  ACTION_FOR_EACH sequence IN ~A1~ ~A1E~ ~A3~ ~A3E~ ~A5~ ~A5E~ ~G1~ ~G1E~ ~W2~ ~W2E~ BEGIN
+   COPY_EXISTING ~WP%category%D1%sequence%.bam~ ~override/WP%category%C4%sequence%.bam~
   END
 END
 
 
 /*--------------------Patches--------------------*/
-
-// update strings for proficiency changes
-COPY_EXISTING ~weapprof.2da~ ~override~
-  SET_2DA_ENTRY 11 2 20 ~mi_ss_name~
-  SET_2DA_ENTRY 11 3 20 ~mi_ss_desc~
-  SET_2DA_ENTRY 14 2 20 ~mi_katana_name~
-  SET_2DA_ENTRY 14 3 20 ~mi_katana_desc~
-  SET_2DA_ENTRY 15 2 20 ~mi_scimitar_name~
-  SET_2DA_ENTRY 15 3 20 ~mi_scimitar_desc~
-  SET_2DA_ENTRY 21 2 20 ~mi_flail_name~
-  SET_2DA_ENTRY 21 3 20 ~mi_flail_desc~
-  SET_2DA_ENTRY 22 2 20 ~mi_mace_name~
-  SET_2DA_ENTRY 22 3 20 ~mi_mace_desc~
-  
-  REPLACE ~mi_ss_name~       @100000
-  REPLACE ~mi_ss_desc~       @100001
-  REPLACE ~mi_katana_name~   @100002
-  REPLACE ~mi_katana_desc~   @100003
-  REPLACE ~mi_scimitar_name~ @100004
-  REPLACE ~mi_scimitar_desc~ @100005
-  REPLACE ~mi_flail_name~    @100006
-  REPLACE ~mi_flail_desc~    @100007
-  REPLACE ~mi_mace_name~     @100008
-  REPLACE ~mi_mace_desc~     @100009
 
 // Demon Lord no longer immune to +4 enchanted weapons
 COPY_EXISTING ~uddemon.cre~ ~override~
@@ -398,78 +392,9 @@ COPY_EXISTING ~uddemon.cre~ ~override~
   END
   BUT_ONLY
 
-/*-----------------Tooltip Macro-----------------*/
-
-OUTER_SPRINT tooltip_string_1 ~mi_1_default~
-OUTER_SPRINT tooltip_string_2 ~mi_2_default~
-OUTER_SPRINT tooltip_string_3 ~mi_3_default~
-// macro to set the tooltip references for items' activated abilities - requires 'tooltip_itm' be set to the name of the .itm file we are changing, and 'tooltip_string_1', _2, and _3 to be set to the new tooltips - those that are not set will have their position set to -1 instead of a strref
-DEFINE_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ BEGIN
-  
-  // set column values, including placeholders for future strrefs
-  ACTION_IF (~%tooltip_string_1%~ STRING_EQUAL ~mi_1_default~) BEGIN // tooltip_string_1 was not set to a new tooltip
-    OUTER_SPRINT mi_col_1 ~-1~ // no strref
-  END ELSE BEGIN // tooltip_string_1 has been set to a new tooltip, so we'll stick in the strref using a later REPLACE
-    OUTER_SPRINT mi_col_1 ~mi_placeholder_1~
-  END
-  
-  ACTION_IF (~%tooltip_string_2%~ STRING_EQUAL ~mi_2_default~) BEGIN // tooltip_string_2 was not set to a new tooltip
-    OUTER_SPRINT mi_col_2 ~-1~
-  END ELSE BEGIN // tooltip_string_2 has been set to a new tooltip, so we'll stick in the strref using a later REPLACE
-    OUTER_SPRINT mi_col_2 ~mi_placeholder_2~
-  END
-  
-  ACTION_IF (~%tooltip_string_3%~ STRING_EQUAL ~mi_3_default~) BEGIN // tooltip_string_3 was not set to a new tooltip
-    OUTER_SPRINT mi_col_3 ~-1~
-  END ELSE BEGIN // tooltip_string_3 has been set to a new tooltip, so we'll stick in the strref using a later REPLACE
-    OUTER_SPRINT mi_col_3 ~mi_placeholder_3~
-  END
-
-  // modify the file
-  COPY_EXISTING ~tooltip.2da~ ~override~
-    SET exists = 0
-    COUNT_2DA_ROWS 4 num_rows
-    FOR (i = 0; i < num_rows; i += 1) BEGIN
-      READ_2DA_ENTRY %i% 0 4 current_item
-      // if we find the item already has tooltips
-      PATCH_IF (~%current_item%~ STRING_EQUAL_CASE ~%tooltip_itm%~) BEGIN
-        SET exists = 1
-        
-        SET_2DA_ENTRY %i% 1 4 ~%mi_col_1%~ // set 1st tooltip
-        SET_2DA_ENTRY %i% 2 4 ~%mi_col_2%~ // set 2nd tooltip
-        SET_2DA_ENTRY %i% 3 4 ~%mi_col_3%~ // set 3rd tooltip
-      END
-    END
-    
-    // if the .itm is not in the list yet
-    PATCH_IF (exists == 0) BEGIN
-      // add a row for it
-      INSERT_2DA_ROW 0 4 ~%tooltip_itm%            %mi_col_1%        %mi_col_2%       %mi_col_3%~
-    END
-    
-    // replace any placeholder values
-    PATCH_IF (NOT ~%mi_col_1%~ STRING_EQUAL ~-1~) BEGIN
-      REPLACE ~mi_placeholder_1~ ~%tooltip_string_1%~
-    END
-    PATCH_IF (NOT ~%mi_col_2%~ STRING_EQUAL ~-1~) BEGIN
-      REPLACE ~mi_placeholder_2~ ~%tooltip_string_2%~
-    END
-    PATCH_IF (NOT ~%mi_col_3%~ STRING_EQUAL ~-1~) BEGIN
-      REPLACE ~mi_placeholder_3~ ~%tooltip_string_3%~
-    END
-    
-    BUT_ONLY_IF_IT_CHANGES
-  
-  // reset variables
-  OUTER_SPRINT tooltip_string_1 ~mi_1_default~
-  OUTER_SPRINT tooltip_string_2 ~mi_2_default~
-  OUTER_SPRINT tooltip_string_3 ~mi_3_default~
-END
-
-
 /*--------------------Amulets--------------------*/
 
-// Necklace of Missiles
+// Necklace of Fireballs
 COPY ~item_rev/itm/amul01.itm~      ~override/amul01.itm~         
 SAY NAME1 @2319
 SAY NAME2 @2320
@@ -508,9 +433,7 @@ SAY DESC @1009
 
 /* COPY ~item_rev/itm/amul17.spl~      ~override/amul17.spl~
 
-OUTER_SPRINT tooltip_itm ~AMUL17~
-OUTER_SPRINT tooltip_string_1 @4000
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4000) STR_VAR item=amul17 END
 
 COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
 PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
@@ -563,6 +486,8 @@ COPY_EXISTING ~uddrow24.sto~ ~override~ // store
   END
   BUT_ONLY
 
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4080) STR_VAR item=amul20 END
+
 // Amulet of Power
 COPY ~item_rev/itm/amul21.itm~      ~override/amul21.itm~         
 SAY NAME1 @1000
@@ -577,9 +502,7 @@ SAY NAME2 @1018
 SAY UNIDENTIFIED_DESC @1002
 SAY DESC @1019
 
-/* OUTER_SPRINT tooltip_itm ~AMUL22~
-OUTER_SPRINT tooltip_string_1 @4001
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ */
+/* LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4001) STR_VAR item=amul22 END */
 
 // Periapt of Life Protection
 COPY ~item_rev/itm/amul23.itm~      ~override/amul23.itm~         
@@ -604,9 +527,7 @@ SAY DESC @1025
 
 COPY ~item_rev/itm/amul25.spl~      ~override/amul25.spl~
 
-OUTER_SPRINT tooltip_itm ~AMUL25~
-OUTER_SPRINT tooltip_string_1 @4002
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4002) STR_VAR item=amul25 END
 
 COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
 PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
@@ -630,9 +551,7 @@ SAY NAME2 @1026
 SAY UNIDENTIFIED_DESC @1002
 SAY DESC @1027
 
-OUTER_SPRINT tooltip_itm ~AMUL26~
-OUTER_SPRINT tooltip_string_1 @4003
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4003) STR_VAR item=amul26 END
 
 // Amulet of Seldarine
 COPY ~item_rev/itm/amul27.itm~      ~override/amul27.itm~         
@@ -968,9 +887,7 @@ SAY NAME2 @1099
 SAY UNIDENTIFIED_DESC @1087
 SAY DESC @1100
 
-OUTER_SPRINT tooltip_itm ~BELT09~
-OUTER_SPRINT tooltip_string_1 @4004
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4004) STR_VAR item=belt09 END
 
 // Belt of Inertial Barrier
 COPY ~item_rev/itm/belt10.itm~      ~override/belt10.itm~         
@@ -1050,6 +967,8 @@ SAY UNIDENTIFIED_DESC @1108
 SAY DESC @1108
 
 // Kiel's Morning Star +3
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/blun09.itm~      ~override/blun09.itm~         
 SAY NAME1 @1117
 SAY NAME2 @1122
@@ -1057,6 +976,8 @@ SAY UNIDENTIFIED_DESC @1120
 SAY DESC @1123
 
 COPY ~item_rev/itm/blun09.spl~      ~override/blun09.spl~  // Whirling Frenzy
+
+END
 
 // The Root of the Problem +3
 COPY ~item_rev/itm/blun10.itm~      ~override/blun10.itm~         
@@ -1226,10 +1147,7 @@ SAY NAME2 @1158
 SAY UNIDENTIFIED_DESC @1125
 SAY DESC @1159
 
-OUTER_SPRINT tooltip_itm ~BLUN27~
-OUTER_SPRINT tooltip_string_1 @1158
-OUTER_SPRINT tooltip_string_2 @4005
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@1158) $tip(2)=RESOLVE_STR_REF (@4005) STR_VAR item=blun27 END
 
 // Storm Star +3
 COPY ~item_rev/itm/blun28.itm~      ~override/blun28.itm~         
@@ -1378,14 +1296,14 @@ SAY UNIDENTIFIED_DESC @1182
 SAY DESC @2362
 
 // Kuo-Toa Bolt +2
-COPY ~item_rev/itm/kuobolt.itm~      ~override~
+COPY ~item_rev/itm/kuobolt2.itm~      ~override~
 SAY NAME1 @1179
 SAY NAME2 @2363
 SAY UNIDENTIFIED_DESC @1182
 SAY DESC @2364
 
 // Kuo-Toa Bolt +3
-COPY ~item_rev/itm/kuobolt.itm~      ~override~
+COPY ~item_rev/itm/kuobolt3.itm~      ~override~
 SAY NAME1 @1179
 SAY NAME2 @2365
 SAY UNIDENTIFIED_DESC @1182
@@ -1436,11 +1354,15 @@ SAY UNIDENTIFIED_DESC @1194
 SAY DESC @1205
 
 // Boots of Phasing
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/boot08.itm~      ~override/boot08.itm~         
 SAY NAME1 @1192
 SAY NAME2 @1206
 SAY UNIDENTIFIED_DESC @1194
 SAY DESC @1207
+
+END
 
 // Spider's Boots of Stealth
 /* COPY ~item_rev/itm/boot09.itm~      ~override/boot09.itm~         
@@ -1463,9 +1385,7 @@ SAY NAME2 @1208
 SAY UNIDENTIFIED_DESC @1194
 SAY DESC @1209
 
-OUTER_SPRINT tooltip_itm ~BOOT11~
-OUTER_SPRINT tooltip_string_1 @4006
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4006) STR_VAR item=boot11 END
 
 // Gargoyle Boots
 COPY ~item_rev/itm/boot12.itm~      ~override/boot12.itm~         
@@ -1474,9 +1394,7 @@ SAY NAME2 @1210
 SAY UNIDENTIFIED_DESC @1194
 SAY DESC @1211
 
-OUTER_SPRINT tooltip_itm ~BOOT12~
-OUTER_SPRINT tooltip_string_1 @4007
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4007) STR_VAR item=boot12 END
 
 COPY ~item_rev/itm/boot12.spl~      ~override/boot12.spl~  // Stoneskin (5 skins, 1 turn)
 
@@ -1552,11 +1470,6 @@ SAY NAME2 @1233
 SAY UNIDENTIFIED_DESC @1215
 SAY DESC @1234
 
-/* OUTER_SPRINT tooltip_itm ~BOW10~
-OUTER_SPRINT tooltip_string_1 @1233
-OUTER_SPRINT tooltip_string_2 @4008
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ */
-
 // Strong Arm +2
 COPY ~item_rev/itm/bow11.itm~      ~override/bow11.itm~         
 SAY NAME1 @1212
@@ -1570,12 +1483,6 @@ SAY NAME1 @1217
 SAY NAME2 @1237
 SAY UNIDENTIFIED_DESC @1220  
 SAY DESC @1238
-
-OUTER_SPRINT tooltip_itm ~BOW12~
-OUTER_SPRINT tooltip_string_1 @1237
-OUTER_SPRINT tooltip_string_2 @4009
-OUTER_SPRINT tooltip_string_3 @4010
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
 
 // Mana Bow +4
 COPY ~item_rev/itm/bow13.itm~      ~override/bow13.itm~         
@@ -1619,9 +1526,9 @@ SAY NAME2 @1249
 SAY UNIDENTIFIED_DESC @1225  
 SAY DESC @1250
 
+// Iron Bow of Gesen +4
 ADD_PROJECTILE ~item_rev/itm/dvgesbow.pro~
 
-// Iron Bow of Gesen +4
 COPY ~item_rev/itm/bow19.itm~      ~override/bow19.itm~         
 SAY NAME1 @1222
 SAY NAME2 @1251
@@ -1637,10 +1544,7 @@ SAY NAME2 @1253
 SAY UNIDENTIFIED_DESC @1225  
 SAY DESC @1254
 
-OUTER_SPRINT tooltip_itm ~BOW20~
-OUTER_SPRINT tooltip_string_1 @1253
-OUTER_SPRINT tooltip_string_2 @4011
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@1253) $tip(2)=RESOLVE_STR_REF (@4011) STR_VAR item=bow20 END
 
 // Darkfire Bow +5
 COPY ~item_rev/itm/bow21.itm~      ~override/bow21.itm~         
@@ -1649,10 +1553,7 @@ SAY NAME2 @1255
 SAY UNIDENTIFIED_DESC @1225  
 SAY DESC @1256
 
-OUTER_SPRINT tooltip_itm ~BOW21~
-OUTER_SPRINT tooltip_string_1 @1255
-OUTER_SPRINT tooltip_string_2 @4011
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@1255) $tip(2)=RESOLVE_STR_REF (@4011) STR_VAR item=bow21 END
 
 // Taralash +4
 COPY ~item_rev/itm/bow22.itm~      ~override/bow22.itm~         
@@ -1734,11 +1635,15 @@ SAY UNIDENTIFIED_DESC @1279
 SAY DESC @1282
 
 // Gauntlets of Might
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/brac08.itm~      ~override/brac08.itm~         
 SAY NAME1 @1277
 SAY NAME2 @2337
 SAY UNIDENTIFIED_DESC @1279
 SAY DESC @2338
+
+END
 
 // Gauntlets of Parrying
 COPY ~item_rev/itm/brac09.itm~      ~override/brac09.itm~         
@@ -1758,6 +1663,8 @@ SAY DESC @1286
 COPY ~item_rev/itm/brac10b.eff~      ~override/brac10b.eff~ */
 
 // Bracers of Speed
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/brac11.itm~      ~override/brac11.itm~         
 SAY NAME1 @1267
 SAY NAME2 @2339
@@ -1765,6 +1672,8 @@ SAY UNIDENTIFIED_DESC @1269
 SAY DESC @2340
 
 COPY ~item_rev/itm/brac11.eff~      ~override/brac11.eff~ // Exhausting effect
+
+END
 
 // Bracers of Defense AC 5
 COPY ~item_rev/itm/brac13.itm~      ~override/brac13.itm~         
@@ -1794,9 +1703,7 @@ SAY NAME2 @1293
 SAY UNIDENTIFIED_DESC @1269
 SAY DESC @1294
 
-OUTER_SPRINT tooltip_itm ~BRAC16~
-OUTER_SPRINT tooltip_string_1 @4012
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4012) STR_VAR item=brac16 END
 
 // Gloves of the Burglar
 COPY ~item_rev/itm/brac17.itm~      ~override/brac17.itm~         
@@ -1826,9 +1733,7 @@ SAY NAME2 @1301
 SAY UNIDENTIFIED_DESC @1279
 SAY DESC @1302
 
-OUTER_SPRINT tooltip_itm ~BRAC20~
-OUTER_SPRINT tooltip_string_1 @4013
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4013) STR_VAR item=brac20 END
 
 // Gauntlets of Extraordinary Specialization
 COPY ~item_rev/itm/brac21.itm~      ~override/brac21.itm~         
@@ -1851,10 +1756,7 @@ SAY NAME2 @1307
 SAY UNIDENTIFIED_DESC @1269
 SAY DESC @1308
 
-OUTER_SPRINT tooltip_itm ~BRAC23~
-OUTER_SPRINT tooltip_string_1 @4014
-OUTER_SPRINT tooltip_string_2 @4015
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4014) $tip(2)=RESOLVE_STR_REF (@4015) STR_VAR item=brac23 END
 
 // Bard's Gloves
 COPY ~item_rev/itm/brac24.itm~      ~override/brac24.itm~         
@@ -1993,9 +1895,7 @@ SAY NAME2 @1348
 SAY UNIDENTIFIED_DESC @1331
 SAY DESC @1349
 
-OUTER_SPRINT tooltip_itm ~CHAN10~
-OUTER_SPRINT tooltip_string_1 @4016
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4016) STR_VAR item=chan10 END
 
 // Crimson Chain +5
 COPY ~item_rev/itm/chan11.itm~      ~override/chan11.itm~         
@@ -2067,9 +1967,7 @@ SAY NAME2 @1369
 SAY UNIDENTIFIED_DESC @1338
 SAY DESC @1370
 
-OUTER_SPRINT tooltip_itm ~CHAN20~
-OUTER_SPRINT tooltip_string_1 @4017
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4017) STR_VAR item=chan20 END
 
 // Chain Mail +3
 COPY ~item_rev/itm/chan21.itm~      ~override/chan21.itm~         
@@ -2111,9 +2009,7 @@ SAY NAME2 @1380
 SAY UNIDENTIFIED_DESC @1374
 SAY DESC @1381
 
-OUTER_SPRINT tooltip_itm ~CLCK04~
-OUTER_SPRINT tooltip_string_1 @4018
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4018) STR_VAR item=clck04 END
 
 COPY ~item_rev/itm/dvwere.itm~      ~override/dvwere.itm~  // Polymorph into Werewolf
 
@@ -2143,9 +2039,7 @@ COPY ~item_rev/itm/dvblnbty.spl~     ~override~
   WRITE_SHORT 0x98 ~%dvblnbty%~
 COPY ~item_rev/itm/dvblnbty.eff~     ~override~
 
-OUTER_SPRINT tooltip_itm ~CLCK07~
-OUTER_SPRINT tooltip_string_1 @4019
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4019) STR_VAR item=clck07 END
 
 // Algernon's Cloak
 COPY ~item_rev/itm/clck08.itm~      ~override/clck08.itm~         
@@ -2276,10 +2170,7 @@ SAY NAME2 @1420
 SAY UNIDENTIFIED_DESC @1374
 SAY DESC @1421
 
-OUTER_SPRINT tooltip_itm ~CLCK27~
-OUTER_SPRINT tooltip_string_1 @4020
-OUTER_SPRINT tooltip_string_2 @4021
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4020) $tip(2)=RESOLVE_STR_REF (@4021) STR_VAR item=clck27 END
 
 COPY ~item_rev/itm/dvrat.itm~      ~override/dvrat.itm~  // Polymorph into Rat
 COPY ~item_rev/itm/dvjelly.itm~      ~override/dvjelly.itm~  // Polymorph into Mustard Jelly
@@ -2305,9 +2196,7 @@ SAY NAME2 @1424
 SAY UNIDENTIFIED_DESC @1374
 SAY DESC @1425
 
-OUTER_SPRINT tooltip_itm ~CLCK31~
-OUTER_SPRINT tooltip_string_1 @4022
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@4022) STR_VAR item=clck31 END
 
 COPY_EXISTING botsmith.dlg override  // Cespenar's dialog
   DECOMPILE_DLG_TO_D
@@ -2454,7 +2343,7 @@ SAY DESC @1451
 COPY ~item_rev/itm/dagg16.itm~      ~override/dagg16.itm~         
 SAY NAME1 @1435
 SAY NAME2 @1452
-SAY UNIDENTIFIED_DESC @1453
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1453
 
 // Stiletto of Demarchess +2
@@ -2475,7 +2364,7 @@ SAY DESC @2354
 COPY ~item_rev/itm/dagg19.itm~      ~override/dagg19.itm~         
 SAY NAME1 @1428
 SAY NAME2 @1456
-SAY UNIDENTIFIED_DESC @1457
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1457
 
 // Life Stealer +4
@@ -2709,10 +2598,7 @@ SAY NAME2 @1530
 SAY UNIDENTIFIED_DESC @1495
 SAY DESC @1531
 
-OUTER_SPRINT tooltip_itm ~HALB06~
-OUTER_SPRINT tooltip_string_1 @1530
-OUTER_SPRINT tooltip_string_2 @4023
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@1530) $tip(2)=RESOLVE_STR_REF (@4023) STR_VAR item=halb06 END
 
 // Halberd +2
 COPY ~item_rev/itm/halb07.itm~      ~override/halb07.itm~         
@@ -2744,10 +2630,7 @@ SAY NAME2 @1538
 SAY UNIDENTIFIED_DESC @1495
 SAY DESC @1539
 
-OUTER_SPRINT tooltip_itm ~HALB10~
-OUTER_SPRINT tooltip_string_1 @1538
-OUTER_SPRINT tooltip_string_2 @4024
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@1538) $tip(2)=RESOLVE_STR_REF (@4024) STR_VAR item=halb10 END
 
 // Ravager +5
 COPY ~item_rev/itm/halb11.itm~      ~override/halb11.itm~         
@@ -2756,10 +2639,7 @@ SAY NAME2 @1540
 SAY UNIDENTIFIED_DESC @1495
 SAY DESC @1541
 
-OUTER_SPRINT tooltip_itm ~HALB11~
-OUTER_SPRINT tooltip_string_1 @1540
-OUTER_SPRINT tooltip_string_2 @4024
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR $tip(1)=RESOLVE_STR_REF (@1540) $tip(2)=RESOLVE_STR_REF (@4024) STR_VAR item=halb11 END
 
 // Halberd +3
 COPY ~item_rev/itm/halb12.itm~      ~override/halb12.itm~         
@@ -2868,11 +2748,11 @@ SAY NAME2 @1565
 SAY UNIDENTIFIED_DESC @1545
 SAY DESC @1566
 
-OUTER_SPRINT tooltip_itm ~HAMM11~
-OUTER_SPRINT tooltip_string_1 @1565
-OUTER_SPRINT tooltip_string_2 @4025
-OUTER_SPRINT tooltip_string_3 @4026
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@1565)
+ $tip(2)=RESOLVE_STR_REF (@4025)
+ $tip(3)=RESOLVE_STR_REF (@4026)
+STR_VAR item=hamm11 END
 
 // War Hammer +3
 COPY ~item_rev/itm/hamm12.itm~      ~override/hamm12.itm~         
@@ -2891,11 +2771,15 @@ SAY UNIDENTIFIED_DESC @1570
 SAY DESC @1570
 
 // Helm of Despair
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/helm02.itm~      ~override/helm02.itm~         
 SAY NAME1 @1569
 SAY NAME2 @1571
 SAY UNIDENTIFIED_DESC @1572
 SAY DESC @1573
+
+END
 
 // Helm of Glory
 COPY ~item_rev/itm/helm03.itm~      ~override/helm03.itm~         
@@ -2997,11 +2881,11 @@ SAY NAME2 @1592
 SAY UNIDENTIFIED_DESC @1579
 SAY DESC @1593
 
-OUTER_SPRINT tooltip_itm ~HELM16~
-OUTER_SPRINT tooltip_string_1 @4027
-OUTER_SPRINT tooltip_string_2 @4028
-OUTER_SPRINT tooltip_string_3 @4029
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4027)
+ $tip(2)=RESOLVE_STR_REF (@4028)
+ $tip(3)=RESOLVE_STR_REF (@4029)
+STR_VAR item=helm16 END
 
 // Skull of Death
 COPY ~item_rev/itm/helm17.itm~      ~override/helm17.itm~         
@@ -3010,9 +2894,9 @@ SAY NAME2 @1594
 SAY UNIDENTIFIED_DESC @1579
 SAY DESC @1595
 
-OUTER_SPRINT tooltip_itm ~HELM17~
-OUTER_SPRINT tooltip_string_1 @4030
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4030)
+STR_VAR item=helm17 END
 
 // Pearly White Ioun Stone
 COPY ~item_rev/itm/helm18.itm~      ~override/helm18.itm~         
@@ -3021,9 +2905,9 @@ SAY NAME2 @1597
 SAY UNIDENTIFIED_DESC @1598
 SAY DESC @1599
 
-OUTER_SPRINT tooltip_itm ~HELM18~
-OUTER_SPRINT tooltip_string_1 @4031
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4031)
+STR_VAR item=helm18 END
 
 COPY ~item_rev/itm/dvtroll.itm~      ~override/dvtroll.itm~  // Polymorph into Troll
 
@@ -3111,9 +2995,9 @@ SAY NAME2 @1623
 SAY UNIDENTIFIED_DESC @1621
 SAY DESC @1624
 
-OUTER_SPRINT tooltip_itm ~HELM30~
-OUTER_SPRINT tooltip_string_1 @4032
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4032)
+STR_VAR item=helm30 END
 
 // Helm of the Rock
 COPY ~item_rev/itm/helm31.itm~      ~override/helm31.itm~         
@@ -3128,6 +3012,10 @@ SAY NAME1 @1569
 SAY NAME2 @2369
 SAY UNIDENTIFIED_DESC @1579
 SAY DESC @1627
+
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4079)
+STR_VAR item=helm32 END
 
 // Gold Horned Helm
 COPY ~item_rev/itm/helm33.itm~      ~override/helm33.itm~         
@@ -3189,11 +3077,15 @@ SAY UNIDENTIFIED_DESC @1640
 SAY DESC @1641
 
 // Armor of Missile Attraction +3
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/leat06.itm~      ~override/leat06.itm~         
 SAY NAME1 @1636
 SAY NAME2 @1642
 SAY UNIDENTIFIED_DESC @1640
 SAY DESC @1643
+
+END
 
 // Studded Leather Armor +2
 COPY ~item_rev/itm/leat07.itm~      ~override/leat07.itm~         
@@ -3279,9 +3171,9 @@ SAY NAME2 @1665
 SAY UNIDENTIFIED_DESC @1640
 SAY DESC @1666
 
-OUTER_SPRINT tooltip_itm ~LEAT18~
-OUTER_SPRINT tooltip_string_1 @4033
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4033)
+STR_VAR item=leat18 END
 
 // Shadow Dragonhide Armor +5
 COPY ~item_rev/itm/leat19.itm~      ~override/leat19.itm~         
@@ -3694,6 +3586,7 @@ SAY UNIDENTIFIED_DESC @1766
 SAY DESC @1777
 
 COPY ~item_rev/itm/scrl08.spl~      ~override~
+SAY NAME1 @1776
 
 // Protection from Undead
 COPY ~item_rev/itm/scrl09.itm~      ~override/scrl09.itm~         
@@ -3705,13 +3598,14 @@ SAY DESC @1779
 COPY ~item_rev/itm/scrl09.spl~      ~override~
 
 // Protection from Alterations
-COPY ~item_rev/itm/scrl09.itm~      ~override/scrl09.itm~         
+COPY ~item_rev/itm/scrl15.itm~      ~override/scrl15.itm~         
 SAY NAME1 @1764
 SAY NAME2 @2375
 SAY UNIDENTIFIED_DESC @1766
 SAY DESC @2376
 
 COPY ~item_rev/itm/scrl15.spl~      ~override~
+SAY NAME1 @2375
 
 /*-----------------NPCs custom items-----------------*/
 
@@ -3719,18 +3613,21 @@ COPY ~item_rev/itm/scrl15.spl~      ~override~
 COPY ~item_rev/itm/misc89.itm~      ~override/misc89.itm~         
 SAY NAME1 @1780
 SAY NAME2 @1780
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1781
 
 // Jansen AdventureWear
 COPY ~item_rev/itm/nparm.itm~      ~override/nparm.itm~         
 SAY NAME1 @1782
 SAY NAME2 @1782
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1783
 
 // Bow of Arvoreen +2
 COPY ~item_rev/itm/npbow.itm~      ~override/npbow.itm~         
 SAY NAME1 @1784
 SAY NAME2 @1784
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1785
 
 // Imoen's Belt
@@ -3744,30 +3641,35 @@ SAY DESC @1787
 COPY ~item_rev/itm/npchan.itm~      ~override/npchan.itm~         
 SAY NAME1 @1788
 SAY NAME2 @1788
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1789
 
 // Cloak of the High Forest
 COPY ~item_rev/itm/npclck.itm~      ~override/npclck.itm~         
 SAY NAME1 @1790
 SAY NAME2 @1790
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1791
 
 // Jansen Spectroscopes
 COPY ~item_rev/itm/npmisc1.itm~      ~override/npmisc1.itm~         
 SAY NAME1 @1792
 SAY NAME2 @1792
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1793
 
 // Jansen Techno-Gloves
 COPY ~item_rev/itm/npmisc2.itm~      ~override/npmisc2.itm~         
 SAY NAME1 @1794
 SAY NAME2 @1794
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1795
 
 // Staff of the High Forest +2
 COPY ~item_rev/itm/npstaf.itm~      ~override/npstaf.itm~         
 SAY NAME1 @1796
 SAY NAME2 @1796
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1797
 
 // Firecam Full Plate Mail +2
@@ -3793,44 +3695,50 @@ SAY NAME2 @1804
 SAY UNIDENTIFIED_DESC @1503
 SAY DESC @1805
 
-OUTER_SPRINT tooltip_itm ~NPSHLD~
-OUTER_SPRINT tooltip_string_1 @4034
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4034)
+STR_VAR item=npshld END
 
 // Sword of Arvoreen +2
 COPY ~item_rev/itm/npsw01.itm~      ~override/npsw01.itm~         
 SAY NAME1 @1806
 SAY NAME2 @1806
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1807
 
 // Yoshimo's Katana +2
 COPY ~item_rev/itm/npsw02.itm~      ~override/npsw02.itm~         
 SAY NAME1 @1808
 SAY NAME2 @1809
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1810
 
 // Hallowed Redeemer +2
 COPY ~item_rev/itm/npsw03.itm~      ~override/npsw03.itm~         
 SAY NAME1 @1811
 SAY NAME2 @1812
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1813
 
 // Corthala Family Blade +2
 COPY ~item_rev/itm/npsw04.itm~      ~override/npsw04.itm~         
 SAY NAME1 @1808
 SAY NAME2 @1814
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1815
 
 // Entropy +2
 COPY ~item_rev/itm/npsw05.itm~      ~override/npsw05.itm~         
 SAY NAME1 @1816
 SAY NAME2 @1816
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1817
 
 // Chaos +2
 COPY ~item_rev/itm/npsw06.itm~      ~override/npsw06.itm~         
 SAY NAME1 @1818
 SAY NAME2 @1818
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1819
 
 // Shar's Blessing
@@ -3844,6 +3752,7 @@ SAY DESC @1822
 COPY ~item_rev/itm/xbow12.itm~      ~override/xbow12.itm~         
 SAY NAME1 @1823
 SAY NAME2 @1823
+WRITE_LONG 0x50 ~-1~
 SAY DESC @1824
 
 /*-----------------Plate and Full-Plate Mails-----------------*/
@@ -3954,11 +3863,15 @@ COPY ~item_rev/itm/dvdarmor.spl~      ~override~
 COPY ~item_rev/itm/dvdarmor.eff~      ~override~
 
 // Armor of the Hart +4
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/plat17.itm~      ~override/plat17.itm~         
 SAY NAME1 @1497
 SAY NAME2 @1850
 SAY UNIDENTIFIED_DESC @1499
 SAY DESC @1851
+
+END
 
 // Red Dragonplate Armor +5
 COPY ~item_rev/itm/plat18.itm~      ~override/plat18.itm~         
@@ -4019,11 +3932,15 @@ SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1866
 
 // Ring of Nimbleness
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/ring04.itm~      ~override/ring04.itm~         
 SAY NAME1 @1800
 SAY NAME2 @2371
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @2372
+
+END
 
 // Ring of Invisibility
 COPY ~item_rev/itm/ring05.itm~      ~override/ring05.itm~         
@@ -4032,9 +3949,9 @@ SAY NAME2 @1867
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1868
 
-OUTER_SPRINT tooltip_itm ~RING05~
-OUTER_SPRINT tooltip_string_1 @4035
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4035)
+STR_VAR item=ring05 END
 
 // Ring of Protection +1
 COPY ~item_rev/itm/ring06.itm~      ~override/ring06.itm~         
@@ -4101,11 +4018,15 @@ SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1882
 
 // Ring of Folly
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/ring23.itm~      ~override/ring23.itm~         
 SAY NAME1 @1800
-SAY NAME2 @1881
+SAY NAME2 @2373
 SAY UNIDENTIFIED_DESC @1802
-SAY DESC @1882
+SAY DESC @2374
+
+END
 
 // Ring of Protection +1
 COPY ~item_rev/itm/ring25.itm~      ~override/ring25.itm~         
@@ -4121,9 +4042,9 @@ SAY NAME2 @1883
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1884
 
-OUTER_SPRINT tooltip_itm ~RING26~
-OUTER_SPRINT tooltip_string_1 @4036
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4036)
+STR_VAR item=ring26 END
 
 // Ring of Fire Control
 COPY ~item_rev/itm/ring27.itm~      ~override/ring27.itm~         
@@ -4132,10 +4053,10 @@ SAY NAME2 @1885
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1886
 
-OUTER_SPRINT tooltip_itm ~RING27~
-OUTER_SPRINT tooltip_string_1 @4037
-OUTER_SPRINT tooltip_string_2 @4038
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4037)
+ $tip(2)=RESOLVE_STR_REF (@4038)
+STR_VAR item=ring27 END
 
 COPY ~item_rev/itm/ring27.eff~      ~override~  // Conjure Lesser Fire Elemental
 COPY ~item_rev/itm/ring27.spl~      ~override~  // Fire Shield (Red)
@@ -4148,10 +4069,10 @@ SAY NAME2 @1887
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1888
 
-OUTER_SPRINT tooltip_itm ~RING28~
-OUTER_SPRINT tooltip_string_1 @4039
-OUTER_SPRINT tooltip_string_2 @4040
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4039)
+ $tip(2)=RESOLVE_STR_REF (@4040)
+STR_VAR item=ring28 END
 
 COPY ~item_rev/itm/ring28.eff~      ~override~  // Conjure Lesser Air Elemental
 
@@ -4162,10 +4083,10 @@ SAY NAME2 @1889
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1890
 
-OUTER_SPRINT tooltip_itm ~RING29~
-OUTER_SPRINT tooltip_string_1 @4041
-OUTER_SPRINT tooltip_string_2 @4042
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4041)
+ $tip(2)=RESOLVE_STR_REF (@4042)
+STR_VAR item=ring29 END
 
 COPY ~item_rev/itm/ring29.eff~      ~override~  // Conjure Lesser Earth Elemental
 COPY ~item_rev/itm/ring29.spl~      ~override~  // Stoneskin
@@ -4177,9 +4098,9 @@ SAY NAME2 @1891
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1892
 
-OUTER_SPRINT tooltip_itm ~RING30~
-OUTER_SPRINT tooltip_string_1 @4043
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4043)
+STR_VAR item=ring30 END
 
 COPY ~item_rev/itm/ring30.spl~      ~override~  // Charm Person
 
@@ -4205,13 +4126,14 @@ COPY_EXISTING botsmith.dlg override  // Cespenar's dialog
 STRING_SET ~66686~ @205
 STRING_SET ~66691~ @206
 
-OUTER_SPRINT tooltip_itm ~RING30~
-OUTER_SPRINT tooltip_string_1 @4044
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4044)
+STR_VAR item=ring33 END
 
 COPY ~item_rev/itm/ring33a.eff~      ~override~ // Monk's Knockback effect
 COPY ~item_rev/itm/ring33b.eff~      ~override~
 COPY ~item_rev/itm/ring33.spl~      ~override~
+SAY NAME1 @4044
 
 // Ring of Spell Turning
 COPY ~item_rev/itm/ring34.itm~      ~override/ring34.itm~         
@@ -4220,9 +4142,9 @@ SAY NAME2 @1897
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1898
 
-OUTER_SPRINT tooltip_itm ~RING34~
-OUTER_SPRINT tooltip_string_1 @4045
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4045)
+STR_VAR item=ring34 END
 
 COPY ~item_rev/itm/ring34.spl~      ~override~  // Spell Turning
 
@@ -4247,10 +4169,10 @@ SAY NAME2 @1903
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1904
 
-OUTER_SPRINT tooltip_itm ~RING39~
-OUTER_SPRINT tooltip_string_1 @4046
-OUTER_SPRINT tooltip_string_2 @4047
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4046)
+ $tip(2)=RESOLVE_STR_REF (@4047)
+STR_VAR item=ring39 END
 
 COPY ~item_rev/itm/ring39a.spl~      ~override~  // Finger of Death
 COPY ~item_rev/itm/ring39b.spl~      ~override~  // Vampiric Touch
@@ -4289,6 +4211,11 @@ SAY NAME1 @1800
 SAY NAME2 @1913
 SAY UNIDENTIFIED_DESC @1802
 SAY DESC @1914
+
+COPY_EXISTING ~amlich01.cre~ ~override~ LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  REMOVE_CRE_ITEM ring46
+  ADD_CRE_ITEM ring46 #0 #0 #0 NONE INV1
+END BUT_ONLY
 
 COPY ~item_rev/itm/ring46a.eff~      ~override~ // Soul Stealing
 COPY ~item_rev/itm/ring46b.eff~      ~override~
@@ -4456,7 +4383,7 @@ SAY NAME2 @1964
 SAY UNIDENTIFIED_DESC @1503
 SAY DESC @1965
 
-// Shield of Balduran +4
+// Shield of Balduran +2
 COPY ~item_rev/itm/shld22.itm~      ~override/shld22.itm~         
 SAY NAME1 @1501
 SAY NAME2 @1966
@@ -4493,9 +4420,9 @@ SAY DESC @1975
 
 // Saving Grace +3
 COPY ~item_rev/itm/shld27.itm~      ~override/shld27.itm~
-SAY NAME1 @1501
+SAY NAME1 @1939
 SAY NAME2 @1976
-SAY UNIDENTIFIED_DESC @1503
+SAY UNIDENTIFIED_DESC @1942
 SAY DESC @1977
 
 COPY ~item_rev/itm/shld27.eff~      ~override~  // Searing Light
@@ -4517,7 +4444,7 @@ SAY NAME2 @1980
 SAY UNIDENTIFIED_DESC @1503
 SAY DESC @1981
 
-// Light Tower Shield +2
+// Large Shield +2
 COPY ~item_rev/itm/shld30.itm~      ~override/shld30.itm~         
 SAY NAME1 @1947
 SAY NAME2 @1982
@@ -4658,11 +4585,15 @@ SAY UNIDENTIFIED_DESC @1507
 SAY DESC @1990
 
 // Backbiter +3
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/sper03.itm~      ~override/sper03.itm~         
 SAY NAME1 @1505
 SAY NAME2 @1991
 SAY UNIDENTIFIED_DESC @1507
 SAY DESC @1992
+
+END
 
 // Spear +2
 COPY ~item_rev/itm/sper05.itm~      ~override/sper05.itm~         
@@ -4692,10 +4623,10 @@ SAY NAME2 @1999
 SAY UNIDENTIFIED_DESC @1507
 SAY DESC @2000
 
-OUTER_SPRINT tooltip_itm ~SPER08~
-OUTER_SPRINT tooltip_string_1 @4048
-OUTER_SPRINT tooltip_string_2 @4049
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4048)
+ $tip(2)=RESOLVE_STR_REF (@4049)
+STR_VAR item=sper08 END
 
 // Halcyon +1
 COPY ~item_rev/itm/sper09.itm~      ~override/sper09.itm~         
@@ -4704,10 +4635,10 @@ SAY NAME2 @2001
 SAY UNIDENTIFIED_DESC @1507
 SAY DESC @2002
 
-OUTER_SPRINT tooltip_itm ~SPER09~
-OUTER_SPRINT tooltip_string_1 @4048
-OUTER_SPRINT tooltip_string_2 @4049
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4048)
+ $tip(2)=RESOLVE_STR_REF (@4049)
+STR_VAR item=sper09 END
 
 // Spear of Withering +3
 COPY ~item_rev/itm/sper10.itm~      ~override/sper10.itm~         
@@ -4795,10 +4726,10 @@ COPY ~item_rev/itm/dvcomand.eff~      ~override~
 
 COPY ~item_rev/itm/staf09.spl~      ~override~  // Domination
 
-OUTER_SPRINT tooltip_itm ~STAF09~
-OUTER_SPRINT tooltip_string_1 @2022
-OUTER_SPRINT tooltip_string_2 @4050
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2022)
+ $tip(2)=RESOLVE_STR_REF (@4050)
+STR_VAR item=staf09 END
 
 COPY_EXISTING ~ar2400.are~ ~override~ // Illithid's City
 PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
@@ -4827,10 +4758,10 @@ COPY ~item_rev/itm/dvhealau.eff~      ~override~
 
 COPY ~item_rev/itm/staf10.spl~      ~override~  // Healing Surge
 
-OUTER_SPRINT tooltip_itm ~STAF10~
-OUTER_SPRINT tooltip_string_1 @2024
-OUTER_SPRINT tooltip_string_2 @4051
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2024)
+ $tip(2)=RESOLVE_STR_REF (@4051)
+STR_VAR item=staf10 END
 
 // Staff of the Magi +5
 COPY ~item_rev/itm/staf11.itm~      ~override/staf11.itm~         
@@ -4842,11 +4773,11 @@ SAY DESC @2027
 COPY ~item_rev/itm/staf11a.spl~      ~override~  // Remove Magic
 COPY ~item_rev/itm/staf11b.spl~      ~override~  // Spell Trap
 
-OUTER_SPRINT tooltip_itm ~STAF11~
-OUTER_SPRINT tooltip_string_1 @2026
-OUTER_SPRINT tooltip_string_2 @4052
-OUTER_SPRINT tooltip_string_3 @4053
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2026)
+ $tip(2)=RESOLVE_STR_REF (@4052)
+ $tip(3)=RESOLVE_STR_REF (@4053)
+STR_VAR item=staf11 END
 
 COPY_EXISTING ~hllayen.cre~ ~override~ // Layene
   PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
@@ -4873,11 +4804,11 @@ SAY DESC @2029
 COPY ~item_rev/itm/staf12a.spl~      ~override~  // Hold Monster
 COPY ~item_rev/itm/staf12b.spl~      ~override~  // Globe of Invulnerability
 
-OUTER_SPRINT tooltip_itm ~STAF12~
-OUTER_SPRINT tooltip_string_1 @2028
-OUTER_SPRINT tooltip_string_2 @4054
-OUTER_SPRINT tooltip_string_3 @4055
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2028)
+ $tip(2)=RESOLVE_STR_REF (@4054)
+ $tip(3)=RESOLVE_STR_REF (@4055)
+STR_VAR item=staf12 END
 
 COPY_EXISTING ~chsam01.cre~ ~override~ // Semaj
   PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
@@ -4919,11 +4850,11 @@ SAY DESC @2031
 COPY ~item_rev/itm/staf13a.spl~      ~override~  // Lightning Stroke
 COPY ~item_rev/itm/staf13b.spl~      ~override~  // Thunder & Lightning
 
-OUTER_SPRINT tooltip_itm ~STAF13~
-OUTER_SPRINT tooltip_string_1 @2030
-OUTER_SPRINT tooltip_string_2 @4056
-OUTER_SPRINT tooltip_string_3 @4057
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2030)
+ $tip(2)=RESOLVE_STR_REF (@4056)
+ $tip(3)=RESOLVE_STR_REF (@4057)
+STR_VAR item=staf13 END
 
 COPY_EXISTING ~ar1515.are~ ~override~ // Spellhold
 PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
@@ -4956,11 +4887,11 @@ SAY DESC @2033
 
 COPY ~item_rev/itm/staf14.spl~      ~override~  // Barkskin
 
-OUTER_SPRINT tooltip_itm ~STAF14~
-OUTER_SPRINT tooltip_string_1 @2032
-OUTER_SPRINT tooltip_string_2 @4058
-OUTER_SPRINT tooltip_string_3 @4059
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2032)
+ $tip(2)=RESOLVE_STR_REF (@4058)
+ $tip(3)=RESOLVE_STR_REF (@4059)
+STR_VAR item=staf14 END
 
 COPY ~item_rev/itm/dvempaty.spl~      ~override~  // Animal Empaty
 COPY ~item_rev/itm/dvempaty.eff~      ~override~
@@ -4983,11 +4914,12 @@ SAY UNIDENTIFIED_DESC @2012
 SAY DESC @2035
 
 COPY ~item_rev/itm/staf15.spl~      ~override~  // Gust of Wind
+  SAY NAME1 @4060
 
-OUTER_SPRINT tooltip_itm ~STAF15~
-OUTER_SPRINT tooltip_string_1 @2034
-OUTER_SPRINT tooltip_string_2 @4060
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2034)
+ $tip(2)=RESOLVE_STR_REF (@4060)
+STR_VAR item=staf15 END
 
 COPY_EXISTING ~pmaster.cre~ ~override~ // Master of Thralls
   PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
@@ -5012,11 +4944,12 @@ SAY UNIDENTIFIED_DESC @2012
 SAY DESC @2037
 
 COPY ~item_rev/itm/staf16.spl~      ~override~  // Earth Grasp
+  SAY NAME1 @4061
 
-OUTER_SPRINT tooltip_itm ~STAF16~
-OUTER_SPRINT tooltip_string_1 @2036
-OUTER_SPRINT tooltip_string_2 @4061
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2036)
+ $tip(2)=RESOLVE_STR_REF (@4061)
+STR_VAR item=staf16 END
 
 COPY_EXISTING ~uddrow23.sto~ ~override~ // store
   PATCH_IF (SOURCE_SIZE > 0xad) THEN BEGIN
@@ -5041,11 +4974,12 @@ SAY UNIDENTIFIED_DESC @2012
 SAY DESC @2039
 
 COPY ~item_rev/itm/staf17.spl~      ~override~  // Fireball
+  SAY NAME1 @4062
 
-OUTER_SPRINT tooltip_itm ~STAF17~
-OUTER_SPRINT tooltip_string_1 @2038
-OUTER_SPRINT tooltip_string_2 @4062
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2038)
+ $tip(2)=RESOLVE_STR_REF (@4062)
+STR_VAR item=staf17 END
 
 COPY_EXISTING ~ar0412.are~ ~override~ // Planar Sphere, Fire Chamber
 PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
@@ -5085,10 +5019,10 @@ SAY DESC @2045
 
 COPY ~item_rev/itm/staf20.spl~      ~override~  // Greater Malison
 
-OUTER_SPRINT tooltip_itm ~STAF20~
-OUTER_SPRINT tooltip_string_1 @2044
-OUTER_SPRINT tooltip_string_2 @4078
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2044)
+ $tip(2)=RESOLVE_STR_REF (@4078)
+STR_VAR item=staf20 END
 
 // Staff of the Ram +4
 COPY ~item_rev/itm/staf21.itm~      ~override/staf21.itm~         
@@ -5215,7 +5149,9 @@ SAY NAME2 @2317
 SAY UNIDENTIFIED_DESC @2057
 SAY DESC @2318
 
-// The Vampire's Revenge +3 +3
+// The Vampire's Revenge +3
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/sw1h19.itm~      ~override/sw1h19.itm~         
 SAY NAME1 @1513
 SAY NAME2 @2379
@@ -5223,6 +5159,8 @@ SAY UNIDENTIFIED_DESC @1515
 SAY DESC @2380
 
 COPY ~item_rev/itm/sw1h19.eff~      ~override~
+
+END
 
 // Scimitar
 COPY ~item_rev/itm/sw1h20.itm~      ~override/sw1h20.itm~         
@@ -5252,11 +5190,6 @@ SAY NAME2 @2084
 SAY UNIDENTIFIED_DESC @1515
 SAY DESC @2085
 
-/* OUTER_SPRINT tooltip_itm ~SW1H24~
-OUTER_SPRINT tooltip_string_1 @2084
-OUTER_SPRINT tooltip_string_2 @4063
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ */
-
 // Kundane +2
 COPY ~item_rev/itm/sw1h25.itm~      ~override/sw1h25.itm~         
 SAY NAME1 @2066
@@ -5271,10 +5204,10 @@ SAY NAME2 @2088
 SAY UNIDENTIFIED_DESC @2069
 SAY DESC @2089
 
-OUTER_SPRINT tooltip_itm ~SW1H26~
-OUTER_SPRINT tooltip_string_1 @2088
-OUTER_SPRINT tooltip_string_2 @4064
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2088)
+ $tip(2)=RESOLVE_STR_REF (@4064)
+STR_VAR item=sw1h26 END
 
 // Arbane's Sword +2
 COPY ~item_rev/itm/sw1h27.itm~      ~override/sw1h27.itm~         
@@ -5283,10 +5216,10 @@ SAY NAME2 @2090
 SAY UNIDENTIFIED_DESC @2069
 SAY DESC @2091
 
-OUTER_SPRINT tooltip_itm ~SW1H27~
-OUTER_SPRINT tooltip_string_1 @2090
-OUTER_SPRINT tooltip_string_2 @4065
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2090)
+ $tip(2)=RESOLVE_STR_REF (@4065)
+STR_VAR item=sw1h27 END
 
 // Cutthroat +3
 COPY ~item_rev/itm/sw1h28.itm~      ~override/sw1h28.itm~         
@@ -5311,15 +5244,15 @@ SAY DESC @2096
 
 // Daystar +4
 COPY ~item_rev/itm/sw1h31.itm~      ~override/sw1h31.itm~         
-SAY NAME1 @2054
+SAY NAME1 @1513
 SAY NAME2 @2097
-SAY UNIDENTIFIED_DESC @2057
+SAY UNIDENTIFIED_DESC @1515
 SAY DESC @2098
 
-OUTER_SPRINT tooltip_itm ~SW1H31~
-OUTER_SPRINT tooltip_string_1 @2097
-OUTER_SPRINT tooltip_string_2 @4066
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2097)
+ $tip(2)=RESOLVE_STR_REF (@4066)
+STR_VAR item=sw1h31 END
 
 // Dragonslayer +3
 COPY ~item_rev/itm/sw1h32.itm~      ~override/sw1h32.itm~         
@@ -5347,14 +5280,14 @@ SAY NAME2 @2103
 SAY UNIDENTIFIED_DESC @2057
 SAY DESC @2104
 
-COPY ~item_rev/itm/dvffire.spl~      ~override~  // Faerie Fire
+COPY ~item_rev/itm/dvffire.spl~      ~override~  // Luminous
 /*  WRITE_SHORT 0x98 %dvthclap% */
 COPY ~item_rev/itm/sppr114f.spl~      ~override~
 
-OUTER_SPRINT tooltip_itm ~SW1H34~
-OUTER_SPRINT tooltip_string_1 @2103
-OUTER_SPRINT tooltip_string_2 @4067
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2103)
+ $tip(2)=RESOLVE_STR_REF (@4067)
+STR_VAR item=sw1h34 END
 
 COPY ~item_rev/itm/dvalbr1.spl~      ~override/dvalbr1.spl~  // Albruin Cure ability
 COPY ~item_rev/itm/dvalbr2.spl~      ~override/dvalbr2.spl~  // Albruin Cure ability
@@ -5474,11 +5407,11 @@ SAY NAME2 @2137
 SAY UNIDENTIFIED_DESC @2123
 SAY DESC @2138
 
-OUTER_SPRINT tooltip_itm ~SW1H51~
-OUTER_SPRINT tooltip_string_1 @2137
-OUTER_SPRINT tooltip_string_2 @4068
-OUTER_SPRINT tooltip_string_3 @4069
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2137)
+ $tip(2)=RESOLVE_STR_REF (@4068)
+ $tip(2)=RESOLVE_STR_REF (@4069)
+STR_VAR item=sw1h51 END
 
 // Water's Edge +3
 COPY ~item_rev/itm/sw1h52.itm~      ~override/sw1h52.itm~         
@@ -5580,15 +5513,16 @@ SAY NAME2 @2161
 SAY UNIDENTIFIED_DESC @2057
 SAY DESC @2162
 
-OUTER_SPRINT tooltip_itm ~SW1H65~
-OUTER_SPRINT tooltip_string_1 @2161
-OUTER_SPRINT tooltip_string_2 @4070
 ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv3.mrk~ BEGIN
-  OUTER_SPRINT tooltip_string_3 @4071
+  OUTER_SET tip3= RESOLVE_STR_REF (@4071)
 END ELSE BEGIN
-  OUTER_SPRINT tooltip_string_3 @4072
+  OUTER_SET tip3= RESOLVE_STR_REF (@4072)
 END
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2161)
+ $tip(2)=RESOLVE_STR_REF (@4070)
+ $tip(3)=tip3
+STR_VAR item=sw1h65 END
 
 // Yamato +3
 COPY ~item_rev/itm/sw1h66.itm~      ~override/sw1h66.itm~         
@@ -5596,6 +5530,8 @@ SAY NAME1 @2127
 SAY NAME2 @2163
 SAY UNIDENTIFIED_DESC @2130
 SAY DESC @2164
+
+COPY ~item_rev/itm/sw1h66.spl~      ~override~
 
 // Usuno's Blade +4
 COPY ~item_rev/itm/sw1h67.itm~      ~override/sw1h67.itm~         
@@ -5614,10 +5550,10 @@ SAY DESC @2167
 COPY ~item_rev/itm/sword68.cre~      ~override/sword68.cre~
 COPY ~item_rev/itm/sw1h68a.itm~      ~override/sw1h68a.itm~
 
-OUTER_SPRINT tooltip_itm ~SW1H68~
-OUTER_SPRINT tooltip_string_1 @2166
-OUTER_SPRINT tooltip_string_2 @4073
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2166)
+ $tip(2)=RESOLVE_STR_REF (@4073)
+STR_VAR item=sw1h68 END
 
 // Spectral Brand +4
 COPY ~item_rev/itm/sw1h69.itm~      ~override/sw1h69.itm~         
@@ -5630,11 +5566,11 @@ COPY ~item_rev/itm/sword69.cre~      ~override/sword69.cre~
 COPY ~item_rev/itm/sw1h69a.itm~      ~override/sw1h69a.itm~
 COPY ~item_rev/itm/dvdarksw.spl~      ~override/dvdarksw.spl~
 
-OUTER_SPRINT tooltip_itm ~SW1H69~
-OUTER_SPRINT tooltip_string_1 @2168
-OUTER_SPRINT tooltip_string_2 @4073
-OUTER_SPRINT tooltip_string_3 @4074
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2168)
+ $tip(2)=RESOLVE_STR_REF (@4073)
+ $tip(3)=RESOLVE_STR_REF (@4074)
+STR_VAR item=sw1h69 END
 
 // Hindo's Doom +3
 COPY ~item_rev/itm/sw1h70.itm~      ~override/sw1h70.itm~         
@@ -5643,10 +5579,10 @@ SAY NAME2 @2170
 SAY UNIDENTIFIED_DESC @2123
 SAY DESC @2171
 
-OUTER_SPRINT tooltip_itm ~SW1H70~
-OUTER_SPRINT tooltip_string_1 @2170
-OUTER_SPRINT tooltip_string_2 @4075
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2170)
+ $tip(2)=RESOLVE_STR_REF (@4075)
+STR_VAR item=sw1h70 END
 
 // Hindo's Doom +4
 COPY ~item_rev/itm/sw1h71.itm~      ~override/sw1h71.itm~         
@@ -5655,10 +5591,10 @@ SAY NAME2 @2172
 SAY UNIDENTIFIED_DESC @2123
 SAY DESC @2173
 
-OUTER_SPRINT tooltip_itm ~SW1H71~
-OUTER_SPRINT tooltip_string_1 @2172
-OUTER_SPRINT tooltip_string_2 @4070
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2172)
+ $tip(2)=RESOLVE_STR_REF (@4070)
+STR_VAR item=sw1h71 END
 
 // Bastard Sword +3
 COPY ~item_rev/itm/sw1h72.itm~      ~override/sw1h72.itm~         
@@ -5719,11 +5655,15 @@ SAY UNIDENTIFIED_DESC @1762
 SAY DESC @2188
 
 // Berserking Sword +3
+ACTION_IF comp_cursed=0 BEGIN // Salk's Cursed Item Revision
+
 COPY ~item_rev/itm/sw2h03.itm~      ~override/sw2h03.itm~         
 SAY NAME1 @1760
 SAY NAME2 @2189
 SAY UNIDENTIFIED_DESC @1762
 SAY DESC @2190
+
+END
 
 // Spider's Bane +2
 COPY ~item_rev/itm/sw2h06.itm~      ~override/sw2h06.itm~         
@@ -5760,12 +5700,12 @@ SAY NAME2 @2199
 SAY UNIDENTIFIED_DESC @1762
 SAY DESC @2200
 
-COPY ~item_rev/itm/sw2h10.spl~      ~override~  // Greater Malison
+COPY ~item_rev/itm/sw2h10.spl~      ~override~
 
-OUTER_SPRINT tooltip_itm ~SW2H10~
-OUTER_SPRINT tooltip_string_1 @2199
-OUTER_SPRINT tooltip_string_2 @4076
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2199)
+ $tip(2)=RESOLVE_STR_REF (@4076)
+STR_VAR item=sw2h10 END
 
 // Two-Handed Sword +2
 COPY ~item_rev/itm/sw2h11.itm~      ~override/sw2h11.itm~         
@@ -5833,10 +5773,10 @@ SAY NAME2 @2215
 SAY UNIDENTIFIED_DESC @1762
 SAY DESC @2216
 
-OUTER_SPRINT tooltip_itm ~SW2H19~
-OUTER_SPRINT tooltip_string_1 @2215
-OUTER_SPRINT tooltip_string_2 @4076
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@2215)
+ $tip(2)=RESOLVE_STR_REF (@4076)
+STR_VAR item=sw2h19 END
 
 // Two-Handed Sword +3
 COPY ~item_rev/itm/sw2h20.itm~      ~override/sw2h20.itm~         
@@ -5882,9 +5822,9 @@ SAY NAME2 @2225
 SAY UNIDENTIFIED_DESC @1579
 SAY DESC @2226
 
-OUTER_SPRINT tooltip_itm ~WA2HELM~
-OUTER_SPRINT tooltip_string_1 @4077
-LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+LAF tooltips INT_VAR
+ $tip(1)=RESOLVE_STR_REF (@4077)
+STR_VAR item=wa2helm END
 
 // Plate of Balduran +2
 COPY ~item_rev/itm/wa2plat.itm~      ~override~         

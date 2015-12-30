@@ -648,7 +648,7 @@ END BUT_ONLY
 
 // Belt of Fire Giant Strength - to Berenn
 
-COPY_EXISTING ar1905.are override PATCH_IF SOURCE_SIZE>0x11c BEGIN
+COPY_EXISTING ar5201.are override PATCH_IF SOURCE_SIZE>0x11c BEGIN
   LPF DELETE_AREA_ITEM STR_VAR item_to_delete=belt11 END
 END BUT_ONLY
 
@@ -759,14 +759,9 @@ END BUT_ONLY
 /////////////////////////////////////
 
 // Cloak of the Wolf - to Anath the werewolf
-// Which one?
 
-COPY_EXISTING rngwlf01.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
-  ADD_CRE_ITEM clck04 #1 #0 #0 NONE CLOAK
-END BUT_ONLY
-
-COPY_EXISTING rngwlf02.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
-  ADD_CRE_ITEM clck04 #1 #0 #0 NONE CLOAK
+COPY_EXISTING shabod01.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  REMOVE_CRE_ITEM clck04
 END BUT_ONLY
 
 COPY_EXISTING rngwlf03.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
@@ -970,14 +965,37 @@ END BUT_ONLY
 
 /////////////////////////////////////
 
-// 
+// remove Cleric's Staff for Trademeet rakshasa
 
+COPY_EXISTING trrak02.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  REMOVE_CRE_ITEM staf19
+END BUT_ONLY
 
+/////////////////////////////////////
+
+// replace copies of Water's Edge with normal Scimitar +3
+
+COPY_EXISTING alufie01.cre override
+              icmarili.cre override
+              telalu1.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  REMOVE_CRE_ITEM sw1h52
+  ADD_CRE_ITEM sw1h76 #1 #0 #0 NONE WEAPON1 EQUIP
+END BUT_ONLY
+
+COPY_EXISTING amsaemon.cre override
+              yaga03.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  REMOVE_CRE_ITEM sw1h52
+  ADD_CRE_ITEM sw1h76 #0 #0 #0 NONE SHIELD
+END BUT_ONLY
 
 /////////////////////////////////////
 
 // 
 
+
+/////////////////////////////////////
+
+// 
 
 
 

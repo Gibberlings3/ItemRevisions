@@ -5,9 +5,6 @@
 //  In fact, you may want to translate DOC and then copypaste the result to TRA.
 
 
-
-//@1493 = ~Halberd~
-
 //////////////////
 //    Colon     //
 //////////////////
@@ -20,7 +17,7 @@
 //////////////////
 
 // catch the main speed factor line
-@100101 = ~\([%lnl%%mnl%%wnl%][ %tab%]*Speed[ %tab%]+[Ff]actor%colon%.*\)~
+@100101 = ~\([%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor%colon%.*\)~
 
 //////////////////
 //    THAC0     //
@@ -37,7 +34,7 @@
 @100105 = ~%nthaco% penalty~
 
 // catch the main thaco line
-@100106 = ~\([%lnl%%mnl%%wnl%][ %tab%]*T[Hh][Aa][Cc][Oo0]%colon%.*\)~
+@100106 = ~\([%lnl%%mnl%%wnl%]T[Hh][Aa][Cc][Oo0]%colon%.*\)~
 
 // old thaco, catch ~Thac0%colon%  %old_line%~ and ~THACO%colon%  %old_line% (some text in here),~
 @100107 = ~T[Hh][Aa][Cc][Oo0]\(%colon%\)[ %tab%]+%old_line%\([ %tab%a-zA-Z()]*,\)?~
@@ -55,7 +52,7 @@
 @100111 = ~[1-9]~
 
 // catch the main damage line
-@100112 = ~[%lnl%%mnl%%wnl%][ %tab%]*Damage\(%colon%\)~
+@100112 = ~[%lnl%%mnl%%wnl%]Damage\(%colon%\)~
 
 // add thaco line to @100112
 @100113 = ~
@@ -63,7 +60,7 @@ THAC0: %new_line%
 Damage\1~
 
 // catch the main weight line
-@100114 = ~[%lnl%%mnl%%wnl%][ %tab%]*Weight:~
+@100114 = ~[%lnl%%mnl%%wnl%]Weight:~
 
 // add thaco line to @100114
 @100115 = ~
@@ -88,7 +85,7 @@ Weight:~
 @100123 = ~%ndamage% penalty~
 
 // catch the main damage line
-@100124 = ~\([%lnl%%mnl%%wnl%][ %tab%]*Damage%colon%.*\)~
+@100124 = ~\([%lnl%%mnl%%wnl%]Damage%colon%.*\)~
 
 // catch ~(Phantom Arrows) %old_line%~ and ~%old_line% piercing~
 @100125 = ~Damage\(%colon%\)\([ %tab%a-zA-Z()]*\)?%old_line%\([ %tab%a-zA-Z()]*,\)?~
@@ -108,7 +105,7 @@ Damage: %new_line%
 Weight:~
 
 // catch the main speed factor line
-@100130 = ~[%lnl%%mnl%%wnl%][ %tab%]*Speed[ %tab%]+[Ff]actor\(%colon%\)~
+@100130 = ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(%colon%\)~
 
 // add damage line to @100130
 @100131 = ~
@@ -143,41 +140,82 @@ Speed Factor\1~
 //    Fixes     //
 //////////////////
 
-// Tuigan Bow +1 (BOW14) description
-@100138 = ~3 shots per round~
+// 138-145, 151-199
 
-// replace @100138
-@100139 = ~+1 attack per round~
+// catch ~Speed Factor: ~
+@100138 = ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(%colon%\)[ %tab%]+~
 
-// Blade of Roses +3 (SW1H40) description
-@100140 = ~2D4~
+// catch the first number after cutting off @100138 from @100101
+@100139 = ~[0-9]+~
 
-// replace @100140
-@100141 = ~1D8~
+// check if @100139 matches the preset %old_speed% value
+@100140 = ~%old_speed%~
 
-// Carsomyr +5 (SW2H10) description
-@100142 = ~1D12~
+// replace @100139
+@100141 = ~%new_speed%~
 
-// replace @100142
-@100143 = ~1D10~
+// catch ~Thaco: ~
+@100142 = ~[%lnl%%mnl%%wnl%]T[Hh][Aa][Cc][Oo0]\(%colon%\)[ %tab%]+~
 
-// Throwing Axe +2 (AX1H06) description
-@100144 = ~1D6 + 3~
+// catch the first number after cutting off @100142 from @100106
+@100143 = ~\([+-][ %tab%]*\)?[0-9]+~
 
-// replace @100144
-@100145 = ~1D6 + 2~
+// the plus sign
+@100144 = ~+~
 
-// Ice Star +4 (BLUN35) description
-@100151 = ~Speed Factor: 4~
+// the minus sign
+@100145 = ~-~
 
-// replace @100151
-@100152 = ~Speed Factor: 3~
+// check if @100143 matches the preset %old_thaco% value
+@100151 = ~\([%sign%][ %tab%]*\)?%old_thaco%~
 
-// Angurvadal +4 (SW1H60) description
-@100153 = ~Speed Factor: 0~
+// replace @100143
+@100152 = ~%sign%%new_thaco%~
 
-// replace @100144
-@100154 = ~Speed Factor: 1~
+// catch ~Damage: (Phantom Arrows) ~
+@100153 = ~[%lnl%%mnl%%wnl%]Damage\(%colon%\)\([ %tab%a-zA-Z()]*\)?~
+
+// catch the first damage formula after cutting off @100153 from @100124 - try to find 2d4+1, else find 2d4, else +1
+@100154 = ~\([0-9]+[Dd][0-9]+[ %tab%]*[+-][ %tab%]*[0-9]+\|[0-9]+[Dd][0-9]+\|\([+-][ %tab%]*\)?[0-9]+\)~
+
+// check if @100154 matches preset values
+@100155 = ~%old_dice%[Dd]%old_size%[ %tab%]*[%sign%][ %tab%]*%old_damage%~
+
+// check if @100154 matches preset values
+@100156 = ~%old_dice%[Dd]%old_size%~
+
+// check if @100154 matches preset values
+@100157 = ~[%sign%][ %tab%]*%old_damage%~
+
+// replace @100154
+@100158 = ~%new_dice%D%new_size% %sign% %new_damage%~
+
+// replace @100154
+@100159 = ~%new_dice%D%new_size%~
+
+// replace @100154
+@100160 = ~%sign%%new_damage%~
+
+// #39515, Tuigan Bow +1 (BOW14) description, use regexp for the space if necessary
+@100161 = ~3 shots per round~
+
+// replace @100161
+@100162 = ~+1 attack per round~
+
+// #10303, Moonblade (SW1H13) description, use regexp for the space if necessary
+@100163 = ~[%lnl%%mnl%%wnl%]Bonus to damage:  3~
+
+// #10303, Moonblade (SW1H13) description, use regexp for the space if necessary
+@100164 = ~Bonus to hit:  3~
+
+// replace @100164
+@100165 = ~THAC0:  +3 bonus~
+
+// @1032143 from "gtu.tra", BG2Fixpack
+@100166 = ~Damage: 1D4 + 3 (+2 bonus missile damage)~
+
+// replace @100166
+@100167 = ~Damage: 1D4 + 2~
 
 
 //////////////////
@@ -199,13 +237,16 @@ Speed Factor\1~
 // replace @100146
 @100150 = ~Proficiency Type: Mace/Morning Star~
 
+// replace @100146
+@100199 = ~Proficiency Type: Short Sword~
+
 
 //////////////////
 //   Halberds   //
 //////////////////
 
 // catch ~Damage:\(anything\)
-@100200 = ~[%lnl%%mnl%%wnl%][ %tab%]*Damage[ %tab%]*\(:.*\)~
+@100200 = ~[%lnl%%mnl%%wnl%]Damage[ %tab%]*\(:.*\)~
 
 // replace @100200
 @100201 = ~
@@ -213,7 +254,7 @@ Damage (Piercing)\1
 Damage (Slashing)\1~
 
 // catch ~Speed Factor:\(anything\)~
-@100202 = ~[%lnl%%mnl%%wnl%][ %tab%]*Speed[ %tab%]+[Ff]actor\(:.*\)~
+@100202 = ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(:.*\)~
 
 // replace @100202
 @100203 = ~
@@ -228,6 +269,9 @@ Speed Factor (Slashing)\1~
 
 // tooltip for slashing mode
 @100206 = ~Slashing~
+
+// new (default?) string, needed for halberds somewhere deep within Mike's code
+@100207 = ~Halberd~
 
 
 //////////////////
@@ -304,7 +348,7 @@ Weight:~
 @100314 = ~[%lnl%%mnl%%wnl%]Special:[ %tab%]*No Missile.*~
 
 // catch ~Armor Class Bonus:~
-@100315 = ~Armor Class Bonus:.*~
+@100315 = ~Armor Class\([ %tab%]*Bonus[ %tab%]*\)?:.*~
 
 // replace @100315
 @100316 = ~Armor Class Bonus: %new_ac%~
@@ -316,7 +360,7 @@ Weight:~
 @100318 = ~Armor Class Bonus: 3~
 
 // catch ~Armor Class Bonus:~
-@100319 = ~\(Armor Class Bonus:.*\)~
+@100319 = ~\(Armor Class\([ %tab%]*Bonus[ %tab%]*\)?:.*\)~
 
 // add thaco line to @100319
 @100320 = ~\1
@@ -324,10 +368,6 @@ THAC0: -2 Penalty~
 
 // catch ~Special: +1 vs. Missile Weapons~
 @100321 = ~[%lnl%%mnl%%wnl%]Special:[ %tab%]*\+[0-9]* vs. Missile Weapons~
-
-// replace @100321
-@100415 = ~
-Special: +2 vs. Missile Weapons~
 
 // catch ~Special: +1 AC bonus vs. Missile Weapons~
 @100322 = ~Special:[ %tab%]*\+[0-9]* \(AC \)?\(bonus \)?vs. Missile Weapons~
@@ -338,6 +378,10 @@ Special: +2 vs. Missile Weapons~
 // add thaco line to @100319
 @100324 = ~\1
 THAC0: -1 Penalty~
+
+// replace @100321
+@100407 = ~
+Special: +2 vs. Missile Weapons~
 
 
 //////////////////
@@ -483,21 +527,20 @@ STATISTICS:~
 //    Wands     //
 //////////////////
 
-// catch ~Usable by:\(to the end of description\)~ and ~Not usable by:\(to the end of description\)~
-@100400 = ~\(Usable[ %tab%]+[Bb]y:\|Not[ %tab%]+[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:\)\(\([%lnl%%mnl%%wnl%].*\)*\)?~
-
 // catch ~Usable by:~
-@100401 = ~Usable[ %tab%]+[Bb]y:~
-
-// add "Thief" to @100400
-@100402 = ~
- Thief~
+@100400 = ~Usable[ %tab%]+[Bb]y[ %tab%]*:~
 
 // catch ~Not usable by~
-@100403 = ~Not[ %tab%]+[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+@100401 = ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+
+// add "Thief" to \(@100400\|@100401\)
+@100402 = ~Thief~
+
+// catch any letter
+@100403 = ~[a-zA-Z]~
 
 // catch ~Thief~
-@100404 = ~[%lnl%%mnl%%wnl%][ %tab%]*[Tt]hief~
+@100404 = ~[Tt]hief~
 
 // catch ~Requires:\(anything\)~
 @100405 = ~[ %tab%]*Requires[ %tab%]*:\(.*\)~
@@ -505,17 +548,14 @@ STATISTICS:~
 // replace @100405
 @100406 = ~Requires:  %res% Intelligence~
 
-// catch ~Usable by:~ and ~Not usable by:~
-@100407 = ~\(Usable[ %tab%]+[Bb]y:\|Not[ %tab%]+[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:\)~
-
-// add requirement line to @100407
+// add requirement line to \(@100400\|@100401\)
 @100408 = ~Requires:  %res% Intelligence
 \1~
 
 // replace @100405
 @100409 = ~Requires: 9 Intelligence, 14 Wisdom~
 
-// add requirement line to @100407
+// add requirement line to \(@100400\|@100401\)
 @100410 = ~Requires:  9 Intelligence, 14 Wisdom
 \1~
 
@@ -523,35 +563,48 @@ STATISTICS:~
 //    Druids    //
 //////////////////
 
-// add "Druid" to @100400
-@100411 = ~
- Druid~
+// add "Druid" to \(@100400\|@100401\)
+@100411 = ~Druid~
 
 // catch ~Druid~
-@100412 = ~[%lnl%%mnl%%wnl%][ %tab%]*[Dd]ruid~
+@100412 = ~[Dd]ruid~
 
 //////////////////
 //    Kensai    //
 //////////////////
 
 // catch from kit description
+// get the string number from "kitlist.2da" table, line #3 (KENSAI), column #4 (HELP) - unless changed by mods, it's 25204
 @100413 = ~May not wear gauntlets or bracers~
 
 // replace @100413
 @100414 = ~May not wear gauntlets~
 
+// add "Kensai" to \(@100400\|@100401\)
+@100415 = ~Kensai~
+
+// catch ~Kensai~
+@100416 = ~[Kk]ensai~
+
+//////////////////
+//  Beastmaster //
+//////////////////
+
+// add "Beast Master" to \(@100400\|@100401\)
+@100417 = ~Beast Master~
+
+// catch ~Beastmaster~ or ~Beast Master~
+@100418 = ~[Bb]east[ %tab%]*[Mm]aster~
+
+
+
+
+
+
+
+
 
 /*
-
-// 
-@100416 = ~~
-
-// 
-@100417 = ~~
-
-// 
-@100418 = ~~
-
 // 
 @100419 = ~~
 

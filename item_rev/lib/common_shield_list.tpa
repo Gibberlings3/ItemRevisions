@@ -8,7 +8,7 @@ Rather than a series of huge CEs, we temporarily set the item types here so we o
 194 - Large/Tower Shield
 
 */
-
+DEFINE_ACTION_MACRO shields BEGIN
 
 // bucklers
 ACTION_FOR_EACH ~item~ IN
@@ -270,4 +270,25 @@ ACTION_IF (MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0) BEGIN
         BUT_ONLY_IF_IT_CHANGES
     END
   END
+
+
+  // small shields
+  ACTION_FOR_EACH ~item~ IN
+    ~shld27.itm~
+  BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%item%~) BEGIN
+      COPY_EXISTING ~%item%~ ~override~
+        PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+          WRITE_SHORT 0x1C 191
+        END
+        BUT_ONLY_IF_IT_CHANGES
+    END
+  END
+
 END
+
+///////////////////////////////////////////////////////////////////////////////
+
+END // end of macro
+
+

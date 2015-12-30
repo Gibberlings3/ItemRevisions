@@ -1,3 +1,4 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
 INCLUDE ~item_rev/lib/macros.tpa~
 INCLUDE ~item_rev/lib/common_shield_list.tpa~
 
@@ -52,7 +53,7 @@ DEFINE_PATCH_MACRO ~revised_shield_bonuses_large_english~ BEGIN
   
   PATCH_IF (new_type == 0 || %index% == 0x50) BEGIN // unidentified
     SPRINT t1 @100321
-    SPRINT t2 @100415
+    SPRINT t2 @100407
     REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
   END ELSE BEGIN // identified that had a non-standard missile bonus beforehand
     SPRINT t1 @100322
@@ -118,6 +119,8 @@ END
 //////////////////////////////////////////////
 // patching
 
+LAM shields
+
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
     READ_SHORT 0x1c temp_type ELSE 0
@@ -170,9 +173,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
         END
       END
       // add -1 penalty to attack rolls
-      SET opcode = 54 // thac0 modifier
-      SET param1 = (0 - 1)
-      LAUNCH_PATCH_MACRO ~ADD_ITM_OR_SPL_EFFECT~
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=54 target=1 timing=2 parameter1= 0 - 1 END
 
       // update description
       SPRINT text_update ~revised_shield_bonuses_medium_english~
@@ -201,9 +202,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
         END
       END
       // add -2 penalty to attack rolls
-      SET opcode = 54 // thac0 modifier
-      SET param1 = (0 - 2)
-      LAUNCH_PATCH_MACRO ~ADD_ITM_OR_SPL_EFFECT~
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode=54 target=1 timing=2 parameter1= 0 - 2 END
 
       // update description
       SPRINT text_update ~revised_shield_bonuses_large_english~

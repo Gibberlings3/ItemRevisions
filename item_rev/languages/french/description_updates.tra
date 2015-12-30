@@ -1,0 +1,655 @@
+
+// Only translate symbols in red, this is important. On a brighter side, you're probably only interested in translating A-Z, not dots/parenthesis.
+// Being familar with regular expressions is very welcome, if you're not then it is highly advisable to find someone regexp-literate to assist you.
+// Check WeiDU documentation, the section 13. Regular Expressions
+
+
+//                                    IMPORTANT
+// 
+// There must be no \(enclosed expression\)s before the "\(%colon%\)" in 107, 109, 112, 125, 127, 130, 200, 202 strings. If it imposes
+// complications, please let me know. It can be refined, but would require several parts of the code to be re-written, and I'd rather not to
+// without a need.
+
+//////////////////
+//    Colon     //
+//////////////////
+
+// %colon%, catch it along with preceding text in parenthesis after "Damage" (or smth else) in ~Damage(Piercing) :~, ~Damage:~, but not in ~Damage type:~
+@100100 = ~[ %tab]*\(([ %tab%a-zA-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜàáâäèéêëìíîïòóôöùúûüŒœÆæÇç]*)\)?[ %tab]*:~
+
+//////////////////
+// Speed Factor //
+//////////////////
+
+// catch the main speed factor line
+@100101 = ~\([%lnl%%mnl%%wnl%]Facteur[ %tab%]+[Dd]e[ %tab%]+[Vv]itesse[ %tab%]*%colon%.*\)~
+
+//////////////////
+//    THAC0     //
+//////////////////
+
+// %old_line%, catch ~4 bonus~ and ~+ 4~
+@100102 = ~\([Bb]onus[ %tab%]+[Dd]e[ %tab%]+\)?\([+]\|[+][ %tab%]+\)?%othaco%~
+
+// %old_line%, catch ~-3   Penalty~
+@100103 = ~\([ %tab%]+[Mm]alus[ %tab%]+[Dd]e[ %tab%]+\)?\([ %tab%]+[Pp]énalité[ %tab%]+[Dd]e[ %tab%]+\)?%othaco%~
+@100103 = ~\([Mm]alus[ %tab%]+[Dd]e[ %tab%]+\)?\([Pp]énalité[ %tab%]+[Dd]e[ %tab%]+\)?%othaco%~
+
+// %new_line%
+@100104 = ~bonus de +%nthaco%~
+@100105 = ~malus de %nthaco%~
+
+// catch the main thaco line
+@100106 = ~\([%lnl%%mnl%%wnl%]T[Aa][Cc][Oo0][ %tab%]*%colon%.*\)~
+
+// old thaco, catch ~Thac0%colon%  %old_line%~ and ~THACO%colon%  %old_line% (some text in here),~
+@100107 = ~T[Aa][Cc][Oo0][%tab%]*\(%colon%\)[ %tab%]+%old_line%\([ %tab%a-zA-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜàáâäèéêëìíîïòóôöùúûüŒœÆæÇç()]*,\)?~
+
+// replace @100107 with ~THAC0%colon%~, %col% here matches %colon%
+@100108 = ~TAC0 %col%~
+
+// catch ~ThAc0%colon%~
+@100109 = ~T[Aa][Cc][Oo0][ %tab%]*\(%colon%\)~
+
+// add %new_line% to @100109
+@100110 = ~TAC0 %col% %new_line%~
+
+// catch any integer except 0
+@100111 = ~[1-9]~
+
+// catch the main damage line
+@100112 = ~[%lnl%%mnl%%wnl%]Dégâts[ %tab%]*\(%colon%\)~
+
+// add thaco line to @100112
+@100113 = ~
+TAC0 : %new_line%
+Dégâts \1~
+
+// catch the main weight line
+@100114 = ~[%lnl%%mnl%%wnl%]Poids[ %tab%]*:~
+
+// add thaco line to @100114
+@100115 = ~
+TAC0 : %new_line%
+Poids :~
+
+
+//////////////////
+//    Damage    //
+//////////////////
+
+// %old_line%, catch ~2D4  +1~, ~2d4~, ~+ 1 Bonus~ and ~-2 penalty~ respectively
+// Isaya (en français) : ~Bonus de +[ ]1~ et ~Malus/Pénalité de [-][ ]2~
+@100116 = ~%odice%[Dd]%osize%[ %tab%]*[+][ %tab%]*%odamage%~
+@100117 = ~%odice%[Dd]%osize%~
+@100118 = ~\([Bb]onus[ %tab%]+[Dd]e[ %tab%]+\)?\([+]\|[+][ %tab%]+\)+%odamage%~
+@100119 = ~\([Mm]alus[ %tab%]+[Dd]e[ %tab%]+\|[Pp]énalité[ %tab%]+[Dd]e[ %tab%]+\)?[-]?[ %tab%]*%odamage%~
+
+// %new_line%
+@100120 = ~%ndice%D%nsize% + %ndamage%~
+// Isaya : pourquoi ne pas avoir conservé les espaces de la VO ?
+@100121 = ~%ndice%D%nsize%~
+@100122 = ~bonus de +%ndamage%~
+@100123 = ~malus de -%ndamage%~
+
+// catch the main damage line
+@100124 = ~\([%lnl%%mnl%%wnl%]Dégâts[ %tab%]*%colon%.*\)~
+
+// catch ~(Phantom Arrows) %old_line%~ and ~%old_line% piercing~
+@100125 = ~Dégâts[ %tab%]*\(%colon%\)\([ %tab%a-zA-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜàáâäèéêëìíîïòóôöùúûüŒœÆæÇç()']*\)?%old_line%\([ %tab%a-zA-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜàáâäèéêëìíîïòóôöùúûüŒœÆæÇç()']*,\)?~
+
+// replace @100125 with ~Damage%colon%~
+@100126 = ~Dégâts %col%~
+
+// catch ~Damage%colon%~
+@100127 = ~Dégâts[ %tab%]*\(%colon%\)~
+
+// add %new_line% to @100127
+@100128 = ~Dégâts %col% %new_line%~
+
+// add damage line to @100114
+@100129 = ~
+Dégâts : %new_line%
+Poids :~
+
+// catch the main speed factor line
+@100130 = ~[%lnl%%mnl%%wnl%]Facteur[ %tab%]+[Dd]e[ %tab%]+[Vv]itesse[ %tab%]*\(%colon%\)~
+
+
+// add damage line to @100130
+@100131 = ~
+Dégâts : %new_line%
+Facteur de vitesse \1~
+
+
+//////////////////
+// Damage Type  //
+//////////////////
+
+
+// catch ~Damage type: slashing~
+@100132 = ~Type[ %tab%]+[Dd]e[ %tab%]+[Dd]égâts[ %tab%]*:[ %tab%]+[Tt]ranchant~
+
+// replace @100132
+@100133 = ~Type de dégâts : perforant~
+
+// catch ~Damage type: piercing~
+@100134 = ~Type[ %tab%]+[Dd]e[ %tab%]+[Dd]égâts[ %tab%]*:[ %tab%]+[Pp]erforant~
+
+// replace @100134
+@100135 = ~Type de dégâts : tranchant~
+
+// catch ~Damage type: crushing~
+@100136 = ~Type[ %tab%]+[Dd]e[ %tab%]+[Dd]égâts[ %tab%]*:[ %tab%]+\([Cc]ontondant\|[EÉé]crasant\)~
+
+// replace @100136
+@100137 = ~Type de dégâts : contondant et perforant~
+
+
+//////////////////
+//    Fixes     //
+//////////////////
+
+// 138-145, 151-199
+
+// catch ~Speed Factor: ~
+@100138 = ~[%lnl%%mnl%%wnl%]Facteur[ %tab%]+[Dd]e[ %tab%]+[Vv]itesse[ %tab%]*\(%colon%\)[ %tab%]+~
+
+// catch the first number after cutting off @100138 from @100101
+@100139 = ~[0-9]+~
+
+// check if @100139 matches the preset %old_speed% value
+@100140 = ~%old_speed%~
+
+// replace @100139
+@100141 = ~%new_speed%~
+
+// catch ~Thaco: ~
+@100142 = ~[%lnl%%mnl%%wnl%]T[Aa][Cc][Oo0][ %tab%]*\(%colon%\)[ %tab%]+~
+
+// catch the first number after cutting off @100142 from @100106
+@100143 = ~\([+-][ %tab%]*\)?[0-9]+~
+
+// the plus sign
+@100144 = ~+~
+
+// the minus sign
+@100145 = ~-~
+
+// check if @100143 matches the preset %old_thaco% value
+@100151 = ~\([%sign%][ %tab%]*\)?%old_thaco%~
+
+// replace @100143
+@100152 = ~%sign%%new_thaco%~
+
+// catch ~Damage: (Phantom Arrows) ~
+@100153 = ~[%lnl%%mnl%%wnl%]Dégâts[ %tab%]*\(%colon%\)\([ %tab%a-zA-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜàáâäèéêëìíîïòóôöùúûüŒœÆæÇç()']*\)?~
+// Isaya : ajout de l'apostrophe en cas de forme du type "d'acide"
+
+// catch the first damage formula after cutting off @100153 from @100124 - try to find 2d4+1, else find 2d4, else +1
+@100154 = ~\([0-9]+[Dd][0-9]+[ %tab%]*[+-][ %tab%]*[0-9]+\|[0-9]+[Dd][0-9]+\|\([+-][ %tab%]*\)?[0-9]+\)~
+
+// check if @100154 matches preset values
+@100155 = ~%old_dice%[Dd]%old_size%[ %tab%]*[%sign%][ %tab%]*%old_damage%~
+
+// check if @100154 matches preset values
+@100156 = ~%old_dice%[Dd]%old_size%~
+
+// check if @100154 matches preset values
+@100157 = ~[%sign%][ %tab%]*%old_damage%~
+
+// replace @100154
+@100158 = ~%new_dice%D%new_size% %sign% %new_damage%~
+// Isaya : pourquoi avoir retiré les espaces de la VO ? Alors que c'est plus lisible, au moins avant le signe
+
+// replace @100154
+@100159 = ~%new_dice%D%new_size%~
+
+// replace @100154
+@100160 = ~%sign%%new_damage%~
+
+// #39515, Tuigan Bow +1 (BOW14) description, use regexp for the space if necessary
+@100161 = ~3 flèches par round~
+
+// replace @100161
+@100162 = ~+1 attaque par round~
+
+// #10303, Moonblade (SW1H13) description, use regexp for the space if necessary
+@100163 = ~[%lnl%%mnl%%wnl%]Bonus aux dégâts : +3~
+
+// #10303, Moonblade (SW1H13) description, use regexp for the space if necessary
+@100164 = ~Bonus au toucher : +3~
+
+// replace @100164
+@100165 = ~TAC0 : bonus de +3~
+
+// @1032143 from "gtu.tra", BG2Fixpack
+@100166 = ~Dégâts : 1D4 + 3 (bonus de +2 de dégâts de type projectile)~
+
+// replace @100166
+@100167 = ~Dégâts : 1D4 + 2~
+
+//////////////////
+// Proficiency  //
+//////////////////
+
+// catch ~Proficiency type:~
+@100146 = ~Type[ %tab%]+[Dd]e[ %tab%]+[Cc]ompétence[ %tab%]*:.*~
+
+// replace @100146
+@100147 = ~Type de compétence : katana/wakizashi ~
+
+// replace @100146
+@100148 = ~Type de compétence : fléau~
+
+// replace @100146
+@100149 = ~Type de compétence : cimeterre ~
+
+// replace @100146
+@100150 = ~Type de compétence : masse/étoile du matin~
+
+// replace @100146
+@100199 = ~Type de compétence : épée courte~
+
+
+//////////////////
+//   Halberds   //
+//////////////////
+
+// catch ~Damage:\(anything\)
+@100200 = ~[%lnl%%mnl%%wnl%]Dégâts[ %tab%]*\(:.*\)~
+
+// replace @100200
+@100201 = ~
+Dégâts (perforant) \1
+Dégâts (tranchant) \1~
+
+// catch ~Speed Factor:\(anything\)~
+@100202 = ~[%lnl%%mnl%%wnl%]Facteur[ %tab%]+[Dd]e[ %tab%]+[Vv]itesse[ %tab%]*\(:.*\)~
+
+// replace @100202
+@100203 = ~
+Facteur de vitesse (perforant) \1
+Facteur de vitesse (tranchant) \1~
+
+// replace @100134
+@100204 = ~Type de dégâts : perforant ou tranchant~
+
+// tooltip for piercing mode
+@100205 = ~Perforant~
+
+// tooltip for slashing mode
+@100206 = ~Tranchant~
+
+// new (default?) string, needed for halberds somewhere deep within Mike's code
+@100207 = ~Hallebarde~
+
+
+//////////////////
+// Spellcasting // 
+//////////////////
+
+// catch ~ Miscast Arcane Magic:\(anything\)~
+@100300 = ~[%lnl%%mnl%%wnl%][ %tab%]*Fourvoiement[ %tab%]*\([Aa]rcane[ %tab%]*\)?[Mm]agique[ %tab%]*:.*~
+
+// catch ~ Arcane Spell Failure:\(anything\)~
+@100301 = ~[%lnl%%mnl%%wnl%][ %tab%]*[EÉé]chec[ %tab%]+[Dd]es[ %tab%]+[Ss]orts[ %tab%]+[Pp]rofanes[ %tab%]*:.*~
+
+// catch ~ Spellcasting Time:\(anything\)~
+@100302 = ~[%lnl%%mnl%%wnl%][ %tab%]*Temps[ %tab%]+d\'incantation[ %tab%]*:.*~
+
+// catch ~ Spell failure:\(anything\)~
+@100303 = ~[%lnl%%mnl%%wnl%][ %tab%]*[EÉé]chec[ %tab%]+[Dd]es[ %tab%]+[Ss]orts[ %tab%]*:.*~
+
+// catch ~ Allows arcane spellcasting without penalties\(anything\)~
+@100304 = ~[%lnl%%mnl%%wnl%][ %tab%]*[Aa]utorise le lancement de sorts profanes sans pénalité.*~
+
+// add spellcasting failure line to @100114
+@100305 = ~
+Échec des sorts profanes : %xfail% %
+Poids :~
+
+// add spellcasting speed line to @100114
+@100306 = ~
+Pénalité au temps d’incantation des sorts profanes : +%xspd%
+Poids :~
+
+// add spellcasting speed line to @100114
+@100307 = ~
+Pénalité au temps d’incantation : +%xspd%
+Poids :~
+
+
+//////////////////
+// Encumbrance //
+//////////////////
+
+// add DEX penalty line to @100114
+@100308 = ~
+Dextérité : malus de %xdex% %
+Poids :~
+
+// add movement penalty line to @100114
+@100309 = ~
+Vitesse de Déplacement : malus de %xmove% %
+Poids :~
+
+// add speed factor penalty line to @100114
+@100310 = ~
+Facteur de vitesse : malus de +%xsf%
+Poids :~
+
+
+//////////////////
+//   Shields    //
+//////////////////
+
+// 321-323 are disabled for v3, unless Demi or Mike uncomment them in macros
+
+// catch ~Special: No Piercing Attack Protection~
+@100311 = ~[%lnl%%mnl%%wnl%]Spécial[ %tab%]*:[ %tab%]*pas de protection contre les \(attaques\|armes\) perforantes.*~
+
+// catch ~Special: No Missile ~
+@100312 = ~Spécial[ %tab%]*:[ %tab%]*\([Pp]as\|[Aa]ucune\|[Nn]e\).*projectile[s]?.*~
+
+// catch ~Special: No Missile Weapon Protection~
+@100313 = ~Spécial[ %tab%]*:[ %tab%]*\([Aa]ucune protection\|[Pp]as de protection\|[Nn]e protège pas\)[ %tab%]+\(face\|contre\)[ %tab%]+\(les\|aux\|aux armes à\|les armes à\)[%tab%]+projectile[s]?~
+
+// catch ~Special: No Missile~
+@100314 = ~[%lnl%%mnl%%wnl%]Spécial[ %tab%]*:[ %tab%]*\([Pp]as\|[Aa]ucune\|[Nn]e\).*projectile[s]?.*~
+
+// catch ~Armor Class Bonus:~
+@100315 = ~\(Bonus de[ %tab%]*\)?\([Cc]lasse d\’[Aa]rmure\|CA\)[ %tab%]*:.*~
+
+// replace @100315
+@100316 = ~Bonus de classe d\’armure : %new_ac%~
+
+// replace @100315
+@100317 = ~Bonus de classe d\’armure : 2~
+
+// replace @100315
+@100318 = ~Bonus de classe d\’armure : 3~
+
+// catch ~Armor Class Bonus:~
+@100319 = ~\(\(Bonus de[ %tab%]*\)?\([Cc]lasse d\’[Aa]rmure\|CA\)[ %tab%]*:.*\)~
+
+// add thaco line to @100319
+@100320 = ~\1
+TAC0 : malus de -2~
+
+// catch ~Special: +1 vs. Missile Weapons~
+@100321 = ~[%lnl%%mnl%%wnl%]Spécial[ %tab%]*:[ %tab%]*bonus de[ %tab%]*\+[0-9]* contre les armes à projectile[s]?~
+
+// catch ~Special: +1 AC bonus vs. Missile Weapons~
+@100322 = ~Spécial[ %tab%]*:[ %tab%]*\([Bb]onus de[ %tab%]*\)?\+[0-9]* \(à la \(CA\|[Cc]lasse d\’[Aa]rmure\) \)?contre les armes à projectile[s]?~
+
+// replace @100322
+@100323 = ~Spécial : bonus de +%new_type% contre les armes à projectiles~
+
+// add thaco line to @100319
+@100324 = ~\1
+TAC0 : malus de -1~
+
+// replace @100321
+@100407 = ~
+Spécial : bonus de +2 contre les armes à projectiles~
+// Isaya : ajout en beta 12
+
+
+//////////////////
+//   Thieving   //
+//////////////////
+
+// catch ~Lock Picking:~
+@100325 = ~[%lnl%%mnl%%wnl%]\(Crochetage\|Crocheter\)\( de\| des\| les \)?\( serrures\)?[ %tab%]*:.*~
+
+// catch ~Find/Remove Traps:~
+@100326 = ~[%lnl%%mnl%%wnl%]\(Détection/\|Trouver/\|Détecter/\)?\([Dd]ésamorçage\|[Dd]ésamorcer\)\( de\| des\| les\)? [Pp]ièges[ %tab%]*:.*~
+
+// catch ~Pick Pockets:~
+@100327 = ~[%lnl%%mnl%%wnl%][Vv]ol à la [Tt]ire[ %tab%]*:.*~
+
+// catch ~Move Silently:~
+@100328 = ~[%lnl%%mnl%%wnl%][Dd]éplacement [Ss]ilencieux[ %tab%]*:.*~
+
+// catch ~Hide in Shadows:~
+@100329 = ~[%lnl%%mnl%%wnl%]\(Camouflage\|Se cacher\)\( dans l\’ombre\)?[ %tab%]*:.*~
+
+// catch ~Stealth:~
+@100330 = ~[%lnl%%mnl%%wnl%][Ff]urtivité[ %tab%]*:.*~
+
+// add stealth line to @100114
+@100331 = ~
+Furtivité : malus de -%value% %
+Poids :~
+
+
+//////////////////
+//  Masterwork  //
+//////////////////
+// 335-363 catches are for identified weapon descriptions, +1 items
+// the list of replacements was assembled by Mike1072, so i (Ardanis) can't tell offhand which string is for which ITM
+
+// in any case, we were going (i think) to re-do the Masterwork component, so these strings may not be needed for v4
+
+// catch ~Damage:~
+@100332 = ~Dégâts[ %tab%]*:.*~
+
+// replace @100332
+@100333 = ~Dégâts : %a%D%b% + %c%~
+
+// replace @100332
+@100334 = ~Dégâts : %a%D%b%~
+
+// catch
+@100335 = ~\(Ce\|Cette\) \([^.]+\) est particulièrement efficace car \(il\|elle\) a été \(enchanté\|enchantée\) avec certaines propriétés magiques.~
+
+// replace @100335
+@100336 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que les \2s ordinaires.~
+
+// catch
+@100337 = ~Cette arme a été améliorée par magie pour améliorer la compétence de son porteur.~
+
+// replace @100337
+@100338 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que la normale.~
+
+// catch 
+@100339 = ~La lame vibre dans votre main, signe évident d'un enchantement.~
+
+// replace @100339
+@100340 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que les épées ordinaires.~
+
+// catch
+@100341 = ~Cette épée est magique.~
+
+// replace @100341
+@100342 = ~Cette épée particulière est d'une qualité de maître et offre de meilleures performances que les lames ordinaires.~
+
+// catch
+@100343 = ~Dégâts et précision de cette arme sont supérieurs grâce à la magie qu'elle renferme.~
+
+// replace @100343
+@100344 = ~Cette épée courte est d'une qualité de maître, bénéficiant ainsi d’une meilleure précision.~
+
+// catch
+@100345 = ~Celle-ci a été enchantée.~
+
+// replace @100345
+@100346 = ~Cette hache particulière est d'une qualité de maître et offre de meilleures performances qu’à la normale.~
+
+// catch
+@100347 = ~Cette arme a été renforcée par magie, si bien qu'il semble se nouer un lien entre elle et la personne qui la manie.~
+
+// replace @100347
+@100348 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que les fléaux ordinaires.~
+
+// catch
+@100349 = ~Celle-ci est un pommeau pyramidal, monté au bout d'une hampe en chêne poli, qui brille d'un éclat bleuté.~
+
+// replace @100349
+@100350 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que les masses ordinaires.~
+
+// catch
+@100351 = ~La tête de celle-ci est en or, renforcée par magie pour améliorer ses performances et sa dureté.~
+
+// replace @100351
+@100352 = ~De telles armes possèdent une tête ronde, ovale, ou cylindrique, incrustée de pointes. Terminant la plupart des têtes d'étoile du matin, quelle que soit leur conception, se trouve une longue pointe d'estoc. Cette étoile du matin particulière est d'une qualité de maître et offre de meilleures performances que la normale.~
+
+// catch
+@100353 = ~Cette dague est magique, et donne des bonus de vitesse, de précision et de dégâts. De plus, étant magique, elle peut toucher des adversaires immunisés contre les armes normales, comme les vampires, les élémentaires et les momies.~
+
+// replace @100353
+@100354 = ~Cette dague particulière est d'une qualité de maître et offre de meilleures performances que la normale.~
+
+// catch
+@100355 = ~Elle est magique, lui permettant d'être maniée avec une plus grande vitesse et précision, sans oublier des dommages accrus.~
+// Isaya : d'après la VO c'est pour @71036 (j'ai remplacé par le texte de @71036), donc pas de nom d'objet dans la phrase
+
+// replace @100355
+@100356 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que les dagues ordinaires.~
+
+// catch
+@100357 = ~\(Il a également été doté de plusieurs propriétés magiques, ce qui le rend\|Elle a également été enchantée de façon à être\|Elle a été également enchantée pour la rendre\)~
+
+// replace @100357
+@100358 = ~Cette arme particulière est d'une qualité de maître, la rendant~
+
+// catch
+@100359 = ~Cette lance est toutefois spéciale puisqu'elle possède des pouvoirs magiques.~
+
+// replace @100359
+@100360 = ~Cette arme particulière est d'une qualité de maître et offre de meilleures performances que les lances ordinaires.~
+
+// catch
+@100361 = ~Celui-ci est toutefois spécial puisqu'il possède des pouvoirs magiques.~
+
+// replace @100361
+@100362 = ~Celui-ci est toutefois spécial puisqu'il est de très bonne facture et possède de meilleures caractéristiques qu'un bâton ordinaire.~
+
+// catch
+@100363 = ~La dague traditionnelle comporte une lame pointue généralement à double tranchant, contrairement au couteau, un peu plus court, ne possédant qu'un seul tranchant.
+
+PARAM[EÈ]TRES :~
+
+// replace @100363
+@100364 = ~La dague traditionnelle comporte une lame pointue généralement à double tranchant, contrairement au couteau, un peu plus court, ne possédant qu'un seul tranchant. Cette dague particulière est d'une qualité de maître et offre de meilleures performances qu’à la normale.
+
+PARAMÈTRES :~
+
+//////////////////
+//    Wands     //
+//////////////////
+
+// catch ~Usable by:~
+@100400 = ~[Uu]tilisable[ %tab%]+[Pp]ar[ %tab%]*:~
+
+// catch ~Not usable by~
+@100401 = ~\([Nn]on[ %tab%]+\|[Ii]n\)[Uu]tilisable[ %tab%]+[Pp]ar[ %tab%]*:~
+
+// add "Thief" to \(@100400\|@100401\)
+@100402 = ~Voleur~
+
+// catch any letter
+@100403 = ~[a-zA-ZÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜàáâäèéêëìíîïòóôöùúûüŒœÆæÇç']~
+
+// catch ~Thief~
+@100404 = ~[Vv]oleur~
+
+// catch ~Requires:\(anything\)~
+@100405 = ~\(.*\)[ %tab%]*nécessaire[ %tab%]*:\(.*\)~
+
+// replace @100405
+@100406 = ~Intelligence nécessaire : %res%~
+
+// unused
+//@100407 = ~~
+
+// add requirement line to \(@100400\|@100401\)
+@100408 = ~Intelligence nécessaire : %res%
+\1~
+
+// replace @100405
+@100409 = ~Intelligence nécessaire : 9
+Sagesse nécessaire : 14~
+
+// add requirement line to \(@100400\|@100401\)
+@100410 = ~Intelligence nécessaire : 9
+Sagesse nécessaire : 14
+\1~
+
+//////////////////
+//    Druids    //
+//////////////////
+
+// add "Druid" to \(@100400\|@100401\)
+@100411 = ~Druide~
+
+// catch ~Druid~
+@100412 = ~[Dd]ruide~
+
+//////////////////
+//    Kensai    //
+//////////////////
+
+// catch from kit description
+@100413 = ~Ne peut porter de gantelets ou de bracelets~
+
+// replace @100413
+@100414 = ~Ne peut porter de gantelets~
+
+// add "Kensai" to \(@100400\|@100401\)
+@100415 = ~Kensai~
+
+// catch ~Kensai~
+@100416 = ~[Kk]ensai~
+
+//////////////////
+//  Beastmaster //
+//////////////////
+
+// add "Beastmaster" to \(@100400\|@100401\)
+@100417 = ~Belluaire~
+
+// catch ~Beastmaster~
+@100418 = ~[Bb]elluaire~
+
+
+
+
+
+
+
+
+
+/*
+// 
+@100419 = ~~
+
+// 
+@100420 = ~~
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

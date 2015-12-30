@@ -1,0 +1,148 @@
+@-1004= ~Merci de poster un rapport concernant ce probleme, y compris les informations contenues dans~
+		
+// Ardanis: re-ordered strings to match components in TP2
+
+@1    = ~Item Revisions par Demivrgvs~
+
+@34   = ~Patch de l'executable~
+@35   = ~ToBEx v20 (beta)~
+@36   = ~ToB_Hacks - Reparation du modificateur du niveau de lancement de sorts et des EFF a repetition (incompatible avec ToBEx)~
+@37   = ~ToB_Hacks - Reparation du modificateur du niveau de lancement de sorts (le plus sur)~
+
+@24   = ~Revision des potions~
+
+@2    = ~Armes de maitre~
+
+@33   = ~Revision des boutiques~
+
+@4    = ~Autoriser le lancement de sorts en armure~
+@3    = ~Avec un risque d'echec au lancement de sorts profanes~
+@5    = ~Avec une penalite de vitesse d'incantation pour les lanceurs de sorts profanes~
+@6    = ~Avec une penalite de vitesse d'incantation pour tous les lanceurs de sorts~
+@7    = ~Sans penalites~
+
+@9    = ~Encombrement en armure lourde~
+@25   = ~Penalites a la vitesse de deplacement, a la dexterite et au facteur de vitesse~
+@8    = ~Penalites a la vitesse de deplacement et a la dexterite~
+@26   = ~Penalites a la vitesse de deplacement et au facteur de vitesse~
+@27   = ~Penalites a la dexterite et au facteur de vitesse~
+@10   = ~Penalite a la vitesse de deplacement~
+@11   = ~Penalite a la dexterite~
+@28   = ~Penalite au facteur de vitesse~
+
+@12   = ~Autoriser l'usage des competences de voleur en armure~
+@43   = ~Furtivite penalisee par les armures~
+@44   = ~Furtivite penalisee par les armures et les boucliers~
+
+@29   = ~Bonus des armures revus~
+
+@13   = ~Bonus des boucliers revus~
+
+@14   = ~Le combat a deux armes differe selon le type d'arme, legere ou lourde~
+
+@15   = ~Les objets de protection peuvent etre portes en meme temps qu'une armure magique~
+
+@16   = ~Les hallebardes peuvent egalement infliger des degats tranchants~
+
+@17   = ~Annule les restrictions d'arme pour les lanceurs de sorts divins multiclasses~
+@39   = ~Pour les Clercs uniquement~
+@40   = ~Pour les Clercs et les Druides~
+@41   = ~Pour les Clercs uniquement, specialisation diminuee de moitie~
+@42   = ~Pour les Clercs et les Druides, specialisation diminuee de moitie~
+
+@38   = ~Equipement des Druides version papier~
+@18   = ~Pour les Druides uniquement~
+@19   = ~Pour les Druides et les Guerriers/Druides~
+
+@30   = ~Les Kensai peuvent porter des bracelets~
+
+@31   = ~Les Voleurs peuvent utiliser des baguettes~
+
+@20   = ~Modifications des armes~
+
+@32   = ~L'enchantement des armes n'affecte pas leur facteur de vitesse~
+
+@22   = ~Penalite d'attaque sournoise avec les armes inappropriees~
+@21   = ~Penalite d'attaque sournoise~
+@23   = ~Penalite d'attaque sournoise avec davantage d'armes utilisables par les voleurs monoclasses~
+@45   = ~Toutes les armes de melee et a projectiles utilisables pour l'attaque sournoise~ 
+
+///////
+
+//Prochaine valeur libre
+@46   = ~~
+
+///////
+
+@9000   = ~Ce composant ne peut etre installe qu'avec BG2, et requiert l'installation de ToB.~
+@9001   = ~Ce composant ne peut etre installe qu'avec BG2.~
+@9002   = ~Ce composant n'est pas compatible avec votre jeu.~
+@9003   = ~Ce composant requiert les ameliorations du moteur de BG2 : Throne of Bhaal.~
+@9004   = ~Ce composant est conceptuellement incompatible avec le composant "Attaque sournoise amelioree" du Ding0's Tweak Pack (D0Tweak).~
+@9005   = ~Ce composant est actuellement incompatible avec le systeme des competences martiales modifiees du BG2 Tweak Pack.~
+@9006   = ~Ce composant a ete supprime.~
+
+
+
+// WeiDU prompts
+@-1000= "Le mod %TP2_FILE_NAME% contient"
+@-1001= "composants optionnels distincts.
+Pour gagner du temps, vous pouvez choisir ce que vous souhaitez faire d'eux
+au niveau general plutot que de repondre aux questions pour chacun.
+"
+@-1002= "Que faut-il faire de tous les composants qui NE sont PAS ENCORE installes ?
+Les [I]nstaller, les [S]auter, dem[A]nder pour chacun ? "
+@-1003= "Que faut-il faire de tous les composants qui sont DEJA installes ?
+Les [R]einstaller, les s[U]pprimer, dem[A]nder pour chacun ? "
+
+@-1005= "a"
+
+@-1006= "Installer le composant ["
+@-1007= "] ?
+[R]einstaller, co[N]server, s[U]pprimer ou [Q]uitter ? "
+@-1008= "] ?
+[I]nstaller, [N]e pas installer ou [Q]uitter ? "
+
+@-1009= "Entrez une partie du nom du module : "
+
+@-1010= "Reinstallation du composant ["
+@-1011= "] "
+@-1012= "Reinstallation dans la langue"
+
+@-1013= "Suppression de l'ancienne installation de ["
+@-1014= "] au prealable..."
+@-1015= "SUPPRESSION REUSSIE DE L'ANCIEN"
+
+@-1016= "Installation en cours"
+@-1017= "ERREUR pendant l'installation de ["
+@-1018= "], retour a l'etat anterieur"
+@-1019= "INSTALLATION REUSSIE"
+@-1020= "Saute"
+@-1021= "Suppression de ["
+@-1022= "] (composant #"
+@-1023= ")"
+@-1024= "SUPPRESSION REUSSIE DE ["
+@-1025= "] ?
+[R]einstaller, co[N]server, s[U]pprimer, [Q]uitter ou choisir un parmi :"
+@-1026= "] ?
+[N]e pas installer, [Q]uitter ou choisir un parmi :"
+@-1027= " (installe actuellement)"
+
+@-1028= "Souhaitez-vous afficher les composants de ["
+@-1029= "] ?
+[Y]Oui, [N]on ? "
+
+@-1030= "] ?
+choisir un parmi :"
+@-1031= "] ?
+[R]einstaller, co[N]server, [Q]uitter ou choisir un parmi :"
+@-1032= "INSTALLATION ECHOUEE A CAUSE D'ERREURS"
+@-1033= "INSTALLATION AVEC DES ALERTES "
+@-1034= "Souhaitez-vous afficher les instructions (ReadMe) ? [Y]Oui [N]on"
+@-1035= "Dans la langue"
+
+@-1036 = "Saute le GROUPE ["
+@-1037 = "] pour cause d'absence des pre-requis." 
+
+@-1038= "dem[A]nder pour chaque composant, tout [S]auter, ou choisir une selection pre-definie :"
+@-1039= "dem[A]nder pour chaque composant, [R]einstaller la configuration courante, tout s[U]pprimer, tout [S]auter, ou choisir une selection pre-definie :"

@@ -1,12 +1,1 @@
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
-  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    READ_SHORT 0x1c item_type
-    READ_BYTE  0x1f usability2
-    READ_BYTE  0x21 usability4
-    PATCH_IF (item_type == 0x02 || item_type == 0x03 || item_type == 0x06 || item_type == 0x07 || item_type == 0x0c) BEGIN // armour, belts, bracers, helmets, shields
-      PATCH_IF ((usability4 BAND 0b01000000) == 0b01000000) BEGIN // if unusable by druids
-        WRITE_BYTE 0x1f (usability2 BOR 0b00010000) // make unusable by fighter/druids
-      END
-    END
-  END
-  BUT_ONLY_IF_IT_CHANGES
+this file is not used anymore, delete it from the final release

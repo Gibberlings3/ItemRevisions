@@ -1,29 +1,18 @@
 INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/usability_description.tpa~
 
 //////////////////////////////////////////////
 //  descriptions
 
 DEFINE_PATCH_MACRO wand BEGIN
-  PATCH_IF index=0x54 BEGIN
+  PATCH_IF ident BEGIN
 
-    SPRINT t1 @100400
-    REPLACE_EVALUATE ~%t1%~ BEGIN
-      SPRINT line1 ~%MATCH1%~
-      SPRINT line2 ~%MATCH2%~
-      SPRINT t1 @100401
-      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~%t1%~) = 0 BEGIN
-        SPRINT t1 @100402
-        SPRINT line2 ~%line2%~^~%t1%~
-      END
-      SPRINT t1 @100403
-      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~%t1%~) = 0 BEGIN
-        INNER_PATCH_SAVE line2 ~%line2%~ BEGIN
-          SPRINT t1 @100404
-          REPLACE_TEXTUALLY ~%t1%~ ~~
-        END
-      END
-    END ~%line1%%line2%~
+    // make usable by thieves
+    SPRINT add_class @100402
+    SPRINT catch_class @100404
+    LPF usable_desc INT_VAR make_usable=1 STR_VAR add_class catch_class END
 
+    // add INT requirement
     exists=0
     SPRINT t1 @100405
     REPLACE_EVALUATE ~%t1%~ BEGIN
@@ -31,10 +20,11 @@ DEFINE_PATCH_MACRO wand BEGIN
       SPRINT t2 @100406
     END ~%t2%~
     PATCH_IF exists=0 BEGIN
-      SPRINT t1 @100407
-      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%t1%~) = 0 BEGIN
-        SPRINT t2 @100408
-        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      SPRINT t1 @100400
+      SPRINT t2 @100401
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~\(%t1%\|%t2%\)~) = 0 BEGIN
+        SPRINT t3 @100408
+        REPLACE_TEXTUALLY ~\(%t1%\|%t2%\)~ ~%t3%~
       END
     END
 
@@ -42,7 +32,7 @@ DEFINE_PATCH_MACRO wand BEGIN
 END
 
 DEFINE_PATCH_MACRO wand_of_heaven BEGIN
-  PATCH_IF index=0x54 BEGIN
+  PATCH_IF ident BEGIN
     exists=0
     SPRINT t1 @100405
     REPLACE_EVALUATE ~%t1%~ BEGIN
@@ -50,10 +40,11 @@ DEFINE_PATCH_MACRO wand_of_heaven BEGIN
       SPRINT t2 @100409
     END ~%t2%~
     PATCH_IF exists=0 BEGIN
-      SPRINT t1 @100407
-      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%t1%~) = 0 BEGIN
-        SPRINT t2 @100410
-        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      SPRINT t1 @100400
+      SPRINT t2 @100401
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~\(%t1%\|%t2%\)~) = 0 BEGIN
+        SPRINT t3 @100410
+        REPLACE_TEXTUALLY ~\(%t1%\|%t2%\)~ ~%t3%~
       END
     END
   END

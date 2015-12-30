@@ -1,10 +1,13 @@
 
 // buy_group       - action macro, loads arrays of item types required for the 'buy' function to work
-// fixed_order     - action macro, loads arrays of items requires for the 'items_to_order' function to work
+// order           - action array, defines the order in which items will appear in stores
+//                   dependant upon 'item_rev/lib/identify_weapon.tpa'
 // spelldesc       - action macro, loads array of spells required for the 'temple' function to work
-//                                 patches SPELDESC.2DA to use real spell descriptions
+//                   patches SPELDESC.2DA to use real spell descriptions
+//                   dependant upon 'item_rev/lib/compatibility.tpa'
 // buy             - patch function, sets item types the store will buy
 // items_to_order  - patch function, rearranges items in stores
+//                   dependant upon 'item_rev/lib/identify_weapon.tpa'
 // temple          - patch function, sets spells the store (temple) will provide
 // store           - patch function, sets flags and values in the store
 // make_scrolls    - action function, creates new scrolls with divine spells
@@ -29,57 +32,75 @@ END
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-DEFINE_ACTION_MACRO fixed_order BEGIN
+// the order in which items will appear in stores - you can change it as you see fit
+ACTION_DEFINE_ARRAY order BEGIN
 
-ACTION_DEFINE_ARRAY fixed_0  BEGIN dagg01 dagg02 dagg03 dagg15 dagg24 dagg05 dagg16 END // dagger
-ACTION_DEFINE_ARRAY fixed_1  BEGIN sw1h07 sw1h21 sw1h08 sw1h14 sw1h98 sw1h09 sw1h29 sw1h74 END // short sword
-ACTION_DEFINE_ARRAY fixed_2  BEGIN sw1h04 sw1h05 sw1h41 sw1h73 END // long sword
-ACTION_DEFINE_ARRAY fixed_3  BEGIN sw1h01 sw1h02 sw1h42 sw1h72 END // bastard sword
-ACTION_DEFINE_ARRAY fixed_4  BEGIN sw2h01 sw2h01b sw2h05 sw2h02 sw2h11 sw2h20 END // 2handed sword
-ACTION_DEFINE_ARRAY fixed_5  BEGIN ax1h01 ax1h02 ax1h03 ax1h11 ax1h17 ax1h04 ax1h05 ax1h06 END // axe
-ACTION_DEFINE_ARRAY fixed_6  BEGIN hamm01 hamm02 hamm03 hamm08 hamm12 END // hammer
-ACTION_DEFINE_ARRAY fixed_7  BEGIN blun01 blun31 END // club
-ACTION_DEFINE_ARRAY fixed_8  BEGIN blun04 blun05 blun21 blun33 END // mace
-ACTION_DEFINE_ARRAY fixed_9  BEGIN blun06 blun07 blun15 blun34 END // morning star
-ACTION_DEFINE_ARRAY fixed_10 BEGIN blun02 blun08 blun03 blun13 blun32 END // flail
-ACTION_DEFINE_ARRAY fixed_11 BEGIN staf01 staf03 staf04 staf02 staf18 staf24 END // staff
-ACTION_DEFINE_ARRAY fixed_12 BEGIN halb01 halbrd01 halb02 halb07 halb12 END // halberd
-ACTION_DEFINE_ARRAY fixed_13 BEGIN sper01 sper04 sper02 sper05 sper06 END // spear
-ACTION_DEFINE_ARRAY fixed_14 BEGIN sw1h20 sw1h56 sw1h22 sw1h76 END // scimitar
-ACTION_DEFINE_ARRAY fixed_15 BEGIN sw1h48 sw1h49 END // ninja-to
-ACTION_DEFINE_ARRAY fixed_16 BEGIN sw1h46 sw1h47 END // wakizashi
-ACTION_DEFINE_ARRAY fixed_17 BEGIN sw1h43 sw1h44 sw1h55 sw1h75 END // katana
-ACTION_DEFINE_ARRAY fixed_18 BEGIN dart01 dart02 dart03 dart04 END // dart
-ACTION_DEFINE_ARRAY fixed_19 BEGIN bow05 bow06 bow18 bow26 rr#bow02 rr#bow03 rr#bow04 rr#bow05 END // short bow
-ACTION_DEFINE_ARRAY fixed_20 BEGIN bow03 bow04 bow17 bow25 bow01 bow02 bow16 bow24 END // long bow
-ACTION_DEFINE_ARRAY fixed_21 BEGIN arow01 arow02 arow11 arow15 END // arrow
-ACTION_DEFINE_ARRAY fixed_22 BEGIN xbow04 xbow05 xbow09 xbow18 xbow01 xbow02 xbow07 xbow17 END // crossbow
-ACTION_DEFINE_ARRAY fixed_23 BEGIN bolt01 bolt02 bolt06 bolt09 END // bolt
-ACTION_DEFINE_ARRAY fixed_24 BEGIN slng01 slng02 slng04 slng03 slng10 END // sling
-ACTION_DEFINE_ARRAY fixed_25 BEGIN bull01 bull02 bull03 bull05 bull06 END // bullet
-ACTION_DEFINE_ARRAY fixed_26 BEGIN leat01 leat02 leat11 leat12 leat04 leat05 leat07 leat15 leat10 END // leather armor
-ACTION_DEFINE_ARRAY fixed_27 BEGIN chan01 chan02 chan08 chan07 chan21 chan04 chan05 chan12 chan13 END // chainmail armor
-ACTION_DEFINE_ARRAY fixed_28 BEGIN plat01 plat07 plat02 plat10 plat04 plat05 plat14 plat19 plat23 plat06 plat09 END // plate armor
-ACTION_DEFINE_ARRAY fixed_29 BEGIN shld08 shld09 shld10 shld17 rr#buc02 rr#buc03 rr#buc04 END // buckler in modded game
-ACTION_DEFINE_ARRAY fixed_30 BEGIN shld08 shld09 shld10 shld17 shld01 shld11 shld12 shld02 shld28 END // small shield and vanilla buckler
-ACTION_DEFINE_ARRAY fixed_31 BEGIN shld03 shld13 shld14 shld04 shld29 END // medium shield
-ACTION_DEFINE_ARRAY fixed_32 BEGIN shld05 shld15 shld16 shld18 shld06 shld19 shld30 END // tower shield
-ACTION_DEFINE_ARRAY fixed_33 BEGIN helm01 helm08 helm09 helm10 helm11 helm12 helm13 helm22 END // headgear
-ACTION_DEFINE_ARRAY fixed_34 BEGIN brac01 brac02 brac03 brac13 brac14 brac15 END // bracer/gauntlets
-ACTION_DEFINE_ARRAY fixed_35 BEGIN  END // boots
-ACTION_DEFINE_ARRAY fixed_36 BEGIN  END // belt
-ACTION_DEFINE_ARRAY fixed_37 BEGIN  END // cloak
-ACTION_DEFINE_ARRAY fixed_38 BEGIN clck12 clck13 clck14 clck18 clck09 clck10 clck11 END // robe
-ACTION_DEFINE_ARRAY fixed_39 BEGIN  END // amulet
-ACTION_DEFINE_ARRAY fixed_40 BEGIN  END // ring
-ACTION_DEFINE_ARRAY fixed_41 BEGIN  END // gem
-ACTION_DEFINE_ARRAY fixed_42 BEGIN  END // wand
-ACTION_DEFINE_ARRAY fixed_43 BEGIN  END // bag
-ACTION_DEFINE_ARRAY fixed_44 BEGIN  END // misc
-ACTION_DEFINE_ARRAY fixed_45 BEGIN potn08 potn52 potn55 potn20 potn17 END // potion
-ACTION_DEFINE_ARRAY fixed_46 BEGIN scrl07 scrl03 scrl04 scrl05 scrl06 scrl08 scrl09 scrl15 END // scroll
-// items listed in these arrays will always be positioned at the top of their group, in the order specified
-// if you disagree with something then add, remove or switch places as you see fit
+ bastard_sword
+ long_sword
+ short_sword
+ twohanded_sword
+ battleaxe
+ handaxe
+ scimitar
+ katana
+ wakizashi
+ ninjato
+ dagger
+ hammer
+ flail
+ morning_star
+ mace
+ club
+ halberd
+ spear
+ staff
+ comp_long_bow
+ long_bow
+ short_bow
+ heavy_xbow
+ light_xbow
+ dart
+ sling
+ arrow
+ bolt
+ bullet
+ buckler
+ small_shield
+ medium_shield
+ tower_shield
+ leather
+ chainmail
+ plate
+ helmet
+ robe
+ cloak
+ belt
+ boots
+ bracers
+ bag
+ amulet
+ ring
+ wand
+ potion
+ scroll
+ arcane1
+ arcane2
+ arcane3
+ arcane4
+ arcane5
+ arcane6
+ arcane7
+ arcane8
+ arcane9
+ divine1
+ divine2
+ divine3
+ divine4
+ divine5
+ divine6
+ divine7
+ gem
+ misc
 
 END
 
@@ -147,8 +168,9 @@ DEFINE_PATCH_FUNCTION buy BEGIN
   END
   WRITE_LONG 0x30 i
   PATCH_FOR_EACH off IN 0x34 0x4c 0x70 BEGIN
-    PATCH_IF LONG_AT off>=offset BEGIN
-      WRITE_LONG off (LONG_AT off - (number - i)*4)
+    delta=i - number
+    PATCH_IF (LONG_AT off>offset) || (LONG_AT off=offset && number=0)BEGIN
+      WRITE_LONG off (THIS+delta*4)
     END
   END
 END
@@ -158,178 +180,120 @@ END
 DEFINE_PATCH_FUNCTION items_to_order BEGIN
 
 PATCH_IF SOURCE_SIZE>0x9b BEGIN PATCH_SILENT
-  FOR (i=0;i<47;i+=1) BEGIN SET $counter("%i%")=0 END
-  delete=0
-  CLEAR_ARRAY sales GET_OFFSET_ARRAY sales 0x34 4 0x38 4 0 0 0x1c
-  PHP_EACH sales AS ind => res BEGIN
-    READ_ASCII res item_entry (0x1c)
-    READ_ASCII res item_name (8) NULL
-    PATCH_IF FILE_EXISTS_IN_GAME ~%item_name%.itm~ BEGIN INNER_ACTION BEGIN
-     COPY_EXISTING - ~%item_name%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN // seems i can't check the size if i do INNER_PATCH_FILE
-      READ_SHORT 0x1c type
-      READ_ASCII 0x22 anim (2)
-      READ_BYTE  0x31 prof
-      order =                // here starts the identification process that determines whichever group an item belongs to
-          type=0x10                                         ? 0  // dagger
-        : type=0x13&&prof=0x5b                              ? 1  // short sword
-        : type=0x14&&prof=0x5a                              ? 2  // long sword
-        : type=0x14&&prof=0x59                              ? 3  // bastard sword
-        : type=0x14&&prof=0x5d                              ? 4  // 2handed sword
-        : type=0x19                                         ? 5  // axe
-        : type=0x15                                         ? 6  // hammer
-        : type=0x11&&prof=0x73                              ? 7  // club
-        : type=0x11&&prof=0x65                              ? 8  // mace
-        : type=0x16                                         ? 9  // morning star
-        : type=0x17                                         ? 10 // flail
-        : type=0x1a                                         ? 11 // staff
-        : type=0x1e                                         ? 12 // halberd
-        : type=0x1d                                         ? 13 // spear
-        : type=0x14&&prof=0x5f&&(~%anim%~ STRING_EQUAL_CASE ~sc~)                 ? 14 // scimitar
-        : type=0x14&&(prof=0x5b||prof=0x5f)&&(~%anim%~ STRING_EQUAL_CASE ~s1~)    ? 15 // ninja-to
-        : type=0x13&&(prof=0x5e||prof=0x5f)                 ? 16 // wakizashi
-        : type=0x14&&prof=0x5e                              ? 17 // katana
-        : type=0x18                                         ? 18 // dart
-        : type=0xf&&prof=0x69                               ? 19 // short bow
-        : type=0xf&&prof=0x68                               ? 20 // long bow
-        : type=0x5                                          ? 21 // arrow
-        : type=0x1b                                         ? 22 // crossbow
-        : type=0x1f                                         ? 23 // bolt
-        : type=0x12                                         ? 24 // sling
-        : type=0xe                                          ? 25 // bullet
-        : type=0x2&&(~%anim%~ STRING_EQUAL_CASE ~2a~)       ? 26 // leather armor
-        : type=0x2&&(~%anim%~ STRING_EQUAL_CASE ~3a~)       ? 27 // chainmail armor
-        : type=0x2&&(~%anim%~ STRING_EQUAL_CASE ~4a~)       ? 28 // plate armor
-        : type=0xc&&(~%anim%~ STRING_EQUAL_CASE ~d1~)       ? 29 // buckler in modded game
-        : type=0xc&&(~%anim%~ STRING_EQUAL_CASE ~d2~)       ? 30 // small shield and vanilla buckler
-        : type=0xc&&((~%anim%~ STRING_EQUAL_CASE ~d3~)||(~%anim%~ STRING_EQUAL_CASE ~c0~))     ? 31 // medium shield
-        : type=0xc&&((~%anim%~ STRING_EQUAL_CASE ~d4~)||(~%anim%~ STRING_EQUAL_CASE ~c4~))     ? 32 // tower shield
-        : type=0x7                                          ? 33 // headgear
-        : type=0x6                                          ? 34 // bracer/gauntlets
-        : type=0x4                                          ? 35 // boots
-        : type=0x3                                          ? 36 // belt
-        : type=0x20                                         ? 37 // cloak
-        : type=0x2&&((~%anim%~ STRING_EQUAL_CASE ~2w~)||(~%anim%~ STRING_EQUAL_CASE ~3w~)||(~%anim%~ STRING_EQUAL_CASE ~4w~)) ? 38 // robe
-        : type=0x1                                          ? 39 // amulet
-        : type=0xa                                          ? 40 // ring
-        : type=0x22                                         ? 41 // gem
-        : type=0x23                                         ? 42 // wand
-        : type=0x24                                         ? 43 // bag
-        : type=0x9                                          ? 45 // potion - yes, 44 is reserved for the last check
-        : type=0xb                                          ? 46 // scroll
-        :                                                     44 // book, wooden stake, figurine or other crap
+  max=0
+  del=0
+  PHP_EACH order AS i => r BEGIN
+    CLEAR_ARRAY EVAL ~%r%~
+  END
+  GET_OFFSET_ARRAY sales 0x34 4 0x38 4 0 0 0x1c
+  PHP_EACH sales AS i => r BEGIN
+    READ_ASCII r item_entry (0x1c)
+    READ_ASCII r item_name (8) NULL
+    PATCH_IF FILE_EXISTS_IN_GAME ~%item_name%.itm~ BEGIN
+      INNER_ACTION BEGIN
+        COPY_EXISTING - ~%item_name%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+          LPM identify_item
 
-      SPRINT $name("%order%"$counter("%order%")) ~%item_name%~   // ITM filename
-      SPRINT $entry("%order%"$counter("%order%")) ~%item_entry%~ // item entry's ASCII copypaste
-      SET $sorted("%order%"$counter("%order%")) = 0              // whether the entry was already rearranged - not yet
-      SET $counter("%order%")+=1
-    END ELSE BEGIN delete+=1 END END END ELSE BEGIN delete+=1 END // SOURCE_SIZE INNER_PATCH_FILE FILE_EXISTS_IN_GAME
-  END // PHP_EACH
+          // scrolls require additional identification routine
+          PATCH_IF scroll BEGIN
+            READ_LONG  0x64 ab_off
+            READ_SHORT 0x68 ab_num
+            READ_LONG  0x6a ef_off
+            FOR (j=0;j<ab_num;j+=1) BEGIN
+              READ_SHORT ab_off+j*0x38+0x1e ef_num
+              READ_SHORT ab_off+j*0x38+0x20 ef_ind
+              FOR (k=0;k<ef_num;k+=1) BEGIN
+                READ_SHORT ef_off+(ef_ind+k)*0x30 op
+                PATCH_IF op=146 || op=148 BEGIN // find out if the scroll can cast a SPL
+                  READ_ASCII ef_off+(ef_ind+k)*0x30+0x14 spell (8) NULL
+                  PATCH_IF FILE_EXISTS_IN_GAME ~%spell%.spl~ BEGIN
+                    INNER_ACTION BEGIN
+                      COPY_EXISTING - ~%spell%.spl~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+                        READ_SHORT 0x1c tp
+                        READ_LONG 0x34 lvl
+                        PATCH_IF tp=1 && lvl>0 && lvl<10 BEGIN // arcane
+                          SPRINT itemtype ~arcane%lvl%~
+                        END
+                        PATCH_IF tp=2 && lvl>0 && lvl<8 BEGIN // divine
+                          SPRINT itemtype ~divine%lvl%~
+                        END // should you find an arcane/divine scroll not in it's expected place - 
+                      END //
+                    END // e.g. among greens, - then SPL is either invalid or missing
+                  END
+                  k=ef_num // stop looking once 146/148 is found - if a scroll has several of those, then
+                  j=ab_num // even if that's not a bug we still can't guess correctly which one is 'main'
+                END // PATCH_IF op=146 || op=148
+              END // FOR k
+            END // FOR j
+          END // PATCH_IF scroll
 
-  z=46
-  // scrolls are damn bitchy things, thanks to Demi they need inner sorting :)
-  // 0-8 are arcane
-  // 9-15 are divine
-  // 16 is what remains; green scrolls belong here, but the array of fixed positions will drag them to the top
-  FOR (i=0;i<17;i+=1) BEGIN SET $scroll_counter("%i%")=0 END
-  bad_scroll=0
-  FOR (i=0;i<EVAL $counter("%z%");i+=1) BEGIN
-    bastard=0 // yep, bastard, as i forgot to put it here and for a full hour couldn't figure out what was wrong
-    SPRINT name $name("%z%""%i%")
-    INNER_PATCH_FILE ~%name%.itm~ BEGIN // file is valid, else it wouldn't have been enlisted, no need to check twice
-      CLEAR_ARRAY itm_head GET_OFFSET_ARRAY itm_head ITM_V10_HEADERS
-      PHP_EACH itm_head AS ind => res BEGIN
-        CLEAR_ARRAY effects GET_OFFSET_ARRAY2 effects res ITM_V10_HEAD_EFFECTS
-        PHP_EACH effects AS ind2 => res2 BEGIN
-          READ_SHORT res2 opcode
-          PATCH_IF (opcode=146||opcode=148)&&bastard=0 BEGIN // if can cast spell
-            READ_ASCII res2+0x14 resource (8) NULL
-            PATCH_IF FILE_EXISTS_IN_GAME ~%resource%.spl~ BEGIN INNER_ACTION BEGIN
-             COPY_EXISTING - ~%resource%.spl~ override PATCH_IF SOURCE_SIZE>0x72 BEGIN // same again, can't do INNER_PATCH_FILE
-              READ_SHORT 0x1c type
-              READ_LONG  0x34 level
-              PATCH_IF type=1 BEGIN                // if arcane
-                FOR (j=1;j<10;j+=1) BEGIN
-                  PATCH_IF level=j BEGIN
-                    x=j - 1
-                    SPRINT $scroll_name("%x%"$scroll_counter("%x%")) $name("%z%""%i%")
-                    SPRINT $scroll_entry("%x%"$scroll_counter("%x%")) $entry("%z%""%i%")
-                    SET $scroll_counter("%x%")+=1
-                    bastard=1
-                  END
-                END
-              END
-              PATCH_IF type=2 BEGIN                // if divine
-                FOR (j=1;j<8;j+=1) BEGIN
-                  PATCH_IF level=j BEGIN
-                    x=j+8
-                    SPRINT $scroll_name("%x%"$scroll_counter("%x%")) $name("%z%""%i%")
-                    SPRINT $scroll_entry("%x%"$scroll_counter("%x%")) $entry("%z%""%i%")
-                    SET $scroll_counter("%x%")+=1
-                    bastard=1
-                  END
-                END
-              END
-              PATCH_IF !(type=1||type=2) BEGIN      // if neither = crap
-                x=16
-                SPRINT $scroll_name("%x%"$scroll_counter("%x%")) $name("%z%""%i%")
-                SPRINT $scroll_entry("%x%"$scroll_counter("%x%")) $entry("%z%""%i%")
-                SET $scroll_counter("%x%")+=1
-                bastard=1
-              END
-            END ELSE BEGIN bad_scroll+=1 END END END ELSE BEGIN bad_scroll+=1 END // SOURCE_SIZE INNER_PATCH_FILE FILE_EXISTS_IN_GAME
-          END // if can cast spell
-          PATCH_IF (!(opcode=146||opcode=148))&&bastard=0 BEGIN // if can't cast spell = crap
-            SPRINT $scroll_name("16"$scroll_counter("16")) EVAL $name("%z%""%i%")
-            SPRINT $scroll_entry("16"$scroll_counter("16")) EVAL $entry("%z%""%i%")
-            SET $scroll_counter("16")+=1
-            bastard=1
+          PATCH_IF VARIABLE_IS_SET $ EVAL "%itemtype%"("%item_name%") BEGIN // if we find a duplicate item
+            del+=1
+          END ELSE BEGIN
+            READ_STRREF 0xc idname // item's identified name
+            INNER_PATCH_SAVE idname ~%idname%~ BEGIN // clean up CRLFs and double space
+              REPLACE_TEXTUALLY ~[%LNL%%MNL%%WNL%]\|[ %TAB%][ %TAB%]+~ ~ ~
+            END
+            READ_LONG 0x34 cost
+            max = max<cost ? cost : max
+            SPRINT $ EVAL "%itemtype%"("%item_name%") ~%item_entry%~
+            SPRINT $ EVAL "%itemtype%_idn"("%item_name%") ~%idname%~
+            SET $ EVAL "%itemtype%_cst"("%item_name%") = cost
           END
-        END // PHP_EACH
-      END // PHP_EACH
-    END // INNER_PATCH_FILE
-  END // FOR
-  scroll_counter=0
-  FOR (i=0;i<17;i+=1) BEGIN
-    FOR (j=0;j<$scroll_counter("%i%");j+=1) BEGIN
-      SPRINT $name("%z%""%scroll_counter%") $scroll_name("%i%""%j%")
-      SPRINT $entry("%z%""%scroll_counter%") $scroll_entry("%i%""%j%")
-      scroll_counter+=1
-    END
+        END ELSE BEGIN del+=1 END
+      END
+    END ELSE BEGIN del+=1 END
   END
-  SET $counter("%z%") -= bad_scroll
-  delete+=bad_scroll
-  // end of scrolls
 
-  READ_LONG 0x34 offset
-  READ_LONG 0x38 count
-  DELETE_BYTES offset delete*0x1c   // if we ran across invalid items or scrolls with invalid spells
-  WRITE_LONG 0x38 count - delete
-  PATCH_FOR_EACH off IN 0x2c 0x4c 0x70 BEGIN
-    READ_LONG off another
-    PATCH_IF another>=offset BEGIN
-      WRITE_LONG off another - delete*0x1c
-    END
-  END
-  FOR (i=0;i<47;i+=1) BEGIN                      // global item type loop
-    PATCH_IF $counter("%i%")>0 BEGIN             // if there's at least one of this type - no need to waste electric power
-      PHP_EACH $fixed("%i%") AS ind => res BEGIN // load the hardcoded array
-        FOR (j=0;j<$counter("%i%");j+=1) BEGIN   // check every item in this type group
-          SPRINT name $name("%i%""%j%")
-          PATCH_IF (~%name%~ STRING_EQUAL_CASE ~%res%~) BEGIN
-            SET $sorted("%i%""%j%") = 1
-            WRITE_ASCIIE offset $entry("%i%""%j%") (0x1c)
-            offset+=0x1c
+  // rebuild each itemtype's array, ordering first by cost, then alphabetically
+  PHP_EACH order AS i => r BEGIN // i = unused, r = itemtype
+    CLEAR_ARRAY aux
+    PHP_EACH "%r%" AS i2 => r2 BEGIN // i2 = item_name, r2 = item_entry
+      min = max+1
+      SPRINT low ~~
+      SPRINT temp ~~
+      PHP_EACH "%r%_cst" AS i3 => r3 BEGIN // i3 = item_name, r3 = cost
+        PATCH_IF r3<min BEGIN
+          min=r3
+          SPRINT temp ~%i3%~
+          SPRINT low EVAL ~%%r%_idn_%i3%%~
+        END
+        PATCH_IF r3=min BEGIN // if two items cost the same, sort them alphabetically
+          PATCH_IF (EVAL ~%%r%_idn_%i3%%~ STRING_COMPARE_CASE ~%low%~) < 0 BEGIN
+            SPRINT temp ~%i3%~
+            SPRINT low EVAL ~%%r%_idn_%i3%%~
           END
         END
       END
-      FOR (j=0;j<$counter("%i%");j+=1) BEGIN     // now we simply put in what remains, if...
-        PATCH_IF $sorted("%i%""%j%")=0 BEGIN     // ...the previous block didn't sort it out
-          WRITE_ASCIIE offset $entry("%i%""%j%") (0x1c)
-          offset+=0x1c
-        END
-      END
-    END // PATCH_IF
-  END // FOR
+      SPRINT $aux("%temp%") EVAL ~%r%_%temp%~
+ //     SET $aux_cst("%temp%") = $ EVAL "%r%_cst"("%temp%")
+      SET $ EVAL "%r%_cst"("%temp%") = max+2
+    END
+    CLEAR_ARRAY EVAL ~%r%~
+    PHP_EACH aux AS i2 => r2 BEGIN // i2 = item_name, r2 = item_entry
+      SPRINT $ EVAL "%r%"("%i2%") EVAL ~%%r2%%~
+ //     SET $ EVAL "%r%_cst"("%i2%") = $"aux_cst"("%i2%")
+    END
+  END
+
+  // write items down in new order
+  READ_LONG 0x34 off
+  PHP_EACH order AS i => r BEGIN // i = unused, r = itemtype
+    PHP_EACH "%r%" AS i2 => r2 BEGIN // i2 = item_name, r2 = item_entry
+      WRITE_ASCIIE off EVAL ~%r2%~ (0x1c)
+      off+=0x1c
+ //     SET pr = EVAL ~%%r%_cst_%i2%%~  SPRINT nm EVAL ~%%r%_idn_%i2%%~  PATCH_PRINT ~%r%, %i2%, %nm%, %pr%~
+    END
+  END
+
+  // delete extra entries
+  PATCH_IF del BEGIN
+    DELETE_BYTES off del*0x1c
+    WRITE_LONG 0x38 THIS - del
+    PATCH_FOR_EACH off IN 0x2c 0x4c 0x70 BEGIN
+      WRITE_LONG off (THIS > LONG_AT 0x34) ? (THIS - del*0x1c) : THIS
+    END
+  END
 
 PATCH_VERBOSE END
 
@@ -354,8 +318,9 @@ DEFINE_PATCH_FUNCTION temple BEGIN
   END
   WRITE_LONG 0x74 i
   PATCH_FOR_EACH off IN 0x2c 0x34 0x4c BEGIN
-    PATCH_IF LONG_AT off>=offset BEGIN
-      WRITE_LONG off (LONG_AT off - (number - i)*12)
+    delta=i - number
+    PATCH_IF (LONG_AT off>offset) || (LONG_AT off=offset && number=0)BEGIN
+      WRITE_LONG off (THIS+delta*12)
     END
   END
 END
@@ -364,13 +329,15 @@ END
 
 DEFINE_PATCH_FUNCTION store BEGIN
 
+  WRITE_LONG 0x1c 0 // disable depreciation, as it's buggy
+
   PATCH_IF VARIABLE_IS_SET sell BEGIN WRITE_LONG  0x14 sell END
   PATCH_IF VARIABLE_IS_SET buy  BEGIN WRITE_LONG  0x18 buy  END
-  PATCH_IF VARIABLE_IS_SET diff BEGIN WRITE_SHORT 0x20 diff END
 
   PATCH_IF VARIABLE_IS_SET steal BEGIN
     PATCH_IF steal=0 BEGIN WRITE_BYTE 0x10 BYTE_AT 0x10 &`8 END
-    PATCH_IF steal=1 BEGIN WRITE_BYTE 0x10 BYTE_AT 0x10  |8 END
+    PATCH_IF steal!=0 BEGIN WRITE_BYTE 0x10 BYTE_AT 0x10  |8
+                            WRITE_SHORT 0x20 steal END
   END
 
   PATCH_IF VARIABLE_IS_SET fence BEGIN
@@ -412,6 +379,10 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY make_scrolls BEGIN
   sppr711 => ag#ir0n  // Regeneration
   sppr505 => ag#ir07  // True Sight
 END
+
+COPY_EXISTING spwi609a.bam ~override/sppr505a.bam~ // fix the True Seeing BAM
+ spwi609b.bam ~override/sppr505b.bam~
+ spwi609c.bam ~override/sppr505c.bam~
 
 
 ACTION_PHP_EACH make_scrolls AS ind => res BEGIN

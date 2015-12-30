@@ -145,7 +145,7 @@ plat18   => 22 // Red Dragon Scale
 plat19   => 7  // Full Plate + 2
 plat20   => 23 // Blue Dragon Plate
 plat21   => 7  // Enkidu's Full Plate +3
-plat22   => 7  // Shuruppak's Plate
+plat22   => 14 // Shuruppak's Plate
 plat23   => 7  // Full Plate Mail +2
 plat98   => 6  // Plate Mail Armor
 plat99   => 6  // Plate Mail Armor
@@ -393,7 +393,7 @@ li#gwer  => 0  // ????????
 li#were  => 0  // ????????
 lk#amb   => 66 // Amuana's Blessing
 lk#xarm  => 12 // Mithril Chain +4
-lotharmo => 0  // Lothaullan ????????
+lotharmo => 7  // Lothaullan ????????
 m#asleat => 66 // Apprentice Shadow Armor
 machan01 => 0  // Splint Mail "Mystra's Armor" ????????
 macmle01 => 1  // Woodland Armor
@@ -557,7 +557,7 @@ zyplatn8 => 164 // Bladesinger Chain +4 ????????
 
 anoplat  => 7  // Anomen's Armour
 cmnikl1  => 67 // Nikita's Leather Armor
-dw#gplat => 6  // Plate Mail
+dw#gplat => 134 // Plate Mail
 ep#mela2 => 2  // Studded Leather Armor +2
 ep#mela3 => 2  // Studded Leather Armor +1 ????????
 kiyoarm1 => 36 // Verdant Vigil
@@ -698,7 +698,6 @@ OUTER_SET $armor("leat19")   = 3  // Shadow Dragon Scale
 OUTER_SET $armor("leat23")   = 3  // Trollhide +4
 OUTER_SET $armor("leat24")   = 1  // Grandmaster's Armor +5
 OUTER_SET $armor("plat17")   = 7  // Armor of the Hart +3
-OUTER_SET $armor("plat22")   = 14 // Shuruppak's Plate
 
 END
 

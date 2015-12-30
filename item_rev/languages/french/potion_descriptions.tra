@@ -1,0 +1,254 @@
+@3000=~Potion de Résistance au Feu~
+@3001=~Cette potion confère à celui qui la boit 50 % de résistance à tous les dégâts de feu, qu'ils soient d'origine magique ou non. Elle s'applique en plus de toutes les autres résistances dont le buveur pourrait bénéficier. L'usage de plusieurs de ces potions ne cumule pas leur effet. L'effet dure 5 tours et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3002=~Potion de Force de Géant des Collines~
+@3003=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant des collines (19), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Guerrier~
+@3004=~Potion de Force de Géant du Givre~
+@3005=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant du givre (21), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Guerrier~
+@3006=~Potion de Force de Géant du Feu~
+@3007=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant de feu (22), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Guerrier~
+@3008=~Potion de Force de Géant des Nuages~
+@3009=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant des nuages (23), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Guerrier~
+@3010=~Potion de Force de Géant des Tempêtes~
+@3011=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant des tempêtes (24), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Guerrier~
+@3012=~Potion de Soins~
+@3013=~Utilisées aussi bien dans les foyers des paysans que dans les donjons obscurs, ces simples concoctions sont monnaie courante à Féérune. Absorbée en entier, cette potion restaure 10 points de vie à la personne qui la boit. L'effet est instantané et la potion est détruite dans le processus.
+
+Utilisable par :
+ Tous~
+@3014=~Potion d'Héroïsme~
+@3015=~Cette potion, puissamment enchantée, accorde à celui qui la boit courage et moral durant les batailles. Les jets d'attaque, de dégâts et de moral du buveur sont tous augmentés de 2. La potion augmente également les points de vie du bénéficiaire de 10 %, et ces points de vie supplémentaires sont perdus en premier quand le buveur subit des dégâts. L'usage de plusieurs de ces potions ne cumule pas leurs effets. Les effets de cette potion durent 5 tours et ne peuvent être dissipés.
+
+Utilisable par :
+ Tous~
+@3016=~Potion d'Invisibilité~
+@3017=~Béquilles des voleurs de pacotille et des aventuriers froussards, mais également outils puissants entre les mains d'un assassin entraîné ou d'un rôdeur en reconnaissance, ces potions sont bien connues à Féérune. Cette potion confère une invisibilité similaire à celle du sort de magicien de second niveau du même nom. Toute autre action que le simple déplacement mettra fin à l'état d'invisibilité. En dehors d'une telle action, l'effet durera 5 tours.
+
+Utilisable par :
+ Tous~
+@3018=~Potion d'Invulnérabilité~
+@3019=~Cette potion confère une immunité aux armes non-magiques ainsi qu'aux attaques non-magiques de certaines créatures. Elle accorde également à son utilisateur une meilleure protection contre les autres formes d'attaque, accordant un bonus de +2 à la classe d'armure et aux jets de sauvegarde. Les effets de cette potion durent 1 tour et ne peuvent être dissipés.
+
+Utilisable par :
+ Guerrier~
+@3020=~Potion de Force de Géant des Pierres~
+@3021=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant des pierres (20), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Guerrier~
+@3022=~Huile de Feux Ardents~
+@3023=~Cette huile particulière s'applique sur une arme de mêlée ou de jet et l'enflamme instantanément sans risques de blesser le porteur. Les armes enduites de cette huile de feux ardents infligent 1d6 points de dégâts de feu supplémentaires au contact. L'effet dure 1 tour.
+
+Utilisable par :
+ Tous~
+@3024=~Potion de Rapidité~
+@3025=~Utiles pour parcourir plus de chemin ou s'échapper rapidement, ces potions sont couramment utilisées par les éclaireurs et les messagers. La créature affectée se déplace deux fois plus vite, et peut effectuer une attaque supplémentaire chaque round. Par ailleurs, la vitesse à laquelle la créature régénère ses points de vie ou subit des dégâts de poison est également doublée. Les effets de la potion ne réduisent cependant pas le temps d'incantation des sorts. Les effets de cette potion ne peuvent être cumulés à ceux de potions identiques, ni à ceux de quelque autre forme de magie similaire. Les effets de cette potion durent 1 tour et ne peuvent être dissipés.
+
+Utilisable par :
+ Tous~
+@3026=~Potion Rouge~
+@3027=~Cette potion est l'un des élixirs les plus bizarres qui soient, et certains sorciers en rêvent, à ce qu'il paraît. Celui qui la boit devient la personne la plus faible et la moins sage, mais aussi la plus intelligente à avoir jamais vécu. Pour une durée de 8 heures, l'intelligence du buveur est fixée à 25 tandis que sa sagesse et sa force sont réduites à 3, aussi convient-il de bien réfléchir avant de déboucher la fiole.
+
+Utilisable par :
+ Tous~
+@3028=~Potion Violette~
+@3029=~L'une des potions les plus curieuses des Royaumes. Celui qui la boit voit ses muscles prendre des proportions inhumaines, et sa dextérité comme sa constitution se réduire à celles d'une limace. Pour une durée de 8 heures, la force du buveur est fixée à 25 tandis que sa dextérité et sa constitution sont réduites à 3, aussi convient-il de bien réfléchir avant de la boire.
+
+Utilisable par :
+ Tous~
+@3030=~Élixir de Santé~
+@3031=~L'Élixir de Santé est une puissante mixture destinée à purifier le corps de toute impureté. Elle guérit le buveur de tous les poisons et maladies, puis soigne le bénéficiaire de 10 points de vie pour récupérer plus vite.
+
+Utilisable par :
+ Tous~
+@3032=~Potion d'Absorption~
+@3033=~Il existe de terrifiantes créatures dans les régions sauvages de Féérune qui sont un vrai défi même pour les plus fiers des berserkers Rashémi. C'est pourquoi les sorcières de Rashéménie élaborent cette potion pour renforcer la résistance de leurs guerriers. Cette potion protégera celui qui la boit des attaques physiques qui lui seront portées, de telle sorte que seul les plus fortes seront ressenties. La résistance aux dégâts physiques du buveur est augmentée de 20 % pour une durée de 5 tours. L'usage de plusieurs de ces potions ne cumule pas leur effet.
+
+Utilisable par :
+ Tous~
+@3034=~Potion d'Évasion~
+@3035=~Cette potion confère des réflexes hors du commun et une extraordinaire agilité à quiconque la boit. Par le biais d'un effort quasi surhumain, le buveur arrive à se mettre hors de danger quelques secondes avant qu'une décharge d'énergie ne l'atteigne, et ainsi à éviter les dégâts provenant de décharges d’énergie telles que les souffles, les sorts de Boule de Feu, etc. Après avoir bu cette potion, l'utilisateur peut éviter les effets des sorts suivant : Mains Ardentes, Boule de Feu, Éclair, Appel de la Foudre, Colonne de Feu, Cône de Froid, Feu Solaire, Chaîne d'Éclairs, Boule de Feu à Retardement et toutes les formes de souffles de dragon. L'effet dure 1 tour et ne peut être dissipé.
+
+Utilisable par :
+ Moine
+ Voleur~
+@3036=~Antidote~
+@3037=~Comme son nom l'indique, cette potion neutralise tout poison affectant le buveur. La purification est instantanée, et la potion ne sert qu'une seule fois.
+
+Utilisable par :
+ Tous~
+@3038=~Potion de Clarté~
+@3039=~Cette potion va permettre à son utilisateur de garder clarté d'esprit et contrôle de soi devant la prolifération du chaos et de la folie. Après avoir bu cette potion, le buveur est envahi par un sentiment de calme et de raison, à tel point qu'il ne pourra être affecté par les influences mentales néfastes telles que la peur, la débilité mentale, les charmes, ou la confusion. Cet effet dure 5 tours.
+
+Utilisable par :
+ Tous~
+@3040=~Potion de Résistance au Froid~
+@3041=~Cette potion confère à celui qui la boit 50 % de résistance à tous les dégâts de froid, qu'ils soient d'origine magique ou non. Elle s'applique en plus de toutes les autres résistances dont le buveur pourrait bénéficier. L'usage de plusieurs de ces potions ne cumule pas leur effet. L'effet dure 5 tours et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3042=~Étrange Potion de Rapidité~
+@3043=~Cette huile étrangement trouble semble pouvoir augmenter les capacités de déplacement et de combat de celui qui la boit. La créature affectée devrait se déplacer deux fois plus vite, et pouvoir effectuer une attaque supplémentaire chaque round. Par ailleurs, la vitesse à laquelle la créature régénère ses points de vie ou subit des dégâts de poison est également doublée. Les effets de la potion ne réduisent cependant pas le temps d'incantation des sorts. Les effets de cette potion ne peuvent être cumulés à ceux de potions identiques, ni à ceux de quelque autre forme de magie similaire. Les effets de cette potion durent 1 tour et ne peuvent être dissipés.
+
+Utilisable par :
+ Tous~
+@3044=~Potion de Défense~
+@3045=~Cet épais breuvage dégage un étrange parfum métallique, comme celui du fer en contact avec la peau. Quand cette potion est consommée, la peau du buveur devient aussi dure que du fer, accordant un bonus de +4 à la classe d'armure pour 5 tours. L'usage de plusieurs de ces potions ne cumule pas leur effet.
+
+Utilisable par :
+ Tous~
+@3046=~Étrange Potion de Soins~
+@3047=~Prise d'une traite, cette potion étrangement trouble semble restaurer 10 points de vie à son utilisateur. L'effet est instantané et la potion est détruite dans le processus.
+
+Utilisable par :
+ Tous~
+@3048=~Potion d'Explosions~
+@3049=~Au contact de l'air, ce mélange alchimique s'enflamme et explose aussitôt, infligeant 6d6 points de dégâts (jet de sauvegarde contre les souffles pour moitié) à tout ceux qui se trouvent dans la zone d'effet. Cette potion peut être jetée à une distance maximale de 12 mètres, après quoi elle heurte le sol et explose en une boule de feu.
+
+Utilisable par :
+ Tous~
+@3050=~Potion d'Haleine Ardente~
+@3051=~La potion d'haleine ardente doit être utilisée sur votre adversaire : elle transforme alors magiquement votre gorge de façon à vous faire cracher du feu, pour 6d10 points de dégâts. La cible a le droit à un jet de sauvegarde contre les souffles pour réduire les dégâts de moitié.
+
+Utilisable par :
+ Tous~
+@3052=~Potion d'Endurance~
+@3053=~Une fois consommée, l'énergie de cette potion envahit littéralement le corps de celui qui la boit et augmente ses points de vie de 20 %. Ces points de vie supplémentaires sont perdus en premier lorsque le buveur subit des dégâts, cependant, l'usage de plusieurs de ces potions ne cumule pas leur effet. L'effet de cette potion dure 5 tours et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3054=~Potion de Vocalisation~
+@3055=~L'utilisateur de cette potion peut lancer des sorts avec un élément verbal sans devoir faire le moindre bruit. En pratique elle annule l'effet de silence et y immunise l'utilisateur pendant toute la durée d'action de la potion. L'effet dure 1 tour et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3056=~Potion de Vision~
+@3057=~La personne buvant cette potion devient capable de voir dans l'obscurité aussi bien qu’en plein jour, ainsi que de détecter les créatures invisibles. Le buveur est également guéri de toute forme de cécité et y est immunisé pendant toute la durée d'action de la potion, qui est de 1 tour.
+
+Utilisable par :
+ Tous~
+@3058=~Potion d'Isolation~
+@3059=~Cette potion confère à celui qui la boit 50 % de résistance à tous les dégâts d'électricité, qu'ils soient d'origine magique ou non. Elle s'applique en plus de toutes les autres résistances dont le buveur pourrait bénéficier. L'usage de plusieurs de ces potions ne cumule pas leur effet. L'effet dure 5 tours et ne peut être dissipé.
+
+Inutilisable par :
+ Tueur de magiciens~
+@3060=~Étrange Antidote~
+@3061=~Comme son nom l'indique, cette potion devrait neutraliser tout poison affectant le buveur. La purification est instantanée, et la potion ne sert qu'une seule fois.
+
+Utilisable par :
+ Tous~
+@3062=~Potion de Dissipation de la Magie~
+@3063=~Ce breuvage rare est un élixir anti-magie incroyablement puissant puisqu'il dissipe tout les effets magiques affectant le buveur, qu’ils soient bénéfiques ou néfastes.
+
+Utilisable par :
+ Tous~
+@3064=~Potion de Résistance à la Magie~
+@3065=~Cette potion confère 20 % de résistance à la magie à son utilisateur, ou rajoute 20 % s'il bénéficie déjà d'une quelconque résistance magique. L'usage de plusieurs de ces potions ne cumule pas leur effet. L'effet dure 5 tours et ne peut être dissipé.
+
+Inutilisable par :
+ Tueur de magiciens~
+@3066=~Potion de Protection contre la Magie~
+@3067=~Ce puissant élixir imprègne le buveur d'une résistance de 50 % à toute forme de dégâts magiques et lui assure la réussite de tous ses jets de sauvegarde contre les sorts ou effets similaires. L'effet dure 1 tour et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3068=~Potion de Maître-Voleur~
+@3069=~Cette potion transforme temporairement celui qui la boit en maître voleur, augmentant ses talents de vol à la tire, de crochetage de serrures, de furtivité et de dissimulation dans l'ombre de 20 %, sans possibilité de cumuler les effets de plusieurs potions. Ces effets durent 5 tours et ne peuvent être dissipés.
+
+Utilisable par :
+ Barde
+ Voleur~
+@3070=~Potion de Restauration~
+@3071=~Appelées "prêtre de poche" par les aventuriers les plus cyniques, ces infusions sacrées restaurent la force vitale drainée par les créatures canalisant l'énergie négative. Le liquide irradie quand on l'approche d'un être vivant, cependant ses ingrédients sont impossibles à discerner.
+
+Utilisable par :
+ Tous~
+@3072=~Potion de Rétrovision~
+@3073=~Cette potion protégera celui qui la boit de toute forme d'attaque du regard, comme le regard déconcertant des ombres des roches ou le regard de domination des vampires. Cet effet dure 5 tours et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3074=~Potion de Perception~
+@3075=~Cette potion renforce la perception sensorielle de celui qui la boit. Ses capacités à détecter et à désamorcer les pièges se voient augmentées de 20 %, ainsi que sa capacité à détecter les illusions. De plus, il devient impossible à surprendre et ne peut pas être victime d'attaques sournoises. Ces effets durent 10 tours et ne peuvent être dissipés.
+
+Utilisable par :
+ Moine
+ Voleur~
+@3076=~Étrange Potion d'Invulnérabilité~
+@3077=~Cette potion confère une immunité aux armes non-magiques ainsi qu'aux attaques non-magiques de certaines créatures. Elle accorde également à son utilisateur une meilleure protection contre les autres formes d'attaque, accordant un bonus de +2 à la classe d'armure et aux jets de sauvegarde. Les effets de cette potion durent 1 tour et ne peuvent être dissipés. Le liquide présent dans la fiole a une apparence étrange, trouble, que vous n'aviez jamais remarquée avec d'autres potions.
+
+Utilisable par :
+ Guerrier~
+@3078=~Potion de Pouvoir~
+@3079=~Cet élixir est une version plus puissante de la Potion d'Héroïsme. Il est convoité par les aventuriers de tout Féérune, qu'ils soient magiciens ou guerriers, et pour cause, car il accorde à celui qui le boit un bonus de +2 aux jets d'attaque et de dégâts, octroie +20 % à tous les talents de voleur, et élève le moral de 2. De plus, tout sort lancé après l'ingestion de cette potion le sera comme si le lanceur possédait deux niveaux de plus. Enfin, la potion augmente les points de vie de 20 %, et ces points de vie supplémentaires sont perdus en premier lorsque l’utilisateur subit des dégâts. L'usage de plusieurs de ces potions ne cumule pas leurs effets. Les effets de cette potion durent 5 tours et ne peuvent être dissipés.
+
+Utilisable par :
+ Tous~
+@3080=~Potion de Régénération~
+@3081=~Cet élixir puissant octroie à son utilisateur la même faculté de régénération qu'un troll. Toutes les blessures subies sous l'influence de cette potion se refermeront littéralement sous vos yeux. L'utilisateur régénèrera 1 point de vie par seconde durant toute la durée de l'effet, qui est de 1 tour.
+
+Utilisable par :
+ Tous~
+@3082=~Potion de Mémoire~
+@3083=~Aussi connue sous le nom de "vin du magicien", cette potion est très recherchée par les mages et les bardes. Une fois bue, son utilisateur peut immédiatement se remémorer deux sorts qu'il a précédemment lancés. S’il n'a lancé aucun sort auparavant, la potion n'a pas d’effet. Les sorts remémorés doivent être de niveau 4 ou inférieur.
+
+Utilisable par :
+ Barde
+ Mage~
+@3084=~Potion de Rage~
+@3085=~Cette potion confère à celui qui la boit un tel surcroît d'énergie que ses muscles semblent gonfler par magie, fortifiant et enrageant son utilisateur. Le buveur gagne un bonus de +1 à ses jets d'attaque, +2 à ses jets de dégâts, et +2 à ses jets de sauvegarde contre les sorts. Cependant, le personnage est aussi incapable de réaliser des actions nécessitant de se concentrer, comme lancer des sorts ou utiliser des capacités de voleur. L'effet dure 1 tour et ne peut être dissipé.
+
+Utilisable par :
+ Tous~
+@3086=~Potion de Liberté~
+@3087=~Cette potion, une fois bue, agit de la même façon que le sort d'Action Libre. Celui qui la boit devient immunisé à tout effet susceptible de gêner sa liberté d'action ou de mouvement, qu'il soit de nature magique ou non. Les effets de la potion durent 5 tours et ne peuvent être dissipés.
+
+Utilisable par :
+ Tous~
+@3088=~Potion de Statue~
+@3089=~L'effet ressenti après avoir bu cette potion est similaire à celui du sort de Peau de Pierre. La peau de l'utilisateur est partiellement changée en pierre sans causer de réelle gêne, et il se voit protégé des attaques physiques telles que celles des armes de mêlée ou de jet. Les cinq premières attaques à l'encontre du buveur sont absorbées par la couche de pierre extérieure. Cette "peau" disparaîtra après avoir stoppé 5 attaques physiques, ou au bout de 5 tours.
+
+Utilisable par :
+ Tous~
+@3090=~Potion d'Antidote de Marek~
+@3091=~Plus puissante qu'un antidote normal, une petite dose de cette potion peut neutraliser même le plus mortel des poisons. La potion de Marek paraît contenir 10 doses. 
+
+Utilisable par :
+ Tous~
+@3092=~Fiole de Liquide Mystérieux~
+@3093=~Cette potion contient une étrange substance verte similaire aux résidus que vous avez pu voir dans certains des wagonnets de la mine. Le liquide paraît légèrement décolorer le fer lorsqu'il entre en contact avec celui-ci, et sans doute joue-t-il un rôle dans le mystérieux "fléau" qui rend friables les armes et les outils forgés. Les kobolds que vous avez tués ont dû souiller tout le minerai qui quittait la mine, même s'il est peu probable qu'ils aient eux-mêmes échafaudé un tel plan.~
+@3094=~Potion de Grands Soins~
+@3095=~Ces potions curatives sont trop chères pour la plupart des civils, et sont utilisées presque exclusivement par les soldats et les aventuriers. Absorbée en entier, cette potion restaure 30 points de vie à la personne qui la boit. L'effet est instantané et la potion est détruite dans le processus.
+
+Utilisable par :
+ Tous~
+@3096=~Potion de Festule l'Alchimiste~
+@3097=~Cette potion est censée mettre hors de combat un ogre. La petite étiquette prévient que le goût ayant été particulièrement travaillé pour plaire aux ogres, il ne convient pas d'en faire boire à qui que ce soit d'autre. En d'autres termes, cette potion est immonde au point de faire vomir tout autre qu'un ogre.~
+@3098=~Potion de Soins Supérieurs~
+@3099=~Avec le pouvoir de guérir des personnes au bord même de la mort, ces potions ne sont pas données. Une fois consommée, cette potion restaure 50 points de vie à la personne qui la boit. L'effet est instantané et la potion est détruite dans le processus.
+
+Utilisable par :
+ Tous~
+@3100=~Potion de Force de Géant du Givre pour Roublard~
+@3101=~Quand cette potion est consommée, l'individu gagne temporairement la force d'un géant du givre (21), et les bonus qui en découlent au toucher et aux dégâts quand il utilise des armes de jet ou de mêlée. L'effet dure 1 tour.
+
+Utilisable par :
+ Barde
+ Voleur~

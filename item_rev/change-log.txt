@@ -1,0 +1,253 @@
+v3 Beta 1.5 (9 Nov 2011)
+
+ - White Dragonscale Armor +5 now can't be used by Stalkers and Archers
+ - Ashen Scales now can be used by Beastmasters
+ - Fixed speed factor on all hammers (hamm01-hamm12)
+ - Fixed damage on Bolt of Lightning, Bolt +2, Bolt +3
+ - Fixed speed factor on Axe of Unyielding +4, Katana +2, Long Bow +2, Dart, Spear of Withering +3, Light Crossbow, Light Crossbow +1, Light Crossbow of Speed
+ - Fixed damage and speed factor on Silver Sword +4
+ - Standardized Aegis Fang +3 and Bruenor's Waraxe +3
+ - Fixed scrolls of Protection from Ailments/Undead/Alterations
+ - Fixed Kuo-Toa Bolts +2/+3
+ - Fixed the level of RING27, RING27B, RING33, RING34, RING39A, RING39B spells to 1 (as innates should have)
+ - Fixed the unidentified description of Daystar +4 to that of a long sword
+ - Malakar's Companion +2 now uses Katana/Wakizashi proficiency
+ - "Battering Ram" ability of Ring of the Ram now displays a string when used
+ - Hallowed Redeemer +2 and Unholy Reaver +5 now deal 1d10 base damage instead of 2d6
+ - Fixed weight of Usuno's Blade +3
+ - Horned Helm of the Rock now has correct "Gaze of Despair" tooltip
+
+ - Text updates (special thanks to Silent for many of these):
+     "item_descriptions.tra":
+      @1682 - "got" -> "god", "drawven" -> "dwarven", "Clanggedin" -> "Clangeddin", "Mordin" -> "Moradin", "Dumathion" -> "Dumathoin"
+      @2033 - added "Proficiency Type: Quarterstaff" line
+      @1900 - "Lock Picking" -> "Lockpicking"
+      @1370 - added "Archer" and "Stalker" to unusability list
+      @1364 - removed "Beast Master" from usability list
+      @1834, @1853, @1857 - added "Avenger" to usability list
+      @1864 - "Fire Resistance: +50%" -> "Fire Resistance: +50% bonus"
+      @1906 - "Only Usable By:" -> "Usable By:"
+      @2382 - changed proficiency to "Katana/Wakizashi", added "Beast Master" to usability list
+      @1009 - "peaciful" -> "peaceful"
+      @1254, @1256 - moved "Darkfire" to "Combat Abilities"
+      @1294 - added "Kensai" to usability list
+      @1817, @2004, @2051, @2150 - "additional damage" -> "additional poison damage"
+      @1684 - "field plate" -> "full plate" (3 times)
+      @1837 - "field plate" -> "full plate" (2 times)
+      @1896 - moved "Knockdown" to "Combat Abilities"
+      @1898 - "Spell turning" -> "Spell Turning" (with capital)
+      @1914 - "one to four" -> "1D4", moved "Soul Stealing" to "Combat Abilities"
+      @1195, @1930, @2165 - "Movement rate" -> "Movement Rate" (with capital)
+      @1930 - moved "Movement Rate" and "Saving Throws" to "Equipped Abilities"
+      @2043 - added "Note: always considered to be of +3 enchantment when determining what it can hit."
+      @2076 - moved "Icy" to "Combat Abilities"
+      @2102 - "Special Abilities" -> "Special Abilities (once per day)"
+      @2108 - "must save vs. spell or be silenced" -> "must save vs. spell or be silenced for 2 rounds"
+      @2110 - moved "Acidic" to "Combat Abilities"
+      @2212, @2214 - "additional points of damage" -> "additional points of poison damage"
+      @1763, @1813 - "Damage: 2D6" -> "Damage: 1D10"
+      @2165 - "slashing" -> "piercing"
+      added new @4079 (~Gaze of Despair~) line
+
+
+v3 Beta 1.6 (17 Dec 2011)
+
+ - Fixed and improved the usability description update routine
+ - Minor code optimizations and improvements
+ - Minor adjustments to Store Revisions component, as usual :rolleyes:
+ - Store Revisions component no longer moves merchants around (except Lady Yuth... yet), it's been not worth the trouble with compatibility
+ - Shuruppak's Plate is marked as mithral/light in unmodded game
+ - Revamped the Remove Cleric Weapon Restrictions from Multi-Classed Clerics component, it now has an option to include druids and to allow only half as many points in prohibited proficiencies
+ - Fused the public beta by Ardanis & Demivrgvs with Mike1072's work on v3
+ - Updated the local fixpack, the debug log should now be empty on vanilla+IR installs (meaning it's now reasonable to request it's contents from players' games)
+ - Fixed the True Seeing scroll icon
+ - Belt of Fire Giant Strength is now moved from the correct (ar5201) area
+ - Updated the weapon changes patching routine, it now reads data from table (which power users can adjust to their liking)
+ - Fixed thaco on Kuo-Toa Bolt +3, Bolt of Polymorphing +1, Flasher Master Bruiser Mate +1
+ - Fixed damage on Runehammer +3, Runehammer +4
+ - Fixed enchantment level on Asp's Nest +2, Dagger of Venom +2, Staff of Command +3, Cleric's Staff +3, Staff of Rynn +3, Cutthroat +3, Gram the Sword of Grief +4
+ - Fixed damage on Battleaxe +1, Spear +1
+ - Fixed damage and speed on Throwing Axe +1
+ - Fixed damage, thaco and speed factor on Hangard's Axe +1
+ - Fixed proficiency on Sword of Balduran +2, Taulmaril +3
+ - Reduced speed factor on all long bows (apparently, it was 7 in vanilla, not 8)
+ - Corrected speed factor on Yoshimo's Katana +2, Corthala Family Blade +2, Hindo's Doom +3, Hindo's Doom +4, Katana +3, Dak'kon's Zerth Blade +2, Malakar's Companion +2, Necaradan's Crossbow +3, Firetooth +4, Firetooth +5, Light Crossbow +3, Bruenor's Waraxe +3
+ - Corrected damage on Aegis Fang +3
+ - Corrected thaco on Wakizashi
+ - Corrected required STR on Heavy Crossbow of Affliction +4
+ - Reduced the cost of Ring of Protection +1/+2/+3 by one category
+ - Fixed attack rate on Boomerang Dagger +2, Poisoned Throwing Dagger
+ - Fixed Heartseeker +3 to not vorpalize creatures stated as immune to this effect
+ - Potions now display correct strings when consumed
+ - Ring of Holiness is now unusable by fighter/druids
+ - Added compatibility with Cursed Items Revision mod by Salk, IR can now be installed safely over it (but not the reverse!)
+ - Ring of Human Influence, Kaligun's Amulet of Magic Resistance now have correct tooltip
+ - Throwing Axe +1, Throwing Axe +2 now receive STR bonus damage to ranged mode
+ - Saving Grace +3 is now recognized as a small shield by IR's global components when the main component is installed
+ - Proficiency tweaks are removed from the main component
+ - Usuno's Blade +3 is now correctly recognized as ninja-to if main component is installed
+
+ - Text updates:
+     "item_descriptions.tra":
+      @1682 - "Damage: 2D4 + 3" -> "Damage: 2D4 + 4"
+      @1218, @1221, @1238, @1240, @1248, @1258, @1260, @1264, @1810, @1815, @2171, @2173, @2181, @2224, @2344 - reduced speed factor by 1
+      @2288, @2294, @2296, @2300 - reduced speed factor by 2
+      @2128 - removed "THAC0: +1 bonus"
+      @2382 - "Speed Factor: 0" -> "Speed Factor: 1"
+      @2290 - added "Requires: 12 Strength"
+      @2342 - "Speed Factor: 4" -> "Speed Factor: 1"
+      @1678 - "enhanded suit of of" -> "enhanced suit of"
+      @2156, @2158, @2210, @2356 - "one to four hit points" -> "1D4 hit points"
+      @2158 - "Foebane" ability is split into "Foebane" and "Holy"
+      @1779 - "creates creates" -> "creates"
+      @1040 - "2 point of damage each second for 2 rounds" -> "1 point of damage each second for 4 rounds"
+      @2150 - "additional damage" -> "additional poison damage"
+      @1141 - added "Note: always considered to be of +3 enchantment when determining what it can hit."
+      added new @4080 (~Magic Resistance~) line
+      @2126 - fixed STR and DEX requirements
+      @2076, @2078 - moved the speed factor line above the proficiency
+      proficiency type changes:
+        mace/morning star -> mace
+          @1113, @1116, @1128, @1141, @1143, @1145, @1147, @1155, @1161, @1163, @1174
+        mace/morning star -> flail/morningstar
+          @1118, @1121, @1123, @1135, @1137, @1139, @1176, @1178
+        flail -> flail/morningstar
+          @1108, @1111, @1130, @1132, @1165, @1167, @1168, @1172, @1480, @2302, @2303, @2304, @2306, @2307, @2308, @2314, @2316
+        scimitar -> scimitar/wakizashi/ninja-to
+          @1512, @2076, @2078, @2079, @2081, @2083, @2096, @2140, @2142, @2167, @2169, @2183
+        katana/wakizashi -> scimitar/wakizashi/ninja-to
+          @2128, @2131, @2164, @2382
+        short sword -> scimitar/wakizashi/ninja-to
+          @2133, @2136, @2165
+        katana/wakizashi -> katana
+          @1810, @1815, @2121, @2124, @2126, @2138, @2146, @2171, @2173, @2181, @2224
+    "setup.tra":
+      added new @39-@42
+    "description_updates.tra":
+      @100[101,106,112,114,124,130,200,202] - removed "[ %tab%]*" after newline
+      @100[138-145,151-154,315,319,400-405,407,411,412] - changed
+      added new @100[155-167,199,207,415-418]
+    "potion_descriptions.tra":
+      @3059 - add a dot on the end
+    "proficiencies.tra":
+      @100003 - "Magical katanas" -> "Magical katanas and wakizashis"
+ - Added new "multiclasses.tra" (@5000-@5035)
+
+
+v3 Beta 1.7 (April/5 May 2012)
+
+ - Several items fixed
+
+
+v3 Beta 1.8 (28 May 2012)
+
+ - When updating "Usable By" list in item descriptions, kit entries will be added to the end of list
+ - Class descriptions now allow the use of regexp in "multiclasses.tra"
+ - "tooltip_macro.tpa" now is not breaking the 2DA when it has the header row appended with "0" (not that it was IR's fault to begin with...)
+ - Main, Exe, Potions and Masterwork components can now be installed on Tutu games
+ - Store Revisions - items are now sorted by type, then by price, then alphabetically. Finally...
+ - Nature's Ward +2 no longer has small shield's AC penalty vs missile weapoins
+ - Halberd component is slightly more bug resistant
+ - Armor encumbrance lines now show penalty amounts, rather than the percentage of the base value
+ - Thieving in Armor component now has an option to include penalties from shields
+ - Custom plate mail, created by SCS2 for githyanki captains, is now labeled as allowing spellcasting
+ - Fixed offsets in Bard's Gloves, Delver's Plate +2, Ring of Free Action, Ring of Danger Sense, Ring of Acuity
+ - Fixed Shaitan's "single Arrow +2 in Ribald's store" bug
+ - Several stores have been erroneously given Bolts of Polymorphing instead of Blessed Bolts
+ - Store Revisions component is fully functional, "item_reallocation.tpa" is being loaded once again
+ - Fixed a grave bug is "store_rev_macros.tpa" that has been corrupting STO files
+ - Fixed the @100415 string bug in shield component
+ - Deprecated "ToB_hacks" subcomponents
+ - Fixed the single Stoneskin charge on Gargoyle Boots
+
+ - Text updates:
+    "description_updates.tra":
+      @100407 - changed to ~Special: +2 vs. Missile Weapons~
+      @100417 - "Beastmaster" -> "Beast Master"
+      @100418 - "[Bb]eastmaster" -> "[Bb]east[ %tab%]*[Mm]aster"
+    "multiclasses.tra":
+      @5034 - changed the phrasing of which weapons druids can't use
+    "setup.tra":
+      added @43, @44, @9006
+    "item_descriptions.tra":
+      @1660 - added "Note: Barkskin effect is not cumulative with other similar magic."
+
+
+v3 Beta 1.9 (30 May 2012)
+
+ - Fixed several weapons which were missing STR bonus
+ - fixed few typos
+
+
+v3 Beta 1.10 (8 June 2012)
+
+ - Fixed the bizarre bug with variable transition between components during installation
+ - Added Ranged Backstabbing option to backstab component
+ - Summoned by rings elementals no longer enter the mental combat with the summoner (thanks, aVENGER)
+
+
+v3 Beta 1.11 (30 June 2012)
+
+ - Fixed Foebane looking for a wrong EFF file (DOPPAM2 instead of DOPPDAM2)
+ - Updated Neb NAsty Dagger to work as advertised in the forums (it was still as per V2)
+
+- Text updates:
+    "item_descriptions.tra":
+      @1743 - changed from +2 to +1
+      @1744 - updated the description to match the item changes
+
+
+v3 Beta 1.12 (7 Jule 2012)
+
+ - Robe of Arcane Might, Potion of Power and Amulet of Power now correctly increase caster level
+ - Fixed the missing ELEMDAM4.EFF
+ - Vongoethe the lich no longer wears Larloch's Soul Stealer to prevent unprovoked turning hostile
+ - Revised Shields component can install independently
+
+
+v3 Beta 1.13 (17 Jule 2012)
+
+ - Firecam's Full Plate Retribution ability now has enough range to properly work
+ - Band of Focus isn't usable by Barbarians anymore
+ - Items with Max HP bonuses now use 'type 3' for a better result (no effect on current hps)
+ - Items with shapeshifting abitilies (e.g. Cloak of the Wolf) now use a custom version of Shapeshift to Natural Form (dvnatfrm.spl) to hopefully fix various issues reported with vanilla's version (spwi491.spl)
+
+
+v3 Beta 1.14 (21 October 2012)
+
+ - Added French, Russian and Spanish translations
+ - Few more fixes to items granting "caster lvl" bonuses
+ - The Equalizer's alignment restriction has been removed (it wasn't and it couldn't work as it should have)
+
+- Text updates:
+    "item_descriptions.tra":
+
+      @1659 - name changed/fixed into "Skin of the Forest +3"
+      @1660 - added "Note: Barkskin effect is not cumulative with other similar magic."
+      @2144 - changed Equalizer usability flags from
+      @2252 - "three bolts" instead of "six bolts"
+
+v3 Beta 1.15 (22 August 2013)
+
+ - Fixed various typos
+ - Potion of Heroism/Power were missing thac0/dmg bonuses
+ - Potion of Sight now correctly "cures" blindness from imbiber
+ - Obsidian Ioun Stone had incorrect bonus to saves vs. spell instead of vs. death
+
+v3 Beta 1.16 (12 September 2013)
+
+ - re-fixed old bug relating to 1PP shield animations
+
+
+TO DO:
+ - include Demi's work on rods
+ - Fix @1822
+ - add critical hit revision
+ - add physical resistance for armor
+ - add shield bash attack
+ - update tobex
+ - update masterwork component
+ - update spell-like abilities on items (?!?)
+ - cover bg1 portion of the game with store revisions
+ - make sure IR is fully compatible with BGT/Tutu
+ - check the Ring of Free Action preventing Cernd from shapeshifting (checked: I really have no clue!)

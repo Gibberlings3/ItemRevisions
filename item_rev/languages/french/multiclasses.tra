@@ -1,0 +1,116 @@
+
+
+// modify multiclass' descriptions to use standardized version
+
+
+// vanilla class descriptions
+
+// #9572, ft
+@5000 = ~, mais il ne peut pas utiliser ses capacités de voleur s'il porte une armure supérieure à la besantine.~
+
+// #9573, fc
+@5001 = ~, mais l'usage des armes est limité à celles autorisées par l'éthique du clerc.~
+
+// #9574, fm
+@5002 = ~texte bidon blablabla~
+
+// #9575, mt
+@5003 = ~. Toutefois, il ne peut jeter aucun sort tant qu'il porte une armure.~
+
+// #9576, fmt
+@5004 = ~. Il ne peut cependant pas utiliser ses capacités de voleur tant qu'il porte une armure plus lourde qu'un cuir clouté, et ne peut pas jeter de sort s'il porte une armure, quelle qu'elle soit.~
+
+// #9577, mc
+@5005 = ~. Il ne peut cependant pas jeter de sorts de mage s'il porte une armure.~
+
+// #9578, tc
+@5006 = ~, mais son armement est limité à ce que permet l'éthique du clerc.~
+
+// #9579, fd
+@5007 = ~, mais l'usage des armes est limité à celles autorisées par l'éthique du druide.~
+
+// #9580, cr
+@5008 = ~, mais son armement est limité à ce que permet l'éthique du clerc.~
+
+// #9581, fmc
+@5009 = ~, mais il ne peut pas jeter de sorts en armure et  son armement est limité à ce que permet l'éthique du clerc.~
+
+
+// from gtu.tra, BG2Fixpack
+// en francais, basé sur le patch CorrecFr de Mornagest
+
+// @1009572, ft
+@5010 = ~, though they cannot use their thieving skills while wearing armor other than leather, studded leather or elven chainmail.~
+
+// @1009573, fc
+@5011 = ~, though weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+// @1009574, fm, !!! a typo here - 'then' rather than 'than' !!!
+@5012 = ~, though they cannot cast spells while wearing armor other then elven chainmail.~
+
+// @1009575, mt
+@5013 = ~, though they will not be able to cast spells while wearing armor other than elven chainmail.~
+
+// @1009576, fmt
+@5014 = ~. They cannot use their thieving skills while wearing armor other than leather, studded leather or elven chainmail, and cannot cast spells while wearing any armor other than elven chainmail.~
+
+// @1009577, mc
+@5015 = ~. Il ne peut cependant pas jeter de sorts profanes s'il porte une armure.~
+
+// @1009578, tc
+@5016 = ~, though weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+// @1009579, fd
+@5017 = ~, though weapons are restricted to only those allowed by the druid's ethos (scimitar, dagger, club, spear, quarterstaff, dart and sling.)~
+
+// @1009580, cr
+@5018 = ~, though weapons are restricted to only those allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+// @1009581, fmc
+@5019 = ~, though they cannot cast mage spells while wearing any armor other than elven chainmail, and are restricted to weapons allowed by the cleric's ethos, which prohibits the use of bladed or pointed weapons.~
+
+
+// new standard for vanilla
+
+@5020 = ~ Il ne peut pas utiliser ses capacités de voleur s'il porte une armure lourde.~
+@5021 = ~ L’usage des armes est limité à celles autorisées par l’éthique du clerc.~
+@5022 = ~ Il ne peut pas lancer de sorts s’il porte une armure.~
+@5023 = ~ Il ne peut pas lancer de sorts profanes s’il porte une armure.~
+@5024 = ~ L’usage des armes est limité à celles autorisées par l’éthique du druide.~
+
+
+// new standard for BG2Fixpack's GTU
+
+@5025 = ~ Il ne peut pas utiliser ses capacités de voleur s'il porte une armure lourde.~
+@5026 = ~ L’usage des armes est limité à celles autorisées par l’éthique du clerc.~
+@5027 = ~ Il ne peut pas lancer de sorts s’il porte une armure.~
+@5028 = ~ Il ne peut pas lancer de sorts profanes s’il porte une armure.~
+@5029 = ~ L’usage des armes est limité à celles autorisées par l’éthique du druide.~
+
+
+
+
+//ces lignes sont les lignes GTU traduites, inutilisées en français. 
+//Si jamais un composant similaire était introduit par le patch CorrecFr de Mornagest, on pourrait les réutiliser
+//@5025 = ~ Il ne peut pas utiliser ses capacités de voleur s'il porte une armure autre qu'une armure de cuir, une besantine, ou une cotte de mailles elfique.~
+//@5026 = ~ L’usage des armes est limité à celles autorisées par l’éthique du clerc, qui interdit les armes perforantes ou munies d'une lame.~
+//@5027 = ~ Il ne peut pas lancer de sorts s’il porte une armure autre qu'une cotte de mailles elfique.~
+//@5028 = ~ Il ne peut pas lancer de sorts profanes s’il porte une armure autre qu'une cotte de mailles elfique.~
+//@5029 = ~ L’usage des armes est limité à celles autorisées par l’éthique du druide (cimeterre, dague, gourdin, lance, bâton, fléchette et fronde).~
+
+
+
+
+// new standard for IR's components, we'll use GTU's style
+
+@5030 = ~ Ses capacités de voleur seront entravées tant qu'il portera une armure autre qu'une armure de cuir ou une cotte de mailles elfique.~
+@5031 = ~ Il ne pourra attribuer que deux fois moins de points de compétence aux armes non-autorisées par l’éthique du clerc, qui interdit l'usage d'armes perforantes ou munies d'une lame.~
+@5032 = ~ Sa capacité à lancer des sort sera réduite s'il porte un bouclier ou une armure autre qu'une cotte de mailles elfique.~
+@5033 = ~ Sa capacité à lancer des sort profanes sera réduite s'il porte un bouclier ou une armure autre qu'une cotte de mailles elfique.~
+@5034 = ~ Il ne pourra attribuer que deux fois moins de points de compétence aux armes non-autorisées par l’éthique du druide, qui interdit l'usage d'armes autres que les cimeterres, dagues, gourdins, lances, bâtons, fléchettes et frondes.~
+
+
+// a dot
+@5035 = ~.~
+
+

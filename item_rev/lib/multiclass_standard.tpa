@@ -1,0 +1,128 @@
+
+
+OUTER_PATCH ~~ BEGIN
+
+  SPRINT van_thv @5020
+  SPRINT van_clr @5021
+  SPRINT van_spl @5022
+  SPRINT van_wsp @5023
+  SPRINT van_drd @5024
+  SPRINT gtu_thv @5025
+  SPRINT gtu_clr @5026
+  SPRINT gtu_spl @5027
+  SPRINT gtu_wsp @5028
+  SPRINT gtu_drd @5029
+
+  SPRINT dot @5035
+
+  SPRINT new_thv @5030
+  SPRINT new_clr @5031
+  SPRINT new_spl @5032
+  SPRINT new_wsp @5033
+  SPRINT new_drd @5034
+
+  GET_STRREF 9572 ft
+  INNER_PATCH_SAVE ft ~%ft%~ BEGIN
+    SPRINT t1 @5000
+    SPRINT t2 ~%dot%%van_thv%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5010
+    SPRINT t2 ~%dot%%gtu_thv%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9573 fc
+  INNER_PATCH_SAVE fc ~%fc%~ BEGIN
+    SPRINT t1 @5001
+    SPRINT t2 ~%dot%%van_clr%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5011
+    SPRINT t2 ~%dot%%gtu_clr%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9574 fm
+  INNER_PATCH_SAVE fm ~%fm%~ BEGIN
+    SPRINT t1 @5002
+    SPRINT t2 ~%dot%%van_spl%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5012
+    SPRINT t2 ~%dot%%gtu_spl%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9575 mt
+  INNER_PATCH_SAVE mt ~%mt%~ BEGIN
+    SPRINT t1 @5003
+    SPRINT t2 ~%dot%%van_spl%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5013
+    SPRINT t2 ~%dot%%gtu_spl%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9576 fmt
+  INNER_PATCH_SAVE fmt ~%fmt%~ BEGIN
+    SPRINT t1 @5004
+    SPRINT t2 ~%dot%%van_thv%%van_spl%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5014
+    SPRINT t2 ~%dot%%gtu_thv%%gtu_spl%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9577 mc
+  INNER_PATCH_SAVE mc ~%mc%~ BEGIN
+    SPRINT t1 @5005
+    SPRINT t2 ~%dot%%van_clr%%van_wsp%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5015
+    SPRINT t2 ~%dot%%gtu_clr%%gtu_wsp%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9578 tc
+  INNER_PATCH_SAVE tc ~%tc%~ BEGIN
+    SPRINT t1 @5006
+    SPRINT t2 ~%dot%%van_thv%%van_clr%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5016
+    SPRINT t2 ~%dot%%gtu_thv%%gtu_clr%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9579 fd
+  INNER_PATCH_SAVE fd ~%fd%~ BEGIN
+    SPRINT t1 @5007
+    SPRINT t2 ~%dot%%van_drd%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5017
+    SPRINT t2 ~%dot%%gtu_drd%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9580 cr
+  INNER_PATCH_SAVE cr ~%cr%~ BEGIN
+    SPRINT t1 @5008
+    SPRINT t2 ~%dot%%van_clr%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5018
+    SPRINT t2 ~%dot%%gtu_clr%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  GET_STRREF 9581 fmc
+  INNER_PATCH_SAVE fmc ~%fmc%~ BEGIN
+    SPRINT t1 @5009
+    SPRINT t2 ~%dot%%van_clr%%van_wsp%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+    SPRINT t1 @5019
+    SPRINT t2 ~%dot%%gtu_clr%%gtu_wsp%~
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+
+END
+
+STRING_SET 9572 ~%ft%~
+STRING_SET 9573 ~%fc%~
+STRING_SET 9574 ~%fm%~
+STRING_SET 9575 ~%mt%~
+STRING_SET 9576 ~%fmt%~
+STRING_SET 9577 ~%mc%~
+STRING_SET 9578 ~%tc%~
+STRING_SET 9579 ~%fd%~
+STRING_SET 9580 ~%cr%~
+STRING_SET 9581 ~%fmc%~
+
+

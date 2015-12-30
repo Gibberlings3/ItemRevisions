@@ -1,126 +1,61 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
 INCLUDE ~item_rev/lib/macros.tpa~
+INCLUDE ~item_rev/lib/tooltip_macro.tpa~
 
-OUTER_SET halberd_count = 0
+//////////////////////////////////////////////
+//  descriptions
 
-DEFINE_PATCH_MACRO slashing_halberds BEGIN
-  SPRINT t1 @100200
-  SPRINT t2 @100201
+DEFINE_PATCH_MACRO halberd BEGIN
+  SPRINT t1 @100200 // ~[%lnl%%mnl%%wnl%]Damage[ %tab%]*\(:.*\)~
+  SPRINT t2 @100201 // ~%lnl%Damage (Piercing)\1%lnl%Damage (Slashing)\1~
   REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
-  SPRINT t1 @100202
-  SPRINT t2 @100203
+  SPRINT t1 @100202 // ~[%lnl%%mnl%%wnl%]Speed[ %tab%]+[Ff]actor\(:.*\)~
+  SPRINT t2 @100203 // ~%lnl%Speed Factor (Piercing)\1%lnl%Speed Factor (Slashing)\1~
   REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
-  SPRINT t1 @100134
-  SPRINT t2 @100204
+  SPRINT t1 @100134 // ~Damage[ %tab%]+[Tt]ype:[ %tab%]+[Pp]iercing~
+  SPRINT t2 @100204 // ~Damage type: piercing or slashing~
   REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
 END
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
-  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    READ_BYTE  0x31 proficiency
-    PATCH_IF (proficiency == 0x63) BEGIN // halberd
-      READ_LONG  0x64 abilities_offset
-      READ_SHORT 0x68 num_abilities
-      READ_LONG  0x6a effects_offset
-      READ_SHORT 0x70 num_effects
-      PATCH_IF (num_abilities < 3) BEGIN // don't add if it would push over the limit
-        SET added = 0
-        FOR (i = 0; (i < num_abilities) && (added == 0); i += 1) BEGIN
-          READ_BYTE  (abilities_offset + 0x38*i) attack_type
-          READ_SHORT (abilities_offset + 0x38*i + 0x1c) damage_type 
-          
-          PATCH_IF (attack_type == 1 && damage_type == 1) BEGIN // melee piercing ability
-            SET added = 1 // prevent from looping again
-            // copy ability
-            SET old_ability_index = i
-            LAUNCH_PATCH_MACRO ~COPY_ITEM_ABILITY~
-            
-            // update new damage type to slashing
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index + 1) + 0x1c) 3 // slashing
-            
-            // update new animations to favour slashing
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index + 1) + 0x2c) 50 // overhand
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index + 1) + 0x2e) 50 // backhand
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index + 1) + 0x30) 0  // thrusting
-            
-            // update old animations to favour thrusting
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index) + 0x2c) 10 // overhand
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index) + 0x2e) 25 // backhand
-            WRITE_SHORT (abilities_offset + 0x38*(old_ability_index) + 0x30) 65 // thrusting
-            
-            SPRINT text_update ~slashing_halberds~
-            LAUNCH_PATCH_MACRO ~update_item_descriptions~
-            
-            // add to list for tooltip updates
-            SPRINT name @1493 // Halberd
-            READ_LONG 0x0c name_strref
-            PATCH_IF (name_strref >= 0) BEGIN
-              READ_STRREF 0x0c name
-            END
-            TEXT_SPRINT $halberd(~%halberd_count%~ ~name~) ~%name%~
-            TEXT_SPRINT $halberd(~%halberd_count%~ ~resource~) ~%SOURCE_RES%~
-            SET $halberd(~%halberd_count%~ ~index~) = old_ability_index
-            SET $halberd(~%halberd_count%~ ~added~) = 0            
-            SET halberd_count += 1
-          END
-        END
-      END
-    END
-  END
-  BUT_ONLY_IF_IT_CHANGES
 
-// these can be translated
-OUTER_SPRINT piercing @100205
-OUTER_SPRINT slashing @100206
+//////////////////////////////////////////////
+//  patching
 
-// update tooltips
-COPY_EXISTING ~tooltip.2da~ ~override~
-  COUNT_2DA_COLS num_cols
-  // update items that are already listed in the file
-  READ_2DA_ENTRIES_NOW ~r2en_tooltip~ 3
-  FOR (i = 1; i < r2en_tooltip; i += 1) BEGIN // for each row
-    READ_2DA_ENTRY_FORMER ~r2en_tooltip~ i 0 current_item
-    FOR (j = 0; j < halberd_count; j += 1) BEGIN // check if item matches one of our halberds
-      TEXT_SPRINT halberd $halberd(~%j%~ ~resource~)
-      PATCH_IF (~%current_item%~ STRING_EQUAL_CASE ~%halberd%~) BEGIN // found match
-        SET index = $halberd(~%j%~ ~index~) + 1 // grab index and increase by 1 to match column numbers
-        TEXT_SPRINT name $halberd(~%j%~ ~name~)
-        INNER_PATCH ~0  1~ BEGIN // get strrefs for our new strings by using REPLACE
-          REPLACE ~0~ ~%name% (%piercing%)~
-          REPLACE ~ 1~ ~%name% (%slashing%)~
-          READ_2DA_ENTRY 0 0 1 mi_halb_piercing
-          READ_2DA_ENTRY 0 1 1 mi_halb_slashing
+OUTER_SET pierce = RESOLVE_STR_REF (@100205)
+OUTER_SET slash = RESOLVE_STR_REF (@100206)
+
+COPY_EXISTING_REGEXP GLOB ~.+\.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  PATCH_IF (BYTE_AT 0x31)=0x63 BEGIN // halberd
+    READ_LONG 0x64 ho
+    READ_SHORT 0x68 hc
+
+    FOR (i=0;i<hc;i+=1) BEGIN
+      READ_BYTE ho+i*0x38 type
+      READ_SHORT ho+i*0x38+0x1c damage
+      READ_SHORT ho+0x24 deplete
+      PATCH_IF type=1 && damage=1 && (hc<3 || deplete=0) BEGIN // melee, piercing, either <3 headers or the 1st one doesn't deplete
+        WRITE_SHORT ho+i*0x38+0x2c 10 // overhand
+        WRITE_SHORT ho+i*0x38+0x2e 25 // slashing
+        WRITE_SHORT ho+i*0x38+0x30 65 // thrusting
+
+        LPF ADD_ITEM_HEADER INT_VAR copy_header=i+1 RET ip=insert_point END
+        WRITE_SHORT ho+ip*0x38+0x1c 3 // damage type -> slashing
+        WRITE_SHORT ho+ip*0x38+0x2c 50 // overhand
+        WRITE_SHORT ho+ip*0x38+0x2e 50 // slashing
+        WRITE_SHORT ho+ip*0x38+0x30 0 // thrusting
+
+        i+=1
+        ip+=1
+        INNER_ACTION BEGIN
+          LAF tooltips INT_VAR $ EVAL tip("%i%")=slash  $ EVAL tip("%ip%")=pierce  STR_VAR item= EVAL ~%SOURCE_RES%~ END
         END
-        SET_2DA_ENTRY_LATER ~s2el_tooltip~ i index ~%mi_halb_piercing% %mi_halb_slashing%~
-        SET $halberd(~%j%~ ~added~) = 1
+        SPRINT text_update halberd
+        LPM update_item_descriptions
+        i=hc
       END
     END
+
   END
-  SET_2DA_ENTRIES_NOW ~s2el_tooltip~ 3
-  
-  // remove last entry from rows that are now too long because we added two entries where there was only one previously
-  READ_2DA_ENTRIES_NOW ~r2en_tooltip2~ (num_cols + 1)
-  FOR (i = 0; i < r2en_tooltip2; i += 1) BEGIN
-    SET_2DA_ENTRY_LATER ~s2el_tooltip2~ i num_cols ~~
-  END
-  SET_2DA_ENTRIES_NOW ~s2el_tooltip2~ (num_cols + 1)
-  
-  // add new rows for items that weren't previously listed in the file
-  FOR (i = halberd_count - 1; i >= 0; i -= 1) BEGIN
-    SET added = $halberd(~%i%~ ~added~)
-    PATCH_IF (added == 0) BEGIN // if this halberd wasn't added previously
-      TEXT_SPRINT halberd $halberd(~%i%~ ~resource~)
-      // use dummy entries in place of where our piercing and slashing strrefs will go
-      TEXT_SPRINT line ~%halberd% mi_halb_piercing mi_halb_slashing -1~
-      FOR (j = 4; j < num_cols; j += 1) BEGIN // add -1 entries for columns 4+ if they exist, just to keep things tidy
-        TEXT_SPRINT line ~%line% -1~
-      END
-      INSERT_2DA_ROW r2en_tooltip 3 ~%line%~
-      // replace the dummy entries with strrefs for our new strings
-      TEXT_SPRINT name $halberd(~%i%~ ~name~)
-      REPLACE ~mi_halb_piercing~ ~%name% (%piercing%)~
-      REPLACE ~mi_halb_slashing~ ~%name% (%slashing%)~
-    END
-  END
-  PRETTY_PRINT_2DA
-  REPLACE_TEXTUALLY ~2DA +~ ~2DA ~
-  BUT_ONLY_IF_IT_CHANGES
+END BUT_ONLY
+
+
