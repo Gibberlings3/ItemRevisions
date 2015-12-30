@@ -1,0 +1,25 @@
+INCLUDE ~item_rev/lib/macros.tpa~
+
+COPY_EXISTING ~itemexcl.2da~ ~override~
+  COUNT_2DA_ROWS 2 num_rows
+  FOR (i = 1; i < num_rows; i += 1) BEGIN
+    READ_2DA_ENTRY %i% 0 2 current_item
+    SET isArmor = 0
+    INNER_ACTION BEGIN
+      ACTION_IF (FILE_EXISTS_IN_GAME ~%current_item%.itm~) BEGIN
+        COPY_EXISTING ~%current_item%.itm~ ~override~
+          READ_SHORT 0x1c item_type
+          PATCH_IF (%item_type% == 0x02) BEGIN
+            SET isArmor = 1
+          END
+          BUT_ONLY_IF_IT_CHANGES
+      END
+    END
+    PATCH_IF (%isArmor% == 1) BEGIN
+      REPLACE_TEXTUALLY ~[%lnl%%mnl%%wnl%][ %tab%]*%current_item%[ %tab%].*~
+        ~~
+      SET num_rows -= 1
+      SET i -= 1
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES

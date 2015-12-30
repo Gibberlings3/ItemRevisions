@@ -1,0 +1,411 @@
+// NOTE: Nothing is using LOCAL_* :(  When I have the time, should convert stuff, starting with the array indices to free up 'i'.  P.S. Remind to check on whether LOCAL_READ_* has been added to WeiDU.
+
+// default effect values
+OUTER_SET opcode = 71 // sex change
+OUTER_SET target = 1 // self
+OUTER_SET power = 0
+OUTER_SET param1 = 0
+OUTER_SET param2 = 0
+OUTER_SET timing_mode = 2 // while equipped
+OUTER_SET resistance = 0
+OUTER_SET duration = 0
+OUTER_SET prob1 = 100
+OUTER_SET prob2 = 0
+OUTER_SPRINT resource ~~
+OUTER_SET num_dice = 0
+OUTER_SET dice_sides = 0
+OUTER_SET saving_throw = 0
+OUTER_SET saving_throw_bonus = 0
+OUTER_SPRINT filename ~mibadnam~
+
+// default spl values
+OUTER_SPRINT spell_name ~~
+OUTER_SPRINT casting_sound ~~
+OUTER_SET flags = 0
+OUTER_SET spell_type = 4 // innate 
+OUTER_SET exclusion_flags = 0
+OUTER_SET priest_type = 0 // all priests
+OUTER_SET casting_animation = 0
+OUTER_SET primary_type = 0
+OUTER_SET secondary_type = 0
+OUTER_SET spell_level = 1
+OUTER_SPRINT spell_icon ~~
+OUTER_SPRINT spell_description ~~
+
+// default spl ability values
+OUTER_SET type = 1 // melee
+OUTER_SET location = 2 // spell slots
+OUTER_SPRINT icon ~~
+OUTER_SET type_to_target = 5 // caster
+OUTER_SET number_of_targets = 0
+OUTER_SET range = 1
+OUTER_SET level_required = 1
+OUTER_SET casting_time = 0
+
+OUTER_SET specify_param = 0
+OUTER_SET param_function = 0
+OUTER_SET return_value = 0
+OUTER_SET param2_check = 0
+
+<<<<<<<< .../item_rev-inlined/miblank.file
+>>>>>>>>
+
+// optional for all REMOVE_ITM_EFFECTs: setting param2_check to 1 and specifying param2 will only delete effects where param2 matches
+DEFINE_PATCH_MACRO ~REMOVE_ITM_EFFECT~ BEGIN // input: 'opcode' - effect we want to delete
+  SET specify_param = 0
+  LAUNCH_PATCH_MACRO ~REMOVE_ITM_EFFECT_TEMPLATE~
+END
+
+DEFINE_PATCH_MACRO ~REMOVE_ITM_EFFECT_PARAM~ BEGIN // input: 'opcode' - effect we want to delete, 'param1' - value that parameter must meet to be deleted
+  SET specify_param = 1
+  SET param_function = 0
+  LAUNCH_PATCH_MACRO ~REMOVE_ITM_EFFECT_TEMPLATE~
+END
+  
+DEFINE_PATCH_MACRO ~REMOVE_ITM_EFFECT_PARAM_GT~ BEGIN // input: 'opcode' - effect we want to delete, 'param1' - value that parameter must be greater than in order to be deleted
+  SET specify_param = 1
+  SET param_function = 1
+  LAUNCH_PATCH_MACRO ~REMOVE_ITM_EFFECT_TEMPLATE~
+END
+
+DEFINE_PATCH_MACRO ~REMOVE_ITM_EFFECT_PARAM_LT~ BEGIN // input: 'opcode' - effect we want to delete, 'param1' - value that parameter must be less than in order to be deleted
+  SET specify_param = 1
+  SET param_function = 2
+  LAUNCH_PATCH_MACRO ~REMOVE_ITM_EFFECT_TEMPLATE~
+END
+
+// returns 0 if item effect not found, 1 if at least one occurrence of the effect was encountered that doesn't match conditions, 2 if all instances of effect found matched conditions (and were therefore removed), return1 will be set to parameter of param1 that last matched
+DEFINE_PATCH_MACRO ~REMOVE_ITM_EFFECT_TEMPLATE~ BEGIN
+  SET return_value = 0
+  SET return1 = 0
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_LONG  0x64 abilities_offset
+    READ_SHORT 0x68 num_abilities
+    READ_LONG  0x6a effects_offset
+    READ_SHORT 0x70 num_effects
+    SET num_deleted = 0
+    
+    // delete effect
+    FOR (i = 0; i < num_effects; i += 1) BEGIN // loop through effects
+      READ_SHORT (effects_offset + 0x30*i) current_opcode
+      PATCH_IF (current_opcode == opcode) BEGIN // if the current opcode is the one we're looking for
+        READ_LONG (effects_offset + 0x30*i + 0x04) current_param
+        READ_LONG (effects_offset + 0x30*i + 0x08) current_param2
+        PATCH_IF (param2_check == 0 || current_param2 == param2) BEGIN // if param2_check is enabled, verify param2
+          PATCH_IF ((specify_param != 1) ||
+                    (param_function == 0 && current_param == param1) || 
+                    (param_function == 1 && current_param > param1) ||
+                    (param_function == 2 && current_param < param1))
+            BEGIN
+              SET return1 = current_param
+              DELETE_BYTES (effects_offset + 0x30*i) 0x30 // delete the current effect
+              SET num_deleted += 1 // keep track of how many we've deleted
+              SET num_effects -= 1 // reduce count of effects
+              SET i -= 1 // do this iteration of the loop again, since the next effect will be at the same offset
+          END ELSE BEGIN
+            SET return_value = 1
+          END
+        END
+      END
+    END
+    
+    PATCH_IF (num_deleted > 0 && return_value != 1) BEGIN
+      SET return_value = 2
+    END
+    
+    // clean up
+    PATCH_IF (num_deleted > 0) BEGIN // if we deleted any effects
+      PATCH_IF (abilities_offset > effects_offset) BEGIN // if the abilities are located after effects for whatever reason
+        WRITE_LONG 0x64 (abilities_offset - 0x30*num_deleted) // fix abilities offset
+      END
+      FOR (i = 0; i < num_abilities; i += 1) BEGIN // loop through abilities
+        READ_SHORT (abilities_offset + 0x38*i + 0x20) extended_effects_after
+        WRITE_SHORT (abilities_offset + 0x38*i + 0x20) (extended_effects_after - num_deleted) // adjust for deletion
+      END
+      
+      WRITE_SHORT 0x70 num_effects // update with new value
+    END
+  END
+  
+  SET opcode = 71
+  SET param1 = 0
+  SET specify_param = 0
+  SET param_function = 0
+  SET param2_check = 0
+END
+
+DEFINE_PATCH_MACRO ~REMOVE_ALL_ITM_EFFECTS~ BEGIN
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_LONG  0x64 abilities_offset
+    READ_SHORT 0x68 num_abilities
+    READ_LONG  0x6a effects_offset
+    READ_SHORT 0x70 num_effects
+    
+    DELETE_BYTES effects_offset 0x30*num_effects // delete all effects
+    
+    // clean up
+    PATCH_IF (abilities_offset > effects_offset) BEGIN // if the abilities are located after effects for whatever reason
+      WRITE_LONG 0x64 (abilities_offset - 0x30*num_effects) // fix abilities offset
+    END
+    FOR (i = 0; i < num_abilities; i += 1) BEGIN // loop through abilities
+      WRITE_SHORT (abilities_offset + 0x38*i + 0x20) 0 // since no global effects, extended effects start immediately
+    END
+    
+    WRITE_SHORT 0x70 0 // update number of effects to 0
+  END
+END
+
+DEFINE_ACTION_MACRO ~CREATE_SPL~ BEGIN  // input: ~%filename%~.spl, ~%spell_name%~, ~%casting_sound%~, 'flags', 'spell_type', 'exclusion_flags', 'priest_type', 'casting_animation', 'primary_type', 'secondary_type', 'spell_level', ~%spell_icon%~, ~%spell_description%~, animation
+  COPY ~.../item_rev-inlined/miblank.file~ ~override/%filename%.spl~
+    INSERT_BYTES 0x00 0x72 // size of empty spl
+    WRITE_ASCII 0x00 ~SPL ~ #4
+    WRITE_ASCII 0x04 ~V1  ~ #4
+    SAY_EVALUATED 0x08 ~%spell_name%~
+    WRITE_LONG  0x0c 0xFFFFFFFF // identified spell name, not used
+    WRITE_EVALUATED_ASCII 0x10 ~%casting_sound%~ #8
+    WRITE_LONG  0x18 flags
+    WRITE_SHORT 0x1c spell_type
+    WRITE_SHORT 0x1e exclusion_flags
+    WRITE_SHORT 0x20 priest_type
+    WRITE_SHORT 0x22 casting_animation
+    WRITE_SHORT 0x25 primary_type
+    WRITE_BYTE  0x27 secondary_type
+    WRITE_LONG  0x34 spell_level
+    WRITE_SHORT 0x38 1 // unknown, usually is 1
+    WRITE_EVALUATED_ASCII 0x3a ~%spell_icon%~ #8
+    SAY_EVALUATED 0x50 ~%spell_description%~
+    WRITE_LONG  0x54 0xFFFFFFFF // identified spell description, not used
+    WRITE_LONG  0x64 0x72 // abilities offset
+    WRITE_SHORT 0x68 0 // number of abilities
+    WRITE_LONG  0x6a 0x72 // effects offset
+    WRITE_SHORT 0x70 0 // number of effects
+    
+    // reset parameters to default
+    SPRINT filename ~mibadnam~
+    SPRINT spell_name ~~
+    SPRINT casting_sound ~~
+    SET flags = 0
+    SET spell_type = 4 // innate 
+    SET exclusion_flags = 0
+    SET priest_type = 0 // all priests
+    SET casting_animation = 0
+    SET primary_type = 0
+    SET secondary_type = 0
+    SET spell_level = 1
+    SPRINT spell_icon ~~
+    SPRINT spell_description ~~
+END
+
+DEFINE_ACTION_MACRO ~CREATE_EFF~ BEGIN  // input: ~%filename%~.eff, 'opcode', 'target', 'power', 'param1', 'param2', 'timing_mode', 'resistance', 'duration', 'prob1', 'prob2', ~%resource%~, 'num_dice', 'dice_sides', 'saving_throw', 'saving_throw_bonus'
+  COPY ~.../item_rev-inlined/miblank.file~ ~override/%filename%.eff~
+    INSERT_BYTES 0x00 0x110 // size of empty eff
+    WRITE_ASCII 0x00 ~EFF ~ #4
+    WRITE_ASCII 0x04 ~V2.0~ #4
+    WRITE_ASCII 0x08 ~EFF ~ #4
+    WRITE_ASCII 0x0c ~V2.0~ #4
+    WRITE_LONG  0x10 opcode
+    WRITE_LONG  0x14 target
+    WRITE_LONG  0x18 power
+    WRITE_LONG  0x1c param1
+    WRITE_LONG  0x20 param2
+    WRITE_BYTE  0x24 timing_mode
+    WRITE_LONG  0x28 duration
+    WRITE_SHORT 0x2c prob1
+    WRITE_SHORT 0x2e prob2
+    WRITE_EVALUATED_ASCII 0x30 ~%resource%~ #8
+    WRITE_LONG  0x38 num_dice
+    WRITE_LONG  0x3c dice_sides
+    WRITE_LONG  0x40 saving_throw
+    WRITE_LONG  0x44 saving_throw_bonus
+    WRITE_LONG  0x5c resistance
+    WRITE_LONG  0x80 0xFFFFFFFF // caster x pos
+    WRITE_LONG  0x84 0xFFFFFFFF // caster y pos
+    WRITE_LONG  0x88 0xFFFFFFFF // target x pos
+    WRITE_LONG  0x8c 0xFFFFFFFF // target y pos
+    
+    // reset parameters to default
+    SPRINT filename ~mibadnam~
+    SET opcode = 71
+    SET target = 1
+    SET power = 0
+    SET param1 = 0
+    SET param2 = 0
+    SET timing_mode = 2
+    SET resistance = 0
+    SET duration = 0
+    SET prob1 = 100
+    SET prob2 = 0
+    SPRINT resource ~~
+    SET num_dice = 0
+    SET dice_sides = 0
+    SET saving_throw = 0
+    SET saving_throw_bonus = 0
+END
+
+DEFINE_PATCH_MACRO ~ADD_SPL_ABILITY~ BEGIN // input: 'type', 'location', ~%icon%~, 'type_to_target', 'number_of_targets', 'range', 'level_required', 'casting_time'
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_LONG  0x64 abilities_offset
+    READ_SHORT 0x68 num_abilities
+    READ_LONG  0x6a effects_offset
+    
+    // add ability
+    INSERT_BYTES abilities_offset 0x28
+    WRITE_BYTE  (abilities_offset       ) type
+    WRITE_BYTE  (abilities_offset + 0x02) location
+    WRITE_EVALUATED_ASCII (abilities_offset + 0x04) ~%icon%~ #8
+    WRITE_BYTE  (abilities_offset + 0x0c) type_to_target
+    WRITE_BYTE  (abilities_offset + 0x0d) number_of_targets
+    WRITE_SHORT (abilities_offset + 0x0e) range
+    WRITE_SHORT (abilities_offset + 0x10) level_required
+    WRITE_LONG  (abilities_offset + 0x12) casting_time
+    
+    // clean up
+    PATCH_IF (effects_offset > abilities_offset) BEGIN // if the effects are located after abilities
+      WRITE_LONG 0x6a (effects_offset + 0x28) // fix effects offset      
+    END
+    
+    WRITE_LONG 0x68 (num_abilities + 1)
+    
+    // reset parameters to default
+    SET type = 1 // melee
+    SET location = 2 // spell slots
+    SPRINT icon ~~
+    SET type_to_target = 5 // caster
+    SET number_of_targets = 0
+    SET range = 1
+    SET level_required = 1
+    SET casting_time = 0
+  END
+END
+
+DEFINE_PATCH_MACRO ~ADD_ITM_OR_SPL_EFFECT~ BEGIN // input: 'opcode', 'target', 'power', 'param1', 'param2', 'timing_mode', 'resistance', 'duration', 'prob1', 'prob2', ~%resource%~, 'num_dice', 'dice_sides', 'saving_throw', 'saving_throw_bonus'
+  //PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_LONG  0x64 abilities_offset
+    READ_SHORT 0x68 num_abilities
+    READ_LONG  0x6a effects_offset
+    READ_SHORT 0x70 num_effects
+    
+    // add effect
+    INSERT_BYTES effects_offset 0x30
+    WRITE_SHORT (effects_offset       ) opcode
+    WRITE_BYTE  (effects_offset + 0x02) target
+    WRITE_BYTE  (effects_offset + 0x03) power
+    WRITE_LONG  (effects_offset + 0x04) param1
+    WRITE_LONG  (effects_offset + 0x08) param2
+    WRITE_BYTE  (effects_offset + 0x0c) timing_mode
+    WRITE_BYTE  (effects_offset + 0x0d) resistance
+    WRITE_LONG  (effects_offset + 0x0e) duration
+    WRITE_BYTE  (effects_offset + 0x12) prob1
+    WRITE_BYTE  (effects_offset + 0x13) prob2
+    WRITE_EVALUATED_ASCII (effects_offset + 0x14) ~%resource%~ #8
+    WRITE_LONG  (effects_offset + 0x1c) num_dice
+    WRITE_LONG  (effects_offset + 0x20) dice_sides
+    WRITE_LONG  (effects_offset + 0x24) saving_throw
+    WRITE_LONG  (effects_offset + 0x28) saving_throw_bonus
+    
+    // clean up
+    PATCH_IF (abilities_offset > effects_offset) BEGIN // if the abilities are located after effects for whatever reason
+      WRITE_LONG 0x64 (abilities_offset + 0x30) // fix ability offset      
+    END
+    
+    FOR (i = 0; i < num_abilities; i += 1) BEGIN // loop through abilities  
+      READ_SHORT  (abilities_offset + 0x38*i + 0x20) extended_effects_after
+      WRITE_SHORT (abilities_offset + 0x38*i + 0x20) (extended_effects_after + 1) // one more normal effect before extended effects start
+    END
+    
+    WRITE_SHORT 0x70 (num_effects + 1) // fix number of effects :)
+    
+    // reset parameters to default
+    SET opcode = 71
+    SET target = 1
+    SET power = 0
+    SET param1 = 0
+    SET param2 = 0
+    SET timing_mode = 2
+    SET resistance = 0
+    SET duration = 0
+    SET prob1 = 100
+    SET prob2 = 0
+    SPRINT resource ~~
+    SET num_dice = 0
+    SET dice_sides = 0
+    SET saving_throw = 0
+    SET saving_throw_bonus = 0
+  //END
+END
+
+// requires 'old_ability_index', the index (not offset) of the ability to duplicate 
+DEFINE_PATCH_MACRO ~COPY_ITEM_ABILITY~ BEGIN
+  READ_LONG  0x64 abilities_offset
+  READ_SHORT 0x68 num_abilities
+  READ_LONG  0x6a effects_offset
+  
+  INSERT_BYTES (abilities_offset + 0x38*(old_ability_index + 1)) (0x38)
+  
+  PATCH_IF (effects_offset > abilities_offset) BEGIN
+    SET effects_offset += 0x38
+    WRITE_LONG 0x6a effects_offset
+  END
+  
+  FOR (i = 0; i < 0x38; i += 4) BEGIN
+    READ_LONG  (abilities_offset + 0x38*(old_ability_index) + i) temp
+    WRITE_LONG (abilities_offset + 0x38*(old_ability_index + 1) + i) temp
+  END
+  
+  SET num_abilities += 1
+  WRITE_SHORT 0x68 num_abilities
+  
+  READ_SHORT (abilities_offset + 0x38*(old_ability_index) + 0x1e) num_features
+  READ_SHORT (abilities_offset + 0x38*(old_ability_index) + 0x20) features_index
+  
+  PATCH_IF (num_features > 0) BEGIN
+    INSERT_BYTES (effects_offset + 0x30*(features_index + num_features)) (0x30*num_features)
+    
+    PATCH_IF (abilities_offset > effects_offset) BEGIN
+      SET abilities_offset += (0x30*num_features)
+      WRITE_LONG 0x64 abilities_offset
+    END
+    
+    FOR (i = 0; i < num_features; i += 1) BEGIN
+      FOR (j = 0; j < 0x30; j += 4) BEGIN
+        READ_LONG  (effects_offset + 0x30*(features_index + i) + j) temp
+        WRITE_LONG (effects_offset + 0x30*(features_index + num_features + i) + j) temp
+      END
+    END
+    
+    FOR (i = 0; i < num_abilities; i += 1) BEGIN
+      READ_SHORT (abilities_offset + 0x38*i + 0x20) current_features_index
+      PATCH_IF (current_features_index > features_index) BEGIN
+        SET current_features_index += num_features
+        WRITE_SHORT (abilities_offset + 0x38*i + 0x20) current_features_index
+      END
+    END
+    
+    WRITE_SHORT (abilities_offset + 0x38*(old_ability_index + 1) + 0x20) (features_index + num_features)
+  END
+END
+
+// stolen from BG2 Tweak Pack at G3
+OUTER_INNER_PATCH ~12~ BEGIN
+  WRITE_BYTE 1 0x09
+  READ_ASCII 1 tab (1)  // 0x09, tab
+  WRITE_BYTE 1 0x0a
+  READ_ASCII 1 lnl (1)  // 0x0a, Linux
+  WRITE_BYTE 0 0x0d
+  READ_ASCII 0 mnl (1)  // 0x0d, Mac
+  READ_ASCII 0 wnl (2)  // 0x0d0a, Windows
+END
+
+// stolen from BG2 Tweak Pack at G3 and modified to take parameter ~%text_update%~, the macro name of the REPLACE_TEXTUALLY to execute
+DEFINE_PATCH_MACRO ~update_item_descriptions~ BEGIN
+  FOR (index = 0x50 ; index < 0x55 ; index = index + 0x04) BEGIN // loop through descriptions
+    READ_LONG "%index%" "valid"
+    PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+      READ_STRREF "%index%" "description"
+      INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+        LAUNCH_PATCH_MACRO ~%text_update%~
+      END
+      SAY_EVALUATED "%index%" ~%new_desc%~
+    END
+  END
+END

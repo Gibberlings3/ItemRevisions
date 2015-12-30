@@ -1,0 +1,141 @@
+
+
+READ_SHORT 0x1c item
+READ_ASCII 0x22 anim (2)
+READ_BYTE  0x31 prof
+
+dagger          =0
+short_sword     =0
+long_sword      =0
+scimitar        =0
+battleaxe       =0
+handaxe         =0
+bastard_sword   =0
+ninjato         =0
+wakizashi       =0
+katana          =0
+club            =0
+hammer          =0
+mace            =0
+morning_star    =0
+flail           =0
+staff           =0
+spear           =0
+halberd         =0
+twohanded_sword =0
+dart            =0
+sling           =0
+short_bow       =0
+long_bow        =0
+comp_long_bow   =0
+light_xbow      =0
+heavy_xbow      =0
+
+PATCH_IF item=0x10 BEGIN
+  dagger=1
+END
+
+PATCH_IF item=0x13 && prof=0x5b BEGIN
+  short_sword=1
+END
+
+PATCH_IF item=0x14 && prof=0x5a BEGIN
+  long_sword=1
+END
+
+PATCH_IF item=0x14 && prof=0x5f && (~%anim%~ STRING_EQUAL_CASE ~sc~) BEGIN
+  scimitar=1
+END
+
+PATCH_IF item=0x19 && (~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~ax1h\(04\|05\|06\|08\|09\|10\|16\)[ab]?$~) BEGIN
+  battleaxe=1
+END
+
+PATCH_IF item=0x19 && ((~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~ax1h\(04\|05\|06\|08\|09\|10\|16\)[ab]?$~) = 0) BEGIN
+  handaxe=1
+END
+
+PATCH_IF item=0x14 && prof=0x59 BEGIN
+  bastard_sword=1
+END
+
+PATCH_IF item=0x14 && (prof=0x5b || prof=0x5f) && (~%anim%~ STRING_EQUAL_CASE ~s1~) BEGIN
+  ninjato=1
+END
+
+PATCH_IF item=0x13 && (prof=0x5e || prof=0x5f) BEGIN
+  wakizashi=1
+END
+
+PATCH_IF item=0x14 && prof=0x5e BEGIN
+  katana=1
+END
+
+PATCH_IF item=0x11 && prof=0x73 BEGIN
+  club=1
+END
+
+PATCH_IF item=0x15 BEGIN
+  hammer=1
+END
+
+PATCH_IF item=0x11 && prof=0x65 BEGIN
+  mace=1
+END
+
+PATCH_IF item=0x16 BEGIN
+  morning_star=1
+END
+
+PATCH_IF item=0x17 BEGIN
+  flail=1
+END
+
+PATCH_IF item=0x1a BEGIN
+  staff=1
+END
+
+PATCH_IF item=0x1d BEGIN
+  spear=1
+END
+
+PATCH_IF item=0x1e BEGIN
+  halberd=1
+END
+
+PATCH_IF item=0x14 && prof=0x5d BEGIN
+  twohanded_sword=1
+END
+
+PATCH_IF item=0x18 BEGIN
+  dart=1
+END
+
+PATCH_IF item=0x12 BEGIN
+  sling=1
+END
+
+PATCH_IF item=0xf && prof=0x69 BEGIN
+  short_bow=1
+END
+
+PATCH_IF item=0xf && prof=0x68 && (BYTE_AT 0x26)<16 BEGIN // STR requirement
+  long_bow=1
+END
+
+PATCH_IF item=0xf && prof=0x68 && (BYTE_AT 0x26)>15 BEGIN
+  comp_long_bow=1
+END
+
+PATCH_IF item=0x1b && (~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~xbow\(01\|02\|03\|07\|08\|13\|14\|17\)~) BEGIN
+  light_xbow=1
+END
+
+PATCH_IF item=0x1b && ((~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~xbow\(01\|02\|03\|07\|08\|13\|14\|17\)~) = 0) BEGIN
+  heavy_xbow=1
+END
+
+
+
+
+

@@ -1,0 +1,116 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+
+//////////////////////////////////////////////
+//  descriptions
+
+DEFINE_PATCH_MACRO druid_usable BEGIN
+  PATCH_IF index=0x54 BEGIN
+    SPRINT t1 @100400
+    REPLACE_EVALUATE ~%t1%~ BEGIN
+      SPRINT line1 ~%MATCH1%~
+      SPRINT line2 ~%MATCH2%~
+      SPRINT t1 @100401
+      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~%t1%~) = 0 BEGIN
+        SPRINT t1 @100411
+        SPRINT line2 ~%line2%~^~%t1%~
+      END
+      SPRINT t1 @100403
+      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~%t1%~) = 0 BEGIN
+        INNER_PATCH_SAVE line2 ~%line2%~ BEGIN
+          SPRINT t1 @100412
+          REPLACE_TEXTUALLY ~%t1%~ ~~
+        END
+      END
+    END ~%line1%%line2%~
+  END
+END
+
+DEFINE_PATCH_MACRO druid_unusable BEGIN
+  PATCH_IF index=0x54 BEGIN
+    SPRINT t1 @100400
+    REPLACE_EVALUATE ~%t1%~ BEGIN
+      SPRINT line1 ~%MATCH1%~
+      SPRINT line2 ~%MATCH2%~
+      SPRINT t1 @100401
+      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~%t1%~) = 0 BEGIN
+        INNER_PATCH_SAVE line2 ~%line2%~ BEGIN
+          SPRINT t1 @100412
+          REPLACE_TEXTUALLY ~%t1%~ ~~
+        END
+      END
+      SPRINT t1 @100403
+      PATCH_IF (~%line1%~ STRING_MATCHES_REGEXP ~%t1%~) = 0 BEGIN
+        SPRINT t1 @100411
+        SPRINT line2 ~%line2%~^~%t1%~
+      END
+    END ~%line1%%line2%~
+  END
+END
+
+//////////////////////////////////////////////
+//  headgear
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c item_type
+    READ_BYTE  0x21 usability4
+    PATCH_IF (item_type == 0x07) BEGIN // headgear
+      PATCH_IF ((usability4 BAND 0b00100000) == 0b00100000) &&
+               (~%SOURCE_RES%~ STRING_COMPARE_CASE ~helm21~) BEGIN // unusable by monks and not the Dragon Helm
+        WRITE_BYTE 0x21 (usability4 BOR 0b01000000) // make unusable by druids
+        // update description
+        SPRINT text_update ~druid_unusable~
+        LAUNCH_PATCH_MACRO ~update_item_descriptions~
+      END
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+//////////////////////////////////////////////
+//  special cases
+
+COPY_EXISTING helm21.itm override // dragon helm
+              shld21.itm override // dragon shield
+  WRITE_BYTE 0x21 (THIS & `64)
+  SPRINT text_update ~druid_usable~
+  LAUNCH_PATCH_MACRO ~update_item_descriptions~
+
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 0 BEGIN
+  COPY_EXISTING shld26.itm override // nature's ward
+    WRITE_BYTE 0x21 (THIS & `64)
+    SPRINT text_update ~druid_usable~
+    LAUNCH_PATCH_MACRO ~update_item_descriptions~
+END
+
+//////////////////////////////////////////////
+//  armor
+
+INCLUDE ~item_rev/lib/armor_list.tpa~
+ACTION_PHP_EACH armor AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+  COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    PATCH_IF ( (res>>3) & 3 ) = 2 BEGIN // armor material is scale
+      WRITE_BYTE 0x21 (THIS & `64)
+      SPRINT text_update ~druid_usable~
+      LAUNCH_PATCH_MACRO ~update_item_descriptions~
+    END
+  END BUT_ONLY END
+END
+
+//////////////////////////////////////////////
+//  fighter/druids
+
+ACTION_IF option=2 BEGIN
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c item_type
+    READ_BYTE  0x1f usability2
+    READ_BYTE  0x21 usability4
+    PATCH_IF (item_type == 0x02 || item_type == 0x03 || item_type == 0x06 || item_type == 0x07 || item_type == 0x0c) BEGIN // armour, belts, bracers, helmets, shields
+      PATCH_IF ((usability4 BAND 0b01000000) == 0b01000000) BEGIN // if unusable by druids
+        WRITE_BYTE 0x1f (usability2 BOR 0b00010000) // make unusable by fighter/druids
+      END
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+END

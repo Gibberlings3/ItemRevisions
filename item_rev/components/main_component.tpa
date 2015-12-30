@@ -1,0 +1,6210 @@
+/*-----------------Shared Effects-----------------*/
+
+COPY ~item_rev/itm/axiom1.eff~      ~override~
+COPY ~item_rev/itm/axiom2.eff~      ~override~
+COPY ~item_rev/itm/axiom3.eff~      ~override~
+COPY ~item_rev/itm/axiom4.eff~      ~override~
+COPY ~item_rev/itm/axiom5.eff~      ~override~
+COPY ~item_rev/itm/axiom6.eff~      ~override~
+COPY ~item_rev/itm/disrupt.eff~      ~override~
+COPY ~item_rev/itm/disrtext.eff~      ~override~
+COPY ~item_rev/itm/demhit2.eff~      ~override~
+COPY ~item_rev/itm/demdam2.eff~      ~override~
+COPY ~item_rev/itm/demdam4.eff~      ~override~
+COPY ~item_rev/itm/demdam8.eff~      ~override~
+COPY ~item_rev/itm/dopphit2.eff~      ~override~
+COPY ~item_rev/itm/doppdam2.eff~      ~override~
+COPY ~item_rev/itm/draghit2.eff~      ~override~
+COPY ~item_rev/itm/dragbane.eff~      ~override~
+COPY ~item_rev/itm/giandam4.eff~      ~override~
+COPY ~item_rev/itm/golehit2.eff~      ~override~
+COPY ~item_rev/itm/goledam8.eff~      ~override~
+COPY ~item_rev/itm/goledie.eff~      ~override~
+COPY ~item_rev/itm/holydam.eff~      ~override~
+COPY ~item_rev/itm/holydam3.eff~      ~override~
+COPY ~item_rev/itm/holydam4.eff~      ~override~
+COPY ~item_rev/itm/holydam6.eff~      ~override~
+COPY ~item_rev/itm/humnhit2.eff~      ~override~
+COPY ~item_rev/itm/humnbane.eff~      ~override~
+COPY ~item_rev/itm/lycahit2.eff~      ~override~
+COPY ~item_rev/itm/lycadam2.eff~      ~override~
+COPY ~item_rev/itm/lycadam4.eff~      ~override~
+COPY ~item_rev/itm/monshit2.eff~      ~override~
+COPY ~item_rev/itm/monsbane.eff~      ~override~
+COPY ~item_rev/itm/orcdam4.eff~      ~override~
+COPY ~item_rev/itm/outhit2.eff~      ~override~
+COPY ~item_rev/itm/outdam2.eff~      ~override~
+COPY ~item_rev/itm/outdam4.eff~      ~override~
+COPY ~item_rev/itm/rakshit2.eff~      ~override~
+COPY ~item_rev/itm/raksdam2.eff~      ~override~
+COPY ~item_rev/itm/raksdam4.eff~      ~override~
+COPY ~item_rev/itm/trolhit2.eff~      ~override~
+COPY ~item_rev/itm/troldam2.eff~      ~override~
+COPY ~item_rev/itm/undehit2.eff~      ~override~
+COPY ~item_rev/itm/undedam2.eff~      ~override~
+COPY ~item_rev/itm/undebane.eff~      ~override~
+COPY ~item_rev/itm/vamphit2.eff~      ~override~
+COPY ~item_rev/itm/vampdam2.eff~      ~override~
+COPY ~item_rev/itm/vampdam4.eff~      ~override~
+COPY ~item_rev/itm/wolfhit2.eff~      ~override~
+COPY ~item_rev/itm/wolfdam2.eff~      ~override~
+
+COPY ~item_rev/itm/dvwinded.spl~      ~override/dvwinded.spl~  // Fatigue
+
+
+/*-----------------Weapon Enhancements-----------------*/
+
+COPY ~item_rev/itm/dvafflic.spl~      ~override~  // Affliction
+COPY ~item_rev/itm/dvafflic.eff~      ~override~
+
+COPY ~item_rev/itm/dvbanish.spl~      ~override~  // Banishing
+COPY ~item_rev/itm/dvbanish.eff~      ~override~
+
+COPY ~item_rev/itm/dvbram.spl~      ~override~  // Battering Ram
+COPY ~item_rev/itm/dvbram.eff~      ~override~
+
+COPY ~item_rev/itm/dvbleed2.spl~      ~override~  // Bleeding Damage (2 rounds)
+COPY ~item_rev/itm/dvbleed2.eff~      ~override~
+
+COPY ~item_rev/itm/dvbleed5.spl~      ~override~  // Bleeding Damage (5 rounds)
+COPY ~item_rev/itm/dvbleed5.eff~      ~override~
+
+COPY ~item_rev/itm/dvbleed0.spl~      ~override~  // Bleeding Damage (10 rounds)
+COPY ~item_rev/itm/dvbleed0.eff~      ~override~
+
+COPY ~item_rev/itm/dvboom.spl~      ~override~  // Booming Thunder
+COPY ~item_rev/itm/dvboom.eff~      ~override~
+
+COPY ~item_rev/itm/dvbonebr.spl~      ~override~  // Bone Breaking
+COPY ~item_rev/itm/dvbonebr.eff~      ~override~
+
+COPY ~item_rev/itm/dvbrnwnd.spl~      ~override~  // Burning Wounds
+COPY ~item_rev/itm/dvbrnwnd.eff~      ~override~
+
+ADD_PROJECTILE ~item_rev/itm/dvflbrst.pro~  // Burst of Flames
+COPY ~item_rev/itm/dvflbrst.spl~      ~override~
+  WRITE_SHORT 0x98 %dvflbrst%
+
+COPY ~item_rev/itm/dvchill.spl~      ~override~  // Chilling
+COPY ~item_rev/itm/dvchill.eff~      ~override~
+
+COPY ~item_rev/itm/dvwither.spl~      ~override~  // Contagious
+COPY ~item_rev/itm/dvwither.eff~      ~override~
+
+COPY ~item_rev/itm/dvcorros.spl~      ~override~  // Corrosion
+COPY ~item_rev/itm/dvcorros.eff~      ~override~
+
+COPY ~item_rev/itm/dvcrippl.spl~      ~override~  // Crippling
+COPY ~item_rev/itm/dvcrippl.eff~      ~override~
+
+COPY ~item_rev/itm/dvcutthr.spl~      ~override~  // Cutthroating
+COPY ~item_rev/itm/dvcutthr.eff~      ~override~
+
+COPY ~item_rev/itm/dvdehydr.spl~      ~override~  // Dehydrating
+COPY ~item_rev/itm/dvdehydr.eff~      ~override~
+
+COPY ~item_rev/itm/dvdispel.spl~      ~override~  // Dispelling
+
+COPY ~item_rev/itm/dvhoples.spl~      ~override~  // Domineering
+COPY ~item_rev/itm/dvhoples.eff~      ~override~
+
+COPY ~item_rev/itm/dvdoom.spl~      ~override~  // Dooming
+COPY ~item_rev/itm/dvdoom.eff~      ~override~
+ 
+COPY ~item_rev/itm/dvshake.spl~      ~override~  // Earthshaking
+  WRITE_SHORT 0x98 %dvflbrst%
+COPY ~item_rev/itm/dvshake.eff~      ~override~
+
+COPY ~item_rev/itm/dvenerv.spl~      ~override~  // Enervating
+COPY ~item_rev/itm/dvenerv.eff~      ~override~
+
+COPY ~item_rev/itm/dvenfebl.spl~      ~override~  // Enfeebling
+COPY ~item_rev/itm/dvenfebl.eff~      ~override~
+
+COPY ~item_rev/itm/dventgl.spl~      ~override~  // Entangling
+COPY ~item_rev/itm/dventgl.eff~      ~override~
+
+COPY ~item_rev/itm/dvfearsm.spl~      ~override~  // Fearsome
+COPY ~item_rev/itm/dvfearsm.eff~      ~override~
+
+COPY ~item_rev/itm/dvflwhip.spl~      ~override~  // Flame Whip
+COPY ~item_rev/itm/dvflwhip.eff~      ~override~
+COPY ~item_rev/itm/dvflwhip.vvc~      ~override~
+
+COPY ~item_rev/itm/dvfreeze.spl~      ~override~  // Freezing
+COPY ~item_rev/itm/dvfreeze.eff~      ~override~
+
+COPY ~item_rev/itm/dvholdun.spl~      ~override~  // Halt Undead
+
+COPY ~item_rev/itm/dvhseek.spl~      ~override~  // Heartseeking
+COPY ~item_rev/itm/dvhseek.eff~      ~override~
+
+COPY ~item_rev/itm/dvhsmite.spl~      ~override~  // Holy Smite
+COPY ~item_rev/itm/dvhsmite.eff~      ~override~
+
+COPY ~item_rev/itm/dvillban.spl~      ~override~  // Illusion Bane
+COPY ~item_rev/itm/dvillban.eff~      ~override~
+
+COPY ~item_rev/itm/dvknback.spl~      ~override~  // Knockback
+COPY ~item_rev/itm/dvknback.eff~      ~override~
+
+COPY ~item_rev/itm/dvkndown.spl~      ~override~  // Knockdown
+COPY ~item_rev/itm/dvkndown.eff~      ~override~
+
+COPY ~item_rev/itm/dvprlyze.spl~      ~override~  // Paralyzing
+COPY ~item_rev/itm/dvprlyze.eff~      ~override~
+
+COPY ~item_rev/itm/dvpin.spl~      ~override~  // Pin
+COPY ~item_rev/itm/dvpin.eff~      ~override~
+
+ADD_PROJECTILE ~item_rev/itm/dvsburst.pro~  // Resonating
+COPY ~item_rev/itm/dvreson.spl~      ~override~
+  WRITE_SHORT 0x98 %dvsburst%
+COPY ~item_rev/itm/dvsburst.vvc~      ~override~
+COPY ~item_rev/itm/dvsburst.bam~      ~override~
+
+COPY ~item_rev/itm/dvsharp.spl~      ~override~  // Sharpness
+COPY ~item_rev/itm/dvsharp.eff~      ~override~
+
+ADD_PROJECTILE ~item_rev/itm/dvsingsw.pro~  // Singing
+COPY ~item_rev/itm/dvsingsw.spl~      ~override~
+  WRITE_SHORT 0x98 %dvsingsw%
+
+COPY ~item_rev/itm/dvslay.spl~      ~override~  // Slaying
+COPY ~item_rev/itm/dvslay.eff~      ~override~
+
+COPY ~item_rev/itm/dvsleep.spl~      ~override~  // Sleep
+COPY ~item_rev/itm/dvsleep.eff~      ~override~
+
+COPY ~item_rev/itm/dvsburst.spl~      ~override~  // Sound Burst
+  WRITE_SHORT 0x98 %dvsburst%
+COPY ~item_rev/itm/dvsburst.eff~      ~override~
+
+COPY ~item_rev/itm/dvstnhld.spl~      ~override~  // Stonehold
+COPY ~item_rev/itm/dvstnhld.eff~      ~override~
+
+COPY ~item_rev/itm/dvstun.spl~      ~override~  // Stunning
+COPY ~item_rev/itm/dvstun.eff~      ~override~
+
+COPY ~item_rev/itm/dvsunder.spl~      ~override~  // Sundering
+COPY ~item_rev/itm/dvsunder.eff~      ~override~
+
+ADD_PROJECTILE ~item_rev/itm/dvthclap.pro~  // Thunderclap
+COPY ~item_rev/itm/dvthclap.spl~      ~override~
+  WRITE_SHORT 0x98 %dvthclap%
+
+COPY ~item_rev/itm/dvvampir.spl~      ~override~  // Vampiric
+COPY ~item_rev/itm/dvvampir.eff~      ~override~
+
+COPY ~item_rev/itm/dvvorpal.spl~      ~override~  // Vorpal
+COPY ~item_rev/itm/dvvorpal.eff~      ~override~
+
+COPY ~item_rev/itm/dvweb.spl~      ~override~  // Web
+COPY ~item_rev/itm/dvweb.eff~      ~override~
+
+COPY ~item_rev/itm/dvwhirls.spl~      ~override~  // Whirlwind Strike
+  WRITE_SHORT 0x98 %dvflbrst%
+
+
+/*-----------------Items Special Abilities-----------------*/
+
+COPY ~item_rev/itm/dvanrage.spl~      ~override~  // Animal Rage ability
+
+COPY ~item_rev/itm/dvanswer.spl~      ~override~  // Answerer ability
+
+COPY ~item_rev/itm/dvblur.spl~      ~override~  // Blur ability
+
+COPY ~item_rev/itm/dvblrage.spl~      ~override~  // Blood Rage ability
+
+COPY ~item_rev/itm/dvgasfrm.spl~      ~override~  // Gaseous Form
+COPY ~item_rev/itm/dvgasfrm.itm~      ~override~
+
+COPY ~item_rev/itm/dvgazek.spl~      ~override~  // Gaze of Death
+
+COPY ~item_rev/itm/dvgazef.spl~      ~override~  // Gaze of Despair
+COPY ~item_rev/itm/dvgazef.eff~      ~override~
+
+COPY ~item_rev/itm/dvheroic.spl~      ~override~  // Heroic Inspiration ability
+
+COPY ~item_rev/itm/dvstorm1.spl~      ~override~  // Storm Star's Chain Lightning
+
+COPY ~item_rev/itm/dvstorm2.spl~      ~override~  // Storm Star's Call Lightning
+
+COPY ~item_rev/itm/dvspward.spl~      ~override~  // Spell Warding ability
+
+COPY ~item_rev/itm/dvthorns.spl~      ~override~  // Spiked Vine ability
+
+ADD_PROJECTILE ~item_rev/itm/dvbatto.pro~  // Batto ability (Celestial Fury)
+COPY ~item_rev/itm/dvbatto.spl~      ~override~
+  WRITE_SHORT 0x98 %dvbatto%
+
+ADD_PROJECTILE ~item_rev/itm/dvfrbolt.pro~  // Fire Explosion (Firetooh)
+COPY ~item_rev/itm/dvfrbolt.spl~      ~override~
+  WRITE_SHORT 0x98 %dvfrbolt%
+
+ADD_PROJECTILE ~item_rev/itm/dvmslatr.pro~  // Missile Attraction
+COPY ~item_rev/itm/dvmslatr.spl~      ~override~
+  WRITE_SHORT 0x98 %dvmslatr%
+ADD_PROJECTILE ~item_rev/itm/dvmslatr.eff~
+
+ADD_PROJECTILE ~item_rev/itm/dvnamarr.pro~  // Namarra's Silence 15' Radius
+COPY ~item_rev/itm/dvnamarr.spl~      ~override~
+  WRITE_SHORT 0x98 %dvnamarr%
+
+ADD_PROJECTILE ~item_rev/itm/dvprexpl.pro~  // Prismatic Explosion ability
+COPY ~item_rev/itm/dvprexpl.spl~      ~override~
+  WRITE_SHORT 0x98 %dvprexpl%
+
+ADD_PROJECTILE ~item_rev/itm/dvstdust.pro~  // Stardust effect
+COPY ~item_rev/itm/dvstdust.spl~      ~override~
+  WRITE_SHORT 0x98 %dvstdust%
+
+COPY ~item_rev/itm/dvstench.eff~      ~override/dvstench.eff~
+
+ADD_PROJECTILE ~item_rev/itm/dvstench.pro~  // Stench effect
+COPY ~item_rev/itm/dvstench.spl~      ~override~
+  WRITE_SHORT 0x98 %dvstench%
+
+/*------------------Shared Files-----------------*/
+
+COPY ~item_rev/2da~      ~override~
+COPY ~item_rev/bams~      ~override~
+COPY ~item_rev/ioun stones~      ~override~
+
+/*-----------------1PP Content-------------------*/
+
+COPY ~item_rev/1pp/v2~      ~override~
+COPY ~item_rev/1pp/v3_paperdolls~      ~override~
+
+COPY ~item_rev/1pp/helmets~      ~override~
+
+COPY ~item_rev/1pp/flaming_swords~      ~override~
+
+COPY ~item_rev/1pp/shields/d1_bg1_buckler_animations~      ~override~
+COPY ~item_rev/1pp/shields/d2_bg1_small_animations~      ~override~
+COPY ~item_rev/1pp/shields/d3_bg1_medium_animations~      ~override~
+
+COPY ~item_rev/1pp/shields/c0_bg2_medium~      ~override~
+COPY ~item_rev/1pp/shields/c1_dragonscale_medium~      ~override~
+COPY ~item_rev/1pp/shields/c2_dragonscale_large~      ~override~
+COPY ~item_rev/1pp/shields/c3_spiky_large~      ~override~
+COPY ~item_rev/1pp/shields/c4_fortress_bg2_large~      ~override~
+COPY ~item_rev/1pp/shields/c5_star_small~      ~override~
+COPY ~item_rev/1pp/shields/c6_polished_large~      ~override~
+COPY ~item_rev/1pp/shields/c7_bg2_small~      ~override~
+
+// add c0-c6 creature animations
+ACTION_FOR_EACH size IN ~l~ ~m~ ~s~ BEGIN // creature sizes
+  ACTION_FOR_EACH sequence IN ~a1~ ~a1e~ ~a3~ ~a3e~ ~a5~ ~a5e~ ~g1~ ~g1e~ ~w2~ ~w2e~ BEGIN // animation sequences
+    // small shields
+    ACTION_FOR_EACH animation IN ~c5~ BEGIN
+      ACTION_IF (FILE_EXISTS_IN_GAME ~wp%size%d2%sequence%.bam~) BEGIN
+        COPY_EXISTING ~wp%size%d2%sequence%.bam~ ~override/wp%size%%animation%%sequence%.bam~
+      END
+    END
+    // medium shields
+    ACTION_FOR_EACH animation IN ~c0~ ~c1~
+    BEGIN
+      ACTION_IF (FILE_EXISTS_IN_GAME ~wp%size%d3%sequence%.bam~) BEGIN
+        COPY_EXISTING ~wp%size%d3%sequence%.bam~ ~override/wp%size%%animation%%sequence%.bam~
+      END
+    END
+    // large shields
+    ACTION_FOR_EACH animation IN ~c2~ ~c3~ ~c4~ ~c6~ BEGIN
+      ACTION_IF (FILE_EXISTS_IN_GAME ~wp%size%d4%sequence%.bam~) BEGIN
+        COPY_EXISTING ~wp%size%d4%sequence%.bam~ ~override/wp%size%%animation%%sequence%.bam~
+      END
+    END
+  END
+END
+
+
+/*--------------------Patches--------------------*/
+
+// update strings for proficiency changes
+COPY_EXISTING ~weapprof.2da~ ~override~
+  SET_2DA_ENTRY 11 2 20 ~mi_ss_name~
+  SET_2DA_ENTRY 11 3 20 ~mi_ss_desc~
+  SET_2DA_ENTRY 14 2 20 ~mi_katana_name~
+  SET_2DA_ENTRY 14 3 20 ~mi_katana_desc~
+  SET_2DA_ENTRY 15 2 20 ~mi_scimitar_name~
+  SET_2DA_ENTRY 15 3 20 ~mi_scimitar_desc~
+  SET_2DA_ENTRY 21 2 20 ~mi_flail_name~
+  SET_2DA_ENTRY 21 3 20 ~mi_flail_desc~
+  SET_2DA_ENTRY 22 2 20 ~mi_mace_name~
+  SET_2DA_ENTRY 22 3 20 ~mi_mace_desc~
+  
+  REPLACE ~mi_ss_name~       @100000
+  REPLACE ~mi_ss_desc~       @100001
+  REPLACE ~mi_katana_name~   @100002
+  REPLACE ~mi_katana_desc~   @100003
+  REPLACE ~mi_scimitar_name~ @100004
+  REPLACE ~mi_scimitar_desc~ @100005
+  REPLACE ~mi_flail_name~    @100006
+  REPLACE ~mi_flail_desc~    @100007
+  REPLACE ~mi_mace_name~     @100008
+  REPLACE ~mi_mace_desc~     @100009
+
+// Demon Lord no longer immune to +4 enchanted weapons
+COPY_EXISTING ~uddemon.cre~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+    READ_LONG 0x2a0 known_spells_off
+    READ_LONG 0x2a8 spell_memorisation_info_off
+    READ_LONG 0x2b0 memorised_spells_off
+    READ_LONG 0x2b8 item_slots_off
+    READ_LONG 0x2bc items_off
+    READ_LONG 0x2c4 effects_off
+    READ_LONG 0x2c8 num_effects
+    
+    SET num_deleted = 0
+    FOR (i = 0; i < num_effects; i = i + 1) BEGIN
+      READ_LONG (effects_off + 0x108*i + 0x08) opcode
+      READ_LONG (effects_off + 0x108*i + 0x14) param1
+      READ_LONG (effects_off + 0x108*i + 0x18) param2
+      
+      PATCH_IF (opcode == 120 && param2 == 0 && param1 == 4) BEGIN // protection from +4 melee weapons
+        DELETE_BYTES (effects_off + 0x108*i) 0x108
+        SET num_deleted += 1 // increment counter
+        SET num_effects -= 1 // decrement number of effects
+        SET i -= 1 // do this iteration of the loop again since the next effect will now be at this offset
+      END
+    END
+    
+    // if we deleted any
+    PATCH_IF (num_deleted > 0) BEGIN
+      // clean up offsets
+      PATCH_IF (known_spells_off > effects_off) BEGIN
+        WRITE_LONG 0x2a0 (known_spells_off - 0x108*num_deleted)
+      END
+      PATCH_IF (spell_memorisation_info_off > effects_off) BEGIN
+        WRITE_LONG 0x2a8 (spell_memorisation_info_off - 0x108*num_deleted)
+      END
+      PATCH_IF (memorised_spells_off > effects_off) BEGIN
+        WRITE_LONG 0x2b0 (memorised_spells_off - 0x108*num_deleted)
+      END
+      PATCH_IF (item_slots_off > effects_off) BEGIN
+        WRITE_LONG 0x2b8 (item_slots_off - 0x108*num_deleted)
+      END
+      PATCH_IF (items_off > effects_off) BEGIN
+        WRITE_LONG 0x2bc (items_off - 0x108*num_deleted)
+      END
+      PATCH_IF (num_effects > effects_off) BEGIN
+        WRITE_LONG 0x2c8 (num_effects - 0x108*num_deleted)
+      END
+      
+      // update number of effects
+      WRITE_LONG 0x2c8 num_effects
+    END
+  END
+  BUT_ONLY
+
+/*-----------------Tooltip Macro-----------------*/
+
+OUTER_SPRINT tooltip_string_1 ~mi_1_default~
+OUTER_SPRINT tooltip_string_2 ~mi_2_default~
+OUTER_SPRINT tooltip_string_3 ~mi_3_default~
+// macro to set the tooltip references for items' activated abilities - requires 'tooltip_itm' be set to the name of the .itm file we are changing, and 'tooltip_string_1', _2, and _3 to be set to the new tooltips - those that are not set will have their position set to -1 instead of a strref
+DEFINE_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ BEGIN
+  
+  // set column values, including placeholders for future strrefs
+  ACTION_IF (~%tooltip_string_1%~ STRING_EQUAL ~mi_1_default~) BEGIN // tooltip_string_1 was not set to a new tooltip
+    OUTER_SPRINT mi_col_1 ~-1~ // no strref
+  END ELSE BEGIN // tooltip_string_1 has been set to a new tooltip, so we'll stick in the strref using a later REPLACE
+    OUTER_SPRINT mi_col_1 ~mi_placeholder_1~
+  END
+  
+  ACTION_IF (~%tooltip_string_2%~ STRING_EQUAL ~mi_2_default~) BEGIN // tooltip_string_2 was not set to a new tooltip
+    OUTER_SPRINT mi_col_2 ~-1~
+  END ELSE BEGIN // tooltip_string_2 has been set to a new tooltip, so we'll stick in the strref using a later REPLACE
+    OUTER_SPRINT mi_col_2 ~mi_placeholder_2~
+  END
+  
+  ACTION_IF (~%tooltip_string_3%~ STRING_EQUAL ~mi_3_default~) BEGIN // tooltip_string_3 was not set to a new tooltip
+    OUTER_SPRINT mi_col_3 ~-1~
+  END ELSE BEGIN // tooltip_string_3 has been set to a new tooltip, so we'll stick in the strref using a later REPLACE
+    OUTER_SPRINT mi_col_3 ~mi_placeholder_3~
+  END
+
+  // modify the file
+  COPY_EXISTING ~tooltip.2da~ ~override~
+    SET exists = 0
+    COUNT_2DA_ROWS 4 num_rows
+    FOR (i = 0; i < num_rows; i += 1) BEGIN
+      READ_2DA_ENTRY %i% 0 4 current_item
+      // if we find the item already has tooltips
+      PATCH_IF (~%current_item%~ STRING_EQUAL_CASE ~%tooltip_itm%~) BEGIN
+        SET exists = 1
+        
+        SET_2DA_ENTRY %i% 1 4 ~%mi_col_1%~ // set 1st tooltip
+        SET_2DA_ENTRY %i% 2 4 ~%mi_col_2%~ // set 2nd tooltip
+        SET_2DA_ENTRY %i% 3 4 ~%mi_col_3%~ // set 3rd tooltip
+      END
+    END
+    
+    // if the .itm is not in the list yet
+    PATCH_IF (exists == 0) BEGIN
+      // add a row for it
+      INSERT_2DA_ROW 0 4 ~%tooltip_itm%            %mi_col_1%        %mi_col_2%       %mi_col_3%~
+    END
+    
+    // replace any placeholder values
+    PATCH_IF (NOT ~%mi_col_1%~ STRING_EQUAL ~-1~) BEGIN
+      REPLACE ~mi_placeholder_1~ ~%tooltip_string_1%~
+    END
+    PATCH_IF (NOT ~%mi_col_2%~ STRING_EQUAL ~-1~) BEGIN
+      REPLACE ~mi_placeholder_2~ ~%tooltip_string_2%~
+    END
+    PATCH_IF (NOT ~%mi_col_3%~ STRING_EQUAL ~-1~) BEGIN
+      REPLACE ~mi_placeholder_3~ ~%tooltip_string_3%~
+    END
+    
+    BUT_ONLY_IF_IT_CHANGES
+  
+  // reset variables
+  OUTER_SPRINT tooltip_string_1 ~mi_1_default~
+  OUTER_SPRINT tooltip_string_2 ~mi_2_default~
+  OUTER_SPRINT tooltip_string_3 ~mi_3_default~
+END
+
+
+/*--------------------Amulets--------------------*/
+
+// Necklace of Missiles
+COPY ~item_rev/itm/amul01.itm~      ~override/amul01.itm~         
+SAY NAME1 @2319
+SAY NAME2 @2320
+SAY UNIDENTIFIED_DESC @2321
+SAY DESC @2322
+
+COPY ~item_rev/itm/amul01.spl~      ~override~
+
+// Amulet of Protection +1
+COPY ~item_rev/itm/amul14.itm~      ~override/amul14.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1001
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1003
+
+// Shield Amulet
+COPY ~item_rev/itm/amul15.itm~      ~override/amul15.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1004
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1005
+
+// Amulet of Metaspell Influence
+COPY ~item_rev/itm/amul16.itm~      ~override/amul16.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1006
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1007
+
+// Greenstone Amulet
+COPY ~item_rev/itm/amul17.itm~      ~override/amul17.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1008
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1009
+
+/* COPY ~item_rev/itm/amul17.spl~      ~override/amul17.spl~
+
+OUTER_SPRINT tooltip_itm ~AMUL17~
+OUTER_SPRINT tooltip_string_1 @4000
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
+PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
+READ_LONG 0x78 "io" // offset to list of items
+FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+  READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+  PATCH_IF (~%in%~ STRING_EQUAL_CASE ~AMUL17~) THEN BEGIN
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 1 // Mind Shield
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 0 // none
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+    SET "ic" = 0x00
+    END
+  END
+END
+BUT_ONLY */
+
+// Silver Amulet
+COPY ~item_rev/itm/amul18.itm~      ~override/amul18.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1010
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1011
+
+// Amulet of Magic Shielding
+COPY ~item_rev/itm/amul19.itm~      ~override/amul19.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1012
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1013
+
+// Kaligun's Amulet of Magic Resistance
+COPY ~item_rev/itm/amul20.itm~      ~override/amul20.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1014
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1015
+
+COPY_EXISTING ~uddrow24.sto~ ~override~ // store
+  PATCH_IF (SOURCE_SIZE > 0xad) THEN BEGIN
+    READ_LONG 0x34 items_offset
+    READ_LONG 0x38 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~AMUL20~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 1 // Magic Resistance
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 0 // none
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+      END
+    END
+  END
+  BUT_ONLY
+
+// Amulet of Power
+COPY ~item_rev/itm/amul21.itm~      ~override/amul21.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1016
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1017
+
+// Periapt of Proof Against Poison
+COPY ~item_rev/itm/amul22.itm~      ~override/amul22.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1018
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1019
+
+/* OUTER_SPRINT tooltip_itm ~AMUL22~
+OUTER_SPRINT tooltip_string_1 @4001
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ */
+
+// Periapt of Life Protection
+COPY ~item_rev/itm/amul23.itm~      ~override/amul23.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1020
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1021
+
+// Necklace of Form Stability
+COPY ~item_rev/itm/amul24.itm~      ~override/amul24.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1022
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1023
+
+// Amulet of Spell Warding
+COPY ~item_rev/itm/amul25.itm~      ~override/amul25.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1024
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1025
+
+COPY ~item_rev/itm/amul25.spl~      ~override/amul25.spl~
+
+OUTER_SPRINT tooltip_itm ~AMUL25~
+OUTER_SPRINT tooltip_string_1 @4002
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~ar2101.are~ ~override~ // Underdark, Beholder Dungeon
+PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
+READ_LONG 0x78 "io" // offset to list of items
+FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+  READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+  PATCH_IF (~%in%~ STRING_EQUAL_CASE ~AMUL25~) THEN BEGIN
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 1 // Spell Turning
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 0 // none
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+    SET "ic" = 0x00
+    END
+  END
+END
+BUT_ONLY
+
+// Amulet of Cheetah Speed
+COPY ~item_rev/itm/amul26.itm~      ~override/amul26.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1026
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1027
+
+OUTER_SPRINT tooltip_itm ~AMUL26~
+OUTER_SPRINT tooltip_string_1 @4003
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Amulet of Seldarine
+COPY ~item_rev/itm/amul27.itm~      ~override/amul27.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1028
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1029
+
+// Amulet of the Master
+COPY ~item_rev/itm/amul28.itm~      ~override/amul28.itm~         
+SAY NAME1 @1000
+SAY NAME2 @1030
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @1031
+
+/*--------------------Arrows--------------------*/
+
+// Arrows
+COPY ~item_rev/itm/arow01.itm~      ~override/arow01.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1032
+SAY UNIDENTIFIED_DESC @1033
+SAY DESC @1033
+
+// Arrows +1
+COPY ~item_rev/itm/arow02.itm~      ~override/arow02.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1034
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1036
+
+// Arrow of Slaying +1
+COPY ~item_rev/itm/arow03.itm~      ~override/arow03.itm~         
+SAY NAME1 @1032
+SAY NAME2 @2323
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @2324
+
+// Acid Arrow +1
+COPY ~item_rev/itm/arow04.itm~      ~override/arow04.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1037
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1038
+
+// Arrow of Biting
+COPY ~item_rev/itm/arow05.itm~      ~override/arow05.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1039
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1040
+
+// Arrow of Detonation
+COPY ~item_rev/itm/arow06.itm~      ~override/arow06.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1041
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1042
+
+// Arrow of Dispelling +1
+COPY ~item_rev/itm/arow07.itm~      ~override/arow07.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1043
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1044
+
+// Arrow of Fire +1
+COPY ~item_rev/itm/arow08.itm~      ~override/arow08.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1045
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1046
+
+// Arrow of Ice +1
+COPY ~item_rev/itm/arow09.itm~      ~override/arow09.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1047
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1048
+
+// Arrow of Piercing +3
+COPY ~item_rev/itm/arow10.itm~      ~override/arow10.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1049
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1050
+
+// Arrows +2
+COPY ~item_rev/itm/arow11.itm~      ~override/arow11.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1051
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1052
+
+// Arrows +3
+COPY ~item_rev/itm/arow15.itm~      ~override/arow15.itm~         
+SAY NAME1 @1032
+SAY NAME2 @1053
+SAY UNIDENTIFIED_DESC @1035
+SAY DESC @1054
+
+/*---------------------Axes---------------------*/
+
+// Battle Axe
+COPY ~item_rev/itm/ax1h01.itm~      ~override/ax1h01.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1055
+SAY UNIDENTIFIED_DESC @1056
+SAY DESC @1056
+
+// Battle Axe +1
+COPY ~item_rev/itm/ax1h02.itm~      ~override/ax1h02.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1057
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1059
+
+// Battle Axe +2
+COPY ~item_rev/itm/ax1h03.itm~      ~override/ax1h03.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1060
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1061
+
+// Throwing Axe
+COPY ~item_rev/itm/ax1h04.itm~      ~override/ax1h04.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1062
+SAY UNIDENTIFIED_DESC @1063
+SAY DESC @1063
+
+// Throwing Axe +1
+COPY ~item_rev/itm/ax1h05.itm~      ~override/ax1h05.itm~         
+SAY NAME1 @1062
+SAY NAME2 @2311
+SAY UNIDENTIFIED_DESC @1063
+SAY DESC @2312
+
+// Throwing Axe +2
+COPY ~item_rev/itm/ax1h06.itm~      ~override/ax1h06.itm~         
+SAY NAME1 @1062
+SAY NAME2 @2325
+SAY UNIDENTIFIED_DESC @1063
+SAY DESC @2326
+
+// Bala's Axe
+COPY ~item_rev/itm/ax1h07.itm~      ~override/ax1h07.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1064
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1065
+
+// Hangard's Axe +2
+COPY ~item_rev/itm/ax1h08.itm~      ~override/ax1h08.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1066
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1068
+
+// Hangard's Axe +2
+COPY ~item_rev/itm/ax1h08a.itm~      ~override/ax1h08a.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1066
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1068
+
+// Hangard's Axe +2
+COPY ~item_rev/itm/ax1h08b.itm~      ~override/ax1h08b.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1066
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1068
+
+// Rifthome Axe +3
+COPY ~item_rev/itm/ax1h09.itm~      ~override/ax1h09.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1069
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1070
+
+// Rifthome Axe +3
+COPY ~item_rev/itm/ax1h09a.itm~      ~override/ax1h09a.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1069
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1070
+
+// Rifthome Axe +3
+COPY ~item_rev/itm/ax1h09b.itm~      ~override/ax1h09b.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1069
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1070
+
+// Azuredge +3
+COPY ~item_rev/itm/ax1h10.itm~      ~override/ax1h10.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1071
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1072
+
+// Azuredge +3
+COPY ~item_rev/itm/ax1h10a.itm~      ~override/ax1h10a.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1071
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1072
+
+// Azuredge +3
+COPY ~item_rev/itm/ax1h10b.itm~      ~override/ax1h10b.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1071
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1072
+
+// Battle Axe +2
+COPY ~item_rev/itm/ax1h11.itm~      ~override/ax1h11.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1060
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1061
+
+// Stonefire +2
+COPY ~item_rev/itm/ax1h12.itm~      ~override/ax1h12.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1073
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1074
+
+// Frostreaver +2
+COPY ~item_rev/itm/ax1h13.itm~      ~override/ax1h13.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1075
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1076
+
+// Axe of the Unyielding +3
+COPY ~item_rev/itm/ax1h14.itm~      ~override/ax1h14.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1077
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1078
+
+// Axe of the Unyielding +4
+COPY ~item_rev/itm/ax1h15.itm~      ~override/ax1h15.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1079
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1080
+
+// K'logarath +4
+COPY ~item_rev/itm/ax1h16.itm~      ~override/ax1h16.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1081
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1082
+
+// K'logarath +4
+COPY ~item_rev/itm/ax1h16a.itm~      ~override/ax1h16a.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1081
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1082
+
+// K'logarath +4
+COPY ~item_rev/itm/ax1h16b.itm~      ~override/ax1h16b.itm~         
+SAY NAME1 @1062
+SAY NAME2 @1081
+SAY UNIDENTIFIED_DESC @1067
+SAY DESC @1082
+
+// Battle Axe +3
+COPY ~item_rev/itm/ax1h17.itm~      ~override/ax1h17.itm~         
+SAY NAME1 @1055
+SAY NAME2 @1083
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @1084
+
+/*---------------------Belts---------------------*/
+
+// Golden Girdle
+COPY ~item_rev/itm/belt02.itm~      ~override/belt02.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1086
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1088
+
+// Girdle of Bluntness
+COPY ~item_rev/itm/belt03.itm~      ~override/belt03.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1089
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1090
+
+// Girdle of Piercing
+COPY ~item_rev/itm/belt04.itm~      ~override/belt04.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1091
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1092
+
+// Girdle of Beatification
+COPY ~item_rev/itm/belt06.itm~      ~override/belt06.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1093
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1094
+
+// Girdle of Priestly Might
+COPY ~item_rev/itm/belt07.itm~      ~override/belt07.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1095
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1096
+
+// Girdle of Giant Strength
+COPY ~item_rev/itm/belt08.itm~      ~override/belt08.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1097
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1098
+
+STRING_SET ~41384~ @100 // Change Cromwell's dialogs
+STRING_SET ~59725~ @101
+STRING_SET ~59728~ @102
+STRING_SET ~59730~ @103
+STRING_SET ~59731~ @104
+
+// Girdle of Trollish Fortitude
+COPY ~item_rev/itm/belt09.itm~      ~override/belt09.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1099
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1100
+
+OUTER_SPRINT tooltip_itm ~BELT09~
+OUTER_SPRINT tooltip_string_1 @4004
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Belt of Inertial Barrier
+COPY ~item_rev/itm/belt10.itm~      ~override/belt10.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1101
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1102
+
+COPY ~item_rev/itm/belt10a.spl~      ~override/belt10a.spl~  // Inertial Barrier
+ADD_PROJECTILE ~item_rev/itm/dvinertb.pro~
+COPY ~item_rev/itm/belt10b.spl~      ~override/belt10b.spl~
+  WRITE_SHORT 0x98 %dvinertb%
+
+// Girdle of the Champion
+COPY ~item_rev/itm/belt11.itm~      ~override/belt11.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1103
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1104
+
+/*----------------Clubs, Flails, Maces & Morning Stars---------------*/
+
+// Club
+COPY ~item_rev/itm/blun01.itm~      ~override/blun01.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1105
+SAY UNIDENTIFIED_DESC @1106
+SAY DESC @1106
+
+// Flail
+COPY ~item_rev/itm/blun02.itm~      ~override/blun02.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1107
+SAY UNIDENTIFIED_DESC @1108
+SAY DESC @1108
+
+// Flail +1
+COPY ~item_rev/itm/blun03.itm~      ~override/blun03.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1109
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1111
+
+// Mace
+COPY ~item_rev/itm/blun04.itm~      ~override/blun04.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1112
+SAY UNIDENTIFIED_DESC @1113
+SAY DESC @1113
+
+// Mace +1
+COPY ~item_rev/itm/blun05.itm~      ~override/blun05.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1114
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1116
+
+// Morning Star
+COPY ~item_rev/itm/blun06.itm~      ~override/blun06.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1117
+SAY UNIDENTIFIED_DESC @1118
+SAY DESC @1118
+
+// Morning Star +1
+COPY ~item_rev/itm/blun07.itm~      ~override/blun07.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1119
+SAY UNIDENTIFIED_DESC @1120
+SAY DESC @1121
+
+// Flail
+COPY ~item_rev/itm/blun08.itm~      ~override/blun08.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1107
+SAY UNIDENTIFIED_DESC @1108
+SAY DESC @1108
+
+// Kiel's Morning Star +3
+COPY ~item_rev/itm/blun09.itm~      ~override/blun09.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1122
+SAY UNIDENTIFIED_DESC @1120
+SAY DESC @1123
+
+COPY ~item_rev/itm/blun09.spl~      ~override/blun09.spl~  // Whirling Frenzy
+
+// The Root of the Problem +3
+COPY ~item_rev/itm/blun10.itm~      ~override/blun10.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1124
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1126
+
+// Mace +2
+COPY ~item_rev/itm/blun11.itm~      ~override/blun11.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1146
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1147
+
+// Mace of Disruption +3
+COPY ~item_rev/itm/blun12.itm~      ~override/blun12.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1127
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1128
+
+// Flail +2
+COPY ~item_rev/itm/blun13.itm~      ~override/blun13.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1129
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1130
+
+// Flail of Ages +3
+COPY ~item_rev/itm/blun14.itm~      ~override/blun14.itm~
+SAY NAME1 @1107
+SAY NAME2 @1131
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1132
+
+// Flail of Ages +2
+COPY ~item_rev/itm/blun14d.itm~      ~override/blun14d.itm~
+SAY NAME1 @1107
+SAY NAME2 @2301
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2302
+
+// Flail of Ages +2
+COPY ~item_rev/itm/blun14e.itm~      ~override/blun14e.itm~
+SAY NAME1 @1107
+SAY NAME2 @2301
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2303
+
+// Flail of Ages +2
+COPY ~item_rev/itm/blun14f.itm~      ~override/blun14f.itm~
+SAY NAME1 @1107
+SAY NAME2 @2301
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2304
+
+// Flail of Ages +1
+COPY ~item_rev/itm/blun14g.itm~      ~override/blun14g.itm~
+SAY NAME1 @1107
+SAY NAME2 @2305
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2306
+
+// Flail of Ages +1
+COPY ~item_rev/itm/blun14h.itm~      ~override/blun14h.itm~
+SAY NAME1 @1107
+SAY NAME2 @2305
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2307
+
+// Flail of Ages +1
+COPY ~item_rev/itm/blun14i.itm~      ~override/blun14i.itm~
+SAY NAME1 @1107
+SAY NAME2 @2305
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2308
+
+// Morning Star +2
+COPY ~item_rev/itm/blun15.itm~      ~override/blun15.itm~
+SAY NAME1 @1117
+SAY NAME2 @1133
+SAY UNIDENTIFIED_DESC @1134
+SAY DESC @1135
+
+// The Sleeper +2
+COPY ~item_rev/itm/blun16.itm~      ~override/blun16.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1136
+SAY UNIDENTIFIED_DESC @1134
+SAY DESC @1137
+
+// Wyvern's Tail +2
+COPY ~item_rev/itm/blun17.itm~      ~override/blun17.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1138
+SAY UNIDENTIFIED_DESC @1134
+SAY DESC @1139
+
+// Skullcrusher +3
+COPY ~item_rev/itm/blun18.itm~      ~override/blun18.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1140
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1141
+
+// Mauler's Arm +1
+COPY ~item_rev/itm/blun19.itm~      ~override/blun19.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1142
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1143
+
+// Ardulia's Fall +2
+COPY ~item_rev/itm/blun20.itm~      ~override/blun20.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1144
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1145
+
+// Mace +2
+COPY ~item_rev/itm/blun21.itm~      ~override/blun21.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1146
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1147
+
+// Blackblood +2
+COPY ~item_rev/itm/blun22.itm~      ~override/blun22.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1148
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1149
+
+// Bone Club +3
+COPY ~item_rev/itm/blun23.itm~      ~override/blun23.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1150
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1151
+
+// Gnasher +2
+COPY ~item_rev/itm/blun24.itm~      ~override/blun24.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1152
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1153
+
+// Mace of Disruption +4
+COPY ~item_rev/itm/blun25.itm~      ~override/blun25.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1154
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1155
+
+// Club of Detonation +3
+COPY ~item_rev/itm/blun26.itm~      ~override/blun26.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1156
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1157
+
+// Club of Detonation +4
+COPY ~item_rev/itm/blun27.itm~      ~override/blun27.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1158
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1159
+
+OUTER_SPRINT tooltip_itm ~BLUN27~
+OUTER_SPRINT tooltip_string_1 @1158
+OUTER_SPRINT tooltip_string_2 @4005
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Storm Star +3
+COPY ~item_rev/itm/blun28.itm~      ~override/blun28.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1160
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1161
+
+// Storm Star +4
+COPY ~item_rev/itm/blun29.itm~      ~override/blun29.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1162
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1163
+
+// Flail of Ages +5
+COPY ~item_rev/itm/blun30.itm~      ~override/blun30.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1164
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1165
+
+// Flail of Ages +4
+COPY ~item_rev/itm/blun30c.itm~      ~override/blun30c.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1166
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1167
+
+// Flail of Ages +4
+COPY ~item_rev/itm/blun30d.itm~      ~override/blun30d.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1166
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1168
+
+// Club +3
+COPY ~item_rev/itm/blun31.itm~      ~override/blun31.itm~         
+SAY NAME1 @1105
+SAY NAME2 @1169
+SAY UNIDENTIFIED_DESC @1125
+SAY DESC @1170
+
+// Flail +3
+COPY ~item_rev/itm/blun32.itm~      ~override/blun32.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1171
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1172
+
+// Mace +3
+COPY ~item_rev/itm/blun33.itm~      ~override/blun33.itm~         
+SAY NAME1 @1112
+SAY NAME2 @1173
+SAY UNIDENTIFIED_DESC @1115
+SAY DESC @1174
+
+// Morning Star +3
+COPY ~item_rev/itm/blun34.itm~      ~override/blun34.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1175
+SAY UNIDENTIFIED_DESC @1134
+SAY DESC @1176
+
+// Ice Star +4
+COPY ~item_rev/itm/blun35.itm~      ~override/blun35.itm~         
+SAY NAME1 @1117
+SAY NAME2 @1177
+SAY UNIDENTIFIED_DESC @1134
+SAY DESC @1178
+
+COPY ~item_rev/itm/enmorn.itm~      ~override/enmorn.itm~
+
+/*---------------------Bolts---------------------*/
+
+// Bolt
+COPY ~item_rev/itm/bolt01.itm~      ~override/bolt01.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1179
+SAY UNIDENTIFIED_DESC @1180
+SAY DESC @1180
+
+// Bolt +1
+COPY ~item_rev/itm/bolt02.itm~      ~override/bolt02.itm~
+SAY NAME1 @1179
+SAY NAME2 @1181
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1183
+
+// Bolt of Lightning +2
+COPY ~item_rev/itm/bolt03.itm~      ~override/bolt03.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1184
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1185
+
+// Bolt of Biting
+COPY ~item_rev/itm/bolt04.itm~      ~override/bolt04.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1186
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1187
+
+// Bolt of Polymorphing +1
+COPY ~item_rev/itm/bolt05.itm~      ~override/bolt05.itm~         
+SAY NAME1 @1179
+SAY NAME2 @2327
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @2328
+
+COPY ~item_rev/itm/dvsquir.itm~      ~override/dvsquir.itm~ // SR's Polymorph Other
+
+// Bolt +2
+COPY ~item_rev/itm/bolt06.itm~      ~override/bolt06.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1188
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1189
+
+// Flasher Master Bruiser Mate +1
+COPY ~item_rev/itm/bolt07.itm~      ~override/bolt07.itm~         
+SAY NAME1 @1179
+SAY NAME2 @2329
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @2330
+
+// Blessed Bolt +3
+COPY ~item_rev/itm/bolt08.itm~      ~override/bolt08.itm~         
+SAY NAME1 @1179
+SAY NAME2 @2331
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @2332
+
+// Bolt +3
+COPY ~item_rev/itm/bolt09.itm~      ~override/bolt09.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1190
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1191
+
+// Kuo-Toa Bolt +1
+COPY ~item_rev/itm/kuobolt.itm~      ~override~
+SAY NAME1 @1179
+SAY NAME2 @2361
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @2362
+
+// Kuo-Toa Bolt +2
+COPY ~item_rev/itm/kuobolt.itm~      ~override~
+SAY NAME1 @1179
+SAY NAME2 @2363
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @2364
+
+// Kuo-Toa Bolt +3
+COPY ~item_rev/itm/kuobolt.itm~      ~override~
+SAY NAME1 @1179
+SAY NAME2 @2365
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @2366
+
+/*---------------------Boots---------------------*/
+
+// Boots of Speed
+COPY ~item_rev/itm/boot01.itm~      ~override/boot01.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1193
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1195
+
+// Boots of Stealth
+COPY ~item_rev/itm/boot02.itm~      ~override/boot02.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1196
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1197
+
+// Boots of the North
+COPY ~item_rev/itm/boot03.itm~      ~override/boot03.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1198
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1199
+
+// Boots of Avoidance
+COPY ~item_rev/itm/boot04.itm~      ~override/boot04.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1200
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1201
+
+// Boots of Grounding
+COPY ~item_rev/itm/boot05.itm~      ~override/boot05.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1202
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1203
+
+// Boots of Elvenkind
+COPY ~item_rev/itm/boot07.itm~      ~override/boot07.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1204
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1205
+
+// Boots of Phasing
+COPY ~item_rev/itm/boot08.itm~      ~override/boot08.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1206
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1207
+
+// Spider's Boots of Stealth
+/* COPY ~item_rev/itm/boot09.itm~      ~override/boot09.itm~         
+SAY NAME1 @1192
+SAY NAME2 @2333
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @2334 */
+
+// Boots of Lightning Speed
+/* COPY ~item_rev/itm/boot10.itm~      ~override/boot10.itm~         
+SAY NAME1 @1192
+SAY NAME2 @2335
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @2336 */
+
+// Boots of Etherealness
+COPY ~item_rev/itm/boot11.itm~      ~override/boot11.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1208
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1209
+
+OUTER_SPRINT tooltip_itm ~BOOT11~
+OUTER_SPRINT tooltip_string_1 @4006
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Gargoyle Boots
+COPY ~item_rev/itm/boot12.itm~      ~override/boot12.itm~         
+SAY NAME1 @1192
+SAY NAME2 @1210
+SAY UNIDENTIFIED_DESC @1194
+SAY DESC @1211
+
+OUTER_SPRINT tooltip_itm ~BOOT12~
+OUTER_SPRINT tooltip_string_1 @4007
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/boot12.spl~      ~override/boot12.spl~  // Stoneskin (5 skins, 1 turn)
+
+/*----------------------Bows----------------------*/
+
+// Composite Long Bow
+COPY ~item_rev/itm/bow01.itm~      ~override/bow01.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1212
+SAY UNIDENTIFIED_DESC @1213
+SAY DESC @1213
+
+// Composite Long Bow +1
+COPY ~item_rev/itm/bow02.itm~      ~override/bow02.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1214
+SAY UNIDENTIFIED_DESC @1215
+SAY DESC @1216
+
+// Long Bow
+COPY ~item_rev/itm/bow03.itm~      ~override/bow03.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1217
+SAY UNIDENTIFIED_DESC @1218
+SAY DESC @1218
+
+// Long Bow +1
+COPY ~item_rev/itm/bow04.itm~      ~override/bow04.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1219
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1221
+
+// Short Bow
+COPY ~item_rev/itm/bow05.itm~      ~override/bow05.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1222
+SAY UNIDENTIFIED_DESC @1223
+SAY DESC @1223
+
+// Short Bow +1
+COPY ~item_rev/itm/bow06.itm~      ~override/bow06.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1224
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1226
+
+// Long Bow of Marksmanship +2
+COPY ~item_rev/itm/bow07.itm~      ~override/bow07.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1227
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1228
+
+// Eagle Bow +2
+COPY ~item_rev/itm/bow08.itm~      ~override/bow08.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1229
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1230
+
+// Ripper +2
+COPY ~item_rev/itm/bow09.itm~      ~override/bow09.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1231
+SAY UNIDENTIFIED_DESC @1215
+SAY DESC @1232
+
+// Heartseeker +3
+COPY ~item_rev/itm/bow10.itm~      ~override/bow10.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1233
+SAY UNIDENTIFIED_DESC @1215
+SAY DESC @1234
+
+/* OUTER_SPRINT tooltip_itm ~BOW10~
+OUTER_SPRINT tooltip_string_1 @1233
+OUTER_SPRINT tooltip_string_2 @4008
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ */
+
+// Strong Arm +2
+COPY ~item_rev/itm/bow11.itm~      ~override/bow11.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1235
+SAY UNIDENTIFIED_DESC @1215
+SAY DESC @1236
+
+// Elven Court Bow +3
+COPY ~item_rev/itm/bow12.itm~      ~override/bow12.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1237
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1238
+
+OUTER_SPRINT tooltip_itm ~BOW12~
+OUTER_SPRINT tooltip_string_1 @1237
+OUTER_SPRINT tooltip_string_2 @4009
+OUTER_SPRINT tooltip_string_3 @4010
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Mana Bow +4
+COPY ~item_rev/itm/bow13.itm~      ~override/bow13.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1239
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1240
+
+// Tuigan Bow +1
+COPY ~item_rev/itm/bow14.itm~      ~override/bow14.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1241
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1242
+
+// Tansheron's Bow +3
+COPY ~item_rev/itm/bow15.itm~      ~override/bow15.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1243
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1244
+
+// Composite Long Bow +2
+COPY ~item_rev/itm/bow16.itm~      ~override/bow16.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1245
+SAY UNIDENTIFIED_DESC @1215
+SAY DESC @1246
+
+// Long Bow +2
+COPY ~item_rev/itm/bow17.itm~      ~override/bow17.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1247
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1248
+
+// Short Bow +2
+COPY ~item_rev/itm/bow18.itm~      ~override/bow18.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1249
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1250
+
+ADD_PROJECTILE ~item_rev/itm/dvgesbow.pro~
+
+// Iron Bow of Gesen +4
+COPY ~item_rev/itm/bow19.itm~      ~override/bow19.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1251
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1252
+
+WRITE_SHORT 0x9c ~%dvgesbow%~
+
+// Darkfire Bow +4
+COPY ~item_rev/itm/bow20.itm~      ~override/bow20.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1253
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1254
+
+OUTER_SPRINT tooltip_itm ~BOW20~
+OUTER_SPRINT tooltip_string_1 @1253
+OUTER_SPRINT tooltip_string_2 @4011
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Darkfire Bow +5
+COPY ~item_rev/itm/bow21.itm~      ~override/bow21.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1255
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1256
+
+OUTER_SPRINT tooltip_itm ~BOW21~
+OUTER_SPRINT tooltip_string_1 @1255
+OUTER_SPRINT tooltip_string_2 @4011
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Taralash +4
+COPY ~item_rev/itm/bow22.itm~      ~override/bow22.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1257
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1258
+
+// Taralash +5
+COPY ~item_rev/itm/bow23.itm~      ~override/bow23.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1259
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1260
+
+// Composite Long Bow +3
+COPY ~item_rev/itm/bow24.itm~      ~override/bow24.itm~         
+SAY NAME1 @1212
+SAY NAME2 @1261
+SAY UNIDENTIFIED_DESC @1215
+SAY DESC @1262
+
+// Long Bow +3
+COPY ~item_rev/itm/bow25.itm~      ~override/bow25.itm~         
+SAY NAME1 @1217
+SAY NAME2 @1263
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @1264
+
+// Short Bow +3
+COPY ~item_rev/itm/bow26.itm~      ~override/bow26.itm~         
+SAY NAME1 @1222
+SAY NAME2 @1265
+SAY UNIDENTIFIED_DESC @1225  
+SAY DESC @1266
+
+/*-----------------Bracers and Gauntlets-----------------*/
+
+// Bracers of Defense AC 8
+COPY ~item_rev/itm/brac01.itm~      ~override/brac01.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1268
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1270
+
+// Bracers of Defense AC 7
+COPY ~item_rev/itm/brac02.itm~      ~override/brac02.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1271
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1272
+
+// Bracers of Defense AC 6
+COPY ~item_rev/itm/brac03.itm~      ~override/brac03.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1273
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1274
+
+// Bracers of Archery
+COPY ~item_rev/itm/brac04.itm~      ~override/brac04.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1275
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1276
+
+// Gauntlets of Ogre Power
+COPY ~item_rev/itm/brac06.itm~      ~override/brac06.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1278
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1280
+
+// Gauntlets of Dexterity
+COPY ~item_rev/itm/brac07.itm~      ~override/brac07.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1281
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1282
+
+// Gauntlets of Might
+COPY ~item_rev/itm/brac08.itm~      ~override/brac08.itm~         
+SAY NAME1 @1277
+SAY NAME2 @2337
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @2338
+
+// Gauntlets of Parrying
+COPY ~item_rev/itm/brac09.itm~      ~override/brac09.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1283
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1284
+
+// Gauntlets of Weapon Expertise
+COPY ~item_rev/itm/brac10.itm~      ~override/brac10.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1285
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1286
+
+/* COPY ~item_rev/itm/brac10a.eff~      ~override/brac10a.eff~
+COPY ~item_rev/itm/brac10b.eff~      ~override/brac10b.eff~ */
+
+// Bracers of Speed
+COPY ~item_rev/itm/brac11.itm~      ~override/brac11.itm~         
+SAY NAME1 @1267
+SAY NAME2 @2339
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @2340
+
+COPY ~item_rev/itm/brac11.eff~      ~override/brac11.eff~ // Exhausting effect
+
+// Bracers of Defense AC 5
+COPY ~item_rev/itm/brac13.itm~      ~override/brac13.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1287
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1288
+
+// Bracers of Defense AC 4
+COPY ~item_rev/itm/brac14.itm~      ~override/brac14.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1289
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1290
+
+// Bracers of Defense AC 3
+COPY ~item_rev/itm/brac15.itm~      ~override/brac15.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1291
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1292
+
+// Bracers of the Blinding Strike
+COPY ~item_rev/itm/brac16.itm~      ~override/brac16.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1293
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1294
+
+OUTER_SPRINT tooltip_itm ~BRAC16~
+OUTER_SPRINT tooltip_string_1 @4012
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Gloves of the Burglar
+COPY ~item_rev/itm/brac17.itm~      ~override/brac17.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1295
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1296
+
+// Gloves of Missile Snaring
+COPY ~item_rev/itm/brac18.itm~      ~override/brac18.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1297
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1298
+
+// Gauntlets of Crushing
+COPY ~item_rev/itm/brac19.itm~      ~override/brac19.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1299
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1300
+
+// Gloves of Healing
+COPY ~item_rev/itm/brac20.itm~      ~override/brac20.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1301
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1302
+
+OUTER_SPRINT tooltip_itm ~BRAC20~
+OUTER_SPRINT tooltip_string_1 @4013
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Gauntlets of Extraordinary Specialization
+COPY ~item_rev/itm/brac21.itm~      ~override/brac21.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1303
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1304
+
+// Paladin's Bracers
+COPY ~item_rev/itm/brac22.itm~      ~override/brac22.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1305
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1306
+
+// Blessed Bracers
+COPY ~item_rev/itm/brac23.itm~      ~override/brac23.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1307
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1308
+
+OUTER_SPRINT tooltip_itm ~BRAC23~
+OUTER_SPRINT tooltip_string_1 @4014
+OUTER_SPRINT tooltip_string_2 @4015
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Bard's Gloves
+COPY ~item_rev/itm/brac24.itm~      ~override/brac24.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1309
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1310
+
+// Wondrous Gloves
+COPY ~item_rev/itm/brac25.itm~      ~override/brac25.itm~         
+SAY NAME1 @1277
+SAY NAME2 @1311
+SAY UNIDENTIFIED_DESC @1279
+SAY DESC @1312
+
+// Bands of Focus
+COPY ~item_rev/itm/brac26.itm~      ~override/brac26.itm~         
+SAY NAME1 @1267
+SAY NAME2 @1313
+SAY UNIDENTIFIED_DESC @1269
+SAY DESC @1314
+
+/*-----------------Bullets-----------------*/
+
+// Bullet
+COPY ~item_rev/itm/bull01.itm~      ~override/bull01.itm~         
+SAY NAME1 @1315
+SAY NAME2 @1315
+SAY UNIDENTIFIED_DESC @1316
+SAY DESC @1316
+
+// Bullet +1
+COPY ~item_rev/itm/bull02.itm~      ~override/bull02.itm~         
+SAY NAME1 @1315
+SAY NAME2 @1317
+SAY UNIDENTIFIED_DESC @1318
+SAY DESC @1319
+
+// Bullet +2
+COPY ~item_rev/itm/bull03.itm~      ~override/bull03.itm~         
+SAY NAME1 @1315
+SAY NAME2 @1320
+SAY UNIDENTIFIED_DESC @1318
+SAY DESC @1321
+
+// Sunstone Bullet +2
+COPY ~item_rev/itm/bull04.itm~      ~override/bull04.itm~         
+SAY NAME1 @1315
+SAY NAME2 @1322
+SAY UNIDENTIFIED_DESC @1318
+SAY DESC @1323
+
+// Bullet +3
+COPY ~item_rev/itm/bull05.itm~      ~override/bull05.itm~         
+SAY NAME1 @1315
+SAY NAME2 @1324
+SAY UNIDENTIFIED_DESC @1318
+SAY DESC @1325
+
+// Bullet of Smiting +3
+COPY ~item_rev/itm/bull06.itm~      ~override/bull06.itm~         
+SAY NAME1 @1315
+SAY NAME2 @1326
+SAY UNIDENTIFIED_DESC @1318
+SAY DESC @1327
+
+/*-----------------Chain and Splint Mails-----------------*/
+
+// Chain Mail
+COPY ~item_rev/itm/chan01.itm~      ~override/chan01.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1328
+SAY UNIDENTIFIED_DESC @1329
+SAY DESC @1329
+
+// Chain Mail +1
+COPY ~item_rev/itm/chan02.itm~      ~override/chan02.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1330
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1332
+
+// Mail of the Dead +2
+COPY ~item_rev/itm/chan03.itm~      ~override/chan03.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1333
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1334
+
+// Splint Mail
+COPY ~item_rev/itm/chan04.itm~      ~override/chan04.itm~         
+SAY NAME1 @1335
+SAY NAME2 @1335
+SAY UNIDENTIFIED_DESC @1336
+SAY DESC @1336
+
+// Splint Mail +1
+COPY ~item_rev/itm/chan05.itm~      ~override/chan05.itm~         
+SAY NAME1 @1335
+SAY NAME2 @1337
+SAY UNIDENTIFIED_DESC @1338
+SAY DESC @1339
+
+// Mithral Chain Mail +4
+COPY ~item_rev/itm/chan06.itm~      ~override/chan06.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1340
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1341
+
+// Chain Mail +3
+COPY ~item_rev/itm/chan07.itm~      ~override/chan07.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1342
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1343
+
+// Chain Mail +2
+COPY ~item_rev/itm/chan08.itm~      ~override/chan08.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1344
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1345
+
+// Darkmail +3
+COPY ~item_rev/itm/chan09.itm~      ~override/chan09.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1346
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1347
+
+// Jester's Chain +4
+COPY ~item_rev/itm/chan10.itm~      ~override/chan10.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1348
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1349
+
+OUTER_SPRINT tooltip_itm ~CHAN10~
+OUTER_SPRINT tooltip_string_1 @4016
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Crimson Chain +5
+COPY ~item_rev/itm/chan11.itm~      ~override/chan11.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1350
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1351
+
+// Elven Chain
+COPY ~item_rev/itm/chan12.itm~      ~override/chan12.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1352
+SAY UNIDENTIFIED_DESC @1353
+SAY DESC @1353
+
+// Elven Chain +1
+COPY ~item_rev/itm/chan13.itm~      ~override/chan13.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1354
+SAY UNIDENTIFIED_DESC @1355
+SAY DESC @1356
+
+// Sylvan Chain +2
+COPY ~item_rev/itm/chan14.itm~      ~override/chan14.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1357
+SAY UNIDENTIFIED_DESC @1355
+SAY DESC @1358
+
+// Melodic Chain +3
+COPY ~item_rev/itm/chan15.itm~      ~override/chan15.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1359
+SAY UNIDENTIFIED_DESC @1355
+SAY DESC @1360
+
+// Bladesinger Chain +4
+COPY ~item_rev/itm/chan16.itm~      ~override/chan16.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1361
+SAY UNIDENTIFIED_DESC @1355
+SAY DESC @1362
+
+// Ashen Scales +2
+COPY ~item_rev/itm/chan17.itm~      ~override/chan17.itm~         
+SAY NAME1 @1335
+SAY NAME2 @1363
+SAY UNIDENTIFIED_DESC @1338
+SAY DESC @1364
+
+// Armor of Faith +3
+COPY ~item_rev/itm/chan18.itm~      ~override/chan18.itm~         
+SAY NAME1 @1335
+SAY NAME2 @1365
+SAY UNIDENTIFIED_DESC @1338
+SAY DESC @1366
+
+// Aslyferund Elven Chain +5
+COPY ~item_rev/itm/chan19.itm~      ~override/chan19.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1367
+SAY UNIDENTIFIED_DESC @1355
+SAY DESC @1368
+
+// White Dragonscale Armor +5
+COPY ~item_rev/itm/chan20.itm~      ~override/chan20.itm~         
+SAY NAME1 @1335
+SAY NAME2 @1369
+SAY UNIDENTIFIED_DESC @1338
+SAY DESC @1370
+
+OUTER_SPRINT tooltip_itm ~CHAN20~
+OUTER_SPRINT tooltip_string_1 @4017
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Chain Mail +3
+COPY ~item_rev/itm/chan21.itm~      ~override/chan21.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1342
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1371
+
+/*--------------------Cloaks & Robes--------------------*/
+
+// Cloak of Protection +1
+COPY ~item_rev/itm/clck01.itm~      ~override/clck01.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1373
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1375
+
+// Cloak of Protection +2
+COPY ~item_rev/itm/clck02.itm~      ~override/clck02.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1376
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1377
+
+// Cloak of Displacement
+COPY ~item_rev/itm/clck03.itm~      ~override/clck03.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1378
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1379
+
+/* COPY ~item_rev/itm/clck03a.spl~      ~override/clck03a.spl~
+COPY ~item_rev/itm/clck03b.spl~      ~override/clck03b.spl~ */
+
+// Cloak of the Wolf
+COPY ~item_rev/itm/clck04.itm~      ~override/clck04.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1380
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1381
+
+OUTER_SPRINT tooltip_itm ~CLCK04~
+OUTER_SPRINT tooltip_string_1 @4018
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/dvwere.itm~      ~override/dvwere.itm~  // Polymorph into Werewolf
+
+// Cloak of Balduran
+COPY ~item_rev/itm/clck05.itm~      ~override/clck05.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1382
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1383
+
+// Cloak of Non-Detection
+COPY ~item_rev/itm/clck06.itm~      ~override/clck06.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1384
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1385
+
+// Nymph Cloak
+COPY ~item_rev/itm/clck07.itm~      ~override/clck07.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1386
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1387
+
+ADD_PROJECTILE ~item_rev/itm/dvblnbty.pro~
+COPY ~item_rev/itm/dvblnbty.spl~     ~override~
+  WRITE_SHORT 0x98 ~%dvblnbty%~
+COPY ~item_rev/itm/dvblnbty.eff~     ~override~
+
+OUTER_SPRINT tooltip_itm ~CLCK07~
+OUTER_SPRINT tooltip_string_1 @4019
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Algernon's Cloak
+COPY ~item_rev/itm/clck08.itm~      ~override/clck08.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1388
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1389
+
+// Robe of Cold Resistance
+COPY ~item_rev/itm/clck09.itm~      ~override/clck09.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1391
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1393
+
+// Robe of Fire Resistance
+COPY ~item_rev/itm/clck10.itm~      ~override/clck10.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1394
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1395
+
+// Robe of Electric Resistance
+COPY ~item_rev/itm/clck11.itm~      ~override/clck11.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1396
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1397
+
+// Knave's Robe
+COPY ~item_rev/itm/clck12.itm~      ~override/clck12.itm~      
+SAY NAME1 @1390
+SAY NAME2 @1398
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1399
+
+// Traveler's Robe
+COPY ~item_rev/itm/clck13.itm~      ~override/clck13.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1400
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1401
+
+// Adventurer's Robe
+COPY ~item_rev/itm/clck14.itm~      ~override/clck14.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1402
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1403
+
+// Robe of the Weave
+COPY ~item_rev/itm/clck15.itm~      ~override/clck15.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1404
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1405
+
+/* ADD_PROJECTILE ~item_rev/itm/dvspellp.pro~  // Spell Penetrate Ability
+COPY ~item_rev/itm/clck15.spl~      ~override/clck15.spl~
+  WRITE_SHORT 0x98 %dvspellp% */
+
+// Robe of the Battlemage
+COPY ~item_rev/itm/clck16.itm~      ~override/clck16.itm~         
+SAY NAME1 @1390
+SAY NAME2 @1406
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1407
+
+// Robe of Arcane Might
+COPY ~item_rev/itm/clck17.itm~      ~override/clck17.itm~
+SAY NAME1 @1390
+SAY NAME2 @1408
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @1409
+
+// Robe of Acid Resistance
+COPY ~item_rev/itm/clck18.itm~      ~override/clck18.itm~
+SAY NAME1 @1390
+SAY NAME2 @2345
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @2346
+
+// Cloak of the Shield
+COPY ~item_rev/itm/clck20.itm~      ~override/clck20.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1410
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1411
+
+// Cloak of Elvenkind
+COPY ~item_rev/itm/clck23.itm~      ~override/clck23.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1412
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1413
+
+COPY ~item_rev/itm/dvclck23.spl~      ~override/dvclck23.spl~
+
+// Stormlord's Cloak
+COPY ~item_rev/itm/clck24.itm~      ~override/clck24.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1414
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1415
+
+// Nature's Vengeance
+COPY ~item_rev/itm/clck25.itm~      ~override/clck25.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1416
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1417
+
+COPY ~item_rev/itm/clck25.spl~      ~override/clck25.spl~
+
+// Cloak of Mirroring
+COPY ~item_rev/itm/clck26.itm~      ~override/clck26.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1418
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1419
+
+COPY ~item_rev/itm/clck26.spl~      ~override/clck26.spl~
+
+// Cloak of the Sewers
+COPY ~item_rev/itm/clck27.itm~      ~override/clck27.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1420
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1421
+
+OUTER_SPRINT tooltip_itm ~CLCK27~
+OUTER_SPRINT tooltip_string_1 @4020
+OUTER_SPRINT tooltip_string_2 @4021
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/dvrat.itm~      ~override/dvrat.itm~  // Polymorph into Rat
+COPY ~item_rev/itm/dvjelly.itm~      ~override/dvjelly.itm~  // Polymorph into Mustard Jelly
+
+// Robe of the Apprenti
+COPY ~item_rev/itm/clck29.itm~      ~override/clck29.itm~
+SAY NAME1 @1390
+SAY NAME2 @2347
+SAY UNIDENTIFIED_DESC @1392
+SAY DESC @2348
+
+// Cloak of Bravery
+COPY ~item_rev/itm/clck30.itm~      ~override/clck30.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1422
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1423
+
+// Improved Cloak of Protection +2
+COPY ~item_rev/itm/clck31.itm~      ~override/clck31.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1424
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1425
+
+OUTER_SPRINT tooltip_itm ~CLCK31~
+OUTER_SPRINT tooltip_string_1 @4022
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING botsmith.dlg override  // Cespenar's dialog
+  DECOMPILE_DLG_TO_D
+  REPLACE_TEXTUALLY ~OR(2)
+!PartyHasItem("scrl90")
+!PartyHasItem("scrl7q")~
+  ~!PartyHasItem("scrl8j")~
+  REPLACE_TEXTUALLY ~PartyHasItem("scrl90")
+PartyHasItem("scrl7q")~
+  ~PartyHasItem("scrl8j")~
+  REPLACE_TEXTUALLY ~TakePartyItemNum("scrl90",1)
+DestroyItem("scrl90")
+TakePartyItemNum("scrl7q",1)
+DestroyItem("scrl7q")~
+  ~TakePartyItemNum("scrl8j",1)
+DestroyItem("scrl8j")~
+  COMPILE_D_TO_DLG
+
+STRING_SET ~66933~ @207
+STRING_SET ~66934~ @208
+
+// Montolio's Cloak
+COPY ~item_rev/itm/clck32.itm~      ~override/clck32.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1426
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1427
+
+/*--------------------Daggers--------------------*/
+
+// Dagger
+COPY ~item_rev/itm/dagg01.itm~      ~override/dagg01.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1428
+SAY UNIDENTIFIED_DESC @1429
+SAY DESC @1429
+
+// Dagger +1
+COPY ~item_rev/itm/dagg02.itm~      ~override/dagg02.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1430
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1432
+
+// Heart of the Golem +2
+COPY ~item_rev/itm/dagg03.itm~      ~override/dagg03.itm~         
+SAY NAME1 @1428
+SAY NAME2 @2349
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @2350
+
+// Longtooth +2
+COPY ~item_rev/itm/dagg04.itm~      ~override/dagg04.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1433
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1434
+
+// Throwing Dagger
+COPY ~item_rev/itm/dagg05.itm~      ~override/dagg05.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1435
+SAY UNIDENTIFIED_DESC @1436
+SAY DESC @1436
+
+// Werebane +2
+COPY ~item_rev/itm/dagg09.itm~      ~override/dagg09.itm~         
+SAY NAME1 @1437
+SAY NAME2 @1438
+SAY UNIDENTIFIED_DESC @1439
+SAY DESC @1440
+
+// Soultaker
+COPY ~item_rev/itm/dagg10.itm~      ~override/dagg10.itm~         
+SAY NAME1 @1428
+SAY NAME2 @2351
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @2352
+
+// Boomerang Dagger +2
+COPY ~item_rev/itm/dagg11.itm~      ~override/dagg11.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1441
+SAY UNIDENTIFIED_DESC @1442
+SAY DESC @1443
+
+// Boomerang Dagger +2
+COPY ~item_rev/itm/dagg11a.itm~      ~override/dagg11a.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1441
+SAY UNIDENTIFIED_DESC @1442
+SAY DESC @1443
+
+// Boomerang Dagger +2
+COPY ~item_rev/itm/dagg11b.itm~      ~override/dagg11b.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1441
+SAY UNIDENTIFIED_DESC @1442
+SAY DESC @1443
+
+// Fire Tooth +3
+COPY ~item_rev/itm/dagg12.itm~      ~override/dagg12.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1444
+SAY UNIDENTIFIED_DESC @1442
+SAY DESC @1445
+
+// Fire Tooth +3
+COPY ~item_rev/itm/dagg12a.itm~      ~override/dagg12a.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1444
+SAY UNIDENTIFIED_DESC @1442
+SAY DESC @1445
+
+// Fire Tooth +3
+COPY ~item_rev/itm/dagg12b.itm~      ~override/dagg12b.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1444
+SAY UNIDENTIFIED_DESC @1442
+SAY DESC @1445
+
+// Pixie Prick +2
+COPY ~item_rev/itm/dagg13.itm~      ~override/dagg13.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1446
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1447
+
+// Spider Fang +3
+COPY ~item_rev/itm/dagg14.itm~      ~override/dagg14.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1448
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1449
+
+// Dagger +2
+COPY ~item_rev/itm/dagg15.itm~      ~override/dagg15.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1450
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1451
+
+// Poisoned Throwing Dagger
+COPY ~item_rev/itm/dagg16.itm~      ~override/dagg16.itm~         
+SAY NAME1 @1435
+SAY NAME2 @1452
+SAY UNIDENTIFIED_DESC @1453
+SAY DESC @1453
+
+// Stiletto of Demarchess +2
+COPY ~item_rev/itm/dagg17.itm~      ~override/dagg17.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1454
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1455
+
+// Shadow Thief Dagger
+COPY ~item_rev/itm/dagg18.itm~      ~override/dagg18.itm~         
+SAY NAME1 @1428
+SAY NAME2 @2353
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @2354
+
+// Dagger of <CHARNAME> +1
+COPY ~item_rev/itm/dagg19.itm~      ~override/dagg19.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1456
+SAY UNIDENTIFIED_DESC @1457
+SAY DESC @1457
+
+// Life Stealer +4
+COPY ~item_rev/itm/dagg20.itm~      ~override/dagg20.itm~         
+SAY NAME1 @1428
+SAY NAME2 @2355
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @2356
+
+// Dagger of the Star +4
+COPY ~item_rev/itm/dagg21.itm~      ~override/dagg21.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1458
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1459
+
+// Dagger of the Star +5
+COPY ~item_rev/itm/dagg22.itm~      ~override/dagg22.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1460
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1461
+
+// Dagger of the Star +5
+COPY ~item_rev/itm/dagg22a.itm~      ~override/dagg22a.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1460
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1461
+
+// Ixil's Spike +3
+COPY ~item_rev/itm/dagg23.itm~      ~override/dagg23.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1462
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1463
+
+// Dagger +3
+COPY ~item_rev/itm/dagg24.itm~      ~override/dagg24.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1464
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1465
+
+/*--------------------Darts--------------------*/
+
+// Dart
+COPY ~item_rev/itm/dart01.itm~      ~override/dart01.itm~         
+SAY NAME1 @1466
+SAY NAME2 @1466
+SAY UNIDENTIFIED_DESC @1467
+SAY DESC @1467
+
+// Dart +1
+COPY ~item_rev/itm/dart02.itm~      ~override/dart02.itm~         
+SAY NAME1 @1466
+SAY NAME2 @1468
+SAY UNIDENTIFIED_DESC @1469
+SAY DESC @1470
+
+// Dart of Stunning +1
+COPY ~item_rev/itm/dart03.itm~      ~override/dart03.itm~         
+SAY NAME1 @1466
+SAY NAME2 @1471
+SAY UNIDENTIFIED_DESC @1469
+SAY DESC @1472
+
+// Dart of Wounding
+COPY ~item_rev/itm/dart04.itm~      ~override/dart04.itm~         
+SAY NAME1 @1466
+SAY NAME2 @1473
+SAY UNIDENTIFIED_DESC @1469
+SAY DESC @1474
+
+// Asp's Nest +2
+COPY ~item_rev/itm/dart05.itm~      ~override/dart05.itm~         
+SAY NAME1 @1466
+SAY NAME2 @1475
+SAY UNIDENTIFIED_DESC @1469
+SAY DESC @1476
+
+// Crimson Dart +3
+COPY ~item_rev/itm/dart08.itm~      ~override/dart08.itm~         
+SAY NAME1 @1466
+SAY NAME2 @1477
+SAY UNIDENTIFIED_DESC @1469
+SAY DESC @1478
+
+/*------------------Drow's Equipment-------------------*/
+
+// Drowcraft Flail +3
+COPY ~item_rev/itm/dwblun01.itm~      ~override/dwblun01.itm~         
+SAY NAME1 @1107
+SAY NAME2 @1479
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @1480
+
+// Drowcraft Bolt of Sleep +1
+COPY ~item_rev/itm/dwbolt01.itm~      ~override/dwbolt01.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1481
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1482
+
+// Drowcraft Bolt of Stunning +2
+COPY ~item_rev/itm/dwbolt02.itm~      ~override/dwbolt02.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1483
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1484
+
+// Drowcraft Bolt +3
+COPY ~item_rev/itm/dwbolt03.itm~      ~override/dwbolt03.itm~         
+SAY NAME1 @1179
+SAY NAME2 @1485
+SAY UNIDENTIFIED_DESC @1182
+SAY DESC @1486
+
+// Drowcraft Elven Chain +1
+COPY ~item_rev/itm/dwchan01.itm~      ~override/dwchan01.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1487
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1488
+
+// Drowcraft Adamantine Chain +3
+COPY ~item_rev/itm/dwchan02.itm~      ~override/dwchan02.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1489
+SAY UNIDENTIFIED_DESC @1331
+SAY DESC @1490
+
+// Drow Piwafwi Cloak
+COPY ~item_rev/itm/dwclck01.itm~      ~override/dwclck01.itm~         
+SAY NAME1 @1372
+SAY NAME2 @1491
+SAY UNIDENTIFIED_DESC @1374
+SAY DESC @1492
+
+// Drowcraft Halberd +3
+COPY ~item_rev/itm/dwhalb01.itm~      ~override/dwhalb01.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1494
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1496
+
+// Drowcraft Adamantine Full Plate +3
+COPY ~item_rev/itm/dwplat01.itm~      ~override/dwplat01.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1498
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1500
+
+// Drow Shield +3
+COPY ~item_rev/itm/dwshld01.itm~      ~override/dwshld01.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1502
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1504
+
+// Drowcraft Lance +3
+COPY ~item_rev/itm/dwsper01.itm~      ~override/dwsper01.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1506
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @1508
+
+// Drowcraft Scimitar +3
+COPY ~item_rev/itm/dwsw1h01.itm~      ~override/dwsw1h01.itm~         
+SAY NAME1 @1509
+SAY NAME2 @1510
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @1512
+
+// Drowcraft Long Sword +3
+COPY ~item_rev/itm/dwsw1h02.itm~      ~override/dwsw1h02.itm~         
+SAY NAME1 @1513
+SAY NAME2 @1514
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @1516
+
+// Drowcraft Light Crossbow of Speed +1
+COPY ~item_rev/itm/dwxbow01.itm~      ~override/dwxbow01.itm~         
+SAY NAME1 @1517
+SAY NAME2 @1518
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @1520
+
+
+/*------------------Halberds-------------------*/
+
+// Halberd
+COPY ~item_rev/itm/halb01.itm~      ~override/halb01.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1493
+SAY UNIDENTIFIED_DESC @1521
+SAY DESC @1521
+
+// Halberd +1
+COPY ~item_rev/itm/halb02.itm~      ~override/halb02.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1522
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1523
+
+// Suryris's Blade +2
+COPY ~item_rev/itm/halb03.itm~      ~override/halb03.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1524
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1525
+
+// Wyrmcleaver +3
+COPY ~item_rev/itm/halb04.itm~      ~override/halb04.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1526
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1527
+
+// Dragon's Breath +3
+COPY ~item_rev/itm/halb05.itm~      ~override/halb05.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1528
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1529
+
+// Blackmist +4
+COPY ~item_rev/itm/halb06.itm~      ~override/halb06.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1530
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1531
+
+OUTER_SPRINT tooltip_itm ~HALB06~
+OUTER_SPRINT tooltip_string_1 @1530
+OUTER_SPRINT tooltip_string_2 @4023
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Halberd +2
+COPY ~item_rev/itm/halb07.itm~      ~override/halb07.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1532
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1533
+
+// Duskblade +2
+COPY ~item_rev/itm/halb08.itm~      ~override/halb08.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1534
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1535
+
+// The Wave +4
+COPY ~item_rev/itm/halb09.itm~      ~override/halb09.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1536
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1537
+
+COPY ~item_rev/itm/halb09b.eff~      ~override~
+
+// Ravager +4
+COPY ~item_rev/itm/halb10.itm~      ~override/halb10.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1538
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1539
+
+OUTER_SPRINT tooltip_itm ~HALB10~
+OUTER_SPRINT tooltip_string_1 @1538
+OUTER_SPRINT tooltip_string_2 @4024
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Ravager +5
+COPY ~item_rev/itm/halb11.itm~      ~override/halb11.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1540
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1541
+
+OUTER_SPRINT tooltip_itm ~HALB11~
+OUTER_SPRINT tooltip_string_1 @1540
+OUTER_SPRINT tooltip_string_2 @4024
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Halberd +3
+COPY ~item_rev/itm/halb12.itm~      ~override/halb12.itm~         
+SAY NAME1 @1493
+SAY NAME2 @1542
+SAY UNIDENTIFIED_DESC @1495
+SAY DESC @1543
+
+/*-------------------Hammers-------------------*/
+
+// War Hammer
+COPY ~item_rev/itm/hamm01.itm~      ~override/hamm01.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1544
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1545
+
+// War Hammer +1
+COPY ~item_rev/itm/hamm02.itm~      ~override/hamm02.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1546
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1548
+
+// Rift Hammer +2
+COPY ~item_rev/itm/hamm03.itm~      ~override/hamm03.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1549
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1550
+
+// Hammer of Corrosion +1
+COPY ~item_rev/itm/hamm04.itm~      ~override/hamm04.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1551
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1552
+
+// Ashideena +2
+COPY ~item_rev/itm/hamm05.itm~      ~override/hamm05.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1553
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1554
+
+// Dwarven Thrower +3
+COPY ~item_rev/itm/hamm06.itm~      ~override/hamm06.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1555
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1556
+
+// Dwarven Thrower +3
+COPY ~item_rev/itm/hamm06a.itm~      ~override/hamm06a.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1555
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1556
+
+// Dwarven Thrower +3
+COPY ~item_rev/itm/hamm06b.itm~      ~override/hamm06b.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1555
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1556
+
+// Hammer of Thunderbolts +3
+COPY ~item_rev/itm/hamm07.itm~      ~override/hamm07.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1557
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1558
+
+// War Hammer +2
+COPY ~item_rev/itm/hamm08.itm~      ~override/hamm08.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1559
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1560
+
+// Crom Faeyr +5
+COPY ~item_rev/itm/hamm09.itm~      ~override/hamm09.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1561
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1562
+
+// Crom Faeyr +5
+COPY ~item_rev/itm/hamm09a.itm~      ~override/hamm09a.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1561
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1562
+
+// Runehammer +3
+COPY ~item_rev/itm/hamm10.itm~      ~override/hamm10.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1563
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1564
+
+// Runehammer +4
+COPY ~item_rev/itm/hamm11.itm~      ~override/hamm11.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1565
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1566
+
+OUTER_SPRINT tooltip_itm ~HAMM11~
+OUTER_SPRINT tooltip_string_1 @1565
+OUTER_SPRINT tooltip_string_2 @4025
+OUTER_SPRINT tooltip_string_3 @4026
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// War Hammer +3
+COPY ~item_rev/itm/hamm12.itm~      ~override/hamm12.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1567
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1568
+
+/*-----------------Helmets and Ioun Stones-----------------*/
+
+// Helmet
+COPY ~item_rev/itm/helm01.itm~      ~override/helm01.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1570
+SAY DESC @1570
+
+// Helm of Despair
+COPY ~item_rev/itm/helm02.itm~      ~override/helm02.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1571
+SAY UNIDENTIFIED_DESC @1572
+SAY DESC @1573
+
+// Helm of Glory
+COPY ~item_rev/itm/helm03.itm~      ~override/helm03.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1574
+SAY UNIDENTIFIED_DESC @1572
+SAY DESC @1575
+
+COPY ~item_rev/itm/dvglhelm.spl~      ~override~
+
+// Helm of Defense
+COPY ~item_rev/itm/helm04.itm~      ~override/helm04.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1576
+SAY UNIDENTIFIED_DESC @1572
+SAY DESC @1577
+
+// Helm of Resilience
+COPY ~item_rev/itm/helm05.itm~      ~override/helm05.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1578
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1580
+
+// Helm of Charm Protection
+COPY ~item_rev/itm/helm06.itm~      ~override/helm06.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1581
+SAY UNIDENTIFIED_DESC @1582
+SAY DESC @1583
+
+// Helm of Balduran
+COPY ~item_rev/itm/helm07.itm~      ~override/helm07.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1584
+SAY UNIDENTIFIED_DESC @1585
+SAY DESC @1586
+
+// Helmet
+COPY ~item_rev/itm/helm08.itm~      ~override/helm08.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1587
+SAY DESC @1587
+
+// Helmet
+COPY ~item_rev/itm/helm09.itm~      ~override/helm09.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1588
+SAY DESC @1588
+
+// Helmet
+COPY ~item_rev/itm/helm10.itm~      ~override/helm10.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1589
+SAY DESC @1589
+
+// Helmet
+COPY ~item_rev/itm/helm11.itm~      ~override/helm11.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1588
+SAY DESC @1588
+
+// Helmet
+COPY ~item_rev/itm/helm12.itm~      ~override/helm12.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1588
+SAY DESC @1588
+
+// Helmet
+COPY ~item_rev/itm/helm13.itm~      ~override/helm13.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1588
+SAY DESC @1588
+
+// Kiel's Helmet
+COPY ~item_rev/itm/helm14.itm~      ~override/helm14.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1590
+SAY UNIDENTIFIED_DESC @1585
+SAY DESC @1591
+
+// Helmet
+COPY ~item_rev/itm/helm15.itm~      ~override/helm15.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1588
+SAY DESC @1588
+
+// Helm of Brilliance
+COPY ~item_rev/itm/helm16.itm~      ~override/helm16.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1592
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1593
+
+OUTER_SPRINT tooltip_itm ~HELM16~
+OUTER_SPRINT tooltip_string_1 @4027
+OUTER_SPRINT tooltip_string_2 @4028
+OUTER_SPRINT tooltip_string_3 @4029
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Skull of Death
+COPY ~item_rev/itm/helm17.itm~      ~override/helm17.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1594
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1595
+
+OUTER_SPRINT tooltip_itm ~HELM17~
+OUTER_SPRINT tooltip_string_1 @4030
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Pearly White Ioun Stone
+COPY ~item_rev/itm/helm18.itm~      ~override/helm18.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1597
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1599
+
+OUTER_SPRINT tooltip_itm ~HELM18~
+OUTER_SPRINT tooltip_string_1 @4031
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/dvtroll.itm~      ~override/dvtroll.itm~  // Polymorph into Troll
+
+// Stone of Good Luck
+COPY ~item_rev/itm/helm19.itm~      ~override/helm19.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1600
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1601
+
+// Trueblood's Ioun Stone
+COPY ~item_rev/itm/helm20.itm~      ~override/helm20.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1602
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1603
+
+// Dragon Helm
+COPY ~item_rev/itm/helm21.itm~      ~override/helm21.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1604
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1605
+
+// Helmet
+COPY ~item_rev/itm/helm22.itm~      ~override/helm22.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1569
+SAY UNIDENTIFIED_DESC @1587
+SAY DESC @1587
+
+// Golden Ioun Stone
+COPY ~item_rev/itm/helm23.itm~      ~override/helm23.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1606
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1607
+
+// Obsidian Ioun Stone
+COPY ~item_rev/itm/helm24.itm~      ~override/helm24.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1608
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1609
+
+// Silver Ioun Stone
+COPY ~item_rev/itm/helm25.itm~      ~override/helm25.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1610
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1611
+
+// Lavender Ioun Stone
+COPY ~item_rev/itm/helm26.itm~      ~override/helm26.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1612
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1613
+
+// Bronze Ioun Stone
+COPY ~item_rev/itm/helm27.itm~      ~override/helm27.itm~         
+SAY NAME1 @1596
+SAY NAME2 @1614
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @1615
+
+// Circlet of Netheril
+COPY ~item_rev/itm/helm28.itm~      ~override/helm28.itm~         
+SAY NAME1 @1616
+SAY NAME2 @1617
+SAY UNIDENTIFIED_DESC @1618
+SAY DESC @1619
+
+// Thieves' Hood
+COPY ~item_rev/itm/helm29.itm~      ~override/helm29.itm~         
+SAY NAME1 @1620
+SAY NAME2 @1620
+SAY UNIDENTIFIED_DESC @1621
+SAY DESC @1622
+
+// Master Thief's Hood
+COPY ~item_rev/itm/helm30.itm~      ~override/helm30.itm~         
+SAY NAME1 @1620
+SAY NAME2 @1623
+SAY UNIDENTIFIED_DESC @1621
+SAY DESC @1624
+
+OUTER_SPRINT tooltip_itm ~HELM30~
+OUTER_SPRINT tooltip_string_1 @4032
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Helm of the Rock
+COPY ~item_rev/itm/helm31.itm~      ~override/helm31.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1625
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1626
+
+// Horned Helm of the Rock
+COPY ~item_rev/itm/helm32.itm~      ~override/helm32.itm~         
+SAY NAME1 @1569
+SAY NAME2 @2369
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1627
+
+// Gold Horned Helm
+COPY ~item_rev/itm/helm33.itm~      ~override/helm33.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1628
+SAY UNIDENTIFIED_DESC @1587
+SAY DESC @1587
+
+// Wong Fei's Ioun Stone
+COPY ~item_rev/itm/helm34.itm~      ~override/helm34.itm~         
+SAY NAME1 @1596
+SAY NAME2 @2309
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @2310
+
+// Malla's Soul Stone
+COPY ~item_rev/itm/amsoul01.itm~      ~override~         
+SAY NAME1 @1596
+SAY NAME2 @2357
+SAY UNIDENTIFIED_DESC @1598
+SAY DESC @2358
+
+
+/*-----------------Leather Armors-----------------*/
+
+// Leather Armor
+COPY ~item_rev/itm/leat01.itm~      ~override/leat01.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1629
+SAY UNIDENTIFIED_DESC @1630
+SAY DESC @1630
+
+// Leather Armor +1
+COPY ~item_rev/itm/leat02.itm~      ~override/leat02.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1631
+SAY UNIDENTIFIED_DESC @1632
+SAY DESC @1633
+
+// Protector of the Second +2
+COPY ~item_rev/itm/leat03.itm~      ~override/leat03.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1634
+SAY UNIDENTIFIED_DESC @1632
+SAY DESC @1635
+
+// Studded Leather Armor
+COPY ~item_rev/itm/leat04.itm~      ~override/leat04.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1637
+SAY UNIDENTIFIED_DESC @1638
+SAY DESC @1638
+
+// Studded Leather Armor +1
+COPY ~item_rev/itm/leat05.itm~      ~override/leat05.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1639
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1641
+
+// Armor of Missile Attraction +3
+COPY ~item_rev/itm/leat06.itm~      ~override/leat06.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1642
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1643
+
+// Studded Leather Armor +2
+COPY ~item_rev/itm/leat07.itm~      ~override/leat07.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1644
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1645
+
+// Shadow Armor +3
+COPY ~item_rev/itm/leat08.itm~      ~override/leat08.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1646
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1647
+
+// Karajah's Leather Armor +2
+COPY ~item_rev/itm/leat09.itm~      ~override/leat09.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1648
+SAY UNIDENTIFIED_DESC @1649
+SAY DESC @1650
+
+// Hide Armor
+COPY ~item_rev/itm/leat10.itm~      ~override/leat10.itm~         
+SAY NAME1 @1651
+SAY NAME2 @1651
+SAY UNIDENTIFIED_DESC @1652
+SAY DESC @1652
+
+// Leather Armor +2
+COPY ~item_rev/itm/leat11.itm~      ~override/leat11.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1653
+SAY UNIDENTIFIED_DESC @1632
+SAY DESC @1654
+
+// Leather Armor +3
+COPY ~item_rev/itm/leat12.itm~      ~override/leat12.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1655
+SAY UNIDENTIFIED_DESC @1632
+SAY DESC @1656
+
+// Skin of the Ghoul +2
+COPY ~item_rev/itm/leat13.itm~      ~override/leat13.itm~         
+SAY NAME1 @1651
+SAY NAME2 @1657
+SAY UNIDENTIFIED_DESC @1671
+SAY DESC @1658
+
+// Mielikki's Gift +3
+COPY ~item_rev/itm/leat14.itm~      ~override/leat14.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1659
+SAY UNIDENTIFIED_DESC @1649
+SAY DESC @1660
+
+// Studded Leather Armor +3
+COPY ~item_rev/itm/leat15.itm~      ~override/leat15.itm~         
+SAY NAME1 @1636
+SAY NAME2 @2367
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @2368
+
+// Orc Leather +2
+COPY ~item_rev/itm/leat16.itm~      ~override/leat16.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1661
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1662
+
+// Armor of Deep Night +5
+COPY ~item_rev/itm/leat17.itm~      ~override/leat17.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1663
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1664
+
+// Armor of the Viper +4
+COPY ~item_rev/itm/leat18.itm~      ~override/leat18.itm~         
+SAY NAME1 @1636
+SAY NAME2 @1665
+SAY UNIDENTIFIED_DESC @1640
+SAY DESC @1666
+
+OUTER_SPRINT tooltip_itm ~LEAT18~
+OUTER_SPRINT tooltip_string_1 @4033
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Shadow Dragonhide Armor +5
+COPY ~item_rev/itm/leat19.itm~      ~override/leat19.itm~         
+SAY NAME1 @1651
+SAY NAME2 @1667
+SAY UNIDENTIFIED_DESC @1671
+SAY DESC @1669
+
+// Aeger's Hide +3
+COPY ~item_rev/itm/leat20.itm~      ~override/leat20.itm~         
+SAY NAME1 @1651
+SAY NAME2 @1670
+SAY UNIDENTIFIED_DESC @1671
+SAY DESC @1672
+
+// Human Flesh +5
+COPY ~item_rev/itm/leat21.itm~      ~override/leat21.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1673
+SAY UNIDENTIFIED_DESC @1649
+SAY DESC @1674
+
+// Human Flesh
+COPY ~item_rev/itm/leat22.itm~      ~override/leat22.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1675
+SAY UNIDENTIFIED_DESC @1649
+SAY DESC @1676
+
+// Trollhide Armor +4
+COPY ~item_rev/itm/leat23.itm~      ~override/leat23.itm~         
+SAY NAME1 @1651
+SAY NAME2 @1677
+SAY UNIDENTIFIED_DESC @1671
+SAY DESC @1678
+
+// Grandmaster's Armor +5
+COPY ~item_rev/itm/leat24.itm~      ~override/leat24.itm~         
+SAY NAME1 @1629
+SAY NAME2 @1679
+SAY UNIDENTIFIED_DESC @1632
+SAY DESC @1680
+
+/*-----------------Miscellaneous-----------------*/
+
+// Aegis Fang +3
+COPY ~item_rev/itm/aegis.itm~      ~override/aegis.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1681
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1682
+
+// Aegis Fang +3
+COPY ~item_rev/itm/aegis2.itm~      ~override/aegis2.itm~         
+SAY NAME1 @1544
+SAY NAME2 @1681
+SAY UNIDENTIFIED_DESC @1545
+SAY DESC @1682
+
+// Bruenor's Waraxe +3
+COPY ~item_rev/itm/bruenaxe.itm~      ~override/bruenaxe.itm~         
+SAY NAME1 @1055
+SAY NAME2 @2341
+SAY UNIDENTIFIED_DESC @1058
+SAY DESC @2342
+
+// Mithral Field Plate Mail +2
+COPY ~item_rev/itm/bruenpla.itm~      ~override/bruenpla.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1683
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1684
+
+// Taulmaril +3
+COPY ~item_rev/itm/cattibow.itm~      ~override/cattibow.itm~         
+SAY NAME1 @1217
+SAY NAME2 @2343
+SAY UNIDENTIFIED_DESC @1220  
+SAY DESC @2344
+
+// Roranach's Horn
+COPY ~item_rev/itm/compon05.itm~      ~override/compon05.itm~         
+SAY NAME1 @1569
+SAY NAME2 @1685
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @1686
+
+// Dark Elven Chain +3
+COPY ~item_rev/itm/clolth.itm~      ~override/clolth.itm~         
+SAY NAME1 @1328
+SAY NAME2 @1687
+SAY UNIDENTIFIED_DESC @1355
+SAY DESC @1688
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a.itm~      ~override/misc3a.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1691
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a1.itm~      ~override/misc3a1.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1692
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a2.itm~      ~override/misc3a2.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1693
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a3.itm~      ~override/misc3a3.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1694
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a4.itm~      ~override/misc3a4.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1695
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a5.itm~      ~override/misc3a5.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1696
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a6.itm~      ~override/misc3a6.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1697
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a7.itm~      ~override/misc3a7.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1698
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a8.itm~      ~override/misc3a8.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1699
+
+// Book of Infinite Spells
+COPY ~item_rev/itm/misc3a9.itm~      ~override/misc3a9.itm~
+SAY NAME1 @1689
+SAY NAME2 @1689
+SAY UNIDENTIFIED_DESC @1690
+SAY DESC @1700
+
+// Efreeti Bottle
+COPY ~item_rev/itm/misc3c.itm~      ~override/misc3c.itm~         
+SAY NAME1 @1701
+SAY NAME2 @1702
+SAY UNIDENTIFIED_DESC @1703
+SAY DESC @1704
+
+// Golden Lion Figurine
+COPY ~item_rev/itm/misc3d.itm~      ~override/misc3d.itm~         
+SAY NAME1 @1705
+SAY NAME2 @1706
+SAY UNIDENTIFIED_DESC @1707
+SAY DESC @1708
+
+COPY ~item_rev/itm/catliowp.cre~      ~override/catliowp.cre~
+COPY ~item_rev/itm/figlion.eff~      ~override/figlion.eff~
+COPY ~item_rev/itm/figlion.itm~      ~override/figlion.itm~
+
+// Black Spider Figurine
+COPY ~item_rev/itm/misc3e.itm~      ~override/misc3e.itm~         
+SAY NAME1 @1705
+SAY NAME2 @1709
+SAY UNIDENTIFIED_DESC @1707
+SAY DESC @1710
+
+COPY ~item_rev/itm/spidfgsu.cre~      ~override/spidfgsu.cre~
+COPY ~item_rev/itm/figspid.eff~      ~override/figspid.eff~
+COPY ~item_rev/itm/figspid.itm~      ~override/figspid.itm~
+COPY ~item_rev/itm/spin683.spl~      ~override/spin683.spl~
+
+// Horn of Blasting
+COPY ~item_rev/itm/misc3h.itm~      ~override/misc3h.itm~         
+SAY NAME1 @1711
+SAY NAME2 @1712
+SAY UNIDENTIFIED_DESC @1713
+SAY DESC @1714
+
+// Long Sword +1
+COPY ~item_rev/itm/bsw1h01.itm~      ~override/bsw1h01.itm~
+SAY NAME1 @1513
+SAY NAME2 @1715
+
+// Silver Horn of Valhalla
+COPY ~item_rev/itm/misc3i.itm~      ~override/misc3i.itm~         
+SAY NAME1 @1711
+SAY NAME2 @1716
+SAY UNIDENTIFIED_DESC @1713
+SAY DESC @1717
+
+COPY ~item_rev/itm/dvbrsker.bcs~      ~override/dvbrsker.bcs~
+COPY ~item_rev/itm/bersersu.cre~      ~override/bersersu.cre~
+COPY ~item_rev/itm/horn1.eff~      ~override/horn1.eff~
+COPY ~item_rev/itm/bleat01.itm~      ~override/bleat01.itm~
+
+// Bronze Horn of Valhalla
+COPY ~item_rev/itm/misc3j.itm~      ~override/misc3j.itm~         
+SAY NAME1 @1711
+SAY NAME2 @1718
+SAY UNIDENTIFIED_DESC @1713
+SAY DESC @1719
+
+COPY ~item_rev/itm/berser02.cre~      ~override/berser02.cre~
+COPY ~item_rev/itm/horn2.eff~      ~override/horn2.eff~
+COPY ~item_rev/itm/bleat02.itm~      ~override/bleat02.itm~
+
+// Iron Horn of Valhalla
+COPY ~item_rev/itm/misc3k.itm~      ~override/misc3k.itm~         
+SAY NAME1 @1711
+SAY NAME2 @1720
+SAY UNIDENTIFIED_DESC @1713
+SAY DESC @1721
+
+COPY ~item_rev/itm/berser03.cre~      ~override/berser03.cre~
+COPY ~item_rev/itm/horn3.eff~      ~override/horn3.eff~
+COPY ~item_rev/itm/bleat03.itm~      ~override/bleat03.itm~
+
+// Horn of Silence
+COPY ~item_rev/itm/misc3l.itm~      ~override/misc3l.itm~         
+SAY NAME1 @1711
+SAY NAME2 @1722
+SAY UNIDENTIFIED_DESC @1713
+SAY DESC @1723
+
+// Harp of Discord
+COPY ~item_rev/itm/misc3m.itm~      ~override/misc3m.itm~         
+SAY NAME1 @1724
+SAY NAME2 @1725
+SAY UNIDENTIFIED_DESC @1726
+SAY DESC @1727
+
+// Azlaer's Harp
+COPY ~item_rev/itm/misc3n.itm~      ~override/misc3n.itm~         
+SAY NAME1 @1724
+SAY NAME2 @1728
+SAY UNIDENTIFIED_DESC @1726
+SAY DESC @1729
+
+// Methild's Harp
+COPY ~item_rev/itm/misc3o.itm~      ~override/misc3o.itm~         
+SAY NAME1 @1724
+SAY NAME2 @1730
+SAY UNIDENTIFIED_DESC @1726
+SAY DESC @1731
+
+// Glasses of Identification
+COPY ~item_rev/itm/misc3p.itm~      ~override/misc3p.itm~         
+SAY NAME1 @1732
+SAY NAME2 @1732
+SAY UNIDENTIFIED_DESC @1733
+SAY DESC @1733
+
+// Amulet of Harper Pin
+COPY ~item_rev/itm/misc5x.itm~      ~override/misc5x.itm~         
+SAY NAME1 @1734
+SAY NAME2 @1735
+SAY UNIDENTIFIED_DESC @1736
+SAY DESC @1736
+
+// Wooden Stake
+COPY ~item_rev/itm/misc6w.itm~      ~override/misc6w.itm~         
+SAY NAME1 @1737
+SAY NAME2 @1737
+SAY UNIDENTIFIED_DESC @1738
+SAY DESC @1738
+
+// Dagger of Venom +2
+COPY ~item_rev/itm/misc75.itm~      ~override/misc75.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1739
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1740
+
+// Blackrazor +3
+COPY ~item_rev/itm/miscbc.itm~      ~override/miscbc.itm~         
+SAY NAME1 @1513
+SAY NAME2 @1741
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @1742
+
+// Neb's Nasty Cutter +2
+COPY ~item_rev/itm/nebdag.itm~      ~override/nebdag.itm~         
+SAY NAME1 @1428
+SAY NAME2 @1743
+SAY UNIDENTIFIED_DESC @1431
+SAY DESC @1744
+
+// Quiver of Plenty +1
+COPY ~item_rev/itm/quiver01.itm~      ~override/quiver01.itm~         
+SAY NAME1 @1745
+SAY NAME2 @1746
+SAY UNIDENTIFIED_DESC @1747
+SAY DESC @1748
+
+// Case of Plenty +1
+COPY ~item_rev/itm/quiver02.itm~      ~override/quiver02.itm~         
+SAY NAME1 @1745
+SAY NAME2 @1749
+SAY UNIDENTIFIED_DESC @1747
+SAY DESC @1750
+
+// Quiver of Plenty +3
+COPY ~item_rev/itm/quiver03.itm~      ~override/quiver03.itm~         
+SAY NAME1 @1745
+SAY NAME2 @1751
+SAY UNIDENTIFIED_DESC @1747
+SAY DESC @1752
+
+// Case of Plenty +3
+COPY ~item_rev/itm/quiver04.itm~      ~override/quiver04.itm~         
+SAY NAME1 @1745
+SAY NAME2 @1753
+SAY UNIDENTIFIED_DESC @1747
+SAY DESC @1754
+
+// Bag of Plenty +1
+COPY ~item_rev/itm/quiver05.itm~      ~override/quiver05.itm~         
+SAY NAME1 @1755
+SAY NAME2 @1756
+SAY UNIDENTIFIED_DESC @1757
+SAY DESC @1758
+
+// Bag of Plenty +3
+COPY ~item_rev/itm/quiver06.itm~      ~override/quiver06.itm~         
+SAY NAME1 @1755
+SAY NAME2 @999
+SAY UNIDENTIFIED_DESC @1757
+SAY DESC @1759
+
+// Unholy Reaver Reaver +5
+COPY ~item_rev/itm/reaver.itm~      ~override/reaver.itm~    
+SAY NAME1 @1760
+SAY NAME2 @1761
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @1763
+
+// Protection from Acid
+COPY ~item_rev/itm/scrl03.itm~      ~override/scrl03.itm~
+SAY NAME1 @1764
+SAY NAME2 @1765
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1767
+
+COPY ~item_rev/itm/scrl03.spl~      ~override~
+
+// Protection from Cold
+COPY ~item_rev/itm/scrl04.itm~      ~override/scrl04.itm~         
+SAY NAME1 @1764
+SAY NAME2 @1768
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1769
+
+COPY ~item_rev/itm/scrl04.spl~      ~override~
+
+// Protection from Electricity
+COPY ~item_rev/itm/scrl05.itm~      ~override/scrl05.itm~         
+SAY NAME1 @1764
+SAY NAME2 @1770
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1771
+
+COPY ~item_rev/itm/scrl05.spl~      ~override~
+
+// Protection from Fire
+COPY ~item_rev/itm/scrl06.itm~      ~override/scrl06.itm~         
+SAY NAME1 @1764
+SAY NAME2 @1772
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1773
+
+COPY ~item_rev/itm/scrl06.spl~      ~override~
+
+// Protection from Magic
+COPY ~item_rev/itm/scrl07.itm~      ~override/scrl07.itm~         
+SAY NAME1 @1764
+SAY NAME2 @1774
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1775
+
+COPY ~item_rev/itm/scrl07.spl~      ~override~
+
+// Protection from Ailments
+COPY ~item_rev/itm/scrl08.itm~      ~override/scrl08.itm~         
+SAY NAME1 @1764
+SAY NAME2 @1776
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1777
+
+COPY ~item_rev/itm/scrl08.spl~      ~override~
+
+// Protection from Undead
+COPY ~item_rev/itm/scrl09.itm~      ~override/scrl09.itm~         
+SAY NAME1 @1764
+SAY NAME2 @1778
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @1779
+
+COPY ~item_rev/itm/scrl09.spl~      ~override~
+
+// Protection from Alterations
+COPY ~item_rev/itm/scrl09.itm~      ~override/scrl09.itm~         
+SAY NAME1 @1764
+SAY NAME2 @2375
+SAY UNIDENTIFIED_DESC @1766
+SAY DESC @2376
+
+COPY ~item_rev/itm/scrl15.spl~      ~override~
+
+/*-----------------NPCs custom items-----------------*/
+
+// Edwin's Amulet
+COPY ~item_rev/itm/misc89.itm~      ~override/misc89.itm~         
+SAY NAME1 @1780
+SAY NAME2 @1780
+SAY DESC @1781
+
+// Jansen AdventureWear
+COPY ~item_rev/itm/nparm.itm~      ~override/nparm.itm~         
+SAY NAME1 @1782
+SAY NAME2 @1782
+SAY DESC @1783
+
+// Bow of Arvoreen +2
+COPY ~item_rev/itm/npbow.itm~      ~override/npbow.itm~         
+SAY NAME1 @1784
+SAY NAME2 @1784
+SAY DESC @1785
+
+// Imoen's Belt
+COPY ~item_rev/itm/npbelt.itm~      ~override/npbelt.itm~         
+SAY NAME1 @1085
+SAY NAME2 @1786
+SAY UNIDENTIFIED_DESC @1087
+SAY DESC @1787
+
+// Corthala Family Armor +3
+COPY ~item_rev/itm/npchan.itm~      ~override/npchan.itm~         
+SAY NAME1 @1788
+SAY NAME2 @1788
+SAY DESC @1789
+
+// Cloak of the High Forest
+COPY ~item_rev/itm/npclck.itm~      ~override/npclck.itm~         
+SAY NAME1 @1790
+SAY NAME2 @1790
+SAY DESC @1791
+
+// Jansen Spectroscopes
+COPY ~item_rev/itm/npmisc1.itm~      ~override/npmisc1.itm~         
+SAY NAME1 @1792
+SAY NAME2 @1792
+SAY DESC @1793
+
+// Jansen Techno-Gloves
+COPY ~item_rev/itm/npmisc2.itm~      ~override/npmisc2.itm~         
+SAY NAME1 @1794
+SAY NAME2 @1794
+SAY DESC @1795
+
+// Staff of the High Forest +2
+COPY ~item_rev/itm/npstaf.itm~      ~override/npstaf.itm~         
+SAY NAME1 @1796
+SAY NAME2 @1796
+SAY DESC @1797
+
+// Firecam Full Plate Mail +2
+COPY ~item_rev/itm/npplat.itm~      ~override/npplat.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1798
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1799
+
+COPY ~item_rev/itm/keldorn.spl~      ~override/keldorn.spl~
+
+// De'Arnise Signet Ring
+COPY ~item_rev/itm/npring01.itm~      ~override/npring01.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1801
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1803
+
+// Delryn Family Shield +2
+COPY ~item_rev/itm/npshld.itm~      ~override/npshld.itm~         
+SAY NAME1 @1804
+SAY NAME2 @1804
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1805
+
+OUTER_SPRINT tooltip_itm ~NPSHLD~
+OUTER_SPRINT tooltip_string_1 @4034
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Sword of Arvoreen +2
+COPY ~item_rev/itm/npsw01.itm~      ~override/npsw01.itm~         
+SAY NAME1 @1806
+SAY NAME2 @1806
+SAY DESC @1807
+
+// Yoshimo's Katana +2
+COPY ~item_rev/itm/npsw02.itm~      ~override/npsw02.itm~         
+SAY NAME1 @1808
+SAY NAME2 @1809
+SAY DESC @1810
+
+// Hallowed Redeemer +2
+COPY ~item_rev/itm/npsw03.itm~      ~override/npsw03.itm~         
+SAY NAME1 @1811
+SAY NAME2 @1812
+SAY DESC @1813
+
+// Corthala Family Blade +2
+COPY ~item_rev/itm/npsw04.itm~      ~override/npsw04.itm~         
+SAY NAME1 @1808
+SAY NAME2 @1814
+SAY DESC @1815
+
+// Entropy +2
+COPY ~item_rev/itm/npsw05.itm~      ~override/npsw05.itm~         
+SAY NAME1 @1816
+SAY NAME2 @1816
+SAY DESC @1817
+
+// Chaos +2
+COPY ~item_rev/itm/npsw06.itm~      ~override/npsw06.itm~         
+SAY NAME1 @1818
+SAY NAME2 @1818
+SAY DESC @1819
+
+// Shar's Blessing
+COPY ~item_rev/itm/vicarm.itm~      ~override/vicarm.itm~         
+SAY NAME1 @1820
+SAY NAME2 @1821
+SAY UNIDENTIFIED_DESC @1649
+SAY DESC @1822
+
+// Flasher Launcher
+COPY ~item_rev/itm/xbow12.itm~      ~override/xbow12.itm~         
+SAY NAME1 @1823
+SAY NAME2 @1823
+SAY DESC @1824
+
+/*-----------------Plate and Full-Plate Mails-----------------*/
+
+// Plate Mail
+COPY ~item_rev/itm/plat01.itm~      ~override/plat01.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1825
+SAY UNIDENTIFIED_DESC @1826
+SAY DESC @1826
+
+// Plate Mail +1
+COPY ~item_rev/itm/plat02.itm~      ~override/plat02.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1827
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1829
+
+// Full Plate Mail
+COPY ~item_rev/itm/plat04.itm~      ~override/plat04.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1497
+SAY UNIDENTIFIED_DESC @1830
+SAY DESC @1830
+
+// Full Plate Mail +1
+COPY ~item_rev/itm/plat05.itm~      ~override/plat05.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1831
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1832
+
+// Ankheg Plate Mail +2
+COPY ~item_rev/itm/plat06.itm~      ~override/plat06.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1833
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1834
+
+// Radiant Plate +2
+COPY ~item_rev/itm/plat08.itm~      ~override/plat08.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1835
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1836
+
+// Mithral Field Plate Mail +2
+COPY ~item_rev/itm/plat09.itm~      ~override/plat09.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1683
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1837
+
+// Plate Mail +2
+COPY ~item_rev/itm/plat10.itm~      ~override/plat10.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1838
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1839
+
+// Delver's Plate +2
+COPY ~item_rev/itm/plat11.itm~      ~override/plat11.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1840
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1841
+
+// Doomplate +3
+COPY ~item_rev/itm/plat12.itm~      ~override/plat12.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1842
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1843
+
+ADD_PROJECTILE ~item_rev/itm/dvdoompl.pro~  // Aura of Despair
+COPY ~item_rev/itm/dvdoompl.spl~      ~override~
+  WRITE_SHORT 0x98 %dvdoompl%
+
+// Deep Guardian's Plate +4
+COPY ~item_rev/itm/plat13.itm~      ~override/plat13.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1844
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1845
+
+// Full Plate Mail +1
+COPY ~item_rev/itm/plat14.itm~      ~override/plat14.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1831
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1832
+
+// Pride of the Order +2
+COPY ~item_rev/itm/plat15.itm~      ~override/plat15.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1846
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1847
+
+// Death Knight Armor +3
+COPY ~item_rev/itm/plat16.itm~      ~override/plat16.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1848
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1849
+
+COPY ~item_rev/itm/dvdarmor.spl~      ~override~
+COPY ~item_rev/itm/dvdarmor.eff~      ~override~
+
+// Armor of the Hart +4
+COPY ~item_rev/itm/plat17.itm~      ~override/plat17.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1850
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1851
+
+// Red Dragonplate Armor +5
+COPY ~item_rev/itm/plat18.itm~      ~override/plat18.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1852
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1853
+
+// Full Plate Mail +2
+COPY ~item_rev/itm/plat19.itm~      ~override/plat19.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1854
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1855
+
+// Blue Dragonplate Armor +5
+COPY ~item_rev/itm/plat20.itm~      ~override/plat20.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1856
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1857
+
+// Enkidu's Full Plate +4
+COPY ~item_rev/itm/plat21.itm~      ~override/plat21.itm~         
+SAY NAME1 @1497
+SAY NAME2 @1858
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1859
+
+// Shuruppak's Plate +5
+COPY ~item_rev/itm/plat22.itm~      ~override/plat22.itm~         
+SAY NAME1 @1825
+SAY NAME2 @1860
+SAY UNIDENTIFIED_DESC @1828
+SAY DESC @1861
+
+// Full Plate Mail +3
+COPY ~item_rev/itm/plat23.itm~      ~override/plat23.itm~         
+SAY NAME1 @1497
+SAY NAME2 @2370
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @1862
+
+/*---------------------Rings---------------------*/
+
+// Ring of Fire Resistance
+COPY ~item_rev/itm/ring02.itm~      ~override/ring02.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1863
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1864
+
+// Ring of Animal Friendship
+COPY ~item_rev/itm/ring03.itm~      ~override/ring03.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1865
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1866
+
+// Ring of Nimbleness
+COPY ~item_rev/itm/ring04.itm~      ~override/ring04.itm~         
+SAY NAME1 @1800
+SAY NAME2 @2371
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @2372
+
+// Ring of Invisibility
+COPY ~item_rev/itm/ring05.itm~      ~override/ring05.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1867
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1868
+
+OUTER_SPRINT tooltip_itm ~RING05~
+OUTER_SPRINT tooltip_string_1 @4035
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Ring of Protection +1
+COPY ~item_rev/itm/ring06.itm~      ~override/ring06.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1869
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1870
+
+// Ring of Protection +2
+COPY ~item_rev/itm/ring07.itm~      ~override/ring07.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1871
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1872
+
+// Ring of Wizardry
+COPY ~item_rev/itm/ring08.itm~      ~override/ring08.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1873
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1874
+
+// Ring of Free Action
+COPY ~item_rev/itm/ring09.itm~      ~override/ring09.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1875
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1876
+
+// Ring of Energy
+COPY ~item_rev/itm/ring20.itm~      ~override/ring20.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1877
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1878
+
+COPY_EXISTING ~ribald.sto~ ~override~ // store
+  PATCH_IF (SOURCE_SIZE > 0xad) THEN BEGIN
+    READ_LONG 0x34 items_offset
+    READ_LONG 0x38 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~RING20~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 1 // Energy Blast
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 0 // none
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+      END
+    END
+  END
+  BUT_ONLY
+
+// Night's Embrace
+COPY ~item_rev/itm/ring21.itm~      ~override/ring21.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1879
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1880
+
+// Ring of Holiness
+COPY ~item_rev/itm/ring22.itm~      ~override/ring22.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1881
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1882
+
+// Ring of Folly
+COPY ~item_rev/itm/ring23.itm~      ~override/ring23.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1881
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1882
+
+// Ring of Protection +1
+COPY ~item_rev/itm/ring25.itm~      ~override/ring25.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1869
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1870
+
+// Ring of Djinni Summoning
+COPY ~item_rev/itm/ring26.itm~      ~override/ring26.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1883
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1884
+
+OUTER_SPRINT tooltip_itm ~RING26~
+OUTER_SPRINT tooltip_string_1 @4036
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Ring of Fire Control
+COPY ~item_rev/itm/ring27.itm~      ~override/ring27.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1885
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1886
+
+OUTER_SPRINT tooltip_itm ~RING27~
+OUTER_SPRINT tooltip_string_1 @4037
+OUTER_SPRINT tooltip_string_2 @4038
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring27.eff~      ~override~  // Conjure Lesser Fire Elemental
+COPY ~item_rev/itm/ring27.spl~      ~override~  // Fire Shield (Red)
+COPY ~item_rev/itm/ring27b.spl~      ~override~
+
+// Ring of Air Control
+COPY ~item_rev/itm/ring28.itm~      ~override/ring28.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1887
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1888
+
+OUTER_SPRINT tooltip_itm ~RING28~
+OUTER_SPRINT tooltip_string_1 @4039
+OUTER_SPRINT tooltip_string_2 @4040
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring28.eff~      ~override~  // Conjure Lesser Air Elemental
+
+// Ring of Earth Control
+COPY ~item_rev/itm/ring29.itm~      ~override/ring29.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1889
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1890
+
+OUTER_SPRINT tooltip_itm ~RING29~
+OUTER_SPRINT tooltip_string_1 @4041
+OUTER_SPRINT tooltip_string_2 @4042
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring29.eff~      ~override~  // Conjure Lesser Earth Elemental
+COPY ~item_rev/itm/ring29.spl~      ~override~  // Stoneskin
+
+// Ring of Human Influence
+COPY ~item_rev/itm/ring30.itm~      ~override/ring30.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1891
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1892
+
+OUTER_SPRINT tooltip_itm ~RING30~
+OUTER_SPRINT tooltip_string_1 @4043
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring30.spl~      ~override~  // Charm Person
+
+// Ring of Regeneration
+COPY ~item_rev/itm/ring31.itm~      ~override/ring31.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1893
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1894
+
+// Ring of the Ram
+COPY ~item_rev/itm/ring33.itm~      ~override/ring33.itm~
+SAY NAME1 @1800
+SAY NAME2 @1895
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1896
+
+COPY_EXISTING botsmith.dlg override  // Cespenar's dialog
+  DECOMPILE_DLG_TO_D
+    REPLACE_TEXTUALLY ~"compon05"~ ~"ring33"~
+  COMPILE_D_TO_DLG
+
+STRING_SET ~66686~ @205
+STRING_SET ~66691~ @206
+
+OUTER_SPRINT tooltip_itm ~RING30~
+OUTER_SPRINT tooltip_string_1 @4044
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring33a.eff~      ~override~ // Monk's Knockback effect
+COPY ~item_rev/itm/ring33b.eff~      ~override~
+COPY ~item_rev/itm/ring33.spl~      ~override~
+
+// Ring of Spell Turning
+COPY ~item_rev/itm/ring34.itm~      ~override/ring34.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1897
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1898
+
+OUTER_SPRINT tooltip_itm ~RING34~
+OUTER_SPRINT tooltip_string_1 @4045
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring34.spl~      ~override~  // Spell Turning
+
+// Ring of Lock Picks
+COPY ~item_rev/itm/ring35.itm~      ~override/ring35.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1899
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1900
+
+// Ring of Danger Sense
+COPY ~item_rev/itm/ring36.itm~      ~override/ring36.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1901
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1902
+
+// Ring of Kangaxx
+COPY ~item_rev/itm/ring39.itm~      ~override/ring39.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1903
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1904
+
+OUTER_SPRINT tooltip_itm ~RING39~
+OUTER_SPRINT tooltip_string_1 @4046
+OUTER_SPRINT tooltip_string_2 @4047
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/ring39a.spl~      ~override~  // Finger of Death
+COPY ~item_rev/itm/ring39b.spl~      ~override~  // Vampiric Touch
+
+// Ring of Acuity
+COPY ~item_rev/itm/ring40.itm~      ~override/ring40.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1905
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1906
+
+// Ring of Protection +3
+COPY ~item_rev/itm/ring41.itm~      ~override/ring41.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1907
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1908
+
+// Ring of the Phantom Wraith
+COPY ~item_rev/itm/ring42.itm~      ~override/ring42.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1909
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1910
+
+// Heartwood Ring
+COPY ~item_rev/itm/ring44.itm~      ~override/ring44.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1911
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1912
+
+// Larloch's Soul Stealer
+COPY ~item_rev/itm/ring46.itm~      ~override/ring46.itm~         
+SAY NAME1 @1800
+SAY NAME2 @1913
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @1914
+
+COPY ~item_rev/itm/ring46a.eff~      ~override~ // Soul Stealing
+COPY ~item_rev/itm/ring46b.eff~      ~override~
+
+/*----------------------Rods----------------------*/
+
+// Rod os Smiting +3
+COPY ~item_rev/itm/rods04.itm~      ~override/rods04.itm~         
+SAY NAME1 @1915
+SAY NAME2 @1916
+SAY UNIDENTIFIED_DESC @1917
+SAY DESC @1918
+
+/*--------------------Shields--------------------*/
+
+// Small Shield
+COPY ~item_rev/itm/shld01.itm~      ~override/shld01.itm~         
+SAY NAME1 @1939
+SAY NAME2 @1939
+SAY UNIDENTIFIED_DESC @1940
+SAY DESC @1940
+
+// Small Shield +1
+COPY ~item_rev/itm/shld02.itm~      ~override/shld02.itm~         
+SAY NAME1 @1939
+SAY NAME2 @1941
+SAY UNIDENTIFIED_DESC @1942
+SAY DESC @1943
+
+// Medium Shield
+COPY ~item_rev/itm/shld03.itm~      ~override/shld03.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1501
+SAY UNIDENTIFIED_DESC @1944
+SAY DESC @1944
+
+// Medium Shield +1
+COPY ~item_rev/itm/shld04.itm~      ~override/shld04.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1945
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1946
+
+// Large Shield
+COPY ~item_rev/itm/shld05.itm~      ~override/shld05.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1947
+SAY UNIDENTIFIED_DESC @1948
+SAY DESC @1948
+
+// Large Shield +1
+COPY ~item_rev/itm/shld06.itm~      ~override/shld06.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1949
+SAY UNIDENTIFIED_DESC @1950
+SAY DESC @1951
+
+// Shield of the Falling Stars +1
+COPY ~item_rev/itm/shld07.itm~      ~override/shld07.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1952
+SAY UNIDENTIFIED_DESC @1953
+SAY DESC @1954
+
+ADD_PROJECTILE ~item_rev/itm/dvshloth.pro~  // Shield Others effect
+COPY ~item_rev/itm/dvshloth.spl~      ~override~
+  WRITE_SHORT 0x98 %dvshloth%
+COPY ~item_rev/itm/shld07.eff~      ~override~
+
+// Buckler
+COPY ~item_rev/itm/shld08.itm~      ~override/shld08.itm~         
+SAY NAME1 @1955
+SAY NAME2 @1955
+SAY UNIDENTIFIED_DESC @1956
+SAY DESC @1956
+
+// Buckler
+COPY ~item_rev/itm/shld09.itm~      ~override/shld09.itm~         
+SAY NAME1 @1955
+SAY NAME2 @1955
+SAY UNIDENTIFIED_DESC @1956
+SAY DESC @1956
+
+// Buckler
+COPY ~item_rev/itm/shld10.itm~      ~override/shld10.itm~         
+SAY NAME1 @1955
+SAY NAME2 @1955
+SAY UNIDENTIFIED_DESC @1956
+SAY DESC @1956
+
+// Small Shield
+COPY ~item_rev/itm/shld11.itm~      ~override/shld11.itm~         
+SAY NAME1 @1939
+SAY NAME2 @1939
+SAY UNIDENTIFIED_DESC @1940
+SAY DESC @1940
+
+// Small Shield
+COPY ~item_rev/itm/shld12.itm~      ~override/shld12.itm~         
+SAY NAME1 @1939
+SAY NAME2 @1939
+SAY UNIDENTIFIED_DESC @1940
+SAY DESC @1940
+
+// Medium Shield
+COPY ~item_rev/itm/shld13.itm~      ~override/shld13.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1501
+SAY UNIDENTIFIED_DESC @1944
+SAY DESC @1944
+
+// Medium Shield
+COPY ~item_rev/itm/shld14.itm~      ~override/shld14.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1501
+SAY UNIDENTIFIED_DESC @1944
+SAY DESC @1944
+
+// Large Shield
+COPY ~item_rev/itm/shld15.itm~      ~override/shld15.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1947
+SAY UNIDENTIFIED_DESC @1948
+SAY DESC @1948
+
+// Large Shield
+COPY ~item_rev/itm/shld16.itm~      ~override/shld16.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1947
+SAY UNIDENTIFIED_DESC @1948
+SAY DESC @1948
+
+// Buckler +1
+COPY ~item_rev/itm/shld17.itm~      ~override/shld17.itm~         
+SAY NAME1 @1955
+SAY NAME2 @1957
+SAY UNIDENTIFIED_DESC @1958
+SAY DESC @1959
+
+// Large Shield
+COPY ~item_rev/itm/shld18.itm~      ~override/shld18.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1947
+SAY UNIDENTIFIED_DESC @1948
+SAY DESC @1948
+
+// Dwarven Large Shield +2
+COPY ~item_rev/itm/shld19.itm~      ~override/shld19.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1960
+SAY UNIDENTIFIED_DESC @1953
+SAY DESC @1961
+
+// Kiel's Buckler +2
+COPY ~item_rev/itm/shld20.itm~      ~override/shld20.itm~         
+SAY NAME1 @1955
+SAY NAME2 @1962
+SAY UNIDENTIFIED_DESC @1958
+SAY DESC @1963
+
+// Dragon Scale Shield +2
+COPY ~item_rev/itm/shld21.itm~      ~override/shld21.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1964
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1965
+
+// Shield of Balduran +4
+COPY ~item_rev/itm/shld22.itm~      ~override/shld22.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1966
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1967
+
+// Fortress Shield +3
+COPY ~item_rev/itm/shld23.itm~      ~override/shld23.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1968
+SAY UNIDENTIFIED_DESC @1953
+SAY DESC @1969
+
+// Reflection Shield +1
+COPY ~item_rev/itm/shld24.itm~      ~override/shld24.itm~         
+SAY NAME1 @1955
+SAY NAME2 @1970
+SAY UNIDENTIFIED_DESC @1958
+SAY DESC @1971
+
+// Shield of Harmony +2
+COPY ~item_rev/itm/shld25.itm~      ~override/shld25.itm~         
+SAY NAME1 @1939
+SAY NAME2 @1972
+SAY UNIDENTIFIED_DESC @1942
+SAY DESC @1973
+
+// Nature's Ward +2
+COPY ~item_rev/itm/shld26.itm~      ~override/shld26.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1974
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1975
+
+// Saving Grace +3
+COPY ~item_rev/itm/shld27.itm~      ~override/shld27.itm~
+SAY NAME1 @1501
+SAY NAME2 @1976
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1977
+
+COPY ~item_rev/itm/shld27.eff~      ~override~  // Searing Light
+COPY ~item_rev/itm/shld27.spl~      ~override~
+COPY ~item_rev/itm/shld27i.eff~      ~override~
+COPY ~item_rev/itm/dvsearlg.spl~      ~override~
+
+// Small Shield +2
+COPY ~item_rev/itm/shld28.itm~      ~override/shld28.itm~         
+SAY NAME1 @1939
+SAY NAME2 @1978
+SAY UNIDENTIFIED_DESC @1942
+SAY DESC @1979
+
+// Medium Shield +2
+COPY ~item_rev/itm/shld29.itm~      ~override/shld29.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1980
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1981
+
+// Light Tower Shield +2
+COPY ~item_rev/itm/shld30.itm~      ~override/shld30.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1982
+SAY UNIDENTIFIED_DESC @1953
+SAY DESC @1983
+
+// Darksteel Shield +4
+COPY ~item_rev/itm/shld31.itm~      ~override/shld31.itm~         
+SAY NAME1 @1947
+SAY NAME2 @1984
+SAY UNIDENTIFIED_DESC @1953
+SAY DESC @1985
+
+// Shield of the Order +4
+COPY ~item_rev/itm/shld32.itm~      ~override/shld32.itm~         
+SAY NAME1 @1501
+SAY NAME2 @1986
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @1987
+
+/*----------------------Slings---------------------*/
+
+// Sling
+COPY ~item_rev/itm/slng01.itm~      ~override/slng01.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1920
+SAY UNIDENTIFIED_DESC @1921
+SAY DESC @1921
+
+// Sling +1
+COPY ~item_rev/itm/slng02.itm~      ~override/slng02.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1922
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1924
+
+// Sling of Seeking +1
+COPY ~item_rev/itm/slng03.itm~      ~override/slng03.itm~         
+SAY NAME1 @1920
+SAY NAME2 @2377
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @2378
+
+// Sling +2
+COPY ~item_rev/itm/slng04.itm~      ~override/slng04.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1927
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1928
+
+// Arla's Dragonbane +3
+COPY ~item_rev/itm/slng05.itm~      ~override/slng05.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1929
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1930
+
+// Sling of Arvoreen +2
+COPY ~item_rev/itm/slng06.itm~      ~override/slng06.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1931
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1932
+
+// Sling of Force +2
+COPY ~item_rev/itm/slng07.itm~      ~override/slng07.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1933
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1934
+
+// Erinne Sling +3
+COPY ~item_rev/itm/slng08.itm~      ~override/slng08.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1935
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1936
+
+COPY_EXISTING botsmith.dlg override
+  DECOMPILE_DLG_TO_D
+  REPLACE_TEXTUALLY ~TakePartyItemNum("slng08",1)~ ~TakePartyItemNum("slng08",1) TakePartyItemNum("ring20",1)~
+  REPLACE_TEXTUALLY ~DestroyItem("slng08")~ ~DestroyItem("slng08") DestroyItem("ring20")~
+  COMPILE_D_TO_DLG
+BUT_ONLY
+
+STRING_SET ~66871~ @210
+STRING_SET ~66876~ @211
+
+<<<<<<<<inlined/cespy_erinne.d
+APPEND botsmith
+IF ~~ BEGIN erinne
+SAY @212
+  COPY_TRANS botsmith 92
+END
+END
+
+ALTER_TRANS botsmith
+BEGIN 90 END
+BEGIN 0 END
+BEGIN
+  "TRIGGER" ~PartyHasItem("ring20")~
+END
+
+EXTEND_TOP botsmith 90
+IF ~!PartyHasItem("ring20")~ GOTO erinne
+END
+>>>>>>>>
+COMPILE ~inlined/cespy_erinne.d~
+
+// Erinne Sling +4
+COPY ~item_rev/itm/slng09.itm~      ~override/slng09.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1937
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1938
+
+// Sling +3
+COPY ~item_rev/itm/slng10.itm~      ~override/slng10.itm~         
+SAY NAME1 @1920
+SAY NAME2 @1925
+SAY UNIDENTIFIED_DESC @1923
+SAY DESC @1926
+
+/*---------------------Spears---------------------*/
+
+// Spear
+COPY ~item_rev/itm/sper01.itm~      ~override/sper01.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1505
+SAY UNIDENTIFIED_DESC @1988
+SAY DESC @1988
+
+// Spear +1
+COPY ~item_rev/itm/sper02.itm~      ~override/sper02.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1989
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @1990
+
+// Backbiter +3
+COPY ~item_rev/itm/sper03.itm~      ~override/sper03.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1991
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @1992
+
+// Spear +2
+COPY ~item_rev/itm/sper05.itm~      ~override/sper05.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1993
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @1994
+
+// Spear +3
+COPY ~item_rev/itm/sper06.itm~      ~override/sper06.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1995
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @1996
+
+// Spear of the Unicorn +2
+COPY ~item_rev/itm/sper07.itm~      ~override/sper07.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1997
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @1998
+
+// Impaler +3
+COPY ~item_rev/itm/sper08.itm~      ~override/sper08.itm~         
+SAY NAME1 @1505
+SAY NAME2 @1999
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @2000
+
+OUTER_SPRINT tooltip_itm ~SPER08~
+OUTER_SPRINT tooltip_string_1 @4048
+OUTER_SPRINT tooltip_string_2 @4049
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Halcyon +1
+COPY ~item_rev/itm/sper09.itm~      ~override/sper09.itm~         
+SAY NAME1 @1505
+SAY NAME2 @2001
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @2002
+
+OUTER_SPRINT tooltip_itm ~SPER09~
+OUTER_SPRINT tooltip_string_1 @4048
+OUTER_SPRINT tooltip_string_2 @4049
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Spear of Withering +3
+COPY ~item_rev/itm/sper10.itm~      ~override/sper10.itm~         
+SAY NAME1 @1505
+SAY NAME2 @2003
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @2004
+
+// Ixil's Nail +4
+COPY ~item_rev/itm/sper11.itm~      ~override/sper11.itm~         
+SAY NAME1 @1505
+SAY NAME2 @2005
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @2006
+
+// Ixil's Spike +5
+COPY ~item_rev/itm/sper12.itm~      ~override/sper12.itm~         
+SAY NAME1 @1505
+SAY NAME2 @2007
+SAY UNIDENTIFIED_DESC @1507
+SAY DESC @2008
+
+/*-------------------Quarterstaffs-------------------*/
+
+// Quarterstaff
+COPY ~item_rev/itm/staf01.itm~      ~override/staf01.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2009
+SAY UNIDENTIFIED_DESC @2010
+SAY DESC @2010
+
+// Quarterstaff +1
+COPY ~item_rev/itm/staf02.itm~      ~override/staf02.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2011
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2013
+
+// Quarterstaff
+COPY ~item_rev/itm/staf03.itm~      ~override/staf03.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2009
+SAY UNIDENTIFIED_DESC @2010
+SAY DESC @2010
+
+// Staff of Striking +3
+COPY ~item_rev/itm/staf05.itm~      ~override/staf05.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2014
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2015
+
+// Staff Mace +2
+COPY ~item_rev/itm/staf06.itm~      ~override/staf06.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2016
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2017
+
+// Staff Spear +2
+COPY ~item_rev/itm/staf07.itm~      ~override/staf07.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2018
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2019
+
+// Martial Staff +2
+COPY ~item_rev/itm/staf08.itm~      ~override/staf08.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2020
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2021
+
+// Staff of Command +3
+COPY ~item_rev/itm/staf09.itm~      ~override/staf09.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2022
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2023
+
+ADD_PROJECTILE ~item_rev/itm/dvcomand.pro~  // Aura of Command
+COPY ~item_rev/itm/dvcomand.spl~      ~override~
+  WRITE_SHORT 0x98 %dvcomand%
+COPY ~item_rev/itm/dvcomand.eff~      ~override~
+
+COPY ~item_rev/itm/staf09.spl~      ~override~  // Domination
+
+OUTER_SPRINT tooltip_itm ~STAF09~
+OUTER_SPRINT tooltip_string_1 @2022
+OUTER_SPRINT tooltip_string_2 @4050
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~ar2400.are~ ~override~ // Illithid's City
+PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
+READ_LONG 0x78 "io" // offset to list of items
+FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+  READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+  PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF09~) THEN BEGIN
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Dominate
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+    SET "ic" = 0x00
+    END
+  END
+END
+BUT_ONLY
+
+// Staff of Curing +1
+COPY ~item_rev/itm/staf10.itm~      ~override/staf10.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2024
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2025
+
+COPY ~item_rev/itm/dvhealau.spl~      ~override~  // Healing Aura
+COPY ~item_rev/itm/dvhealau.eff~      ~override~
+
+COPY ~item_rev/itm/staf10.spl~      ~override~  // Healing Surge
+
+OUTER_SPRINT tooltip_itm ~STAF10~
+OUTER_SPRINT tooltip_string_1 @2024
+OUTER_SPRINT tooltip_string_2 @4051
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Staff of the Magi +5
+COPY ~item_rev/itm/staf11.itm~      ~override/staf11.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2026
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2027
+
+COPY ~item_rev/itm/staf11a.spl~      ~override~  // Remove Magic
+COPY ~item_rev/itm/staf11b.spl~      ~override~  // Spell Trap
+
+OUTER_SPRINT tooltip_itm ~STAF11~
+OUTER_SPRINT tooltip_string_1 @2026
+OUTER_SPRINT tooltip_string_2 @4052
+OUTER_SPRINT tooltip_string_3 @4053
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~hllayen.cre~ ~override~ // Layene
+  PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
+    READ_LONG 0x02bc items_offset
+    READ_LONG 0x02c0 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF11~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Remove Magic
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Spell Trap
+      END
+    END
+  END
+  BUT_ONLY
+
+// Staff of Power +2
+COPY ~item_rev/itm/staf12.itm~      ~override/staf12.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2028
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2029
+
+COPY ~item_rev/itm/staf12a.spl~      ~override~  // Hold Monster
+COPY ~item_rev/itm/staf12b.spl~      ~override~  // Globe of Invulnerability
+
+OUTER_SPRINT tooltip_itm ~STAF12~
+OUTER_SPRINT tooltip_string_1 @2028
+OUTER_SPRINT tooltip_string_2 @4054
+OUTER_SPRINT tooltip_string_3 @4055
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~chsam01.cre~ ~override~ // Semaj
+  PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
+    READ_LONG 0x02bc items_offset
+    READ_LONG 0x02c0 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF12~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Hold Monster
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Globe of Invulnerability
+      END
+    END
+  END
+  BUT_ONLY
+
+COPY_EXISTING ~chsam02.cre~ ~override~ // Semaj
+  PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
+    READ_LONG 0x02bc items_offset
+    READ_LONG 0x02c0 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF12~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Hold Monster
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 1 // Globe of Invulnerability
+      END
+    END
+  END
+  BUT_ONLY
+
+// Staff of Thunder and Lightning +2
+COPY ~item_rev/itm/staf13.itm~      ~override/staf13.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2030
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2031
+
+COPY ~item_rev/itm/staf13a.spl~      ~override~  // Lightning Stroke
+COPY ~item_rev/itm/staf13b.spl~      ~override~  // Thunder & Lightning
+
+OUTER_SPRINT tooltip_itm ~STAF13~
+OUTER_SPRINT tooltip_string_1 @2030
+OUTER_SPRINT tooltip_string_2 @4056
+OUTER_SPRINT tooltip_string_3 @4057
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~ar1515.are~ ~override~ // Spellhold
+PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
+READ_LONG 0x78 "io" // offset to list of items
+FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+  READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+  PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF13~) THEN BEGIN
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Lightning Stroke
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 1 // Thunder & Lightning
+    SET "ic" = 0x00
+    END
+  END
+END
+BUT_ONLY
+
+COPY_EXISTING ~cechalle.dlg~ ~override~
+  DECOMPILE_DLG_TO_D
+  REPLACE_TEXTUALLY ~GiveItemCreate("STAF13",LastTalkedToBy,0,25,25)~
+    ~GiveItemCreate("STAF13",LastTalkedToBy,0,1,1)~
+  COMPILE_D_TO_DLG
+  BUT_ONLY
+
+// Staff of the Woodlands +4
+COPY ~item_rev/itm/staf14.itm~      ~override/staf14.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2032
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2033
+
+COPY ~item_rev/itm/staf14.spl~      ~override~  // Barkskin
+
+OUTER_SPRINT tooltip_itm ~STAF14~
+OUTER_SPRINT tooltip_string_1 @2032
+OUTER_SPRINT tooltip_string_2 @4058
+OUTER_SPRINT tooltip_string_3 @4059
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/dvempaty.spl~      ~override~  // Animal Empaty
+COPY ~item_rev/itm/dvempaty.eff~      ~override~
+
+COPY ~item_rev/itm/smoundsu.cre~      ~override/smoundsu.cre~
+COPY ~item_rev/itm/smoundsu.itm~      ~override/smoundsu.itm~
+
+COPY_EXISTING ~suavatar.dlg~ ~override~
+  DECOMPILE_DLG_TO_D
+  REPLACE_TEXTUALLY ~GiveItemCreate("staf14",Player1,20,20,20)~
+    ~GiveItemCreate("staf14",Player1,0,1,1)~
+  COMPILE_D_TO_DLG
+  BUT_ONLY
+
+// Staff of Air +2
+COPY ~item_rev/itm/staf15.itm~      ~override/staf15.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2034
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2035
+
+COPY ~item_rev/itm/staf15.spl~      ~override~  // Gust of Wind
+
+OUTER_SPRINT tooltip_itm ~STAF15~
+OUTER_SPRINT tooltip_string_1 @2034
+OUTER_SPRINT tooltip_string_2 @4060
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~pmaster.cre~ ~override~ // Master of Thralls
+  PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN
+    READ_LONG 0x02bc items_offset
+    READ_LONG 0x02c0 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x014) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF15~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0a) 0 // Melee
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0c) 1 // Gust of Wind
+        WRITE_SHORT (items_offset + (i*0x014) + 0x0e) 0 // none
+      END
+    END
+  END
+  BUT_ONLY
+
+// Staff of Earth +2
+COPY ~item_rev/itm/staf16.itm~      ~override/staf16.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2036
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2037
+
+COPY ~item_rev/itm/staf16.spl~      ~override~  // Earth Grasp
+
+OUTER_SPRINT tooltip_itm ~STAF16~
+OUTER_SPRINT tooltip_string_1 @2036
+OUTER_SPRINT tooltip_string_2 @4061
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~uddrow23.sto~ ~override~ // store
+  PATCH_IF (SOURCE_SIZE > 0xad) THEN BEGIN
+    READ_LONG 0x34 items_offset
+    READ_LONG 0x38 num_items
+    FOR (i = 0; i < num_items; i += 1) BEGIN
+      READ_ASCII (items_offset + (i*0x1c) + 0x00) filename
+      PATCH_IF (~%filename%~ STRING_EQUAL_CASE ~STAF16~) BEGIN
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0a) 0 // Melee
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0c) 1 // Earth Grasp
+        WRITE_SHORT (items_offset + (i*0x1c) + 0x0e) 0 // none
+      END
+    END
+  END
+  BUT_ONLY
+
+// Staff of Fire +2
+COPY ~item_rev/itm/staf17.itm~      ~override/staf17.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2038
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2039
+
+COPY ~item_rev/itm/staf17.spl~      ~override~  // Fireball
+
+OUTER_SPRINT tooltip_itm ~STAF17~
+OUTER_SPRINT tooltip_string_1 @2038
+OUTER_SPRINT tooltip_string_2 @4062
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY_EXISTING ~ar0412.are~ ~override~ // Planar Sphere, Fire Chamber
+PATCH_IF (SOURCE_SIZE > 0x109) THEN BEGIN
+READ_LONG 0x78 "io" // offset to list of items
+FOR (READ_SHORT 0x76 "ic"; "ic" > 0x00; "ic" -= 0x01) BEGIN
+  READ_ASCII ("io" + ("ic" * 0x14) - 0x14) ~in~ // item name
+  PATCH_IF (~%in%~ STRING_EQUAL_CASE ~STAF17~) THEN BEGIN
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x0a) 0 // Melee
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x08) 1 // Fireball
+    WRITE_SHORT ("io" + ("ic" * 0x14) - 0x06) 0 // none
+    SET "ic" = 0x00
+    END
+  END
+END
+BUT_ONLY
+
+// Quarterstaff +2
+COPY ~item_rev/itm/staf18.itm~      ~override/staf18.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2040
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2041
+
+// Cleric's Staff +3
+COPY ~item_rev/itm/staf19.itm~      ~override/staf19.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2042
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2043
+
+// Staff of Rynn +3
+COPY ~item_rev/itm/staf20.itm~      ~override/staf20.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2044
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2045
+
+COPY ~item_rev/itm/staf20.spl~      ~override~  // Greater Malison
+
+OUTER_SPRINT tooltip_itm ~STAF20~
+OUTER_SPRINT tooltip_string_1 @2044
+OUTER_SPRINT tooltip_string_2 @4078
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Staff of the Ram +4
+COPY ~item_rev/itm/staf21.itm~      ~override/staf21.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2046
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2047
+
+// Staff of the Ram +5
+COPY ~item_rev/itm/staf22.itm~      ~override/staf22.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2048
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2049
+
+// Serpent Shaft +3
+COPY ~item_rev/itm/staf23.itm~      ~override/staf23.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2050
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2051
+
+// Quarterstaff +3
+COPY ~item_rev/itm/staf24.itm~      ~override/staf24.itm~         
+SAY NAME1 @2009
+SAY NAME2 @2052
+SAY UNIDENTIFIED_DESC @2012
+SAY DESC @2053
+
+/*---------------------Swords----------------------*/
+
+// Bastard Sword
+COPY ~item_rev/itm/sw1h01.itm~      ~override/sw1h01.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2054
+SAY UNIDENTIFIED_DESC @2055
+SAY DESC @2055
+
+// Bastard Sword +1
+COPY ~item_rev/itm/sw1h02.itm~      ~override/sw1h02.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2056
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2058
+
+// Lawgiver +2
+COPY ~item_rev/itm/sw1h03.itm~      ~override/sw1h03.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2059
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2060
+
+// Long Sword
+COPY ~item_rev/itm/sw1h04.itm~      ~override/sw1h04.itm~         
+SAY NAME1 @1513
+SAY NAME2 @1513
+SAY UNIDENTIFIED_DESC @2061
+SAY DESC @2061
+
+// Long Sword +1
+COPY ~item_rev/itm/sw1h05.itm~      ~override/sw1h05.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2062
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2063
+
+// Varscona +2
+COPY ~item_rev/itm/sw1h06.itm~      ~override/sw1h06.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2064
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2065
+
+// Short Sword
+COPY ~item_rev/itm/sw1h07.itm~      ~override/sw1h07.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2066
+SAY UNIDENTIFIED_DESC @2067
+SAY DESC @2067
+
+// Short Sword +1
+COPY ~item_rev/itm/sw1h08.itm~      ~override/sw1h08.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2068
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2070
+
+// Short Sword +2
+COPY ~item_rev/itm/sw1h09.itm~      ~override/sw1h09.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2071
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2072
+
+// Short Sword of Backstabbing +3
+COPY ~item_rev/itm/sw1h10.itm~      ~override/sw1h10.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2073
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2074
+
+COPY ~item_rev/itm/sw1h10a.eff~      ~override/sw1h10a.eff~
+COPY ~item_rev/itm/sw1h10b.eff~      ~override/sw1h10b.eff~
+COPY ~item_rev/itm/sw1h10c.eff~      ~override/sw1h10c.eff~
+
+// Icingdeath +3
+COPY ~item_rev/itm/sw1h15.itm~      ~override/sw1h15.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2075
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2076
+
+// Twinkle +3
+COPY ~item_rev/itm/sw1h16.itm~      ~override/sw1h16.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2077
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2078
+
+// Sword of Balduran +2
+COPY ~item_rev/itm/sw1h18.itm~      ~override/sw1h18.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2317
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2318
+
+// The Vampire's Revenge +3 +3
+COPY ~item_rev/itm/sw1h19.itm~      ~override/sw1h19.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2379
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2380
+
+COPY ~item_rev/itm/sw1h19.eff~      ~override~
+
+// Scimitar
+COPY ~item_rev/itm/sw1h20.itm~      ~override/sw1h20.itm~         
+SAY NAME1 @1509
+SAY NAME2 @1509
+SAY UNIDENTIFIED_DESC @2079
+SAY DESC @2079
+
+// Scimitar +1
+COPY ~item_rev/itm/sw1h22.itm~      ~override/sw1h22.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2080
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2081
+
+// Rashad's Talon +2
+COPY ~item_rev/itm/sw1h23.itm~      ~override/sw1h23.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2082
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2083
+
+// Flame Tongue +3
+COPY ~item_rev/itm/sw1h24.itm~      ~override/sw1h24.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2084
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2085
+
+/* OUTER_SPRINT tooltip_itm ~SW1H24~
+OUTER_SPRINT tooltip_string_1 @2084
+OUTER_SPRINT tooltip_string_2 @4063
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~ */
+
+// Kundane +2
+COPY ~item_rev/itm/sw1h25.itm~      ~override/sw1h25.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2086
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2087
+
+// Ilbratha +1
+COPY ~item_rev/itm/sw1h26.itm~      ~override/sw1h26.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2088
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2089
+
+OUTER_SPRINT tooltip_itm ~SW1H26~
+OUTER_SPRINT tooltip_string_1 @2088
+OUTER_SPRINT tooltip_string_2 @4064
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Arbane's Sword +2
+COPY ~item_rev/itm/sw1h27.itm~      ~override/sw1h27.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2090
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2091
+
+OUTER_SPRINT tooltip_itm ~SW1H27~
+OUTER_SPRINT tooltip_string_1 @2090
+OUTER_SPRINT tooltip_string_2 @4065
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Cutthroat +3
+COPY ~item_rev/itm/sw1h28.itm~      ~override/sw1h28.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2092
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2093
+
+// Short Sword +2
+COPY ~item_rev/itm/sw1h29.itm~      ~override/sw1h29.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2071
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2094
+
+// Belm +2
+COPY ~item_rev/itm/sw1h30.itm~      ~override/sw1h30.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2095
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2096
+
+// Daystar +4
+COPY ~item_rev/itm/sw1h31.itm~      ~override/sw1h31.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2097
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2098
+
+OUTER_SPRINT tooltip_itm ~SW1H31~
+OUTER_SPRINT tooltip_string_1 @2097
+OUTER_SPRINT tooltip_string_2 @4066
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Dragonslayer +3
+COPY ~item_rev/itm/sw1h32.itm~      ~override/sw1h32.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2099
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2100
+
+COPY ~item_rev/itm/sw1h32.eff~      ~override~ 
+COPY ~item_rev/itm/dvcoaura.eff~      ~override~  // Aura of Courage
+COPY ~item_rev/itm/dvcoaura.spl~      ~override~
+  WRITE_SHORT 0x98 %dvsingsw%
+
+// Ras +2
+COPY ~item_rev/itm/sw1h33.itm~      ~override/sw1h33.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2101
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2102
+
+// Albruin +1
+COPY ~item_rev/itm/sw1h34.itm~      ~override/sw1h34.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2103
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2104
+
+COPY ~item_rev/itm/dvffire.spl~      ~override~  // Faerie Fire
+/*  WRITE_SHORT 0x98 %dvthclap% */
+COPY ~item_rev/itm/sppr114f.spl~      ~override~
+
+OUTER_SPRINT tooltip_itm ~SW1H34~
+OUTER_SPRINT tooltip_string_1 @2103
+OUTER_SPRINT tooltip_string_2 @4067
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+COPY ~item_rev/itm/dvalbr1.spl~      ~override/dvalbr1.spl~  // Albruin Cure ability
+COPY ~item_rev/itm/dvalbr2.spl~      ~override/dvalbr2.spl~  // Albruin Cure ability
+
+// Adjatha The Drinker +2
+COPY ~item_rev/itm/sw1h35.itm~      ~override/sw1h35.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2105
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2106
+
+COPY ~item_rev/itm/dvspdrnk.eff~      ~override/dvspdrnk.eff~  // Spell Drinker ability
+COPY ~item_rev/itm/dvspdrnk.spl~      ~override/dvspdrnk.spl~  // Spell Drinker ability
+
+// Namarra +2
+COPY ~item_rev/itm/sw1h36.itm~      ~override/sw1h36.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2107
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2108
+
+// Taragarth +1
+COPY ~item_rev/itm/sw1h37.itm~      ~override/sw1h37.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2109
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2110
+
+// Jhor The Bleeder +2
+COPY ~item_rev/itm/sw1h38.itm~      ~override/sw1h38.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2111
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2112
+
+// Blade of Searing +3
+COPY ~item_rev/itm/sw1h39.itm~      ~override/sw1h39.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2113
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2114
+
+// Blade of Roses +1
+COPY ~item_rev/itm/sw1h40.itm~      ~override/sw1h40.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2115
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2116
+
+// Long Sword +2
+COPY ~item_rev/itm/sw1h41.itm~      ~override/sw1h41.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2117
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2118
+
+// Bastard Sword +2
+COPY ~item_rev/itm/sw1h42.itm~      ~override/sw1h42.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2119
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2120
+
+// Katana
+COPY ~item_rev/itm/sw1h43.itm~      ~override/sw1h43.itm~         
+SAY NAME1 @1808
+SAY NAME2 @1808
+SAY UNIDENTIFIED_DESC @2121
+SAY DESC @2121
+
+// Katana +1
+COPY ~item_rev/itm/sw1h44.itm~      ~override/sw1h44.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2122
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2124
+
+// Malakar +2
+COPY ~item_rev/itm/sw1h45.itm~      ~override/sw1h45.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2125
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2126
+
+// Wakizashi
+COPY ~item_rev/itm/sw1h46.itm~      ~override/sw1h46.itm~         
+SAY NAME1 @2127
+SAY NAME2 @2127
+SAY UNIDENTIFIED_DESC @2128
+SAY DESC @2128
+
+// Wakizashi +1
+COPY ~item_rev/itm/sw1h47.itm~      ~override/sw1h47.itm~         
+SAY NAME1 @2127
+SAY NAME2 @2129
+SAY UNIDENTIFIED_DESC @2130
+SAY DESC @2131
+
+// Ninja-To
+COPY ~item_rev/itm/sw1h48.itm~      ~override/sw1h48.itm~         
+SAY NAME1 @2132
+SAY NAME2 @2132
+SAY UNIDENTIFIED_DESC @2133
+SAY DESC @2133
+
+// Ninja-To +1
+COPY ~item_rev/itm/sw1h49.itm~      ~override/sw1h49.itm~         
+SAY NAME1 @2132
+SAY NAME2 @2134
+SAY UNIDENTIFIED_DESC @2135
+SAY DESC @2136
+
+// Celestial Fury +3
+COPY ~item_rev/itm/sw1h51.itm~      ~override/sw1h51.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2137
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2138
+
+OUTER_SPRINT tooltip_itm ~SW1H51~
+OUTER_SPRINT tooltip_string_1 @2137
+OUTER_SPRINT tooltip_string_2 @4068
+OUTER_SPRINT tooltip_string_3 @4069
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Water's Edge +3
+COPY ~item_rev/itm/sw1h52.itm~      ~override/sw1h52.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2139
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2140
+
+// Sword of Flame +1
+COPY ~item_rev/itm/sw1h53.itm~      ~override/sw1h53.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2141
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2142
+
+// The Equalizer +4
+COPY ~item_rev/itm/sw1h54.itm~      ~override/sw1h54.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2143
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2144
+
+COPY ~item_rev/itm/equal01.eff~      ~override/equal01.eff~
+COPY ~item_rev/itm/equal02.eff~      ~override/equal02.eff~
+COPY ~item_rev/itm/equal03.eff~      ~override/equal03.eff~
+COPY ~item_rev/itm/equal04.eff~      ~override/equal04.eff~
+COPY ~item_rev/itm/equal05.eff~      ~override/equal05.eff~
+COPY ~item_rev/itm/equal06.eff~      ~override/equal06.eff~
+COPY ~item_rev/itm/equal07.eff~      ~override/equal07.eff~
+COPY ~item_rev/itm/equal08.eff~      ~override/equal08.eff~
+
+// Katana +2
+COPY ~item_rev/itm/sw1h55.itm~      ~override/sw1h55.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2145
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2146
+
+// Scimitar
+COPY ~item_rev/itm/sw1h56.itm~      ~override/sw1h56.itm~         
+SAY NAME1 @1509
+SAY NAME2 @1509
+SAY UNIDENTIFIED_DESC @2079
+SAY DESC @2079
+
+// Short Sword of Mask +4
+COPY ~item_rev/itm/sw1h58.itm~      ~override/sw1h58.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2147
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2148
+
+// Short Sword of Mask +5
+COPY ~item_rev/itm/sw1h59.itm~      ~override/sw1h59.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2149
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2150
+
+// Angurvadal +4
+COPY ~item_rev/itm/sw1h60.itm~      ~override/sw1h60.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2151
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2152
+
+// Angurvadal +5
+COPY ~item_rev/itm/sw1h61.itm~      ~override/sw1h61.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2153
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2154
+
+// Foebane +4
+COPY ~item_rev/itm/sw1h62.itm~      ~override/sw1h62.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2155
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2156
+
+// Foebane +5
+COPY ~item_rev/itm/sw1h63.itm~      ~override/sw1h63.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2157
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2158
+
+// Purifier +4
+COPY ~item_rev/itm/sw1h64.itm~      ~override/sw1h64.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2159
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2160
+
+// Purifier +5
+COPY ~item_rev/itm/sw1h65.itm~      ~override/sw1h65.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2161
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2162
+
+OUTER_SPRINT tooltip_itm ~SW1H65~
+OUTER_SPRINT tooltip_string_1 @2161
+OUTER_SPRINT tooltip_string_2 @4070
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv3.mrk~ BEGIN
+  OUTER_SPRINT tooltip_string_3 @4071
+END ELSE BEGIN
+  OUTER_SPRINT tooltip_string_3 @4072
+END
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Yamato +3
+COPY ~item_rev/itm/sw1h66.itm~      ~override/sw1h66.itm~         
+SAY NAME1 @2127
+SAY NAME2 @2163
+SAY UNIDENTIFIED_DESC @2130
+SAY DESC @2164
+
+// Usuno's Blade +4
+COPY ~item_rev/itm/sw1h67.itm~      ~override/sw1h67.itm~         
+SAY NAME1 @2132
+SAY NAME2 @21651
+SAY UNIDENTIFIED_DESC @2135
+SAY DESC @2165
+
+// Spectral Brand +3
+COPY ~item_rev/itm/sw1h68.itm~      ~override/sw1h68.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2166
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2167
+
+COPY ~item_rev/itm/sword68.cre~      ~override/sword68.cre~
+COPY ~item_rev/itm/sw1h68a.itm~      ~override/sw1h68a.itm~
+
+OUTER_SPRINT tooltip_itm ~SW1H68~
+OUTER_SPRINT tooltip_string_1 @2166
+OUTER_SPRINT tooltip_string_2 @4073
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Spectral Brand +4
+COPY ~item_rev/itm/sw1h69.itm~      ~override/sw1h69.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2168
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2169
+
+COPY ~item_rev/itm/sword69.cre~      ~override/sword69.cre~
+COPY ~item_rev/itm/sw1h69a.itm~      ~override/sw1h69a.itm~
+COPY ~item_rev/itm/dvdarksw.spl~      ~override/dvdarksw.spl~
+
+OUTER_SPRINT tooltip_itm ~SW1H69~
+OUTER_SPRINT tooltip_string_1 @2168
+OUTER_SPRINT tooltip_string_2 @4073
+OUTER_SPRINT tooltip_string_3 @4074
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Hindo's Doom +3
+COPY ~item_rev/itm/sw1h70.itm~      ~override/sw1h70.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2170
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2171
+
+OUTER_SPRINT tooltip_itm ~SW1H70~
+OUTER_SPRINT tooltip_string_1 @2170
+OUTER_SPRINT tooltip_string_2 @4075
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Hindo's Doom +4
+COPY ~item_rev/itm/sw1h71.itm~      ~override/sw1h71.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2172
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2173
+
+OUTER_SPRINT tooltip_itm ~SW1H71~
+OUTER_SPRINT tooltip_string_1 @2172
+OUTER_SPRINT tooltip_string_2 @4070
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Bastard Sword +3
+COPY ~item_rev/itm/sw1h72.itm~      ~override/sw1h72.itm~         
+SAY NAME1 @2054
+SAY NAME2 @2174
+SAY UNIDENTIFIED_DESC @2057
+SAY DESC @2175
+
+// Long Sword +3
+COPY ~item_rev/itm/sw1h73.itm~      ~override/sw1h73.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2176
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2177
+
+// Short Sword +3
+COPY ~item_rev/itm/sw1h74.itm~      ~override/sw1h74.itm~         
+SAY NAME1 @2066
+SAY NAME2 @2178
+SAY UNIDENTIFIED_DESC @2069
+SAY DESC @2179
+
+// Katana +3
+COPY ~item_rev/itm/sw1h75.itm~      ~override/sw1h75.itm~         
+SAY NAME1 @1808
+SAY NAME2 @2180
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2181
+
+// Scimitar +3
+COPY ~item_rev/itm/sw1h76.itm~      ~override/sw1h76.itm~         
+SAY NAME1 @1509
+SAY NAME2 @2182
+SAY UNIDENTIFIED_DESC @1511
+SAY DESC @2183
+
+// The Answerer +4
+COPY ~item_rev/itm/sw1h77.itm~      ~override/sw1h77.itm~         
+SAY NAME1 @1513
+SAY NAME2 @2184
+SAY UNIDENTIFIED_DESC @1515
+SAY DESC @2185
+
+/*---------------------Greatswords----------------------*/
+
+// Two-Handed Sword
+COPY ~item_rev/itm/sw2h01.itm~      ~override/sw2h01.itm~         
+SAY NAME1 @1760
+SAY NAME2 @1760
+SAY UNIDENTIFIED_DESC @2186
+SAY DESC @2186
+
+// Two-Handed Sword +1
+COPY ~item_rev/itm/sw2h02.itm~      ~override/sw2h02.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2187
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2188
+
+// Berserking Sword +3
+COPY ~item_rev/itm/sw2h03.itm~      ~override/sw2h03.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2189
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2190
+
+// Spider's Bane +2
+COPY ~item_rev/itm/sw2h06.itm~      ~override/sw2h06.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2191
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2192
+
+// Harbinger +3
+COPY ~item_rev/itm/sw2h07.itm~      ~override/sw2h07.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2193
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2194
+
+// Soul Reaver +4
+COPY ~item_rev/itm/sw2h08.itm~      ~override/sw2h08.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2195
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2196
+
+// Warblade +3
+COPY ~item_rev/itm/sw2h09.itm~      ~override/sw2h09.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2197
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2198
+
+// Carsomyr +4
+COPY ~item_rev/itm/sw2h10.itm~      ~override/sw2h10.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2199
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2200
+
+COPY ~item_rev/itm/sw2h10.spl~      ~override~  // Greater Malison
+
+OUTER_SPRINT tooltip_itm ~SW2H10~
+OUTER_SPRINT tooltip_string_1 @2199
+OUTER_SPRINT tooltip_string_2 @4076
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Two-Handed Sword +2
+COPY ~item_rev/itm/sw2h11.itm~      ~override/sw2h11.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2201
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2202
+
+// Flame of the North +2
+COPY ~item_rev/itm/sw2h12.itm~      ~override/sw2h12.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2203
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2204
+
+/* COPY ~item_rev/itm/dvfnorth.spl~      ~override~
+COPY ~item_rev/itm/dvcldflm.spl~      ~override~ */
+
+// Spider's Bane +2
+COPY ~item_rev/itm/sw2h13.itm~      ~override/sw2h13.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2191
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2192
+
+// Lilarcor +3
+COPY ~item_rev/itm/sw2h14.itm~      ~override/sw2h14.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2205
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2206
+
+// Silver Sword +4
+COPY ~item_rev/itm/sw2h15.itm~      ~override/sw2h15.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2207
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2208
+
+// Sword of Chaos +2
+COPY ~item_rev/itm/sw2h16.itm~      ~override/sw2h16.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2209
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2210
+
+// Gram the Sword of Grief +4
+COPY ~item_rev/itm/sw2h17.itm~      ~override/sw2h17.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2211
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2212
+
+// Gram the Sword of Grief +5
+COPY ~item_rev/itm/sw2h18.itm~      ~override/sw2h18.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2213
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2214
+
+// Carsomyr +5
+COPY ~item_rev/itm/sw2h19.itm~      ~override/sw2h19.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2215
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2216
+
+OUTER_SPRINT tooltip_itm ~SW2H19~
+OUTER_SPRINT tooltip_string_1 @2215
+OUTER_SPRINT tooltip_string_2 @4076
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Two-Handed Sword +3
+COPY ~item_rev/itm/sw2h20.itm~      ~override/sw2h20.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2217
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2218
+
+// Psion's Blade +4
+COPY ~item_rev/itm/sw2h21.itm~      ~override/sw2h21.itm~         
+SAY NAME1 @1760
+SAY NAME2 @2219
+SAY UNIDENTIFIED_DESC @1762
+SAY DESC @2220
+
+/*-----------------Bonus Merchants-----------------*/
+
+// Defender of Easthaven +2
+COPY ~item_rev/itm/waflail.itm~      ~override~         
+SAY NAME1 @1107
+SAY NAME2 @2313
+SAY UNIDENTIFIED_DESC @1108
+SAY DESC @2314
+
+// Sensate Amulet
+COPY ~item_rev/itm/wa2amu.itm~      ~override~         
+SAY NAME1 @1000
+SAY NAME2 @2221
+SAY UNIDENTIFIED_DESC @1002
+SAY DESC @2222
+
+// Dak'kon's Zerth Blade +2
+COPY ~item_rev/itm/wa2dak.itm~      ~override~         
+SAY NAME1 @1808
+SAY NAME2 @2223
+SAY UNIDENTIFIED_DESC @2123
+SAY DESC @2224
+
+// Shadow Veil (Vhailor's Helm)
+COPY ~item_rev/itm/wa2helm.itm~      ~override~         
+SAY NAME1 @1569
+SAY NAME2 @2225
+SAY UNIDENTIFIED_DESC @1579
+SAY DESC @2226
+
+OUTER_SPRINT tooltip_itm ~WA2HELM~
+OUTER_SPRINT tooltip_string_1 @4077
+LAUNCH_ACTION_MACRO ~SET_ITEM_ABILITY_TOOLTIPS~
+
+// Plate of Balduran +2
+COPY ~item_rev/itm/wa2plat.itm~      ~override~         
+SAY NAME1 @1497
+SAY NAME2 @2227
+SAY UNIDENTIFIED_DESC @1499
+SAY DESC @2228
+
+// Mercykiller Ring
+COPY ~item_rev/itm/wa2ring.itm~      ~override~         
+SAY NAME1 @1800
+SAY NAME2 @2229
+SAY UNIDENTIFIED_DESC @1802
+SAY DESC @2230
+
+// Robe of Larloch (Vecna)
+COPY ~item_rev/itm/wa2robe.itm~      ~override~         
+SAY NAME1 @1390
+SAY NAME2 @2231
+SAY UNIDENTIFIED_DESC @2232
+SAY DESC @2233
+
+// Blade of Sharpness +1
+COPY ~item_rev/itm/wa2s1h.itm~      ~override~         
+SAY NAME1 @1513
+SAY NAME2 @2234
+SAY UNIDENTIFIED_DESC @2235
+SAY DESC @2236
+
+// Mirror Shield +3
+COPY ~item_rev/itm/wa2shiel.itm~      ~override~         
+SAY NAME1 @1501
+SAY NAME2 @2237
+SAY UNIDENTIFIED_DESC @1503
+SAY DESC @2238
+
+// Malakar's Companion +2
+COPY ~item_rev/itm/wawak.itm~      ~override~         
+SAY NAME1 @2127
+SAY NAME2 @2381
+SAY UNIDENTIFIED_DESC @2130
+SAY DESC @2382
+
+/*-----------------Wands-----------------*/
+
+// Wand of Fear
+COPY ~item_rev/itm/wand02.itm~      ~override/wand02.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2240
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2242
+
+COPY ~item_rev/itm/wand02.spl~      ~override~
+
+// Wand of Magic Missiles
+COPY ~item_rev/itm/wand03.itm~      ~override/wand03.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2243
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2244
+
+COPY ~item_rev/itm/wand03.spl~      ~override~
+
+// Wand of Paralyzation
+COPY ~item_rev/itm/wand04.itm~      ~override/wand04.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2245
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2246
+
+COPY ~item_rev/itm/wand04.spl~      ~override~
+
+// Wand of Fire
+COPY ~item_rev/itm/wand05.itm~      ~override/wand05.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2247
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2248
+
+COPY ~item_rev/itm/wand05a.spl~      ~override~
+COPY ~item_rev/itm/wand05b.spl~      ~override~
+
+// Wand of Frost
+COPY ~item_rev/itm/wand06.itm~      ~override/wand06.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2249
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2250
+
+COPY ~item_rev/itm/wand06.spl~      ~override~
+
+// Wand of Lightning
+COPY ~item_rev/itm/wand07.itm~      ~override/wand07.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2251
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2252
+
+COPY ~item_rev/itm/wand07.spl~      ~override~
+
+// Wand of Sleep
+COPY ~item_rev/itm/wand08.itm~      ~override/wand08.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2253
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2254
+
+COPY ~item_rev/itm/wand08.spl~      ~override~
+
+// Wand of Polymorphing
+COPY ~item_rev/itm/wand09.itm~      ~override/wand09.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2255
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2256
+
+COPY ~item_rev/itm/wand09.spl~      ~override~
+
+// Wand of Monster Summoning
+COPY ~item_rev/itm/wand10.itm~      ~override/wand10.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2257
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2258
+
+// Wand of the Heavens
+COPY ~item_rev/itm/wand11.itm~      ~override/wand11.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2259
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2260
+
+COPY ~item_rev/itm/wand11.spl~      ~override~
+
+// Wand of Wonder
+COPY ~item_rev/itm/wand12.itm~      ~override/wand12.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2261
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2262
+
+// Wand of Cloudkill
+COPY ~item_rev/itm/wand13.itm~      ~override/wand13.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2263
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2264
+
+COPY ~item_rev/itm/wand13.spl~      ~override~
+
+// Wand of Spell Striking
+COPY ~item_rev/itm/wand18.itm~      ~override/wand18.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2265
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2266
+
+COPY ~item_rev/itm/wand18a.spl~      ~override~
+COPY ~item_rev/itm/wand18b.spl~      ~override~
+
+// Wand of Cursing
+COPY ~item_rev/itm/wand19.itm~      ~override/wand19.itm~         
+SAY NAME1 @2239
+SAY NAME2 @2267
+SAY UNIDENTIFIED_DESC @2241
+SAY DESC @2268
+
+COPY ~item_rev/itm/wand19.spl~      ~override~
+
+
+/*-----------------XBows-----------------*/
+
+
+// Heavy Crossbow
+COPY ~item_rev/itm/xbow01.itm~      ~override/xbow01.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2269
+SAY UNIDENTIFIED_DESC @2270
+SAY DESC @2270
+
+// Heavy Crossbow +1
+COPY ~item_rev/itm/xbow02.itm~      ~override/xbow02.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2271
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2273
+
+// Heavy Crossbow of Accuracy +1
+COPY ~item_rev/itm/xbow03.itm~      ~override/xbow03.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2274
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2275
+
+// Light Crossbow
+COPY ~item_rev/itm/xbow04.itm~      ~override/xbow04.itm~         
+SAY NAME1 @1517
+SAY NAME2 @1517
+SAY UNIDENTIFIED_DESC @2276
+SAY DESC @2276
+
+// Light Crossbow +1
+COPY ~item_rev/itm/xbow05.itm~      ~override/xbow05.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2277
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2278
+
+// Light Crossbow of Speed +1
+COPY ~item_rev/itm/xbow06.itm~      ~override/xbow06.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2279
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2280
+
+// Heavy Crossbow +2
+COPY ~item_rev/itm/xbow07.itm~      ~override/xbow07.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2281
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2282
+
+// Giant Hair Crossbow +3
+COPY ~item_rev/itm/xbow08.itm~      ~override/xbow08.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2283
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2284
+
+// Light Crossbow +2
+COPY ~item_rev/itm/xbow09.itm~      ~override/xbow09.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2285
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2286
+
+// Necaradan's Crossbow +3
+COPY ~item_rev/itm/xbow10.itm~      ~override/xbow10.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2287
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2288
+
+// Crossbow of Affliction +4
+COPY ~item_rev/itm/xbow13.itm~      ~override/xbow13.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2289
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2290
+
+// Heavy Crossbow of Searing +2
+COPY ~item_rev/itm/xbow14.itm~      ~override/xbow14.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2291
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2292
+
+// Firetooth +4
+COPY ~item_rev/itm/xbow15.itm~      ~override/xbow15.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2293
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2294
+
+// Firetooth +5
+COPY ~item_rev/itm/xbow16.itm~      ~override/xbow16.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2295
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2296
+
+// Heavy Crossbow +3
+COPY ~item_rev/itm/xbow17.itm~      ~override/xbow17.itm~         
+SAY NAME1 @2269
+SAY NAME2 @2297
+SAY UNIDENTIFIED_DESC @2272
+SAY DESC @2298
+
+// Light Crossbow +3
+COPY ~item_rev/itm/xbow18.itm~      ~override/xbow18.itm~         
+SAY NAME1 @1517
+SAY NAME2 @2299
+SAY UNIDENTIFIED_DESC @1519
+SAY DESC @2300
+
+
+/*-----------------Items added by IR-----------------*/
+
+
+// Flail of Submission +2
+COPY ~item_rev/itm/dvflail.itm~      ~override/dvflail.itm~         
+SAY NAME1 @1107
+SAY NAME2 @2315
+SAY UNIDENTIFIED_DESC @1110
+SAY DESC @2316
+
+
+/*-----------------Item Re-Allocation-----------------*/
+
+// Remove Shadow Veil and Robe of Larloch from Deidre 
+COPY_EXISTING ~wmart2.sto~ ~override~ // Deidre
+  PATCH_IF (SOURCE_SIZE > 0x9b) BEGIN
+    REMOVE_STORE_ITEM ~wa2helm~ ~wa2robe~
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+// Robe of Larloch moved to Azamantes
+COPY_EXISTING ~gorlic01.cre~ ~override~ LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  ADD_CRE_ITEM ~wa2robe~ #0 #0 #0 ~NONE~ ~ARMOR~
+END BUT_ONLY
+
+// Shadow Veil moved to Gromnir
+COPY_EXISTING ~gromnir.cre~ ~override~ LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
+  REMOVE_CRE_ITEM ~helmnoan~
+  ADD_CRE_ITEM ~wa2helm~ #1 #0 #0 NONE HELMET
+END BUT_ONLY
+
+// Replace BG1's Boots of Stealth with the improved ones for BG2
+/* COPY_EXISTING ~ar0303.are~ ~override~ // Druid's Grove
+  PATCH_IF (SOURCE_SIZE > 0x109) BEGIN
+    LAUNCH_PATCH_FUNCTION ~REPLACE_AREA_ITEM~ STR_VAR old_item = ~boot02~ new_item = ~dvboot02~ END
+  END
+  BUT_ONLY_IF_IT_CHANGES */

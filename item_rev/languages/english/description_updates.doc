@@ -1,0 +1,553 @@
+{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset0 ;}}
+{\colortbl ;\red255\green0\blue0;}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\pard\lang1033\f0\fs20\par
+// Only translate symbols in red, this is important. On a brighter side, you're probably only interested in translating A-Z, not dots/parenthesis.\par
+// Being familar with regular expressions is very welcome, if you're not then it is highly advisable to find someone regexp-literate to assist you.\par
+// Check WeiDU documentation, the section \b 13. Regular Expressions\b0\par
+\par
+\par
+//@1493 = ~Halberd~ // ignore this line\par
+\par
+//////////////////\par
+//    Colon     //\par
+//////////////////\par
+\par
+// %colon%, catch it along with preceding text in parenthesis after "Damage" (or smth else) in ~Damage(Piercing) :~, ~Damage:~, but not in ~Damage type:~\par
+@100100 = ~[ %tab]*\\(\cf1 (\cf0 [ %tab%\cf1 a\cf0 -\cf1 zA\cf0 -\cf1 Z\cf0 ]*\cf1 )\cf0\\)?[ %tab]*\cf1 :\cf0 ~\par
+\par
+//////////////////\par
+// Speed Factor //\par
+//////////////////\par
+\par
+// catch the main speed factor line\par
+@100101 = ~\\([%lnl%%mnl%%wnl%][ %tab%]*\cf1 Speed\cf0 [ %tab%]+[\cf1 Ff\cf0 ]\cf1 actor\cf0 %colon%.*\\)~\par
+\par
+//////////////////\par
+//    THAC0     //\par
+//////////////////\par
+\par
+// %old_line%, catch ~4 bonus~ and ~+ 4~\par
+@100102 = ~\\([\cf1 +\cf0 ]\\|[\cf1 +\cf0 ][ %tab%]+\\)?%othaco%\\([ %tab%]+[\cf1 Bb\cf0 ]\cf1 onus\cf0\\)?~\par
+\par
+// %old_line%, catch ~-3   Penalty~\par
+@100103 = ~%othaco%\\([ %tab%]+[\cf1 Pp\cf0 ]\cf1 enalty\cf0\\)?~\par
+\par
+// %new_line%\par
+@100104 = ~\cf1 +\cf0 %nthaco% \cf1 bonus\cf0 ~\par
+@100105 = ~%nthaco% \cf1 penalty\cf0 ~\par
+\par
+// catch the main thaco line\par
+@100106 = ~\\([%lnl%%mnl%%wnl%][ %tab%]*\cf1 T\cf0 [\cf1 Hh\cf0 ][\cf1 Aa\cf0 ][\cf1 Cc\cf0 ][\cf1 Oo0\cf0 ]%colon%.*\\)~\par
+\par
+// old thaco, catch ~Thac0%colon%  %old_line%~ and ~THACO%colon%  %old_line% (some text in here),~\par
+@100107 = ~\cf1 T\cf0 [\cf1 Hh\cf0 ][\cf1 Aa\cf0 ][\cf1 Cc\cf0 ][\cf1 Oo0\cf0 ]\\(%colon%\\)[ %tab%]+%old_line%\\([ %tab%\cf1 a\cf0 -\cf1 zA\cf0 -\cf1 Z()\cf0 ]*\cf1 ,\cf0\\)?~\par
+\par
+// replace @100107 with ~THAC0%colon%~, %col% here matches %colon%\par
+@100108 = ~\cf1 THAC0\cf0 %col%~\par
+\par
+// catch ~ThAc0%colon%~\par
+@100109 = ~\cf1 T\cf0 [\cf1 Hh\cf0 ][\cf1 Aa\cf0 ][\cf1 Cc\cf0 ][\cf1 Oo0\cf0 ]\\(%colon%\\)~\par
+\par
+// add %new_line% to @100109\par
+@100110 = ~\cf1 THAC0\cf0 %col% %new_line%~\par
+\par
+// catch any integer except 0\par
+@100111 = ~[\cf1 1\cf0 -\cf1 9\cf0 ]~\par
+\par
+// catch the main damage line\par
+@100112 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Damage\cf0\\(%colon%\\)~\par
+\par
+// add thaco line to @100112\par
+@100113 = ~\par
+\cf1 THAC0: \cf0 %new_line%\par
+\cf1 Damage\cf0\\1~\par
+\par
+// catch the main weight line\par
+@100114 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Weight:\cf0 ~\par
+\par
+// add thaco line to @100114\par
+@100115 = ~\par
+\cf1 THAC0:\cf0  %new_line%\par
+\cf1 Weight:\cf0 ~\par
+\par
+\par
+//////////////////\par
+//    Damage    //\par
+//////////////////\par
+\par
+// %old_line%, catch ~2D4  +1~, ~2d4~, ~+ 1 Bonus~ and ~-2 penalty~ respectively\par
+@100116 = ~%odice%[\cf1 Dd\cf0 ]%osize%[ %tab%]*[\cf1 +\cf0 ][ %tab%]*%odamage%~\par
+@100117 = ~%odice%[\cf1 Dd\cf0 ]%osize%~\par
+@100118 = ~\\([\cf1 +\cf0 ]\\|[\cf1 +\cf0 ][ %tab%]+\\)?%odamage%\\([ %tab%]*[\cf1 Bb\cf0 ]\cf1 onus\cf0\\)?~\par
+@100119 = ~%odamage%\\([ %tab%]*[\cf1 Pp\cf0 ]\cf1 enalty\cf0\\)?~\par
+\par
+// %new_line%\par
+@100120 = ~%ndice%\cf1 D\cf0 %nsize% \cf1 +\cf0  %ndamage%~\par
+@100121 = ~%ndice%\cf1 D\cf0 %nsize%~\par
+@100122 = ~\cf1 +\cf0 %ndamage% \cf1 bonus\cf0 ~\par
+@100123 = ~%ndamage% \cf1 penalty\cf0 ~\par
+\par
+// catch the main damage line\par
+@100124 = ~\\([%lnl%%mnl%%wnl%][ %tab%]*\cf1 Damage\cf0 %colon%.*\\)~\par
+\par
+// catch ~(Phantom Arrows) %old_line%~ and ~%old_line% piercing~\par
+@100125 = ~\cf1 Damage\cf0\\(%colon%\\)\\([ %tab%\cf1 a\cf0 -\cf1 zA\cf0 -\cf1 Z()\cf0 ]*\\)?%old_line%\\([ %tab%\cf1 a\cf0 -\cf1 zA\cf0 -\cf1 Z()\cf0 ]*\cf1 ,\cf0\\)?~\par
+\par
+// replace @100125 with ~Damage%colon%~\par
+@100126 = ~\cf1 Damage\cf0 %col%~\par
+\par
+// catch ~Damage%colon%~\par
+@100127 = ~\cf1 Damage\cf0\\(%colon%\\)~\par
+\par
+// add %new_line% to @100127\par
+@100128 = ~\cf1 Damage\cf0 %col% %new_line%~\par
+\par
+// add damage line to @100114\par
+@100129 = ~\par
+\cf1 Damage:\cf0  %new_line%\par
+\cf1 Weight:\cf0 ~\par
+\par
+// catch the main speed factor line\par
+@100130 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Speed\cf0 [ %tab%]+[\cf1 Ff\cf0 ]\cf1 actor\cf0\\(%colon%\\)~\par
+\par
+// add damage line to @100130\par
+@100131 = ~\par
+\cf1 Damage:\cf0  %new_line%\par
+\cf1 Speed Factor\cf0\\1~\par
+\par
+\par
+//////////////////\par
+// Damage Type  //\par
+//////////////////\par
+\par
+// catch ~Damage type: slashing~\par
+@100132 = ~\cf1 Damage\cf0 [ %tab%]+[\cf1 Tt\cf0 ]\cf1 ype:\cf0 [ %tab%]+[\cf1 Ss\cf0 ]\cf1 lashing\cf0 ~\par
+\par
+// replace @100132\par
+@100133 = ~\cf1 Damage type: piercing\cf0 ~\par
+\par
+// catch ~Damage type: piercing~\par
+@100134 = ~\cf1 Damage\cf0 [ %tab%]+[\cf1 Tt\cf0 ]\cf1 ype:\cf0 [ %tab%]+[\cf1 Pp\cf0 ]\cf1 iercing\cf0 ~\par
+\par
+// replace @100134\par
+@100135 = ~\cf1 Damage type: slashing\cf0 ~\par
+\par
+// catch ~Damage type: crushing~\par
+@100136 = ~\cf1 Damage\cf0 [ %tab%]+[\cf1 Tt\cf0 ]\cf1 ype:\cf0 [ %tab%]+\\([\cf1 Cc\cf0 ]\cf1 rushing\cf0\\|[\cf1 Bb\cf0 ]\cf1 ludgeon\cf0\\(\cf1 ing\cf0\\)?\\)~\par
+\par
+// replace @100136\par
+@100137 = ~\cf1 Damage type: crushing and piercing\cf0 ~\par
+\par
+\par
+//////////////////\par
+//    Fixes     //\par
+//////////////////\par
+\par
+// Tuigan Bow +1 (BOW14) description\par
+@100138 = ~\cf1 3 shots per round\cf0 ~\par
+\par
+// replace @100138\par
+@100139 = ~\cf1 +1 attack per round\cf0 ~\par
+\par
+// Blade of Roses +3 (SW1H40) description\par
+@100140 = ~\cf1 2D4\cf0 ~\par
+\par
+// replace @100140\par
+@100141 = ~\cf1 1D8\cf0 ~\par
+\par
+// Carsomyr +5 (SW2H10) description\par
+@100142 = ~\cf1 1D12\cf0 ~\par
+\par
+// replace @100142\par
+@100143 = ~\cf1 1D10\cf0 ~\par
+\par
+// Throwing Axe +2 (AX1H06) description\par
+@100144 = ~\cf1 1D6 + 3\cf0 ~\par
+\par
+// replace @100144\par
+@100145 = ~\cf1 1D6 + 2\cf0 ~\par
+\par
+// Ice Star +4 (BLUN35) description\par
+@100151 = ~\cf1 Speed Factor: 4\cf0 ~\par
+\par
+// replace @100151\par
+@100152 = ~\cf1 Speed Factor: 3\cf0 ~\par
+\par
+// Angurvadal +4 (SW1H60) description\par
+@100153 = ~\cf1 Speed Factor: 0\cf0 ~\par
+\par
+// replace @100153\par
+@100154 = ~\cf1 Speed Factor: 1\cf0 ~\par
+\par
+\par
+//////////////////\par
+// Proficiency  //\par
+//////////////////\par
+\par
+// catch ~Proficiency type:~\par
+@100146 = ~\cf1 Proficiency\cf0 [ %tab%]+[\cf1 Tt\cf0 ]\cf1 ype:\cf0 .*~\par
+\par
+// replace @100146\par
+@100147 = ~\cf1 Proficiency Type: Katana/Wakizashi\cf0 ~\par
+\par
+// replace @100146\par
+@100148 = ~\cf1 Proficiency Type: Flail\cf0 ~\par
+\par
+// replace @100146\par
+@100149 = ~\cf1 Proficiency Type: Scimitar\cf0 ~\par
+\par
+// replace @100146\par
+@100150 = ~\cf1 Proficiency Type: Mace/Morning Star\cf0 ~\par
+\par
+\par
+//////////////////\par
+//   Halberds   //\par
+//////////////////\par
+\par
+// catch ~Damage:\\(anything\\)\par
+@100200 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Damage\cf0 [ %tab%]*\\(\cf1 :\cf0 .*\\)~\par
+\par
+// replace @100200\par
+@100201 = ~\par
+\cf1 Damage (Piercing)\cf0\\1\par
+\cf1 Damage (Slashing)\cf0\\1~\par
+\par
+// catch ~Speed Factor:\\(anything\\)~\par
+@100202 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Speed\cf0 [ %tab%]+[\cf1 Ff\cf0 ]\cf1 actor\cf0\\(\cf1 :\cf0 .*\\)~\par
+\par
+// replace @100202\par
+@100203 = ~\par
+\cf1 Speed Factor (Piercing)\cf0\\1\par
+\cf1 Speed Factor (Slashing)\cf0\\1~\par
+\par
+// replace @100134\par
+@100204 = ~\cf1 Damage type: piercing or slashing\cf0 ~\par
+\par
+// tooltip for piercing mode\par
+@100205 = ~\cf1 Piercing\cf0 ~\par
+\par
+// tooltip for slashing mode\par
+@100206 = ~\cf1 Slashing\cf0 ~\par
+\par
+\par
+//////////////////\par
+// Spellcasting //\par
+//////////////////\par
+\par
+// catch ~ Miscast Arcane Magic:\\(anything\\)~\par
+@100300 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Miscast\cf0 [ %tab%]*\\([\cf1 Aa\cf0 ]\cf1 rcane\cf0 [ %tab%]*\\)?[\cf1 Mm\cf0 ]\cf1 agic:\cf0 .*~\par
+\par
+// catch ~ Arcane Spell Failure:\\(anything\\)~\par
+@100301 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Arcane\cf0 [ %tab%]*[\cf1 Ss\cf0 ]\cf1 pell\cf0 [ %tab%]*[\cf1 Ff\cf0 ]\cf1 ailure:\cf0 .*~\par
+\par
+// catch ~ Spellcasting Time:\\(anything\\)~\par
+@100302 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Spellcasting\cf0 [ %tab%]*[\cf1 Tt\cf0 ]\cf1 ime:\cf0 .*~\par
+\par
+// catch ~ Spell failure:\\(anything\\)~\par
+@100303 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Spell\cf0 [ %tab%]*[\cf1 Ff\cf0 ]\cf1 ailure:\cf0 .*~\par
+\par
+// catch ~ Allows arcane spellcasting without penalties\\(anything\\)~\par
+@100304 = ~[%lnl%%mnl%%wnl%][ %tab%]*\cf1 Allows arcane spellcasting without penalties\cf0 .*~\par
+\par
+// add spellcasting failure line to @100114\par
+@100305 = ~\par
+\cf1 Arcane Spell Failure:\cf0  %xfail%\cf1 %\cf0\par
+\cf1 Weight:\cf0 ~\par
+\par
+// add spellcasting speed line to @100114\par
+@100306 = ~\par
+\cf1 Arcane Casting Time Penalty: +\cf0 %xspd%\par
+\cf1 Weight:\cf0 ~\par
+\par
+// add spellcasting speed line to @100114\par
+@100307 = ~\par
+\cf1 Casting Time Penalty: +\cf0 %xspd%\par
+\cf1 Weight:\cf0 ~\par
+\par
+\par
+//////////////////\par
+// Encumbrance //\par
+//////////////////\par
+\par
+// add DEX penalty line to @100114\par
+@100308 = ~\par
+\cf1 Dexterity Penalty:\cf0  %xdex%\cf1 %\cf0\par
+\cf1 Weight:\cf0 ~\par
+\par
+// add movement penalty line to @100114\par
+@100309 = ~\par
+\cf1 Movement Rate Penalty:\cf0  %xmove%\cf1 %\cf0\par
+\cf1 Weight:\cf0 ~\par
+\par
+// add speed factor penalty line to @100114\par
+@100310 = ~\par
+\cf1 Speed Factor Penalty: +\cf0 %xsf%\par
+\cf1 Weight:\cf0 ~\par
+\par
+\par
+//////////////////\par
+//   Shields    //\par
+//////////////////\par
+\par
+// 321-323 are disabled for v3, unless Demi or Mike uncomment them in macros\par
+\par
+// catch ~Special: No Piercing Attack Protection~\par
+@100311 = ~[%lnl%%mnl%%wnl%]\cf1 Special:\cf0 [ %tab%]*\cf1 No Piercing \cf0\\(\cf1 Attack\cf0\\|\cf1 Weapon\cf0\\) \cf1 Protection\cf0 .*~\par
+\par
+// catch ~Special: No Missile~\par
+@100312 = ~\cf1 Special:\cf0 [ %tab%]*\cf1 No Missile\cf0 .*~\par
+\par
+// catch ~Special: No Missile Weapon Protection~\par
+@100313 = ~\cf1 Special: No Missile Weapon Protection\cf0 ~\par
+\par
+// catch ~Special: No Missile~\par
+@100314 = ~[%lnl%%mnl%%wnl%]\cf1 Special:\cf0 [ %tab%]*\cf1 No Missile\cf0 .*~\par
+\par
+// catch ~Armor Class Bonus:~\par
+@100315 = ~\cf1 Armor Class Bonus:\cf0 .*~\par
+\par
+// replace @100315\par
+@100316 = ~\cf1 Armor Class Bonus: \cf0 %new_ac%~\par
+\par
+// replace @100315\par
+@100317 = ~\cf1 Armor Class Bonus: 2\cf0 ~\par
+\par
+// replace @100315\par
+@100318 = ~\cf1 Armor Class Bonus: 3\cf0 ~\par
+\par
+// catch ~Armor Class Bonus:~\par
+@100319 = ~\\(\cf1 Armor Class Bonus:\cf0 .*\\)~\par
+\par
+// add thaco line to @100319\par
+@100320 = ~\\1\par
+\cf1 THAC0: -2 Penalty\cf0 ~\par
+\par
+// catch ~Special: +1 vs. Missile Weapons~\par
+@100321 = ~[%lnl%%mnl%%wnl%]\cf1 Special:\cf0 [ %tab%]*\\\cf1 +\cf0 [\cf1 0\cf0 -\cf1 9\cf0 ]*\cf1 vs\cf0\\\cf1 .\cf0  \cf1 Missile Weapons\cf0 ~\par
+\par
+// replace @100321\par
+@100415 = ~\par
+\cf1 Special: +2 vs. Missile Weapons\cf0 ~\par
+\par
+// catch ~Special: +1 AC bonus vs. Missile Weapons~\par
+@100322 = ~\cf1 Special:\cf0 [ %tab%]*\\\cf1 +\cf0 [\cf1 0\cf0 -\cf1 9\cf0 ]* \\(\cf1 AC\cf0  \\)?\\(\cf1 bonus\cf0  \\)?\cf1 vs\cf0\\\cf1 . Missile Weapons\cf0 ~\par
+\par
+// replace @100322\par
+@100323 = ~\cf1 Special: +\cf0 %new_type% \cf1 vs. Missile Weapons\cf0 ~\par
+\par
+// add thaco line to @100319\par
+@100324 = ~\\1\par
+\cf1 THAC0: -1 Penalty\cf0 ~\par
+\par
+\par
+//////////////////\par
+//   Thieving   //\par
+//////////////////\par
+\par
+// catch ~Lock Picking:~\par
+@100325 = ~[%lnl%%mnl%%wnl%]\cf1 Lock Picking:\cf0 .*~\par
+\par
+// catch ~Find/Remove Traps:~\par
+@100326 = ~[%lnl%%mnl%%wnl%]\\(\cf1 Find/\cf0\\)?\cf1 Remove Traps:\cf0 .*~\par
+\par
+// catch ~Pick Pockets:~\par
+@100327 = ~[%lnl%%mnl%%wnl%]\cf1 Pick Pockets:\cf0 .*~\par
+\par
+// catch ~Move Silently:~\par
+@100328 = ~[%lnl%%mnl%%wnl%]\cf1 Move Silently:\cf0 .*~\par
+\par
+// catch ~Hide in Shadows:~\par
+@100329 = ~[%lnl%%mnl%%wnl%]\cf1 Hide\cf0\\(\cf1  in Shadows\cf0\\)?\cf1 :\cf0 .*~\par
+\par
+// catch ~Stealth:~\par
+@100330 = ~[%lnl%%mnl%%wnl%]\cf1 Stealth:\cf0 .*~\par
+\par
+// add stealth line to @100114\par
+@100331 = ~\par
+\cf1 Stealth Penalty: -\cf0 %value%\cf1 %\cf0\par
+\cf1 Weight:\cf0 ~\par
+\par
+\par
+//////////////////\par
+//  Masterwork  //\par
+//////////////////\par
+// 335-363 catches are for identified weapon descriptions, +1 items\par
+// the list of replacements was assembled by Mike1072, so i (Ardanis) can't tell offhand which string is for which ITM\par
+\par
+// in any case, we were going (i think) to re-do the Masterwork component, so these strings may not be needed for v4\par
+\par
+// catch ~Damage:~\par
+@100332 = ~\cf1 Damage:\cf0 .*~\par
+\par
+// replace @100332\par
+@100333 = ~\cf1 Damage: \cf0 %a%\cf1 D\cf0 %b% \cf1 +\cf0  %c%~\par
+\par
+// replace @100332\par
+@100334 = ~\cf1 Damage: \cf0 %a%\cf1 D\cf0 %b%~\par
+\par
+// catch\par
+@100335 = ~\cf1 This\cf0  \\([^.]+\\)\cf1  is particularly good at its job, as it has been enchanted with a few magical properties.\cf0 ~\par
+\par
+// replace @100335\par
+@100336 = ~\cf1 This weapon in particular is of masterwork quality and offers better performance than common \cf0\\1\cf1 s.\cf0 ~\par
+\par
+// catch\par
+@100337 = ~\cf1 This particular weapon has been enhanced magically to compliment the skill of the wielder.\cf0 ~\par
+\par
+// replace @100337\par
+@100338 = ~\cf1 This weapon in particular is of masterwork quality and offers better performance than common ones.\cf0 ~\par
+\par
+// catch\par
+@100339 = ~\cf1 The blade hums slightly in your hand, the only overt evidence that magic runs through it.\cf0 ~\par
+\par
+// replace @100339\par
+@100340 = ~\cf1 This weapon in particular is of masterwork quality and offers better performance than common swords.\cf0 ~\par
+\par
+// catch\par
+@100341 = ~\cf1 This is a magical bastard sword.\cf0 ~\par
+\par
+// replace @100341\par
+@100342 = ~\cf1 This particular blade is of masterwork quality and offers better performance than common swords.\cf0 ~\par
+\par
+// catch\par
+@100343 = ~\cf1 This short blade is magical, improving accuracy and damage.\cf0 ~\par
+\par
+// replace @100343\par
+@100344 = ~\cf1 This short sword is of masterwork quality, boasting improved accuracy.\cf0 ~\par
+\par
+// catch\par
+@100345 = ~\cf1 This is a magical axe.\cf0 ~\par
+\par
+// replace @100345\par
+@100346 = ~\cf1 This axe in particular is of masterwork quality and offers better performance than common ones.\cf0 ~\par
+\par
+// catch\par
+@100347 = ~\cf1 The weapon has been enhanced magically, effectively forming a bond between the weapon and its wielder.\cf0 ~\par
+\par
+// replace @100347\par
+@100348 = ~\cf1 This one in particular is of masterwork quality and offers better performance than common flails.\cf0 ~\par
+\par
+// catch\par
+@100349 = ~\cf1 In this case, the head is pyramidal and seems to glow with an inner blue light, as it sits atop a polished oak shaft.\cf0 ~\par
+\par
+// replace @100349\par
+@100350 = ~\cf1 The design of the head varies: some are spiked, others flanged, and still others have pyramidal knobs. This one in particular is of masterwork quality and offers better performance than common maces.\cf0 ~\par
+\par
+// catch\par
+@100351 = ~\cf1 This particular one is mounted with a golden head that has been magically enhanced so as to improve performance and escape the malleability of gold.\cf0 ~\par
+\par
+// replace @100351\par
+@100352 = ~\cf1 Such weapons have round, oval, or cylindrical shaped heads studded with spikes. Extending from most morning star heads, regardless of design, is a long point for thrusting. This morning star in particular is of masterwork quality and offers better performance than common ones.\cf0 ~\par
+\par
+// catch\par
+@100353 = ~\cf1 This particular dagger is magical, having special bonuses to its speed, accuracy, and damage it causes.  Also, since it is magical, is it capable of striking opponents that are immune to normal weapons, such as vampires, elementals and mummies.\cf0 ~\par
+\par
+// replace @100353\par
+@100354 = ~\cf1 This dagger in particular is of masterwork quality and offers better performance than common ones.\cf0 ~\par
+\par
+// catch\par
+@100355 = ~\cf1 This particular \cf0\\([^.]+\\)\cf1  is magical, having special bonuses to its speed, accuracy, and damage it causes.\cf0 ~\par
+\par
+// replace @100355\par
+@100356 = ~\cf1 This\cf0  \\1 \cf1 in particular is of masterwork quality and offers better performance than common ones.\cf0 ~\par
+\par
+// catch\par
+@100357 = ~\cf1 It has also been bestowed with a small number of magical properties, however, thus\cf0 ~\par
+\par
+// replace @100357\par
+@100358 = ~\cf1 This weapon in particular is of masterwork quality, thus\cf0 ~\par
+\par
+// catch\par
+@100359 = ~\cf1 This spear is slightly different though, as it has been imbued with certain magical properties.\cf0 ~\par
+\par
+// replace @100359\par
+@100360 = ~\cf1 This particular weapon is of masterwork quality and offers better performance than common spears.\cf0 ~\par
+\par
+// catch\par
+@100361 = ~\cf1 This one is particularly special as it has been imbued with magical properties.\cf0 ~\par
+\par
+// replace @100361\par
+@100362 = ~\cf1 This one is particularly special, as it has been finely crafted and performs better than common staves. \cf0 ~\par
+\par
+// catch\par
+@100363 = ~\cf1 The typical dagger has a pointed, usually double-edged blade, as opposed to a knife, which has a single edge and is a bit shorter than the dagger. \par
+\par
+STATISTICS:\cf0 ~\par
+\par
+// replace @100363\par
+@100364 = ~\cf1 The typical dagger has a pointed, usually double-edged blade, as opposed to a knife, which has a single edge and is a bit shorter than the dagger. This dagger in particular is of masterwork quality and offers better performance than common ones.\par
+\par
+STATISTICS:\cf0 ~\par
+\par
+//////////////////\par
+//    Wands     //\par
+//////////////////\par
+\par
+// catch ~Usable by:\\(to the end of description\\)~ and ~Not usable by:\\(to the end of description\\)~\par
+@100400 = ~\\(\cf1 Usable\cf0 [ %tab%]+[\cf1 Bb\cf0 ]\cf1 y:\cf0\\|\cf1 Not\cf0 [ %tab%]+[\cf1 Uu\cf0 ]\cf1 sable\cf0 [ %tab%]+[\cf1 Bb\cf0 ]\cf1 y:\cf0\\)\\(\\([%lnl%%mnl%%wnl%].*\\)*\\)?~\par
+\par
+// catch ~Usable by:~\par
+@100401 = ~\cf1 Usable\cf0 [ %tab%]+[\cf1 Bb\cf0 ]\cf1 y:\cf0 ~\par
+\par
+// add "Thief" to @100400\par
+@100402 = ~\par
+\cf1  Thief\cf0 ~\par
+\par
+// catch ~Not usable by~\par
+@100403 = ~\cf1 Not\cf0 [ %tab%]+[\cf1 Uu\cf0 ]\cf1 sable\cf0 [ %tab%]+[\cf1 Bb\cf0 ]\cf1 y:\cf0 ~\par
+\par
+// catch ~Thief~\par
+@100404 = ~[%lnl%%mnl%%wnl%][ %tab%]*[\cf1 Tt\cf0 ]\cf1 hief\cf0 ~\par
+\par
+// catch ~Requires:\\(anything\\)~\par
+@100405 = ~[ %tab%]*\cf1 Requires\cf0 [ %tab%]*\cf1 :\cf0\\(.*\\)~\par
+\par
+// replace @100405\par
+@100406 = ~\cf1 Requires:\cf0   %res% \cf1 Intelligence\cf0 ~\par
+\par
+// catch ~Usable by:~ and ~Not usable by:~\par
+@100407 = ~\\(\cf1 Usable\cf0 [ %tab%]+[\cf1 Bb\cf0 ]\cf1 y:\cf0\\|\cf1 Not\cf0 [ %tab%]+[\cf1 Uu\cf0 ]\cf1 sable\cf0 [ %tab%]+[\cf1 Bb\cf0 ]\cf1 y:\cf0\\)~\par
+\par
+// add requirement line to @100407\par
+@100408 = ~\cf1 Requires:\cf0   %res% \cf1 Intelligence\cf0\par
+\\1~\par
+\par
+// replace @100405\par
+@100409 = ~\cf1 Requires: 9 Intelligence, 14 Wisdom\cf0 ~\par
+\par
+// add requirement line to @100407\par
+@100410 = ~\cf1 Requires:  9 Intelligence, 14 Wisdom\cf0\par
+\\1~\par
+\par
+//////////////////\par
+//    Druids    //\par
+//////////////////\par
+\par
+// add "Druid" to @100400\par
+@100411 = ~\par
+\cf1  Druid\cf0 ~\par
+\par
+// catch ~Druid~\par
+@100412 = ~[%lnl%%mnl%%wnl%][ %tab%]*[\cf1 Dd\cf0 ]\cf1 ruid\cf0 ~\par
+\par
+//////////////////\par
+//    Kensai    //\par
+//////////////////\par
+\par
+// catch from kit description\par
+@100413 = ~\cf1 May not wear gauntlets or bracers\cf0 ~\par
+\par
+// replace @100413\par
+@100414 = ~\cf1 May not wear gauntlets\cf0 ~\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 

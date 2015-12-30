@@ -1,0 +1,428 @@
+
+//  call_lightning       =5
+//  cure_light_wounds    =25
+//  dispel_magic         =200
+//  remove_curse         =500
+//  cure_medium_wounds   =50
+//  cure_disease         =300
+//  cure_serious_wounds  =75
+//  neutralize_poison    =300
+//  lesser_restoration   =750
+//  cure_critical_wounds =100
+//  raise_dead           =1000
+//  mass_cure            =1000
+//  heal                 =1000
+//  resurrection         =2000
+//  greater_restoration  =2000
+
+//////////////////////////
+
+// UHMER03 - Beherant Diir
+// 
+// fatman in Immensville
+// make him a druid
+
+COPY_EXISTING uhmer03.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  PATCH_IF ((BYTE_AT 0x10)&32)=32 BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    cure_medium_wounds=50
+    neutralize_poison=100
+  END
+
+  END
+
+END BUT_ONLY
+
+///////////////////////////
+
+// BHELM - Guardian Vottnar
+// 
+// Bridge District
+
+COPY_EXISTING bhelm.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_serious_wounds=75
+    raise_dead=1000
+  END
+
+END BUT_ONLY
+
+///////////////////////////
+
+// DOGHMA - Priest of Oghma
+// 
+// Docks
+
+COPY_EXISTING doghma.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=50
+    remove_curse=125
+    cure_medium_wounds=50
+    cure_serious_wounds=75
+    raise_dead=1000
+  END
+
+END BUT_ONLY
+
+///////////////////////////////
+
+// GOVWAU01 - Priest of Waukeen
+// 
+// Government District
+
+COPY_EXISTING govwau01.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    cure_medium_wounds=50
+    cure_serious_wounds=75
+    neutralize_poison=300
+    cure_critical_wounds=100
+    raise_dead=1000
+  END
+
+END BUT_ONLY
+
+//////////////////////////////
+
+// SLILMAT - Priest of Ilmater
+// 
+// present in both Waukeen Promenade and Slums, which results in a shared store (when you buy from
+// one and the same item magically disappears from the other).
+
+COPY_EXISTING slilmat.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=20
+    cure_medium_wounds=40
+    cure_disease=240
+    cure_serious_wounds=60
+    neutralize_poison=240
+    lesser_restoration=750
+    cure_critical_wounds=80
+    raise_dead=1000
+    mass_cure= comp_atweaks_temples=1 ? 800 : 0
+    heal=800
+  END
+
+END BUT_ONLY
+
+////////////////////////////////
+
+// WILMAT - Priestess of Ilmater
+// 
+// she apparently was supposed to be in Waukeen Promenade instead of the abovementioned clone dude.
+
+COPY_EXISTING wilmat.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=20
+    cure_medium_wounds=40
+    cure_disease=240
+    cure_serious_wounds=60
+    neutralize_poison=240
+    cure_critical_wounds=80
+  END
+
+END BUT_ONLY
+
+/////////////////////
+
+// KPCHAP01 - Bolumir
+// 
+// De'Arnise Keep, part of fighter's stronghold
+
+COPY_EXISTING kpchap01.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=15
+    dispel_magic=120
+    cure_medium_wounds=30
+    cure_disease=180
+    cure_serious_wounds=45
+    neutralize_poison=180
+    lesser_restoration=450
+    cure_critical_wounds=60
+    raise_dead=600
+    mass_cure= comp_atweaks_temples=1 ? 600 : 0
+    heal=600
+  END
+
+END BUT_ONLY
+
+////////////////////////
+
+// TEMHELM - Sir Donalus
+// 
+// Temple District, Helm
+
+COPY_EXISTING temhelm.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    neutralize_poison=300
+    lesser_restoration=750
+    cure_critical_wounds=100
+    raise_dead=1000
+    mass_cure= comp_atweaks_temples=1 ? 1000 : 0
+    heal=1000
+    resurrection=2000
+    greater_restoration=2000
+  END
+
+END BUT_ONLY
+
+/////////////////////////////
+
+// TEMLATH - Dawnmaster Kreel
+// 
+// Temple District, Lathander
+
+COPY_EXISTING temlath.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    neutralize_poison=300
+    lesser_restoration=600
+    cure_critical_wounds=100
+    raise_dead=900
+    mass_cure= comp_atweaks_temples=1 ? 1000 : 0
+    heal=1000
+    resurrection=1800
+    greater_restoration=1600
+  END
+
+END BUT_ONLY
+
+//////////////////////////
+
+// TEMTALOS - Mistress Ada
+// 
+// Temple District, Talos
+
+COPY_EXISTING temtalos.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    call_lightning=5        // wrath of Talos is never in short supply! :lol:
+    cure_light_wounds=30
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=60
+    cure_disease=360
+    cure_serious_wounds=90
+    neutralize_poison=360
+    lesser_restoration=900
+    cure_critical_wounds=120
+    raise_dead=1200
+    mass_cure= comp_atweaks_temples=1 ? 1200 : 0
+    heal=1200
+    resurrection=2400
+    greater_restoration=2400
+  END
+
+END BUT_ONLY
+
+//////////////////////////////
+
+// TEMSUP - Overgold Renwellyn
+// 
+// Trademeet
+
+COPY_EXISTING temsup.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    neutralize_poison=300
+    lesser_restoration=750
+    cure_critical_wounds=100
+    raise_dead=1000
+    mass_cure= comp_atweaks_temples=1 ? 1000 : 0
+  END
+
+END BUT_ONLY
+
+//////////////////////////////////
+
+// PPUMB01 - Priestess of Umberlee
+// 
+// Brynnlaw
+
+COPY_EXISTING ppumb01.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    call_lightning=5      // and yes, it CAN be used for healing - just get 127% electrical res
+    cure_light_wounds=35
+    dispel_magic=280
+    remove_curse=700
+    cure_medium_wounds=70
+    cure_disease=420
+    cure_serious_wounds=105
+    neutralize_poison=420
+    lesser_restoration=1050
+    cure_critical_wounds=140
+    raise_dead=1400
+    mass_cure= comp_atweaks_temples=1 ? 1400 : 0
+  END
+
+END BUT_ONLY
+
+///////////////////
+
+// SAHPR1 - Priestess of Sekolah
+// 
+// sahuagin city, as you might guess
+
+COPY_EXISTING sahpr1.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    neutralize_poison=300
+    lesser_restoration=750
+    cure_critical_wounds=100
+    raise_dead=1000
+    mass_cure= comp_atweaks_temples=1 ? 1000 : 0
+    heal=1000
+  END
+
+END BUT_ONLY
+
+///////////////////
+
+// SUELF10 - Reirra
+// 
+// Suldanessellar, elf girl priestess
+
+COPY_EXISTING suelf10.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=20
+    dispel_magic=160
+    remove_curse=400
+    cure_medium_wounds=40
+    cure_disease=240
+    cure_serious_wounds=60
+    neutralize_poison=240
+    lesser_restoration=600
+    cure_critical_wounds=80
+    raise_dead=800
+    mass_cure= comp_atweaks_temples=1 ? 800 : 0
+    heal=800
+    resurrection=1600
+    greater_restoration=1600
+  END
+
+END BUT_ONLY
+
+///////////////////
+
+// AMCLER02 - Chyil
+// 
+// Amkethran temple of Waukeen
+
+COPY_EXISTING amcler02.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    lesser_restoration=750
+    cure_critical_wounds=100
+    raise_dead=1000
+  END
+
+END BUT_ONLY
+
+/////////////////////////////
+
+// SARTEM01 - Sister Farielle
+// 
+// Saradush temple of Waukeen
+
+COPY_EXISTING sartem01.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    lesser_restoration=750
+    cure_critical_wounds=100
+    raise_dead=1000
+    mass_cure= comp_atweaks_temples=1 ? 1000 : 0
+  END
+
+END BUT_ONLY
+
+///////////////////////////
+
+// GARLENA - Sister Garlena
+// 
+// Watcher's Keep
+
+COPY_EXISTING garlena.sto override PATCH_IF SOURCE_SIZE>0x9b BEGIN
+
+  LPF temple INT_VAR
+    cure_light_wounds=25
+    dispel_magic=200
+    remove_curse=500
+    cure_medium_wounds=50
+    cure_disease=300
+    cure_serious_wounds=75
+    neutralize_poison=300
+    lesser_restoration=750
+    cure_critical_wounds=100
+    raise_dead=1000
+    mass_cure= comp_atweaks_temples=1 ? 1000 : 0
+    heal=1000
+    resurrection=2000
+    greater_restoration=2000
+  END
+
+END BUT_ONLY
+
+////////////////////////////
+
+
+
+
+
+
+
+
+

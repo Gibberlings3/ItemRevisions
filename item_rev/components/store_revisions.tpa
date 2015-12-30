@@ -1,0 +1,31 @@
+
+
+// compatibility setup
+INCLUDE ~item_rev/lib/compatibility.tpa~
+
+// use this detection check - 'FILE_EXISTS_IN_GAME ag#store_revisions.mrk'
+COPY ag#dummy ~override/ag#store_revisions.mrk~
+
+// load the macro lib
+INCLUDE ~item_rev/lib/store_rev_macros.tpa~
+
+// create divine spell scrolls
+LAF make_scrolls END
+
+// core part
+LAM buy_group
+INCLUDE ~item_rev/components/store_revisions_main.tpa~
+
+// re-ordering of items in stores
+LAM fixed_order
+COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override
+  LPF items_to_order END
+BUT_ONLY
+
+// extra core part
+INCLUDE ~item_rev/components/item_reallocation.tpa~
+
+// temples
+LAM spelldesc
+INCLUDE ~item_rev/components/revised_temple_services.tpa~
+

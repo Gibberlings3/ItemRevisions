@@ -1,0 +1,301 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/fixpack.tpa~
+INCLUDE ~item_rev/lib/identify_fix.tpa~
+
+// code herein is a lite version of Weapon Changes
+
+/////////////////////////////////////////////////////
+// speed factor table
+
+ACTION_IF MOD_IS_INSTALLED ~item_rev/item_rev.tp2~ 17 BEGIN // check is Weapon Changes component is already installed
+  OUTER_SET wc=1
+END ELSE BEGIN
+  OUTER_SET wc=0
+END
+
+OUTER_SET sf_dagger          = (wc=0)? 2 : 1
+OUTER_SET sf_short_sword     = (wc=0)? 3 : 3
+OUTER_SET sf_long_sword      = (wc=0)? 5 : 5
+OUTER_SET sf_scimitar        = (wc=0)? 5 : 5
+OUTER_SET sf_battleaxe       = (wc=0)? 7 : 6
+OUTER_SET sf_bastard_sword   = (wc=0)? 8 : 7
+OUTER_SET sf_ninjato         = (wc=0)? 4 : 2
+OUTER_SET sf_wakizashi       = (wc=0)? 3 : 3
+OUTER_SET sf_katana          = (wc=0)? 4 : 5
+OUTER_SET sf_club            = (wc=0)? 4 : 3
+OUTER_SET sf_hammer          = (wc=0)? 4 : 5
+OUTER_SET sf_mace            = (wc=0)? 7 : 6
+OUTER_SET sf_morning_star    = (wc=0)? 7 : 7
+OUTER_SET sf_flail           = (wc=0)? 7 : 8
+OUTER_SET sf_staff           = (wc=0)? 4 : 4
+OUTER_SET sf_spear           = (wc=0)? 6 : 6
+OUTER_SET sf_halberd         = (wc=0)? 9 : 8
+OUTER_SET sf_twohanded_sword = (wc=0)? 10 : 10
+OUTER_SET sf_dart            = (wc=0)? 2 : 2
+OUTER_SET sf_handaxe         = (wc=0)? 4 : 4
+OUTER_SET sf_sling           = (wc=0)? 6 : 6
+OUTER_SET sf_short_bow       = (wc=0)? 6 : 6
+OUTER_SET sf_comp_long_bow   = (wc=0)? 7 : 7
+OUTER_SET sf_long_bow        = (wc=0)? 8 : 8
+OUTER_SET sf_light_xbow      = (wc=0)? 5 : 5
+OUTER_SET sf_heavy_xbow      = (wc=0)? 10 : 10
+
+/////////////////////////////////////////////////////
+// Main patching macro
+
+DEFINE_PATCH_MACRO wc_patch BEGIN
+  READ_LONG  0x64 ab_off
+  READ_SHORT 0x68 ab_num
+  reupdate=1
+  FOR (i=0;i<ab_num;i+=1) BEGIN
+    patched=0
+    off=ab_off+i*0x38
+    READ_BYTE  off      type
+    READ_SHORT off+0x12 speed
+
+    delta_speed=0
+    unid_old_speed=speed
+
+    update_line=1
+    LPM ~%macro%~
+
+    PATCH_IF patched=1 BEGIN
+      new_speed= ( (speed+delta_speed) < 0 ) ? 0 : ( (speed+delta_speed) > 10 ) ? 10 : (speed+delta_speed) // [0;10]
+
+      WRITE_SHORT off+0x12 new_speed
+
+      PATCH_IF reupdate=1 BEGIN // update description only once
+        reupdate=0
+        SPRINT text_update wc_update
+        LPM update_item_descriptions
+      END
+    END
+
+  END
+END
+
+/////////////////////////////////////////////////////
+// Main description update macro
+
+// enable logging
+<<<<<<<<ag#dummy
+
+
+>>>>>>>>
+COPY ~ag#dummy~ ~item_rev/debug/enchantment_speed.log~
+
+DEFINE_PATCH_MACRO wc_update BEGIN
+  PATCH_IF index=0x54 BEGIN
+    SPRINT colon @100100
+
+    // speed factor
+    PATCH_IF delta_speed !=0 BEGIN // SF was changed
+      nspeed=new_speed
+      ospeed=speed
+
+      linenum=0
+      SPRINT t1 @100101
+      REPLACE_EVALUATE ~%t1%~ BEGIN
+        log=0
+        linenum+=1
+        SPRINT line ~%MATCH1%~
+        PATCH_IF linenum=update_line BEGIN
+          INNER_PATCH_SAVE line ~%line%~ BEGIN
+            once=0
+            REPLACE_EVALUATE ~%ospeed%~ BEGIN
+              PATCH_IF once=0 BEGIN
+                ospeed=nspeed
+                once=1
+                log=1
+              END
+            END ~%ospeed%~
+          END
+        END
+        PATCH_IF log=0 BEGIN
+          INNER_ACTION BEGIN
+            APPEND_OUTER ~item_rev/debug/enchantment_speed.log~ ~%SOURCE_RES%   - Speed Factor~
+          END
+        END
+      END ~%line%~
+
+    END
+
+  END
+
+END
+
+/////////////////////////////////////////////////////
+
+// generic
+DEFINE_PATCH_MACRO sf BEGIN
+  PATCH_IF type=1 || type=2 || type=4 BEGIN // melee/ranged/launcher
+    unid_old_speed= EVAL ~sf_%weapon%~
+    delta_speed=unid_old_speed - speed - extra
+  SET patched=1 END
+END
+
+// halberd
+DEFINE_PATCH_MACRO halberd BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    reupdate=1
+    READ_SHORT off+0x1c damtype
+    PATCH_IF damtype=1 BEGIN // piercing
+      unid_old_speed=sf_halberd
+      delta_speed=unid_old_speed - speed
+    END
+    PATCH_IF damtype=3 BEGIN // slashing
+      unid_old_speed=sf_halberd + ( (wc=0)? 0 : 1 )
+      delta_speed=unid_old_speed - speed
+      update_line=2
+    END
+  SET patched=1 END
+END
+
+/////////////////////////////////////////////////////
+// Actual patching
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  PATCH_INCLUDE ~item_rev/lib/identify_weapon.tpa~
+  SPRINT macro ~sf~
+
+  extra=0
+  PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~blun28~ || ~%SOURCE_RES%~ STRING_EQUAL_CASE ~blun29~ BEGIN // Storm Star
+    extra=2
+  END
+
+  PATCH_MATCH 1 WITH
+
+    dagger
+    BEGIN
+      SPRINT weapon ~dagger~ LPM wc_patch
+    END
+
+    short_sword && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~sw1h25~) // not Kundane +1
+    BEGIN
+      SPRINT weapon ~short_sword~ LPM wc_patch
+    END
+
+    long_sword && (~%SOURCE_RES%~ STRING_COMPARE_CASE ~sw1h77~) // not Answerer
+    BEGIN
+      SPRINT weapon ~long_sword~ LPM wc_patch
+    END
+
+    scimitar
+    BEGIN
+      SPRINT weapon ~scimitar~ LPM wc_patch
+    END
+
+    battleaxe
+    BEGIN
+      SPRINT weapon ~battleaxe~ LPM wc_patch
+    END
+
+    bastard_sword
+    BEGIN
+      SPRINT weapon ~bastard_sword~ LPM wc_patch
+    END
+
+    ninjato
+    BEGIN
+      SPRINT weapon ~ninjato~ LPM wc_patch
+    END
+
+    wakizashi
+    BEGIN
+      SPRINT weapon ~wakizashi~ LPM wc_patch
+    END
+
+    katana
+    BEGIN
+      SPRINT weapon ~katana~ LPM wc_patch
+    END
+
+    club
+    BEGIN
+      SPRINT weapon ~club~ LPM wc_patch
+    END
+
+    hammer
+    BEGIN
+      SPRINT weapon ~hammer~ LPM wc_patch
+    END
+
+    mace
+    BEGIN
+      SPRINT weapon ~mace~ LPM wc_patch
+    END
+
+    morning_star
+    BEGIN
+      SPRINT weapon ~morning_star~ LPM wc_patch
+    END
+
+    flail
+    BEGIN
+      SPRINT weapon ~flail~ LPM wc_patch
+    END
+
+    staff
+    BEGIN
+      SPRINT weapon ~staff~ LPM wc_patch
+    END
+
+    spear
+    BEGIN
+      SPRINT weapon ~spear~ LPM wc_patch
+    END
+
+    halberd
+    BEGIN
+      SPRINT macro ~halberd~
+      SPRINT weapon ~halberd~ LPM wc_patch
+    END
+
+    twohanded_sword
+    BEGIN
+      SPRINT weapon ~twohanded_sword~ LPM wc_patch
+    END
+
+    dart
+    BEGIN
+      SPRINT weapon ~dart~ LPM wc_patch
+    END
+
+    handaxe
+    BEGIN
+      SPRINT weapon ~handaxe~ LPM wc_patch
+    END
+
+    sling
+    BEGIN
+      SPRINT weapon ~sling~ LPM wc_patch
+    END
+
+    short_bow
+    BEGIN
+      SPRINT weapon ~short_bow~ LPM wc_patch
+    END
+
+    comp_long_bow
+    BEGIN
+      SPRINT weapon ~comp_long_bow~ LPM wc_patch
+    END
+
+    long_bow
+    BEGIN
+      SPRINT weapon ~long_bow~ LPM wc_patch
+    END
+
+    light_xbow
+    BEGIN
+      SPRINT weapon ~light_xbow~ LPM wc_patch
+    END
+
+    heavy_xbow
+    BEGIN
+      SPRINT weapon ~heavy_xbow~ LPM wc_patch
+    END
+
+  DEFAULT  END
+
+END BUT_ONLY

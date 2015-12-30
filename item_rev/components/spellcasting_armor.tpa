@@ -1,0 +1,266 @@
+
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/armor_list.tpa~
+INCLUDE ~item_rev/lib/common_shield_list.tpa~
+
+
+DEFINE_PATCH_MACRO ~remove_old_spellcasting_lines~ BEGIN
+  SPRINT t1 @100300
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100301
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100302
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100303
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100304
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+END
+
+DEFINE_PATCH_MACRO ~casting_penalty~ BEGIN
+  PATCH_IF xfail>0 BEGIN
+    SPRINT t1 @100114
+    SPRINT t2 @100305
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  PATCH_IF xspd>0 && option=2 BEGIN
+    SPRINT t1 @100114
+    SPRINT t2 @100306
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  PATCH_IF xspd>0 && option=3 BEGIN
+    SPRINT t1 @100114
+    SPRINT t2 @100307
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+END
+
+
+DEFINE_PATCH_MACRO calc BEGIN
+  value= EVAL ~value_%armor%_%col%~
+  PATCH_IF subst=2 BEGIN value+= EVAL ~value_8_%col%~ END // scale
+  PATCH_IF subst=1 BEGIN value+= EVAL ~value_9_%col%~ END // mithral
+  PATCH_IF elven BEGIN value+= EVAL ~value_10_%col%~ END
+  value= value>0 ? value : 0
+END
+
+COPY - ~item_rev/lib/armor_penalty_table.txt~ override
+  FOR (i=1;i<11;i+=1) BEGIN
+    FOR (k=1;k<3;k+=1) BEGIN
+      READ_2DA_ENTRY i k 7 ~value_%i%_%k%~
+    END
+  END
+
+
+DEFINE_PATCH_MACRO cleanup BEGIN
+  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete=60 END
+  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete=145 END
+  SPRINT text_update ~remove_old_spellcasting_lines~
+  LPM ~update_item_descriptions~
+END
+
+
+// make new casting speed penalty EFFs
+<<<<<<<<ag#dummy
+>>>>>>>>
+ACTION_IF option=2 || option=3 BEGIN
+  // hardcoded values for shields
+  OUTER_SET $spd("1")=1
+  OUTER_SET $spd("2")=1
+  OUTER_SET $spd("3")=1
+  // check if armor table may yield other values
+  OUTER_FOR (i=1;i<8;i+=1) BEGIN
+    OUTER_SET  val=EVAL ~value_%i%_2~
+    ACTION_IF val>0 && (NOT VARIABLE_IS_SET $spd("%val%")) BEGIN
+      OUTER_SET $spd("%val%")=1
+    END
+    OUTER_FOR (k=8;k<11;k+=1) BEGIN
+      OUTER_SET val=EVAL ~value_%i%_2~ + EVAL ~value_%k%_2~
+      OUTER_SET val= val>0 ? val : 0
+      ACTION_IF val>0 && (NOT VARIABLE_IS_SET $spd("%val%")) BEGIN
+        OUTER_SET $spd("%val%")=1
+      END
+    END
+  END
+  ACTION_PHP_EACH spd AS ind => res BEGIN
+    COPY ~ag#dummy~ ~override/micstsp%ind%.eff~
+      INSERT_BYTES 0 0x110
+      WRITE_ASCII 0 ~EFF V2.0~
+      WRITE_ASCII 8 ~EFF V2.0~
+      WRITE_LONG 0x10 189
+      WRITE_LONG 0x14 1
+      WRITE_LONG 0x1c (0 - ind)
+      WRITE_LONG 0x24 2
+      WRITE_SHORT 0x2c 100
+  END
+END
+
+// armors
+ACTION_PHP_EACH armor AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+      LPM cleanup
+
+      spell = ( res >> 7 ) & 1 // can cast without penalties in this armor
+      armor =   res & 7
+      PATCH_IF spell=0 && armor BEGIN
+
+        subst = ( res >> 3 ) & 3 // 1=mithral, 2=scale
+        elven = ( res >> 5 ) & 1
+
+        xfail=0
+        PATCH_IF option=1 BEGIN
+          col=1 LPM calc
+          PATCH_IF value BEGIN
+            xfail=value
+            LPF ADD_ITEM_EQEFFECT INT_VAR opcode=60 target=1 timing=2 parameter1=value END
+          END
+        END
+
+        xspd=0
+        PATCH_IF option=2 BEGIN
+          col=2 LPM calc
+          PATCH_IF value BEGIN
+            xspd=value
+            PATCH_FOR_EACH class IN
+              1  // mage
+              5  // bard
+              7  // fighter/mage
+              10 // fighter/mage/thief
+              13 // mage/thief
+              14 // cleric/mage
+              17 // fighter/mage/cleric
+            BEGIN
+              LPF ADD_ITEM_EQEFFECT INT_VAR opcode=177 target=1 timing=2 parameter1=class parameter2=5 STR_VAR resource=EVAL ~micstsp%value%~ END
+            END
+          END
+        END
+        PATCH_IF option=3 BEGIN
+          col=2 LPM calc
+          PATCH_IF value BEGIN
+            xspd=value
+            PATCH_FOR_EACH class IN
+              1  // mage
+              3  // cleric
+              5  // bard
+              6  // paladin
+              7  // fighter/mage
+              8  // fighter/cleric
+              10 // fighter/mage/thief
+              11 // druid
+              12 // ranger
+              13 // mage/thief
+              14 // cleric/mage
+              15 // cleric/thief
+              16 // fighter/druid
+              17 // fighter/mage/cleric
+              18 // cleric/ranger
+            BEGIN
+              LPF ADD_ITEM_EQEFFECT INT_VAR opcode=177 target=1 timing=2 parameter1=class parameter2=5 STR_VAR resource=EVAL ~micstsp%value%~ END
+            END
+          END
+        END
+
+        SPRINT text_update casting_penalty
+        LPM update_item_descriptions
+
+      END
+
+    END BUT_ONLY
+  END
+END
+
+// shields
+COPY_EXISTING_REGEXP ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  READ_SHORT 0x1c item
+  READ_ASCII 0x22 anim (2)
+  xfail=0
+  xspd=0
+
+  PATCH_IF item=190 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d1~) ) BEGIN // buckler
+    LPM cleanup
+    PATCH_IF option=1 BEGIN
+      xfail=5
+    END
+    PATCH_IF option=2 || option=3 BEGIN
+      xspd=1
+    END
+    WRITE_SHORT 0x1c 0xc
+  END
+  PATCH_IF item=191 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d2~) ) BEGIN // light
+    LPM cleanup
+    PATCH_IF option=1 BEGIN
+      xfail=5
+    END
+    PATCH_IF option=2 || option=3 BEGIN
+      xspd=1
+    END
+    WRITE_SHORT 0x1c 0xc
+  END
+  PATCH_IF item=192 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d3~) ) BEGIN // heavy
+    LPM cleanup
+    PATCH_IF option=1 BEGIN
+      xfail=15
+    END
+    PATCH_IF option=2 || option=3 BEGIN
+      xspd=2
+    END
+    WRITE_SHORT 0x1c 0xc
+  END
+  PATCH_IF item=194 || (item=0xc && (~%anim%~ STRING_EQUAL_CASE ~d4~) ) BEGIN // tower
+    LPM cleanup
+    PATCH_IF option=1 BEGIN
+      xfail=50
+    END
+    PATCH_IF option=2 || option=3 BEGIN
+      xspd=3
+    END
+    WRITE_SHORT 0x1c 0xc
+  END
+
+  PATCH_IF xfail BEGIN
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=60 target=1 timing=2 parameter1=xfail END
+    SPRINT text_update casting_penalty
+    LPM update_item_descriptions
+  END
+  PATCH_IF xspd BEGIN
+    PATCH_IF option=2 BEGIN
+      PATCH_FOR_EACH class IN
+        1  // mage
+        5  // bard
+        7  // fighter/mage
+        10 // fighter/mage/thief
+        13 // mage/thief
+        14 // cleric/mage
+        17 // fighter/mage/cleric
+      BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR opcode=177 target=1 timing=2 parameter1=class parameter2=5 STR_VAR resource=EVAL ~micstsp%xspd%~ END
+      END
+    END
+    PATCH_IF option=3 BEGIN
+      PATCH_FOR_EACH class IN
+        1  // mage
+        3  // cleric
+        5  // bard
+        6  // paladin
+        7  // fighter/mage
+        8  // fighter/cleric
+        10 // fighter/mage/thief
+        11 // druid
+        12 // ranger
+        13 // mage/thief
+        14 // cleric/mage
+        15 // cleric/thief
+        16 // fighter/druid
+        17 // fighter/mage/cleric
+        18 // cleric/ranger
+      BEGIN
+        LPF ADD_ITEM_EQEFFECT INT_VAR opcode=177 target=1 timing=2 parameter1=class parameter2=5 STR_VAR resource=EVAL ~micstsp%xspd%~ END
+      END
+    END
+    SPRINT text_update casting_penalty
+    LPM update_item_descriptions
+  END
+
+END BUT_ONLY
+

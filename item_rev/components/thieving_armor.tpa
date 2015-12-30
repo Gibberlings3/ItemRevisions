@@ -1,0 +1,83 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/armor_list.tpa~
+
+
+DEFINE_PATCH_MACRO ~cleanup~ BEGIN
+  SPRINT t1 @100325
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100326
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100327
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100328
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100329
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+  SPRINT t1 @100330
+  REPLACE_TEXTUALLY ~%t1%~ ~~
+END
+
+DEFINE_PATCH_MACRO ~stealth~ BEGIN
+  SPRINT t1 @100114
+  SPRINT t2 @100331
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+
+COPY - ~item_rev/lib/armor_penalty_table.txt~ override
+  FOR (i=1;i<11;i+=1) BEGIN
+    READ_2DA_ENTRY i 3 7 ~value_%i%~
+  END
+
+
+ACTION_PHP_EACH armor AS ind => res BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.itm~ BEGIN
+    COPY_EXISTING ~%ind%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+
+      READ_LONG  0x64 ab_off
+      READ_SHORT 0x68 ab_num
+      READ_LONG  0x6a ef_off
+      READ_SHORT 0x70 ef_num
+      delta=0
+      FOR (i=0;i<ef_num;i+=1) BEGIN
+        READ_SHORT ef_off+i*0x30 op
+        READ_LONG ef_off+i*0x30+4 p1
+        PATCH_IF (op=144 && (p1=0 || p1=1))                             // disables thief buttons
+              || ((op=59 || op=90 || op=91 || op=92 || op=275) && p1<0) // penalizes thief skills
+        BEGIN
+          DELETE_BYTES ef_off+i*0x30 0x30
+          delta -= 1
+          ef_num -= 1
+          i -= 1
+        END
+      END
+      WRITE_SHORT 0x70 ef_num
+      FOR (i=0;i<ab_num;i+=1) BEGIN      WRITE_SHORT ab_off+i*0x38+0x20 (THIS+delta)    END
+      PATCH_IF ab_off>ef_off BEGIN      WRITE_LONG 0x64 (THIS+delta*0x30)    END
+      
+      SPRINT text_update cleanup
+      LPM update_item_descriptions
+
+      thief = ( res >> 6 ) & 1 // can sneak without penalties in this armor
+      armor =   res & 7
+      PATCH_IF thief=0 && armor BEGIN
+        subst = ( res >> 3 ) & 3 // 1=mithral, 2=scale
+        elven = ( res >> 5 ) & 1
+
+        value= EVAL ~value_%armor%~
+        PATCH_IF subst=2 BEGIN value+= EVAL ~value_8~ END // scale
+        PATCH_IF subst=1 BEGIN value+= EVAL ~value_9~ END // mithral
+        PATCH_IF elven BEGIN value+= EVAL ~value_10~ END
+        value= value>0 ? value : 0
+
+        PATCH_IF value BEGIN
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode=59 target=1 timing=2 parameter1=(0 - value) END
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode=275 target=1 timing=2 parameter1=(0 - value) END
+          SPRINT text_update stealth
+          LPM update_item_descriptions
+        END
+      END
+
+    END BUT_ONLY
+  END
+END

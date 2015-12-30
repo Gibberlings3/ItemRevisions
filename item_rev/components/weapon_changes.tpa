@@ -1,0 +1,1096 @@
+INCLUDE ~item_rev/lib/descriptions.tpa~
+INCLUDE ~item_rev/lib/fixpack.tpa~
+INCLUDE ~item_rev/lib/identify_fix.tpa~
+
+/////////////////////////////////////////////////////
+
+// Readings from the main ITM's header:
+//   "ench"   - item's enchantment level
+// 
+// Readings from extended headers (aka abilities):
+//   "off"    - starting offset of the extended header
+//   "type"   - attack type
+//   "speed"  - speed factor
+//   "thaco"  - thaco bonus
+//   "dice"   - dice quantity
+//   "size"   - dice size
+//   "damage" - damage bonus
+// 
+// 
+// To change speed factor, set:
+//   "delta_speed"      - by how much speed factor must be altered
+//   "unid_old_speed"   - the old base speed factor value, used in unidentified description
+//   "unid_delta_speed" - optional, if set, then it will be used instead of "delta_speed" (default)
+//                        in updating unidentified descriptions
+// Note, that the resulting new SF value will be automatically capped on [0;10] interval
+// 
+// To change thaco, set:
+//   "delta_thaco"      - by how much thaco bonus must be altered
+//   "id_old_thaco"     - optional, the old thaco bonus value, used in identified description - 'wc_heavy_xbow'
+//   "unid_old_thaco"   - the old base thaco bonus value, used in unidentified description
+//   "unid_delta_thaco" - optional, if set, then it will be used instead of "delta_thaco" (default)
+//                        in updating unidentified descriptions
+// New thaco has no uppest or lowerest cap
+// 
+// To change bonus damage, set:
+//   "delta_damage"      - by how much damage bonus must be altered
+//   "unid_old_damage"   - 0 by default, the old base damage bonus value, used in unidentified description
+//   "unid_delta_damage" - optional, if set, then it will be used instead of "delta_damage" (default)
+//                         in updating unidentified descriptions - 'wc_bolt' and 'wc_handaxe' are examples
+// Note, that the resulting new damage value has the lowerest cap at 0
+// 
+// To change XdY damage, set:
+//   "new_dice"      - new dice quantity
+//   "new_size"      - new dice size
+//   "unid_new_dice" - optional, use if new dice quantity shouldn't match the unidentified description
+//   "unid_new_size" - optional, same as above - 'twohanded sword' section is an example
+//   "unid_old_dice" - optional, use if old dice quantity doesn't match old unidentified description
+//   "unid_old_size" - optional, same as above - vanilla Kuo-Toa bolts and Warblade are examples
+// Note - while "unid_" variables are not necessary, you still may want to set them nonetheless, because
+//   there's no telling if the weapon type in question has a specimen with non-standart XdY values
+// 
+// 
+// Following variables can also be set:
+//   "reupdate"    - if set to 1, then description will be updated for every attack header found in ITM;
+//                   this is useful when the weapon has several attacking modes that you want to patch in
+//                   different manner - 'wc_halberd' is an example
+//                   don't use without a need (and then better set "update_line" as well), it may break
+//                   descriptions like "Damage: 1d8, plus 1d8 fire"
+//   "update_line" - 1 by default, this is the number of duplicated text line in description (speed factor,
+//                   thaco or damage) that contains the information you want to update; see 'wc_halberd', it
+//                   assumes the "Halberds can slash" component might have been installed
+// 
+// 
+// Known issues:
+// 1) Will not work with incorrect descriptions (vanilla Carsomyr+5 claims to deal 1d12+5
+//      damage, but only does 1d10+5).
+// 2) Will not work properly with description templates that place extra information before
+//      listing base values ("Damage: +2 fire, +2 bonus missile"). Note, that this is only
+//      relevant when two values are equal - "+2 fire, +1 normal" will be fine.
+// 3) If new damage (thaco) is reduced to zero, then "Damage: 1d6, double damage vs undead"
+//      type of line will be removed completely, instead of just "1d6". But really, I can't
+//      do a thing about "double" amount - such bonus isn't even listed in the extended header.
+// 
+/*
+DEFINE_PATCH_MACRO wc_ BEGIN
+  PATCH_IF BEGIN
+
+
+  SET patched=1 END
+END
+*/
+
+// dagger
+DEFINE_PATCH_MACRO wc_dagger BEGIN
+// I think thrown daggers should use double line for speed factor
+// if so, then set "reupdate" and "update_line" accordingly
+// needs to duplicate SF line first, though
+  PATCH_IF type=1 || type=2 BEGIN // melee/ranged
+    unid_old_speed=2
+    delta_speed=1 - 2
+
+ //   unid_old_thaco=0
+ //   delta_thaco=1
+  SET patched=1 END
+END
+
+// short sword
+DEFINE_PATCH_MACRO wc_short_sword BEGIN
+  PATCH_IF type=1 BEGIN // melee
+  SET patched=1 END
+END
+
+// long sword
+DEFINE_PATCH_MACRO wc_long_sword BEGIN
+  PATCH_IF type=1 BEGIN // melee
+  SET patched=1 END
+END
+
+// scimitar
+DEFINE_PATCH_MACRO wc_scimitar BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF size=8 BEGIN // Xd8
+      new_size=6
+    END
+    unid_old_dice=1    unid_old_size=8
+    unid_new_dice=1    unid_new_size=6
+  SET patched=1 END
+END
+
+// battle axe
+DEFINE_PATCH_MACRO wc_battleaxe BEGIN
+  PATCH_IF type=1 || type=2 BEGIN // melee/ranged
+    PATCH_IF dice=1 && size=8 BEGIN // 1d8
+      new_dice=2
+      new_size=4
+    END
+    unid_old_dice=1    unid_old_size=8
+    unid_new_dice=2    unid_new_size=4
+
+    unid_old_speed=7
+    delta_speed=6 - 7
+  SET patched=1 END
+END
+
+// bastard sword
+DEFINE_PATCH_MACRO wc_bastard_sword BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF dice=2 && size=4 BEGIN // 2d4
+      new_dice=1
+      new_size=10
+    END
+    unid_old_dice=2    unid_old_size=4
+    unid_new_dice=1    unid_new_size=10
+
+    unid_old_speed=8
+    delta_speed=7 - 8
+  SET patched=1 END
+END
+
+// ninja-to
+DEFINE_PATCH_MACRO wc_ninjato BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF size=8 BEGIN // Xd8
+      new_size=6
+    END
+    unid_old_dice=1    unid_old_size=8
+    unid_new_dice=1    unid_new_size=6
+
+    unid_old_speed=4
+    delta_speed=2 - 4
+
+    WRITE_SHORT off+0x1c 1  // piercing
+    WRITE_SHORT off+0x26 10 // overhand
+    WRITE_SHORT off+0x28 25 // backhand
+    WRITE_SHORT off+0x2a 65 // thrust
+  SET patched=1 END
+END
+
+// wakizashi
+DEFINE_PATCH_MACRO wc_wakizashi BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    WRITE_SHORT off+0x1c 3  // slashing
+    WRITE_SHORT off+0x26 50 // overhand
+    WRITE_SHORT off+0x28 50 // backhand
+    WRITE_SHORT off+0x2a 0  // thrust
+  SET patched=1 END
+END
+
+// katana
+DEFINE_PATCH_MACRO wc_katana BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    unid_old_speed=4
+    delta_speed=5 - 4
+  SET patched=1 END
+END
+
+// club
+DEFINE_PATCH_MACRO wc_club BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF size=6 BEGIN // Xd6
+      new_size=4
+    END
+    unid_old_dice=1    unid_old_size=6
+    unid_new_dice=1    unid_new_size=4
+
+    unid_old_speed=4
+    delta_speed=3 - 4
+  SET patched=1 END
+END
+
+// hammer
+DEFINE_PATCH_MACRO wc_hammer BEGIN
+  PATCH_IF type=1 || type=2 BEGIN // melee/ranged
+    unid_old_speed=4
+    delta_speed=5 - 4
+  SET patched=1 END
+END
+
+// mace
+DEFINE_PATCH_MACRO wc_mace BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF dice=1 && size=6 && damage>0 BEGIN // 1d6 + X
+      new_dice=2
+      new_size=3
+      delta_damage=0 - 1
+    END
+    unid_old_damage=1
+    unid_delta_damage=0 - 1
+    unid_old_dice=1    unid_old_size=6
+    unid_new_dice=2    unid_new_size=3
+
+    unid_old_speed=7
+    delta_speed=6 - 7
+  SET patched=1 END
+END
+
+// morning star
+DEFINE_PATCH_MACRO wc_morning_star BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF dice=2 && size=4 BEGIN // 2d4
+      new_dice=1
+      new_size=6
+      delta_damage=1
+    END
+    unid_old_damage=0
+    unid_delta_damage=1
+    unid_old_dice=2    unid_old_size=4
+    unid_new_dice=1    unid_new_size=6
+
+    WRITE_SHORT off+0x1c 6 // crushing and piercing
+  SET patched=1 END
+END
+
+// flail
+DEFINE_PATCH_MACRO wc_flail BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF dice=1 && size=6 && damage>0 BEGIN // 1d6 + X
+      new_dice=2
+      new_size=4
+      delta_damage=0 - 1
+    END
+    unid_old_damage=1
+    unid_delta_damage=0 - 1
+    unid_old_dice=1    unid_old_size=6
+    unid_new_dice=2    unid_new_size=4
+
+    unid_old_speed=7
+    delta_speed=8 - 7
+/*
+    unid_old_thaco=0
+    delta_thaco=0 - 1
+    WRITE_SHORT off+0xe 2 // range
+*/
+    WRITE_SHORT off+0x1c 6 // crushing and piercing
+  SET patched=1 END
+END
+
+// staff
+DEFINE_PATCH_MACRO wc_staff BEGIN
+  PATCH_IF type=1 BEGIN // melee
+  SET patched=1 END
+END
+
+// spear
+DEFINE_PATCH_MACRO wc_spear BEGIN
+  PATCH_IF type=1 || type=2 BEGIN // melee/ranged
+    PATCH_IF type=1 && (~%SOURCE_RES%~ STRING_COMPARE_REGEXP ~\(sper08\|sper09\|sper11\|solasna5\)~) BEGIN
+      WRITE_SHORT off+0xe 3 // range
+    END
+    PATCH_IF size=6 BEGIN // Xd6
+      new_size=8
+    END
+    unid_old_dice=1    unid_old_size=6
+    unid_new_dice=1    unid_new_size=8
+    WRITE_BYTE off+0x26 THIS|1 // use STR bonus
+  SET patched=1 END
+END
+
+// halberd
+DEFINE_PATCH_MACRO wc_halberd BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    reupdate=1
+    READ_SHORT off+0x1c damtype
+    PATCH_IF damtype=1 BEGIN // piercing
+      unid_old_speed=9
+      delta_speed=8 - 9
+    END
+    PATCH_IF damtype=3 BEGIN // slashing
+      PATCH_IF dice=1 && size=10 BEGIN // 1d10
+        new_size=12
+      END
+      update_line=2
+      unid_old_dice=1      unid_old_size=10
+      unid_new_dice=1      unid_new_size=12
+    END
+  SET patched=1 END
+END
+
+// two-handed sword
+DEFINE_PATCH_MACRO wc_twohanded_sword BEGIN
+  PATCH_IF type=1 BEGIN // melee
+    PATCH_IF dice=1 && size=10 BEGIN // Xd10
+      new_dice=2
+      new_size=6
+    END
+    PATCH_IF dice=1 && size=12 BEGIN // Xd12
+      new_dice=2
+      new_size=8
+    END
+    unid_old_dice=1    unid_old_size=10
+    unid_new_dice=2    unid_new_size=6
+  SET patched=1 END
+END
+
+// dart
+DEFINE_PATCH_MACRO wc_dart BEGIN
+  PATCH_IF type=2 BEGIN // ranged
+  SET patched=1 END
+END
+
+// handaxe
+DEFINE_PATCH_MACRO wc_handaxe BEGIN
+  PATCH_IF type=1 || type=2 BEGIN // melee/ranged
+    PATCH_IF dice=1 && size=6 BEGIN // 1d6
+      new_dice=2
+      new_size=3
+      PATCH_IF damage>ench BEGIN // non-unique handaxes have +1 damage
+        delta_damage=0 - 1
+      END
+    END
+    unid_old_damage=1
+    unid_delta_damage=0 - 1
+    unid_old_dice=1    unid_old_size=6
+    unid_new_dice=2    unid_new_size=3
+  SET patched=1 END
+END
+
+// sling
+DEFINE_PATCH_MACRO wc_sling BEGIN
+  PATCH_IF type=2 || type=4 BEGIN // ranged/launcher
+  SET patched=1 END
+END
+
+// short bow
+DEFINE_PATCH_MACRO wc_short_bow BEGIN
+  PATCH_IF type=2 || type=4 BEGIN // ranged/launcher
+
+    // calculate STR bonus damage
+    READ_BYTE 0x26 strreq // STR requirement
+    strbon=0 // just in case somebody puts STR req outside of [0;25] interval
+    INNER_PATCH_FILE strmod.2da BEGIN
+      COUNT_2DA_ROWS 5 row
+      FOR (i=0;i<row;i+=1) BEGIN
+        READ_2DA_ENTRY i 0 5 str
+        PATCH_IF str=strreq BEGIN
+          READ_2DA_ENTRY i 2 5 strbon
+        END
+      END
+    END
+    strbon = strbon<0 ? 0 : strbon
+
+    PATCH_IF damage < ench + strbon BEGIN
+      delta_damage = ench + strbon - damage
+      unid_delta_damage=0
+    END
+
+  SET patched=1 END
+END
+
+// long bow
+DEFINE_PATCH_MACRO wc_long_bow BEGIN
+  PATCH_IF type=2 || type=4 BEGIN // ranged/launcher
+    PATCH_IF thaco>ench BEGIN // have extra thaco bonus in addition to enchantment
+      delta_thaco=0 - 1
+    END
+    unid_old_thaco=1
+    unid_delta_thaco=0 - 1
+
+    unid_delta_damage=1
+    PATCH_IF damage < ench + 1 BEGIN
+      delta_damage = ench + 1 - damage
+    END
+
+  SET patched=1 END
+END
+
+// composite long bow
+DEFINE_PATCH_MACRO wc_comp_long_bow BEGIN
+  PATCH_IF type=2 || type=4 BEGIN // ranged/launcher
+    PATCH_IF thaco>ench BEGIN // have extra thaco bonus in addition to enchantment
+      delta_thaco=0 - 1
+    END
+    unid_old_thaco=1
+    unid_delta_thaco=0 - 1
+    PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~bow10~ BEGIN
+      id_old_thaco=thaco - 3
+    END
+
+    // calculate STR bonus damage
+    READ_BYTE 0x26 strreq // STR requirement
+    strbon=0 // just in case somebody puts STR req outside of [0;25] interval
+    INNER_PATCH_FILE strmod.2da BEGIN
+      COUNT_2DA_ROWS 5 row
+      FOR (i=0;i<row;i+=1) BEGIN
+        READ_2DA_ENTRY i 0 5 str
+        PATCH_IF str=strreq BEGIN
+          READ_2DA_ENTRY i 2 5 strbon
+        END
+      END
+    END
+    strbon = strbon<0 ? 0 : strbon
+
+    unid_old_damage=1
+    unid_delta_damage=1
+    PATCH_IF damage < ench + strbon + 1 BEGIN
+      delta_damage = ench + strbon + 1 - damage
+    END
+
+  SET patched=1 END
+END
+
+// light xbow
+DEFINE_PATCH_MACRO wc_light_xbow BEGIN
+  PATCH_IF type=2 || type=4 BEGIN // ranged/launcher
+    unid_old_thaco=0
+    delta_thaco=1
+    PATCH_IF (~%SOURCE_RES%~ STRING_EQUAL_CASE ~xbow15~ || ~%SOURCE_RES%~ STRING_EQUAL_CASE ~xbow16~) && size=8 BEGIN // Firetooth, Xd8
+      new_size=10
+    END
+  SET patched=1 END
+END
+
+// heavy xbow
+DEFINE_PATCH_MACRO wc_heavy_xbow BEGIN
+  PATCH_IF type=2 || type=4 BEGIN // ranged/launcher
+    unid_old_thaco=0
+    delta_thaco=1
+    PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~xbow03~ BEGIN
+      id_old_thaco=thaco - 3
+    END
+  SET patched=1 END
+END
+
+// arrow
+DEFINE_PATCH_MACRO wc_arrow BEGIN
+  PATCH_IF type=2 && damage<ench BEGIN // ranged, no enchantment bonus
+    delta_damage=ench - damage
+    unid_delta_damage=0
+  SET patched=1 END
+END
+
+// bolt
+DEFINE_PATCH_MACRO wc_bolt BEGIN
+  PATCH_IF type=2 BEGIN // ranged
+    PATCH_IF damage<ench BEGIN // no enchantment bonus
+      delta_damage=ench - damage
+      unid_delta_damage=0
+    END
+    PATCH_IF size=8 BEGIN // Xd8
+      new_size=10
+    END
+    unid_old_dice=1    unid_old_size=8
+    unid_new_dice=1    unid_new_size=10
+  SET patched=1 END
+END
+
+// bullet
+DEFINE_PATCH_MACRO wc_bullet BEGIN
+  PATCH_IF type=2 && damage<ench+1 BEGIN // ranged, no enchantment bonus
+    delta_damage=ench + 1 - damage
+    unid_delta_damage=0
+  SET patched=1 END
+END
+
+/////////////////////////////////////////////////////
+// Special description updates
+
+DEFINE_PATCH_MACRO wc_slash_to_pierce BEGIN
+  SPRINT t1 @100132
+  SPRINT t2 @100133
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO wc_pierce_to_slash BEGIN
+  SPRINT t1 @100134
+  SPRINT t2 @100135
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO wc_crush_to_crushpierce BEGIN
+  SPRINT t1 @100136
+  SPRINT t2 @100137
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO katana_waki_prof BEGIN
+  SPRINT t1 @100146
+  SPRINT t2 @100147
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO flail_prof BEGIN
+  SPRINT t1 @100146
+  SPRINT t2 @100148
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO scimitar_prof BEGIN
+  SPRINT t1 @100146
+  SPRINT t2 @100149
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+DEFINE_PATCH_MACRO mace_morning_prof BEGIN
+  SPRINT t1 @100146
+  SPRINT t2 @100150
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+
+/////////////////////////////////////////////////////
+// Main patching macro
+
+DEFINE_PATCH_MACRO wc_patch BEGIN
+  READ_LONG  0x64 ab_off
+  READ_SHORT 0x68 ab_num
+  reupdate=1
+  FOR (i=0;i<ab_num;i+=1) BEGIN
+    patched=0
+    off=ab_off+i*0x38
+    READ_BYTE  off      type
+    READ_SHORT off+0x12 speed
+    READ_SHORT off+0x14 thaco
+    READ_SHORT off+0x16 size
+    READ_SHORT off+0x18 dice
+    READ_SHORT off+0x1a damage
+
+    delta_speed=0
+    delta_thaco=0
+    new_dice=dice
+    new_size=size
+    delta_damage=0
+
+    id_old_thaco=99
+    unid_old_speed=speed
+    unid_old_thaco=thaco
+    unid_delta_speed=99
+    unid_delta_thaco=99
+
+    unid_new_size=99
+    unid_new_dice=99
+    unid_old_size=size
+    unid_old_dice=dice
+    unid_delta_damage=99
+    unid_old_damage=0
+
+    update_line=1
+    LPM ~%macro%~
+
+    PATCH_IF patched=1 BEGIN
+      new_speed= ( (speed+delta_speed) < 0 ) ? 0 : ( (speed+delta_speed) > 10 ) ? 10 : (speed+delta_speed) // [0;10]
+      new_thaco= (thaco+delta_thaco)
+      new_damage= ( (damage+delta_damage) < 0 ) ? 0 : (damage+delta_damage) // [0;-)
+
+      WRITE_SHORT off+0x12 new_speed
+      WRITE_SHORT off+0x14 new_thaco
+      WRITE_SHORT off+0x16 new_size
+      WRITE_SHORT off+0x18 new_dice
+      WRITE_SHORT off+0x1a new_damage
+
+      PATCH_IF reupdate=1 BEGIN // update description only once
+        reupdate=0
+        SPRINT text_update wc_update
+        LPM update_item_descriptions
+      END
+    END
+
+  END
+END
+
+/////////////////////////////////////////////////////
+// Main description update macro
+
+// enable logging
+<<<<<<<<ag#dummy
+
+
+>>>>>>>>
+COPY ~ag#dummy~ ~item_rev/debug/weapon_changes.log~
+
+DEFINE_PATCH_MACRO wc_update BEGIN
+  SPRINT colon @100100
+
+  // speed factor
+  PATCH_IF delta_speed !=0 || unid_delta_speed !=99 BEGIN // SF was changed
+    PATCH_IF index=0x50 BEGIN
+      nspeed=unid_old_speed + ((unid_delta_speed !=99) ? unid_delta_speed : delta_speed)
+        nspeed=(nspeed<0) ? 0 : (nspeed>10) ? 10 : nspeed
+      ospeed=unid_old_speed
+    END ELSE BEGIN
+      nspeed=new_speed
+      ospeed=speed
+    END
+
+    linenum=0
+    SPRINT t1 @100101
+    REPLACE_EVALUATE ~%t1%~ BEGIN // main speed factor line
+      log=0
+      linenum+=1
+      SPRINT line ~%MATCH1%~
+      PATCH_IF linenum=update_line BEGIN
+        INNER_PATCH_SAVE line ~%line%~ BEGIN
+          once=0
+          REPLACE_EVALUATE ~%ospeed%~ BEGIN
+            PATCH_IF once=0 BEGIN
+              ospeed=nspeed
+              once=1
+              log=1
+            END
+          END ~%ospeed%~
+        END
+      END
+      PATCH_IF log=0 BEGIN
+        INNER_ACTION BEGIN
+          APPEND_OUTER ~item_rev/debug/weapon_changes.log~ ~%SOURCE_RES%   - Speed Factor (%index%)~
+        END
+      END
+    END ~%line%~
+
+  END
+
+
+  // thaco
+  PATCH_IF delta_thaco !=0 || unid_delta_thaco !=99 BEGIN // thaco was changed
+    PATCH_IF index=0x50 BEGIN
+      nthaco=unid_old_thaco + ((unid_delta_thaco !=99) ? unid_delta_thaco : delta_thaco)
+      othaco=unid_old_thaco
+    END ELSE BEGIN
+      nthaco=((id_old_thaco !=99) ? id_old_thaco : thaco) + delta_thaco
+      othaco=((id_old_thaco !=99) ? id_old_thaco : thaco)
+    END
+
+    PATCH_IF othaco>0 BEGIN
+      SPRINT old_line @100102 // ~+1 bonus~
+    END
+    PATCH_IF othaco<0 BEGIN
+      SPRINT old_line @100103 // ~-1 penalty~
+    END
+    PATCH_IF nthaco>0 BEGIN
+      SPRINT new_line @100104
+    END
+    PATCH_IF nthaco<0 BEGIN
+      SPRINT new_line @100105
+    END
+
+    linenum=0
+    exists=0
+    SPRINT t1 @100106
+    REPLACE_EVALUATE ~%t1%~ BEGIN // main thaco line
+      log=0
+      exists=1
+      linenum+=1
+      SPRINT line ~%MATCH1%~
+      PATCH_IF linenum=update_line BEGIN
+        INNER_PATCH_SAVE line ~%line%~ BEGIN
+          PATCH_IF othaco !=0 && nthaco !=0 BEGIN
+            once=0
+            REPLACE_EVALUATE ~%old_line%~ BEGIN // only replace the first match of ~THAC0: +2, +2 vs undead~
+              PATCH_IF once=0 BEGIN
+                TEXT_SPRINT old_line ~%new_line%~
+                once=1
+                log=1
+              END
+            END ~%old_line%~
+          END
+          PATCH_IF othaco !=0 && nthaco=0 BEGIN
+            SPRINT t1 @100107
+            SPRINT t2 @100108
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          PATCH_IF othaco=0 && nthaco !=0 BEGIN
+            SPRINT t1 @100109
+            SPRINT t2 @100110
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          // "thaco=0 && new_thaco=0" is already covered by "delta_thaco !=0" in the main thaco condition
+        END
+        PATCH_IF nthaco=0 BEGIN
+          SPRINT t1 @100111
+          PATCH_IF ~%line%~ STRING_CONTAINS_REGEXP ~%t1%~ BEGIN // there're no numbers left after deleting old thaco
+            SPRINT line ~~
+          END
+        END
+      END
+      PATCH_IF log=0 BEGIN
+        INNER_ACTION BEGIN
+          APPEND_OUTER ~item_rev/debug/weapon_changes.log~ ~%SOURCE_RES%   - THACO (%index%)~
+        END
+      END
+    END ~%line%~
+
+    PATCH_IF exists=0 && nthaco !=0 BEGIN
+      SPRINT t1 @100112
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%t1%~) = 0 BEGIN
+        SPRINT t2 @100113
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END ELSE BEGIN
+        SPRINT t1 @100114
+        SPRINT t2 @100115
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END
+    END
+
+  END
+
+
+  // damage
+  PATCH_IF new_dice !=dice || new_size !=size || delta_damage !=0 ||
+           unid_new_dice !=99 || unid_new_size !=99 || unid_delta_damage !=99 BEGIN // damage was changed
+    PATCH_IF index=0x50 BEGIN
+      ndamage=unid_old_damage + ((unid_delta_damage !=99) ? unid_delta_damage : delta_damage)
+        ndamage=(ndamage<0) ? 0 : ndamage
+      odamage=unid_old_damage
+      nsize=(unid_new_size !=99) ? unid_new_size : new_size
+      osize=unid_old_size
+      ndice=(unid_new_dice !=99) ? unid_new_dice : new_dice
+      odice=unid_old_dice
+    END ELSE BEGIN
+      ndamage=new_damage
+      odamage=damage
+      nsize=new_size
+      osize=size
+      ndice=new_dice
+      odice=dice
+    END
+
+    PATCH_IF (odice !=0 && osize !=0) && odamage !=0 BEGIN
+      SPRINT old_line @100116
+    END
+    PATCH_IF (odice !=0 && osize !=0) && odamage=0 BEGIN
+      SPRINT old_line @100117
+    END
+    PATCH_IF (odice=0 || osize=0) && odamage>0 BEGIN
+      SPRINT old_line @100118
+    END
+    PATCH_IF (odice=0 || osize=0) && odamage<0 BEGIN
+      SPRINT old_line @100119
+    END
+    PATCH_IF (ndice !=0 && nsize !=0) && ndamage !=0 BEGIN
+      SPRINT new_line @100120
+    END
+    PATCH_IF (ndice !=0 && nsize !=0) && ndamage=0 BEGIN
+      SPRINT new_line @100121
+    END
+    PATCH_IF (ndice=0 || nsize=0) && ndamage>0 BEGIN
+      SPRINT new_line @100122
+    END
+    PATCH_IF (ndice=0 || nsize=0) && ndamage<0 BEGIN
+      SPRINT new_line @100123
+    END
+
+    linenum=0
+    exists=0
+    SPRINT t1 @100124
+    REPLACE_EVALUATE ~%t1%~ BEGIN // main damage line
+      log=0
+      exists=1
+      linenum+=1
+      SPRINT line ~%MATCH1%~
+      PATCH_IF linenum=update_line BEGIN
+        INNER_PATCH_SAVE line ~%line%~ BEGIN
+          PATCH_IF ((odice !=0 && osize !=0) || odamage !=0) && ((ndice !=0 && nsize !=0) || ndamage !=0) BEGIN // old !=0, new !=0
+            once=0
+            REPLACE_EVALUATE ~%old_line%~ BEGIN // only replace the first match of ~Damage: 2, +2 fire~
+              PATCH_IF once=0 BEGIN
+                TEXT_SPRINT old_line ~%new_line%~
+                once=1
+                log=1
+              END
+            END ~%old_line%~
+          END
+          PATCH_IF ((odice !=0 && osize !=0) || odamage !=0) && ((ndice=0 || nsize=0) && ndamage=0) BEGIN // old !=0, new=0
+            SPRINT t1 @100125
+            SPRINT t2 @100126
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          PATCH_IF ((odice=0 && osize=0) && odamage=0) && ((ndice !=0 && nsize !=0) || ndamage !=0) BEGIN // old=0, new !=0
+            SPRINT t1 @100127
+            SPRINT t2 @100128
+            REPLACE_EVALUATE ~%t1%~ BEGIN
+              SPRINT col ~%MATCH1%~
+              log=1
+            END ~%t2%~
+          END
+          // "new damage=0 && old damage=0" is already covered by "delta damage !=0" in the main damage condition
+        END
+        PATCH_IF ((ndice=0 || nsize=0) && ndamage=0) BEGIN // new=0
+          SPRINT t1 @100111
+          PATCH_IF ~%line%~ STRING_CONTAINS_REGEXP ~%t1%~ BEGIN // there're no numbers left after deleting old damage
+            SPRINT line ~~
+          END
+        END
+      END
+      PATCH_IF log=0 BEGIN
+        INNER_ACTION BEGIN
+          APPEND_OUTER ~item_rev/debug/weapon_changes.log~ ~%SOURCE_RES%   - Damage (%index%)~
+        END
+      END
+    END ~%line%~
+
+    PATCH_IF exists=0 && ((ndice !=0 && nsize !=0) || ndamage !=0) BEGIN
+      SPRINT t1 @100114
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~%t1%~) = 0 BEGIN
+        SPRINT t2 @100129
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END ELSE BEGIN
+        SPRINT t1 @100130
+        SPRINT t2 @100131
+        REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+      END
+    END
+
+  END
+
+
+END
+
+/////////////////////////////////////////////////////
+// Actual patching
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+//COPY_EXISTING bow01.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+  PATCH_INCLUDE ~item_rev/lib/identify_weapon.tpa~
+  READ_LONG  0x60 ench
+
+  PATCH_MATCH 1 WITH
+
+/*
+    
+    BEGIN
+      SPRINT macro ~wc_~ LPM wc_patch
+    END
+*/
+/*
+    dagger
+    BEGIN
+      SPRINT macro ~wc_dagger~ LPM wc_patch
+    END
+*/
+/*
+    short_sword
+    BEGIN
+      SPRINT macro ~wc_short_sword~ LPM wc_patch
+    END
+*/
+/*
+    long_sword
+    BEGIN
+      SPRINT macro ~wc_long_sword~ LPM wc_patch
+    END
+*/
+
+    scimitar
+    BEGIN
+  //    SPRINT macro ~wc_scimitar~ LPM wc_patch
+
+  //    LPF ADD_ITEM_EQEFFECT INT_VAR opcode=301 target=1 timing=2 parameter1=1 END // +5% crit chance
+      SPRINT text_update scimitar_prof
+      LPM update_item_descriptions
+    END
+
+
+    battleaxe
+    BEGIN
+      SPRINT macro ~wc_battleaxe~ LPM wc_patch
+    END
+
+
+    bastard_sword
+    BEGIN
+      SPRINT macro ~wc_bastard_sword~ LPM wc_patch
+    END
+
+
+    ninjato
+    BEGIN
+      SPRINT macro ~wc_ninjato~ LPM wc_patch
+
+      WRITE_BYTE 0x31 0x5b
+      SPRINT text_update wc_slash_to_pierce
+      LPM update_item_descriptions
+    END
+
+
+    wakizashi
+    BEGIN
+      SPRINT macro ~wc_wakizashi~ LPM wc_patch
+
+      WRITE_BYTE 0x31 0x5e
+      SPRINT text_update katana_waki_prof
+      LPM update_item_descriptions
+      SPRINT text_update wc_pierce_to_slash
+      LPM update_item_descriptions
+    END
+
+
+    katana
+    BEGIN
+      SPRINT macro ~wc_katana~ LPM wc_patch
+
+      SPRINT text_update katana_waki_prof
+      LPM update_item_descriptions
+    END
+
+
+    club
+    BEGIN
+      SPRINT macro ~wc_club~ LPM wc_patch
+    END
+
+
+    hammer
+    BEGIN
+      SPRINT macro ~wc_hammer~ LPM wc_patch
+    END
+
+
+    mace
+    BEGIN
+      SPRINT macro ~wc_mace~ LPM wc_patch
+
+      SPRINT text_update mace_morning_prof
+      LPM update_item_descriptions
+    END
+
+
+    morning_star
+    BEGIN
+      SPRINT macro ~wc_morning_star~ LPM wc_patch
+
+      WRITE_ASCII 0x22 ~MC~ (2)
+      WRITE_BYTE 0x31 0x65
+      SPRINT text_update wc_crush_to_crushpierce
+      LPM update_item_descriptions
+      SPRINT text_update mace_morning_prof
+      LPM update_item_descriptions
+    END
+
+
+    flail
+    BEGIN
+      SPRINT macro ~wc_flail~ LPM wc_patch
+
+      SPRINT text_update wc_crush_to_crushpierce
+      LPM update_item_descriptions
+      SPRINT text_update flail_prof
+      LPM update_item_descriptions
+    END
+
+/*
+    staff
+    BEGIN
+      SPRINT macro ~wc_staff~ LPM wc_patch
+    END
+*/
+
+    spear
+    BEGIN
+      SPRINT macro ~wc_spear~ LPM wc_patch
+    END
+
+
+    halberd
+    BEGIN
+      SPRINT macro ~wc_halberd~ LPM wc_patch
+    END
+
+
+    twohanded_sword
+    BEGIN
+      SPRINT macro ~wc_twohanded_sword~ LPM wc_patch
+    END
+
+/*
+    dart
+    BEGIN
+      SPRINT macro ~wc_dart~ LPM wc_patch
+    END
+*/
+
+    handaxe
+    BEGIN
+      SPRINT macro ~wc_handaxe~ LPM wc_patch
+    END
+
+/*
+    sling
+    BEGIN
+      SPRINT macro ~wc_sling~ LPM wc_patch
+    END
+*/
+
+
+    short_bow
+    BEGIN
+      SPRINT macro ~wc_short_bow~ LPM wc_patch
+
+      GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+      PHP_EACH global AS ind => res BEGIN
+        PATCH_IF (SHORT_AT res)=1 BEGIN // ApR modifier
+          WRITE_LONG res+0x4 (THIS>1 && THIS<6) ? (THIS+5) : (THIS>6 && THIS<11) ? (THIS - 6) : THIS // if ApR>1
+        END
+      END
+    END
+
+
+    long_bow
+    BEGIN
+      SPRINT macro ~wc_long_bow~ LPM wc_patch
+
+      GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+      PHP_EACH global AS ind => res BEGIN
+        PATCH_IF (SHORT_AT res)=1 BEGIN // ApR modifier
+          WRITE_LONG res+0x4 (THIS>1 && THIS<6) ? (THIS+5) : (THIS>6 && THIS<11) ? (THIS - 6) : THIS // if ApR>1
+        END
+      END
+    END
+
+
+    comp_long_bow
+    BEGIN
+      SPRINT macro ~wc_comp_long_bow~ LPM wc_patch
+
+      GET_OFFSET_ARRAY global ITM_V10_GEN_EFFECTS
+      PHP_EACH global AS ind => res BEGIN
+        PATCH_IF (SHORT_AT res)=1 BEGIN // ApR modifier
+          WRITE_LONG res+0x4 (THIS>1 && THIS<6) ? (THIS+5) : (THIS>6 && THIS<11) ? (THIS - 6) : THIS // if ApR>1
+        END
+      END
+    END
+
+
+    light_xbow
+    BEGIN
+      SPRINT macro ~wc_light_xbow~ LPM wc_patch
+    END
+
+
+    heavy_xbow
+    BEGIN
+      SPRINT macro ~wc_heavy_xbow~ LPM wc_patch
+    END
+
+  DEFAULT END
+
+
+  // arrow
+  PATCH_IF item=0x5 BEGIN
+    SPRINT macro ~wc_arrow~ LPM wc_patch
+  END
+
+
+  // bolt
+  PATCH_IF item=0x1f BEGIN
+    SPRINT macro ~wc_bolt~ LPM wc_patch
+  END
+
+
+  // bullet
+  PATCH_IF item=0xe BEGIN
+    SPRINT macro ~wc_bullet~ LPM wc_patch
+  END
+
+
+END BUT_ONLY
+
+/////////////////////////////////////////////////////
+

@@ -1,0 +1,80 @@
+// requires, single_col and multi_col, the column numbers containing ie. the Fighter and Fighter/Cleric information respectively
+DEFINE_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~ BEGIN
+  SET temp = 0
+  SET max_stars = 0
+  
+  // determine how many stars this multiclass can put in weapons (especially important for warrior multi-classes and those affected by the multi-class grandmastery component of tweak pack) 
+  FOR (i = 3; i < 31; i += 1) BEGIN
+    READ_2DA_ENTRY i multi_col 1 temp
+    PATCH_IF (temp > max_stars) BEGIN
+      SET max_stars = temp
+    END
+  END
+  
+  // give max_stars in a proficiency if the single class can put more points in it than the multi can (note for both loops: our indices should ensure we hit all the valid proficiencies and don't go into weapon style territory)
+  FOR (i = 3; i < 31; i += 1) BEGIN
+    READ_2DA_ENTRY i single_col 1 single_stars
+    READ_2DA_ENTRY i multi_col 1 multi_stars
+    PATCH_IF (single_stars > multi_stars) BEGIN
+      SET_2DA_ENTRY_LATER ~s2el_weapprof~ i multi_col ~%max_stars%~
+    END
+  END
+END
+
+// patch items to allow use
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_SHORT 0x1c item_type
+    READ_LONG  0x1e usabilities
+    READ_ASCII 0x22 animation (2)
+    PATCH_IF ((~%animation%~ STRING_COMPARE_REGEXP ~\(  \|[2-4][AW]\|D[1-4]\|c[0-6]\|H[0-6]\)~) != 0 || item_type == 0x05 || item_type == 0x0e || item_type == 0x18 || item_type == 0x1f) BEGIN // weapons and ammunition
+      PATCH_IF ((usabilities BAND 0b00000000000000000010000000000000) == 0b00000000000000000000000000000000) BEGIN // usable by f/m
+        SET usabilities = usabilities BAND 0b11111111111111110111111111111111 // make usable by f/m/c
+      END
+      PATCH_IF ((usabilities BAND 0b00000000000000000000100000000000) == 0b00000000000000000000000000000000) BEGIN // usable by f
+        SET usabilities = usabilities BAND 0b11111111111111111011111111111111 // make usable by f/c
+      END
+      PATCH_IF ((usabilities BAND 0b00000000010000000000000000000000) == 0b00000000000000000000000000000000) BEGIN // usable by t
+        SET usabilities = usabilities BAND 0b11111111111111111111110111111111 // make usable by c/t
+      END
+      PATCH_IF ((usabilities BAND 0b00000000001000000000000000000000) == 0b00000000000000000000000000000000) BEGIN // usable by r
+        SET usabilities = usabilities BAND 0b11111111111111111111101111111111 // make usable by c/r
+      END
+      PATCH_IF ((usabilities BAND 0b00000000000001000000000000000000) == 0b00000000000000000000000000000000) BEGIN // usable by m
+        SET usabilities = usabilities BAND 0b11111111111111111111111011111111 // make usable by c/m
+      END
+      WRITE_LONG 0x1e usabilities
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+// patch 2da to allow profiency points in those items
+COPY_EXISTING ~weapprof.2da~ ~override~
+  // cleric/mage
+  SET single_col = 4
+  SET multi_col = 17
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  // fighter/cleric
+  SET single_col = 5
+  SET multi_col = 13
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  // cleric/thief
+  SET single_col = 7
+  SET multi_col = 18
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+
+  // cleric/ranger
+  SET single_col = 11
+  SET multi_col = 21
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  // fighter/mage/cleric
+  SET single_col = 12
+  SET multi_col = 20
+  LAUNCH_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~
+  
+  SET_2DA_ENTRIES_NOW ~s2el_weapprof~ 1
+  
+  BUT_ONLY_IF_IT_CHANGES

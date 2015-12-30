@@ -1,0 +1,121 @@
+
+
+
+// Throwing Axe +2
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  SPRINT t1 @100144
+  SPRINT t2 @100145
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+COPY_EXISTING ax1h06.itm override
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x1a damage
+    PATCH_IF type=1 && damage=2 BEGIN
+      SPRINT text_update wc_pre_fix
+      LPM update_item_descriptions
+    END
+  END
+BUT_ONLY
+
+
+// Club of Detonation +5
+COPY_EXISTING blun27.itm override
+  READ_SHORT 0x1c item
+  READ_BYTE  0x31 prof
+  PATCH_IF prof=0x73 && item=0x17 BEGIN
+    WRITE_SHORT 0x1c 0x11 // change item type to mace
+  END  
+BUT_ONLY
+
+
+// Ice Star +4
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  SPRINT t1 @100151
+  SPRINT t2 @100152
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+COPY_EXISTING blun35.itm override
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x12 speed
+    PATCH_IF type=1 && speed=3 BEGIN
+      SPRINT text_update wc_pre_fix
+      LPM update_item_descriptions
+    END
+  END
+BUT_ONLY
+
+
+// Tuigan Bow +1
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  SPRINT t1 @100138
+  SPRINT t2 @100139
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+COPY_EXISTING bow14.itm override
+  SPRINT text_update wc_pre_fix
+  LPM update_item_descriptions
+BUT_ONLY
+
+
+// Blade of Roses +3
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  SPRINT t1 @100140
+  SPRINT t2 @100141
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+COPY_EXISTING sw1h40.itm override
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x16 size
+    READ_SHORT res+0x18 dice
+    PATCH_IF type=1 && size=8 && dice=1 BEGIN
+      SPRINT text_update wc_pre_fix
+      LPM update_item_descriptions
+    END
+  END
+BUT_ONLY
+
+
+// Angurvadal +4
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  SPRINT t1 @100153
+  SPRINT t2 @100154
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+COPY_EXISTING sw1h60.itm override
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x12 speed
+    PATCH_IF type=1 && speed=1 BEGIN
+      SPRINT text_update wc_pre_fix
+      LPM update_item_descriptions
+    END
+  END
+BUT_ONLY
+
+
+// Carsomyr +5
+DEFINE_PATCH_MACRO wc_pre_fix BEGIN
+  SPRINT t1 @100142
+  SPRINT t2 @100143
+  REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+END
+COPY_EXISTING sw2h10.itm override
+  GET_OFFSET_ARRAY header ITM_V10_HEADERS
+  PHP_EACH header AS ind => res BEGIN
+    READ_BYTE res type
+    READ_SHORT res+0x16 size
+    READ_SHORT res+0x18 dice
+    PATCH_IF type=1 && size=10 && dice=1 BEGIN
+      SPRINT text_update wc_pre_fix
+      LPM update_item_descriptions
+    END
+  END
+BUT_ONLY
+

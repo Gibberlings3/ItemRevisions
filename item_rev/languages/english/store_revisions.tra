@@ -1,0 +1,62 @@
+
+@200100 = ~Greetings, I am Joluv.  I have recently arrived from the island of Lantan.  It was a long sail, but I wanted to get the most value I could from the potions and mixtures I had traded up there.~
+@200101 = ~Hello there.  I've been watching you since you entered... I suspect I may have something you need.~
+@200102 = ~What is it that you have?~
+@200103 = ~Magical scrolls.  From an... independent supplier of mine, which is why they can go free of license taxes.~
+@200104 = ~Maliat~
+@200105 = ~Good business to you, my <LADYLORD>... Maliat bids you welcome to her humble establishment.  You are new to the Docks, yes?  Might I ask your name?~
+
+// these are unique names for vanilla stores, based on vendor's names or their dialogue lines
+@200106 = ~Humble Establishment~ // #22407, also set by @200105
+@200107 = ~Magic Emporium~ // #61544
+@200108 = ~Lantanese Mixtures~ // @200100
+@200109 = ~Mira's Potions~ // #23300
+@200110 = ~Arnolinus the Armorsmith~ // #23298
+@200111 = ~Maheer's Wares~ // #23302
+@200112 = ~Enge's Shop~ // #23307
+@200113 = ~Perter the Fletcher~ // #23542
+@200114 = ~Hes the Jeweller~ // #23571
+@200115 = ~Storekeep the Weaponsmith~ // #9408 :)
+@200117 = ~Caravan Master~
+@200118 = ~Jewelry Peddler~
+@200119 = ~Artifact Dealer~
+@200121 = ~Spell Store~
+@200122 = ~Jahaboam's Trinkets~ // #23638
+@200123 = ~Quite Legitimate Goods~ // #25856
+@200124 = ~Elence's Charms~ // #34749
+@200125 = ~Min the Gnome~ // #34752
+@200126 = ~Nature's Blessings~
+@200129 = ~Halfling Cutpurse~
+@200131 = ~Half-Orc Fence~
+@200133 = ~Shadow Thief Merchant~
+@200134 = ~Drow Weapon Dealer~
+@200135 = ~Drow Potion Dealer~
+@200136 = ~Drow Spell Dealer~
+
+// Order of the Radiant Heart store
+@200200 = ~Certainly, <CHARNAME>.~
+@200201 = ~Only members of the Order are allowed to use it's resources. Still, even though you are not of the Order, you serve our cause just as right. I feel it would be wrong to deny you in your time of need.~
+@200202 = ~Only members of the Order are allowed to use it's resources. Still, your devotion to the cause of good and just is unquestionable, so I feel it would be wrong to deny you in your time of need.~
+@200203 = ~I have heard good things about you, but Order's resources are reserved only for it's members. Unfortunately, I must decline your request.~
+@200204 = ~I wanted to ask if I may access some of the Order's equipment.~
+@200205 = ~Order of the Radiant Heart~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

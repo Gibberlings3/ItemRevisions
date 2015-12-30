@@ -1,0 +1,33 @@
+
+COPY_EXISTING kitlist.2da override
+  READ_2DA_ENTRY 3 4 9 desc
+  SET_2DA_ENTRY 3 4 9 ~kensai_bracer~
+  GET_STRREF desc kensai
+  INNER_PATCH_SAVE bracer ~%kensai%~ BEGIN
+    SPRINT t1 @100413
+    SPRINT t2 @100414
+    REPLACE_TEXTUALLY ~%t1%~ ~%t2%~
+  END
+  REPLACE ~kensai_bracer~ ~%bracer%~
+
+ACTION_FOR_EACH bracer IN
+  brac01 // Bracers of Defense AC 8
+  brac02 // Bracers of Defense AC 7
+  brac03 // Bracers of Defense AC 6
+  brac05 // Bracers
+  brac11 // Bracers of Binding
+  brac12 // Bracers
+  brac13 // Bracers of Defense AC 5
+  brac14 // Bracers of Defense AC 4
+  brac15 // Bracers of Defense AC 3
+  brac16 // Bracers of Blinding Strike
+  brac26 // Tzu-Zan's Bracers
+BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%bracer%.itm~ BEGIN
+    COPY_EXISTING ~%bracer%.itm~ override
+      PATCH_IF SOURCE_SIZE>0x71 BEGIN
+        WRITE_BYTE 0x2f (THIS & `4)
+      END
+  END
+END
+

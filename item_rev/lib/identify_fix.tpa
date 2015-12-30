@@ -1,0 +1,11 @@
+
+// Yamato +4
+COPY_EXISTING sw1h66.itm override
+  WRITE_ASCII 0x22 ~SS~ (2)
+BUT_ONLY
+
+
+// Usuno's Blade +4
+COPY_EXISTING sw1h66.itm override
+  WRITE_ASCII 0x22 ~S1~ (2)
+BUT_ONLY

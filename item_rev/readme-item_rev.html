@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>Item Revisions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="backup/g3readme.css" type="text/css" />
+    <link href="backup/g3icon.ico" rel="icon" type="image/bmp" />
+    <style type="text/css">
+      .red {color: #ff0000}
+      .blue {color: #0000ff}
+      .green {color: #007700}
+      li.spaced_item {margin-bottom: 15px}
+    </style>
+  </head>
+<body>
+<h1>Item Revisions</h1>
+<div class="section">
+  <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a>
+    <br />Authors: <a href="http://forums.gibberlings3.net/index.php?showuser=1419">Demivrgvs</a>, <a href="http://forums.gibberlings3.net/index.php?showuser=1412">Mike1072</a> and <a href="http://forums.gibberlings3.net/index.php?showuser=1269">Ardanis</a>
+    <br />On the web: <a href="http://www.gibberlings3.net/item_rev/">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showforum=157">discussion forum</a></strong>
+  </p>
+  <p><strong> Version 2 - <a href="http://www.gibberlings3.net/downloads/#item_rev">Check for the most recent version</a></strong>
+    <br /><strong>Languages: </strong>English
+    <br /><strong>Platforms: </strong>Windows, Mac OS X, and Linux
+  </p>
+</div>
+<h2>Notes</h2>
+<div class="section">
+  <p>Before installing <acronym title="Item Revisions">IR</acronym>, be sure to apply the latest hotfixes. They can be found <a href="http://forums.gibberlings3.net/index.php?showtopic=15698">here</a>, and should fix most problems reported in the current version of the mod.</p>
+</div>
+<h2>Overview</h2>
+<div class="section">
+  <p>Item Revisions aims to fix/tweak/enhance all items in Baldur's Gate II. Weaker items have been improved, overpowered ones have been (or will be) nerfed, many descriptions have been extended or replaced with more appropriate ones, and so on. In addition, there are a number of rule changes available that can be chosen individually as the user wishes.</p>
+</div>
+<h2>Compatibility</h2>
+<div class="section">
+  <p>
+    This mod has been designed to work with <acronym title="Baldur's Gate II">BG2</acronym>: Throne of Bhaal, and the main component requires it be installed. The mod has been tested and may be used with <acronym title="Baldur's Gate Trilogy">BGT</acronym>. The main component will not affect Tutu items at this time, but support is planned. Most other components should be fine on Tutu. Item Revisions should work well with most other <acronym title="Weimer Dialogue Utility">WeiDU</acronym> and non-<acronym title="Weimer Dialogue Utility">WeiDU</acronym> mods if proper install order is followed.
+    <br /><br />The main component of the mod overwrites existing items and descriptions, and should be installed prior to mods that patch those items. In the case where you'd prefer a file not be altered by <acronym title="Item Revisions">IR</acronym>, you have the option of disabling the specific item modification prior to installing the mod. Details on how to do so can be found in the Installation section below.
+    <br /><br />The other components of the mod have been designed to patch all items, and should be installed after all mods that add or replace items. Ideally, these components should be installed just after other tweak mods (near the very end of the install). Note that it is possible to install the main component only, exit the installer, install more mods, and then re-start the installer and install other components.
+    <br /><br />Items in <acronym title="Item Revisions">IR</acronym>'s main component come with their own descriptions, and a number of the optional components adjust description information by patching. It's important to note that there are a few tweak mods out there which completely overwrite existing item descriptions based on the assumption that they previously looked as they do in the vanilla game. If you are installing Item Revisions' main component, we recommend avoiding these mod components completely.
+    <br /><br /><strong>Mod Components Known to Overwrite Descriptions:</strong>
+  </p>
+  <ul>
+    <li>Ashes of Embers -> Sensible weapon restrictions for SoA (non-mod weapons) <sup></sup></li>
+    <li>Ashes of Embers -> Sensible weapon restrictions for ToB (non-mod weapons) <sup></sup></li>
+    <li>Ashes of Embers -> Sensible weapon restrictions for BG1Tutu <sup></sup></li>
+    <li>Ashes of Embers -> Throwing Spears <sup></sup></li>
+    <li>Unfinished Business -> Extended ToB Item Descriptions <sup>[1]</sup></li>
+  </ul>
+  <p>
+    <sup>[1]</sup> Already included in IR's main component.
+    <br /><br /><br /><em>The following information applies only to those installing Item Revisions' main component.</em>
+    <br /><br />The Visual Ioun Stones component from Ding0's Tweak Pack (d0tweak) should not be installed alongside <acronym title="Item Revisions">IR</acronym>'s main component because we've included WoRm's pretty ioun stone animations. Thanks, WoRm!
+    <br /><br />Regarding <acronym title="One Pixel Productions">1PP</acronym>: Erephine has kindly granted permission to use some of her artwork in our mod (including flaming swords!), and many items have been recoloured to look better and match their new lore.
+    <br /><br /><strong><acronym title="One Pixel Productions">1PP</acronym> Components Included:</strong>
+  </p>
+  <ul>
+    <li>V2 -> Everything but Potions (please don't try to install this after <acronym title="Item Revisions">IR</acronym>... bad things will happen)</li>
+    <li>V3 Paperdolls</li>
+    <li>Flaming Swords</li>
+    <li>Legacy <acronym title="Baldur's Gate">BG1</acronym> Buckler, Small Shield, and Medium Shield Animations</li>
+    <li>Helmets</li>
+    <li>Shields</li>
+  </ul>
+  <p><strong><acronym title="One Pixel Productions">1PP</acronym> Components Not Included:</strong></p>
+  <ul>
+    <li>V2 -> New Potion Graphics - <span class="green">fully compatible</span> (install after <acronym title="Item Revisions">IR</acronym>'s main component)</li>
+    <li>All Avatar Fixes - <span class="green">fully compatible</span></li>
+    <li>Attachable Wings - <span class="green">fully compatible</span></li>
+    <li>Colourable Quarterstaves - <span class="green">fully compatible</span> (install after <acronym title="Item Revisions">IR</acronym>'s main component)</li>
+    <li>Flaming Short Swords - <span class="green">fully compatible</span> (install after <acronym title="Item Revisions">IR</acronym>'s main component)</li>
+    <li>Thieves Galore - <span class="green">fully compatible</span> (install after <acronym title="Item Revisions">IR</acronym>'s main component)</li>
+  </ul>
+</div>
+<h2>Installation</h2>
+<div class="section">
+  <p><strong>Windows</strong>
+    <br />Item Revisions is packaged and installed with <acronym title="Weimer Dialogue Utility">WeiDU</acronym> and is distributed as a self-extracting archive. To install, simply double-click the archive and follow the instructions on screen. This method is not recommended when you wish to apply hotfixes, unless you quit from the WeiDU installer when it appears.
+  </p>
+  <p>Alternatively the files can be extracted from the archive using <a href="http://www.rarlab.com/">WinRAR</a>. If properly extracted, you should have an item_rev folder and setup-item_rev.exe in your <acronym title="Baldur's Gate II">BG2</acronym> folder. Any hotfixes should be applied at this point. To install, simply double-click setup-item_rev.exe and follow the instructions on screen.</p>
+  <p>Please run <strong>setup-item_rev.exe</strong> in your <acronym title="Baldur's Gate II">BG2</acronym> folder to reinstall, uninstall or otherwise change components.</p>
+  <p><strong>Mac OS X</strong>
+    <br /><em>If the mod was previously installed, uninstall it before extracting the new version.</em> Item Revisions is packaged and installed with <acronym title="Weimer Dialogue Utility">WeiDU</acronym>. To install, simply extract the contents of the mod into your <acronym title="Baldur's Gate II">BG2</acronym> folder. If properly extracted, you should have an item_rev folder, setup-item_rev, and setup-item_rev.command in your <acronym title="Baldur's Gate II">BG2</acronym> folder. Any hotfixes should be applied at this point. To install, simply double-click <strong>setup-item_rev.command</strong> and follow the instructions on screen.
+  </p>
+  <p><strong>Linux</strong>
+    <br />Extract the contents of the mod to the folder of the game you wish to modify. Any hotfixes should be applied at this point. Download the latest version of WeiDU for Linux from <a href="http://www.weidu.org/~thebigg "><acronym title="Weimer Dialogue Utility">WeiDU</acronym>.org</a> and copy WeiDU and WeInstall to /usr/bin. Following that, open a terminal and cd to your BG2 installation directory, run 'tolower' and answer Y to both queries. You can avoid running the second option (linux.ini) if you've already ran it once in the same directory. To save time, the archive is already tolowered, so there's no need to run the first option (lowercasing file names) either if you've extracted only this mod since the last time you lower cased file name. If you're unsure, running tolower and choosing both options is the safe bet.
+    <br /><br />Run <strong>WeInstall item_rev</strong> in your game folder to install the mod. Then run <strong>wine BGMain.exe</strong> and start playing.
+  </p>
+  <br />
+  <p><strong>How to Prevent Certain Items from Being Installed</strong>
+    <br />Note: this must be done before installing the mod. To disable a certain item, open the file <strong>item_rev/components/main_component.tpa</strong> with a text editor, search for the item in question and comment it out /* like so */. Anything inside the commented area will get skipped when installing. Here is an example for Carsomyr.
+    <br /><br />main_component.tpa - searching for 'Carsomyr' yields:
+    <br /><em>// Carsomyr +4
+    <br />COPY ~item_rev\itm\sw2h10.itm~      ~override\sw2h10.itm~
+    <br />SAY NAME1 @1760
+    <br />SAY NAME2 @2199
+    <br />SAY UNIDENTIFIED_DESC @1762
+    <br />SAY DESC @2200</em>
+    <br /><br />Adding the following will prevent the item from being installed:
+    <br /><em>// Carsomyr +4
+    <br /><span class="red">/* </span>COPY ~item_rev\itm\sw2h10.itm~      ~override\sw2h10.itm~
+    <br />SAY NAME1 @1760
+    <br />SAY NAME2 @2199
+    <br />SAY UNIDENTIFIED_DESC @1762
+    <br />SAY DESC @2200<span class="red"> */</span></em>
+    <br /><br />Congratulations, Carsomyr +4 will no longer be changed when you install the mod! But wait, doesn't Carsomyr have an upgrade in <acronym title="Throne of Bhaal">ToB</acronym>? To prevent that from being installed, you'd need to keep searching for Carsomyr and comment out the +5 version when you find it, too. If you have any questions or require assistance with any of the above, feel free to drop us a line in the <a href="http://forums.gibberlings3.net/index.php?showforum=157">forum</a>.
+  </p>
+</div>
+<h2>Contents</h2>
+<div class="section">
+  <p>The changes made by Item Revisions fall into two categories - individual and global. The main component of the mod will install all of the individual changes, like adding new abilities and lore to existing items. The other components of the mod are designed to provide rule changes to all items in the game, including those added by other mods.</p>
+  <h3>Main Component</h3>
+  <p><strong>Item Revisions by Demivrgvs</strong>
+    <br /><em>Any modifications made to items prior to installing this component will be overwritten.</em>
+    <br /><br />This component contains all of the changes made to specific items. Full item descriptions are available in  item_rev/languages/english/item_descriptions.tra and an overview is provided on the forums. Listed below are some of the philosophical changes.
+    <br /><strong>These items have been designed in tandem with other optional components, and may not be balanced without certain components installed. Components that are deemed recommended for balance when installing the main component will carry a red asterisk (<span class="red">*</span>). In cases where a component has multiple options, a blue asterisk (<span class="blue">*</span>) will be used for recommended options.</strong>
+  </p>
+  <ul>
+    <li class="spaced_item"><strong>Characteristics Set by Items</strong>
+      <br />Items that previously set character attributes to X now increase the base value by Y. This change is aimed to remove some exploits (like having characters with 3 charisma suddenly becoming more charismatic than Obama just by equipping a standard magic item), and to make characters' starting attributes more important.
+      <br /><br />
+      <ul>
+        <li>Items that previously set characteristics to 18 or 19 will now grant +2 instead, 20 to 21 are now +3, 22 to 23 are +4, and 24 to 25 become +5. </li>
+      </ul>
+    </li>
+    <li class="spaced_item"><strong>Sensible Prices</strong>
+      <br />I found the prices of items in vanilla <acronym title="Baldur's Gate II">BG2</acronym> to often be quite random, and I wanted to tie them to the actual value of the item. I've used the following table as a guideline to standardize item prices, adjusting it a little when needed.
+      <br />
+      <table>
+        <tr>
+          <th class="leftalign">Total Enchantment Bonus</th>
+          <th>Price</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td class="leftalign">Unenchanted</td>
+          <td>As Per <acronym title="Advanced Dungeons &amp; Dragons">AD&amp;D</acronym> 2nd Edition Player's Handbook</td>
+          <td>&nbsp;
+        </td></tr>
+        <tr>
+          <td class="leftalign">Masterwork</td>
+          <td>500gp</td>
+          <td>Daggers: Only 250gp</td>
+        </tr>
+        <tr>
+          <td class="leftalign">+1</td>
+          <td>1000gp</td>
+          <td>Regular Full Plate Is Treated as +1 Quality</td>
+        </tr>
+        <tr>
+          <td class="leftalign">+2</td>
+          <td>3000gp</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="leftalign">+3</td>
+          <td>5000gp</td>
+          <td>Stonefire as a +2 Axe with the Flaming Property Is Treated as +3 Quality</td>
+        </tr>
+        <tr>
+          <td class="leftalign">+4</td>
+          <td>7500gp</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="leftalign">+5</td>
+          <td>10000gp</td>
+          <td>And So On...</td>
+        </tr>
+      </table>
+      <ul>
+        <li>
+          Even the most powerful <acronym title="Shadows of Amn">SoA</acronym> items shouldn't have a total enchantment bonus greater than +5 or +6, except in rare cases.
+        </li>
+      </ul>
+    </li>
+    <li class="spaced_item"><strong>Effect of Charisma and Reputation on Store Prices</strong>
+      <br />Reputation will no longer provide any discount (most stores shouldn't even know charname's reputation, and it doesn't make sense that neutral or evil parties are so heavily penalized). Charisma will still give a small discount.
+      <br /><br />
+      <ul>
+        <li>
+          <acronym title="Charisma">CHR</acronym> 15/16 (-5%), <acronym title="Charisma">CHR</acronym> 17/18 (-10%), <acronym title="Charisma">CHR</acronym> 19/20 (-15%), <acronym title="Charisma">CHR</acronym> 21/22 (-20%), <acronym title="Charisma">CHR</acronym> 23/24 (-25%), <acronym title="Charisma">CHR</acronym> 25 (-30%).
+        </li>
+      </ul>
+    </li>
+    <li class="spaced_item"><strong>Sensible Lore System</strong>
+      <br />In my opinion, the lore system in the vanilla game was broken, having random lore values and allowing a level 10 bard to identify just about everything. I've changed both the lore table and the required lore to identify every item. The effect of intelligence and wisdom on lore is unchanged.
+      <br /><br />
+      <ul>
+        <li>Lore Table: Fighters/Paladins/Rangers (+1 lore/level), Clerics/Druids (+2 lore/level), Thieves/Blades (+3 lore/level), Mages (+4 lore/level), Bards (+6 lore/level). </li>
+        <li>Lore Required to Identify: Every item will require 10 lore per enchantment bonus, plus an additional 5, 10, or 15, depending on whether the item is common, rare, or unique. For example, Arrows +1 have a +1 bonus and are quite common, thus they will require 15 lore to be identified. </li>
+      </ul>
+    </li>
+
+  </ul>
+  <p><strong>Executable Patch (<span class="red">*</span>)</strong>
+    <br />Several changes made by the main component will not function properly without additional engine modification. This component has three options to choose from.
+    <ul>
+      <li><acronym title="Throne of Bhaal Extender">ToBEx</acronym> v20 (beta)</li>
+      <li>ToB_Hacks - Casting Level Modifier and Repeating EFF Fix (not compatible with <acronym title="Throne of Bhaal Extender">ToBEx</acronym>)</li>
+      <li>ToB_Hacks - Casting Level Modifier Fix (safe)</li>
+    </ul>
+    <br />The first option is the recommended one. If you are not comfortable with <acronym title="Throne of Bhaal Extender">ToBEx</acronym>'s beta state, you can instead install ToB Hacks (by Taimon) - the second option contains all necessary patches, but special care must be taken to not install it together with <acronym title="Throne of Bhaal Extender">ToBEx</acronym>, that may be a part of other mods. The third option is the safest - it doesn't conflict with <acronym title="Throne of Bhaal Extender">ToBEx</acronym>, but you may face an old engine bug, when equipping multiple items with regeneration or aura-like effects would result in only those with the highest frequency working (i.e. Ring of Regeneration will inhibit the regenerating effect of Pearly White Ioun Stone).
+  </p>
+
+  </ul>
+  <p><strong>Potion Revisions (<span class="red">*</span>)</strong>
+    <br />This component contains all of the changes made to potions.
+  </p>
+
+  </ul>
+  <p><strong>Masterwork Weapons</strong>
+    <br />Previously a mandatory part of the main component, this has been made optional due to player request. This component will replace many of the normal +1 weapons found in the game with masterwork versions. Masterwork weapons gain the +1 <acronym title="To Hit Armor Class 0">THAC0</acronym> bonus of +1 weapons, but not the +1 to damage, and are not effective against creatures only affected by magical weapons. This component may be installed at any time, though it is recommended to pair it with the main component.
+  </p>
+
+
+  <h3>Store Revisions</h3>
+  <p>The structure of this component may be a subject to change in future versions, with possibility of splitting it into several components.
+  <br /><br />Due to the nature of this component, it is conceptually incompatible with mods that add new items into vanilla stores. Nothing drastic will happen, though - you simply may discover that a merchant, who was supposed to sell scrolls, now also offers a sword, even if there is a blacksmith standing nearby.
+  <br /><br />At the moment this component is only fully compatible with Spell Revisions (main component), aTweaks (Expanded Tepmle Services component) and Rogue Rebalancing (Additional equipment for Thieves and Bards component) if installed after them.
+  <br /><br />Full documentation of changes is pending.
+  </p>
+  <p><strong>Store Revisions (<span class="red">*</span>)</strong>
+  <br />Changes made by this component can be grouped into five categories.
+    <ul>
+      <li class="spaced_item"><strong>Revised assortiment in stores</strong>
+        <br />Each shop offers more unique selection of goods, than they generally did in vanilla BG2. Some also have their price mark-up changed.
+      </li>
+      <li class="spaced_item"><strong>Re-allocation of lootable items</strong>
+        <br />Some potions and scrolls, as well as about three dozens of other items, are moved between crates, enemies and stores.
+      </li>
+      <li class="spaced_item"><strong>More scrolls with divine spells</strong>
+        <br />Following divine spells may be cast from scrolls.
+        <br /><br />
+        <ul>
+          <li>Bless</li>
+          <li>Sanctuary</li>
+          <li>Armor of Faith</li>
+          <li>Chant</li>
+          <li>Find Traps</li>
+          <li>Silence</li>
+          <li>Draw Upon Holy Might</li>
+          <li>Dispel Magic</li>
+          <li>Glyph of Warding</li>
+          <li>Remove Curse</li>
+          <li>Remove Paralysis</li>
+          <li>Holy Smite</li>
+          <li>Unholy Blight</li>
+          <li>Magic Resistance</li>
+          <li>Mass Cure</li>
+          <li>Aerial Servant</li>
+          <li>Blade Barrier</li>
+          <li>Heal</li>
+          <li>Bolt of Glory</li>
+          <li>Fire Storm</li>
+          <li>Sunray</li>
+          <li>Regeneration</li>
+          <li>True Sight</li>
+        </ul>
+      </li>
+      <li class="spaced_item"><strong>Re-ordering of items by their type in stores</strong>
+        <br />Items will be ordered by their type and, to certain extent, enchantment level.
+      </li>
+      <li class="spaced_item"><strong>Revised temple services</strong>
+        <br />Temples will offer spells more suitable to their deities.
+      </li>
+    </ul>
+  </p>
+
+
+  <h3>Global Changes </h3>
+  <p>These components are designed to affect all items in game, and should be installed after other mods that add items.</p>
+
+  <p><strong>Allow Spellcasting in Armor (<span class="red">*</span>)</strong>
+    <br />Normally armor prevents casting of arcane spells. This component removes this limitation.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize shields and armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+    <ul><strong>With a Chance of Arcane Casting Failure (<span class="blue">*</span>)</strong>
+    <br />This option allows those arcane spellcasters who can equip armor to be able to cast spells in them, albeit with a chance of failing miserably. The following table elaborates on the penalties.
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Shield</th>
+      <th>Chance of Arcane Casting Failure</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Buckler</td>
+      <td>5%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Small Shield </td>
+      <td>5%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Medium Shield</td>
+      <td>15%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Large Shield </td>
+      <td>50%</td>
+    </tr>
+    <tr>
+      <th class="leftalign">Armor</th>
+      <th>Chance of Arcane Casting Failure</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Leather Armor</td>
+      <td>10%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Studded Leather</td>
+      <td>15%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Hide Armor</td>
+      <td>20%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Chain Mail</td>
+      <td>30%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Splint Mail</td>
+      <td>40%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Plate Mail</td>
+      <td>40%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Full Plate Armor</td>
+      <td>50%</td>
+    </tr>
+    <tr>
+      <th class="leftalign">Special Types of Armor</th>
+      <th>Chance of Arcane Casting Failure is Reduced by</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Scales</td>
+      <td>-10%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Mithral</td>
+      <td>-20%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Elven-crafted</td>
+      <td>-30%</td>
+    </tr>
+  </table>
+  <p><strong>With Casting Speed Penalties for Arcane Casters (<span class="blue">*</span>)</strong>
+    <br />This option allows those arcane spellcasters who can equip armor to be able to cast spells in them, albeit at a slower rate than normal. To give a little overview, a spellcaster can cast only 1 spell per round (in most circumstances), but those spells have a casting time that denotes how much of the round it takes between starting to cast the spell and witnessing its effect. The default spells usually have a casting time between 1 and 10. 10 is a full round, while 1 is near-instantaneous. This option will increase the casting time of all spells while equipping armor and shields by the values indicated in the table below. <strong>Due to engine limitations, this causes innate abilities and divine spells (in case of cleric/mages and fighter/mage/clerics) to suffer the same penalty.</strong> Feedback on balancing this component would be appreciated.
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Shield</th>
+      <th>Casting Time Penalty</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Buckler</td>
+      <td>+1</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Small Shield </td>
+      <td>+1</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Medium Shield</td>
+      <td>+2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Large Shield </td>
+      <td>+3</td>
+    </tr>
+    <tr>
+      <th class="leftalign">Armor</th>
+      <th>Casting Time Penalty</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Leather Armor</td>
+      <td>+2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Studded Leather</td>
+      <td>+2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Hide Armor</td>
+      <td>+2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Chain Mail</td>
+      <td>+3</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Splint Mail</td>
+      <td>+3</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Plate Mail</td>
+      <td>+4</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Full Plate Armor</td>
+      <td>+4</td>
+    </tr>
+    <tr>
+      <th class="leftalign">Special Types of Armor</th>
+      <th>Casting Time Penalty is Reduced by</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Scales</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Mithral</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Elven-crafted</td>
+      <td>-3</td>
+    </tr>
+  </table>
+  <p><strong>With Casting Speed Penalties for All Casters</strong>
+    <br />This option allows those arcane spellcasters who can equip armor to be able to cast spells in them, albeit at a slower rate than normal. In addition, it causes divine casters to suffer the same casting speed penalties as their arcane brethren while equipping armor and shields. To give a little overview, a spellcaster can cast only 1 spell per round (in most circumstances), but those spells have a casting time that denotes how much of the round it takes between starting to cast the spell and witnessing its effect. The default spells usually have a casting time between 1 and 10. 10 is a full round, while 1 is near-instantaneous. This option will increase the casting time of all spells while equipping armor and shields by the values indicated in the table above. <strong>Due to engine limitations, this causes innate abilities to suffer the same penalty.</strong> Feedback on balancing this component would be appreciated.
+  </p>
+  <p><strong>Without Penalties</strong>
+    <br />This one's for the cheaters.
+  </p>
+  </ul>
+
+  <p><strong>Heavy Armor Encumbrance (<span class="red">*</span>)</strong>
+    <br />This component applies penalties to characters wearing heavier types of armor. There are seven options that allow to select the desired combination of movement speed, dexterity and attack speed factor penalties.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+  <ul>
+  <p><strong>Movement Speed, Dexterity and Speed Factor Penalties (<span class="blue">*</span>)</strong>
+    <br />This option applies a reduction to movement speed, dexterity and speed factor while wearing heavy armor. The following table elaborates on the penalties.
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Armor</th>
+      <th>Movement Speed Penalty</th>
+      <th>Dexterity Penalty</th>
+      <th>Speed Factor Penalty</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Leather Armor</td>
+      <td>0%</td>
+      <td>0%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Studded Leather</td>
+      <td>0%</td>
+      <td>0%</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Hide Armor</td>
+      <td>10%</td>
+      <td>0%</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Chain Mail</td>
+      <td>10%</td>
+      <td>5%</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Splint Mail</td>
+      <td>20%</td>
+      <td>10%</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Plate Mail</td>
+      <td>20%</td>
+      <td>10%</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Full Plate Armor</td>
+      <td>30%</td>
+      <td>15%</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th class="leftalign">Special Types of Armor</th>
+      <th>Movement Speed Penalty is Reduced by</th>
+      <th>Dexterity Penalty is Reduced by</th>
+      <th>Speed Factor Penalty is Reduced by</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Scales</td>
+      <td>-10%</td>
+      <td>-5%</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Mithral</td>
+      <td>-10%</td>
+      <td>-5%</td>
+      <td>-2</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Elven-crafted</td>
+      <td>-20%</td>
+      <td>-10%</td>
+      <td>-3</td>
+    </tr>
+  </table>
+  <p><strong>Movement Speed and Dexterity Penalties (<span class="blue">*</span>)</strong>
+    <br />This option applies a reduction to movement speed and dexterity while wearing heavy armor. The previous table elaborates on the penalties.
+  </p>
+  <p><strong>Movement Speed and Speed Factor Penalties</strong>
+    <br />This option applies a reduction to movement speed and speed factor while wearing heavy armor. The previous table elaborates on the penalties.
+  </p>
+  <p><strong>Dexterity and Speed Factor Penalties (<span class="blue">*</span>)</strong>
+    <br />This option applies a reduction to dexterity and speed factor while wearing heavy armor. The previous table elaborates on the penalties.
+  </p>
+  <p><strong>Movement Speed</strong>
+    <br />This option applies a reduction to movement speed while wearing heavy armor. The previous table elaborates on the penalties.
+  </p>
+  <p><strong>Dexterity Penalties (<span class="blue">*</span>)</strong>
+    <br />This option applies a reduction to dexterity while wearing heavy armor. The previous table elaborates on the penalties.
+  </p>
+  <p><strong>Speed Factor Penalties</strong>
+    <br />This option applies a reduction to speed factor while wearing heavy armor. The previous table elaborates on the penalties.
+  </p>
+  </ul>
+
+  <p><strong>Allow Thieving Skills in Armor (<span class="red">*</span>)</strong>
+    <br />This component allows the use of all thieving skills in all armors, but with a penalty to the Move Silently and Hide skills (denoted in-game as a Stealth penalty). The following table elaborates on the penalties.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Armor</th>
+      <th>Move Silently Penalty</th>
+      <th>Hide Penalty</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Leather Armor</td>
+      <td>0%</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Studded Leather</td>
+      <td>20%</td>
+      <td>20%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Hide Armor</td>
+      <td>30%</td>
+      <td>30%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Chain Mail</td>
+      <td>40%</td>
+      <td>40%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Splint Mail</td>
+      <td>50%</td>
+      <td>50%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Plate Mail</td>
+      <td>60%</td>
+      <td>60%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Full Plate Armor</td>
+      <td>80%</td>
+      <td>80%</td>
+    </tr>
+    <tr>
+      <th class="leftalign">Special Types of Armor</th>
+      <th>Move Silently Penalty is Reduced by</th>
+      <th>Hide Penalty is Reduced by</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Scales</td>
+      <td>-10%</td>
+      <td>-10%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Made from Mithral</td>
+      <td>-30%</td>
+      <td>-30%</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Elven-crafted</td>
+      <td>-30%</td>
+      <td>-30%</td>
+    </tr>
+  </table>
+
+  <p><strong>Revised Armor Bonuses (<span class="red">*</span>)</strong>
+    <br />This component changes the hidden <acronym title="Armor Class">AC</acronym> bonuses vs different weapon types.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize armors into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a  href="http://forums.gibberlings3.net/index.php?showforum=157">here</a> and include whether you have installed the main <acronym title="Item Revisions">IR</acronym> component or not.</em>
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Armor</th>
+      <th>Old <acronym title="Armor Class">AC</acronym> Bonus vs Slashing</th>
+      <th>Old <acronym title="Armor Class">AC</acronym> Bonus vs Piercing</th>
+      <th>Old <acronym title="Armor Class">AC</acronym> Bonus vs Crushing</th>
+      <th>Old <acronym title="Armor Class">AC</acronym> Bonus vs Missiles</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Leather</th>
+      <td>&nbsp;</th>
+      <td>+2</th>
+      <td>&nbsp;</th>
+      <td>+2</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Studded Leather</th>
+      <td>-2</th>
+      <td>-1</th>
+      <td>&nbsp;</th>
+      <td>-1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Hide Armor</th>
+      <td>&nbsp;</th>
+      <td>+2</th>
+      <td>&nbsp;</th>
+      <td>+2</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Chain Mail</th>
+      <td>-2</th>
+      <td>&nbsp;</th>
+      <td>+2</th>
+      <td>&nbsp;</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Splint Mail</th>
+      <td>&nbsp;</th>
+      <td>-1</th>
+      <td>-2</th>
+      <td>-1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Plate Mail</th>
+      <td>-3</th>
+      <td>&nbsp;</th>
+      <td>&nbsp;</th>
+      <td>&nbsp;</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Full Plate Armor</th>
+      <td>-4</th>
+      <td>-3</th>
+      <td>&nbsp;</th>
+      <td>-3</th>
+    </tr>
+    <tr>
+      <th class="leftalign">Armor</th>
+      <th>New <acronym title="Armor Class">AC</acronym> Bonus vs Slashing</th>
+      <th>New <acronym title="Armor Class">AC</acronym> Bonus vs Piercing</th>
+      <th>New <acronym title="Armor Class">AC</acronym> Bonus vs Crushing</th>
+      <th>New <acronym title="Armor Class">AC</acronym> Bonus vs Missiles</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Leather</th>
+      <td>&nbsp;</th>
+      <td>+1</th>
+      <td>-1</th>
+      <td>+1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Studded Leather</th>
+      <td>-2</th>
+      <td>-1</th>
+      <td>+1</th>
+      <td>-1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Hide Armor</th>
+      <td>&nbsp;</th>
+      <td>+1</th>
+      <td>-1</th>
+      <td>+1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Chain Mail</th>
+      <td>-2</th>
+      <td>-1</th>
+      <td>+1</th>
+      <td>-1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Splint Mail</th>
+      <td>-1</th>
+      <td>&nbsp;</th>
+      <td>-2</th>
+      <td>&nbsp;</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Plate Mail</th>
+      <td>-2</th>
+      <td>-1</th>
+      <td>&nbsp;</th>
+      <td>-1</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Full Plate Armor</th>
+      <td>-3</th>
+      <td>-2</th>
+      <td>&nbsp;</th>
+      <td>-2</th>
+    </tr>
+  </table>
+
+  <p><strong>Revised Shield Bonuses (<span class="red">*</span>)</strong>
+    <br />This component changes the base stats of all shields.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list to categorize shields into their proper type. If you find an item that appears unaffected by this change, or miscategorized, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Shield</th>
+      <th>Old <acronym title="Armor Class">AC</acronym> Bonus</th>
+      <th>New <acronym title="Armor Class">AC</acronym> Bonus</th>
+      <th>Old Abilities</th>
+      <th>New Abilities</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Buckler</td>
+      <td>1</td>
+      <td>1</td>
+      <td>No Missile/Piercing Protection</td>
+      <td>No Missile Protection</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Small Shield</td>
+      <td>1</td>
+      <td>1</td>
+      <td>No Missile Protection</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Medium Shield</td>
+      <td>1</td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>-1 <acronym title="To Hit Armor Class 0">THAC0</acronym></td>
+    </tr>
+    <tr>
+      <td class="leftalign">Large Shield</td>
+      <td>1</td>
+      <td>3</td>
+      <td>+1 vs. Missile Weapons</td>
+      <td>+2 vs. Missile Weapons and -2 <acronym title="To Hit Armor Class 0">THAC0</acronym></td>
+    </tr>
+  </table>
+
+  <p><strong>Dual Wielding Changes for Light and Heavy Weapons (<span class="red">*</span>)</strong> <br />
+    This component alters the penalties for dual-wielding by assigning off-hand <acronym title="To Hit Armor Class 0">THAC0</acronym> bonuses and penalties to all weapons based on their size/weight. Daggers, short swords, wakizashis, ninja-tos, clubs and handaxes are considered light and give a +1 bonus to off-hand <acronym title="To Hit Armor Class 0">THAC0</acronym>. Bastard swords, flails, katanas and battleaxes are considered heavy and give a -1 penalty to off-hand <acronym title="To Hit Armor Class 0">THAC0</acronym>. All other melee weapons are classified as medium and have no bonuses or penalties. The table below summarizes the main hand/off-hand <acronym title="To Hit Armor Class 0">THAC0</acronym> results.
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Points in Two Weapon Style</th>
+      <th>Light/Light</th>
+      <th>Light/Medium</th>
+      <th>Medium/Medium</th>
+      <th>Light/Heavy</th>
+      <th>Medium/Heavy</th>
+      <th>Heavy/Heavy</th>
+    </tr>
+    <tr>
+      <td class="leftalign">0</td>
+      <td>-4/-6</td>
+      <td>-4/-7</td>
+      <td>-4/-8</td>
+      <td>-4/-8</td>
+      <td>-4/-9</td>
+      <td>-4/-10</td>
+    </tr>
+    <tr>
+      <td class="leftalign">1</td>
+      <td>-2/-4</td>
+      <td>-2/-5</td>
+      <td>-2/-6</td>
+      <td>-2/-6</td>
+      <td>-2/-7</td>
+      <td>-2/-8</td>
+    </tr>
+    <tr>
+      <td class="leftalign">2</td>
+      <td>0/-2</td>
+      <td>0/-3</td>
+      <td>0/-4</td>
+      <td>0/-4</td>
+      <td>0/-5</td>
+      <td>0/-6</td>
+    </tr>
+    <tr>
+      <td class="leftalign">3</td>
+      <td>0/0</td>
+      <td>0/-1</td>
+      <td>0/-2</td>
+      <td>0/-2</td>
+      <td>0/-3</td>
+      <td>0/-4</td>
+    </tr>
+  </table>
+
+  <p><strong>Items of Protection Can Be Worn with Magical Armor (<span class="red">*</span>)</strong>
+    <br />This allows one to equip Necklaces, Rings, and Cloaks of Protection alongside magical armor, but it does not allow more than one item of Protection to be worn at the same time.
+  </p>
+
+  <p><strong>Halberds Can Slash, Too</strong>
+    <br />This tweak gives all halberds the ability to change their damage type from piercing to slashing (and back again). Right click on the weapon's icon in the quick weapon bar to switch between the two.
+  </p>
+
+  <p><strong>Remove Cleric Weapon Restrictions from Multi-Classed Clerics</strong>
+    <br />Fighter/clerics with swords? Yes.
+  </p>
+
+  <p><strong>PnP Equipment for Druids (<span class="red">*</span>)</strong>
+  <br />According to PnP, druids shun metal, but instead may wear equipment made from natural sources (namely scales of beasts). Items include armor, shields and headgear.
+  <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of items. If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+  </p>
+  <ul>
+    <p><strong>Druids only (<span class="blue">*</span>)</strong>
+      <br />This option affects only single-class druids.
+    </p>
+    <p><strong>Druids and Fighter/Druids (<span class="blue">*</span>)</strong>
+      <br />This option affects both single-class druids and their fighter multiclass.
+    </p>
+  </ul>
+
+  <p><strong>Kensai Can Wear Bracers (<span class="red">*</span>)</strong>
+    <br />This component allows the kensai kit to wear bracers.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of bracers. If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+  </p>
+
+  <p><strong>Thieves Can Use Wands (<span class="red">*</span>)</strong>
+    <br />Thieves can use magic wands, as long as they meet the intelligence requirement.
+    <br /><br /><em>Note: This is one of the components that relies on a user-submitted list of wands. If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+  </p>
+
+  <p><strong>Weapon Changes (<span class="red">*</span>)</strong>
+    <br />This component alters the basic stats of many weapons.
+    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+  </p>
+  <ul>
+    <li>Dagger: Base speed lowered from 2 to 1.</li>
+    <li>Bastard Sword: Base damage increased from 2d4 to 1d10. Base speed lowered from 8 to 7.</li>
+    <li>Handaxe: Base damage lowered from 1d6+1 to 2d3.</li>
+    <li>Battleaxe: Base damage increased from 1d8 to 2d4. Base speed lowered from 7 to 6</li>
+    <li>Ninja-to: Base damage lowered from 1d8 to 1d6. Damage type changed from slashing to piercing. Base speed lowered from 4 to 2. Proficiency changed from Scimitar/Wakizashi/Ninja-To to Short Sword.</li>
+    <li>Wakizashi: Damage type changed from piercing to slashing. Proficiency changed from Scimitar/Wakizashi/Ninja-To to Katana/Wakizashi.</li>
+    <li>Katana: BAse speed increased from 4 to 5. Proficiency changed from Katana to Katana/Wakizashi.</li>
+    <li>Club: Base damage lowered from 1d6 to 1d4. Base speed lowered from 4 to 3.</li>
+    <li>Hammer: Base speed increased from 4 to 5.</li>
+    <li>Mace: Base damage lowered from 1d6+1 to 2d3. Base speed lowered from 7 to 6. Proficiency changed from Mace to Mace/Morning Star.</li>
+    <li>Morningstar: Base damage lowered from 2d4 to 1d6+1. Damage type changed from crushing to crushing and piercing. Proficiency changed from Flail/Morning Star to Mace/Morning Star.</li>
+    <li>Flail: Base damage increased from 1d6+1 to 2d4. Damage type changed from crushing to crushing and piercing. Base speed increased from7 to 8. Proficiency changed from Flail/Morning Star to Flail.</li>
+    <li>Spear: Base damage changed from 1d6 to 1d8. Melee range of non-throwable spears increased from 2 to 3.</li>
+    <li>Halberd: Base speed is lowered from 9 to 8. If <strong>Halberds Can Slash, Too</strong> component is installed, then base damage of the slashing mode is increased from 1d10 to 1d12 and it's base speed remains 9.</li>
+    <li>Two-handed Sword: Base damage is increased from 1d10 to 2d6.</li>
+    <li>All Bows: Now cause bonus damage equal to enchantment level, but provide only an extra half attack per round instead of an extra full attack. Composite bows also deal additional damage, equal to the bonus provided by the strength required to equip them.</li>
+    <li>Long Bow: Added +1 base damage bonus. Base +1 <acronym title="To Hit Armor Class 0">THAC0</acronym> bonus is removed.</li>
+    <li>Crossbow: Added +1 base <acronym title="To Hit Armor Class 0">THAC0</acronym> bonus.</li>
+    <li>Arrows: Now receive bonus damage equal to the enchantment level.</li>
+    <li>Bolts: Now receive bonus damage equal to the enchantment level. Base damage increased from 1d8 to 1d10.</li>
+  </ul>
+
+  <p><strong>Enchantment Doesn't Affect Speed Factor of Weapons (<span class="red">*</span>)</strong>
+    <br />This component removes the enchantment bonus to speed factor from magical weapons.
+    <br /><br /><em>Note: If you find an item that appears unaffected by this change, please submit a report <a href="http://forums.gibberlings3.net/index.php?showforum=157">here</a>.</em>
+  </p>
+
+  <p><strong>Backstabbing Penalties for Inappropriate Weapons (<span class="red">*</span>)</strong>
+  <br /><em>This component is conceptually incompatible with the Improved Backstabbing component from Ding0's Tweak Pack (d0tweak).</em>
+  <br /><br />This component was inspired by the similar component in Ding0's Tweak Pack. <strong>This component also modifies flaming swords to apply a -50% penalty to Hide in Shadows while equipped.</strong>
+  <ul>
+  <p><strong>Backstabbing Penalties Only (<span class="blue">*</span>)</strong>
+  <br /><br />This option applies a penalty to backstabbing with certain weapon types as listed below. It does not enable backstabbing with weapons that single-class thieves cannot normally use - everything on the table at a -2 or worse modifier with the exception of quarterstaffs will remain unsuitable for backstabbing.
+  </p>
+  <table>
+    <tr>
+      <th class="leftalign">Weapon</th>
+      <th>Backstab Penalty</th>
+    </tr>
+    <tr>
+      <td class="leftalign">Daggers, Short Swords, Wakizashis, Ninja-Tos, and Clubs</td>
+      <td>No Penalty</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Long Swords, Katanas, Scimitars, and Handaxes</td>
+      <td>-1 Backstab Multiplier</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Battleaxes, Bastard Swords, Maces, Morning Stars, Quarterstaffs, and War Hammers</td>
+      <td>-2 Backstab Multiplier</td>
+    </tr>
+    <tr>
+      <td class="leftalign">Flails, Halberds, Spears, and Two-Handed Swords</td>
+      <td>-3 Backstab Multiplier</td>
+    </tr>
+  </table>
+  <p><strong>Backstabbing Penalties with More Weapons Usable for Backstabbing (<span class="blue">*</span>)</strong>
+    <br /><br />This optiont applies a penalty to backstabbing with certain weapon types as listed above. It also enables the use of backstabbing with weapons traditionally unsuitable for backstabbing. Due to engine limitations, this is only possible to achieve by making the weapon usable by single-class thieves. In other words, this component will make all melee weapons usable by multi-class thieves also usable by single-class thieves. They will remain unable to put proficiency points into these weapon categories, however.
+    <br /><br /><em>If you have <acronym title="Throne of Bhaal Extender">ToBEx</acronym> installed - e.g. by the <strong>Executable Patch</strong> component - then weapons will be marked with a new "Suitable for Backstabbing" flag without making them usable by single-class thieves.</em>
+  </p>
+  </ul>
+
+</div>
+<h2>Contact Information</h2>
+<div class="section">
+  <p><a href="http://forums.gibberlings3.net/index.php?showuser=1419">Demivrgvs</a> and <a href="http://forums.gibberlings3.net/index.php?showuser=1412">Mike1072</a> created this mod. You can find out more about Item Revisions by visiting the <a href="http://forums.gibberlings3.net/index.php?showforum=157">forum</a> or the <a href="http://www.gibberlings3.net/item_rev/">project page</a>. Visit the <a href="http://forums.gibberlings3.net/">Gibberlings Three Forums</a> for information on this and any other Gibberlings Three mods on which we may be working.
+  </p>
+</div>
+<h2>Shout Outs</h2>
+<div class="section">
+  <p><strong>Demi:</strong> Firstly, many thanks to Gibberlings Three, especially Cam, and cmorgan!
+    <br /><br />Huge thanks of course to Westley Weimer, who created an astonishingly flexible and powerful mod editor for <acronym title="Infinity Engine">IE</acronym> games, and to the bigg for his modifications to that editor. Many thanks also to the creators of the Infinity Engine Structure Description Project, which clarified what the hell was going on several dozen times; and to Jon Hauglid, for Near Infinity.
+    <br /><br />Special thanks to Erephine for creating and letting me use that wonderful <acronym title="One Pixel Productions">1PP</acronym> material!
+    <br /><br />I'm also very grateful to anyone who has beta-tested the mod and/or provided much useful feedback.
+  </p>
+  <br />
+  <p><strong>Mike:</strong> I'd like to give a big thanks to the authors of the many tools used in creation of this mod - we (literally) couldn't have done it without you. The mod community as a whole also deserves special mention - I find the vast majority of those with an interest in the creation and playing of <acronym title="Infinity Engine">IE</acronym> mods are extremely supportive of one another, and knowing that your work will provide enjoyment to others is a great motivator. Finally, I'd like to thank those individuals at <acronym title="The Gibberlings 3">G3</acronym> who set me along the path to modding in the first place, everyone who has expressed interest in the creation of this mod, and <acronym title="The Gibberlings 3">G3</acronym> in general for hosting this here.</p>
+  <br />
+  <p>The <a href="http://www.gibberlings3.net/bg2tweaks/index.php"><acronym title="Baldur's Gate II">BG2</acronym> Tweak Pack</a> was a major inspiration and help while coding this mod, and some code has been directly pillaged from it. A couple of the components in <acronym title="Item Revisions">IR</acronym> are direct imitations of components found in the Tweak Pack or <a href="http://www.gibberlings3.net/scs/">Sword Coast Stratagems</a>. Animations for ioun stones were created by <a href="http://forums.blackwyrmlair.net/index.php?showforum=83">WoRm</a>.</p>
+  <p>Also special thanks to Ascension64 and Taimon for their EXE patches.</p>
+  <br />
+  <p><strong>Tools Used in Creation</strong>
+    <br /><a href="http://www.weidu.org/"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a> by
+    Wes Weimer and the bigg
+    <br /><a href="http://www.idi.ntnu.no/%7Ejoh/ni/">Near Infinity</a> by Jon Olav Hauglid, version devSin
+    <br /><a href="http://iesdp.gibberlings3.net/"> <acronym title="Infinity Engine Structures Description Project">IESDP</acronym></a> maintained by igi
+    <br /><a href="http://www.gibberlings3.net/tools/weidu.php"><acronym title="Weimer Dialogue Utility">WeiDU</acronym> Syntax Highlighters </a> by Idobek, updated by cmorgan
+    <br /><a href="http://www.textpad.com/">TextPad Editor</a> by Helios Software Solutions
+  </p></div>
+<h2>Credits and Copyright Information</h2>
+<div class="section">
+  <p>This mod may not be sold, published, compiled or redistributed in any form
+    without the consent of its authors. Item Revisions is ©2008 Marco Montagnoli and Mike1072.
+    <br /><br /><strong>Mike:</strong> I give full permission to borrow and modify any code I've written for this mod, provided you give credit in a comment.
+  </p>
+</div>
+<h2>Version History</h2>
+<div class="section">
+  <p><strong>Version 3 - August 2, 2011</strong></p>
+  <ul>
+    <li>
+      Updated to WeiDU v229
+    </li>
+    <li>
+      Fully traified
+    </li>
+    <li>
+      Some components are re-coded, to allow (hopefully) for easier customization by mod maintainers and expert users
+    </li>
+    <li>
+      Main component undergone a big overhaul
+    </li>
+    <li>
+      Added Executable Patch, Potion Revisions, Store Revisions, Revised Armor Bonuses, Enchantment Doesn't Affect Speed Factor of Weapons components
+    </li>
+    <li>
+      Heavy Armor Encumbrance component now includes penalties to attack speed factor
+    </li>
+    <li>
+      Previously a part of the main component, Kensai Can Wear Bracers and Thieves Can Use Wands are now separate components
+    </li>
+    <li>
+      Main component no longer includes changes by the Weapon Changes component. Also additional changes are added to Weapon Changes
+    </li>
+  </ul>
+
+  <p><strong>Version 2 - December 2, 2008</strong></p>
+  <ul>
+    <li>
+      Should hopefully work on Macs now
+    </li>
+    <li>
+      Added backstabbing component
+    </li>
+    <li>
+      Abilities of many items have been altered based on player feedback
+    </li>
+    <li>
+      Some items have been moved
+    </li>
+    <li>
+      Many fixes to items and their abilities, usabilities, and descriptions
+    </li>
+    <li>
+      Fixed some of the other components
+    </li>
+  </ul>
+  
+  <p><strong>Version 1 - September 29, 2008</strong></p>
+  <ul>
+    <li>
+      First public release
+    </li>
+  </ul>
+</div>
+</body></html>

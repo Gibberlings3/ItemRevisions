@@ -1,0 +1,14 @@
+
+armor     spell_failure  casting_speed  stealth  dexterity  movement  speed_factor
+
+leather              10              2        0          0         0             0
+studded              15              2       20          0         0             1
+hide                 20              2       30          0        10             2
+chain                30              3       40          5        10             2
+splint               40              3       50         10        20             3
+plate                40              4       60         10        20             4
+full                 50              4       80         15        30             5
+
+scale               -10             -1      -10         -5       -10            -1
+mithral             -20             -1      -30         -5       -10            -2
+elven               -30             -3      -30        -10       -20            -3
