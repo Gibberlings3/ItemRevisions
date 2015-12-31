@@ -184,17 +184,17 @@ DEFINE_PATCH_MACRO special BEGIN
   // change damage type to "piercing"
   PATCH_IF ninjato BEGIN
     WRITE_SHORT off+0x1c 1  // piercing
-    WRITE_SHORT off+0x26 10 // overhand
-    WRITE_SHORT off+0x28 25 // backhand
-    WRITE_SHORT off+0x2a 65 // thrust
+    WRITE_SHORT off+0x2c 10 // overhand
+    WRITE_SHORT off+0x2e 25 // backhand
+    WRITE_SHORT off+0x30 65 // thrust
   END
 
   // change damage type to "slashing"
   PATCH_IF wakizashi BEGIN
     WRITE_SHORT off+0x1c 3  // slashing
-    WRITE_SHORT off+0x26 50 // overhand
-    WRITE_SHORT off+0x28 50 // backhand
-    WRITE_SHORT off+0x2a 0  // thrust
+    WRITE_SHORT off+0x2c 50 // overhand
+    WRITE_SHORT off+0x2e 50 // backhand
+    WRITE_SHORT off+0x30 0  // thrust
   END
 
   // change damage type to "crushing and piercing" - it picks either crushing or piercing AC/resistance (two separate checks)

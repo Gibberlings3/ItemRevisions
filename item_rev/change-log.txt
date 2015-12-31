@@ -238,6 +238,10 @@ v3 Beta 1.16 (12 September 2013)
 
  - re-fixed old bug relating to 1PP shield animations
 
+v3 Beta 1.17 (31 December 2015)
+
+ - fix wakizashi/ninja-to patching
+
 
 TO DO:
  - include Demi's work on rods
