@@ -9,18 +9,21 @@ TO DO LIST
 - Purifier should be more unique and more appealing than Foebane for paladins
 - Ilbratha: replace permanent AC with Blurring (each hit raises AC)
 - Jamato infinite loop need fix
-- Potion of Haste tweaked to not use haste opcode
+- Potion of Invisibility duration reduced to1 turn?
 - Store Rev (Trollhide, Gauntlets of Dexterity, Gloves of Missile Snaring, Paladin Bracers, Rifthome Axe, Crimson Dart, ...)
-- Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. - clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
+- Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
 
-V4 - Beta 8 (4 September 2015)
+V4 - Beta 8 (14 September 2015)
 - Improve EE support by converting text to UTF-8
 - Add support for EET
 - Stop Erik beating up <CHARNAME> in Candlekeep
 - Update to WeiDU 238
-- Disable Belt of Inertial Barrier animation for gameplay reasons (too spammy, applied to invisible targets, etc.)
-- Change Dwarven Shield from large shield to medium
-- Fix incorrect usabilities for various items, including a number of daggers
+- fixed incorrect usabilities for various items, including a number of daggers
+- fixed all reported minor issues and typos
+- Casiel's Soul is no longer cursed to prevent a not intended interaction with Break Enchantment
+- Belt of Inertial Barrier "animation" disabled for gameplay reasons (too spammy and applied to invisible targets)
+- Dwarven Shield base stats now correctly match its new "size"
+- Potion of Speed tweaked to match SR's Haste (no haste opcode, fixed apr gain, counters slow via sec type, etc.)
 
 V4 - Beta 7 (26 February 2015)
 - Readme major update
