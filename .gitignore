@@ -2,8 +2,6 @@
 *.rar
 *.zip
 *.tar.gz
-*.debug
-*.log
 *.exe
 !iconv.exe
 !oggdec.exe
@@ -12,5 +10,3 @@
 setup-item_rev
 setup-item_rev.command
 item_rev/backup/*
-item_rev/debug/*
-!item_rev/debug/debug.txt
