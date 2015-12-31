@@ -2,8 +2,6 @@
 *.rar
 *.zip
 *.tar.gz
-*.debug
-*.log
 *.exe
 !iconv.exe
 !oggdec.exe
@@ -11,5 +9,3 @@
 !TobExLoader.exe
 setup-item_rev
 setup-item_rev.command
-item_rev/debug/*
-!item_rev/debug/debug.txt
