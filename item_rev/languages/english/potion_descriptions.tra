@@ -59,7 +59,7 @@ Usable By:
 Usable By:
  All~
 @3024=~Potion of Speed~
-@3025=~Useful for that extra mile or a quick escape, these potions are in common usage among scouts and heralds. The affected creature moves twice as fast, and can make an extra attack each round. Furthermore, the rate at which the creature is regenerating or suffering damage from poison is doubled. The potion's effects do not reduce spellcasting time, however. The effect of this potion is not cumulative with itself or with other similar magic. The duration of the effect is 1 turn, and cannot be dispelled.
+@3025=~Useful for that extra mile or a quick escape, these potions are in common usage among scouts and heralds. The affected creature moves twice as fast, gains a +2 bonus to attack rolls, armor class, and saving throws vs. breath, and can make an extra attack each round. The potion's effects do not reduce spellcasting time, however. The effect of this potion is not cumulative with itself or with other similar magic. The duration of the effect is 1 turn, and cannot be dispelled.
 
 Usable By:
  All~
@@ -79,7 +79,7 @@ Usable By:
 Usable By:
  All~
 @3032=~Potion of Absorption~
-@3033=~There exist terrifying creatures in the wilderness that are a match for even the fiercest Rashemi berserker, so the Witches of Rashemen create these magical flasks to bolster their warriors' resistance. This potion will cushion the user against physical attacks made against him or her, so that only the strongest will be felt. The imbiber's physical resistance to damage is increased by 20% for a duration of 5 turns. Multiple uses of this potion are not cumulative.
+@3033=~There exist terrifying creatures in the wilderness that are a match for even the fiercest Rashemi berserker, so the Witches of Rashemen create these magical flasks to bolster their warriors' resistance. This potion will cushion the user against physical attacks made against him or her, so that only the strongest will be felt. The imbiber's physical resistance to damage is increased by 10% for a duration of 5 turns. Multiple uses of this potion are not cumulative.
 
 Usable By:
  All~
@@ -207,7 +207,7 @@ Usable By:
 Usable By:
  All~
 @3082=~Potion of Memory~
-@3083=~Also know as "mage wine", this potion is highly sought after by mages and bards. When imbibed, the drinker can immediately bring back into memory two spells that have been previously cast. If no spells have been cast yet, then nothing happens. The recalled spells must be of 4th-level or lower.
+@3083=~Also known as "mage wine", this potion is highly sought after by mages and bards. When imbibed, the drinker can immediately bring back into memory two spells that have been previously cast. If no spells have been cast yet, then nothing happens. The recalled spells must be of 4th-level or lower.
 
 Usable By:
  Bard
