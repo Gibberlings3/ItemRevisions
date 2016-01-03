@@ -17,7 +17,10 @@ DEFINE_PATCH_MACRO ~MC_CLERIC_PROFICIENCIES~ BEGIN
   END
 
   PATCH_IF option=3 || option=4 BEGIN
-    max_stars /= 2
+    // Preserve 1 stars
+    PATCH_IF max_stars > 1 THEN BEGIN
+      max_stars /= 2
+    END
   END
 
   // give max_stars in a proficiency if the single class can put more points in it than the multi can (note for
