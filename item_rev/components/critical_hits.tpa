@@ -65,7 +65,7 @@ ACTION_IF tobex || GAME_IS "eet bgee bg2ee iwdee" BEGIN
  // COPY_EXISTING ~helm01.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
     PATCH_IF NOT ~%SOURCE_RES%~ STRING_EQUAL_CASE ~helm04~ BEGIN
     READ_SHORT 0x1c item
-    READ_ASCII 0x22 anim (2)
+    READ_ASCII 0x22 anim (2) NULL
     PATCH_IF item=7 BEGIN
       READ_BYTE 0x18 flags
       PATCH_IF ( (flags & 4) = 4 ) BEGIN // movable
