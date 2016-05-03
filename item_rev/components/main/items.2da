@@ -1,7 +1,6 @@
 2DA V1.0
 *
                                            TYPE     ITM      BG2      BGT      Tutu     BGEE     BG2EE    EET      NAME     ID_NAME  DESC     ID_DESC  TOOLTIP1 TOOLTIP2 TOOLTIP3 RESTRICTION 
-// AMULETS
 AMULET_OF_HEALTH                           AMULET   amul01   1        1        1        1        1        1        @1000    @2320    @1002    @2322    *        *        *        *           //extra_content
 AMULET_OF_PROTECTION_1                     AMULET   amul14   1        1        1        1        1        1        @1000    @1001    @1002    @1003    *        *        *        *
 SHIELD_AMULET                              AMULET   amul15   1        1        1        1        1        1        @1000    @1004    @1002    @1005    *        *        *        *
@@ -18,8 +17,7 @@ AMULET_OF_SPELL_WARDING                    AMULET   amul25   1        1        0
 AMULET_OF_CHEETAH_SPEED                    AMULET   amul26   1        1        0        0        1        1        @1000    @1026    @1002    @1027    @4003    *        *        *
 AMULET_OF_SELDARINE                        AMULET   amul27   1        1        0        0        1        1        @1000    @1028    @1002    @1029    *        *        *        *
 AMULET_OF_THE_MASTER                       AMULET   amul28   1        1        0        0        1        1        @1000    @1030    @1002    @1031    *        *        *        *
-                                                    
-// ARROWS                                           
+
 ARROW                                      ARROW    arow01   1        1        1        1        1        1        @1032    @1032    @1033    @1033    *        *        *        *
 ARROW_1                                    ARROW    arow02   1        1        1        1        1        1        @1032    @1034    @1035    @1036    *        *        *        *
 ARROW_OF_SLAYING_1                         ARROW    arow03   1        1        1        1        1        1        @1032    @2323    @1035    @2324    *        *        *        *
@@ -32,8 +30,7 @@ ARROW_OF_ICE_1                             ARROW    arow09   1        1        1
 ARROW_OF_PIERCING_3                        ARROW    arow10   1        1        1        1        1        1        @1032    @1049    @1035    @1050    *        *        *        *
 ARROW_2                                    ARROW    arow11   1        1        1        1        1        1        @1032    @1051    @1035    @1052    *        *        *        *
 ARROW_3                                    ARROW    arow15   1        1        0        0        1        1        @1032    @1053    @1035    @1054    *        *        *        *
-                                                    
-// AXES                                             
+
 BATTLE_AXE                                 AXE      ax1h01   1        1        1        1        1        1        @1055    @1055    @1056    @1056    *        *        *        *
 BATTLE_AXE_1                               AXE      ax1h02   1        1        1        1        1        1        @1055    @1057    @1058    @1059    *        *        *        *
 BATTLE_AXE_2                               AXE      ax1h03   1        1        1        1        1        1        @1055    @1060    @1058    @1061    *        *        *        *
@@ -59,8 +56,7 @@ KLOGARATH_4                                AXEH     ax1h16   1        1        0
 KLOGARATH_4#A                              AXEH     ax1h16a  1        1        0        0        1        1        @1062    @1081    @1067    @1082    *        *        *        *
 KLOGARATH_4#B                              AXEH     ax1h16b  1        1        0        0        1        1        @1062    @1081    @1067    @1082    *        *        *        *
 BATTLE_AXE_3                               AXE      ax1h17   1        1        0        0        1        1        @1055    @1083    @1058    @1084    *        *        *        *
-                                                    
-// BELTS                                            
+
 GOLDEN_GIRDLE                              BELT     belt02   1        1        1        1        1        1        @1085    @1086    @1087    @1088    *        *        *        *
 GIRDLE_OF_BLUNTNESS                        BELT     belt03   1        1        1        1        1        1        @1085    @1089    @1087    @1090    *        *        *        *
 GIRDLE_OF_PIERCING                         BELT     belt04   1        1        1        1        1        1        @1085    @1091    @1087    @1092    *        *        *        *
@@ -71,8 +67,7 @@ GIRDLE_OF_GIANT_STRENGTH                   BELT     belt08   1        1        0
 GIRDLE_OF_TROLLISH_FORTITUDE               BELT     belt09   1        1        0        0        1        1        @1085    @1099    @1087    @1100    @4004    *        *        *
 BELT_OF_INERTIAL_BARRIER                   BELT     belt10   1        1        0        1        1        1        @1085    @1101    @1087    @1102    *        *        *        *           //extra_content
 GIRDLE_OF_THE_CHAMPION                     BELT     belt11   1        1        0        0        1        1        @1085    @1103    @1087    @1104    *        *        *        *
-                                                    
-// CLUBS/FLAILS/MACES/MORNING_STARS                 
+
 CLUB                                       CLUB     blun01   1        1        1        1        1        1        @1105    @1105    @1106    @1106    *        *        *        *
 FLAIL                                      FLAIL    blun02   1        1        1        1        1        1        @1107    @1107    @1108    @1108    *        *        *        *
 FLAIL_1                                    FLAIL    blun03   1        1        1        1        1        1        @1107    @1109    @1110    @1111    *        *        *        *
@@ -116,8 +111,7 @@ FLAIL_3                                    FLAIL    blun32   1        1        0
 MACE_3                                     MACE     blun33   1        1        0        0        1        1        @1112    @1173    @1115    @1174    *        *        *        *
 MORNING_STAR_3                             MORNSTAR blun34   1        1        0        0        1        1        @1117    @1175    @1134    @1176    *        *        *        *
 ICE_STAR_4                                 MORNSTAR blun35   1        1        0        0        1        1        @1117    @1177    @1134    @1178    *        *        *        *
-                                                    
-// BOLTS                                            
+
 BOLT                                       BOLT     bolt01   1        1        1        1        1        1        @1179    @1179    @1180    @1180    *        *        *        *
 BOLT_1                                     BOLT     bolt02   1        1        1        1        1        1        @1179    @1181    @1182    @1183    *        *        *        *
 BOLT_OF_LIGHTNING_2                        BOLT     bolt03   1        1        1        1        1        1        @1179    @1184    @1182    @1185    *        *        *        *
@@ -131,8 +125,7 @@ PARALYTIC_BOLT_1                           BOLT     sahbolt  1        1        0
 KUO-TOA_BOLT_1                             BOLT     kuobolt  1        1        0        0        1        1        @1179    @2361    @1182    @2362    *        *        *        *
 KUO-TOA_BOLT_2                             BOLT     kuobolt2 1        1        0        0        1        1        @1179    @2363    @1182    @2364    *        *        *        *
 KUO-TOA_BOLT_3                             BOLT     kuobolt3 1        1        0        0        1        1        @1179    @2365    @1182    @2366    *        *        *        *
-                                                    
-// BOOTS                                            
+
 BOOTS_OF_SPEED                             BOOTS    boot01   1        1        1        1        1        1        @1192    @1193    @1194    @1195    *        *        *        *
 BOOTS_OF_STEALTH                           BOOTS    boot02   1        1        1        1        1        1        @1192    @1196    @1194    @1197    *        *        *        *
 BOOTS_OF_THE_NORTH                         BOOTS    boot03   1        1        1        1        1        1        @1192    @1198    @1194    @1199    *        *        *        *
@@ -144,8 +137,7 @@ SPIDERS_BOOTS_OF_STEALTH                   BOOTS    boot09   0        0        0
 BOOTS_OF_LIGHTNING_SPEED                   BOOTS    boot10   0        0        0        0        0        0        @1192    @2335    @1194    @2336    *        *        *        *           //disabled
 BOOTS_OF_ETHEREALNESS                      BOOTS    boot11   1        1        0        1        1        1        @1192    @1208    @1194    @1209    @4006    *        *        *
 GARGOYLE_BOOTS                             BOOTS    boot12   1        1        0        1        1        1        @1192    @1210    @1194    @1211    @4007    *        *        *           //extra_content
-                                                    
-// BOWS                                             
+
 COMPOSITE_LONG_BOW                         BOWCOMP  bow01    1        1        1        1        1        1        @1212    @1212    @1213    @1213    *        *        *        *
 COMPOSITE_LONG_BOW_1                       BOWCOMP  bow02    1        1        1        1        1        1        @1212    @1214    @1215    @1216    *        *        *        *
 LONG_BOW                                   BOWLONG  bow03    1        1        1        1        1        1        @1217    @1217    @1218    @1218    *        *        *        *
@@ -172,8 +164,7 @@ TARALASH_5                                 BOWLONG  bow23    1        1        0
 COMPOSITE_LONG_BOW_3                       BOWCOMP  bow24    1        1        0        0        1        1        @1212    @1261    @1215    @1262    *        *        *        *
 LONG_BOW_3                                 BOWLONG  bow25    1        1        0        0        1        1        @1217    @1263    @1220    @1264    *        *        *        *
 SHORT_BOW_3                                BOWSHORT bow26    1        1        0        0        1        1        @1222    @1265    @1225    @1266    *        *        *        *
-                                                    
-// BRACERS/GAUNTLETS                                
+
 BRACERS_OF_DEFENSE_AC_8                    BRACER   brac01   1        1        1        1        1        1        @1267    @1268    @1269    @1270    *        *        *        *
 BRACERS_OF_DEFENSE_AC_7                    BRACER   brac02   1        1        1        1        1        1        @1267    @1271    @1269    @1272    *        *        *        *
 BRACERS_OF_DEFENSE_AC_6                    BRACER   brac03   1        1        1        1        1        1        @1267    @1273    @1269    @1274    *        *        *        *
@@ -198,16 +189,14 @@ BLESSED_BRACERS                            BRACER   brac23   1        1        0
 BARDS_GLOVES                               BRACER   brac24   1        1        0        0        1        1        @1277    @1309    @1279    @1310    *        *        *        *
 WONDROUS_GLOVES                            BRACER   brac25   1        1        0        0        1        1        @1277    @1311    @1279    @1312    *        *        *        *
 BANDS_OF_FOCUS                             BRACER   brac26   1        1        0        1        1        1        @1267    @1313    @1269    @1314    *        *        *        *
-                                                    
-// BULLETS                                          
+
 BULLET                                     BULLET   bull01   1        1        1        1        1        1        @1315    @1315    @1316    @1316    *        *        *        *
 BULLET_1                                   BULLET   bull02   1        1        1        1        1        1        @1315    @1317    @1318    @1319    *        *        *        *
 BULLET_2                                   BULLET   bull03   1        1        1        1        1        1        @1315    @1320    @1318    @1321    *        *        *        *
 SUNSTONE_BULLET_2                          BULLET   bull04   1        1        0        1        1        1        @1315    @1322    @1318    @1323    *        *        *        *
 BULLET_3                                   BULLET   bull05   1        1        0        0        1        1        @1315    @1324    @1318    @1325    *        *        *        *
 BULLET_OF_SMITING_3                        BULLET   bull06   1        1        0        0        1        1        @1315    @1326    @1318    @1327    *        *        *        *
-                                                    
-// CHAIN_MAIL/SPLINT_MAIL_ARMOURS                   
+
 CHAIN_MAIL                                 CHAIN    chan01   1        1        1        1        1        1        @1328    @1328    @1329    @1329    *        *        *        *
 CHAIN_MAIL_1                               CHAIN    chan02   1        1        1        1        1        1        @1328    @1330    @1331    @1332    *        *        *        *
 MAIL_OF_THE_DEAD_2                         CHAIN    chan03   1        1        1        1        1        1        @1328    @1333    @1331    @1334    *        *        *        *
@@ -229,8 +218,7 @@ ARMOR_OF_FAITH_3                           SPLINT   chan18   1        1        0
 ASLYFERUND_ELVEN_CHAIN_5                   CHAINELV chan19   1        1        0        0        1        1        @1328    @1367    @1355    @1368    *        *        *        *
 WHITE_DRAGONSCALE_ARMOR_5                  SPLINT   chan20   1        1        0        0        1        1        @1335    @1369    @1338    @1370    @4017    *        *        *
 CHAIN_MAIL_3#2                             CHAIN    chan21   1        1        0        0        1        1        @1328    @1342    @1331    @1371    *        *        *        *
-                                                    
-// CLOAKS/ROBES                                     
+
 CLOAK_OF_PROTECTION_1                      CLOAK    clck01   1        1        1        1        1        1        @1372    @1373    @1374    @1375    *        *        *        *
 CLOAK_OF_PROTECTION_2                      CLOAK    clck02   1        1        1        1        1        1        @1372    @1376    @1374    @1377    *        *        *        *
 CLOAK_OF_DISPLACEMENT                      CLOAK    clck03   1        1        1        1        1        1        @1372    @1378    @1374    @1379    *        *        *        *           //extra_content
@@ -259,8 +247,7 @@ ROBE_OF_THE_APPRENTI                       ROBE     clck29   1        1        0
 CLOAK_OF_BRAVERY                           CLOAK    clck30   1        1        0        1        1        1        @1372    @1422    @1374    @1423    *        *        *        *
 IMPROVED_CLOAK_OF_PROTECTION_2             CLOAK    clck31   1        1        0        1        1        1        @1372    @1424    @1374    @1425    @4022    *        *        *           //extra_content
 MONTOLIOS_CLOAK                            CLOAK    clck32   1        1        0        0        1        1        @1372    @1426    @1374    @1427    *        *        *        *
-                                                    
-// DAGGERS                                          
+
 DAGGER                                     DAGGER   dagg01   1        1        1        1        1        1        @1428    @1428    @1429    @1429    *        *        *        *
 DAGGER_1                                   DAGGER   dagg02   1        1        1        1        1        1        @1428    @1430    @1431    @1432    *        *        *        *
 HEART_OF_THE_GOLEM_2                       DAGGER   dagg03   1        1        1        1        1        1        @1428    @2349    @1431    @2350    *        *        *        *
@@ -287,16 +274,14 @@ DAGGER_OF_THE_STAR_5                       DAGGER   dagg22   1        1        0
 DAGGER_OF_THE_STAR_5#A                     DAGGER   dagg22a  1        1        0        0        1        1        @1428    @1460    @1431    @1461    *        *        *        *
 IXILS_SPIKE_3                              DAGGER   dagg23   1        1        0        0        1        1        @1428    @1462    @1431    @1463    *        *        *        *
 DAGGER_3                                   DAGGER   dagg24   1        1        0        0        1        1        @1428    @1464    @1431    @1465    *        *        *        *
-                                                    
-// DARTS                                            
+
 DART                                       DART     dart01   1        1        1        1        1        1        @1466    @1466    @1467    @1467    *        *        *        *
 DART_1                                     DART     dart02   1        1        1        1        1        1        @1466    @1468    @1469    @1470    *        *        *        *
 DART_OF_STUNNING_1                         DART     dart03   1        1        1        1        1        1        @1466    @1471    @1469    @1472    *        *        *        *
 DART_OF_WOUNDING                           DART     dart04   1        1        1        1        1        1        @1466    @1473    @1469    @1474    *        *        *        *
 ASPS_NEST_2                                DART     dart05   1        1        0        1        1        1        @1466    @1475    @1469    @1476    *        *        *        *
 CRIMSON_DART_3                             DART     dart08   1        1        0        0        1        1        @1466    @1477    @1469    @1478    *        *        *        *
-                                                    
-// DROW_EQUIPMENT                                   
+
 DROWCRAFT_FLAIL_3                          FLAIL    dwblun01 1        1        0        0        1        1        @1107    @1479    @1110    @1480    *        *        *        *
 DROWCRAFT_BOLT_OF_SLEEP_1                  BOLT     dwbolt01 1        1        0        0        1        1        @1179    @1481    @1182    @1482    *        *        *        *
 DROWCRAFT_BOLT_OF_STUNNING_2               BOLT     dwbolt02 1        1        0        0        1        1        @1179    @1483    @1182    @1484    *        *        *        *
@@ -311,8 +296,7 @@ DROWCRAFT_LANCE_3                          SPEAR    dwsper01 1        1        0
 DROWCRAFT_SCIMITAR_3                       SCIMITAR dwsw1h01 1        1        0        0        1        1        @1509    @1510    @1511    @1512    *        *        *        *
 DROWCRAFT_LONG_SWORD_3                     SWORDL   dwsw1h02 1        1        0        0        1        1        @1513    @1514    @1515    @1516    *        *        *        *
 DROWCRAFT_LIGHT_CROSSBOW_OF_SPEED_1        XBOWLITE dwxbow01 1        1        0        0        1        1        @1517    @1518    @1519    @1520    *        *        *        *
-                                                    
-// HALBERDS                                         
+
 HALBERD                                    HALBERD  halb01   1        1        1        1        1        1        @1493    @1493    @1521    @1521    *        *        *        *
 HALBERD_1                                  HALBERD  halb02   1        1        1        1        1        1        @1493    @1522    @1495    @1523    *        *        *        *
 SURYRISS_BLADE_2                           HALBERD  halb03   1        1        1        1        1        1        @1493    @1524    @1495    @1525    *        *        *        *
@@ -325,8 +309,7 @@ THE_WAVE_4                                 HALBERD  halb09   1        1        0
 RAVAGER_4                                  HALBERD  halb10   1        1        0        0        1        1        @1493    @1538    @1495    @1539    @1538    @4024    *        *
 RAVAGER_5                                  HALBERD  halb11   1        1        0        0        1        1        @1493    @1540    @1495    @1541    @1540    @4024    *        *
 HALBERD_3                                  HALBERD  halb12   1        1        0        0        1        1        @1493    @1542    @1495    @1543    *        *        *        *
-                                                    
-// HAMMERS                                          
+
 WAR_HAMMER                                 HAMMER   hamm01   1        1        1        1        1        1        @1544    @1544    @1545    @1545    *        *        *        *
 WAR_HAMMER_1                               HAMMER   hamm02   1        1        1        1        1        1        @1544    @1546    @1545    @1548    *        *        *        *
 RIFT_HAMMER_2                              HAMMER   hamm03   1        1        1        1        1        1        @1544    @1549    @1545    @1550    *        *        *        *
@@ -342,8 +325,7 @@ CROM_FAEYR_5#A                             HAMMER   hamm09a  1        1        0
 RUNEHAMMER_3                               HAMMER   hamm10   1        1        0        0        1        1        @1544    @1563    @1545    @1564    *        *        *        *
 RUNEHAMMER_4                               HAMMER   hamm11   1        1        0        0        1        1        @1544    @1565    @1545    @1566    @1565    @4025    @4026    *
 WAR_HAMMER_3                               HAMMER   hamm12   1        1        0        0        1        1        @1544    @1567    @1545    @1568    *        *        *        *
-                                                    
-// HELMETS/IOUN_STONES                              
+
 HELMET                                     HELMET   helm01   1        1        1        1        1        1        @1569    @1569    @1570    @1570    *        *        *        *
 HELM_OF_DESPAIR                            HELMET   helm02   1        1        1        1        1        1        @1569    @1571    @1572    @1573    *        *        *        cursed
 HELM_OF_GLORY                              HELMET   helm03   1        1        1        1        1        1        @1569    @1574    @1572    @1575    *        *        *        *           //extra_content
@@ -379,8 +361,7 @@ HORNED_HELM_OF_THE_ROCK                    HELMET   helm32   1        1        0
 GOLD_HORNED_HELM                           HELMET   helm33   1        1        0        0        1        1        @1569    @1628    @1587    @1587    *        *        *        *
 WONG_FEIS_IOUN_STONE                       IOUN     helm34   1        1        0        0        1        1        @1596    @2309    @1598    @2310    *        *        *        *
 MALLAS_SOUL_STONE                          IOUN     amsoul01 1        1        0        0        1        1        @1596    @2357    @1598    @2358    *        *        *        *
-                                                    
-// LEATHER_ARMORS                                   
+
 LEATHER_ARMOR                              LEATHER  leat01   1        1        1        1        1        1        @1629    @1629    @1630    @1630    *        *        *        *
 LEATHER_ARMOR_1                            LEATHER  leat02   1        1        1        1        1        1        @1629    @1631    @1632    @1633    *        *        *        *
 PROTECTOR_OF_THE_SECOND_2                  LEATHER  leat03   1        1        1        1        1        1        @1629    @1634    @1632    @1635    *        *        *        *
@@ -405,8 +386,7 @@ HUMAN_FLESH_5                              LEATHER  leat21   1        1        0
 HUMAN_FLESH                                LEATHER  leat22   1        1        0        0        1        1        @1629    @1675    @1649    @1676    *        *        *        *
 TROLLHIDE_ARMOR_4                          HIDE     leat23   1        1        0        0        1        1        @1651    @1677    @1671    @1678    *        *        *        *
 GRANDMASTERS_ARMOR_5                       LEATHER  leat24   1        1        0        0        1        1        @1629    @1679    @1632    @1680    *        *        *        *
-                                                    
-// MISCELLANEOUS                                    
+
 AEGIS_FANG_3                               *        aegis    1        1        0        0        1        1        @1544    @1681    @1545    @1682    *        *        *        *
 AEGIS_FANG_3#2                             *        aegis2   1        1        0        0        1        1        @1544    @1681    @1545    @1682    *        *        *        *
 BRUENORS_WARAXE_3                          *        bruenaxe 1        1        0        0        1        1        @1055    @2341    @1058    @2342    *        *        *        *
@@ -457,8 +437,7 @@ PROTECTION_FROM_MAGIC                      SCROLL   scrl07   1        1        1
 PROTECTION_FROM_AILMENTS                   SCROLL   scrl08   1        1        1        1        1        1        @1764    @1776    @1766    @1777    *        *        *        *           //extra_content
 PROTECTION_FROM_UNDEAD                     SCROLL   scrl09   1        1        1        1        1        1        @1764    @1778    @1766    @1779    *        *        *        *           //extra_content
 PROTECTION_FROM_ALTERATIONS                SCROLL   scrl15   1        1        1        1        1        1        @1764    @2375    @1766    @2376    *        *        *        *           //extra_content
-                                                    
-// NPC_ITEMS                                        
+
 KORGANS_AXE                                AXE      korax01  1        1        0        0        1        1        @2383    @2383    #-1      @2384    *        *        *        *
 EDWINS_AMULET                              AMULET   misc89   1        1        misc89   1        1        1        @1780    @1780    #-1      @1781    *        *        *        *
 JANSEN_ADVENTUREWEAR                       ROBE     nparm    1        1        0        0        1        1        @1782    @1782    #-1      @1783    *        *        *        *
@@ -483,8 +462,7 @@ DARK_ELVEN_CHAIN_3                         CHAINELV clolth   1        1        0
 HANDMAIDEN_MACE_3                          MACE     hlolth   1        1        0        0        1        1        @1112    @2414    @1113    @2414    *        *        *        *
 FLASHER_LAUNCHER                           XBOWLITE xbow12   1        1        0        0        1        1        @1823    @1823    #-1      @1824    *        *        *        *
 SWORD_OF_CHAOS_4                           SWORD2H  finsarev 1        1        0        0        1        1        @1760    @2416    @1762    @2417    *        *        *        *
-                                                    
-// PLATE_MAIL/FULL_PLATE_MAIL_ARMOURS               
+
 PLATE_MAIL                                 PLATE    plat01   1        1        1        1        1        1        @1825    @1825    @1826    @1826    *        *        *        *
 PLATE_MAIL_1                               PLATE    plat02   1        1        1        1        1        1        @1825    @1827    @1828    @1829    *        *        *        *
 FULL_PLATE_MAIL                            PLATEF   plat04   1        1        1        1        1        1        @1497    @1497    @1830    @1830    *        *        *        *
@@ -506,8 +484,7 @@ BLUE_DRAGONPLATE_ARMOR_5                   PLATEF   plat20   1        1        0
 ENKIDUS_FULL_PLATE_4                       PLATEF   plat21   1        1        0        0        1        1        @1497    @1858    @1499    @1859    *        *        *        *
 SHURUPPAKS_PLATE_5                         PLATE    plat22   1        1        0        0        1        1        @1825    @1860    @1828    @1861    *        *        *        *
 FULL_PLATE_MAIL_3                          PLATEF   plat23   1        1        0        0        1        1        @1497    @2370    @1499    @1862    *        *        *        *
-                                                    
-// RINGS                                            
+
 RING_OF_FIRE_RESISTANCE                    RING     ring02   1        1        1        1        1        1        @1800    @1863    @1802    @1864    *        *        *        *
 RING_OF_ANIMAL_FRIENDSHIP                  RING     ring03   1        1        1        1        1        1        @1800    @1865    @1802    @1866    *        *        *        *
 RING_OF_NIMBLENESS                         RING     ring04   1        1        1        1        1        1        @1800    @2371    @1802    @2372    *        *        *        cursed
@@ -537,16 +514,14 @@ RING_OF_PROTECTION_3                       RING     ring41   1        1        0
 RING_OF_THE_PHANTOM_WRAITH                 RING     ring42   1        1        0        0        1        1        @1800    @1909    @1802    @1910    *        *        *        *
 HEARTWOOD_RING                             RING     ring44   1        1        0        0        1        1        @1800    @1911    @1802    @1912    *        *        *        *
 LARLOCHS_SOUL_STEALER                      RING     ring46   1        1        0        0        1        1        @1800    @1913    @1802    @1914    *        *        *        *           //extra_content
-                                                    
-// RODS                                             
+
 ROD_OF_ABSORPTION                          ROD      rods01   1        1        0        0        1        1        @1915    @2387    @1917    @2388    @4080    *        *        *           //extra_content
 ROD_OF_LORDLY_MIGHT                        ROD      rods02   1        1        0        0        1        1        @1915    @2389    @1917    @2390    @4081    @4082    @4083    *           //extra_content
 ROD_OF_RESURRECTION                        ROD      rods03   1        1        0        0        1        1        @1915    @2391    @1917    @2392    @4084    *        *        *
 ROD_OF_SMITING_4                           ROD      rods04   1        1        0        0        1        1        @1915    @1916    @1917    @1918    *        *        *        *
 ROD_OF_TERROR_3                            ROD      rods05   1        1        0        0        1        1        @1915    @2393    @1917    @2394    *        *        *        *
 ROD_OF_REVERSAL                            ROD      rods06   1        1        0        0        1        1        @1915    @2395    @1917    @2396    @4085    *        *        *           //extra_content
-                                                    
-// SHIELDS                                          
+
 SMALL_SHIELD                               SHIELDS  shld01   1        1        1        1        1        1        @1939    @1939    @1940    @1940    *        *        *        *
 SMALL_SHIELD_1                             SHIELDS  shld02   1        1        1        1        1        1        @1939    @1941    @1942    @1943    *        *        *        *
 MEDIUM_SHIELD                              SHIELDM  shld03   1        1        1        1        1        1        @1501    @1501    @1944    @1944    *        *        *        *
@@ -579,8 +554,7 @@ MEDIUM_SHIELD_2                            SHIELDM  shld29   1        1        0
 LARGE_SHIELD_2                             SHIELDL  shld30   1        1        0        0        1        1        @1947    @1982    @1953    @1983    *        *        *        *
 DARKSTEEL_SHIELD_4                         SHIELDL  shld31   1        1        0        0        1        1        @1947    @1984    @1953    @1985    *        *        *        *
 SHIELD_OF_THE_ORDER_4                      SHIELDM  shld32   1        1        0        0        1        1        @1501    @1986    @1503    @1987    *        *        *        *
-                                                    
-// SLINGS                                           
+
 SLING                                      SLING    slng01   1        1        1        1        1        1        @1920    @1920    @1921    @1921    *        *        *        *
 SLING_1                                    SLING    slng02   1        1        1        1        1        1        @1920    @1922    @1923    @1924    *        *        *        *
 SLING_OF_SEEKING_1                         SLING    slng03   1        1        1        1        1        1        @1920    @2377    @1923    @2378    *        *        *        *
@@ -591,8 +565,7 @@ SLING_OF_FORCE_2                           SLING    slng07   1        1        0
 ERINNE_SLING_3                             SLING    slng08   1        1        0        0        1        1        @1920    @1935    @1923    @1936    *        *        *        *           //extra_content
 ERINNE_SLING_4                             SLING    slng09   1        1        0        0        1        1        @1920    @1937    @1923    @1938    *        *        *        *
 SLING_3                                    SLING    slng10   1        1        0        0        1        1        @1920    @1925    @1923    @1926    *        *        *        *
-                                                    
-// SPEARS                                           
+
 SPEAR                                      SPEAR    sper01   1        1        1        1        1        1        @1505    @1505    @1988    @1988    *        *        *        *
 SPEAR_1                                    SPEAR    sper02   1        1        1        1        1        1        @1505    @1989    @1507    @1990    *        *        *        *
 BACKBITER_3                                SPEAR    sper03   1        1        0        1        1        1        @1505    @1991    @1507    @1992    *        *        *        cursed
@@ -604,8 +577,7 @@ HALCYON_1                                  SPEAR    sper09   1        1        0
 SPEAR_OF_WITHERING_3                       SPEAR    sper10   1        1        0        0        1        1        @1505    @2003    @1507    @2004    *        *        *        *
 IXILS_NAIL_4                               SPEAR    sper11   1        1        0        0        1        1        @1505    @2005    @1507    @2006    *        *        *        *
 IXILS_SPIKE_5                              SPEAR    sper12   1        1        0        0        1        1        @1505    @2007    @1507    @2008    *        *        *        *
-                                                    
-// QUARTERSTAFFS                                    
+
 QUARTERSTAFF                               STAFF    staf01   1        1        1        1        1        1        @2009    @2009    @2010    @2010    *        *        *        *
 QUARTERSTAFF_1                             STAFF    staf02   1        1        1        1        1        1        @2009    @2011    @2012    @2013    *        *        *        *
 QUARTERSTAFF#2                             STAFF    staf03   1        1        0        1        1        1        @2009    @2009    @2010    @2010    *        *        *        *
@@ -629,8 +601,7 @@ STAFF_OF_THE_RAM_4                         STAFF    staf21   1        1        0
 STAFF_OF_THE_RAM_5                         STAFF    staf22   1        1        0        0        1        1        @2009    @2048    @2012    @2049    *        *        *        *
 SERPENT_SHAFT_3                            STAFF    staf23   1        1        0        0        1        1        @2009    @2050    @2012    @2051    *        *        *        *
 QUARTERSTAFF_3                             STAFF    staf24   1        1        0        0        1        1        @2009    @2052    @2012    @2053    *        *        *        *
-                                                    
-// SWORDS                                           
+
 BASTARD_SWORD                              SWORDB   sw1h01   1        1        1        1        1        1        @2054    @2054    @2055    @2055    *        *        *        *
 BASTARD_SWORD_1                            SWORDB   sw1h02   1        1        1        1        1        1        @2054    @2056    @2057    @2058    *        *        *        *
 LAWGIVER_2                                 SWORDB   sw1h03   1        1        1        1        1        1        @2054    @2059    @2057    @2060    *        *        *        *
@@ -702,8 +673,7 @@ SHORT_SWORD_3                              SWORDS   sw1h74   1        1        0
 KATANA_3                                   KATANA   sw1h75   1        1        0        0        1        1        @1808    @2180    @2123    @2181    *        *        *        *
 SCIMITAR_3                                 SCIMITAR sw1h76   1        1        0        0        1        1        @1509    @2182    @1511    @2183    *        *        *        *
 THE_ANSWERER_4                             SWORDL   sw1h77   1        1        0        0        1        1        @1513    @2184    @1515    @2185    *        *        *        *
-                                                    
-// TWO-HANDED_SWORDS                                
+
 TWO-HANDED_SWORD                           SWORD2H  sw2h01   1        1        1        1        1        1        @1760    @1760    @2186    @2186    *        *        *        *
 TWO-HANDED_SWORD_1                         SWORD2H  sw2h02   1        1        1        1        1        1        @1760    @2187    @1762    @2188    *        *        *        *
 BERSERKING_SWORD_3                         SWORD2H  sw2h03   1        1        1        1        1        1        @1760    @2189    @1762    @2190    *        *        *        cursed
@@ -723,8 +693,7 @@ GRAM_THE_SWORD_OF_GRIEF_5                  SWORD2H  sw2h18   1        1        0
 CARSOMYR_5                                 SWORD2H  sw2h19   1        1        0        0        1        1        @1760    @2215    @1762    @2216    @2215    @4076    *        *
 TWO-HANDED_SWORD_3                         SWORD2H  sw2h20   1        1        0        0        1        1        @1760    @2217    @1762    @2218    *        *        *        *
 PSIONS_BLADE_4                             SWORD2H  sw2h21   1        1        0        0        1        1        @1760    @2219    @1762    @2220    *        *        *        *
-                                                    
-// WANDS                                            
+
 WAND_OF_FEAR                               WAND     wand02   1        1        1        1        1        1        @2239    @2240    @2241    @2242    *        *        *        *           //extra_content
 WAND_OF_MAGIC_MISSILES                     WAND     wand03   1        1        1        1        1        1        @2239    @2243    @2241    @2244    *        *        *        *           //extra_content
 WAND_OF_PARALYZATION                       WAND     wand04   1        1        1        1        1        1        @2239    @2245    @2241    @2246    *        *        *        *
@@ -741,8 +710,7 @@ WEB_SACK                                   WAND     wand14   1        1        0
 WAND_OF_THE_APPRENTI                       WAND     wand15   1        1        0        0        1        1        @2239    @2397    @2241    @2398    *        *        *        *
 WAND_OF_SPELL_STRIKING                     WAND     wand18   1        1        0        1        1        1        @2239    @2265    @2241    @2266    *        *        *        *           //extra_content
 WAND_OF_CURSING                            WAND     wand19   1        1        0        1        1        1        @2239    @2267    @2241    @2268    *        *        *        *           //extra_content
-                                                    
-// CROSSBOWS                                        
+
 HEAVY_CROSSBOW                             XBOWHVY  xbow01   1        1        1        1        1        1        @2269    @2269    @2270    @2270    *        *        *        *
 HEAVY_CROSSBOW_1                           XBOWHVY  xbow02   1        1        0        1        1        1        @2269    @2271    @2272    @2273    *        *        *        *
 HEAVY_CROSSBOW_OF_ACCURACY_1               XBOWHVY  xbow03   1        1        1        1        1        1        @2269    @2274    @2272    @2275    *        *        *        *
@@ -759,8 +727,7 @@ FIRETOOTH_4                                XBOWLITE xbow15   1        1        0
 FIRETOOTH_5                                XBOWLITE xbow16   1        1        0        0        1        1        @1517    @2295    @1519    @2296    *        *        *        *
 HEAVY_CROSSBOW_3                           XBOWHVY  xbow17   1        1        0        0        1        1        @2269    @2297    @2272    @2298    *        *        *        *
 LIGHT_CROSSBOW_3                           XBOWLITE xbow18   1        1        0        0        1        1        @1517    @2299    @1519    @2300    *        *        *        *
-                                                    
-// BONUS_MERCHANT_ITEMS                             
+
 DEFENDER_OF_EASTHAVEN_2                    FLAIL    waflail  1        1        0        0        1        1        @1107    @2313    @1108    @2314    *        *        *        *
 SENSATE_AMULET                             AMULET   wa2amu   1        1        0        0        1        1        @1000    @2221    @1002    @2222    *        *        *        *
 DAKKONS_ZERTH_BLADE_2                      KATANA   wa2dak   1        1        0        0        1        1        @1808    @2223    @2123    @2224    *        *        *        *           //extra_content
@@ -771,11 +738,9 @@ ROBE_OF_LARLOCH                            ROBE     wa2robe  1        1        0
 BLADE_OF_SHARPNESS_1                       SWORDL   wa2s1h   1        1        0        0        1        1        @1513    @2234    @2235    @2236    *        *        *        *
 MIRROR_SHIELD_3                            SHIELDM  wa2shiel 1        1        0        0        1        1        @1501    @2237    @1503    @2238    *        *        *        *
 MALAKARS_COMPANION_2                       WAKI     wawak    1        1        0        0        1        1        @2127    @2381    @2130    @2382    *        *        *        *
-                                                    
-// NEW_ITEMS                                        
+
 FLAIL_OF_SUBMISSION_2                      FLAIL    dvflail  1        1        0        0        1        1        @1107    @2315    @1110    @2316    *        *        *        *
-                                                    
-// POTIONS                                          
+
 POTION_OF_FIRE_RESISTANCE                  POTION   potn02   1        1        1        1        1        1        #6976    @3000    #16264   @3001    *        *        *        *           //extra_content
 POTION_OF_HILL_GIANT_STRENGTH              POTION   potn03   1        1        1        1        1        1        #6976    @3002    #16264   @3003    *        *        *        *           //extra_content
 POTION_OF_FROST_GIANT_STRENGTH             POTION   potn04   1        1        1        1        1        1        #6976    @3004    #16264   @3005    *        *        *        *           //extra_content
