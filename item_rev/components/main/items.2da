@@ -1,6 +1,6 @@
 2DA V1.0
 *
-                                           TYPE     ITM      BG2      BGT      Tutu     BGEE     BG2EE    EET      NAME     ID_NAME  DESC     ID_DESC  TOOLTIP1 TOOLTIP2 TOOLTIP3 RESTRICTION 
+                                           TYPE     ITM      BG2      BGT      TUTU     BGEE     BG2EE    EET      NAME     ID_NAME  DESC     ID_DESC  TOOLTIP1 TOOLTIP2 TOOLTIP3 RESTRICTION 
 AMULET_OF_HEALTH                           AMULET   amul01   1        1        1        1        1        1        @1000    @2320    @1002    @2322    *        *        *        *           //extra_content
 AMULET_OF_PROTECTION_1                     AMULET   amul14   1        1        1        1        1        1        @1000    @1001    @1002    @1003    *        *        *        *
 SHIELD_AMULET                              AMULET   amul15   1        1        1        1        1        1        @1000    @1004    @1002    @1005    *        *        *        *
