@@ -457,7 +457,7 @@ HALLOWED_REDEEMER_2                        SWORD2H  npsw03   1        1        0
 CORTHALA_FAMILY_BLADE_2                    KATANA   npsw04   1        1        0        0        1        1        @1808    @1814    #-1      @1815    *        *        *        *
 ENTROPY_2                                  SWORDS   npsw05   1        1        0        0        1        1        @1816    @1816    #-1      @1817    *        *        *        *
 CHAOS_2                                    SWORDS   npsw06   1        1        0        0        1        1        @1818    @1818    #-1      @1819    *        *        *        *
-SHARS_BLESSING                             *        vicarm   1        1        0        0        1        1        @1820    @1821    @1649    @1822    *        *        *        *
+SHARS_BLESSING                             *        vicarm   0        0        0        0        0        0        @1820    @1821    @1649    @1822    *        *        *        *
 DARK_ELVEN_CHAIN_3                         CHAINELV clolth   1        1        0        0        1        1        @1328    @1687    @1355    @1688    *        *        *        *
 HANDMAIDEN_MACE_3                          MACE     hlolth   1        1        0        0        1        1        @1112    @2414    @1113    @2414    *        *        *        *
 FLASHER_LAUNCHER                           XBOWLITE xbow12   1        1        0        0        1        1        @1823    @1823    #-1      @1824    *        *        *        *
