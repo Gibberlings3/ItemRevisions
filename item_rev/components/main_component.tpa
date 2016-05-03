@@ -66,25 +66,26 @@ END
 
 // install items by looping through our array
 COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
-  READ_2DA_ENTRIES_NOW ~r2en_items~ 16
+  READ_2DA_ENTRIES_NOW ~r2en_items~ 17
   FOR (row = 0; row < r2en_items; row += 1) BEGIN
     READ_2DA_ENTRY_FORMER ~r2en_items~ row 0  id
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 1  itm
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 2  bg2
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 3  bgt
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 4  tutu
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 5  bgee
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 6  bg2ee
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 7  eet
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 8  name
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 9  id_name
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 10 desc
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 11 id_desc
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 12 tooltip1
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 13 tooltip2
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 14 tooltip3
-    READ_2DA_ENTRY_FORMER ~r2en_items~ row 15 restrictions
-    
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 1  type
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 2  itm
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 3  bg2
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 4  bgt
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 5  tutu
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 6  bgee
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 7  bg2ee
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 8  eet
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 9  name
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 10 id_name
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 11 desc
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 12 id_desc
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 13 tooltip1
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 14 tooltip2
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 15 tooltip3
+    READ_2DA_ENTRY_FORMER ~r2en_items~ row 16 restrictions
+                                              
     // figure out if the item should be installed and what filename it should have
     // based on reading information from the column associated with the current platform
     TEXT_SPRINT output ~%itm%~
