@@ -29,6 +29,7 @@
 @10   = ~Penalite a la vitesse de deplacement~
 @11   = ~Penalite a la dexterite~
 @28   = ~Penalite au facteur de vitesse~
+@46   = ~Sans penalite a la vitesse de deplacement~
 
 @12   = ~Autoriser l'usage des competences de voleur en armure~
 @43   = ~Furtivite penalisee par les armures~
@@ -62,26 +63,33 @@
 
 @32   = ~L'enchantement des armes n'affecte pas leur facteur de vitesse~
 
-@22   = ~Penalite d'attaque sournoise avec les armes inappropriees~
-@21   = ~Penalite d'attaque sournoise~
-@23   = ~Penalite d'attaque sournoise avec davantage d'armes utilisables par les voleurs monoclasses~
+@22   = ~Attaque sournoise revue (avec et sans penalite)~
+@21   = ~Uniquement avec les armes du voleur monoclasse~
+@23   = ~Davantage d'armes utilisables pour l'attaque sournoise~
 @45   = ~Toutes les armes de melee et a projectiles utilisables pour l'attaque sournoise~ 
+
+
+@47   = ~Evitement des coups critiques revu~
+@48   = ~Coup critique détourné~
+
+@49   = ~Les boucliers peuvent donner des coups~
 
 ///////
 
 //Prochaine valeur libre
-@46   = ~~
+@50   = ~~
 
 ///////
 
-@9000   = ~Ce composant ne peut etre installe qu'avec BG2, et requiert l'installation de ToB.~
-@9001   = ~Ce composant ne peut etre installe qu'avec BG2.~
-@9002   = ~Ce composant n'est pas compatible avec votre jeu.~
-@9003   = ~Ce composant requiert les ameliorations du moteur de BG2 : Throne of Bhaal.~
-@9004   = ~Ce composant est conceptuellement incompatible avec le composant "Attaque sournoise amelioree" du Ding0's Tweak Pack (D0Tweak).~
-@9005   = ~Ce composant est actuellement incompatible avec le systeme des competences martiales modifiees du BG2 Tweak Pack.~
-@9006   = ~Ce composant a ete supprime.~
+@9000 = ~Ce composant ne peut etre installe qu'avec BG2 : ToB, BGT, Tutu, BGEE ou BG2EE.~
+@9001 = ~Ce composant ne peut etre installe qu'avec BG2.~
+@9002 = ~Ce composant n'est pas compatible avec votre jeu.~
+@9003 = ~Ce composant requiert les ameliorations du moteur de BG2 : Throne of Bhaal.~
+@9004 = ~Ce composant est conceptuellement incompatible avec le composant "Attaque sournoise amelioree" du Ding0's Tweak Pack (D0Tweak).~
+@9005 = ~Ce composant est incompatible avec le systeme des competences martiales modifiees du BG2 Tweak Pack.~
 
+@9006 = ~Ce composant a ete rendu obsolete.~
+@9007 = ~Ce composant requiert des capacites fournies par TobEx.~
 
 
 // WeiDU prompts
@@ -93,8 +101,10 @@ au niveau general plutot que de repondre aux questions pour chacun.
 @-1002= "Que faut-il faire de tous les composants qui NE sont PAS ENCORE installes ?
 Les [I]nstaller, les [S]auter, dem[A]nder pour chacun ? "
 @-1003= "Que faut-il faire de tous les composants qui sont DEJA installes ?
-Les [R]einstaller, les s[U]pprimer, dem[A]nder pour chacun ? "
+Les [R]einstaller, les s[U]pprimer, les [S]auter, dem[A]nder pour chacun ? "
 
+// Voir ligne 1 du fichier : texte habituel modifié par l'auteur
+//@-1004= "S'IL VOUS PLAIT, envoyez par e-mail le fichier"
 @-1005= "a"
 
 @-1006= "Installer le composant ["
@@ -122,6 +132,7 @@ Les [R]einstaller, les s[U]pprimer, dem[A]nder pour chacun ? "
 @-1022= "] (composant #"
 @-1023= ")"
 @-1024= "SUPPRESSION REUSSIE DE ["
+
 @-1025= "] ?
 [R]einstaller, co[N]server, s[U]pprimer, [Q]uitter ou choisir un parmi :"
 @-1026= "] ?
@@ -137,12 +148,41 @@ choisir un parmi :"
 @-1031= "] ?
 [R]einstaller, co[N]server, [Q]uitter ou choisir un parmi :"
 @-1032= "INSTALLATION ECHOUEE A CAUSE D'ERREURS"
-@-1033= "INSTALLATION AVEC DES ALERTES "
+@-1033= "INSTALLATION AVEC DES ALERTES"
 @-1034= "Souhaitez-vous afficher les instructions (ReadMe) ? [Y]Oui [N]on"
 @-1035= "Dans la langue"
 
-@-1036 = "Saute le GROUPE ["
-@-1037 = "] pour cause d'absence des pre-requis." 
+@-1036= "Saute le GROUPE ["
+@-1037= "] pour cause d'absence des pre-requis."
 
 @-1038= "dem[A]nder pour chaque composant, tout [S]auter, ou choisir une selection pre-definie :"
 @-1039= "dem[A]nder pour chaque composant, [R]einstaller la configuration courante, tout s[U]pprimer, tout [S]auter, ou choisir une selection pre-definie :"
+
+@-1040= "
+Veuillez choisir la langue dans laquelle vous souhaitez jouer au jeu.
+Si par la suite vous desirez jouer au jeu dans une langue differente, il vous
+faudra editer le fichier weidu.conf et reinstaller vos mods.
+"
+@-1041= "Tcheque"
+@-1042= "Allemand"
+@-1043= "Anglais"
+@-1044= "Espagnol"
+@-1045= "Francais"
+@-1046= "Italien"
+@-1047= "Polonais"
+@-1048= "Portugais"
+@-1049= "Turc"
+@-1050= "Japonais"
+@-1051= "Coreen"
+@-1052= "Chinois simplifie"
+@-1053= "Russe"
+@-1054= "Ukrainien"
+
+@-1060= "
+Ce jeu est disponible en plusieurs langues mais WeiDU ne sait pas laquelle a ete choisie quand ce mod a ete installe.
+
+Veuillez indiquer quelle langue du jeu a ete utilisee quand vous avez installe ce mod. Votre choix servira jusqu'a ce que WeiDU s'arrete mais ne sera pas memorise.
+"
+@-1061= "
+Utilisation de"
+@-1062= " et "
