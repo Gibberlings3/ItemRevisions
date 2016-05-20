@@ -16,7 +16,7 @@ TO DO LIST
 V4 - Beta 9 (19 May 2016)
 - Fix bug with halved specialization options in Multiclass Divine component preventing changes applying to Cleric/Mages and Cleric/Thieves
 - Fix helmet detection in Revised Critical Hits component
-- Update French translation (thanks Mornagest and Isaya)
+- Update French translation
 
 V4 - Beta 8 (14 September 2015)
 - Improve EE support by converting text to UTF-8
