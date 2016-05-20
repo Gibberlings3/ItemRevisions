@@ -59,7 +59,7 @@ Utilisable par :
 Utilisable par :
  Tous~
 @3024=~Potion de Rapidité~
-@3025=~Utiles pour parcourir plus de chemin ou s'échapper rapidement, ces potions sont couramment utilisées par les éclaireurs et les messagers. La créature affectée se déplace deux fois plus vite, et peut effectuer une attaque supplémentaire chaque round. Par ailleurs, la vitesse à laquelle la créature régénère ses points de vie ou subit des dégâts de poison est également doublée. Les effets de la potion ne réduisent cependant pas le temps d'incantation des sorts. Les effets de cette potion ne peuvent être cumulés à ceux de potions identiques, ni à ceux de quelque autre forme de magie similaire. Les effets de cette potion durent 1 tour et ne peuvent être dissipés.
+@3025=~Utiles pour parcourir plus de chemin ou s'échapper rapidement, ces potions sont couramment utilisées par les éclaireurs et les messagers. La créature affectée se déplace deux fois plus vite, bénéficie d'un bonus de +2 à ses jets d'attaque, de classe d'armure et à ses jets de sauvegarde contre le souffle, et peut effectuer une attaque supplémentaire chaque round. Les effets de la potion ne réduisent cependant pas le temps d'incantation des sorts. Les effets de cette potion ne peuvent être cumulés à ceux de potions identiques, ni à ceux de quelque autre forme de magie similaire. Les effets de cette potion durent 1 tour et ne peuvent être dissipés.
 
 Utilisable par :
  Tous~
@@ -79,7 +79,7 @@ Utilisable par :
 Utilisable par :
  Tous~
 @3032=~Potion d'Absorption~
-@3033=~Il existe de terrifiantes créatures dans les régions sauvages de Féérune qui sont un vrai défi même pour les plus fiers des berserkers Rashémi. C'est pourquoi les sorcières de Rashéménie élaborent cette potion pour renforcer la résistance de leurs guerriers. Cette potion protégera celui qui la boit des attaques physiques qui lui seront portées, de telle sorte que seul les plus fortes seront ressenties. La résistance aux dégâts physiques du buveur est augmentée de 20 % pour une durée de 5 tours. L'usage de plusieurs de ces potions ne cumule pas leur effet.
+@3033=~Il existe de terrifiantes créatures dans les régions sauvages de Féérune qui sont un vrai défi même pour les plus fiers des berserkers Rashémi. C'est pourquoi les sorcières de Rashéménie élaborent cette potion pour renforcer la résistance de leurs guerriers. Cette potion protégera celui qui la boit des attaques physiques qui lui seront portées, de telle sorte que seul les plus fortes seront ressenties. La résistance aux dégâts physiques du buveur est augmentée de 10 % pour une durée de 5 tours. L'usage de plusieurs de ces potions ne cumule pas leur effet.
 
 Utilisable par :
  Tous~

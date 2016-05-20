@@ -311,12 +311,12 @@ Poids :~
 
 // add spellcasting speed line to @100114
 @100306 = ~
-Pénalité au temps d’incantation des sorts profanes : +%xspd%
+Pénalité au temps d'incantation des sorts profanes : +%xspd%
 Poids :~
 
 // add spellcasting speed line to @100114
 @100307 = ~
-Pénalité au temps d’incantation : +%xspd%
+Pénalité au temps d'incantation : +%xspd%
 Poids :~
 
 
@@ -339,6 +339,11 @@ Poids :~
 Facteur de vitesse : malus de +%xsf%
 Poids :~
 
+// add speed factor penalty line to @100114 (Isaya : copier-coller-merder, en réalité, physical resistance bonus)
+@100299 = ~
+Bonus de résistance physique : +%xres%%
+Poids :~
+
 
 //////////////////
 //   Shields    //
@@ -352,26 +357,29 @@ Poids :~
 // catch ~Special: No Missile ~
 @100312 = ~Spécial[ %tab%]*:[ %tab%]*\([Pp]as\|[Aa]ucune\|[Nn]e\).*projectile[s]?.*~
 
-// catch ~Special: No Missile Weapon Protection~
-@100313 = ~Spécial[ %tab%]*:[ %tab%]*\([Aa]ucune protection\|[Pp]as de protection\|[Nn]e protège pas\)[ %tab%]+\(face\|contre\)[ %tab%]+\(les\|aux\|aux armes à\|les armes à\)[%tab%]+projectile[s]?~
+// replace @100312
+@100313 = ~Spécial : pas de protection contre les armes à projectiles~
 
 // catch ~Special: No Missile~
 @100314 = ~[%lnl%%mnl%%wnl%]Spécial[ %tab%]*:[ %tab%]*\([Pp]as\|[Aa]ucune\|[Nn]e\).*projectile[s]?.*~
 
 // catch ~Armor Class Bonus:~
-@100315 = ~\(Bonus de[ %tab%]*\)?\([Cc]lasse d\’[Aa]rmure\|CA\)[ %tab%]*:.*~
+// Bonus (|de|à la] (classe d'armure|CA) : xx
+// Classe d'armure : bonus de xx
+@100315 = ~\([Bb]onus[ %tab%]+\(de[ %tab%]+\|à[ %tab%]+la[ %tab%]+\)+\([Cc]lasse d'[Aa]rmure\|CA\)[ %tab%]*:.*\|\([Cc]lasse d'[Aa]rmure\|CA\)[ %tab%]*:[ %tab%]+[Bb]onus[ %tab%]+de[ %tab%]+.*\)~
 
 // replace @100315
-@100316 = ~Bonus de classe d\’armure : %new_ac%~
+@100316 = ~Bonus de classe d'armure : %new_ac%~
 
 // replace @100315
-@100317 = ~Bonus de classe d\’armure : 2~
+@100317 = ~Bonus de classe d'armure : 2~
 
 // replace @100315
-@100318 = ~Bonus de classe d\’armure : 3~
+@100318 = ~Bonus de classe d'armure : 3~
 
 // catch ~Armor Class Bonus:~
-@100319 = ~\(\(Bonus de[ %tab%]*\)?\([Cc]lasse d\’[Aa]rmure\|CA\)[ %tab%]*:.*\)~
+//@100319 = ~\(\(Bonus de[ %tab%]*\)?\([Cc]lasse d'[Aa]rmure\|CA\)[ %tab%]*:.*\)~
+@100319 = ~\([Bb]onus[ %tab%]+\(de[ %tab%]+\|à[ %tab%]+la[ %tab%]+\)+\([Cc]lasse d'[Aa]rmure\|CA\)[ %tab%]*:.*\|\([Cc]lasse d'[Aa]rmure\|CA\)[ %tab%]*:[ %tab%]+[Bb]onus[ %tab%]+de[ %tab%]+.*\)~
 
 // add thaco line to @100319
 @100320 = ~\1
@@ -381,7 +389,7 @@ TAC0 : malus de -2~
 @100321 = ~[%lnl%%mnl%%wnl%]Spécial[ %tab%]*:[ %tab%]*bonus de[ %tab%]*\+[0-9]* contre les armes à projectile[s]?~
 
 // catch ~Special: +1 AC bonus vs. Missile Weapons~
-@100322 = ~Spécial[ %tab%]*:[ %tab%]*\([Bb]onus de[ %tab%]*\)?\+[0-9]* \(à la \(CA\|[Cc]lasse d\’[Aa]rmure\) \)?contre les armes à projectile[s]?~
+@100322 = ~Spécial[ %tab%]*:[ %tab%]*\([Bb]onus de[ %tab%]*\)?\+[0-9]* \(à la \(CA\|[Cc]lasse d'[Aa]rmure\) \)?contre les armes à projectile[s]?~
 
 // replace @100322
 @100323 = ~Spécial : bonus de +%new_type% contre les armes à projectiles~
@@ -413,7 +421,7 @@ Spécial : bonus de +2 contre les armes à projectiles~
 @100328 = ~[%lnl%%mnl%%wnl%][Dd]éplacement [Ss]ilencieux[ %tab%]*:.*~
 
 // catch ~Hide in Shadows:~
-@100329 = ~[%lnl%%mnl%%wnl%]\(Camouflage\|Se cacher\)\( dans l\’ombre\)?[ %tab%]*:.*~
+@100329 = ~[%lnl%%mnl%%wnl%]\(Camouflage\|Se cacher\)\( dans l'ombre\)?[ %tab%]*:.*~
 
 // catch ~Stealth:~
 @100330 = ~[%lnl%%mnl%%wnl%][Ff]urtivité[ %tab%]*:.*~
@@ -469,13 +477,13 @@ Poids :~
 @100343 = ~Dégâts et précision de cette arme sont supérieurs grâce à la magie qu'elle renferme.~
 
 // replace @100343
-@100344 = ~Cette épée courte est d'une qualité de maître, bénéficiant ainsi d’une meilleure précision.~
+@100344 = ~Cette épée courte est d'une qualité de maître, bénéficiant ainsi d'une meilleure précision.~
 
 // catch
 @100345 = ~Celle-ci a été enchantée.~
 
 // replace @100345
-@100346 = ~Cette hache particulière est d'une qualité de maître et offre de meilleures performances qu’à la normale.~
+@100346 = ~Cette hache particulière est d'une qualité de maître et offre de meilleures performances que la normale.~
 
 // catch
 @100347 = ~Cette arme a été renforcée par magie, si bien qu'il semble se nouer un lien entre elle et la personne qui la manie.~
@@ -532,7 +540,7 @@ Poids :~
 PARAM[EÈ]TRES :~
 
 // replace @100363
-@100364 = ~La dague traditionnelle comporte une lame pointue généralement à double tranchant, contrairement au couteau, un peu plus court, ne possédant qu'un seul tranchant. Cette dague particulière est d'une qualité de maître et offre de meilleures performances qu’à la normale.
+@100364 = ~La dague traditionnelle comporte une lame pointue généralement à double tranchant, contrairement au couteau, un peu plus court, ne possédant qu'un seul tranchant. Cette dague particulière est d'une qualité de maître et offre de meilleures performances que la normale.
 
 PARAMÈTRES :~
 
@@ -613,20 +621,60 @@ Sagesse nécessaire : 14
 // catch ~Beastmaster~
 @100418 = ~[Bb]elluaire~
 
+//////////////////
+//  Shield Bash //
+//////////////////
+
+// 
+@100419 = ~
+Dégâts de Coup de bouclier : 1D%size%%bon%
+Poids :~
+
+// 
+@100420 = ~Coup de bouclier~
+
+// 
+@100421 = ~Insensible à l'arme.~
 
 
+/////////////////////////////////////
+//  Revised Critical Hit Aversion  //
+/////////////////////////////////////
+
+// remove ~Protects Against Critical Hits~ from the description
+// Bonus à la classe d'armure : protège contre les coups critiques (cas unique, existe aussi en VO, non traité par le mod)
+// Spécial : protège contre les coups critiques
+// Spécial : protège des coups critiques
+//               protège des coups critiques
+// Spécial :  Protège contre les coups critiques
+//  Protège des coups critiques
+// - protège contre les coups critiques
+//@100422 = ~[%LNL%%MNL%%WNL%]\([ %TAB%%emdash%]*\)\(Special:[ %TAB%]+\)?Protects[ %TAB%]+[Aa]gainst[ %TAB%]+[Cc]ritical[ %TAB%]+[Hh]its~
+@100422 = ~[%LNL%%MNL%%WNL%]\([ %TAB%%emdash%]*\)\(Spécial:[ %TAB%]+\)?[Pp]rotège[ %TAB%]+\(contre[ %TAB%]+les\|des\)[ %TAB%]+coups[ %TAB%]+critiques~
+
+// remove ~Armor Class Bonus: None~ from the description
+// Bonus Classe d'Armure :  aucun
+// Bonus de Classe d'Armure : aucun
+// Bonus à la Classe d'Armure : aucun
+//@100423 = ~[%LNL%%MNL%%WNL%]\([ %TAB%%emdash%]*\)Armou?r[ %TAB%]+[Cc]lass[ %TAB%]+[Bb]onus:[ %TAB%]+[Nn]one~
+@100423 = ~[%LNL%%MNL%%WNL%]\([ %TAB%%emdash%]*\)[Bb]onus[ %TAB%]+\(de[ %TAB%]+\|à[ %TAB%]+la[ %TAB%]+\)?[Cc]lasse[ %TAB%]+d'[Aa]rmure[ %TAB%]*:[ %TAB%]+[Aa]ucun~
 
 
+// replace @100422 or @100423, \1 matches [ %TAB%%emdash%]*
+@100424 = ~
+\1Bonus de classe d'armure : +1~
 
-
-
+// add AC line to @100114
+@100425 = ~
+Bonus de classe d'armure : +1
+Poids :~
 
 /*
 // 
-@100419 = ~~
+@100426 = ~~
 
 // 
-@100420 = ~~
+@100427 = ~~
 */
 
 

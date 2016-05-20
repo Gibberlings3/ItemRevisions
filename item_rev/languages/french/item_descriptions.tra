@@ -52,13 +52,13 @@ Capacités d'équipement :
  
 Inutilisable par :
  Tueur de magiciens~
-@1010 = ~Amulette d'Argent~
+@1010 = ~Charme d'Argent~
 @1011 = ~Les amulettes sont des colliers parés de quelque décoration ou symbole. La plupart sont ornementales, mais d'autres comme celle-ci sont de puissants objets magiques. Les récits racontent que les métamorphes et certains démons sont particulièrement vulnérables aux coups des armes en argent. Cette amulette contient de l'argent en poudre qui semble protéger le porteur des attaques de ces créatures.
 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Éclat Argenté : bonus de +2 à la classe d'armure et aux jets de sauvegarde contre les métamorphes et les vampires.
+ Éclat Argenté : bonus de +2 à la classe d'armure et aux jets de sauvegarde contre les loups-garous et les vampires.
 
 Inutilisable par :
  Tueur de magiciens~
@@ -159,7 +159,7 @@ Ainsi, un groupe de chamans barbares s'est un jour réuni afin de trouver une mei
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Hâte Améliorée (comme un lanceur de sorts de niveau 15)
+ Hâte Améliorée
 
 Capacités d'équipement :
  Dextérité : bonus de +1
@@ -202,7 +202,7 @@ Utilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -213,7 +213,7 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -223,10 +223,10 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 Capacités de combat :
- Acide : inflige 1D4 points de dégâts d'acide supplémentaires chaque round durant 2 rounds
+ Acide : inflige 1d4 points de dégâts d'acide supplémentaires chaque round durant 2 rounds
 
 TAC0 : +2
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -238,7 +238,7 @@ PARAMÈTRES :
 Capacités de combat :
  Poison : les créatures frappées par cette flèche doivent réussir un jet de sauvegarde contre la mort ou se voir infliger 1 points de dégâts chaque seconde durant 4 rounds
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -250,7 +250,7 @@ PARAMÈTRES :
 Capacités de combat :
  Explosion : 6d6 points de dégâts de feu sur un rayon de 9 mètres à l'impact (jet de sauvegarde contre les souffles pour moitié)
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -263,7 +263,7 @@ Capacités de combat :
  Dissipation de la Magie : annule tous les effets magiques affectant la cible (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : +1
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -273,10 +273,10 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 Capacités de combat :
- Combustion : les créatures touchées se voient infliger 1D3 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d3 points de dégâts de feu supplémentaires
 
 TAC0 : +1
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -286,10 +286,10 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 Capacités de combat :
- Givre : les créatures touchées se voient infliger 1D3 points de dégâts de glace supplémentaires
+ Givre : les créatures touchées se voient infliger 1d3 points de dégâts de glace supplémentaires
 
 TAC0 : +1
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -299,10 +299,10 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 Capacités de combat :
- Perforant : la cible doit réussir un jet de sauvegarde contre la mort ou se voir infliger 2D6 points de dégâts perforants supplémentaires
+ Perforant : la cible doit réussir un jet de sauvegarde contre la mort ou se voir infliger 2d6 points de dégâts perforants supplémentaires
 
 TAC0 : +3
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -312,7 +312,7 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -322,7 +322,7 @@ Arme de jet : arc~
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -331,7 +331,7 @@ Arme de jet : arc~
 
 PARAMÈTRES :
 
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 7
@@ -352,7 +352,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -372,7 +372,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 5
@@ -391,7 +391,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : projectile
 Poids : 3
 Facteur de vitesse : 4
@@ -414,7 +414,7 @@ Capacités de combat :
  Dissipation de la Magie : annule tous les effets magiques affectant la cible (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : bonus de +1
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -438,10 +438,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
- Décharge : les créatures touchées se voient infliger 1D4 points de dégâts électriques supplémentaires
+ Décharge : les créatures touchées se voient infliger 1d4 points de dégâts électriques supplémentaires
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts (mêlée) : tranchant
 Type de dégâts (lancée) : projectile
 Poids : 3
@@ -466,7 +466,7 @@ Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts (mêlée) : tranchant
 Type de dégâts (lancée) : projectile
 Poids : 3
@@ -489,12 +489,12 @@ Note : toujours considérée comme une arme +3 pour déterminer ce qu'elle peut tou
 PARAMÈTRES :
 
 Capacités de combat :
- Destruction : les créatures morts-vivantes doivent réussir un jet de sauvegarde contre la mort pour ne pas être détruites
- Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les morts-vivants
+ Destruction : les créatures morts-vivantes doivent réussir un jet de sauvegarde contre les sorts pour ne pas être détruites
+ Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les morts-vivants
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts (mêlée) : tranchant
 Type de dégâts (lancée) : projectile
 Poids : 3
@@ -515,10 +515,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Combustion : les créatures touchées se voient infliger 1D4 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d4 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 5
@@ -538,11 +538,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Givre : les créatures touchées se voient infliger 1D4 points de dégâts de froid supplémentaires
+ Givre : les créatures touchées se voient infliger 1d4 points de dégâts de froid supplémentaires
  Frissons : 33 % de chance que la cible soit ralentie durant 3 rounds (jet de sauvegarde contre les sorts pour éviter)
  
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -563,12 +563,11 @@ Cette hache fut l'arme d'une âme maudite, condamnée à errer à travers tout Fééru
 PARAMÈTRES :
 
 Capacités d'équipement :
- Classe d'Armure : bonus de +1
  Points de Vie : bonus de +10
- Régénération : 1 point de vie tous les 4 rounds
+ Régénération : 1 point de vie à chaque round
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 7
 Facteur de vitesse : 4
@@ -591,15 +590,14 @@ Renforcée par la magie de la Griffe de Balor, la Hache de l'Impitoyable est main
 PARAMÈTRES :
 
 Capacités d'équipement :
- Classe d'Armure : bonus de +1
  Points de Vie : bonus de +10
- Régénération : 1 point de vie tous les 4 rounds
+ Régénération : 1 point de vie à chaque round
 
 Capacités de combat :
- Vorpale : 5 % de chance que la cible soit décapitée (jet de sauvegarde contre la mort à -4 pour éviter)
+ Vorpale : 10 % de chance que la cible soit décapitée (jet de sauvegarde contre la mort à -2 pour éviter)
 
 TAC0 : bonus de +4
-Dégâts : 1D8 +4
+Dégâts : 1d8 +4
 Type de dégâts : tranchant
 Poids : 7
 Facteur de vitesse : 3
@@ -619,12 +617,12 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Tranchant : la cible doit réussir un jet de sauvegarde contre la mort ou se voir infliger 2D6 points de dégâts tranchants supplémentaires
+ Tranchant : la cible doit réussir un jet de sauvegarde contre la mort ou se voir infliger 2d6 points de dégâts tranchants supplémentaires
  Assommoir : la cible doit réussir un jet de sauvegarde contre la mort ou se retrouver inconsciente durant 1 round
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts (mêlée) : tranchant
 Type de dégâts (lancée) : projectile
 Poids : 3
@@ -645,7 +643,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 4
@@ -755,7 +753,7 @@ PARAMÈTRES :
 Capacités d'équipement :
  Jets de Sauvegarde : bonus de +3 contre les Souffles
  Résistance aux Dégâts des Projectiles : bonus de +20 %
- Barrière Inertielle : les adversaires situés dans un rayon de 3 mètres autour du porteur doivent réussir un jet de sauvegarde contre les souffles chaque round ou être ralentis 
+ Barrière Inertielle : les adversaires situés dans un rayon de 3 mètres autour du porteur souffrent d'un malus de -1 au facteur de vitesse de leur arme, de ses dégâts et de leurs jets d'attaque
 
 Poids : 1
 Inutilisable par :
@@ -780,7 +778,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 4
@@ -794,7 +792,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 7
@@ -814,7 +812,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 6
@@ -832,7 +830,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 7
@@ -852,7 +850,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 6
@@ -870,7 +868,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 2D4
+Dégâts : 2d4
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 7
@@ -890,7 +888,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 2D4 +1
+Dégâts : 2d4 +1
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 6
@@ -915,7 +913,7 @@ Capacités d'équipement :
  Immunité aux effets des Charmes et de la Confusion
 
 TAC0 : bonus de +3
-Dégâts : 2D4 +3
+Dégâts : 2d4 +3
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 4
@@ -938,11 +936,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Enchevêtrement : 33 % de chance que la cible soit enchevêtrée pour 2 rounds (jet de sauvegarde contre les souffles pour éviter)
- Fléau des Monstres : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les monstres
- Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les morts-vivants
+ Fléau des Monstres : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les monstres
 
 TAC0 : +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 3
@@ -960,11 +957,11 @@ Note : toujours considérée comme une arme +3 pour déterminer ce qu'elle peut tou
 PARAMÈTRES :
 
 Capacités de combat :
- Destruction : les créatures morts-vivantes doivent réussir un jet de sauvegarde contre la mort pour ne pas être détruites
- Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les morts-vivants
+ Destruction : les créatures morts-vivantes doivent réussir un jet de sauvegarde contre les sorts pour ne pas être détruites
+ Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les morts-vivants
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 6
@@ -983,7 +980,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 5
@@ -1002,14 +999,14 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 4
@@ -1029,7 +1026,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 5
@@ -1051,7 +1048,7 @@ Capacités de combat :
  Coma : 33 % de chance que la cible s'endorme durant 2 rounds (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 5
@@ -1073,7 +1070,7 @@ Capacités de combat :
  Venin : les créatures touchées doivent réussir un jet de sauvegarde contre la mort ou se voir infliger 1 point de dégâts chaque seconde durant 2 rounds
 
 TAC0 : +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 5
@@ -1096,10 +1093,10 @@ PARAMÈTRES :
 Capacités de combat :
  Briseur d'Os : chaque coup réduit les points de vie maximum de la cible de 3 durant 1 tour
  Coup Cinglant : 5 % de chance d'infliger 20 points de dégâts contondants supplémentaires
- Fléau des Humains : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les humanoïdes
+ Fléau des Humains : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les humanoïdes
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 6
@@ -1121,7 +1118,7 @@ Capacités d'équipement :
  Force : bonus de +2 (+75 exceptionnelle)
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 6
@@ -1142,7 +1139,7 @@ Capacités de combat :
  Affaiblissement : la cible doit réussir un jet de sauvegarde contre les sorts ou être ralentie et se voir infliger un malus de -1 aux jets d'attaque et à la classe d'armure durant 1 round
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 5
@@ -1161,7 +1158,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 5
@@ -1180,11 +1177,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Acide : les créatures touchées se voient infliger 1D4 points de dégâts d'acide supplémentaires
- Projection d'Acide : 5 % de chance d'infliger 20 points de dégâts d'acide supplémentaires
+ Acide : les créatures touchées se voient infliger 1d4 points de dégâts d'acide supplémentaires
+ Projection d'Acide : 10 % de chance d'infliger 4d4 points de dégâts d'acide à la cible et aux adversaires dans une rayon de 1,5 mètres
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 2
@@ -1196,16 +1193,16 @@ Inutilisable par :
 @1150 = ~Gourdin d'Os +3~
 @1151 = ~Ce redoutable gourdin aurait été créé il y a des centaines d'années par un chaman avide de vengeance. Sa famille avait été massacrée par des morts-vivants, et sa rage était telle qu'il se trancha une jambe et se servit de son propre fémur pour façonner cette arme. Des runes magiques lui confèrent ses pouvoirs, même s'il est probable que la force de sa haine seule aurait pu y suffire.
 
-Notes : toujours considéré comme une arme +3 pour déterminer ce qu'il peut toucher. L'effet de la Malédiction n'est pas cumulable avec lui-même ou d'autres formes de magie similaires.
+Notes : toujours considéré comme une arme +3 pour déterminer ce qu'il peut toucher.
 
 PARAMÈTRES :
 
 Capacités de combat :
- Malédiction : la cible doit réussir un jet de sauvegarde contre les sorts ou subir un malus de -2 à ses jets de sauvegarde et d'attaque durant 5 rounds
- Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les morts-vivants
+ Malédiction : la cible doit réussir un jet de sauvegarde contre les sorts ou subir un malus de -1 à ses jets de sauvegarde et d'attaque durant 4 rounds
+ Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les morts-vivants
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 3
@@ -1223,7 +1220,7 @@ Capacités de combat :
  Esquilles : inflige 2 points de dégâts perforants chaque round durant 2 rounds
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 2
@@ -1246,11 +1243,11 @@ Capacités d'équipement :
  Immunité aux effets de l'Absorption de niveaux
 
 Capacités de combat :
- Destruction : les créatures morts-vivantes doivent réussir un jet de sauvegarde contre la mort pour ne pas être détruites
- Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les morts-vivants
+ Destruction : les créatures morts-vivantes doivent réussir un jet de sauvegarde contre les sorts pour ne pas être détruites
+ Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les morts-vivants
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 5
@@ -1278,11 +1275,10 @@ Capacités d'équipement :
 
 Capacités de combat :
  Déflagration : 10 % de chance qu'une boule de feu de 5d6 points de dégâts explose pour chaque attaque réussie
- Rafale Ardente : 5 % de chance d'infliger 20 points de dégâts de feu supplémentaires
- Combustion : les créatures touchées se voient infliger 1D6 points de dégâts de feu supplémentaires
+ Rafale Ardente : 10 % de chance d'infliger 6d6 points de dégâts de feu à la cible et aux adversaires dans un rayon de 4,5 mètres
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 1
@@ -1310,11 +1306,10 @@ Capacités d'équipement :
 
 Capacités de combat :
  Déflagration : 10 % de chance qu'une boule de feu de 5d6 points de dégâts explose pour chaque attaque réussie
- Rafale Ardente : 5 % de chance d'infliger 20 points de dégâts de feu supplémentaires
- Combustion : les créatures touchées se voient infliger 1D6 points de dégâts de feu supplémentaires
+ Rafale Ardente : 10 % de chance d'infliger 6d6 points de dégâts de feu à la cible et aux adversaires dans un rayon de 4,5 mètres
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 0
@@ -1330,11 +1325,11 @@ En dépit de sa taille massive, l'Étoile de la Tempête est étonnamment légère, la
 PARAMÈTRES :
 
 Capacités de combat :
- Décharge : les créatures touchées se voient infliger 1D6 points de dégâts électriques supplémentaires
- Chaîne d'Éclairs : 15 % de chance que des arcs électriques jaillissent sur tous les ennemis, infligeant 3D6 points de dégâts électriques
+ Décharge : les créatures touchées se voient infliger 1d6 points de dégâts électriques supplémentaires
+ Chaîne d'Éclairs : 15 % de chance que des arcs électriques jaillissent sur tous les ennemis, infligeant 3d6 points de dégâts électriques
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -1356,12 +1351,12 @@ Les formidables capacités de l'Étoile de la Tempête ont été encore renforcées pa
 PARAMÈTRES :
 
 Capacités de combat :
- Décharge : les créatures touchées se voient infliger 1D6 points de dégâts électriques supplémentaires
- Chaîne d'Éclairs : 15 % de chance que des arcs électriques jaillissent sur tous les ennemis, infligeant 3D6 points de dégâts électriques
- Appel de la Foudre : 5 % de chance de provoquer une tempête de foudre sur la cible ; chaque round durant 4 rounds, un adversaire est frappé de 4D6 points de dégâts électriques
+ Décharge : les créatures touchées se voient infliger 1d6 points de dégâts électriques supplémentaires
+ Chaîne d'Éclairs : 15 % de chance que des arcs électriques jaillissent sur tous les ennemis, infligeant 3d6 points de dégâts électriques
+ Appel de la Foudre : 5 % de chance de provoquer une tempête de foudre sur la cible ; chaque round durant 4 rounds, un adversaire est frappé de 4d6 points de dégâts électriques
  
 TAC0 : bonus de +4
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 1
@@ -1382,16 +1377,16 @@ Avec l'addition de la cinquième et dernière tête, le vrai potentiel du Fléau de 
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
- Tête Empoisonnée : 1D5 points de dégâts de poison supplémentaires, plus 1 pv/sec durant 2 rounds
- Tête Électrique : 1D5 points de dégâts électriques supplémentaires, étourdit la cible durant 1 round
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête Empoisonnée : 1d5 points de dégâts de poison supplémentaires, plus 1 pv/sec durant 2 rounds
+ Tête Électrique : 1d5 points de dégâts électriques supplémentaires, étourdit la cible durant 1 round
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts à -4 pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +5
-Dégâts : 1D6 +6
+Dégâts : 1d6 +6
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 2
@@ -1412,15 +1407,15 @@ Si la cinquième tête du Fléau de l'Éternité pouvait être trouvée, cela rendrait 
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
- Tête Empoisonnée : 1D5 points de dégâts de poison supplémentaires, plus 1 pv/sec durant 2 rounds
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête Empoisonnée : 1d5 points de dégâts de poison supplémentaires, plus 1 pv/sec durant 2 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts à -2 pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 3
@@ -1440,15 +1435,15 @@ Si la cinquième tête du Fléau de l'Éternité pouvait être trouvée, cela rendrait 
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralenti la cible durant 3 rounds
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
- Tête Électrique : 1D5 points de dégâts électriques supplémentaires, étourdit la cible durant 1 round
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralenti la cible durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête Électrique : 1d5 points de dégâts électriques supplémentaires, étourdit la cible durant 1 round
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts à -2 pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 3
@@ -1467,7 +1462,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 1
@@ -1482,7 +1477,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 4
@@ -1501,7 +1496,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 8
 Facteur de vitesse : 4
@@ -1520,7 +1515,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 2D4 +3
+Dégâts : 2d4 +3
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 4
@@ -1542,10 +1537,10 @@ Capacités d'équipement :
  Résistance au Feu : bonus de +40 %
 
 Capacités de combat :
- Froid Mordant : de pénétrantes échardes de glace infligent 1D4 points de dégâts de froid et 1D4 point de dégâts perforants supplémentaires
+ Froid Mordant : de pénétrantes échardes de glace infligent 1d4 points de dégâts de froid et 1d4 point de dégâts perforants supplémentaires
 
 TAC0 : bonus de +4
-Dégâts : 2D4 +4
+Dégâts : 2d4 +4
 Type de dégâts : contondant
 Poids : 9
 Facteur de vitesse : 3
@@ -1563,7 +1558,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -1574,7 +1569,7 @@ Arme de jet : arbalète~
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -1584,10 +1579,10 @@ Arme de jet : arbalète~
 PARAMÈTRES :
 
 Capacités de combat :
- Décharge : 4D4 points de dégâts électriques supplémentaires (jet de sauvegarde contre les souffles pour moitié)
+ Décharge : 4d4 points de dégâts électriques supplémentaires (jet de sauvegarde contre les souffles pour moitié)
 
 TAC0 : bonus de +2
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -1599,7 +1594,7 @@ PARAMÈTRES :
 Capacités de combat :
  Poison : les créatures touchées doivent réussir un jet de sauvegarde contre la mort ou se voir infliger 1 point de dégâts chaque seconde durant 4 rounds
 
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -1609,7 +1604,7 @@ Arme de jet : arbalète~
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -1619,7 +1614,7 @@ Arme de jet : arbalète~
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -2058,7 +2053,7 @@ Capacités de combat :
  Flèche Fantôme : 20 % de chance que la cible s'enfuie de terreur durant 2 rounds (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : bonus de +3
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 2
 Facteur de vitesse : 3
@@ -2140,10 +2135,10 @@ Note : ne nécessite pas de munition, mais les flèches classiques ne peuvent pas 
 PARAMÈTRES :
 
 Capacités de combat :
- Flèche d'Éclair : inflige 2D6 points de dégâts électriques supplémentaires (jet de sauvegarde contre les souffles pour moitié)
+ Flèche d'Éclair : inflige 2d6 points de dégâts électriques supplémentaires (jet de sauvegarde contre les souffles pour moitié)
 
 TAC0 : +4
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 2
 Facteur de vitesse : 2
@@ -2170,7 +2165,7 @@ Capacités d'équipement :
  Résistance au Froid : bonus de +10 %
  
 Capacités de combat :
- Feunoir : inflige 1D4 points de dégâts de feu ou de froid supplémentaires
+ Feunoir : inflige 1d4 points de dégâts de feu ou de froid supplémentaires
 
 TAC0 : bonus de +4
 Poids : 2
@@ -2200,7 +2195,7 @@ Capacités d'équipement :
  Résistance au Froid : bonus de +20 %
  
 Capacités de combat :
- Feunoir : inflige 1D4 points de dégâts de feu ou de froid supplémentaires
+ Feunoir : inflige 1d4 points de dégâts de feu ou de froid supplémentaires
 
 TAC0 : bonus de +5
 Poids : 2
@@ -2406,7 +2401,7 @@ Ce fut l'infâme bretteuse Eisneid Clume qui, pour la première fois, fit appel à 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Parade : bonus de +1 à la classe d'armure (uniquement contre les armes de mêlée)
+ Parade : bonus de +2 à la classe d'armure (uniquement contre les armes de mêlée)
 
 Poids : 1
 Inutilisable par :
@@ -2628,7 +2623,7 @@ Utilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D4 +1
+Dégâts : 1d4 +1
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : fronde~
@@ -2639,7 +2634,7 @@ Arme de jet : fronde~
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : fronde~
@@ -2649,7 +2644,7 @@ Arme de jet : fronde~
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : fronde~
@@ -2659,10 +2654,10 @@ Arme de jet : fronde~
 PARAMÈTRES :
 
 Capacités de combat :
- Soleil Ardent : les créatures touchées se voient infliger 2D4 points de dégâts de feu supplémentaires
+ Soleil Ardent : les créatures touchées se voient infliger 2d4 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : fronde~
@@ -2672,7 +2667,7 @@ Arme de jet : fronde~
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : fronde~
@@ -2682,10 +2677,10 @@ Arme de jet : fronde~
 PARAMÈTRES :
 
 Capacités de combat :
- Coup de Massue : les créatures touchées se voient infliger 2D3 points de dégâts contondants supplémentaires
+ Coup de Massue : les créatures touchées se voient infliger 2d3 points de dégâts contondants supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : fronde~
@@ -2732,6 +2727,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
+ Protège contre le coups critiques
  Jets de Sauvegarde : bonus de +3 contre la Mort
 
 Classe d'armure : 3
@@ -2906,7 +2902,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Rage Sanguinaire : 5 % de chance que le porteur enrage s'il subit une attaque, gagnant un bonus de +2 à ses jets d'attaque, de dégâts, et de sauvegarde, mais perdant le contrôle de lui-même durant 5 rounds
+ Rage Sanguinaire : 5 % de chance que le porteur enrage s'il subit une attaque, gagnant un bonus de +2 à ses jets d'attaque et de dégâts durant 5 rounds
  Rage Infatigable : le porteur ne ressent pas de fatigue après ses états de rage
 
 Classe d'armure : 0
@@ -3009,17 +3005,15 @@ Inutilisable par :
  Métamorphe
  Kensai
  Moine~
-@1365 = ~Armure de la Foi +1~
+@1365 = ~Armure de la Foi +3~
 @1366 = ~Cette armure est une combinaison de mailles et de plates (plastron, épaulettes, coudières, gantelets, tassettes et jambières) couvrant toutes les zones vitales. Boucles et sangles maintiennent ensembles les différentes pièces du complet et distribuent leur poids. Cependant, l'armure offre toujours plus de liberté de mouvement qu'une armure de plates complète. Créée dans une forge bénie des dieux pour répondre aux exigences de son commanditaire, l'armure brille comme si elle générait sa propre lumière. Portée par les champions divins et les paladins, elle est le symbole de la justice et de la bravoure.
-
-Note : l'effet de l'Armure de la Foi n'est pas cumulable avec d'autres formes de magie similaires.
 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Armure de la Foi : +20 % de résistance aux dégâts physiques
+ Vitesse d'incantation : bonus de +1
 
-Classe d'armure : 3
+Classe d'armure : 1
 Poids : 45
 Force nécessaire : 10
 Utilisable par :
@@ -3050,7 +3044,7 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités spéciales (3 fois par jour) :
- Cône de Froid Glacial : inflige 10D4 +10 points de dégâts de froid et ralentit les cibles durant 5 rounds, un jet de sauvegarde contre les souffles réussi à -4 diminue les dégâts de moitié et annule l'effet de lenteur.
+ Cône de Froid Glacial : inflige 10d4 +10 points de dégâts de froid et ralentit les cibles durant 5 rounds, un jet de sauvegarde contre les souffles réussi à -4 diminue les dégâts de moitié et annule l'effet de lenteur.
 
 Capacités d'équipement :
  Résistance au Froid : bonus de +50 %
@@ -3169,7 +3163,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Beauté Aveuglante : les adversaires situés à moins de 9 mètres doivent réussir un jet de sauvegarde contre les sorts pour ne pas être aveuglés durant 1 tour
+ Beauté Aveuglante : les adversaires situés à moins de 6 mètres doivent réussir un jet de sauvegarde contre les sorts pour ne pas être aveuglés durant 1 tour
 
 Capacités d'équipement :
  Charisme : bonus de +2
@@ -3255,7 +3249,7 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Résistance aux Dégâts Physiques : bonus de +10 %
+ Protège contre les coups critiques
 
 Poids : 4
 Utilisable par :
@@ -3294,7 +3288,6 @@ Capacités d'équipement :
  Jets de Sauvegarde : bonus de +2
  Résistance aux Dégâts Magiques : bonus de +20 %
 
-Classe d'armure : 5
 Poids : 6
 Utilisable par :
  Mage~
@@ -3345,7 +3338,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Vengeance : tous ceux qui touchent le porteur en mêlée se voient infliger 1D10 points de dégâts électriques
+ Vengeance : tous ceux qui touchent le porteur ont 20 % de chance d'être touchés en retour par un éclair et de subir 6d6 points de dégâts électriques
 
 Poids : 3
 Inutilisable par :
@@ -3431,7 +3424,7 @@ Utilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D4
+Dégâts : 1d4
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 2
@@ -3448,7 +3441,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D4 +1
+Dégâts : 1d4 +1
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 1
@@ -3468,7 +3461,7 @@ Capacités de combat :
  Perforation d'Armure : bonus de +3 aux jets d'attaque
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 2
 Facteur de vitesse : 0
@@ -3483,7 +3476,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D4
+Dégâts : 1d4
 Type de dégâts : projectile
 Poids : 1
 Facteur de vitesse : 2
@@ -3494,18 +3487,19 @@ Inutilisable par :
  Clerc
  Belluaire~
 @1437 = ~Dague d'Argent~
-@1438 = ~Mortloups +2~
-@1439 = ~La dague classique a une lame pointue et à double tranchant, par opposition au couteau, qui n'a qu'un tranchant et est légèrement plus court. Cette dague d'argent pur a une lame pointue et à double tranchant.~
-@1440 = ~Cette dague est l'oeuvre de Dynala Maindor, une rôdeuse elfe désireuse de débarrasser son pays du fléau que représentaient les loups-garous. Elle fut tuée par une tribu d'orques des Pics Gris alors qu'elle pourchassait le chef des lycanthropes.
+@1438 = ~Dague d'Argent de Jet +2~
+@1439 = ~Muloups
+Cette dague est l'oeuvre de Dynala Maindor, une rôdeuse elfe désireuse de débarrasser son pays du fléau que représentaient les loups-garous. Elle fut tuée par une tribu d'orques des Pics Gris alors qu'elle pourchassait le chef des lycanthropes.
 
 PARAMÈTRES :
 
 Capacités de combat :
  Lame d'Argent : inflige 4 points de dégâts supplémentaires aux lycanthropes et aux vampires
- 
+ Retour : revient dans la main du lanceur immédiatement après avoir été lancée
+
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
-Type de dégâts : perforant
+Dégâts : 1d4 +2
+Type de dégâts : projectile
 Poids : 1
 Facteur de vitesse : 0
 Type de compétence : dague
@@ -3524,7 +3518,7 @@ Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts (mêlée) : perforant
 Type de dégâts (lancée) : projectile
 Poids : 1
@@ -3542,10 +3536,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
- Combustion : les créatures touchées se voient infliger 1D4 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d4 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts (mêlée) : perforant
 Type de dégâts (lancée) : projectile
 Poids : 1
@@ -3566,7 +3560,7 @@ Capacités de combat :
  Sommeil : 20 % de chance que la cible tombe dans un profond sommeil durant 2 rounds (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -3583,11 +3577,11 @@ Des lames comme celle-ci sont souvent offertes par Lolth à ses assassins les plu
 PARAMÈTRES :
 
 Capacités de combat :
- Acide : inflige 1D3 points de dégâts d'acide supplémentaires à chaque round durant 2 rounds
+ Acide : inflige 1d3 points de dégâts d'acide supplémentaires à chaque round durant 2 rounds
  Toile d'Araignée : 33 % de chance que la cible soit immobilisée durant 2 rounds (jet de sauvegarde contre les souffles pour éviter)
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -3603,7 +3597,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -3622,7 +3616,7 @@ Capacités de combat :
  Poison : les créatures touchées doivent réussir un jet de sauvegarde contre la mort ou se voir infliger 2 points de dégâts chaque seconde durant 2 rounds
  
 TAC0 : bonus de +1
-Dégâts : 1D4
+Dégâts : 1d4
 Type de dégâts : projectile
 Poids : 1
 Facteur de vitesse : 1
@@ -3642,7 +3636,7 @@ Capacités de combat :
  Paralysie : 20 % de chance que la cible soit immobilisée durant 2 rounds (jet de sauvegarde contre la paralysie pour éviter)
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -3662,7 +3656,7 @@ Capacités d'équipement :
  Intelligence : bonus de +1
 
 TAC0 : bonus de +1
-Dégâts : 1D4 +1
+Dégâts : 1d4 +1
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 1
@@ -3681,7 +3675,7 @@ Capacités de combat :
  Métal Étoile : inflige 4 points de dégâts supplémentaires aux créatures extraplanaires
 
 TAC0 : bonus de +4
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -3701,11 +3695,11 @@ PARAMÈTRES :
 Capacités de combat :
  Poussière d'Étoile : 20% de chance d'aveugler tous les adversaires dans un rayon de 1,50 mètre durant 4 rounds (jet de sauvegarde contre les souffles à -4 pour éviter)
  Métal Étoile : inflige 4 points de dégâts supplémentaires aux créatures extraplanaires
- Trait Stellaire : 15 % de chance d'infliger 4D4 points de dégâts magiques supplémentaires
+ Trait Stellaire : 15 % de chance d'infliger 4d4 points de dégâts magiques supplémentaires
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +5
-Dégâts : 1D4 +5
+Dégâts : 1d4 +5
 Type de dégâts (mêlée) : perforant
 Type de dégâts (lancée) : projectile
 Poids : 1
@@ -3722,7 +3716,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Poids : 1
 Facteur de vitesse : 0
 Type de compétence : dague
@@ -3737,7 +3731,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -3752,7 +3746,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D3
+Dégâts : 1d3
 Type de dégâts : projectile
 Poids : 0
 Facteur de vitesse : 2
@@ -3769,7 +3763,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D3 +1
+Dégâts : 1d3 +1
 Type de dégâts : projectile
 Poids : 0
 Facteur de vitesse : 1
@@ -3788,7 +3782,7 @@ Capacités de combat :
  Étourdissement : la cible doit réussir un jet de sauvegarde contre les sorts ou être étourdie durant 1 round
  
 TAC0 : bonus de +1
-Dégâts : 1D3 +1
+Dégâts : 1d3 +1
 Type de dégâts : projectile
 Poids : 0
 Facteur de vitesse : 1
@@ -3806,7 +3800,7 @@ PARAMÈTRES :
 Capacités de combat :
  Hémorragie : la cible se voit infliger 1 point de dégâts d'hémorragie à chaque round durant 5 rounds
 
-Dégâts : 1D3
+Dégâts : 1d3
 Type de dégâts : projectile
 Poids : 0
 Facteur de vitesse : 2
@@ -3825,7 +3819,7 @@ Capacités de combat :
  Venin : la cible doit réussir un jet de sauvegarde contre la mort ou se voir infliger 1 point de dégâts toutes les 3 secondes jusqu'à ce que 40 points de dégâts aient été infligés
 
 TAC0 : bonus de +2
-Dégâts : 1D3 +2
+Dégâts : 1d3 +2
 Type de dégâts : projectile
 Poids : 0
 Facteur de vitesse : 0
@@ -3842,10 +3836,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
- Combustion : les créatures touchées se voient infliger 1D3 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d3 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D3 +3
+Dégâts : 1d3 +3
 Type de dégâts : projectile
 Poids : 0
 Facteur de vitesse : 0
@@ -3866,7 +3860,7 @@ Capacités de combat :
  Manufacture Elfe Noir : bonus de +2 à la chance pour déterminer les dégâts minimums et les jets d'attaque
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 4
@@ -3890,7 +3884,7 @@ Capacités de combat :
  Sommeil : la cible doit réussir un jet de sauvegarde contre les sorts ou se retrouver inconsciente durant 2 rounds
 
 TAC0 : bonus de +1
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -3903,7 +3897,7 @@ Capacités de combat :
  Étourdissement : la cible doit réussir un jet de sauvegarde contre les sorts ou être étourdie durant 1 round
 
 TAC0 : bonus de +2
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -3913,11 +3907,11 @@ Arme de jet : arbalète~
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
-@1487 = ~Cotte de Mailles Elfe Noir +1~
+@1487 = ~Cotte de Mailles Elfe Noir de Sorts +1~
 @1488 = ~De nombreuses régions de l'Ombreterre de Féérune sont imprégnées de radiations magiques que les elfes noirs appellent faerzress. Vestige des forces titanesques qui façonnèrent jadis l'Ombreterre, la faerzress altère et déforme certains types de magie.
 Les elfes noirs ont toujours recherché les sites de faerzess les plus puissants pour y ériger leurs cités, car les radiations magiques entravent l'espionnage et protègent des assauts ennemis. De plus, l'énergie magique dégagée peut être utilisée dans la création de puissants objets magiques.
 Une armure de manufacture elfe noir est alimentée en énergie magique par les noeuds terrestres ainsi que par l'aura se dégageant de la faerzress. Aussi longtemps qu'elle demeure près d'un noeud terrestre ou une zone de faerzress, elle octroie à son porteur une protection exceptionnelle. Les armures elfe noir se désagrègent si elles sont exposées à la lumière du jour et ne devraient donc pas quitter l'Ombreterre.
@@ -3951,7 +3945,7 @@ PARAMÈTRES :
 
 Capacités d'équipement :
  Manufacture Elfe Noir : augmente la classe d'armure
- Résistance aux Dégâts Physiques : bonus de +10 %
+ Résistance aux Dégâts Physiques : bonus de +5 %
 
 Classe d'armure : 0
 Poids : 40
@@ -3990,7 +3984,7 @@ Capacités de combat :
  Manufacture Elfe Noir : bonus de +2 à la chance pour déterminer les dégâts minimums et les jets d'attaque
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : perforant
 Poids : 15
 Facteur de vitesse : 6
@@ -4017,7 +4011,7 @@ PARAMÈTRES :
 
 Capacités d'équipement :
  Manufacture Elfe Noir : augmente la classe d'armure
- Résistance aux Dégâts Physiques : bonus de +15 %
+ Résistance aux Dégâts Physiques : bonus de +5 %
 
 Classe d'armure : -4
 Poids : 60
@@ -4068,7 +4062,7 @@ Capacités de combat :
  Manufacture Elfe Noir : bonus de +2 à la chance pour déterminer les dégâts minimums et les jets d'attaque
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 3
@@ -4094,7 +4088,7 @@ Capacités de combat :
  Manufacture Elfe Noir : bonus de +2 à la chance pour déterminer les dégâts minimums et les jets d'attaque
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 3
 Facteur de vitesse : 2
@@ -4118,7 +4112,7 @@ Capacités de combat :
  Manufacture Elfe Noir : bonus de +2 à la chance pour déterminer les dégâts minimums et les jets d'attaque
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -4161,7 +4155,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D10
+Dégâts : 1d10
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 9
@@ -4181,7 +4175,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D10 +1
+Dégâts : 1d10 +1
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 8
@@ -4201,10 +4195,12 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Étourdissement : la cible doit réussir un jet de sauvegarde contre les sorts ou être étourdie durant 1 round
+ Perforation : les créatures touchées subissent 1d10 points de dégâts perforants supplémentaires
+ Vacillement : la cible doit réussir un jet de sauvegarde contre le souffle sous peine de chanceler pendant 1 round, réduisant son taux d'attaque de moitié et souffrant d'une pénalité de -4 à la vitesse d'incantation de ses sorts
+ Déséquilibre : -1/2 attaque par round
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 7
@@ -4231,7 +4227,7 @@ Capacités de combat :
  Acérée : +10 % de chance d'infliger un coup critique
 
 TAC0 : bonus de +1
-Dégâts : 1D10 +1
+Dégâts : 1d10 +1
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 8
@@ -4251,10 +4247,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Souffle du Dragon : inflige 1D10 points de dégâts d'acide, de froid, d'électricité, de feu, ou de poison
+ Souffle du Dragon : inflige 1d10 points de dégâts d'acide, de froid, d'électricité, de feu, ou de poison
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 6
@@ -4280,7 +4276,7 @@ Capacités d'équipement :
  Combat en Aveugle : le porteur combat sans pénalité, même aveuglé, et ne peut pas être victime d'attaques sournoises
 
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 5
@@ -4300,7 +4296,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 7
@@ -4323,7 +4319,7 @@ Capacités de combat :
  Froid Rampant : inflige 2 points de dégâts de froid à chaque round durant 4 rounds
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 7
@@ -4347,11 +4343,11 @@ Capacités d'équipement :
  Protection contre les Sorts : Flétrissure Abominable
 
 Capacités de combat :
- Vague Destructrice : 15 % de chance d'infliger 4D6 points de dégâts contondants à la cible ainsi qu'aux adversaires situés dans un rayon d'un mètre et demi
- Extinction : les efrits, élémentaires de feu, géants du feu et salamandres de feu doivent réussir un jet de sauvegarde contre la mort à -4 pour ne pas être détruits
+ Vague Destructrice : 15 % de chance  que la cible ainsi que les adversaires situés dans un rayon d'un mètre et demi subissent 4d6 points de dégâts contondants ; ils doivent en outre effectuer un jet de sauvegarde contre le souffle ou tomber dans l'inconscience durant 1 round
+ Extinction : les efrits, élémentaires de feu, géants du feu et salamandres de feu touchés par la Vague Destructrice doivent réussir un jet de sauvegarde contre la mort pour ne pas être détruits
 
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 5
@@ -4368,18 +4364,16 @@ Inutilisable par :
 @1538 = ~Ravageuse +4~
 @1539 = ~Les gardes des remparts de la forteresse maléfique de Sombrefort sont équipés d'anciennes hallebardes créées par des démons. Ces hallebardes furent échangées aux forges des enfers contre des âmes de héros ; chacune de ces armes est donc particulièrement précieuse. Ceux qui en sont équipés hors des remparts de Sombrefort le sont à leurs risques et périls, car on dit que le maître de la forteresse est lié à chacune d'elles. Rien que le fait d'empoigner le manche recouvert de sang de cette arme provoque un frisson le long du dos, et la seule vue de cette hallebarde maudite peut inspirer la terreur dans le coeur des adversaires.
 
-Note : l'effet de la Malédiction n'est pas cumulable avec lui-même ou d'autres formes de magie similaires.
-
 PARAMÈTRES :
 
 Capacités spéciales (deux fois par jour) :
  Manteau de Terreur
 
 Capacités de combat :
- Malédiction : la cible doit réussir un jet de sauvegarde contre les sorts ou subir un malus de -2 à ses jets de sauvegarde et d'attaque durant 5 rounds
+ Malédiction : la cible doit réussir un jet de sauvegarde contre les sorts ou subir un malus de -1 à ses jets de sauvegarde et d'attaque durant 4 rounds
 
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 5
@@ -4399,19 +4393,17 @@ Inutilisable par :
 
 Combinée au Bâton Serpent, cette sombre hallebarde possède maintenant la capacité d'abattre un adversaire d'un seul coup, à moins bien sûr qu'il ne puisse survivre au poison mortel injecté par cette arme vicieuse.
 
-Note : l'effet de la Malédiction n'est pas cumulable avec lui-même ou d'autres formes de magie similaires.
-
 PARAMÈTRES :
 
 Capacités spéciales (trois fois par jour) :
  Manteau de Terreur
 
 Capacités de combat :
- Malédiction : la cible doit réussir un jet de sauvegarde contre les sorts ou subir un malus de -2 à ses jets de sauvegarde et d'attaque durant 5 rounds
+ Malédiction : la cible doit réussir un jet de sauvegarde contre les sorts ou subir un malus de -1 à ses jets de sauvegarde et d'attaque durant 4 rounds
  Vipérine : 15 % de chance d'injecter un poison infligeant 10 points de dégâts à chaque seconde durant 2 rounds (jet de sauvegarde contre la mort à -4 pour éviter)
 
 TAC0 : bonus de +5
-Dégâts : 1D10 +5
+Dégâts : 1d10 +5
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 4
@@ -4432,7 +4424,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : perforant
 Poids : 12
 Facteur de vitesse : 6
@@ -4451,7 +4443,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D4 +1
+Dégâts : 1d4 +1
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 4
@@ -4471,7 +4463,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 3
@@ -4490,10 +4482,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Résonance : 15 % de chance d'émettre une onde de choc sonique, infligeant 4D4 points de dégâts aux adversaires dans un rayon de 3 mètres
+ Résonance : 15 % de chance d'émettre une onde de choc sonique, infligeant 4d4 points de dégâts aux adversaires dans un rayon de 3 mètres
  
 TAC0 : bonus de +2
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 2
@@ -4512,11 +4504,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Acide : les créatures touchées se voient infliger 1D4 points de dégâts d'acide supplémentaires
+ Acide : les créatures touchées se voient infliger 1d4 points de dégâts d'acide supplémentaires
  Corrosion : 50 % de chance de réduire la classe d'armure de la cible de 1 durant 2 rounds
 
 TAC0 : bonus de +1
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 3
@@ -4535,10 +4527,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Sainte Punition : contre une créature maléfique, 20 % de chance d'infliger 5D4 points de dégâts magiques, et d'aveugler la cible durant 1 round (jet de sauvegarde contre les sorts pour éviter)
+ Sainte Punition : contre une créature maléfique, 20 % de chance d'infliger 5d4 points de dégâts magiques, et d'aveugler la cible durant 1 round (jet de sauvegarde contre les sorts pour éviter)
  
 TAC0 : bonus de +2
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 2
@@ -4561,7 +4553,7 @@ Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancé
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +4
+Dégâts : 2d4 +4
 Type de dégâts (mêlée) : contondant
 Type de dégâts (lancée) : projectile
 Poids : 5
@@ -4577,10 +4569,10 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Décharge : les créatures touchées se voient infliger 1D4 points de dégâts électriques supplémentaires
+ Décharge : les créatures touchées se voient infliger 1d4 points de dégâts électriques supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 1
@@ -4599,7 +4591,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D4 +3
+Dégâts : 1d4 +3
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 2
@@ -4624,12 +4616,12 @@ Capacités d'équipement :
  Déséquilibré : malus de -1/2 attaque par round lorsqu'il est utilisé en tant qu'arme de jet
 
 Capacités de combat :
- Décharge : les créatures touchées se voient infliger 1D4 points de dégâts électriques supplémentaires
+ Décharge : les créatures touchées se voient infliger 1d4 points de dégâts électriques supplémentaires
  Retour : revient dans la main du lanceur immédiatement après avoir été lancé
  Coup de Tonnerre : lorqu'il est lancé violemment, le marteau émet un grand bruit au moment où il percute sa cible, comme un coup de tonnerre, étourdissant les ennemis dans un rayon d'un mètre et demi durant 1 round (jet de sauvegarde contre les souffles pour éviter)
  
 TAC0 : bonus de +4
-Dégâts : 1D4 +5
+Dégâts : 1d4 +5
 Type de dégâts (mêlée) : contondant
 Type de dégâts (lancée) : projectile
 Poids : 5
@@ -4656,7 +4648,7 @@ Capacités de combat :
  Métal Étoile : inflige 4 points de dégâts supplémentaires aux créatures extraplanaires
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 1
@@ -4689,7 +4681,7 @@ Capacités de combat :
  Métal Étoile : inflige 4 points de dégâts supplémentaires aux créatures extraplanaires
 
 TAC0 : bonus de +4
-Dégâts : 1D4 +5
+Dégâts : 1d4 +5
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 0
@@ -4708,7 +4700,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : contondant
 Poids : 5
 Facteur de vitesse : 1
@@ -4956,7 +4948,9 @@ Inutilisable par :
 @1596 = ~Pierre Ionique~
 @1597 = ~Pierre Ionique Blanc Perle~
 @1598 = ~Cette petite pierre flotte autour de la tête de son propriétaire quand il s'en équipe dans l'inventaire. Ces pierres évidemment magiques ont des propriétés différentes en fonction de leur couleur.~
-@1599 = ~La légende voudrait que ce type de pierre ionique soit créée avec l'âme captive d'un troll. Cette pierre ionique d'une blancheur de perle donne à son porteur des facultés de régénération, ainsi que la capacité à se métamorphoser en troll géant.
+@1599 = ~Les légendes voudraient que ce type de pierre ionique soit créée avec l'âme captive d'un troll. Cette pierre ionique d'une blancheur de perle donne à son porteur des facultés de régénération, ainsi que la capacité à se métamorphoser en troll géant.
+
+Bien que le rite sombre lie les capacités régénératives des trolls dans cet objet, il lui instille également une dose de leurs faiblesses.
 
 PARAMÈTRES :
 
@@ -4965,6 +4959,11 @@ Capacités spéciales (une fois par jour) :
 
 Capacités d'équipement :
  Régénération : 1 point de vie tous les 2 rounds
+
+Capacités d'équipement :
+ Résistance à l'acide : malus de -10 %
+ Résistance au feu : malus de -10 %
+ Régénération : le porteur régénère d'un point de vie par round
 
 Bonus de classe d'armure : aucun
 Protège contre les coups critiques
@@ -5192,7 +5191,7 @@ PARAMÈTRES :
 
 Capacités d'équipement :
  Jets de Sauvegarde : bonus de +1
- Protection contre les Sorts : Enchevêtrement
+ Protection contre les coups critiques
 
 Classe d'armure : 6
 Poids : 15
@@ -5452,7 +5451,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Rage Bestiale : quand la vie du porteur passe en dessous des 25 %, il gagne un bonus de +2 à ses jets d'attaque, ses jets de dégâts, et sa vitesse de déplacement, mais perd le contrôle de lui-même.
+ Force : bonus de +1
  Résistance aux Éléments : bonus de +10 %
 
 Classe d'armure : 3
@@ -5471,7 +5470,8 @@ PARAMÈTRES :
 Capacités d'équipement :
  Jets de Sauvegarde : bonus de +2
  Résistance à la Magie : bonus de +20 %
-
+ Abjectitude : bonus de +2 à la CA et aux jets de sauvegarde contre les humanoïdes
+ 
 Classe d'armure : 4
 Poids : 15
 Force nécessaire : 3
@@ -5493,8 +5493,8 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Résistance à l'Acide : malus de -25 %
- Résistance au Feu : malus de -25 %
+ Résistance à l'Acide : malus de -15 %
+ Résistance au Feu : malus de -15 %
  Régénération : 1 point de vie toutes les 3 secondes
 
 Classe d'armure : 2
@@ -5513,6 +5513,7 @@ Note : l'effet de la Hâte n'est pas cumulable avec d'autres formes de magie simi
 PARAMÈTRES :
 
 Capacités d'équipement :
+ Immunité aux effets de ralentissement
  Hâte : la vitesse de déplacement du porteur est doublée, il gagne une attaque supplémentaire par round, un bonus de +1 à ses jets d'attaque, à sa classe d'armure, et à ses jets de sauvegarde contre les souffles
 
 Classe d'armure : 3
@@ -5533,7 +5534,7 @@ Cette arme a été faite spécifiquement pour Wulfgar par Bruenor Marteaudeguerre, 
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 2D4 +4
+Dégâts : 2d4 +4
 Type de dégâts : contondant
 Poids : 3
 Facteur de vitesse : 1
@@ -5686,7 +5687,7 @@ Capacités spéciales (une fois par jour) :
 Caractéristiques (8 Dés de Vie) :
 FOR 19, DEX 14, CON 17, INT 9, SAG 11, CHA 8 ; Neutre Strict
 PV 107, CA 2, TAC0 7, Jets de sauvegarde 8/12/8/12/12
-2 attaques par round, 1D10+9 perforants (Griffes & Morsure +2)
+2 attaques par round, 1d10+9 perforants (Griffes & Morsure +2)
 
 Caractéristiques spéciales :
 Résistance à la Magie : 10 %
@@ -5707,7 +5708,7 @@ Capacités spéciales (une fois par jour) :
 Caractéristiques (8 Dés de Vie) :
 FOR 17, DEX 17, CON 16, INT 9, SAG 11, CHA 6 ; Neutre Strict
 PV 82, CA 0, TAC0 12, Jets de sauvegarde 8/12/8/12/12
-5 attaques par round, 1D8+2 perforants + poison (Pattes & Morsure +1)
+5 attaques par round, 1d8+2 perforants + poison (Pattes & Morsure +1)
 
 Attaques spéciales :
 Venin : 20 % de chance d'injecter un poison infligeant 3 points de dégâts à chaque round durant 5 rounds (jet de sauvegarde contre la mort à -3 pour éviter)
@@ -5727,7 +5728,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Onde de Choc Sonique : toutes les créatures situées dans un rayon de 3 mètres reçoivent 2D10 points de dégâts, et sont étourdies durant 2 rounds (jet de sauvegarde contre les souffles pour réduire les dégâts de moitié et pour éviter l'étourdissement)
+ Souffle sonique : un zone de 3 mètres de rayon autour de l'utilisateur est soufflée par une formidable vague sonore, occasionnant 4d4 points de dégâts aux adversaires qui s'y trouvent, et les étourdissant pendant 1 round sauf s'ils réussissent un jet de sauvegarde contre les souffles
 
 Inutilisable par :
  Tueur de magiciens~
@@ -5743,7 +5744,7 @@ Capacités spéciales (une fois par jour) :
 Caractéristiques (5 Dés de Vie) :
 FOR 18, DEX 16, CON 16, INT 9, SAG 10, CHA 9 ;  Chaotique Bon
 PV 68, CA 3, TAC0 13, Jets de sauvegarde 11/13/12/13/14
-3/2 attaques par round, 1D8+5 tranchants (Épée longue +1)
+3/2 attaques par round, 1d8+5 tranchants (Épée longue +1)
 
 Caractéristiques spéciales :
  Furie (deux fois par jour)
@@ -5761,7 +5762,7 @@ Capacités spéciales (une fois par jour) :
 Caractéristiques (7 Dés de Vie) :
 FOR 18/51, DEX 17, CON 17, INT 10, SAG 11, CHA 10 ;  Chaotique Bon
 PV 97, CA 1, TAC0 8, Jets de sauvegarde 10/12/11/12/13
-3 attaques par round, 1D8+7 tranchants (Haches +2)
+3 attaques par round, 1d8+7 tranchants (Haches +2)
 
 Caractéristiques spéciales :
  Furie (deux fois par jour)
@@ -5779,7 +5780,7 @@ Capacités spéciales (une fois par jour) :
 Caractéristiques (9 Dés de Vie) :
 FOR 18/00, DEX 18, CON 18, INT 11, SAG 12, CHA 11 ;  Chaotique Bon
 PV 126, CA -1, TAC0 3, Jets de sauvegarde 8/10/9/9/11
-3 attaques par round, 2D6+14 tranchants (Épée à deux mains +3)
+3 attaques par round, 2d6+14 tranchants (Épée à deux mains +3)
 
 Caractéristiques spéciales :
  Furie (trois fois par jour)
@@ -5866,7 +5867,7 @@ Capacités de combat :
  Poison : les créatures touchées doivent réussir un jet de sauvegarde contre la mort ou se voir infliger 1 point de dégâts chaque seconde durant 3 rounds
  
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -5887,7 +5888,7 @@ Capacités de combat :
  Buveuse d'Âmes : 15 % de chance de drainer 1 niveau à la cible, augmentant les points de vie du porteur de 5, sa force de 1, et le mettant sous l'effet de la Hâte pendant un tour
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -5909,7 +5910,7 @@ Capacités de combat :
  Maladie : la cible doit réussir un jet de sauvegarde contre la mort ou se voir infliger 2 points de dégâts à chaque round et être ralentie durant 4 rounds
 
 TAC0 : bonus de +1
-Dégâts : 1D4 +1
+Dégâts : 1d4 +1
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 1
@@ -6016,7 +6017,7 @@ Capacités de combat :
  Infernal : inflige 6 points de dégâts supplémentaires si la cible est d'alignement bon
 
 TAC0 : bonus de +5
-Dégâts : 1D10 +5
+Dégâts : 1d10 +5
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 5
@@ -6124,7 +6125,6 @@ PARAMÈTRES :
 
 Capacités d'équipement :
  Non-Détection
- Immunité aux effets des Charmes
 
 Classe d'armure : 2
 Poids : 20
@@ -6136,9 +6136,9 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Classe d'Armure : bonus de +1
- Jets de Sauvegarde : bonus de +1
- Régénération : 3 points de vie par tour
+ Résistance aux éléments : bonus de +10 %
+ Régénération : le porteur recouvre 1 point de vie tous les 2 rounds
+ Protection contre les Sorts : Convocation d'Insectes, Fléau d'Insectes et Fatalité Rampante
 
 Poids : 3
 Utilisable par :
@@ -6182,11 +6182,11 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
+ Vitesse d'incantation des sorts : bonus de +1
  Résistance aux Éléments : bonus de +10 %
- Protection contre les Sorts : Enchevêtrement, Convocation d'Insectes, Fléau d'Insectes, et Fatalité Rampante
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -6200,7 +6200,7 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Résistance aux Dégâts Magiques : bonus de +50 %
+ Résistance aux Dégâts Magiques : bonus de +40 %
  Châtiment : tous ceux qui frappent le porteur en mêlée se voient infliger 5 points de dégâts magiques
 
 Classe d'armure : -1
@@ -6241,10 +6241,10 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Affaiblissement : chaque coup réduit la classe d'armure, le TAC0, et la vitesse de déplacement de la cible de 1 durant 2 rounds
+ Affaiblissement : la cible doit réussir un jet de sauvegarde contre les sorts, ou être ralentie et subir une pénalité de -1 à ses jets d'attaque et à sa classe d'armure pour 1 round
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -6262,7 +6262,7 @@ Capacités de combat :
  Toxine : les créatures touchées doivent réussir un jet de sauvegarde contre la mort ou se voir infliger 2 points de dégâts non létaux chaque seconde durant 2 rounds
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 2
@@ -6281,7 +6281,7 @@ Capacités de combat :
  Sacré : inflige 3 points de dégâts supplémentaires contre les créatures d'alignement mauvais
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 8
@@ -6300,7 +6300,7 @@ Capacités d'équipement :
 Capacités de combat :
  Perturbation Magique : chaque coup occasionne, durant 1 tour et de manière cumulative, +10 % de chance d'échouer une incantation
 
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 2
@@ -6315,10 +6315,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Entropie : chaque coup porté à la cible lui applique un malus de -1 à ses jets de sauvegarde contre les sorts durant 4 rounds
- Poison : les créatures touchées se voient infliger 1D6 points de dégâts de poison supplémentaires
+ Poison : les créatures touchées se voient infliger 1d6 points de dégâts de poison supplémentaires
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -6336,7 +6336,7 @@ Capacités de combat :
  Chaos : 20 % de chance que la cible soit confuse durant 2 rounds (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -6452,15 +6452,15 @@ Inutilisable par :
  Belluaire
  Kensai
  Moine~
-@1833 = ~Armure de Plates d'Ankheg +2~
+@1833 = ~Armure de Plates d'Ankheg +1~
 @1834 = ~Cette armure de plates magique est extrêmement bien conçue. Moulée dans les écailles chitineuses d'un ankheg, elle offre une protection supérieure à celle de l'armure de plates usuelle, et ne rouille jamais. Comme vous le dira par ailleurs tout aventurier expérimenté, son principal avantage réside dans la réduction de son poids et de son encombrement. Les monstres, ça va, ça vient, mais la fatigue est un ennemi tenace.
 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Résistance à l'Acide : bonus de +25 %
+ Résistance à l'Acide : bonus de +40 %
 
-Classe d'armure : 1
+Classe d'armure : 2
 Poids : 35
 Force nécessaire : 8
 Inutilisable par :
@@ -6622,10 +6622,8 @@ L'armure entoure le porteur d'une énergie noire crépitante issue du plan négatif
 
 PARAMÈTRES :
 
-*MAUDIT*
-
 Capacités d'équipement :
- Armure de Mort : toutes les créatures vivantes frappant le porteur en mêlée se voient infligées 1D4+2 points de dégâts de froid
+ Armure de Mort : toutes les créatures vivantes frappant le porteur en mêlée se voient infligées 1d4+2 points de dégâts de froid
  Immunité à l'École de Magie : Nécromancie
 
 Classe d'armure : -2
@@ -6727,7 +6725,7 @@ PARAMÈTRES :
 
 Capacités d'équipement :
  Immunité aux Attaques Sournoises
- Résistance à la Magie : bonus de +5 %
+ Protège contre les coups critiques
 
 Classe d'armure : -3
 Poids : 60
@@ -6871,7 +6869,7 @@ Forgée par des mages elfe noir de l'Ombreterre, cette arme fut utilisée dans une
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Décharge d'Énergie : inflige 2D6 points de dégâts magiques sur une cible
+ Décharge d'Énergie : inflige 2d6 points de dégâts magiques sur une cible
  
 Capacités d'équipement :
  Résistance aux Dégâts Magiques : bonus de +20 %
@@ -6983,7 +6981,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Bélier : la cible est projetée à 6 mètres du porteur et se voit infliger 5D6 points de dégâts contondants. Elle doit réussir un jet de sauvegarde contre la mort pour ne pas être inconsciente durant 1 round
+ Bélier : la cible est projetée à 6 mètres du porteur et se voit infliger 5d6 points de dégâts contondants. Elle doit réussir un jet de sauvegarde contre la mort pour ne pas être inconsciente durant 1 round
  
 Capacités de combat (uniquement pour les moines) :
  Terrasser : pour chaque attaque de mêlée réussie, 33 % de chance de rendre la cible inconsciente durant 1 round si elle rate un jet de sauvegarde contre la mort
@@ -7103,31 +7101,34 @@ Capacités d'équipement :
  Points de Vie : bonus de +10
 
 Capacités de combat :
- Vol d'Âme : les attaques de mêlée du porteur drainent 1D4 points de vie à la cible et les transfèrent au porteur
+ Vol d'Âme : les attaques de mêlée du porteur drainent 1d4 points de vie à la cible et les transfèrent au porteur
 
 Inutilisable par :
  Tueur de magiciens~
 @1915 = ~Sceptre~
 @1916 = ~Sceptre de Démolition +4~
-@1917 = ~Les sceptres mesurent un peu moins d'un mètre de long et sont épais comme le pouce. Ils sont le plus souvent rangés dans des boîtes ou des étuis. Les sceptres peuvent être faits de métal, de bois, d'ivoire, ou d'os. Ils peuvent être simples ou décorés, gravés, ornés d'une tête, ou non. Les sceptres ne disposent que d'un nombre de charges limité, sauf indication contraire dans la description de l'objet, et chaque utilisation consomme une ou plusieurs charges.~
-@1918 = ~Ce sceptre long et fin peut être manié comme un bâton. Il a été conçu pour détruire les golems. Tout golem touché par le sceptre doit faire un jet de sauvegarde pour ne pas être détruit. Ce sceptre demeure inutilisable s'il n'est pas employé par un prêtre ou un magicien.
+@1917 = ~Les sceptres mesurent un peu moins d'un mètre de long et sont épais comme le pouce. Ils sont le plus souvent rangés dans des boîtes ou des étuis. Les sceptres peuvent être faits de métal, de bois, d'ivoire, ou d'os. Ils peuvent être simples ou décorés, gravés, ornés d'une tête, ou non. Les sceptres ne disposent que d'un nombre de charges limité, sauf indication contraire dans la description de l'objet, et chaque utilisation consomme une ou plusieurs charges.
+
+PARAMÈTRES :
+
+Poids : 3~
+@1918 = ~Les sceptres de châtiment sont des armes extrêmement rares, bien qu'elles puissent être très utiles contre certains adversaires. Ce sceptre en particulier a été vu pour la dernière fois entre les mains d'un prêtre de Gond nommé Debian d'Urmlaspyr. Debian était un aventurier excentrique, qui s'est chargé de chercher tous les golems signalés à travers les Royaumes. Dans bien des cas, le créateur du golem aurait envoyé ses créations aux trousses de Debian pour son espionnage, mais Debian s'en sortait habituellement sans trop de dégâts. Malheureusement pour lui, la chance tourna lorsqu'il fouilla l'antre de l'Homme-Machine, une liche étrange qui était créatrice de golems et d'autres constructions animées. Les golems de fer qui remplissaient le laboratoire de l'Homme-Machine se sont révélés trop nombreux pour Debian.
 
 PARAMÈTRES :
 
 Capacités de combat :
- Démolition : les golems doivent réussir un jet de sauvegarde contre la mort pour ne pas être détruits
- Fléau des Golems : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les golems
+ Démolition : les golems doivent réussir un jet de sauvegarde contre les polymorphes pour ne pas être détruits
+ Fléau des Golems : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les golems
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
-Poids : 4
+Poids : 3
 Facteur de vitesse : 2
-Type de compétence : bâton
-Type : arme à deux mains
-Utilisable par :
- Mage
- Clerc~
+Type de compétence : gourdin
+Type : arme à une main
+Inutilisable par :
+ Mage~
 @1920 = ~Fronde~
 @1921 = ~Les frondes existent depuis la nuit des temps. La fronde de base se compose d'une courroie en cuir ou en tissu comportant une poche pouvant contenir un projectile. L'utilisateur fait tourner la courroie en la tenant par les deux extrémités. Lorsque la vitesse maximale est atteinte, il suffit de relâcher l'une des extrémités de la courroie pour lancer le projectile. 
 
@@ -7197,7 +7198,7 @@ Capacités d'équipement :
  Jets de Sauvegarde : bonus de +3 contre les Souffles
 
 Capacités de combat :
- Fléau des Dragons : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les dragons
+ Fléau des Dragons : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les dragons
 
 TAC0 : bonus de +1
 Dégâts : bonus de +1
@@ -7216,7 +7217,7 @@ La fronde possède la capacité de blesser les sens des ennemis de son porteur grâ
 PARAMÈTRES :
 
 Capacités de combat :
- Décharge Sonique : 15 % de chance de souffler une violente vague sonique dans une zone de 3 mètres de rayon, infligeant 4D4 points de dégâts aux adversaires présents, et les étourdissant durant 1 round à moins qu'ils ne réussissent un jet de sauvegarde contre les sorts
+ Décharge Sonique : 15 % de chance de souffler une violente vague sonique dans une zone de 3 mètres de rayon, infligeant 4d4 points de dégâts aux adversaires présents, et les étourdissant durant 1 round à moins qu'ils ne réussissent un jet de sauvegarde contre les sorts
 
 TAC0 : bonus de +2
 Dégâts : bonus de +2
@@ -7256,10 +7257,10 @@ Note : ne nécessite pas de munition, mais les billes classiques ne peuvent pas ê
 PARAMÈTRES :
 
 Capacités de combat :
- Bille d'Énergie : inflige 1D4 points de dégâts magiques supplémentaires
+ Bille d'Énergie : inflige 1d4 points de dégâts magiques supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Poids : 0
 Facteur de vitesse : 3
 Type de compétence : fronde
@@ -7278,11 +7279,11 @@ Note : ne nécessite pas de munition, mais les billes classiques ne peuvent pas ê
 PARAMÈTRES :
 
 Capacités de combat :
- Bille d'Énergie : inflige 1D4 points de dégâts magiques supplémentaires
+ Bille d'Énergie : inflige 1d4 points de dégâts magiques supplémentaires
  Explosion d'Énergie : 10 % de chance que la cible subisse 100 points de dégâts magiques (jet de sauvegarde contre les sorts à -4 pour éviter)
  
 TAC0 : bonus de +4
-Dégâts : 1D4 +5
+Dégâts : 1d4 +5
 Poids : 0
 Facteur de vitesse : 2
 Type de compétence : fronde
@@ -7386,17 +7387,16 @@ Inutilisable par :
  Voleur
  Moine
  Kensai~
-@1952 = ~Bouclier des Étoiles Déchues +1~
+@1952 = ~Bouclier des Étoiles Déchues +2~
 @1953 = ~Le grand bouclier, également connu sous le nom de pavois, est un bouclier massif en métal ou en bois couvrant le guerrier pratiquement du menton jusqu'aux doigts de pied. Il doit être bien attaché sur l'avant-bras et maintenu solidement. Naturellement, la main porteuse ne peut servir qu'à maintenir le pavois en place et combattre devient plus difficile de par l'encombrement du bouclier.~
 @1954 = ~Ilmater en personne enchanta ce bouclier après avoir vu un jeune écuyer subir délibérément un indicible supplice pour sauver sa monture. Au cours d'une bataille féroce entre une division de cavalerie humaine et une horde de hobgobelins, le jeune homme fut envoyé en renfort. Assailli par une nuée de flèches qui masquait presque le soleil, il comprit que même s'il parvenait à éviter les flèches, une chute de son cheval provoquerait sa perte. Armé de son bouclier, il se positionna de manière à essuyer le choc de l'attaque et fut mortellement blessé. Son cheval s'en tira indemne, leur permettant de s'échapper, et son corps fut transporté vers la ville la plus proche, où il fut ressuscité.
 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Points de Vie : bonus de +10
  Aura de Bouclier : les créatures alliées situées dans un rayon de 2 mètres gagnent un bonus de +2 à la classe d'armure
 
-Bonus de classe d'armure : 2
+Bonus de classe d'armure : 3
 Spécial : bonus de +1 contre les armes à projectiles
 Poids : 45
 Force nécessaire : 15
@@ -7434,7 +7434,7 @@ Inutilisable par :
  Mage
  Kensai
  Moine~
-@1960 = ~Grand Bouclier des Nains +2~
+@1960 = ~Bouclier des Nains +2~
 @1961 = ~Ce bouclier de manufacture naine fut commandé par Pellan de Tyr, un fier paladin connu pour son indomptable courage et son manque total de sens commun. En apprenant qu'un dragon rouge ravageait la campagne, Pellan enfourcha son cheval et partit le combattre. De fait, Pellan et son armure furent rapidement digérés, mais le bouclier donna de graves crampes d'estomac au dragon. Recraché, il resta dans son trésor des années durant, jusqu'à ce qu'il soit récupéré par le fils de Pellan, un guerrier qui savait quand se montrer discret. Son excellente facture est rehaussée d'un sortilège de légèreté, qui le rend très facile à porter comparé aux autres boucliers de ce type.
 
 PARAMÈTRES :
@@ -7443,9 +7443,8 @@ Capacités d'équipement :
  Jets de Sauvegarde : bonus de +1
 
 Bonus de classe d'armure : 3
-Spécial : bonus de +1 contre les armes à projectiles
-Poids : 25
-Force nécessaire : 13
+Poids : 15
+Force nécessaire : 12
 Inutilisable par :
  Barde
  Druide
@@ -7475,7 +7474,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Absorption des Chocs : le porteur est immunisé à tout ce qui pourrait le projeter au loin, d'origine magique ou non
+ Absorption des Chocs : le porteur bénéficie d'un bonus de +2 aux jets de sauvegarde contre les souffles et est immunisé à tout ce qui pourrait le projeter au loin, d'origine magique ou non
  Résistance au Feu : bonus de +30 %
 
 Bonus de classe d'armure : 3
@@ -7532,7 +7531,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Miroir Physique : renvoie les projectiles
+ Déviation de projectiles : dévie les armes lancées
 
 Bonus de classe d'armure : 2
 Spécial : pas de protection contre les armes perforantes
@@ -7574,7 +7573,6 @@ Poids : 15
 Force nécessaire : 12
 Inutilisable par :
  Barde
- Druide
  Mage
  Voleur
  Moine
@@ -7587,7 +7585,7 @@ Autrefois un bouclier très puissant utilisé par une secte de prêtres et de guerr
 PARAMÈTRES :
 
 Capacités d'équipement :
- Lumière Brûlante : tous ceux qui touchent le porteur en mêlée doivent réussir un jet de sauvegarde contre les sorts pour ne pas être aveuglés durant 1 round, les créatures mortes-vivantes se voient également infliger 2D6 points de dégâts
+ Lumière Brûlante : tous ceux qui attaquent le porteur en mêlée doivent réussir un jet de sauvegarde contre les sorts pour ne pas être aveuglés durant 1 round, les créatures mortes-vivantes se voient également infliger 2d6 points de dégâts
 
 Bonus de classe d'armure : 4
 Spécial : pas de protection contre les armes à projectiles
@@ -7631,7 +7629,7 @@ Inutilisable par :
  Voleur
  Moine
  Kensai~
-@1982 = ~Pavois Léger +2~
+@1982 = ~Grand Pavois +2~
 @1983 = ~Un bouclier de la compagnie de mercenaires d'élite des Dragons de Portcalim, depuis longtemps démantelée à cause d'une traîtrise politique. Ils possédaient d'excellents équipements, leurs boucliers étaient extrêmement légers et protégeaient fort bien leur porteur. Mais à cause de leur taille, la main porteuse ne peut servir qu'à maintenir le pavois en place et combattre devient plus difficile de par l'encombrement du bouclier.
 
 PARAMÈTRES :
@@ -7693,7 +7691,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 6
@@ -7712,7 +7710,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 5
@@ -7734,10 +7732,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Acérée : +10 % de chance d'infliger un coup critique
- Vicieuse : inflige 2D6 points de dégâts supplémentaires à la cible et 1D6 points de dégâts au porteur
+ Vicieuse : inflige 2d6 points de dégâts supplémentaires à la cible et 1d6 points de dégâts au porteur
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 3
@@ -7756,7 +7754,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 4
@@ -7775,7 +7773,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 3
@@ -7798,7 +7796,7 @@ Capacités d'équipement :
  Jets de Sauvegarde : bonus de +3 contre la Mort
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 4
@@ -7818,11 +7816,11 @@ L'Empaleur possède une aura magique presque palpable laissant deviner la nature 
 PARAMÈTRES :
 
 Capacités de combat :
- Empaleur : les créatures touchées se voient infliger 1D10 points de dégâts supplémentaires
+ Empaleur : les créatures touchées se voient infliger 1d10 points de dégâts supplémentaires
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts (mêlée) : perforant
 Type de dégâts (lancée) : projectile
 Poids : 5
@@ -7843,10 +7841,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
- Décharge : les créatures touchées se voient infliger 1D6 points de dégâts électriques supplémentaires
+ Décharge : les créatures touchées se voient infliger 1d6 points de dégâts électriques supplémentaires
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts (mêlée) : perforant
 Type de dégâts (lancée) : projectile
 Poids : 5
@@ -7868,10 +7866,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Contagion : 15 % de chance que la cible soit affectée par une maladie, lui infligeant 1 point de dégâts par seconde et la ralentissant durant 1 round (jet de sauvegarde contre la mort à -4 pour éviter)
- Poison : les créatures touchées se voient infliger 1D6 points de dégâts supplémentaires
+ Poison : les créatures touchées se voient infliger 1d6 points de dégâts supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 3
@@ -7899,7 +7897,7 @@ Capacités d'équipement :
  Action Libre : le porteur est immunisé contre tout ce qui pourrait entraver sa mobilité, d'origine magique ou non
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 2
@@ -7926,10 +7924,10 @@ Capacités d'équipement :
  Action Libre : le porteur est immunisé contre tout ce qui pourrait entraver sa mobilité, d'origine magique ou non
 
 Capacités de combat :
- Pointes : l'adversaire doit réussir un jet de sauvegarde contre la mort ou se voir littéralement cloué au sol durant 2 rounds, subissant 1D4 +5 points de dégâts supplémentaires à chaque round
+ Pointes : l'adversaire doit réussir un jet de sauvegarde contre la mort ou se voir littéralement cloué au sol durant 2 rounds, subissant 1d4 +5 points de dégâts supplémentaires à chaque round
  
 TAC0 : bonus de +5
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts : perforant
 Poids : 5
 Facteur de vitesse : 1
@@ -7947,7 +7945,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 4
@@ -7963,7 +7961,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 3
@@ -7981,7 +7979,7 @@ Capacités de combat :
  Contrecoup : les créatures touchées se voient infliger 6 points de dégâts contondants supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 1
@@ -7996,7 +7994,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Poids : 4
 Facteur de vitesse : 2
 Type de dégâts : contondant
@@ -8011,7 +8009,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : perforant
 Poids : 4
 Facteur de vitesse : 4
@@ -8032,7 +8030,7 @@ Capacités de combat :
  Impact : +10 % de chance d'infliger un coup critique
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8057,7 +8055,7 @@ Capacités de combat :
  Viol Mental : 15 % de chance que la cible se retrouve atteinte de débilité mentale (jet de sauvegarde contre les sorts à -4 pour éviter)
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 1
@@ -8078,7 +8076,7 @@ Capacités d'équipement :
  Aura de Soins : le porteur et ses alliés situés dans un rayon de 6 mètres régénèrent 1 point de vie tous les 3 rounds
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 3
@@ -8103,7 +8101,7 @@ Capacités de combat :
  Dissipation de la Magie : annule tous les effets magiques affectant la cible (jet de sauvegarde contre les sorts pour éviter)
 
 TAC0 : bonus de +5
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 0
@@ -8126,7 +8124,7 @@ Capacités d'équipement :
  Jets de Sauvegarde : bonus de +2
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8141,15 +8139,15 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Foudre : 10D6 points de dégâts (jet de sauvegarde contre les baguettes pour moitié) et étourdit durant 1 round (jet de sauvegarde contre les baguettes pour éviter)
- Tonnerre & Foudre : chaque éclair inflige 6D6 points de dégâts électriques (jet de sauvegarde contre les baguettes pour moitié) et assourdit durant 3 rounds (aucun jet de sauvegarde)
+ Foudre : 10d6 points de dégâts (jet de sauvegarde contre les baguettes pour moitié) et étourdit durant 1 round (jet de sauvegarde contre les baguettes pour éviter)
+ Tonnerre & Foudre : chaque éclair inflige 6d6 points de dégâts électriques (jet de sauvegarde contre les baguettes pour moitié) et assourdit durant 3 rounds (aucun jet de sauvegarde)
  
 Capacités de combat :
- Décharge : les créatures touchées se voient infliger 1D6 points de dégâts électriques supplémentaires
+ Décharge : les créatures touchées se voient infliger 1d6 points de dégâts électriques supplémentaires
  Coup de Tonnerre : 20 % de chance que la cible ainsi que les adversaires situés dans un rayon d'un mètre et demi doivent réussir un jet de sauvegarde contre les souffles ou être étourdis durant 1 round
  
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8172,7 +8170,7 @@ Capacités d'équipement :
  Régénération : 1 point de vie par round
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 2
 Facteur de vitesse : 0
@@ -8191,10 +8189,10 @@ Capacités spéciales (une fois par jour) :
 
 Capacités de combat :
  Rapidité : 1 attaque supplémentaire par round
- Tourbillon de Coups : 20 % de chance d'infliger 1D6+2 points de dégâts contondants à tous les adversaires situés dans un rayon d'1 mètre et demi
+ Tourbillon de Coups : 20 % de chance d'infliger 1d6+2 points de dégâts contondants à tous les adversaires situés dans un rayon d'1 mètre et demi
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8216,7 +8214,7 @@ Capacités de combat :
  Cage de Pierre : 50 % de chance que la cible soit pétrifiée durant 2 rounds (jet de sauvegarde contre la pétrification pour éviter)
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8231,14 +8229,14 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Boule de Feu : 10D6 points de dégâts (jet de sauvegarde contre les souffles à -2 pour moitié)
+ Boule de Feu : 10d6 points de dégâts (jet de sauvegarde contre les souffles à -2 pour moitié)
 
 Capacités de combat :
- Pluie de Flammes : 15 % de chance d’infliger 4D6 points de dégâts de feu à la cible ainsi qu’aux adversaires situés dans un rayon d'1 mètre et demi
+ Pluie de Flammes : 15 % de chance d’infliger 4d6 points de dégâts de feu à la cible ainsi qu’aux adversaires situés dans un rayon d'1 mètre et demi
  Incendiaire : inflige 2 points de dégâts de feu à chaque round durant 2 rounds
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8253,7 +8251,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 2
@@ -8277,7 +8275,7 @@ Capacités de combat :
  Fléau des Morts-Vivants : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les morts-vivants
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 3
@@ -8301,7 +8299,7 @@ Capacités de combat :
  Terrifiant : la cible doit réussir un jet de sauvegarde contre les sorts ou s'enfuir, terrifiée, durant 2 rounds
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 1
@@ -8321,7 +8319,7 @@ Capacités de combat :
  Contrecoup : les créatures touchées se voient infliger 6 points de dégâts contondants supplémentaires
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 0
@@ -8338,11 +8336,11 @@ Combiner ce bâton avec la magie de l'Anneau du Bélier a rendu ses capacités enco
 PARAMÈTRES :
 
 Capacités de combat :
- Bélier : la cible doit réussir un jet de sauvegarde contre la mort pour ne pas tomber inconsciente durant 1 round et se voir infliger 2D6 points de dégâts supplémentaires
+ Bélier : la cible doit réussir un jet de sauvegarde contre la mort pour ne pas tomber inconsciente durant 1 round et se voir infliger 2d6 points de dégâts supplémentaires
  Contrecoup : les créatures touchées se voient infliger 6 points de dégâts contondants supplémentaires
 
 TAC0 : bonus de +5
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 0
@@ -8357,11 +8355,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Venin : les créatures touchées se voient infliger 1D6 points de dégâts de poison supplémentaires
+ Venin : les créatures touchées se voient infliger 1d6 points de dégâts de poison supplémentaires
  Vipérin : 15 % de chance d'injecter un poison infligeant 10 points de dégâts chaque seconde durant 2 rounds (jet de sauvegarde contre la mort à -4 pour éviter)
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 1
@@ -8376,7 +8374,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 4
 Facteur de vitesse : 1
@@ -8390,7 +8388,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 2D4
+Dégâts : 2d4
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 8
@@ -8411,7 +8409,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 2D4 +1
+Dégâts : 2d4 +1
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 7
@@ -8440,7 +8438,7 @@ Capacités de combat :
  +4 contre chaotique
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -8455,7 +8453,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 5
@@ -8473,7 +8471,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 4
@@ -8491,10 +8489,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Givre : les créatures touchées se voient infliger 1D4 points de dégâts de froid supplémentaires
+ Givre : les créatures touchées se voient infliger 1d4 points de dégâts de froid supplémentaires
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -8511,7 +8509,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 3
@@ -8530,7 +8528,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 2
@@ -8548,7 +8546,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -8571,7 +8569,7 @@ Capacités de combat (voleurs uniquement) :
  Attaque Sournoise : augmente le multiplicateur d'attaque sournoise de 1
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 0
@@ -8593,10 +8591,10 @@ Capacités d'équipement :
  Résistance au Feu : bonus de +50 %
  
 Capacités de combat :
- Givre : inflige 1D6 points de dégâts de froid supplémentaires
+ Givre : inflige 1d6 points de dégâts de froid supplémentaires
  
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -8616,7 +8614,7 @@ Capacités d'équipement :
  Classe d'Armure : bonus de +2
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -8630,7 +8628,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 5
@@ -8646,7 +8644,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 4
@@ -8666,7 +8664,7 @@ Capacités de combat :
  Enchaînement : à chaque coup réussi, 20 % de chance d'obtenir une attaque supplémentaire au prochain round
  
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -8686,10 +8684,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Langue de Feu : bonus de +2 au TAC0 et aux dégâts contre les créatures régénérantes, les créatures du froid et les morts-vivants
- Combustion : les créatures touchées se voient infliger 1D6 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d6 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 4
@@ -8711,7 +8709,7 @@ Capacités de combat :
  Célérité : 1/2 attaque supplémentaire par round
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -8737,7 +8735,7 @@ Capacités d'équipement :
  Translucide : bonus de +2 à la classe d'armure
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 2
@@ -8756,14 +8754,14 @@ Cette épée est l'une des nombreuses armes à porter le nom du mage qui le premier
 
 PARAMÈTRES :
 
-Capacités spéciales (une fois par jour) :
- Hâte (durant 2 rounds)
-
 Capacités d'équipement :
  Immunité à l'Enchevêtrement, la Glisse, la Lenteur et aux Toiles d'Araignée
 
+ Capacités de combat :
+ Hâte : 10 % de chance de gagner une demi-attaque supplémentaire par round, et un bonus de +2 à la vitesse de déplacement pour 2 rounds
+ 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -8782,10 +8780,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Coupe-Gorge : la cible doit réussir un jet de sauvegarde contre la mort ou être réduite au silence durant 3 rounds tout en souffrant d'un point de dégât d'hémorragie toutes les 3 secondes
- Tranchant : les créatures touchées se voient infliger 1D6 points de dégâts tranchants supplémentaires
+ Tranchant : les créatures touchées se voient infliger 1d6 points de dégâts tranchants supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 0
@@ -8802,7 +8800,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 1
@@ -8823,7 +8821,7 @@ Capacités de combat :
  Célérité : 1/2 attaque supplémentaire par round
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -8849,7 +8847,7 @@ Capacités de combat :
  Lame Solaire : inflige 6 points de dégâts supplémentaires contre les créatures mortes-vivantes
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 3
 Facteur de vitesse : 3
@@ -8873,11 +8871,11 @@ Capacités d'équipement :
  Immunité aux effets de la Peur
 
 Capacités de combat :
- Fléau des Dragons : bonus supplémentaire de +2 au TAC0 et +8 aux dégâts contre les dragons
+ Fléau des Dragons : bonus supplémentaire de +2 au TAC0 et +6 aux dégâts contre les dragons
  Coup de Taille : 15 % de chance d'infliger 20 points de dégâts tranchants supplémentaires
  
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 4
@@ -8899,7 +8897,7 @@ Capacités spéciales (une fois par jour) :
  Dansante : l'épée dansante peut attaquer seule durant 10 rounds
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -8923,7 +8921,7 @@ Capacités de combat :
  Lumineuse : la cible doit réussir un jet de sauvegarde contre les sorts ou être enveloppée d'une légère lueur durant 4 rounds, souffrant d'un malus de -2 à la classe d'armure et ne pouvant se cacher
  
 TAC0 : bonus de +1
-Dégâts : 2D4 +1
+Dégâts : 2d4 +1
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 7
@@ -8951,7 +8949,7 @@ Capacités de combat :
  Buveuse de Sorts : les lanceurs de sorts profanes touchés par la Buveuse doivent réussir un jet de sauvegarde contre les sorts sous peine de perdre un sort en mémoire, augmentant les points de vie du porteur de 2 durant 1 heure
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -8977,7 +8975,7 @@ Capacités de combat :
  Silence : la cible ainsi que les adversaires situés dans un rayon de 4,5 mètres doivent réussir un jet de sauvegarde contre les sorts sous peine d'être réduits au silence durant 2 rounds
  
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -8996,10 +8994,10 @@ L'on pense que Taragarth fut forgée par Elfgar de Lunargent durant les premiers 
 PARAMÈTRES :
 
 Capacités de combat :
- Acide : les créatures touchées se voient infliger 1D4 points de dégâts d'acide supplémentaires
+ Acide : les créatures touchées se voient infliger 1d4 points de dégâts d'acide supplémentaires
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -9022,7 +9020,7 @@ Capacités de combat :
  Hémorragie : la cible se voit infliger 1 point de dégâts d'hémorragie à chaque round durant 1 tour
  
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -9045,7 +9043,7 @@ Capacités de combat :
  Blessures Enflammées : la cible doit réussir un jet de sauvegarde contre la mort ou subir un malus de -2 à ses jets d'attaques et 1 point de dégâts de feu à chaque round durant 3 rounds
  
 TAC0 : bonus de +3
-Dégâts : 2D4 +3
+Dégâts : 2d4 +3
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 5
@@ -9071,7 +9069,7 @@ Capacités de combat :
  Épée Chantante : les alliés situés dans un rayon de 6 mètres gagnent un bonus de +1 aux jets d'attaque et de dégâts ainsi qu'aux jets de sauvegarde contre les sorts
  
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 4
@@ -9089,7 +9087,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D8 +2
+Dégâts : 1d8 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 3
@@ -9107,7 +9105,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -9125,7 +9123,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D10
+Dégâts : 1d10
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 4
@@ -9144,7 +9142,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D10 +1
+Dégâts : 1d10 +1
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 3
@@ -9166,7 +9164,7 @@ Capacités d'équipement :
  Acéré : +5 % de chance d'infliger un coup critique
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -9185,7 +9183,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 3
@@ -9204,7 +9202,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 2
@@ -9221,7 +9219,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : tranchant
 Poids : 3
 Facteur de vitesse : 4
@@ -9240,7 +9238,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 3
 Facteur de vitesse : 3
@@ -9262,14 +9260,14 @@ PARAMÈTRES :
 
 Capacités Spéciales :
  Batto (à volonté) : quand Furie Céleste est dégainée, éclairs et tonnerre jaillissent du fourreau, aveuglant (durant 3 rounds) et assourdissant (durant 6 rounds) les adversaires situés dans un rayon de 3 mètres ; ceux qui réussissent un jet de sauvegarde contre les baguettes ne peuvent plus être affectés par cette capacité jusqu’à la fin du combat
- Éclair (une fois par jour) : un arc électrique est projeté sur la cible, lui infligeant 10D6 points de dégâts (jet de sauvegarde contre les souffles pour moitié)
+ Éclair (une fois par jour) : un arc électrique est projeté sur la cible, lui infligeant 10d6 points de dégâts (jet de sauvegarde contre les souffles pour moitié)
  
 Capacités de combat :
  Grondement du Tonnerre : chaque coup réussi provoque une détonation qui étourdit les adversaires durant 1 round (jet de sauvegarde contre les sorts pour éviter)
  Électrocution : 5 % de chance d'infliger 20 points de dégâts électriques supplémentaires
  
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 1
@@ -9293,7 +9291,7 @@ Capacités de combat :
  Piqûre : la cible doit réussir un jet de sauvegarde contre la mort ou subir un malus de -1 en force et en dextérité durant 5 rounds
  
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -9311,11 +9309,11 @@ Si les rumeurs calishites sont vraies, alors ce cimeterre est vraisemblablement 
 PARAMÈTRES :
 
 Capacités de combat :
- Combustion : les créatures touchées se voient infliger 1D6 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d6 points de dégâts de feu supplémentaires
  Rafale Ardente : 10 % de chance d'infliger 20 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +1
-Dégâts : 1D8 +1
+Dégâts : 1d8 +1
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 4
@@ -9344,7 +9342,7 @@ Capacités de combat :
  +6 contre les autres alignements
 
 TAC0 : bonus de +4
-Dégâts : 1D8 +4
+Dégâts : 1d8 +4
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 1
@@ -9360,7 +9358,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 2
@@ -9386,7 +9384,7 @@ Capacités de combat :
  Lame de Furtivité : 20 % de chance de placer l'utilisateur sous l'effet d'une Invisibilité Majeure durant 5 rounds
 
 TAC0 : bonus de +4
-Dégâts : 1D6 +4
+Dégâts : 1d6 +4
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 0
@@ -9411,12 +9409,12 @@ Combinée au Coeur du Damné en une arme mortelle, cette lame meurtrière est dorén
 PARAMÈTRES :
 
 Capacités de combat :
- Poison : les créatures touchées se voient infliger 1D6 points de dégâts de poison supplémentaires
+ Poison : les créatures touchées se voient infliger 1d6 points de dégâts de poison supplémentaires
  Paralysante : 50 % de chance que la cible soit paralysée durant 2 rounds (jet de sauvegarde contre la paralysie pour éviter)
  Lame de Furtivité : 20 % de chance de placer l'utilisateur sous l'effet d'une Invisibilité Majeure durant 5 rounds
 
 TAC0 : bonus de +5
-Dégâts : 1D6 +5
+Dégâts : 1d6 +5
 Damage type piercing
 Poids : 3
 Facteur de vitesse : 0
@@ -9434,11 +9432,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Combustion : les créatures touchées se voient infliger 1D6 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d6 points de dégâts de feu supplémentaires
  Incendiaire : inflige 2 points de dégâts de feu à chaque round durant 2 rounds
  
 TAC0 : bonus de +4
-Dégâts : 1D8 +4
+Dégâts : 1d8 +4
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 1
@@ -9459,11 +9457,11 @@ PARAMÈTRES :
 
 Capacités de combat :
  Fouet de Feu : la cible doit réussir un jet de sauvegarde contre les souffles sous peine d'être prisonnière des flammes pendant 2 rounds
- Combustion : les créatures touchées se voient infliger 1D6 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d6 points de dégâts de feu supplémentaires
  Incendiaire : inflige 2 points de dégâts de feu à chaque round durant 2 rounds
 
 TAC0 : bonus de +5
-Dégâts : 1D8 +5
+Dégâts : 1d8 +5
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 0
@@ -9491,10 +9489,10 @@ Capacités d'équipement :
 
 Capacités de combat :
  Fléau de l'Ennemi : bonus de +2 au TAC0 et aux dégâts contre les morts-vivants, les métamorphes et toutes les créatures extraplanaires
- Vampirique : draine 1D4 points de vie à la cible et les transfère au porteur
+ Vampirique : draine 1d4 points de vie à la cible et les transfère au porteur
  
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -9525,10 +9523,10 @@ Capacités d'équipement :
 Capacités de combat :
  Sacrée : inflige 6 points de dégâts supplémentaires contre les créatures d'alignement mauvais
  Fléau de l'Ennemi : bonus de +2 au TAC0 et aux dégâts contre les morts-vivants, les métamorphes et toutes les créatures extraplanaires ; inflige +6 points de dégâts supplémentaires contre les créatures démoniaques
- Vampirique : draine 1D4 points de vie à la cible et les transfère au porteur
+ Vampirique : draine 1d4 points de vie à la cible et les transfère au porteur
 
 TAC0 : bonus de +3
-Dégâts : 2D4 +3
+Dégâts : 2d4 +3
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 5
@@ -9561,7 +9559,7 @@ Capacités de combat :
  <5 - Mort
 
 TAC0 : bonus de +3
-Dégâts : 2D4 +3
+Dégâts : 2d4 +3
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 5
@@ -9595,7 +9593,7 @@ Capacités de combat :
  <10 - Mort
 
 TAC0 : bonus de +4
-Dégâts : 2D4 +4
+Dégâts : 2d4 +4
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 4
@@ -9610,10 +9608,10 @@ Utilisable par :
 PARAMÈTRES :
 
 Capacités d'équipement :
- Contre-Attaque : tous ceux qui frappent le porteur en mêlée se voient infliger 1D8 +3 points de dégâts tranchants
+ Contre-Attaque : tous ceux qui frappent le porteur en mêlée se voient infliger 1d8 +3 points de dégâts tranchants
  
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 0
@@ -9635,10 +9633,10 @@ Capacités d'équipement :
 
 Capacités de combat :
  Électrocution : 5 % de chance d'infliger 20 points de dégâts électriques supplémentaires
- Décharge : les créatures touchées se voient infliger 1D6 points de dégâts électriques supplémentaires
+ Décharge : les créatures touchées se voient infliger 1d6 points de dégâts électriques supplémentaires
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : perforant
 Poids : 3
 Facteur de vitesse : 0
@@ -9657,14 +9655,14 @@ La légende raconte que les âmes de ceux qui périssent sous les coups de cette so
 PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
- Épée Spectrale : cette épée dansante combat au nom du porteur de Marque Spectrale durant 1 tour. L'épée illusoire agit comme une arme +3, de TAC0 3, et attaque une fois par round, infligeant 1D8+3 points de dégâts magiques. Elle possède 36 points de vie, 5 de classe d'armure, 100 % de résistance à tous les types de dégâts excepté à la magie et est immunisée aux sorts affectant l'esprit
+ Épée Spectrale : cette épée dansante combat au nom du porteur de Marque Spectrale durant 1 tour. L'épée illusoire agit comme une arme +3, de TAC0 3, et attaque une fois par round, infligeant 1d8+3 points de dégâts magiques. Elle possède 36 points de vie, 5 de classe d'armure, 100 % de résistance à tous les types de dégâts excepté à la magie et est immunisée aux sorts affectant l'esprit
 
 Capacités de combat :
  Lame Fantôme : la lame fantomatique transperce la plupart des armures, conférant un bonus supplémentaire de +3 aux jets d'attaque
- Toucher Glacial : les créatures touchées se voient infliger 1D3 points de dégâts de froid supplémentaires et doivent réussir un jet de sauvegarde contre la mort ou perdre 1 point de force
+ Toucher Glacial : les créatures touchées se voient infliger 1d3 points de dégâts de froid supplémentaires et doivent réussir un jet de sauvegarde contre la mort ou perdre 1 point de force
  
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -9685,17 +9683,17 @@ PARAMÈTRES :
 
 Capacités spéciales (une fois par jour) :
  Nuée d'Ombres : libère les âmes prisonnières sous la forme d'ombres, invoquant une créature à chaque round durant 1 tour
- Épée Spectrale : cette épée dansante combat au nom du porteur de Marque Spectrale durant 1 tour. L'épée illusoire agit comme une arme +3, de TAC0 3, et attaque une fois par round, infligeant 1D8+3 points de dégâts magiques. Elle possède 36 points de vie, 5 de classe d'armure, 100 % de résistance à tous les types de dégâts excepté à la magie et est immunisée aux sorts affectant l'esprit
+ Épée Spectrale : cette épée dansante combat au nom du porteur de Marque Spectrale durant 1 tour. L'épée illusoire agit comme une arme +3, de TAC0 3, et attaque une fois par round, infligeant 1d8+3 points de dégâts magiques. Elle possède 36 points de vie, 5 de classe d'armure, 100 % de résistance à tous les types de dégâts excepté à la magie et est immunisée aux sorts affectant l'esprit
  
 Capacités d'équipement :
  Protection contre le Plan Négatif
 
 Capacités de combat :
  Lame Fantôme : la lame fantomatique transperce la plupart des armures, conférant un bonus supplémentaire de +3 aux jets d'attaque
- Toucher Glacial : les créatures touchées se voient infliger 1D4 points de dégâts de froid supplémentaires et doivent réussir un jet de sauvegarde contre la mort ou perdre 1 point de force
+ Toucher Glacial : les créatures touchées se voient infliger 1d4 points de dégâts de froid supplémentaires et doivent réussir un jet de sauvegarde contre la mort ou perdre 1 point de force
 
 TAC0 : bonus de +4
-Dégâts : 1D8 +4
+Dégâts : 1d8 +4
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 1
@@ -9722,7 +9720,7 @@ Capacités de combat :
  Tenchu : 10 % de chance de lancer Sainte Punition sur la cible (comme un lanceur de sorts de niveau 5)
  
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 1
@@ -9753,7 +9751,7 @@ Capacités de combat :
  Tenchu : 15 % de chance de lancer Sainte Punition sur la cible (comme un lanceur de sorts de niveau 5)
 
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 0
@@ -9771,7 +9769,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 2D4 +3
+Dégâts : 2d4 +3
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 5
@@ -9791,7 +9789,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -9809,7 +9807,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : perforant
 Facteur de vitesse : 0
 Poids : 3
@@ -9827,7 +9825,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 5
 Facteur de vitesse : 1
@@ -9845,7 +9843,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -9869,7 +9867,7 @@ Capacités de combat :
  Fêlure : chaque coup réduit la classe d'armure de la cible de 1 durant 2 rounds
  
 TAC0 : bonus de +4
-Dégâts : 1D8 +4
+Dégâts : 1d8 +4
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 10
@@ -9885,7 +9883,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D10
+Dégâts : 1d10
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 10
@@ -9905,7 +9903,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +1
-Dégâts : 1D10 +1
+Dégâts : 1d10 +1
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 9
@@ -9933,7 +9931,7 @@ Capacités de combat :
  Rapidité : 1 attaque supplémentaire par round
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 10
 Facteur de vitesse : 7
@@ -9957,7 +9955,7 @@ Capacités d'équipement :
  Immunité aux effets du Poison et des Toiles d'Araignée
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 8
@@ -9987,7 +9985,7 @@ Capacités de combat :
  Métal Étoile : inflige 4 points de dégâts supplémentaires aux créatures extraplanaires
 
 TAC0 : bonus de +1
-Dégâts : 1D10 +1
+Dégâts : 1d10 +1
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 9
@@ -10007,10 +10005,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Incapacitante : chaque coup draine 1 niveau à la cible (jet de sauvegarde contre la mort pour éviter)
+ Affaiblissant : les créatures vivantes touchées subissent 1d6 dégâts supplémentaires et doivent réussir un jet de sauvegarde contre la mort ou perdre un niveau
  
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : tranchant
 Poids : 10
 Facteur de vitesse : 6
@@ -10025,11 +10023,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Brutalité : +2D3 points de dégâts contondants
+ Brutalité : +2d3 points de dégâts contondants
  Surdimensionnée : moins précise mais plus destructrice qu'une épée à deux mains ordinaire
 
 TAC0 : bonus de +1
-Dégâts : 1D12 +3
+Dégâts : 1d12 +3
 Type de dégâts : tranchant
 Poids : 12
 Facteur de vitesse : 7
@@ -10060,7 +10058,7 @@ Capacités de combat :
  Sacré : inflige 3 points de dégâts supplémentaires contre les créatures d'alignement mauvais
 
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : tranchant
 Poids : 10
 Facteur de vitesse : 6
@@ -10075,7 +10073,7 @@ Utilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 8
@@ -10095,11 +10093,11 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Givre : les créatures touchées se voient infliger 1D6 points de dégâts de froid supplémentaires
+ Givre : les créatures touchées se voient infliger 1d6 points de dégâts de froid supplémentaires
  Glaciale : 50 % de chance d’immobiliser la cible durant 1 round (jet de sauvegarde contre la métamorphose pour éviter)
  
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 8
@@ -10124,7 +10122,7 @@ Capacités d'équipement :
  Immunité aux effets des Charmes et de la Confusion
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 7
@@ -10145,10 +10143,10 @@ PARAMÈTRES :
 
 Capacités de combat :
  Acérée : +10 % de chance d'infliger un coup critique
- Vorpale : 10 % de chance que la cible soit décapitée (jet de sauvegarde contre la mort à -4 pour éviter)
+ Vorpale : 15 % de chance que la cible doive réussir un jet de sauvegarde contre la mort à -2 sous peine de mourir
 
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 6
@@ -10169,10 +10167,10 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Vampirique : draine 1D4 points de vie à la cible et les transfère au porteur
+ Vampirique : draine 1d4 points de vie à la cible et les transfère au porteur
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 8
@@ -10188,7 +10186,7 @@ Inutilisable par :
  Paladin
  Belluaire~
 @2211 = ~Gram l'Épée de Douleur +4~
-@2212 = ~L'une des armes magiques du grand héros Siegfried, cette lame est particulièrement tranchante et bien équilibrée. Sous un certain éclairage, il est possible de discerner l'image d'un serpent dans la garde.
+@2212 = ~Certaines armes sont maléfiques dès leur création, insufflées de magies corrompues par des mages cruels. Mais il y a aussi des armes qui ne doivent leur nature à aucun enchantement particulier, mais aux actes couards réalisés entre les mains de leur porteur. Gram, l'épée autrefois légendaire du grand héros Siegfried, est désormais souillée du sang d'innombrables innocents.
 
 PARAMÈTRES :
 
@@ -10197,10 +10195,10 @@ Capacités d'équipement :
 
 Capacités de combat :
  Piqûre : la cible doit réussir un jet de sauvegarde contre la mort ou subir un malus de -1 en force et en dextérité durant 5 rounds
- Poison : 20 % de chance d'infliger 2D12 points de dégâts de poison supplémentaires
+ Poison : 20 % de chance d'infliger 2d12 points de dégâts de poison supplémentaires
  
 TAC0 : bonus de +4
-Dégâts : 1D10 +4
+Dégâts : 1d10 +4
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 6
@@ -10215,7 +10213,7 @@ Inutilisable par :
  Moine
  Belluaire~
 @2213 = ~Gram l'Épée de Douleur +5~
-@2214 = ~L'une des armes magiques du grand héros Siegfried, cette lame est particulièrement tranchante et bien équilibrée. Sous un certain éclairage, il est possible de discerner l'image d'un serpent dans la garde.
+@2214 = ~Certaines armes sont maléfiques dès leur création, insufflées de magies corrompues par des mages cruels. Mais il y a aussi des armes qui ne doivent leur nature à aucun enchantement particulier, mais aux actes couards réalisés entre les mains de leur porteur. Gram, l'épée autrefois légendaire du grand héros Siegfried, est désormais souillée du sang d'innombrables innocents.
 
 La terrifiante lame de Siegfried est devenue encore plus puissante grâce au Coeur du Damné incrusté dans son pommeau.
 
@@ -10227,10 +10225,10 @@ Capacités d'équipement :
 Capacités de combat :
  Hémorragie : la cible se voit infliger 1 point de dégâts d'hémorragie à chaque round durant 5 rounds
  Piqûre : la cible doit réussir un jet de sauvegarde contre la mort ou subir un malus de -1 en force et en dextérité durant 5 rounds
- Poison : 20 % de chance d'infliger 2D12 points de dégâts de poison supplémentaires
+ Poison : 20 % de chance d'infliger 2d12 points de dégâts de poison supplémentaires
 
 TAC0 : bonus de +5
-Dégâts : 1D10 +5
+Dégâts : 1d10 +5
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 5
@@ -10263,7 +10261,7 @@ Capacités de combat :
  Sacré : inflige 6 points de dégâts supplémentaires contre les créatures d'alignement mauvais
 
 TAC0 : bonus de +5
-Dégâts : 1D10 +5
+Dégâts : 1d10 +5
 Type de dégâts : tranchant
 Poids : 10
 Facteur de vitesse : 5
@@ -10278,7 +10276,7 @@ Utilisable par :
 PARAMÈTRES :
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 8
 Facteur de vitesse : 7
@@ -10292,20 +10290,23 @@ Inutilisable par :
  Voleur
  Moine
  Belluaire~
-@2219 = ~Lame Psionique +4~
+@2219 = ~Lame Psionique +3~
 @2220 = ~Certains pensent que cette épée massive est d'origine elfe noir, bien que d'autres réfutent cette théorie. Cependant, tous sont d'accord sur un point, cette épée fut conçue dans un seul but... débarrasser le monde des illithids. Une menace que les flagelleurs mentaux ne voient pas d'un très bon oeil.
 Le cerveau illithid connu sous le nom de Kwukgixrin envoya ses fidèles fouiller l’Ombreterre pour trouver cet artefact dont il avait appris l'existence en absorbant l'esprit d'un puissant guerrier humain. Après de nombreux combats, ce dernier avait caché l'épée quand il s'était rendu compte qu'en raison de ses blessures, il ne pourrait survivre à un autre assaut des esclaves des illithids. Avant que ces derniers ne puissent mettre la main dessus, le frère jumeau du guerrier récupéra l'épée et ne fit qu'une bouchée des esclaves. Il massacra également un bon nombre d'illithids avant de quitter l’Ombreterre.
 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Bouclier Mental : protège contre beaucoup de formes de magie altérant l'esprit telles que les charmes, la confusion, la domination, la peur, la débilité mentale, l'immobilisation, le sommeil, et les pouvoirs psioniques
+ Barrière mentale : bonus de +2 à la classe d'armure et aux jets de sauvegarde contre les psioniques
+
+Capacités de combat*:
+ Briseuse d'esprit : 15 % de chance que la cible doive réussir un jet de sauvegarde contre les sorts avec un malus de -4 ou souffrir de débilité mentale
  
-TAC0 : bonus de +4
-Dégâts : 1D10 +4
+TAC0 : bonus de +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 8
-Facteur de vitesse : 6
+Facteur de vitesse : 7
 Type de compétence : épée à deux mains
 Type : arme à deux mains
 Force nécessaire : 14
@@ -10330,26 +10331,30 @@ Utilisable par :
  Clerc~
 @2223 = ~Lame Zerth de Dak'kon +2~
 @2224 = ~Cette épée était l'arme de prédilection du fameux githzeraï Dak'kon. Il fut tué par une puissante entité alors qu'il travaillait pour une créature nommée Sans-Nom. Ce sont peut-être les circonstances étranges de sa mort qui ont préservé cette épée, car elle aurait dû perdre sa substance matérielle quand la volonté de Dak'kon cessa de lui donner forme.
+Sur le plan natal des Githzeraï, les Limbes, la matière solide est chose rare. Les Limbes elles-mêmes sont une masse informe d'éléments, et seule la force de volonté permet aux Githzeraï de modeler ces éléments en une matière stable.
+Une substance, appelée "karach", est un matériau qui peut être modelé par l'esprit. La lame de Dak'kon est fabriquée avec cette substance, et grâce seulement à sa discipline mentale, le porteur doit conserver l'intégrité de la lame. Il peut la modeler, en partie grâce à sa maîtrise, ajustant sa longueur, son tranchant, et, dans une moindre mesure, ses propriétés magiques. Les esprits plus puissants et expérimentés peuvent sans doute arriver à manipuler la lame de nouvelles manières.
 
 PARAMÈTRES :
 
 Capacités d'équipement :
- Classe d'Armure : bonus de +1
- Le porteur peut mémoriser un sort supplémentaire par niveau de 1 à 4
+Classe d'armure : bonus de +1
+
+Capacités de combat :
+Voleur de sort : les lanceurs de sorts profanes touchés par cette arme doivent réussir un jet de sauvegarde contre les sorts ou perdre un sort mémorisé, tandis que le porteur récupère en mémoire un sort qu'il a précédemment jeté
 
 TAC0 : bonus de +2
-Dégâts : 1D10 +2
+Dégâts : 1d10 +2
 Type de dégâts : tranchant
 Poids : 5
-Facteur de vitesse : 2
-Type de compétence : katana
+Facteur de vitesse : 3
+Type de compétence : katana/wakizashi
 Type : arme à une main
 Force nécessaire : 6
-Inutilisable par :
- Clerc
- Druide
- Mage
- Belluaire~
+Utilisable par :
+ Barde
+ Guerrier/Mage
+ Guerrier/Mage/Voleur
+ Mage/Voleur~
 @2225 = ~Sombre Voile~
 @2226 = ~Fait d'argent noirci et d'acier bleu sombre, on dit de ce heaume qu'il corrompt lentement ceux qui le portent et les pousse à se plier à la volonté de Shar. La déesse des Ténèbres, en protégeant ainsi sa victime au cours de ce que ses prêtres appellent son "enfance", gagne alors un puissant serviteur.
 Le heaume permet d'absorber une bonne partie des dégâts dus au froid, et, grâce à un mot de commande, permet de créer un clone d'ombre du porteur pour combattre à ses côtés. Ceux qui le possèdent deviennent inévitablement des créatures de la nuit, agissant aussi facilement dans la pénombre qu'en plein jour, sous l'oeil attentif de Shar.
@@ -10441,7 +10446,7 @@ Capacités de combat :
  Rapidité : 1 attaque supplémentaire par round
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +1
+Dégâts : 1d6 +1
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 2
@@ -10485,7 +10490,7 @@ Utilisable par :
  Barde
  Mage~
 @2243 = ~Baguette de Projectiles Magiques~
-@2244 = ~Une fois activée, cette baguette expulse trois projectiles d'énergie magique qui filent frapper irrémédiablement la cible, qui doit être visible pour être touchée. Chaque projectile inflige 1D4+1 points de dégâts magiques. La plupart des personnes d'intelligence raisonnable peuvent apprendre à se servir de cette baguette.
+@2244 = ~Une fois activée, cette baguette expulse trois projectiles d'énergie magique qui filent frapper irrémédiablement la cible, qui doit être visible pour être touchée. Chaque projectile inflige 1d4+1 points de dégâts magiques. La plupart des personnes d'intelligence raisonnable peuvent apprendre à se servir de cette baguette.
 
 PARAMÈTRES :
 
@@ -10508,8 +10513,8 @@ Utilisable par :
  Barde
  Mage~
 @2247 = ~Baguette de Feu~
-@2248 = ~Cette baguette projette à la distance souhaitée (maximum 27 mètres) une boule de feu incandescente qui éclate en une violente explosion de flammes de 9 mètres de rayon. Les créatures situées dans la zone d'effet se voient infliger 6D6 points de dégâts de feu, mais celles qui réussissent un jet de sauvegarde contre les baguettes à -4 ne subissent que la moitié des dégâts.
-La deuxième capacité de cette baguette ressemble au sort d'Incinérateur d'Agannazar : une colonne de feu va frapper la victime, infligeant 5D6 points de dégâts de feu à tous ceux se trouvant sur son passage. Les victimes peuvent tenter un jet de sauvegarde contre les baguettes à -1 afin de ne subir que la moitié des dégâts. 
+@2248 = ~Cette baguette projette à la distance souhaitée (maximum 27 mètres) une boule de feu incandescente qui éclate en une violente explosion de flammes de 9 mètres de rayon. Les créatures situées dans la zone d'effet se voient infliger 6d6 points de dégâts de feu, mais celles qui réussissent un jet de sauvegarde contre les baguettes à -4 ne subissent que la moitié des dégâts.
+La deuxième capacité de cette baguette ressemble au sort d'Incinérateur d'Agannazar : une colonne de feu va frapper la victime, infligeant 5d6 points de dégâts de feu à tous ceux se trouvant sur son passage. Les victimes peuvent tenter un jet de sauvegarde contre les baguettes à -1 afin de ne subir que la moitié des dégâts. 
 À l'instar de ses semblables, la Baguette de Feu ne peut être utilisée qu'un nombre de fois limité. Une fois qu'elle a consommé toutes ses charges, elle tombe en cendres.
 
 PARAMÈTRES :
@@ -10523,7 +10528,7 @@ Utilisable par :
  Barde
  Mage~
 @2249 = ~Baguette de Givre~
-@2250 = ~Une Baguette de Givre, comme le sort de Cône de Froid, crache un éventail de particules de neige et de glace définissant une zone dans laquelle la température tombe à -30° C. Une fois activée, des particules blanches cristallines jaillissent de l'extrémité de la baguette en direction de la cible, la frappant dans la poitrine avec une force étourdissante. La température au sein de cette colonne de glace est mortelle, infligeant 6D6 points de dégâts de froid et ralentissant la cible durant 5 rounds. Un jet de sauvegarde contre les baguettes réussi à -3 réduit les dégâts de moitié. À l'instar de ses semblables, une Baguette de Givre ne sert qu'un nombre de fois limité avant de fondre en une flaque d'eau inoffensive.
+@2250 = ~Une Baguette de Givre, comme le sort de Cône de Froid, crache un éventail de particules de neige et de glace définissant une zone dans laquelle la température tombe à -30° C. Une fois activée, des particules blanches cristallines jaillissent de l'extrémité de la baguette en direction de la cible, la frappant dans la poitrine avec une force étourdissante. La température au sein de cette colonne de glace est mortelle, infligeant 6d6 points de dégâts de froid et ralentissant la cible durant 5 rounds. Un jet de sauvegarde contre les baguettes réussi à -3 réduit les dégâts de moitié. À l'instar de ses semblables, une Baguette de Givre ne sert qu'un nombre de fois limité avant de fondre en une flaque d'eau inoffensive.
 
 PARAMÈTRES :
 
@@ -10535,7 +10540,7 @@ Utilisable par :
  Barde
  Mage~
 @2251 = ~Baguette de Foudre~
-@2252 = ~Une Baguette de Foudre lance des éclairs d'énergie électrique qui doivent se décharger sur la cible spécifiée. Le possesseur de la baguette peut lancer trois éclairs, et cibler jusqu'à six créatures différentes. Chaque éclair inflige 3D6 points de dégâts électriques avec un jet de sauvegarde contre les baguettes à -3 pour n'en subir que la moitié. À l'instar de ses semblables, une Baguette de Foudre ne peut être utilisée qu'un nombre de fois limité. Une fois qu'elle a consommé toutes ses charges, elle se transforme en un bout de métal tordu et calciné.
+@2252 = ~Une Baguette de Foudre lance des éclairs d'énergie électrique qui doivent se décharger sur la cible spécifiée. Le possesseur de la baguette peut lancer trois éclairs, et cibler jusqu'à trois créatures différentes. Chaque éclair inflige 3d6 points de dégâts électriques avec un jet de sauvegarde contre les baguettes à -3 pour n'en subir que la moitié. À l'instar de ses semblables, une Baguette de Foudre ne peut être utilisée qu'un nombre de fois limité. Une fois qu'elle a consommé toutes ses charges, elle se transforme en un bout de métal tordu et calciné.
 
 PARAMÈTRES :
 
@@ -10583,7 +10588,7 @@ Utilisable par :
  Barde
  Mage~
 @2259 = ~Baguette des Cieux~
-@2260 = ~Lorsque l'utilisateur active la baguette, un pilier de flammes s'abat du ciel sur la cible choisie, qui subit alors 9D6 points de dégâts de feu, réduits de moitié par un jet de sauvegarde contre les baguettes réussi à -3. La baguette n'a qu'un nombre de charges limité et sera automatiquement détruite lorsque celles-ci sont épuisées.
+@2260 = ~Lorsque l'utilisateur active la baguette, un pilier de flammes s'abat du ciel sur la cible choisie, qui subit alors 9d6 points de dégâts de feu, réduits de moitié par un jet de sauvegarde contre les baguettes réussi à -3. La baguette n'a qu'un nombre de charges limité et sera automatiquement détruite lorsque celles-ci sont épuisées.
 
 PARAMÈTRES :
 
@@ -10827,18 +10832,22 @@ Inutilisable par :
  Moine
  Kensai
  Chevalier~
-@2287 = ~Arbalète de Necaradan +3~
+@2287 = ~Arbalète de Necaradan +2~
 @2288 = ~Cette arbalète menaçante appartenait autrefois à Necaradan, le plus craint des membres de la Lumière Mourante, un ordre d'assassins connus pour leur discrétion et leur précision mortelle. Ils étaient tellement redoutés qu’on considérait que leurs victimes étaient mortes à partir du moment où ils acceptaient le contrat. Même si leurs armes ont survécu, tous les membres de la Lumière Mourante ont fini par succomber au temps, le plus grand des assassins.
 
 PARAMÈTRES :
 
+Capacités d'équipement :
+ Se cacher dans l'ombre: bonus de +20 %
+ Déplacement silencieux : bonus de +20 %
+
 Capacités de combat :
  Tir Fulgurant : 25 % de chance que le porteur reste invisible durant 1 round après une attaque, gagnant également un bonus de +4 au prochain jet d'attaque
  
-TAC0 : bonus de +3
-Dégâts : bonus de +3
+TAC0 : bonus de +2
+Dégâts : bonus de +2
 Poids : 4
-Facteur de vitesse : 2
+Facteur de vitesse : 3
 Type de compétence : arbalète
 Type : arme à deux mains
 Force nécessaire : 8
@@ -10869,6 +10878,7 @@ Inutilisable par :
  Clerc
  Druide
  Mage
+ Voleur
  Moine
  Kensai
  Chevalier~
@@ -10878,7 +10888,7 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat :
- Combustion : les créatures touchées se voient infliger 1D4 points de dégâts de feu supplémentaires
+ Combustion : les créatures touchées se voient infliger 1d4 points de dégâts de feu supplémentaires
 
 TAC0 : bonus de +2
 Dégâts : bonus de +4
@@ -10896,7 +10906,7 @@ Inutilisable par :
  Kensai
  Chevalier~
 @2293 = ~Dent-de-Feu +4~
-@2294 = ~Arioth Cooper, aventurier humain des Vaux, utilisa cette arbalète lourde lors de ses nombreux périples. Il vivait au sein d'une petite communauté proche du grand désert d'Anauroch. Lorsqu'une force mystérieuse émergea du désert pour attaquer le village, la femme d'Arioth périt et ce dernier devint mercenaire. Au fil des ans, il se fit connaître comme un grand héros, défenseur des faibles des Vaux et du Cormyr, même s'il refusait systématiquement tous les honneurs qui lui étaient faits. Sa vieille arbalète usée par les ans était probablement le secret des ses succès, cependant, la façon dont il entra en possession d'un objet aussi puissant reste encore inconnue. Quand Arioth mourut de vieillesse, il demanda à ce que son équipement soit vendu aux enchères à Essembra, à Valbataille, et que l'argent soit reversé aux habitants du village.
+@2294 = ~Arioth Cooper, aventurier humain des Vaux, utilisa cette arbalète lors de ses nombreux périples. Il vivait au sein d'une petite communauté proche du grand désert d'Anauroch. Lorsqu'une force mystérieuse émergea du désert pour attaquer le village, la femme d'Arioth périt et ce dernier devint mercenaire. Au fil des ans, il se fit connaître comme un grand héros, défenseur des faibles des Vaux et du Cormyr, même s'il refusait systématiquement tous les honneurs qui lui étaient faits. Sa vieille arbalète usée par les ans était probablement le secret des ses succès, cependant, la façon dont il entra en possession d'un objet aussi puissant reste encore inconnue. Quand Arioth mourut de vieillesse, il demanda à ce que son équipement soit vendu aux enchères à Essembra, à Valbataille, et que l'argent soit reversé aux habitants du village.
 
 L'une des arbalètes les plus puissantes des Royaumes, Dent-de-Feu ne nécessite pas de munitions puisqu'elle tire automatiquement des carreaux de feu magiques.
 
@@ -10905,10 +10915,10 @@ Note : ne nécessite pas de munition, mais les carreaux classiques ne peuvent pas
 PARAMÈTRES :
 
 Capacités de combat :
- Carreaux de Feu : inflige 2D4 points de dégâts de feu supplémentaires (jet de sauvegarde contre les souffles pour moitié)
+ Carreaux de Feu : inflige 2d4 points de dégâts de feu supplémentaires (jet de sauvegarde contre les souffles pour moitié)
  
 TAC0 : bonus de +4
-Dégâts : 1D8 +4
+Dégâts : 1d8 +4
 Poids : 4
 Facteur de vitesse : 1
 Type de compétence : arbalète
@@ -10922,7 +10932,7 @@ Inutilisable par :
  Kensai
  Chevalier~
 @2295 = ~Dent-de-Feu +5~
-@2296 = ~Arioth Cooper, aventurier humain des Vaux, utilisa cette arbalète lourde lors de ses nombreux périples. Il vivait au sein d'une petite communauté proche du grand désert d'Anauroch. Lorsqu'une force mystérieuse émergea du désert pour attaquer le village, la femme d'Arioth périt et ce dernier devint mercenaire. Au fil des ans, il se fit connaître comme un grand héros, défenseur des faibles des Vaux et du Cormyr, même s'il refusait systématiquement tous les honneurs qui lui étaient faits. Sa vieille arbalète usée par les ans était probablement le secret des ses succès, cependant, la façon dont il entra en possession d'un objet aussi puissant reste encore inconnue. Quand Arioth mourut de vieillesse, il demanda à ce que son équipement soit vendu aux enchères à Essembra, à Valbataille, et que l'argent soit reversé aux habitants du village.
+@2296 = ~Arioth Cooper, aventurier humain des Vaux, utilisa cette arbalète lors de ses nombreux périples. Il vivait au sein d'une petite communauté proche du grand désert d'Anauroch. Lorsqu'une force mystérieuse émergea du désert pour attaquer le village, la femme d'Arioth périt et ce dernier devint mercenaire. Au fil des ans, il se fit connaître comme un grand héros, défenseur des faibles des Vaux et du Cormyr, même s'il refusait systématiquement tous les honneurs qui lui étaient faits. Sa vieille arbalète usée par les ans était probablement le secret des ses succès, cependant, la façon dont il entra en possession d'un objet aussi puissant reste encore inconnue. Quand Arioth mourut de vieillesse, il demanda à ce que son équipement soit vendu aux enchères à Essembra, à Valbataille, et que l'argent soit reversé aux habitants du village.
 
 La corde magique de Gond rend les projectiles enchantés de l'Arbalète Dent-de-Feu encore plus précis et puissants.
 
@@ -10931,10 +10941,10 @@ Note : ne nécessite pas de munition, mais les carreaux classiques ne peuvent pas
 PARAMÈTRES :
 
 Capacités de combat :
- Carreaux de Feu : les carreaux explosent au contact de la cible, infligeant 2D6 points de dégâts de feu aux adversaires dans un rayon d'un mètre et demi (jet de sauvegarde contre les souffles pour moitié)
+ Carreaux de Feu : les carreaux explosent au contact de la cible, infligeant 2d6 points de dégâts de feu aux adversaires dans un rayon d'un mètre et demi (jet de sauvegarde contre les souffles pour moitié)
 
 TAC0 : bonus de +5
-Dégâts : 1D8 +5
+Dégâts : 1d8 +5
 Type de dégâts : projectile
 Poids : 4
 Facteur de vitesse : 0
@@ -10996,13 +11006,13 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 5
@@ -11020,13 +11030,13 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 5
@@ -11044,13 +11054,13 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 5
@@ -11069,12 +11079,12 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Froid : 1D3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
+ Tête de Froid : 1d3 points de dégâts de froid supplémentaires, ralentit la cible durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 6
@@ -11092,12 +11102,12 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête de Feu : 1D3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
+ Tête de Feu : 1d3 points de dégâts de feu supplémentaires, malus de -2 au TAC0 durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 6
@@ -11115,12 +11125,12 @@ Inutilisable par :
 PARAMÈTRES :
 
 Capacités de combat (20 % de chance chacune) :
- Tête d'Acide : 1D3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
+ Tête d'Acide : 1d3 points de dégâts d'acide supplémentaires, malus de -2 à la classe d'armure durant 3 rounds
 
 Note : les cibles peuvent effectuer un jet de sauvegarde contre les sorts pour éviter les effets secondaires mais elles souffriront toujours des dégâts élémentaires.
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 6
@@ -11162,7 +11172,7 @@ Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +1
-Dégâts : 1D6 +2
+Dégâts : 1d6 +2
 Type de dégâts (mêlée) : tranchant
 Type de dégâts (lancée) : projectile
 Poids : 3
@@ -11193,7 +11203,7 @@ Capacités de combat :
  Enchaînement : à chaque coup réussi, 20 % de chance d'obtenir une attaque supplémentaire au prochain round
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 5
@@ -11215,7 +11225,7 @@ Capacités de combat :
  Despotique : 50 % de chance que la cible souffre d'un malus de -2 à ses jets d'attaque et à sa classe d'armure durant 5 rounds si elle rate un jet de sauvegarde contre les sorts
  
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts : contondant
 Poids : 10
 Facteur de vitesse : 5
@@ -11242,7 +11252,7 @@ Capacités de combat :
  Lame d'Argent : inflige 4 points de dégâts supplémentaires aux lycanthropes et aux vampires
 
 TAC0 : bonus de +2
-Dégâts : 2D4 +2
+Dégâts : 2d4 +2
 Type de dégâts : tranchant
 Poids : 6
 Facteur de vitesse : 6
@@ -11257,20 +11267,20 @@ Inutilisable par :
  Moine
  Belluaire~
 
-/*-------new strings fo V3-------*/
+/*-------new strings for V3-------*/
 
 @2319 = ~Collier~
-@2320 = ~Collier de Projectiles~
+@2320 = ~Amulette de Santé~
 @2321 = ~Un collier est un bijou décoratif généralement fabriqué en argent, en or, en platine ou tout autre métal précieux, et orné de gemmes. Un collier se porte toujours autour du cou et peut être de n'importe quelle longueur.~
-@2322 = ~De son vivant, le magicien Szass Tam dut affronter un mage renommé pour ses compétences d'évocateur. Refusant d'être vaincu par un membre d'une autre école de magie, Szass Tam arriva préparé pour le duel. À la consternation de son rival, qui s'attendait à affronter un nécromancien, Szass Tam lança douze boules de feu à la suite. Quand le Collier de Boules de Feu fut épuisé, Tam commença à lancer ses propres sorts alors que son adversaire avait déjà épuisé la plupart des siens.
+@2322 = ~Lorsque Jacin Maltis, un seigneur mesquin de la Sembia, paya pour la fabrication d'une amulette pour améliorer sa santé, il s'attendait à un collier de bon goût, avec une petite mais précieuse gemme sertie dessus. Lorsqu'il accrocha le collier autour de son cou et que le diamant vira à un rouge sang criard, il refusa de payer le magicien qui le créa. Le magicien sourit simplement, et libéra un sortilège qui détruisit instantanément le noble. Des mois plus tard, des copies de cette amulette furent trouvées circulant dans la lointaine cité d'Eauprofonde.
 
 PARAMÈTRES :
 
-Capacités spéciales (consomme des charges) :
- Boule de Feu : 6D6 points de dégâts de feu sur une zone de 9 mètres de rayon (jet de sauvegarde contre les souffles pour moitié)
+Capacités d'équipement :
+ Points de vie maximum : bonus de +10
 
 Inutilisable par :
- Tueur de magiciens~
+ Tueur de magicien~
 @2323 = ~Flèche Tueuse +1~
 @2324 = ~Une énergie maléfique émane de cette flèche noire et tordue, comme si elle était possédée par une force bien plus puissante qu'elle. Elle fut créée spécifiquement pour tuer les créatures du Plan Matériel, et son pouvoir ne semble pas fonctionner sur les extérieurs, les élémentaires, ou les morts-vivants.
 
@@ -11280,7 +11290,7 @@ Capacités de combat :
  Tueuse : la cible doit réussir un jet de sauvegarde contre la mort ou bien mourir
  
 TAC0 : bonus de +1
-Dégâts : 1D6
+Dégâts : 1d6
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arc~
@@ -11293,7 +11303,7 @@ Capacités de combat :
  Retour : revient dans la main du lanceur immédiatement après avoir été lancée
 
 TAC0 : bonus de +2
-Dégâts : 1D6 +3
+Dégâts : 1d6 +3
 Type de dégâts (mêlée) : tranchant
 Type de dégâts (lancée) : projectile
 Poids : 3
@@ -11317,7 +11327,7 @@ Capacités de combat :
  Métamorphose : la cible doit réussir un jet de sauvegarde contre la métamorphose ou être changée en écureuil
  
 TAC0 : bonus de +1
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -11330,7 +11340,7 @@ Capacités de combat :
  Étourdissement : la cible doit réussir un jet de sauvegarde contre les sorts ou être étourdie durant 2 rounds
  
 TAC0 : bonus de +1
-Dégâts : 1D2 +1
+Dégâts : 1d2 +1
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -11343,7 +11353,7 @@ Capacités de combat :
  Béni : bonus supplémentaire de +2 aux jets d'attaque et de dégâts contre les créatures extraplanaires maléfiques et les morts-vivants
 
 TAC0 : bonus de +3
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -11420,7 +11430,7 @@ Capacités de combat :
  Acérée : +5 % de chance d'infliger un coup critique
 
 TAC0 : bonus de +3
-Dégâts : 1D10 +3
+Dégâts : 1d10 +3
 Type de dégâts : tranchant
 Poids : 3
 Facteur de vitesse : 1
@@ -11445,7 +11455,7 @@ Capacités d'équipement :
  Artisanat Elfique : bonus de +4 à la classe d'armure (uniquement contre les armes de mêlée)
 
 Capacités de combat :
- Secousse d'Énergie : inflige 1D6 points de dégâts magiques supplémentaires
+ Secousse d'Énergie : inflige 1d6 points de dégâts magiques supplémentaires
  Perce-Champs de Force : sur un coup réussi, dissipe les sorts d'Armure de Mage, de Bouclier, et d'Armure de la Foi
 
 TAC0 : bonus de +4
@@ -11479,6 +11489,10 @@ Utilisable par :
 
 PARAMÈTRES :
 
+Capacités d'équipement :
+ Intelligence : bonus de +1
+ Mémorisation d'un sort supplémentaire du 1er au 4ème niveau
+
 Classe d'armure : 3
 Poids : 3
 Utilisable par :
@@ -11488,8 +11502,11 @@ Utilisable par :
 
 PARAMÈTRES :
 
+Capacités d'équipement :
+ Classe d'Armure : bonus de +1
+
 TAC0 : bonus de +2
-Dégâts : 1D4 +2
+Dégâts : 1d4 +2
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -11504,7 +11521,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D4 
+Dégâts : 1d4 
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 2 
@@ -11519,7 +11536,7 @@ Inutilisable par :
 
 PARAMÈTRES :
 
-Dégâts : 1D4
+Dégâts : 1d4
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 2
@@ -11536,10 +11553,10 @@ Cette dague incrustée d'émeraudes est la marque de fabrique d'Entreri, et est l'
 PARAMÈTRES :
 
 Capacités de combat :
- Vampirique : draine 1D4 points de vie à la cible et les transfère au porteur
+ Vampirique : draine 1d4 points de vie à la cible et les transfère au porteur
 
 TAC0 : bonus de +4
-Dégâts : 1D4 +4
+Dégâts : 1d4 +4
 Type de dégâts : perforant
 Poids : 1
 Facteur de vitesse : 0
@@ -11563,8 +11580,20 @@ Protège contre les coups critiques
 Poids : 1
 Inutilisable par :
  Personnage d’alignement bon~
-@2359 = ~Hache Sanglante de Korgan~
-@2360 = ~bla bla bla~
+@2359 = ~Carreau paralysant +1~
+@2360 = ~Les carreaux lourds et les carreaux légers sont les munitions tirées par les arbalètes, quelle que soit la taille de l'arme.
+Les carreaux enduits de ce poison sont souvent utilisés par les sahuagins.
+
+PARAMÈTRES :
+
+Capacités de combat :
+ Paralysie : la cible doit réussir un jet de sauvegarde contre la paralysie ou être immobilisée pour 2 rounds
+
+TAC0 : bonus de +1
+Dégâts : 1d8
+Type de dégâts : projectile
+Poids : 0
+Arme de jet : arbalète~
 @2361 = ~Carreau Kuo-Toa +1~
 @2362 = ~Ce carreau est enduit d'un poison spécial créé par les alchimistes kuo-toa, qui peut rapidement paralyser n'importe quelle créature vivante.
 
@@ -11574,7 +11603,7 @@ Capacités de combat :
  Paralysie : la cible doit réussir un jet de sauvegarde contre la paralysie ou être immobilisée durant 2 rounds
  
 TAC0 : bonus de +1
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -11587,7 +11616,7 @@ Capacités de combat :
  Paralysie : la cible doit réussir un jet de sauvegarde contre la paralysie ou être immobilisée durant 2 rounds
 
 TAC0 : bonus de +2
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -11600,7 +11629,7 @@ Capacités de combat :
  Paralysie : la cible doit réussir un jet de sauvegarde contre la paralysie ou être immobilisée durant 2 rounds
 
 TAC0 : bonus de +3
-Dégâts : 1D8
+Dégâts : 1d8
 Type de dégâts : projectile
 Poids : 0
 Arme de jet : arbalète~
@@ -11686,10 +11715,10 @@ Capacités d'équipement :
  Sangsue : tout porteur vivant perd 1 point de vie tous les 3 rounds
  
 Capacités de combat :
- Vampirique : draine 1D4 points de vie à la cible et les transfère au porteur
+ Vampirique : draine 1d4 points de vie à la cible et les transfère au porteur
 
 TAC0 : bonus de +3
-Dégâts : 1D8 +3
+Dégâts : 1d8 +3
 Type de dégâts : tranchant
 Poids : 4
 Facteur de vitesse : 2
@@ -11711,7 +11740,7 @@ Capacités d'équipement :
  Acéré : +5 % de chance d'infliger un coup critique
 
 TAC0 : bonus de +2
-Dégâts :  1D8 +2
+Dégâts :  1d8 +2
 Type de dégâts : perforant
 Poids :  2
 Facteur de vitesse : 1
@@ -11724,14 +11753,258 @@ Inutilisable par :
  Clerc
  Mage
  Belluaire~
-@2383 = ~~
-@2384 = ~~
-@2385 = ~~
-@2386 = ~~
-@2387 = ~~
-@2388 = ~~
-@2389 = ~~
-@2390 = ~~
+
+ 
+/*-------new strings for V3.1-------*/
+
+
+@2383 = ~Hachesanglante +2~
+@2384 = ~C'était l'Année du Massacre (1090 CV), et d’innombrables victimes gisaient, tuées durant la Bataille des Ossements. Désormais, le site contient des couches d'os blancs séchés, mais à l'époque, ce n'étaient que sang et bile, suintant de chaque corps éclaté et saturant le matériel détruit. Aucun nettoyage n'a permis de réparer les armes récupérées en ce lieu terrible, ni même d'entamer la souillure qu'elles ont acquise là.
+
+PARAMÈTRES :
+
+Capacités de combat :
+ Goût du sang : chaque coup porté confère au porteur un bonus cumulatif de +1 aux dégâts de corps-à-corps pendant 2 rounds
+
+TAC0 : bonus de +2
+Dégâts : 1d8 +2
+Type de dégâts : tranchant
+Poids : 6
+Facteur de vitesse : 5
+Type de compétence : hache
+Type : arme à une main
+Force nécessaire : 10
+Utilisable par :
+ Berserker~
+@2385 = ~Sac de toile d'araignée~
+@2386 = ~Lorsqu'elle est utilisée, cette baguette envoie un amas de fils résistants et collants, identiques à ceux d'une toile d'araignée, mais bien plus grands et plus costauds. Ils couvrent une zone d'environ six mètres de rayon, et les créatures prises dans la toile, ou qui la touchent simplement, sont collés dans les fibres adhésives. À chaque round passé dans la toile, une créature doit réussir un jet de sauvegarde contre les souffles ou être dans l'impossibilité de se déplacer. La toile se dissipe après environ un tour.
+
+Capacités spéciales (utilisation d'une charge) :
+ Toile d'araignée
+
+Intelligence nécessaire : 11
+Utilisable par :
+ Barde
+ Mage~
+@2387 = ~Sceptre d'absorption~
+@2388 = ~Ce sceptre agit comme un aimant, attirant les sortilèges de toute nature (divine ou profane) et annulant leurs effets. La magie absorbée doit avoir été dirigée vers le personnage en possession du sceptre. Activer cette capacité d'absorption prend un instant, et l'utilisateur sera protégé pendant un round ou jusqu'à ce que l'absorption disparaisse. Le sceptre absorbe jusqu'à neuf niveaux de sorts et peut protéger contre les sorts jusqu'au niveau neuf.
+
+PARAMÈTRES :
+
+Capacités spéciales (deux fois par jour):
+ Absorption de sorts
+
+Utilisable par :
+ Barde
+ Mage~
+@2389 = ~Sceptre de Puissance Altière~
+@2390 = ~Egalement appelé la Colère des Trois Rois, bien qu'il ne soit associé à aucun roi connu en particulier, ce sceptre a probablement été créé en 1090 CV. On l'a vu employé durant la Bataille des Ossements, mais pour laquelle des deux parties en présence, cela reste mystérieux, car il fut retrouvé parmi les morts après une grande escarmouche.
+
+PARAMÈTRES :
+
+Capacités spéciales (une fois par jour) :
+ Paralysie : une cible à portée de dix mètres doit réussir un jet de sauvegarde contre les sceptres avec un malus de -2 ou être paralysée pendant 5 rounds
+ Terreur : les ennemis à six mètres doivent réussir un jet de sauvegarde contre les sceptres ou s'enfuir en courant
+ Drain de vie : draine 10 points de vie d'une cible et les transfert à l'utilisateur
+
+Poids : 2
+Inutilisable par :
+ Tueur de magicien~
+@2391 = ~Sceptre de Résurrection~
+@2392 = ~Ce sceptre permet à quiconque de ressusciter les morts comme s'il était un prêtre de niveau suffisant. Aucun repos n'est nécessaire, car le sceptre accorde les effets de la vie, mais chaque utilisation en utilise une charge. Avec le pouvoir de restaurer la vie elle-même, ces sceptres sont très prisés. On ignore si cet exemplaire précis a été créé pour aider à réaliser les bonnes actions d'un saint, ou s'il a servi à prolonger les maux d'un suzerain, car de tels sceptres agissent sans distinction.
+
+PARAMÈTRES :
+
+Capacités spéciales (deux fois par jour):
+ Rappel à la vie
+
+Sagesse nécessaire : 11
+Inutilisable par :
+ Tueur de magicien~
+@2393 = ~Sceptre de Terreur~
+@2394 = ~Ces sceptres tordus émettent une aura de maléfice même lorsqu'ils ne servent pas, et remplissent de malaise ceux qui posent un regard sur eux. Ils sont capables de projeter une vague d'horreur indicible sur un ennemi unique, remplissant même l'âme la plus hardie de terreur profonde, et ont certainement été créés à de vils desseins.
+
+PARAMÈTRES :
+
+Capacité d'équipement :
+ Charisme : malus de -2
+
+Capacités de combat :
+ Effrayant : 33% de chance que la cible doive réussir un jet de sauvegarde contre les sorts ou s'enfuir de terreur pendant 2 rounds
+
+TAC0 : bonus de +3
+Dégâts : 1d6 +3
+Type de dégâts : contondant
+Poids : 3
+Facteur de vitesse : 1
+Type de compétence : gourdin
+Type : arme à une main
+Inutilisable par :
+ Mage~
+@2395 = ~Sceptre d'Inversion~
+@2396 = ~Ces outils puissants permettent un utilisateur de dissiper rapidement la magie sur un allié ou un ennemi. Ceux qui traquent les lanceurs de sortilèges les prisent particulièrement, bien que ces derniers soient également prompts à s'en emparer sur le marché libre.
+
+PARAMÈTRES :
+
+Capacités spéciales (deux fois par jour) :
+ Inversion de la magie : enlève tous les effets magiques sur la cible sauf si elle réussit un jet de sauvegarde contre les sceptres avec un malus de -4
+
+Poids : 2
+Inutilisable par :
+ Tueur de magicien~
+@2397 = ~Baguette de l'Apprenti~
+@2398 = ~Cette baguette a été créée pour vous par vos apprentis, et lancera aléatoirement un sort parmi une liste de trois, chacun en provenance d'une source élémentaire différente. Elle dispose apparemment de cinquante charges.
+
+Intelligence nécessaire : 9
+Utilisable par :
+ Barde
+ Mage~
+
+/*-------new strings for V4-------*/
+
+@2400 = ~Ceinturon hermaphrodite~
+@2401 = ~Le ceinturon maudit hermaphrodite, un objet magique rare bien que souvent disputé, est corroyé d'une puissante magie. Quiconque suffisamment malchanceux pour le boucler autour de sa taille change aussitôt de sexe. On raconte qu'il y a moins de cinquante ans, un bouffon anonyme fut décapité pour avoir offert le ceinturon à la maîtresse du Duc Lobelahn.
+
+Poids : 2
+Inutilisable par :
+ Tueur de magicien.~
+@2402 = ~Lamelune +3~
+@2403 = ~Cette puissante arme a été créée par les forgerons de l'ancienne Myth Drannor. Les lamelunes sont utilisées lors du long procédé de sélection d'un régent pour l'île d'Éternelle-Rencontre. Une lamelune choisit son propriétaire, et dans le cas de cette épée, elle a choisi l'elfe Xan. Seul Xan peut utiliser cette lame ; quiconque d'autre essaie de s'en servir se verra incapable de manier l'épée.
+
+PARAMÈTRES :
+
+Capacité d'équipement :
+ Xan utilise la lamelune comme une épée longue mais n'encourt aucun malus à cause d'un manque de maîtrise
+ Classe d'armure : bonus de +1
+ Résistance au feu : bonus de +40 %
+
+TAC0 : bonus de +3
+Dégâts : 1d8 +3
+Type de dégâts : tranchant
+Poids : 4
+Facteur de vitesse : 2
+Type de compétence : épée longue
+Type : arme à une main
+Force nécessaire ; 6
+Utilisable par :
+ Xan~
+@2404 = ~Shazzelim +1~
+@2405 = ~Sous l'apparence d'un cimeterre de qualité plutôt médiocre se cache un grand pouvoir maléfique. Le seul objectif de la création de Shazzelim est la mort des Ménestrels, et c'est tout à fait dans ses cordes. Après la moindre touche de cette lame, un barde doit réussir un jet de sauvegarde contre les sorts pour ne pas mourir. Façonné par un Sorcier Rouge de Thay, ce cimeterre a également la capacité de vocaliser, ce qui explique pourquoi il a souvent été confié aux guerriers-mages qui servent les Sorciers. Inutile de dire que la possession de Shazzelim n'est pas une source d'admiration de la part des Ménestrels.
+
+PARAMETRES :
+
+Capacités d'équipement :
+ Vocaliser
+
+Capacités de combat :
+ Tout barde touché doit faire un jet de protection contre les sorts à -4 pour ne pas mourir
+
+TAC0 : bonus de +1
+Dégâts : 1d8 +1
+Type de dégât : tranchant
+Poids : 3
+Facteur de vitesse : 4
+Type de compétence : cimeterre
+Type : arme à une main
+Force nécessaire : 10
+Inutilisable par :
+ Clerc
+ Mage~
+@2406 = ~La Griffe~
+@2407 = ~La Griffe de Kazgaroth~
+@2408 = ~Il semble s'agir de la griffe d'une bête énorme, vraisemblablement une espèce de dragon.~
+@2409 = ~Les origines de Kazgaroth se perdent dans le passé, presque aussi loin que celles de Chauntéa elle-même. Dans le panthéon des Royaumes, la Bête se manifeste comme un aspect de Bhaal qui prend la forme qu'elle désire et boit du sang humain, tout comme elle fait festin de chair humaine. Sur les Îles Sélénae, cependant, cet aspect a un but précis : la destruction de l'Équilibre.
+On sait peu de choses sur cet objet, si ce n'est que la griffe elle-même a été prélevée sur le cadavre de la bête géante. Cet objet est doté de plusieurs enchantements qui s'activent dès que la griffe est portée en anneau, mais il semble se nourrir du sang de son porteur. En conséquence, le porteur de la griffe se sent-il souvent faible, ce qui le rend plus vulnérable aux effets des poisons.
+
+PARAMETRES :
+
+*MAUDIT*
+
+Capacités d'équipement :
+ Classe d'Armure : bonus de +1, de +4 contre les projectiles
+ Jets de sauvegarde : bonus de +3 contre les souffles, métamorphose, les baguettes et les sorts ; pénalité de -3 contre la mort
+ Constitution : pénalité de -2
+
+Poids : 2
+Inutilisable par :
+ Paladin
+ Tueur de magiciens~
+@2410 = ~La Corne~
+@2411 = ~La Corne de Kazgaroth~
+@2412 = ~Cette corne semble provenir d'un monstre. Elle est noircie et tordue.~
+@2413 = ~Cette corne a vraisemblablement été taillée dans l'une des défenses de Kazgaroth, la bête géante. Nul ne sait qui l'a dotée d'enchantements, mais il s'agit d'un objet extrêmement puissant. Lorsqu'on souffle dans cette corne, aucun son n'en sort, mais l'utilisateur se retrouve à l'intérieur d'un globe d'énergie pendant une courte durée. Cette bulle lui donne une résistance partielle à la magie et un bonus de jet de sauvegarde ; elle l'aide également à déjouer partiellement les attaques de projectiles. L'effet ne dure que 18 secondes et la corne puise sa force dans son porteur à chaque utilisation.
+
+PARAMETRES :
+
+Capacités spéciales (une fois par jour) :
+ Globe d'énergie : l'utilisateur bénéficie d'une immunité aux sorts de 1er et 2ème niveau, d'un bonus de +2 bonus à tous les jets de sauvegarde, d'un bonus de +4 à la classe d'armure contre les projectiles
+
+Poids : 1
+Inutilisable par :
+ Clerc
+ Druide
+ Voleur~
+@2414 = ~Masse de la Servante +3~
+@2415 = ~Forgée par les elfes noirs, cette masse a été spécialement traitée pour résister aux rayons du soleil en vue de raids à la surface. Son métal noir est luisant d'un poison violent qu'elle semble générer elle-même et qui cause des dégâts énormes en cas d'impact.
+Cette masse semble presque vivante ; elle est chaude au toucher et semble vouloir glisser des mains de ceux qu'elle n'aime pas... tout autre qu'un elfe noir ou approchant. Dans les mains d'une autre personne, elle ne constitue qu'un poids mort.
+
+PARAMETRES :
+
+Capacités de combat :
+ Poison : toute cible touchée doit réussir un jet de sauvegarde contre les poisons ou subir 1 point de dégâts par round durant 3 rounds
+ Toile : la cible doit résussir un jet de sauvegarde contre les souffles, sous peine d'avoir 33 % de chance d'être immobilisée pendant 2 rounds
+
+TAC0 : bonus de +3
+Dégâts : 1d6 +4
+Type de dégâts : contondant
+Poids : 7
+Facteur de vitesse : 4
+Type de compétence : masse
+Type : arme à une main
+Force nécessaire :  9
+Utilisable par :
+ Clerc Elfe noir~
+@2416 = ~Epée du Chaos +4~
+@2417 = ~La lame du Chaos de Sarevok, frère de <CHARNAME>, fut utilisée dans la bataille de la Porte de Baldur. <CHARNAME> a gagné, ruinant ainsi les plans de Sarevok, et sauvant la Côte des Epées de la guerre. Désormais, Sarevok s'est joint à la cause de <CHARNAME> et sa lame lui a été retournée. Sarevok décrit l'arme comme une lame de Semeur de mort, et il a récupéré une partie de l'ancienne puissance de l'arme. Sans son essence de Bhaal pour canaliser l'arme, cependant, il est impossible de restituer toute la puissance qu'elle avait autrefois. Elle reste, cependant, une arme redoutable... une arme dont Sarevok prévient qu'elle serait très difficile à manier entre les mains de quiconque n'est pas un Semeur de mort, s'il pouvait même l'utiliser.
+
+PARAMETRES :
+
+Capacités d'équipement :
+ Jets de sauvegarde : bonus de +2
+
+Capacités de combat :
+ Vampirisme : draine 1 à 4 points de dégât infligé à la cible et les transfère au porteur
+
+TAC0 : bonus de +4
+Dégâts : 1d10 +4
+Type de dégâts : tranchant
+Poids : 8
+Facteur de vitesse : 6
+Type de compétence : épée à deux mains
+Type : arme à deux mains
+Force nécessaire : 18
+Utilisable par :
+ Sarevok~
+@2418 = ~Anneau d'Opportunité~
+@2419 = ~Cet anneau a été offert à <CHARNAME> par Koveras, à Château-Suif. Sa surface noire polie est froide au toucher et gravée d'incantations puissantes. L'aspect de l'anneau et le matériau utilisé suggère un artisanat oriental. Sur la face interne, vous voyez ce qui semble être un chiffre huit épais barré d'une entaille.
+
+PARAMETRES :
+ 
+Capacités d'équipement :
+ Chance : bonus de +1 (+5 % pour les compétences)
+ 
+Inutilisable par :
+ Tueur de magiciens~
+@2420 = ~~
+@2421 = ~~
+@2422 = ~~
+@2423 = ~~
+@2424 = ~~
+@2425 = ~~
+@2426 = ~~
+@2427 = ~~
+@2428 = ~~
+@2429 = ~~
 
 
 // Tooltips - mostly they're spells' names
@@ -11806,7 +12079,7 @@ Inutilisable par :
 @4068 = ~Batto~
 @4069 = ~Éclair~
 @4070 = ~Restauration Majeure~
-@4071 = ~Puiser dans la Puissance Divine~
+@4071 = ~Puiser dans la puissance divine~
 @4073 = ~Épée Spectrale~
 @4074 = ~Nuée d'Ombres~
 @4075 = ~Restauration Mineure~
@@ -11814,4 +12087,9 @@ Inutilisable par :
 @4077 = ~Simulacre~
 @4078 = ~Grande Malédiction~
 @4079 = ~Regard Sinistre~
-@4080 = ~Résistance à la Magie~
+@4080 = ~Absorption de sort~
+@4081 = ~Paralysie~
+@4082 = ~Provoque la terreur~
+@4083 = ~Drain de vie~
+@4084 = ~Rappel à la vie~
+@4085 = ~Inversion de magie~
