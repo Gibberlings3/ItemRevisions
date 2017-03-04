@@ -600,6 +600,10 @@ ohleat52 => 3 // Hide Armor +3
 ohleat53 => 2 // Studded Leather Armor +3
 ohplat50 => 6 // Plate Mail +2
 
+//EET
+
+leat07_   => 2  // Telbar's Studded Leather +2 (Studded Leather Armor +2)
+plat06_   => 22 // Ankheg Plate Mail (crafted by Taerom Fuiruim of Beregost)
 
   ~DW#ABYDA~ => 18 // Yellow Dragon Scale Armor
 
