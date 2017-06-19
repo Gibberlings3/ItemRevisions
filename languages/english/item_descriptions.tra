@@ -7680,6 +7680,7 @@ Armor Class Bonus: 5
 Weight: 15
 Requires: 12 Strength
 Not Usable By:
+ Fighter
  Bard
  Druid
  Mage
@@ -11241,7 +11242,7 @@ Not Usable By:
  Beast Master~
 
 @2317 = ~Sword of Balduran +2~
-@2318 = ~Balduran, a legendary seafaring explorer, was the first native of Faerûn to set foot on the lands known as Anchorome and made the trek up to Sossal. He returned full of tales and vast wealth, and put forth a large sum of money to protect his sparsely-settled home harbor town. Then he set sail of Anchorome again and has never been seen again. His money was well spent on the wall though, and that small town soon grew into the city of Baldur's Gate.
+@2318 = ~Balduran, a legendary seafaring explorer, was the first native of FaerÃ»n to set foot on the lands known as Anchorome and made the trek up to Sossal. He returned full of tales and vast wealth, and put forth a large sum of money to protect his sparsely-settled home harbor town. Then he set sail of Anchorome again and has never been seen again. His money was well spent on the wall though, and that small town soon grew into the city of Baldur's Gate.
 
 This ornate but poorly balanced weapon was found beside Balduran's remains, and like most of his equipment, it holds powerful enchantments.
 
