@@ -1,0 +1,202 @@
+TO DO LIST
+- update armor, shield, and bracer lists for IWDEE
+- Protector of the Second -> something useful for a WS or ranger? +1 saves -> +2 or +3 vs. spells?
+- Armor of the Viper -> poison when struck? Which class would benefit from it though?
+- we "need" to add a +4 splint mail specimen and I'm tempted to propose using Shuruppak's Plate
+- Cloak of the Wolf regen increased, werewolf replaced with dire wolf
+- Ring of Human Influence -> humans within x radius suffer -2 saves vs. spell
+- Sword of Balduran need something
+- Purifier should be more unique and more appealing than Foebane for paladins
+- Ilbratha: replace permanent AC with Blurring (each hit raises AC)
+- Jamato infinite loop need fix
+- Potion of Invisibility duration reduced to1 turn?
+- Store Rev (Trollhide, Gauntlets of Dexterity, Gloves of Missile Snaring, Paladin Bracers, Rifthome Axe, Crimson Dart, ...)
+- Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
+
+V4 - Beta 10 (19.6.2017. aka Gith Hub version)
+- Obsidian Ioun stone tweaked not to allow going below 0 HP
+- Shield of the Order description now mentions fighters
+- Shadow armor behaves as Ghost Armor, givving better AC (2) but loosing physical resistance
+- fixed Klogarath damage to slashing
+- wrong power levels on Belt of Inertial Barrier and Shield of Falling stars fixed (to 0)
+- Bracers of Blinding Strike now give 1xday Whirlwind attack. 
+- Ring of Human Influence targeting fix
+- Werebane damage vs vampires fixed. There's still no such creatures in BG1...it's apr is fixed as well (from 2 extra to 1 extra, like all thrown daggers)
+- fixed description of thrown axe
+- dvstdust spell fixed, now allows for a save per description
+- Drowcraft shield and description fixed
+- Blackmist fixed, duration of Blindness tweaked to 1 turn
+- Wave Halberd tweaked, it's fire-slaying effect is now tied to the spell and doesn't allow a save anymore (flat 15% prob)
+- Runehammer & Cloak of the Wolf had wrong icons for their abilities
+- Armor of Missile attraction, Skin of the Ghoul and Karajah armor description fixed
+- Book of Infinite spells fixes
+- fixed fighter/cleric usability of Methild's and Azlaer's Harps
+- fixed Unholy Reaver damage to match  it's description
+- fixed Cernd's Cloak, tweaked to give regeneration of 1hp/round
+- Oil of Speed changed, it stacks with Haste stuff now (too many issues otherwise), otoh it gives only +0.5 apr
+- Wyvern Tail and Gesen include "bonus" in their descriptions
+- Jan Spectroscopes description fixed to mention Blindness immunity, fixed DI ability
+- Firecam armor now correctly gives 40% MD resistance
+- Mazzy's sword now reduces damage as well, duration of effects is 1 round
+- Valygar's armor now mentions Charm immunity, as well as having full benefits of SR's Non-Detection
+- Wand of Sleep description fixed
+- Web sack and sling06 icons fixed
+- Backbiter now does damage through opcode 12 and does 1d6 damage as stated in description
+- Staff of Thunder fixed
+- DVEMPATY spell fixed to match it's description which is also changed to mention duration
+- Ring of Regeneration and Pearly White Ioun Stone now regenerate 2hp/round
+- Cloak of Werewolf now regenerates 1hp/round
+- Staff of Fire had wrong timing on graphic effect
+- Staff of Rynn had wrong icon for Malison ability
+- Serpent Shaft & Ravager now offer save as per description
+- Moonblade description fixed to match effects
+- Arbane's sword magical haste ability removed; the sword now correctly gives Web immunity rather than immunity to Web effects (paralyze is used often)
+- Spider's Bane now gives correct Web immunity as well
+- Shazzelim scimitar Vocalize ability removed due to exploit issues
+- fixed CF Batto saving throws mismatch
+- fixed Warblade description
+- DVDISPEL saving throw mismatch fixed
+- Sensate amulet should give +1 to CHA, fixed
+- Malakar description fixed
+- Malakar's companion speed factor fixed
+-
+
+
+
+V4 - Beta 9 (19 May 2016)
+- Fix bug with halved specialization options in Multiclass Divine component preventing changes applying to Cleric/Mages and Cleric/Thieves
+- Fix helmet detection in Revised Critical Hits component
+- Update French translation (thanks Mornagest and Isaya)
+
+V4 - Beta 8 (14 September 2015)
+- Improve EE support by converting text to UTF-8
+- Add support for EET
+- Stop Erik beating up <CHARNAME> in Candlekeep
+- Update to WeiDU 238
+- fixed incorrect usabilities for various items, including a number of daggers
+- fixed all reported minor issues and typos
+- Casiel's Soul is no longer cursed to prevent a not intended interaction with Break Enchantment
+- Belt of Inertial Barrier "animation" disabled for gameplay reasons (too spammy and applied to invisible targets)
+- Dwarven Shield base stats now correctly match its new "size"
+- Potion of Speed tweaked to match SR's Haste (no haste opcode, fixed apr gain, counters slow via sec type, etc.)
+
+V4 - Beta 7 (26 February 2015)
+- Readme major update
+- re-organized installer
+- Allow Spellcasting in Armor makes Bards cast spells without penalties while wearing light armors (up to chain mail)
+- Revised Critical Hit Aversion should now work on EE too, Ioun Stones no longer get +1 AC (only helmets do)
+- minor fixes (e.g. descriptions, small effects targeting, displayed icons, etc.)
+- increased projectile speed of darts, throwing daggers and throwing handaxes from 20 to 40 (arrows/bolts have 60)
+- light and heavy xbows reload pauses user for 1-2 sec respectively instead of setting movement rate to 0
+- Protector of the Second grants immunity to critical hits
+- Mail of the Dead grants immunity to critical hits
+- Enkidu's Full Plate +1 to all saves replaced by immunity to critical hits
+- Helmet of Defense keeps immunity to critical hits when Revised Critical Hit Aversion is installed
+- Adventurer's Robe +10% physical dmg resistance replaced with immunity to critical hits
+- Dwarven Shield turned into a medium shield (BG1 had not a single unique specimen)
+- Shield of the Falling Stars enchantment lvl raised by 1, +10HP bonus removed
+- Kovera's Ring tweaked to reflect its unique role, grants +1 luck, custom bam and lore
+- Ring of the Phantom Wraith also grants immunity to critical hits
+
+V4 - Beta 6 (25 January 2015)
+- merged potions into the main component item table
+- reintroduced unidentified ioun stone description to prevent installation failure
+- fixed bug where some headbands were misidentified as banded armor
+- updated component predicates for various games
+- Cleaving enhacement also grants +10 bonus to weapon speed factor for 2 seconds
+- minor fixes (effects targeting, displayed icons, etc.)
+- Crimson Chain's Blood Rage no longer causes loss of control, still grants +2 thac0/dmg but not +2 to all saves
+- Girdle of Beatification uses again vanilla's Girdle of Hill Giant icon (V3 red sash wasn't blending in enough imo)
+- Girdle of Trollish Fortitude uses a new icon
+- Belt of Inertial Barrier no longer halves mov rate, but causes -1 penalty to weapon speed/thac0/dmg
+- Cloak of Vengeance tweaked to not spam the screen with lightning bolts (20% chance, 6d6 dmg)
+- Silver Dagger (Werebane) is now a returning throwing dagger, uses a new icon (it was almost identical to Longtooth)
+- Heart of the Golem no longer share the icon with Nester/Kylee/Hentold daggers, added +1 AC while equipped
+- Dagger of Venom now uses a unique icon with a greenish blade (in-game color tweaked to match it)
+- Suryris's Blade gets a Staggering effect (save vs. breath or suffer -1/2 apr and -4 casting speed penalty for 1 round)
+- Arbane's 1/day Haste replaced with Hastening effect (10% chance +1/2 apr and +2 mov rate for 2 rounds, cumulative)
+- Shazzelim added to IR
+- Sword of Flame no longer share Flame Tongue's icon
+- The Claw of Kazgoroth added to IR, minor tweaks (e.g name changed from Kazgaroth to match PnP, extended lore)
+- The Horn of Kazgoroth added to IR, minor tweaks (e.g. changed from x charges to 1/day)
+- Staff of the High Forest gains +1 casting speed bonus, no longer grants protection against insect spells
+- Cloak of the High Forest gets immunity to insects and +10% elemental res, regen rate improved, +1 to AC/saves removed
+- Firecam Full Plate Mail magic dmg resistance lowered from 50% to 40%
+- Sword of Arvoreen's Enfeebling enhancement sligthly tweaked, now works via spl as per Ardulia's Mace
+- Corthala Family Armor no longer grants immunity to charm
+- Handmaiden's Mace added to IR, enchantment raised by 1, added 33% to cast Web on target, still Envenomed, new icon
+- Dark Elven Chain now grants immunity to poison and +10% bonus to magic resistance
+- Sword of Chaos +4 (Ascension only) added to IR, 10% magic resistance replaced by +2 to all saves
+
+V4 - Beta 5 (26 October 2014)
+- renamed settings.ini and changed it to use Windows newlines
+- updated G3 icons used by the mod
+- started work on updating the readme
+- disabled Shield Bash component (at least until Arda comes back to fix all the issues it causes)
+- minor fixes (effects targeting, % chance, displayed icons/strings, etc.)
+- vorpal effect no longer work on demiliches
+- Cursed Armor of Missile Attraction was not working because of a missing .eff file
+- Doomplate's Aura of Despair was not working because of a missing .eff file
+- Horned Helm of the Rock had hidden immunity to stun and sleep
+- Greenstone Amulet was missing immunity to stun
+- Gauntlets of Parrying now grants +2 AC bonus vs. melee weapons 
+- Nature's Vengeance fireshield-like effect now has range (Call Lightning animation) but allows a save vs. breath
+- Cloak of Mirroring's image is triggered "when attacked" instead of "when struck"
+- Pearly White Ioun Stone regeneration rate from 1 every 2 rounds to 1 every round, added -10% fire/acid resistance penalty
+- Axe of the Unyelding AC bonus removed, regeneration rate from 1 every 4 rounds to 1 every round
+- Blackblood's Acid Splash now has a small AoE, new animation stolen from IWD
+- Bone Club's Dooming effect can stack, but causes -1 penalty and lasts only 4 rounds
+- Club of Detonation now uses a custom party-friendly but smaller 15' fireball
+- Paralytic Bolt added to IR, paralyze for 2 rounds instead of stunning for 6 rounds
+- Suryris's Blade inflicts additional 1d10 slashing dmg on each hit, -1/2 apr penalty, Stunning effect removed
+- The Wave's Fire Eating triggers when Smashing Wave does, the latter also knockdown for 1 round (save vs breath negates)
+- Ravager's Dooming effect can stack, but causes -1 penalty and lasts only 4 rounds
+- Staff of Command was missing its Mindbreaking combat ability (15% chance target must save vs spell at -4 or be feebleminded)
+- Psion's Blade now has +3 enchantment, Mind Shield replaced by Mind Barrier (+2 AC/saves vs psionics) added Mindbreaking
+- Soul Reaver inflicts 1d6 additional negative energy dmg (aka magic dmg which affects only living targets)
+- Gram the Sword of Grief has a slightly extended background now
+- Necaradan's Xbow now has +2 enchantment but grants +20% bonus to hide and move silently
+- Drowcraft Adamantine Chain get +5% physical resistance instead of 10% (stack with base 10% from Revised Armor component)
+- Drowcraft Adamantine Plate get +5% physical resistance instead of 15% (stack with base 20% from Revised Armor component)
+
+V4 - Beta 4 (9 August 2014)
+- major re-work to hopefully achieve full compatibility with BGEE, BGT and TuTu
+- minor fixes (effect duration, displayed icon, etc.)
+- Hide Armor and Chain Mail no longer have movement rate penalties
+- Splint Mail and Plate Mail movement rate penalty lowered from 20% to 10%
+- Full Plate Mail movement rate penalty lowered from 30% to 20%
+- Hide Armor weapon speed factor penalty raised from 1 to 2
+- Splint Mail weapon speed factor penalty raised from 2 to 3
+- Leather Armor casting speed penalty lowered from 2 to 1
+- Chain Mail casting speed penalty lowered from 3 to 2
+- Plate Mail casting speed penalty lowered from 4 to 3
+- Buckler no longer cause casting speed penalty or spell failure
+- vampiric effects now use magic dmg
+- bleeding effects now use poison dmg
+- Human Flesh now has an additional Hideous enhancement (+2 AC/saves vs. humanoids)
+- Grandmaster Armor fully protects from slow effects
+- Aeger Hide's Animal Rage disabled, added +1 STR
+- Trollhide Armor fire/acid res penalty reduced from 25% to 15%
+- Armor of Faith reverted to +3 enchantment, replaced AoF-like effect with +1 casting speed bonus
+- Ankheg Plate Mail enchantment lowered by 1, acid res increased from 25% to 40%
+- Robe of the Apprenti now grants +1 INT and +1 spell slot for spell levels 1-4
+- Reflection Shield no longer use "physical mirror" opcode (with its hardcoded animation) but "immunity to projectiles"
+- Saving Grace's Searing Light is triggered "when attacked" instead of "when struck"
+- Dragon Scale Shield's Force Absorbing now grants additional +2 to saves vs. breath
+- Belt of Inertial Barrier -> slow opcode replaced with a 50% movement rate penalty
+- Axe of the Unyelding -> Vorpal effect chance from 5% to 10%, save at -2 instead of -4
+- Moonblade grants Xan proficiency in long swords
+- Silver Sword -> Vorpal effect chance from 10% to 15%, save at -2 instead of -4
+
+V4 - Beta 3 (28 July 2014)
+- Re-arranged the installer TP2
+- Re-arranged the whole main component
+- Restored the missing debug log file
+- Fixed the issue with some shields not being patched by the "Revised Shields" component
+- Bonus to physical damage resistance is now displayed in "Revised Armor" component
+
+V4 - Beta 2 (4 July 2014)
+- fixed 'REsource' typos on identify_item.tpa
+
+V4 - Beta 1 (1 July 2014)
+- first closed beta
