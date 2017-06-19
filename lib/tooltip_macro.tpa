@@ -1,0 +1,143 @@
+
+// This action function handles updating of tooltips - entries in the TOOLTIP.2DA table.
+/*
+LAF tooltips INT_VAR
+  $tip(1) = 0 - 1 // set the 1st ability's tooltip to -1, in which case the engine will display ITM's name instead
+  $tip(2) = 6618 // set the 2nd ability's tooltip to #6618, which is ~Fireball~ in original game
+  $tip(4) = RESOLVE_STR_REF (@1234) // set the 4th ability's tooltip to @1234, which you must have defined in .TRA file
+STR_VAR
+  item = sw1h01 // do the above for SW1H01.ITM
+END
+*/
+// You can also substitute variables for the header's index:
+/*
+OUTER_SET sample_var = 3
+LAF tooltips INT_VAR
+  $ EVAL tip("%sample_var%") = 0 - 1 // set the "%sample_var%"th tooltip to -1, in this case it is the 3rd one
+STR_VAR
+  item = sw1h01
+END
+*/
+// Finally, instead of overwriting existing tooltips, you can insert new ones between them. This is useful when you
+// have added new ability header not as the last, but before any of already existing ones AND you do not know for
+// sure if that item already had any tooltips, and if it did - how many and which exactly.
+// This is how we'd add the "Shield Bash" ability to Anomen's shield - which must go first in order for the
+// ~UseItemSlot()~ script action to use the Bash on the target, not the Protection from Missiles
+/*
+LAF tooltips INT_VAR
+  $insert(1) = RESOLVE_STR_REF (~Shield Bash~)
+STR_VAR
+  item = npshld
+END
+*/
+// You can set both $tip() and $insert() in one launch, in this case old tooltips will be first overwritten with
+// the $tip() array, then new insertions will be made.
+//
+//
+// On a side note, adding new headers, especially when not as last in the order, will break charge amounts in ARE,
+// CRE and STO files, in saved games, in ~GiveItemCreate()~ and ~CreateItem()~ script actions. Don't insert anything
+// unless you !!!REALLY!!! know what you are doing.
+
+
+DEFINE_ACTION_FUNCTION tooltips STR_VAR item=~ag#dummy~ BEGIN
+
+COPY_EXISTING tooltip.2da override
+
+  // find the item entry
+  COUNT_2DA_COLS cn
+  READ_2DA_ENTRIES_NOW rn cn
+  row= 0 - 1
+  FOR (k=0;k<rn;k+=1) BEGIN
+    READ_2DA_ENTRY_FORMER rn k 0 itm
+    PATCH_IF ~%item%~ STRING_EQUAL_CASE ~%itm%~ BEGIN
+      FOR (i=1;i<cn;i+=1) BEGIN
+        READ_2DA_ENTRY_FORMER rn k i x
+        SET $ EVAL rn("%i%") = x
+      END
+      row=k
+      k=rn
+    END
+  END
+
+  // if it doesn't exist, add new one
+  PATCH_IF row<0 BEGIN
+    row=rn
+    SPRINT add ~~
+    FOR (i=1;i<cn;i+=1) BEGIN
+      SPRINT add ~%add%        -1~
+    END
+    INSERT_2DA_ROW rn cn ~%item%%add%~
+  END
+
+  // preset entries, check if there're enough columns
+  d=0
+  PHP_EACH tip AS i => r BEGIN
+    SET $ EVAL rn("%i%") = r
+    i+=1
+    PATCH_IF cn<i BEGIN
+      d += i - cn
+      cn=i
+    END
+  END
+
+  // insert strrefs, check if there're enough columns
+  hc=0
+  PATCH_IF FILE_EXISTS_IN_GAME ~%item%.itm~ BEGIN
+    INNER_PATCH_FILE ~%item%.itm~ BEGIN
+      READ_SHORT 0x68 hc
+    END
+  END
+  PHP_EACH insert AS i => r BEGIN
+    SET_2DA_ENTRY_LATER sl row i ~%r%~
+    PATCH_IF hc > cn - 1 BEGIN // no point in shifting columns if there are not that many headers
+      d+=1
+      cn+=1
+    END
+    i+=1
+    PATCH_IF cn<i BEGIN
+      d += i - cn
+      cn=i
+    END
+  END
+
+  // if there're not enough columns, extend the 2da
+  PATCH_IF d BEGIN
+    SPRINT add ~~
+    FOR (i=cn - d;i<cn;i+=1) BEGIN
+      SPRINT add ~%add%        -1~
+    END
+    cnt=0
+    REPLACE_EVALUATE ~\(.+\)~ BEGIN
+      SPRINT nl ~~
+      INNER_PATCH_SAVE ~MATCH1~ ~%MATCH1%~ BEGIN
+        REPLACE_EVALUATE ~\([%LNL%%MNL%%WNL%]\)~ BEGIN
+          SPRINT nl ~%MATCH1%~
+        END ~~
+      END
+      cnt+=1
+      PATCH_IF cnt>3 BEGIN
+        SPRINT ~MATCH1~ ~%MATCH1%        %add%~
+      END
+      PATCH_IF cnt=3 BEGIN
+        FOR (i=cn - d;i<cn;i+=1) BEGIN
+          SPRINT ~MATCH1~ ~%MATCH1%        %i%~
+        END
+      END
+    END ~%MATCH1%%nl%~
+  END
+
+  // shift entries if something was inserted in the midst
+  PHP_EACH rn AS i => r BEGIN
+    PHP_EACH insert AS i2 => r2 BEGIN
+      PATCH_IF i2<=i BEGIN
+        i+=1
+      END
+    END
+    SET_2DA_ENTRY_LATER sl row i ~%r%~
+  END
+
+
+  SET_2DA_ENTRIES_NOW sl cn
+  PRETTY_PRINT_2DA
+END
+
