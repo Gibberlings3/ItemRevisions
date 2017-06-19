@@ -1,0 +1,31 @@
+
+//////////////////////////////////////////////
+//  vanilla bugs that prevent correct detection of weapon types
+
+// Yamato +4
+ACTION_IF (FILE_EXISTS_IN_GAME ~sw1h66.itm~) BEGIN
+  COPY_EXISTING sw1h66.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    WRITE_ASCII 0x22 ~SS~ (2)
+  END BUT_ONLY
+END
+
+// Usuno's Blade +4
+ACTION_IF (FILE_EXISTS_IN_GAME ~sw1h67.itm~) BEGIN
+  COPY_EXISTING sw1h67.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    WRITE_ASCII 0x22 ~S1~ (2)
+  END BUT_ONLY
+END
+
+// Club of Detonation +5
+ACTION_IF (FILE_EXISTS_IN_GAME ~blun27.itm~) BEGIN
+  COPY_EXISTING blun27.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    WRITE_SHORT 0x1c 0x11
+  END BUT_ONLY
+END
+
+// the first challenge in Pocketplane, Sarevok's weapon
+ACTION_IF (FILE_EXISTS_IN_GAME ~chevil10.itm~) BEGIN
+  COPY_EXISTING chevil10.itm override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+    WRITE_SHORT 0x1c 0x14
+  END BUT_ONLY
+END

@@ -1,0 +1,676 @@
+
+
+// ---------------------------------------------------------------------------
+/*
+BEGIN ~Fix repeating effects (#25, #78, #98, #272)~
+DESIGNATED 170
+*/
+// This does some hackery to allow multiple effects with different periods.
+// Implementation details (just in case I forget it ;-)):
+//
+// Add two dwords to the rep_eff structure that hold a reference to the
+// parent effect and the type of the parent effect. (safety checking)
+// Repeat changes in the copy constructor.
+// Save the internal counter of the rep_eff (0x24, word) in param4 (0x60)
+// of the parent effect when clearing the list. (Also do some safety checks.)
+// Initialize the internal counter with the value in param4 and clear
+// param4 afterwards.
+// (There is some additional patching for the #272 repeff, which changes the
+// internal counter check to a modulo. Adding a counter reset just before
+// effect application would have been enough, but meh too late. :-))
+
+OUTER_PATCH_SAVE orig_bytes_1 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_1 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_2 ~~ BEGIN
+    INSERT_BYTES 0x000 0x4a
+    WRITE_LONG   0x000 0x66dc4d8b
+    WRITE_LONG   0x004 0x030e41c7
+    WRITE_LONG   0x008 0xdc558b00
+    WRITE_LONG   0x00c 0x1842c766
+    WRITE_LONG   0x010 0x458b0000
+    WRITE_LONG   0x014 0x40c766dc
+    WRITE_LONG   0x018 0x8bffff1a
+    WRITE_LONG   0x01c 0xc766dc4d
+    WRITE_LONG   0x020 0x00011c41
+    WRITE_LONG   0x024 0x66dc558b
+    WRITE_LONG   0x028 0x011e42c7
+    WRITE_LONG   0x02c 0xdc458b00
+    WRITE_LONG   0x030 0x002040c7
+    WRITE_LONG   0x034 0x8b000000
+    WRITE_LONG   0x038 0x41c7dc4d
+    WRITE_LONG   0x03c 0x00000014
+    WRITE_LONG   0x040 0xdc558b00
+    WRITE_LONG   0x044 0x2442c766
+    WRITE_SHORT  0x048 0x0000
+END
+
+OUTER_PATCH_SAVE patch_bytes_2 ~~ BEGIN
+    INSERT_BYTES 0x000 0x4a
+    WRITE_LONG   0x000 0x0e40c766
+    WRITE_LONG   0x004 0xc7660003
+    WRITE_LONG   0x008 0x00001840
+    WRITE_LONG   0x00c 0x1a40c766
+    WRITE_LONG   0x010 0xc766ffff
+    WRITE_LONG   0x014 0x00011c40
+    WRITE_LONG   0x018 0x1e40c766
+    WRITE_LONG   0x01c 0x40c70001
+    WRITE_LONG   0x020 0x00000020
+    WRITE_LONG   0x024 0x1440c700
+    WRITE_LONG   0x028 0x00000000
+    WRITE_LONG   0x02c 0x89804d8b
+    WRITE_LONG   0x030 0x118b2648
+    WRITE_LONG   0x034 0x832a5089
+    WRITE_LONG   0x038 0x8b6660c1
+    WRITE_LONG   0x03c 0x01c76611
+    WRITE_LONG   0x040 0x89660000
+    WRITE_LONG   0x044 0x90902450
+    WRITE_SHORT  0x048 0x9090
+END
+
+OUTER_PATCH_SAVE orig_bytes_3 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_3 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_4 ~~ BEGIN
+    INSERT_BYTES 0x000 0x7
+    WRITE_LONG   0x000 0x000440c7
+    WRITE_SHORT  0x004 0x0000
+    WRITE_BYTE   0x006 0x00
+END
+
+OUTER_PATCH_SAVE patch_bytes_4 ~~ BEGIN
+    INSERT_BYTES 0x000 0x7
+    WRITE_LONG   0x000 0x0003bee9
+    WRITE_SHORT  0x004 0x9000
+    WRITE_BYTE   0x006 0x90
+END
+
+OUTER_PATCH_SAVE orig_bytes_5 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_5 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_6 ~~ BEGIN
+    INSERT_BYTES 0x000 0x7
+    WRITE_LONG   0x000 0x000440c7
+    WRITE_SHORT  0x004 0x0000
+    WRITE_BYTE   0x006 0x00
+END
+
+OUTER_PATCH_SAVE patch_bytes_6 ~~ BEGIN
+    INSERT_BYTES 0x000 0x7
+    WRITE_LONG   0x000 0x00027fe9
+    WRITE_SHORT  0x004 0x9000
+    WRITE_BYTE   0x006 0x90
+END
+
+OUTER_PATCH_SAVE orig_bytes_7 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_7 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_8 ~~ BEGIN
+    INSERT_BYTES 0x000 0x7
+    WRITE_LONG   0x000 0x000440c7
+    WRITE_SHORT  0x004 0x0000
+    WRITE_BYTE   0x006 0x00
+END
+
+OUTER_PATCH_SAVE patch_bytes_8 ~~ BEGIN
+    INSERT_BYTES 0x000 0x7
+    WRITE_LONG   0x000 0x000126e9
+    WRITE_SHORT  0x004 0x9000
+    WRITE_BYTE   0x006 0x90
+END
+
+OUTER_PATCH_SAVE orig_bytes_9 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_9 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_10 ~~ BEGIN
+    INSERT_BYTES 0x000 0x81
+    WRITE_LONG   0x000 0x97b800c7
+    WRITE_LONG   0x004 0x4d8b00aa
+    WRITE_LONG   0x008 0x0441c7bc
+    WRITE_LONG   0x00c 0x00000000
+    WRITE_LONG   0x010 0xc7bc558b
+    WRITE_LONG   0x014 0x00000842
+    WRITE_LONG   0x018 0x458b0000
+    WRITE_LONG   0x01c 0x1040c7bc
+    WRITE_LONG   0x020 0xffffffff
+    WRITE_LONG   0x024 0xc7bc4d8b
+    WRITE_LONG   0x028 0xaa985801
+    WRITE_LONG   0x02c 0xbc558b00
+    WRITE_LONG   0x030 0x0e42c766
+    WRITE_LONG   0x034 0x458b0004
+    WRITE_LONG   0x038 0x40c766bc
+    WRITE_LONG   0x03c 0x8b000018
+    WRITE_LONG   0x040 0xc766bc4d
+    WRITE_LONG   0x044 0xffff1a41
+    WRITE_LONG   0x048 0x66bc558b
+    WRITE_LONG   0x04c 0x011c42c7
+    WRITE_LONG   0x050 0xbc458b00
+    WRITE_LONG   0x054 0x1e40c766
+    WRITE_LONG   0x058 0x4d8b0001
+    WRITE_LONG   0x05c 0x2041c7bc
+    WRITE_LONG   0x060 0x00000000
+    WRITE_LONG   0x064 0xc7bc558b
+    WRITE_LONG   0x068 0x00001442
+    WRITE_LONG   0x06c 0x458b0000
+    WRITE_LONG   0x070 0x40c766bc
+    WRITE_LONG   0x074 0x8b000024
+    WRITE_LONG   0x078 0x41c7bc4d
+    WRITE_LONG   0x07c 0x00000004
+    WRITE_BYTE   0x080 0x00
+END
+
+OUTER_PATCH_SAVE patch_bytes_10 ~~ BEGIN
+    INSERT_BYTES 0x000 0x81
+    WRITE_LONG   0x000 0x985800c7
+    WRITE_LONG   0x004 0xd23300aa
+    WRITE_LONG   0x008 0x89045089
+    WRITE_LONG   0x00c 0x894a0850
+    WRITE_LONG   0x010 0xc7661050
+    WRITE_LONG   0x014 0x00040e40
+    WRITE_LONG   0x018 0x1840c766
+    WRITE_LONG   0x01c 0xc7660000
+    WRITE_LONG   0x020 0xffff1c40
+    WRITE_LONG   0x024 0x1c40c766
+    WRITE_LONG   0x028 0xc7660001
+    WRITE_LONG   0x02c 0x00011e40
+    WRITE_LONG   0x030 0x002040c7
+    WRITE_LONG   0x034 0xc7000000
+    WRITE_LONG   0x038 0x00001440
+    WRITE_LONG   0x03c 0x8d8b0000
+    WRITE_LONG   0x040 0xffffff60
+    WRITE_LONG   0x044 0x8b264889
+    WRITE_LONG   0x048 0x2a508911
+    WRITE_LONG   0x04c 0x6660c183
+    WRITE_LONG   0x050 0xc766118b
+    WRITE_LONG   0x054 0x66000001
+    WRITE_LONG   0x058 0xc7245089
+    WRITE_LONG   0x05c 0x00000440
+    WRITE_LONG   0x060 0x958b0000
+    WRITE_LONG   0x064 0xffffff5c
+    WRITE_LONG   0x068 0x9524ff3e
+    WRITE_LONG   0x06c 0x0051b70a
+    WRITE_LONG   0x070 0x51b31b90
+    WRITE_LONG   0x074 0x51b45a00
+    WRITE_LONG   0x078 0x51b5b300
+    WRITE_LONG   0x07c 0x51b71a00
+    WRITE_BYTE   0x080 0x00
+END
+
+OUTER_PATCH_SAVE orig_bytes_11 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_11 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_12 ~~ BEGIN
+    INSERT_BYTES 0x000 0x4a
+    WRITE_LONG   0x000 0x66dc4d8b
+    WRITE_LONG   0x004 0x050e41c7
+    WRITE_LONG   0x008 0xdc558b00
+    WRITE_LONG   0x00c 0x1842c766
+    WRITE_LONG   0x010 0x458b0000
+    WRITE_LONG   0x014 0x40c766dc
+    WRITE_LONG   0x018 0x8bffff1a
+    WRITE_LONG   0x01c 0xc766dc4d
+    WRITE_LONG   0x020 0x00011c41
+    WRITE_LONG   0x024 0x66dc558b
+    WRITE_LONG   0x028 0x011e42c7
+    WRITE_LONG   0x02c 0xdc458b00
+    WRITE_LONG   0x030 0x002040c7
+    WRITE_LONG   0x034 0x8b000000
+    WRITE_LONG   0x038 0x41c7dc4d
+    WRITE_LONG   0x03c 0x00000014
+    WRITE_LONG   0x040 0xdc558b00
+    WRITE_LONG   0x044 0x2442c766
+    WRITE_SHORT  0x048 0x0000
+END
+
+OUTER_PATCH_SAVE patch_bytes_12 ~~ BEGIN
+    INSERT_BYTES 0x000 0x4a
+    WRITE_LONG   0x000 0x0e40c766
+    WRITE_LONG   0x004 0xc7660005
+    WRITE_LONG   0x008 0x00001840
+    WRITE_LONG   0x00c 0x1a40c766
+    WRITE_LONG   0x010 0xc766ffff
+    WRITE_LONG   0x014 0x00011c40
+    WRITE_LONG   0x018 0x1e40c766
+    WRITE_LONG   0x01c 0x40c70001
+    WRITE_LONG   0x020 0x00000020
+    WRITE_LONG   0x024 0x1440c700
+    WRITE_LONG   0x028 0x00000000
+    WRITE_LONG   0x02c 0x89844d8b
+    WRITE_LONG   0x030 0x118b2648
+    WRITE_LONG   0x034 0x832a5089
+    WRITE_LONG   0x038 0x8b6660c1
+    WRITE_LONG   0x03c 0x01c76611
+    WRITE_LONG   0x040 0x89660000
+    WRITE_LONG   0x044 0x90902450
+    WRITE_SHORT  0x048 0x9090
+END
+
+OUTER_PATCH_SAVE orig_bytes_13 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x326a
+END
+
+OUTER_PATCH_SAVE patch_bytes_13 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x3a6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_14 ~~ BEGIN
+    INSERT_BYTES 0x000 0x4a
+    WRITE_LONG   0x000 0x66dc4d8b
+    WRITE_LONG   0x004 0x050e41c7
+    WRITE_LONG   0x008 0xdc558b00
+    WRITE_LONG   0x00c 0x1842c766
+    WRITE_LONG   0x010 0x458b0000
+    WRITE_LONG   0x014 0x40c766dc
+    WRITE_LONG   0x018 0x8bffff1a
+    WRITE_LONG   0x01c 0xc766dc4d
+    WRITE_LONG   0x020 0x00011c41
+    WRITE_LONG   0x024 0x66dc558b
+    WRITE_LONG   0x028 0x011e42c7
+    WRITE_LONG   0x02c 0xdc458b00
+    WRITE_LONG   0x030 0x002040c7
+    WRITE_LONG   0x034 0x8b000000
+    WRITE_LONG   0x038 0x41c7dc4d
+    WRITE_LONG   0x03c 0x00000014
+    WRITE_LONG   0x040 0xdc558b00
+    WRITE_LONG   0x044 0x2442c766
+    WRITE_SHORT  0x048 0x0000
+END
+
+OUTER_PATCH_SAVE patch_bytes_14 ~~ BEGIN
+    INSERT_BYTES 0x000 0x4a
+    WRITE_LONG   0x000 0x0e40c766
+    WRITE_LONG   0x004 0xc7660005
+    WRITE_LONG   0x008 0x00001840
+    WRITE_LONG   0x00c 0x1a40c766
+    WRITE_LONG   0x010 0xc766ffff
+    WRITE_LONG   0x014 0x00011c40
+    WRITE_LONG   0x018 0x1e40c766
+    WRITE_LONG   0x01c 0x40c70001
+    WRITE_LONG   0x020 0x00000020
+    WRITE_LONG   0x024 0x1440c700
+    WRITE_LONG   0x028 0x00000000
+    WRITE_LONG   0x02c 0xff788d8b
+    WRITE_LONG   0x030 0x4889ffff
+    WRITE_LONG   0x034 0x89118b32
+    WRITE_LONG   0x038 0xc1833650
+    WRITE_LONG   0x03c 0x118b6660
+    WRITE_LONG   0x040 0x0001c766
+    WRITE_LONG   0x044 0x50896600
+    WRITE_SHORT  0x048 0x9024
+END
+
+OUTER_PATCH_SAVE orig_bytes_15 ~~ BEGIN
+    INSERT_BYTES 0x000 0x30
+    WRITE_LONG   0x000 0xff7c8d8b
+    WRITE_LONG   0x004 0x8b66ffff
+    WRITE_LONG   0x008 0x83662451
+    WRITE_LONG   0x00c 0x858b01c2
+    WRITE_LONG   0x010 0xffffff7c
+    WRITE_LONG   0x014 0x24508966
+    WRITE_LONG   0x018 0xff7c8d8b
+    WRITE_LONG   0x01c 0xbf0fffff
+    WRITE_LONG   0x020 0x858b2451
+    WRITE_LONG   0x024 0xffffff7c
+    WRITE_LONG   0x028 0x1e48bf0f
+    WRITE_LONG   0x02c 0x0e7cd13b
+END
+
+OUTER_PATCH_SAVE patch_bytes_15 ~~ BEGIN
+    INSERT_BYTES 0x000 0x30
+    WRITE_LONG   0x000 0x6624c183
+    WRITE_LONG   0x004 0x8b6601ff
+    WRITE_LONG   0x008 0x83d23301
+    WRITE_LONG   0x00c 0x8b6606e9
+    WRITE_LONG   0x010 0xf1f76609
+    WRITE_LONG   0x014 0x2675d285
+    WRITE_LONG   0x018 0x90909090
+    WRITE_LONG   0x01c 0x90909090
+    WRITE_LONG   0x020 0x90909090
+    WRITE_LONG   0x024 0x90909090
+    WRITE_LONG   0x028 0x90909090
+    WRITE_LONG   0x02c 0x90909090
+END
+
+OUTER_PATCH_SAVE orig_bytes_16 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_16 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_17 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8bfc558b
+    WRITE_LONG   0x004 0x488bf045
+    WRITE_LONG   0x008 0x144a8914
+    WRITE_LONG   0x00c 0x8bfc558b
+    WRITE_LONG   0x010 0x488bf045
+    WRITE_LONG   0x014 0x084a8908
+    WRITE_LONG   0x018 0x8bfc558b
+    WRITE_LONG   0x01c 0x488bf045
+    WRITE_LONG   0x020 0x044a8904
+END
+
+OUTER_PATCH_SAVE patch_bytes_17 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8914488b
+    WRITE_LONG   0x004 0x488b144a
+    WRITE_LONG   0x008 0x084a8908
+    WRITE_LONG   0x00c 0x8904488b
+    WRITE_LONG   0x010 0x488b044a
+    WRITE_LONG   0x014 0x264a8926
+    WRITE_LONG   0x018 0x892a488b
+    WRITE_LONG   0x01c 0x90902a4a
+    WRITE_LONG   0x020 0x90909090
+END
+
+OUTER_PATCH_SAVE orig_bytes_18 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_18 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_19 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8bfc558b
+    WRITE_LONG   0x004 0x488bf045
+    WRITE_LONG   0x008 0x144a8914
+    WRITE_LONG   0x00c 0x8bfc558b
+    WRITE_LONG   0x010 0x488bf045
+    WRITE_LONG   0x014 0x084a8908
+    WRITE_LONG   0x018 0x8bfc558b
+    WRITE_LONG   0x01c 0x488bf045
+    WRITE_LONG   0x020 0x044a8904
+END
+
+OUTER_PATCH_SAVE patch_bytes_19 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8914488b
+    WRITE_LONG   0x004 0x488b144a
+    WRITE_LONG   0x008 0x084a8908
+    WRITE_LONG   0x00c 0x8904488b
+    WRITE_LONG   0x010 0x488b044a
+    WRITE_LONG   0x014 0x264a8926
+    WRITE_LONG   0x018 0x892a488b
+    WRITE_LONG   0x01c 0x90902a4a
+    WRITE_LONG   0x020 0x90909090
+END
+
+OUTER_PATCH_SAVE orig_bytes_20 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x266a
+END
+
+OUTER_PATCH_SAVE patch_bytes_20 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x2e6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_21 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8bfc558b
+    WRITE_LONG   0x004 0x488bf045
+    WRITE_LONG   0x008 0x144a8914
+    WRITE_LONG   0x00c 0x8bfc558b
+    WRITE_LONG   0x010 0x488bf045
+    WRITE_LONG   0x014 0x084a8908
+    WRITE_LONG   0x018 0x8bfc558b
+    WRITE_LONG   0x01c 0x488bf045
+    WRITE_LONG   0x020 0x044a8904
+END
+
+OUTER_PATCH_SAVE patch_bytes_21 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8914488b
+    WRITE_LONG   0x004 0x488b144a
+    WRITE_LONG   0x008 0x084a8908
+    WRITE_LONG   0x00c 0x8904488b
+    WRITE_LONG   0x010 0x488b044a
+    WRITE_LONG   0x014 0x264a8926
+    WRITE_LONG   0x018 0x892a488b
+    WRITE_LONG   0x01c 0x90902a4a
+    WRITE_LONG   0x020 0x90909090
+END
+
+OUTER_PATCH_SAVE orig_bytes_22 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x326a
+END
+
+OUTER_PATCH_SAVE patch_bytes_22 ~~ BEGIN
+    INSERT_BYTES 0x000 0x2
+    WRITE_SHORT  0x000 0x3a6a
+END
+
+OUTER_PATCH_SAVE orig_bytes_23 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8bf04d8b
+    WRITE_LONG   0x004 0x428bd455
+    WRITE_LONG   0x008 0x14418914
+    WRITE_LONG   0x00c 0x8bf04d8b
+    WRITE_LONG   0x010 0x428bd455
+    WRITE_LONG   0x014 0x08418908
+    WRITE_LONG   0x018 0x8bf04d8b
+    WRITE_LONG   0x01c 0x428bd455
+    WRITE_LONG   0x020 0x04418904
+END
+
+OUTER_PATCH_SAVE patch_bytes_23 ~~ BEGIN
+    INSERT_BYTES 0x000 0x24
+    WRITE_LONG   0x000 0x8914428b
+    WRITE_LONG   0x004 0x428b1441
+    WRITE_LONG   0x008 0x08418908
+    WRITE_LONG   0x00c 0x8904428b
+    WRITE_LONG   0x010 0x428b0441
+    WRITE_LONG   0x014 0x32418932
+    WRITE_LONG   0x018 0x8936428b
+    WRITE_LONG   0x01c 0x90903641
+    WRITE_LONG   0x020 0x90909090
+END
+
+OUTER_PATCH_SAVE orig_bytes_24 ~~ BEGIN
+    INSERT_BYTES 0x000 0x58
+    WRITE_LONG   0x000 0x8be4458b
+    WRITE_LONG   0x004 0x4d890448
+    WRITE_LONG   0x008 0xec558bec
+    WRITE_LONG   0x00c 0x83f85589
+    WRITE_LONG   0x010 0x7400f87d
+    WRITE_LONG   0x014 0xf8458b43
+    WRITE_LONG   0x018 0x8be84589
+    WRITE_LONG   0x01c 0x118be84d
+    WRITE_LONG   0x020 0x8bf85589
+    WRITE_LONG   0x024 0x488be845
+    WRITE_LONG   0x028 0xfc4d8908
+    WRITE_LONG   0x02c 0x89fc558b
+    WRITE_LONG   0x030 0x458bf055
+    WRITE_LONG   0x034 0xf44589f0
+    WRITE_LONG   0x038 0x00f47d83
+    WRITE_LONG   0x03c 0x016a1174
+    WRITE_LONG   0x040 0x8bf44d8b
+    WRITE_LONG   0x044 0xf44d8b11
+    WRITE_LONG   0x048 0x458912ff
+    WRITE_LONG   0x04c 0xc707ebe0
+    WRITE_LONG   0x050 0x0000e045
+    WRITE_LONG   0x054 0xb7eb0000
+END
+
+OUTER_PATCH_SAVE patch_bytes_24 ~~ BEGIN
+    INSERT_BYTES 0x000 0x58
+    WRITE_LONG   0x000 0x04598b53
+    WRITE_LONG   0x004 0x4f74db85
+    WRITE_LONG   0x008 0x8b084b8b
+    WRITE_LONG   0x00c 0x74c9851b
+    WRITE_LONG   0x010 0x1c3981f3
+    WRITE_LONG   0x014 0x7500aa9a
+    WRITE_LONG   0x018 0x32418b14
+    WRITE_LONG   0x01c 0x3936518b
+    WRITE_LONG   0x020 0x662c7510
+    WRITE_LONG   0x024 0x6624518b
+    WRITE_LONG   0x028 0xeb605089
+    WRITE_LONG   0x02c 0x4c398122
+    WRITE_LONG   0x030 0x7200aa98
+    WRITE_LONG   0x034 0x6439811a
+    WRITE_LONG   0x038 0x7700aa98
+    WRITE_LONG   0x03c 0x26418b12
+    WRITE_LONG   0x040 0x392a518b
+    WRITE_LONG   0x044 0x66087510
+    WRITE_LONG   0x048 0x6624518b
+    WRITE_LONG   0x04c 0x8b605089
+    WRITE_LONG   0x050 0xff016a11
+    WRITE_LONG   0x054 0x5badeb12
+END
+
+COPY bgmain.exe bgmain.exe
+    READ_ASCII 0x00113042 target_bytes_1 ELSE 0 (0x2)
+    READ_ASCII 0x0011306d target_bytes_2 ELSE 0 (0x4a)
+    READ_ASCII 0x0011b29c target_bytes_3 ELSE 0 (0x2)
+    READ_ASCII 0x0011b314 target_bytes_4 ELSE 0 (0x7)
+    READ_ASCII 0x0011b3db target_bytes_5 ELSE 0 (0x2)
+    READ_ASCII 0x0011b453 target_bytes_6 ELSE 0 (0x7)
+    READ_ASCII 0x0011b534 target_bytes_7 ELSE 0 (0x2)
+    READ_ASCII 0x0011b5ac target_bytes_8 ELSE 0 (0x7)
+    READ_ASCII 0x0011b67f target_bytes_9 ELSE 0 (0x2)
+    READ_ASCII 0x0011b699 target_bytes_10 ELSE 0 (0x81)
+    READ_ASCII 0x0011c633 target_bytes_11 ELSE 0 (0x2)
+    READ_ASCII 0x0011c65e target_bytes_12 ELSE 0 (0x4a)
+    READ_ASCII 0x00141c5f target_bytes_13 ELSE 0 (0x2)
+    READ_ASCII 0x00141c9d target_bytes_14 ELSE 0 (0x4a)
+    READ_ASCII 0x001479eb target_bytes_15 ELSE 0 (0x30)
+    READ_ASCII 0x001665b9 target_bytes_16 ELSE 0 (0x2)
+    READ_ASCII 0x001666b3 target_bytes_17 ELSE 0 (0x24)
+    READ_ASCII 0x00166769 target_bytes_18 ELSE 0 (0x2)
+    READ_ASCII 0x00166863 target_bytes_19 ELSE 0 (0x24)
+    READ_ASCII 0x00166919 target_bytes_20 ELSE 0 (0x2)
+    READ_ASCII 0x00166a13 target_bytes_21 ELSE 0 (0x24)
+    READ_ASCII 0x00166c7e target_bytes_22 ELSE 0 (0x2)
+    READ_ASCII 0x00166db7 target_bytes_23 ELSE 0 (0x24)
+    READ_ASCII 0x001fe492 target_bytes_24 ELSE 0 (0x58)
+    PATCH_IF (~%target_bytes_1%~ STRING_EQUAL ~%orig_bytes_1%~)
+         AND (~%target_bytes_2%~ STRING_EQUAL ~%orig_bytes_2%~)
+         AND (~%target_bytes_3%~ STRING_EQUAL ~%orig_bytes_3%~)
+         AND (~%target_bytes_4%~ STRING_EQUAL ~%orig_bytes_4%~)
+         AND (~%target_bytes_5%~ STRING_EQUAL ~%orig_bytes_5%~)
+         AND (~%target_bytes_6%~ STRING_EQUAL ~%orig_bytes_6%~)
+         AND (~%target_bytes_7%~ STRING_EQUAL ~%orig_bytes_7%~)
+         AND (~%target_bytes_8%~ STRING_EQUAL ~%orig_bytes_8%~)
+         AND (~%target_bytes_9%~ STRING_EQUAL ~%orig_bytes_9%~)
+         AND (~%target_bytes_10%~ STRING_EQUAL ~%orig_bytes_10%~)
+         AND (~%target_bytes_11%~ STRING_EQUAL ~%orig_bytes_11%~)
+         AND (~%target_bytes_12%~ STRING_EQUAL ~%orig_bytes_12%~)
+         AND (~%target_bytes_13%~ STRING_EQUAL ~%orig_bytes_13%~)
+         AND (~%target_bytes_14%~ STRING_EQUAL ~%orig_bytes_14%~)
+         AND (~%target_bytes_15%~ STRING_EQUAL ~%orig_bytes_15%~)
+         AND (~%target_bytes_16%~ STRING_EQUAL ~%orig_bytes_16%~)
+         AND (~%target_bytes_17%~ STRING_EQUAL ~%orig_bytes_17%~)
+         AND (~%target_bytes_18%~ STRING_EQUAL ~%orig_bytes_18%~)
+         AND (~%target_bytes_19%~ STRING_EQUAL ~%orig_bytes_19%~)
+         AND (~%target_bytes_20%~ STRING_EQUAL ~%orig_bytes_20%~)
+         AND (~%target_bytes_21%~ STRING_EQUAL ~%orig_bytes_21%~)
+         AND (~%target_bytes_22%~ STRING_EQUAL ~%orig_bytes_22%~)
+         AND (~%target_bytes_23%~ STRING_EQUAL ~%orig_bytes_23%~)
+         AND (~%target_bytes_24%~ STRING_EQUAL ~%orig_bytes_24%~)
+    THEN BEGIN
+        WRITE_ASCIIE 0x00113042 ~%patch_bytes_1%~ (0x2)
+        WRITE_ASCIIE 0x0011306d ~%patch_bytes_2%~ (0x4a)
+        WRITE_ASCIIE 0x0011b29c ~%patch_bytes_3%~ (0x2)
+        WRITE_ASCIIE 0x0011b314 ~%patch_bytes_4%~ (0x7)
+        WRITE_ASCIIE 0x0011b3db ~%patch_bytes_5%~ (0x2)
+        WRITE_ASCIIE 0x0011b453 ~%patch_bytes_6%~ (0x7)
+        WRITE_ASCIIE 0x0011b534 ~%patch_bytes_7%~ (0x2)
+        WRITE_ASCIIE 0x0011b5ac ~%patch_bytes_8%~ (0x7)
+        WRITE_ASCIIE 0x0011b67f ~%patch_bytes_9%~ (0x2)
+        WRITE_ASCIIE 0x0011b699 ~%patch_bytes_10%~ (0x81)
+        WRITE_ASCIIE 0x0011c633 ~%patch_bytes_11%~ (0x2)
+        WRITE_ASCIIE 0x0011c65e ~%patch_bytes_12%~ (0x4a)
+        WRITE_ASCIIE 0x00141c5f ~%patch_bytes_13%~ (0x2)
+        WRITE_ASCIIE 0x00141c9d ~%patch_bytes_14%~ (0x4a)
+        WRITE_ASCIIE 0x001479eb ~%patch_bytes_15%~ (0x30)
+        WRITE_ASCIIE 0x001665b9 ~%patch_bytes_16%~ (0x2)
+        WRITE_ASCIIE 0x001666b3 ~%patch_bytes_17%~ (0x24)
+        WRITE_ASCIIE 0x00166769 ~%patch_bytes_18%~ (0x2)
+        WRITE_ASCIIE 0x00166863 ~%patch_bytes_19%~ (0x24)
+        WRITE_ASCIIE 0x00166919 ~%patch_bytes_20%~ (0x2)
+        WRITE_ASCIIE 0x00166a13 ~%patch_bytes_21%~ (0x24)
+        WRITE_ASCIIE 0x00166c7e ~%patch_bytes_22%~ (0x2)
+        WRITE_ASCIIE 0x00166db7 ~%patch_bytes_23%~ (0x24)
+        WRITE_ASCIIE 0x001fe492 ~%patch_bytes_24%~ (0x58)
+    END ELSE
+    PATCH_IF (~%target_bytes_1%~ STRING_EQUAL ~%patch_bytes_1%~)
+         AND (~%target_bytes_2%~ STRING_EQUAL ~%patch_bytes_2%~)
+         AND (~%target_bytes_3%~ STRING_EQUAL ~%patch_bytes_3%~)
+         AND (~%target_bytes_4%~ STRING_EQUAL ~%patch_bytes_4%~)
+         AND (~%target_bytes_5%~ STRING_EQUAL ~%patch_bytes_5%~)
+         AND (~%target_bytes_6%~ STRING_EQUAL ~%patch_bytes_6%~)
+         AND (~%target_bytes_7%~ STRING_EQUAL ~%patch_bytes_7%~)
+         AND (~%target_bytes_8%~ STRING_EQUAL ~%patch_bytes_8%~)
+         AND (~%target_bytes_9%~ STRING_EQUAL ~%patch_bytes_9%~)
+         AND (~%target_bytes_10%~ STRING_EQUAL ~%patch_bytes_10%~)
+         AND (~%target_bytes_11%~ STRING_EQUAL ~%patch_bytes_11%~)
+         AND (~%target_bytes_12%~ STRING_EQUAL ~%patch_bytes_12%~)
+         AND (~%target_bytes_13%~ STRING_EQUAL ~%patch_bytes_13%~)
+         AND (~%target_bytes_14%~ STRING_EQUAL ~%patch_bytes_14%~)
+         AND (~%target_bytes_15%~ STRING_EQUAL ~%patch_bytes_15%~)
+         AND (~%target_bytes_16%~ STRING_EQUAL ~%patch_bytes_16%~)
+         AND (~%target_bytes_17%~ STRING_EQUAL ~%patch_bytes_17%~)
+         AND (~%target_bytes_18%~ STRING_EQUAL ~%patch_bytes_18%~)
+         AND (~%target_bytes_19%~ STRING_EQUAL ~%patch_bytes_19%~)
+         AND (~%target_bytes_20%~ STRING_EQUAL ~%patch_bytes_20%~)
+         AND (~%target_bytes_21%~ STRING_EQUAL ~%patch_bytes_21%~)
+         AND (~%target_bytes_22%~ STRING_EQUAL ~%patch_bytes_22%~)
+         AND (~%target_bytes_23%~ STRING_EQUAL ~%patch_bytes_23%~)
+         AND (~%target_bytes_24%~ STRING_EQUAL ~%patch_bytes_24%~)
+    THEN BEGIN
+        PATCH_PRINT ~Patch already applied. Skipping ...~
+    END ELSE INNER_ACTION BEGIN FAIL ~Target bytes don't match. Aborting ...~ END
+BUT_ONLY
