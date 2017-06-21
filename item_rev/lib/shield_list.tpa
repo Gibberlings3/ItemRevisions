@@ -317,6 +317,17 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY shield BEGIN
   ~SHLD23A~  => 4 // Wall of the North +2
   ~SHLD30A~  => 4 // Large Shield +2
   ~SHLD31A~  => 4 // Gorm's Arm +3
+  
+  // SoD (added by Kreso 2017-05-02)
+  
+  ~bdshld01~ => 1
+  ~bdshld02~ => 2
+  ~bdshld03~ => 3
+  ~bdshld04~ => 3
+  ~bdshld05~ => 3
+  ~bdshld06~ => 1
+  ~bdshld07~ => 1
+  ~bdshld08~ => 4
 END
 
 
