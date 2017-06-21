@@ -13,6 +13,55 @@ TO DO LIST
 - Store Rev (Trollhide, Gauntlets of Dexterity, Gloves of Missile Snaring, Paladin Bracers, Rifthome Axe, Crimson Dart, ...)
 - Remove Cleric Weapon Restrictions from Multi-Classed Clerics -> Sensible Weapon Restriction (e.g. clerics can use xbows; mages can use clubs and light xbows; druids can use bows) 
 
+V4 - Beta 10 (20 June 2017)
+- Obsidian Ioun stone tweaked not to allow going below 0 HP
+- Shield of the Order description now mentions fighters
+- Shadow armor behaves as Ghost Armor, givving better AC (2) but loosing physical resistance
+- fixed Klogarath damage to slashing
+- wrong power levels on Belt of Inertial Barrier and Shield of Falling stars fixed (to 0)
+- Bracers of Blinding Strike now give 1xday Whirlwind attack. 
+- Ring of Human Influence targeting fix
+- Werebane damage vs vampires fixed. There's still no such creatures in BG1...it's apr is fixed as well (from 2 extra to 1 extra, like all thrown daggers)
+- dvstdust spell fixed, now allows for a save per description
+- Drowcraft shield and description fixed
+- Blackmist fixed, duration of Blindness tweaked to 1 turn
+- Wave Halberd tweaked, it's fire-slaying effect is now tied to the spell and doesn't allow a save anymore (flat 15% prob)
+- Runehammer & Cloak of the Wolf had wrong icons for their abilities
+- Armor of Missile attraction, Skin of the Ghoul and Karajah armor description fixed
+- Book of Infinite spells fixes
+- fixed fighter/cleric usability of Methild's and Azlaer's Harps
+- fixed Unholy Reaver's description (Unholy ability deals 5 damage, not 6)
+- fixed Cernd's Cloak, tweaked to give regeneration of 1hp/round
+- Oil of Speed changed, it stacks with Haste stuff now (too many issues otherwise), otoh it gives only +0.5 apr
+- Fixed instances where "bonus" was missing from the description in "THAC0: +1 bonus" or "Magic Resistance: +5% bonus"
+- Jan Spectroscopes description fixed to mention Blindness immunity, fixed DI ability
+- Firecam armor now correctly gives 40% MD resistance
+- Mazzy's sword now reduces damage as well, duration of effects is 1 round
+- Valygar's armor now mentions Charm immunity, as well as having full benefits of SR's Non-Detection
+- Wand of Sleep description fixed
+- Web sack and sling06 icons fixed
+- Backbiter now does damage through opcode 12 and does 1d6 damage as stated in description
+- Staff of Thunder fixed
+- DVEMPATY spell fixed to match it's description which is also changed to mention duration
+- Ring of Regeneration and Pearly White Ioun Stone now regenerate 2hp/round
+- Cloak of Werewolf now regenerates 1hp/round
+- Staff of Fire had wrong timing on graphic effect
+- Staff of Rynn had wrong icon for Malison ability
+- Serpent Shaft & Ravager now offer save as per description
+- Moonblade description fixed to match effects
+- Arbane's sword magical haste ability removed; the sword now correctly gives Web immunity rather than immunity to Web effects (paralyze is used often)
+- Spider's Bane now gives correct Web immunity as well
+- Shazzelim scimitar Vocalize ability removed due to exploit issues
+- fixed CF Batto saving throws mismatch
+- fixed Warblade description
+- DVDISPEL saving throw mismatch fixed
+- Sensate amulet should give +1 to CHA, fixed
+- Malakar description fixed
+- Malakar's companion speed factor fixed
+- Added SoD armors and shields to the armor and shield lists so they can be identified properly
+- Added EET armors to the armor list so they can be identified properly
+- Standardized and fixed many item descriptions
+
 V4 - Beta 9 (19 May 2016)
 - Fix bug with halved specialization options in Multiclass Divine component preventing changes applying to Cleric/Mages and Cleric/Thieves
 - Fix helmet detection in Revised Critical Hits component
