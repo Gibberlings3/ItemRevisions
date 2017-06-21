@@ -225,7 +225,7 @@ STATISTICS:
 Combat Abilities:
  Acidic: inflicts 1D4 acid damage each round for 2 rounds
 
-THAC0: +2
+THAC0: +2 bonus
 Damage: 1D6
 Damage type: missile
 Weight: 0
@@ -262,7 +262,7 @@ STATISTICS:
 Combat Abilities:
  Dispelling: removes all magical effects from the target (save vs. spell neg.)
 
-THAC0: +1
+THAC0: +1 bonus
 Damage: 1D6
 Damage type: missile
 Weight: 0
@@ -275,7 +275,7 @@ STATISTICS:
 Combat Abilities:
  Flaming: creatures struck suffer 1D3 fire damage
 
-THAC0: +1
+THAC0: +1 bonus
 Damage: 1D6
 Damage type: missile
 Weight: 0
@@ -288,7 +288,7 @@ STATISTICS:
 Combat Abilities:
  Icy: creatures struck suffer 1D3 cold damage
 
-THAC0: +1
+THAC0: +1 bonus
 Damage: 1D6
 Damage type: missile
 Weight: 0
@@ -301,7 +301,7 @@ STATISTICS:
 Combat Abilities:
  Piercing: target suffers 2D6 piercing damage (save vs. death neg.)
 
-THAC0: +3
+THAC0: +3 bonus
 Damage: 1D6
 Damage type: missile
 Weight: 0
@@ -938,7 +938,7 @@ Combat Abilities:
  Entangling: 33% chance target is entangled for 2 rounds (save vs. breath neg.)
  Monster Bane: additional +2 bonus to THAC0 and +6 bonus to damage against monsters
 
-THAC0: +1
+THAC0: +1 bonus
 Damage: 1D6 + 1
 Damage type: crushing
 Weight: 3
@@ -1070,7 +1070,7 @@ STATISTICS:
 Combat Abilities:
  Venomous: creatures struck by the weapon suffer 1 damage each second for 2 rounds (save vs. poison neg.)
 
-THAC0: +2
+THAC0: +2 bonus
 Damage: 2D4 + 2
 Damage type: crushing
 Weight: 9
@@ -2148,7 +2148,7 @@ STATISTICS:
 Combat Abilities:
  Lightning Spear: creatures struck suffer 2D6 electrical damage (save vs. breath half)
 
-THAC0: +4
+THAC0: +4 bonus
 Damage: 1D8
 Damage type: missile
 Weight: 2
@@ -4067,7 +4067,7 @@ STATISTICS:
 Equipped Abilities:
  Drowcraft: improved armor class
 
-Armor Class Bonus: 5
+Armor Class Bonus: 6
 Weight: 15
 Requires: 12 Strength
 Not Usable By:
@@ -4380,7 +4380,7 @@ Equipped Abilities:
 
 Combat Abilities:
  Smashing Wave: 15% chance target and opponents within 5' suffer 4D6 crushing damage and are knocked unconscious for 1 round (save vs. breath neg. unconsciousness)
- Fire Eating: efreeti, fire elementals, fire giants, and fire salamanders struck by the Smashing Wave are slayed (save vs. death neg.)
+ Fire Eating: efreeti, fire elementals, fire giants, and fire salamanders struck by the Smashing Wave are instantly destroyed
 
 THAC0: +4 bonus
 Damage: 1D10 + 4
@@ -4678,7 +4678,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Magic Resistance: +5%
+ Magic Resistance: +5% bonus
 
 Combat Abilities:
  Banishing: summoned creatures are dismissed (save vs. spell neg.)
@@ -4711,7 +4711,7 @@ Special Abilities:
 
 Equipped Abilities:
  Immunity to fear
- Magic Resistance: +10%
+ Magic Resistance: +10% bonus
 
 Combat Abilities:
  Banishing: summoned creatures are dismissed (save vs. spell neg.)
@@ -4998,7 +4998,7 @@ Special Abilities:
 Equipped Abilities:
  Acid Resistance: -10% penalty
  Fire Resistance: -10% penalty
- Regeneration: 1 hp/round
+ Regeneration: 2 hp/round
 
 Armor Class Bonus: None
 Protects Against Critical Hits
@@ -5382,8 +5382,8 @@ Equipped Abilities:
  Stench: living creatures within 10' suffer a -2 penalty to THAC0 and 20% spell failure (save vs. death neg.)
 
 Armor Class: 4
-Weight: 15
-Requires: 4 Strength
+Weight: 25
+Requires: 6 Strength
 Not Usable By:
  Mage
  Kensai
@@ -5417,7 +5417,7 @@ Equipped Abilities:
  Physical Damage Resistance: +10% bonus
 
 Armor Class: 5
-Weight: 20
+Weight: 25
 Requires: 6 Strength
 Not Usable By:
  Mage
@@ -5727,7 +5727,7 @@ Joolon Characteristics (8 Hit Dice):
  2 Attacks per Round, 1D10 + 9 Piercing (Claws & Bite +2)
 
  Special Qualities:
-  Magic Resistance: 10%
+  Magic Resistance: 10% bonus
   Immune to normal weapons
 
 Not Usable By:
@@ -5754,7 +5754,7 @@ Kitthix Characteristics (8 Hit Dice):
   Web Tangle (2x per day): target is held for 3 rounds (save vs. breath at -2 penalty neg.)
 
  Special Qualities:
-  Magic Resistance: 10%
+  Magic Resistance: 10% bonus
   Immune to charm, confusion, fear, poison & web effects
 
 Not Usable By:
@@ -6074,7 +6074,7 @@ Equipped Abilities:
 
 Combat Abilities:
  Dispelling: removes all magical effects from the target (save vs. spell neg.)
- Unholy: additional +6 bonus to damage against good creatures
+ Unholy: additional +5 bonus to damage against good creatures
 
 THAC0: +5 bonus
 Damage: 1D10 + 5
@@ -6200,7 +6200,7 @@ STATISTICS:
 
 Equipped Abilities:
  Elemental Resistance: +10% bonus
- Regeneration: 1 hp/2 rounds
+ Regeneration: 1 hp/round
  Protection from Spells: Summon Insects, Insect Plague, and Creeping Doom
 
 Weight: 3
@@ -7037,7 +7037,7 @@ Not Usable By:
 STATISTICS:
 
 Equipped Abilities:
- Regeneration: 1 hp/round
+ Regeneration: 2 hp/round
 
 Not Usable By:
  Wizard Slayer~
@@ -7060,7 +7060,7 @@ Not Usable By:
 STATISTICS:
 
 Special Abilities:
- Spell Turning (1x per day)
+ Spell Turning (1x per day): wearer becomes immune to all spell removals for 2 rounds
 
 Equipped Abilities:
  Magic Resistance: +10% bonus
@@ -7758,6 +7758,7 @@ Requires: 12 Strength
 Not Usable By:
  Bard
  Druid
+ Fighter
  Mage
  Thief
  Monk
@@ -8254,7 +8255,7 @@ Special Abilities:
  Summon Shambling Mound (1x per day)
 
 Equipped Abilities:
- Animal Empathy: animals within 30' are charmed (save vs. spell at -4 penalty neg.)
+ Animal Empathy: animals within 30' are charmed for 5 rounds (save vs. spell at -4 penalty neg.)
  Regeneration: 1 hp/round
 
 THAC0: +4 bonus
@@ -10691,7 +10692,7 @@ Usable By:
  Bard
  Mage~
 @2253 = ~Wand of Sleep~
-@2254 = ~When used, this wand emits a gold beam of energy at its targets up to a maximum range of 90 feet, affecting a 30 foot cube. If the target creatures fail their save vs. wands, they will fall into a deep, comatose sleep for 1 turn. Creatures with more than 10 Hit Dice/Levels are unaffected. Almost anyone of moderate intelligence can learn how to use this wand.
+@2254 = ~When used, this wand emits a gold beam of energy at its targets up to a maximum range of 90 feet, affecting a 30 foot cube. If the target creatures fail their save vs. wands, they will fall into a deep, comatose sleep for 5 rounds. Creatures with more than 10 Hit Dice/Levels are unaffected. Almost anyone of moderate intelligence can learn how to use this wand.
 
 As with other wands, the Wand of Sleep dissolves after a limited number of uses.
 
@@ -11312,8 +11313,8 @@ Equipped Abilities:
 Armor Class Bonus: 1
 Protects Against Critical Hits
 Usable By:
- Monk
- Fighter~
+ Fighter
+ Monk~
 
 /*-------V2 added items-------*/
 
