@@ -1,0 +1,457 @@
+
+// buy_group       - action macro, loads arrays of item types required for the 'buy' function to work
+// order           - action array, defines the order in which items will appear in stores
+//                   dependant upon 'item_rev/lib/identify_weapon.tpa'
+// spelldesc       - action macro, loads array of spells required for the 'temple' function to work
+//                   patches SPELDESC.2DA to use real spell descriptions
+//                   dependant upon 'item_rev/lib/compatibility.tpa'
+// buy             - patch function, sets item types the store will buy
+// items_to_order  - patch function, rearranges items in stores
+//                   dependant upon 'item_rev/lib/identify_weapon.tpa'
+// temple          - patch function, sets spells the store (temple) will provide
+// store           - patch function, sets flags and values in the store
+// make_scrolls    - action function, creates new scrolls with divine spells
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_MACRO buy_group BEGIN
+
+ACTION_DEFINE_ARRAY $buy(weap)  BEGIN 0x10 0x11 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1d 0x1e END
+ACTION_DEFINE_ARRAY $buy(armor) BEGIN 0x2 0x7 0xc END
+ACTION_DEFINE_ARRAY $buy(rang)  BEGIN 0x5 0xe 0xf 0x12 0x1b 0x1f END
+ACTION_DEFINE_ARRAY $buy(magic) BEGIN 0xb 0x23 END
+ACTION_DEFINE_ARRAY $buy(potn)  BEGIN 0x9 END
+ACTION_DEFINE_ARRAY $buy(jewel) BEGIN 0x1 0xa 0x21 0x22 END
+ACTION_DEFINE_ARRAY $buy(misc)  BEGIN 0x0 0x3 0x4 0x6 0x8 0xd 0x1c 0x20 0x24 0x25 END
+ACTION_DEFINE_ARRAY $buy(blade) BEGIN 0x13 0x14 0x19 0x1e END
+ACTION_DEFINE_ARRAY $buy(blunt) BEGIN 0x10 0x11 0x15 0x16 0x17 0x18 0x1a 0x1d END
+ACTION_DEFINE_ARRAY $buy(dwarf) BEGIN 0x15 0x19 END
+ACTION_DEFINE_ARRAY $buy(elf)   BEGIN 0x5 0xf 0x14 END
+
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// the order in which items will appear in stores - you can change it as you see fit
+ACTION_DEFINE_ARRAY order BEGIN
+
+ bastard_sword
+ long_sword
+ short_sword
+ twohanded_sword
+ battleaxe
+ handaxe
+ scimitar
+ katana
+ wakizashi
+ ninjato
+ dagger
+ hammer
+ flail
+ morning_star
+ mace
+ club
+ halberd
+ spear
+ staff
+ comp_long_bow
+ long_bow
+ short_bow
+ heavy_xbow
+ light_xbow
+ dart
+ sling
+ arrow
+ bolt
+ bullet
+ buckler
+ small_shield
+ medium_shield
+ tower_shield
+ leather
+ chainmail
+ plate
+ helmet
+ robe
+ cloak
+ belt
+ boots
+ bracers
+ bag
+ amulet
+ ring
+ wand
+ potion
+ scroll
+ arcane1
+ arcane2
+ arcane3
+ arcane4
+ arcane5
+ arcane6
+ arcane7
+ arcane8
+ arcane9
+ divine1
+ divine2
+ divine3
+ divine4
+ divine5
+ divine6
+ divine7
+ gem
+ misc
+
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_MACRO spelldesc BEGIN
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY temple BEGIN
+    cure_light_wounds    => sppr103
+ //   slow_poison          => sppr212
+    call_lightning       => sppr302
+    dispel_magic         => sppr303
+    remove_curse         => sppr307
+    cure_medium_wounds   => sppr315
+    cure_disease         => sppr317
+    cure_serious_wounds  => sppr401
+    neutralize_poison    => sppr404
+    lesser_restoration   => sppr417
+    cure_critical_wounds => sppr502
+    raise_dead           => sppr504
+    mass_cure            => rr#pr514
+    heal                 => sppr607
+    resurrection         => sppr712
+    greater_restoration  => sppr713
+  END
+
+  ACTION_IF comp_sr=1 BEGIN
+    OUTER_SPRINT $temple("cure_medium_wounds") sppr215
+    OUTER_SPRINT $temple("cure_serious_wounds") sppr315
+    OUTER_SPRINT $temple("cure_critical_wounds") sppr401
+  END
+
+  COPY_EXISTING speldesc.2da override
+    PHP_EACH temple AS ind => res BEGIN
+      REPLACE_TEXTUALLY CASE_INSENSITIVE ~\(%res% +-?[0-9]+ *\)~ ~~ // deleting old description entries, since they're inaccurate
+    END
+
+  ACTION_PHP_EACH temple AS ind => res BEGIN
+    OUTER_SET spelldesc_strref=~-1~
+    ACTION_IF FILE_EXISTS_IN_GAME ~%res%.spl~ BEGIN
+      COPY_EXISTING - ~%res%.spl~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+        READ_LONG 0x50 spelldesc_strref
+      END
+      APPEND speldesc.2da ~%res% %spelldesc_strref%~ // cheers, and without KEEP_CRLF flag it autodeletes extra newlines :)
+    END
+  END
+
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_PATCH_FUNCTION buy BEGIN
+  READ_LONG 0x2c offset
+  READ_LONG 0x30 number
+  i=0
+  DELETE_BYTES offset number*4
+  PHP_EACH buy AS ind => res BEGIN
+    PATCH_IF VARIABLE_IS_SET EVAL ~%%ind%%~ BEGIN
+      PHP_EACH $buy("%ind%") AS i2 => r2 BEGIN
+        INSERT_BYTES offset 4
+        WRITE_LONG offset r2
+        i+=1
+      END
+    END
+  END
+  WRITE_LONG 0x30 i
+  PATCH_FOR_EACH off IN 0x34 0x4c 0x70 BEGIN
+    delta=i - number
+    PATCH_IF (LONG_AT off>offset) || (LONG_AT off=offset && number=0)BEGIN
+      WRITE_LONG off (THIS+delta*4)
+    END
+  END
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_PATCH_FUNCTION items_to_order BEGIN
+
+PATCH_IF SOURCE_SIZE>0x9b BEGIN PATCH_SILENT
+  max=0
+  del=0
+  PHP_EACH order AS i => r BEGIN
+    CLEAR_ARRAY EVAL ~%r%~
+  END
+  GET_OFFSET_ARRAY sales 0x34 4 0x38 4 0 0 0x1c
+  PHP_EACH sales AS i => r BEGIN
+    READ_ASCII r item_entry (0x1c)
+    READ_ASCII r item_name (8) NULL
+    PATCH_IF FILE_EXISTS_IN_GAME ~%item_name%.itm~ BEGIN
+      INNER_ACTION BEGIN
+        COPY_EXISTING - ~%item_name%.itm~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+          LPM identify_item
+
+          // scrolls require additional identification routine
+          PATCH_IF scroll BEGIN
+            READ_LONG  0x64 ab_off
+            READ_SHORT 0x68 ab_num
+            READ_LONG  0x6a ef_off
+            FOR (j=0;j<ab_num;j+=1) BEGIN
+              READ_SHORT ab_off+j*0x38+0x1e ef_num
+              READ_SHORT ab_off+j*0x38+0x20 ef_ind
+              FOR (k=0;k<ef_num;k+=1) BEGIN
+                READ_SHORT ef_off+(ef_ind+k)*0x30 op
+                PATCH_IF op=146 || op=148 BEGIN // find out if the scroll can cast a SPL
+                  READ_ASCII ef_off+(ef_ind+k)*0x30+0x14 spell (8) NULL
+                  PATCH_IF FILE_EXISTS_IN_GAME ~%spell%.spl~ BEGIN
+                    INNER_ACTION BEGIN
+                      COPY_EXISTING - ~%spell%.spl~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
+                        READ_SHORT 0x1c tp
+                        READ_LONG 0x34 lvl
+                        PATCH_IF tp=1 && lvl>0 && lvl<10 BEGIN // arcane
+                          SPRINT itemtype ~arcane%lvl%~
+                        END
+                        PATCH_IF tp=2 && lvl>0 && lvl<8 BEGIN // divine
+                          SPRINT itemtype ~divine%lvl%~
+                        END // should you find an arcane/divine scroll not in it's expected place - 
+                      END //
+                    END // e.g. among greens, - then SPL is either invalid or missing
+                  END
+                  k=ef_num // stop looking once 146/148 is found - if a scroll has several of those, then
+                  j=ab_num // even if that's not a bug we still can't guess correctly which one is 'main'
+                END // PATCH_IF op=146 || op=148
+              END // FOR k
+            END // FOR j
+          END // PATCH_IF scroll
+
+          PATCH_IF VARIABLE_IS_SET $ EVAL "%itemtype%"("%item_name%") BEGIN // if we find a duplicate item
+            del+=1
+          END ELSE BEGIN
+            READ_STRREF 0xc idname // item's identified name
+            INNER_PATCH_SAVE idname ~%idname%~ BEGIN // clean up CRLFs and double space
+              REPLACE_TEXTUALLY ~[%LNL%%MNL%%WNL%]\|[ %TAB%][ %TAB%]+~ ~ ~
+            END
+            READ_LONG 0x34 cost
+            max = max<cost ? cost : max
+            SPRINT $ EVAL "%itemtype%"("%item_name%") ~%item_entry%~
+            SPRINT $ EVAL "%itemtype%_idn"("%item_name%") ~%idname%~
+            SET $ EVAL "%itemtype%_cst"("%item_name%") = cost
+          END
+        END ELSE BEGIN del+=1 END
+      END
+    END ELSE BEGIN del+=1 END
+  END
+
+  // rebuild each itemtype's array, ordering first by cost, then alphabetically
+  PHP_EACH order AS i => r BEGIN // i = unused, r = itemtype
+    CLEAR_ARRAY aux
+    PHP_EACH "%r%" AS i2 => r2 BEGIN // i2 = item_name, r2 = item_entry
+      min = max+1
+      SPRINT low ~~
+      SPRINT temp ~~
+      PHP_EACH "%r%_cst" AS i3 => r3 BEGIN // i3 = item_name, r3 = cost
+        PATCH_IF r3<min BEGIN
+          min=r3
+          SPRINT temp ~%i3%~
+          SPRINT low EVAL ~%%r%_idn_%i3%%~
+        END
+        PATCH_IF r3=min BEGIN // if two items cost the same, sort them alphabetically
+          PATCH_IF (EVAL ~%%r%_idn_%i3%%~ STRING_COMPARE_CASE ~%low%~) < 0 BEGIN
+            SPRINT temp ~%i3%~
+            SPRINT low EVAL ~%%r%_idn_%i3%%~
+          END
+        END
+      END
+      SPRINT $aux("%temp%") EVAL ~%r%_%temp%~
+ //     SET $aux_cst("%temp%") = $ EVAL "%r%_cst"("%temp%")
+      SET $ EVAL "%r%_cst"("%temp%") = max+2
+    END
+    CLEAR_ARRAY EVAL ~%r%~
+    PHP_EACH aux AS i2 => r2 BEGIN // i2 = item_name, r2 = item_entry
+      SPRINT $ EVAL "%r%"("%i2%") EVAL ~%%r2%%~
+ //     SET $ EVAL "%r%_cst"("%i2%") = $"aux_cst"("%i2%")
+    END
+  END
+
+  // write items down in new order
+  READ_LONG 0x34 off
+  PHP_EACH order AS i => r BEGIN // i = unused, r = itemtype
+    PHP_EACH "%r%" AS i2 => r2 BEGIN // i2 = item_name, r2 = item_entry
+      WRITE_ASCIIE off EVAL ~%r2%~ (0x1c)
+      off+=0x1c
+ //     SET pr = EVAL ~%%r%_cst_%i2%%~  SPRINT nm EVAL ~%%r%_idn_%i2%%~  PATCH_PRINT ~%r%, %i2%, %nm%, %pr%~
+    END
+  END
+
+  // delete extra entries
+  PATCH_IF del BEGIN
+    DELETE_BYTES off del*0x1c
+    WRITE_LONG 0x38 THIS - del
+    PATCH_FOR_EACH off IN 0x2c 0x4c 0x70 BEGIN
+      WRITE_LONG off (THIS > LONG_AT 0x34) ? (THIS - del*0x1c) : THIS
+    END
+  END
+
+PATCH_VERBOSE END
+
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_PATCH_FUNCTION temple BEGIN
+  READ_LONG 0x70 offset
+  READ_LONG 0x74 number
+  i=0
+  DELETE_BYTES offset number*12
+  PHP_EACH temple AS ind => res BEGIN
+    PATCH_IF VARIABLE_IS_SET EVAL ~%ind%~ BEGIN
+      PATCH_IF EVAL ~%ind%~ > 0 BEGIN
+        INSERT_BYTES offset+i*12 12
+        WRITE_ASCIIE offset+i*12 ~%res%~
+        WRITE_LONG offset+i*12+8 EVAL ~%ind%~
+        i+=1
+      END
+    END
+  END
+  WRITE_LONG 0x74 i
+  PATCH_FOR_EACH off IN 0x2c 0x34 0x4c BEGIN
+    delta=i - number
+    PATCH_IF (LONG_AT off>offset) || (LONG_AT off=offset && number=0)BEGIN
+      WRITE_LONG off (THIS+delta*12)
+    END
+  END
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_PATCH_FUNCTION store BEGIN
+
+  WRITE_LONG 0x1c 0 // disable depreciation, as it's buggy
+
+  PATCH_IF VARIABLE_IS_SET sell BEGIN WRITE_LONG  0x14 sell END
+  PATCH_IF VARIABLE_IS_SET buy  BEGIN WRITE_LONG  0x18 buy  END
+
+  PATCH_IF VARIABLE_IS_SET steal BEGIN
+    PATCH_IF steal=0 BEGIN WRITE_BYTE 0x10 BYTE_AT 0x10 &`8 END
+    PATCH_IF steal!=0 BEGIN WRITE_BYTE 0x10 BYTE_AT 0x10  |8
+                            WRITE_SHORT 0x20 steal END
+  END
+
+  PATCH_IF VARIABLE_IS_SET fence BEGIN
+    PATCH_IF fence=0 BEGIN WRITE_BYTE 0x11 BYTE_AT 0x11 &`16 END
+    PATCH_IF fence=1 BEGIN WRITE_BYTE 0x11 BYTE_AT 0x11  |16 END
+  END
+
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION make_scrolls BEGIN
+
+<<<<<<<<ag#dummy
+>>>>>>>>
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY make_scrolls BEGIN
+  sppr101 => ag#ir01  // Bless
+  sppr109 => ag#ir02  // Sanctuary
+  sppr111 => ag#ir03  // Armor of Faith
+  sppr203 => ag#ir04  // Chant
+  sppr205 => ag#ir05  // Find Traps
+  sppr211 => ag#ir06  // Silence
+  sppr214 => ag#ir08  // Draw Upon Holy Might
+  sppr303 => ag#ir09  // Dispel Magic
+  sppr304 => ag#ir0a  // Glyph of Warding
+  sppr307 => ag#ir0b  // Remove Curse/Break Enchantment
+  sppr308 => ag#ir0c  // Remove Paralysis
+  sppr313 => ag#ir0d  // Holy Smite
+  sppr314 => ag#ir0e  // Unholy Blight
+  sppr509 => ag#ir0f  // Magic Resistance
+  sppr514 => ag#ir0g  // Mass Cure
+  sppr601 => ag#ir0h  // Aerial Servant
+  sppr603 => ag#ir0i  // Blade Barrier
+  sppr607 => ag#ir0j  // Heal
+  sppr612 => ag#ir0k  // Bolt of Glory
+  sppr705 => ag#ir0l  // Fire Storm
+  sppr707 => ag#ir0m  // Sunray
+  sppr711 => ag#ir0n  // Regeneration
+  sppr505 => ag#ir07  // True Sight
+END
+
+COPY_EXISTING spwi609a.bam ~override/sppr505a.bam~ // fix the True Seeing BAM
+ spwi609b.bam ~override/sppr505b.bam~
+ spwi609c.bam ~override/sppr505c.bam~
+
+
+ACTION_PHP_EACH make_scrolls AS ind => res BEGIN
+
+  ACTION_IF FILE_EXISTS_IN_GAME ~%ind%.spl~ BEGIN
+
+   COPY_EXISTING - ~%ind%.spl~ override
+    READ_LONG 0x8 name
+    READ_SHORT 0x20 type
+    READ_LONG 0x34 level
+    READ_LONG 0x50 desc
+    READ_LONG 0x64 header
+    READ_BYTE header+0xc target
+    READ_SHORT header+0xe range
+
+   COPY ag#dummy ~override/%res%.itm~
+    INSERT_BYTES 0 0x72+0x38+0x30
+    WRITE_ASCII 0 ~ITM V1  ~ (8)
+
+    WRITE_LONG 0x8 7222 // #7222 = ~Scroll~
+    WRITE_LONG 0xc name
+    WRITE_BYTE 0x18 108 // flags
+    WRITE_SHORT 0x1c 0xb // item type = scroll
+    WRITE_LONG 0x1e type=0 ? 0x004f2840 : type=0x4000 ? 0x205febc0 : 0x406f3840 // usability flags
+    WRITE_BYTE 0x2e 9 // min WIS
+    WRITE_LONG 0x34 level<6 ? level*100 : level=6 ? 1000 : 2500 // price
+    WRITE_SHORT 0x38 5 // max stack
+
+    WRITE_ASCIIE 0x3a ~%ind%a~ (8) // inventory
+    WRITE_ASCII 0x44 ~GSCRL01~ (8) // ground
+    WRITE_LONG 0x54 desc
+    WRITE_ASCII 0x58 ~CSCRL01~ (8) // description
+
+    WRITE_LONG 0x64 0x72
+    WRITE_SHORT 0x68 1
+    WRITE_LONG 0x6a 0x72+0x38
+
+    // ability header
+    WRITE_BYTE 0x72 3 // attack type = magical
+    WRITE_BYTE 0x72+2 3 // location = equipment
+    WRITE_ASCIIE 0x72+4 ~%ind%a~ (8)
+    WRITE_BYTE 0x72+0xc target
+    WRITE_BYTE 0x72+0xe range
+    WRITE_SHORT 0x72+0x1e 1
+    WRITE_SHORT 0x72+0x22 1 // charges
+    WRITE_SHORT 0x72+0x24 1 // charge depletion = vanish
+    WRITE_SHORT 0x72+0x2a 1 // projectile animation
+
+    // effect
+    WRITE_SHORT 0xaa target=4 ? 148 : 146 // opcode
+    WRITE_BYTE 0xaa+2 target=1 ? 2 : 1 // target
+    WRITE_BYTE 0xaa+4 10 // param1
+    WRITE_BYTE 0xaa+0xc 1 // timing
+    WRITE_BYTE 0xaa+0x12 100 // probability
+    WRITE_ASCIIE 0xaa+0x14 ~%ind%~ (8) // resource
+
+  END
+
+END
+
+END
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+

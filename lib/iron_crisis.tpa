@@ -1,0 +1,102 @@
+// add breakage to non-magical iron weapons for the iron crisis in BG1 (Tutu, BGT, BGEE)
+ACTION_IF (GAME_IS ~tutu tutu_totsc bgt bgee~) BEGIN
+  ACTION_DEFINE_ARRAY iron_weapons BEGIN
+    AX1H01
+    BLUN02
+    BLUN04
+    BLUN06
+    BLUN08
+    DAGG01
+    DAGG06
+    DAGG07
+    HALB01
+    HAMM01
+    SPER01
+    SW1H01
+    SW1H04
+    SW1H07
+    SW1H12
+    SW1H17
+    SW1H20
+    SW1H43
+    SW1H46
+    SW1H48
+    SW2H01
+  END
+  
+  // Tutu and BGEE trigger weapon breakage by spell
+  OUTER_SET iron_crisis_opcode = 146 // cast spell
+  OUTER_SET iron_crisis_param1 = 1 // level to cast at
+
+  // BGT triggers weapon breakage by setting a variable that is checked later via script
+  ACTION_IF (GAME_IS ~bgt~) BEGIN
+    OUTER_SET iron_crisis_opcode = 309 // set variable
+    OUTER_SET iron_crisis_param1 = 1 // value to set variable to
+  END
+
+  ACTION_PHP_EACH iron_weapons AS i => weapon BEGIN
+    ACTION_FOR_EACH resource IN ~%weapon%~ ~_%weapon%~ BEGIN // cover both regular and Tutu files
+      ACTION_IF (FILE_EXISTS_IN_GAME ~%resource%.itm~
+                 && (GAME_IS ~bgt~ OR FILE_EXISTS_IN_GAME ~%resource%.spl~)) BEGIN
+        COPY_EXISTING ~%resource%.itm~ ~override~
+          LPF ~DELETE_ITEM_EFFECT~ // remove any existing effect
+            INT_VAR
+              opcode_to_delete = iron_crisis_opcode
+          END
+          LPF ~ADD_ITEM_EFFECT~
+            INT_VAR
+              opcode = iron_crisis_opcode
+              target = 1 // self
+              parameter1 = iron_crisis_param1
+              timing = 1 // instant
+              probability1 = 1 // 1% chance to trigger
+              header = 1 // add to first header
+              type = 1 // melee
+            STR_VAR
+              // the associated .spl to cast for Tutu and BGEE is named the same as the .itm resource
+              // and the associated script variable for BGT is named the same as the .itm resource
+              resource = EVALUATE_BUFFER ~%SOURCE_RES%~
+          END
+      END
+    END
+  END
+END
+
+// add breakage to non-magical iron weapons, shields, armors, and helmets in BG1 (EET)
+ACTION_IF (GAME_IS ~eet~) BEGIN
+  // weapons
+  ACTION_FOR_EACH resource IN AX1H01 AX1H04 BLUN02 BLUN04 BLUN06 BLUN08 /*CATTAC1*/ DAGG01 DAGG06 DAGG07 /*DAGGSHIT*/ /*FLIND1*/ HALB01 HAMM01 SPER01 SW1H01 /*COMPS01*/ SW1H04 SW1H07 SW1H12 SW1H17 SW1H20 /*SW1H21*/ SW1H43 SW1H46 SW1H48 SW2H01 /*SW2H01B*/ /*TASLOIIL*/ /*XVARTIL*/ BEGIN
+    COPY_EXISTING ~%resource%.ITM~ ~override~
+      //WRITE_ASCII 0x10 ~MISC56_~ #8
+      LPF ~DELETE_ITEM_EFFECT~ INT_VAR opcode_to_delete = 146 /*Cast Spell*/ END
+      LPF ADD_ITEM_EFFECT INT_VAR opcode = 146 /*Cast Spell*/ target = 1 parameter1 = 1 parameter2 = 1 timing = 1 probability1 = 100 header = 1 type = 1 STR_VAR resource = "K#SHATWE" END
+    BUT_ONLY
+  END
+  
+  // shields
+  ACTION_FOR_EACH resource IN SHLD01 SHLD03 SHLD05 SHLD08 SHLD09 SHLD10 SHLD11 SHLD12 SHLD13 SHLD14 SHLD15 SHLD16 SHLD18 BEGIN
+    COPY_EXISTING ~%resource%.ITM~ ~override~
+      //WRITE_ASCII 0x10 ~MISC57~ #8
+      LPF ~DELETE_ITEM_EQEFFECT~ INT_VAR opcode_to_delete = 232 /*Cast Spell on Condition*/ END
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 /*Cast Spell on Condition*/ target = 1 timing = 2 probability1 = 100 header = 1 STR_VAR resource = "K#SHATSH" END
+    BUT_ONLY
+  END
+  
+  // armors
+  ACTION_FOR_EACH resource IN CHAN01 CHAN04 PLAT01 PLAT04 BEGIN
+    COPY_EXISTING ~%resource%.ITM~ ~override~
+      //WRITE_ASCII 0x10 ~MISC58~ #8
+      LPF ~DELETE_ITEM_EQEFFECT~ INT_VAR opcode_to_delete = 232 /*Cast Spell on Condition*/ END
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 /*Cast Spell on Condition*/ target = 1 timing = 2 probability1 = 100 header = 1 STR_VAR resource = "K#SHATAR" END
+    BUT_ONLY
+  END
+  
+  // helmets
+  ACTION_FOR_EACH resource IN HELM01 HELM08 HELM09 HELM10 HELM11 HELM12 HELM13 HELM15 BEGIN
+    COPY_EXISTING ~%resource%.ITM~ ~override~
+      //WRITE_ASCII 0x10 ~MISC59~ #8
+      LPF ~DELETE_ITEM_EQEFFECT~ INT_VAR opcode_to_delete = 232 /*Cast Spell on Condition*/ END
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 /*Cast Spell on Condition*/ target = 1 timing = 2 probability1 = 100 header = 1 STR_VAR resource = "K#SHATHE" END
+    BUT_ONLY
+  END
+END
