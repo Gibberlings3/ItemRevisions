@@ -557,6 +557,7 @@ zyplatn8 => 164 // Bladesinger Chain +4 ????????
 
 anoplat  => 7  // Anomen's Armour
 cmnikl1  => 67 // Nikita's Leather Armor
+dw#abyda => 18 // Yellow Dragon Scale Armor
 dw#gplat => 134 // Plate Mail
 ep#mela2 => 2  // Studded Leather Armor +2
 ep#mela3 => 2  // Studded Leather Armor +1 ????????
@@ -600,12 +601,32 @@ ohleat52 => 3 // Hide Armor +3
 ohleat53 => 2 // Studded Leather Armor +3
 ohplat50 => 6 // Plate Mail +2
 
-//EET
+// SoD (added by Kreso 2017-05-02)
+
+bdchan01 => 2 // Jegg's Leather (studded)
+bdchan02 => 1 // Kruntur (leather)
+bdchan04 => 4 // Commander's Chain (chain)
+bdchan05 => 4 // Corwin's armor (chain)
+bdchan06 => 5 // Stalwart Scale (splint)
+bdchanca => 4 // Hallowed Hero (chain)
+bdchanel => 4 // elven chain
+bdchangh => 5 // splint +1
+bdleat01 => 3 // Cornugon Revenge (hide)
+bdleat02 => 3 // Goblin Hide (hide)
+bdleat03 => 2 // Raconteur Regaila (studded)
+bdleat04 => 2 // Changeling Vest (studded)
+bdleat05 => 2 // Dragonscale (studded)
+bdleat06 => 1 // Goblin Leathers
+bdleat07 => 1 // Night's Embrace
+bdleat08 => 3 // Hide +1 (hide)
+bdplat01 => 7 // Daeros full plate
+bdplat03 => 6 // Bone plate
+bdplat04 => 6 // Beetle plate
+
+// EET
 
 leat07_   => 2  // Telbar's Studded Leather +2 (Studded Leather Armor +2)
 plat06_   => 22 // Ankheg Plate Mail (crafted by Taerom Fuiruim of Beregost)
-
-  ~DW#ABYDA~ => 18 // Yellow Dragon Scale Armor
 
 
 /////////////////////////////////////////////////
