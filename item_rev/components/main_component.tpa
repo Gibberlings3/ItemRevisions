@@ -189,3 +189,23 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
 
 /*------------------Iron Crisis-----------------*/
 INCLUDE ~item_rev/lib/iron_crisis.tpa~
+
+
+
+//fix Shaman axe/bow usability______________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+    PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+      READ_SHORT 0x1c type
+      READ_BYTE 0x31 prof
+      PATCH_IF (%prof% = 92) OR (%prof% = 105) OR (%type% = 5) BEGIN   // axes or shortbows or arrows
+        WRITE_BYTE 0x21 (THIS BAND 0b10111111)
+        LPF DELETE_EFFECT INT_VAR silent = 1 match_opcode  = 319 match_target = 1 match_power = 0 match_parameter2 = 5 match_parameter1 = 11 match_timing = 2 END
+        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 319 target = 1 power = 0 parameter2 = 5 parameter1 = 11 timing = 2 END
+      END
+    END
+  BUT_ONLY
+END	  		  
+//__________________________________________________________________________________
+
