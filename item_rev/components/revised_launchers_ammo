@@ -1,0 +1,63 @@
+// Original author: Dee@forums.beamdog.com
+// Ref: https://forums.beamdog.com/discussion/58374/enchant-the-missile-launchers-ranged-weapon-tweak
+
+BEGIN ~Enchant the Missile Launchers~
+
+  // Every ranged weapon launcher that has an enchantment value higher than 0 bestows
+  // that enchantment on its ammunition.
+
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm~ ~override~
+    PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+      READ_SHORT 0x1c type
+      PATCH_IF (type = 0x0f || type = 0x12 || type = 0x1b) BEGIN // double-check those values
+        READ_LONG 0x60 enchantment
+        PATCH_IF (enchantment > 0) BEGIN
+          LPF ADD_ITEM_EQEFFECT
+            INT_VAR opcode = 345 target = 1 timing = 2 parameter1 = EVAL enchantment special = 1
+          END // double-check how this function works and which variables need to be set
+        END
+      END
+    END
+  BUT_ONLY_IF_IT_CHANGES
+
+// Original author: mercurier@gibberlings3.net
+
+BEGIN ~Remove thac0 and damage bonus from magical ammo~
+
+  // Magical ammo no longer have thac0 and damage bonus except for those from secondary effects 
+  // Magical ammo enchantment level all set to 1 except for plain +2/+3/+4 ones
+
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm~ ~override~
+    PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+      READ_SHORT 0x1c type
+      PATCH_IF (type = 0x05 || type = 0x0e || type = 0x1f) BEGIN // double-check those values
+        READ_LONG 0x60 enchantment
+        PATCH_IF (enchantment > 0) BEGIN
+          WRITE_SHORT 0x86 0      // 0 thac0 bonus
+          WRITE_SHORT 0x8c 0      // 0 damage bonus
+          WRITE_LONG 0x60 1       // 1 enchantment
+        END
+        
+        // restore enchant to plain +2 ammo
+        PATCH_IF ((~%SOURCE_RES%~ STRING_COMPARE_CASE ~arow11~) ||
+                  (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bolt06~) ||
+                  (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bull03~)
+                 ) BEGIN
+          WRITE_LONG 0x60 2
+        END
+        
+        // restore enchant to plain +3 ammo
+        PATCH_IF ((~%SOURCE_RES%~ STRING_COMPARE_CASE ~arow15~) || 
+                  (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bolt09~) ||
+                  (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bull05~)
+                 ) BEGIN
+          WRITE_LONG 0x60 3
+        END
+        
+        // restore enchant to plain +4 ammo
+        PATCH_IF (~%SOURCE_RES%~ STRING_COMPARE_CASE ~bull06~) BEGIN
+          WRITE_LONG 0x60 4
+        END
+      END
+    END
+  BUT_ONLY
