@@ -235,6 +235,15 @@ REQUIRE_PREDICATE (ENGINE_IS ~soa tob bg1 totsc bgee bg2ee~ /* || ENGINE_IS ~iwd
 
 INCLUDE ~item_rev/components/enchantment_speed_factor.tpa~
 
+///////////////////////////////////////////////////////////////////////////
+// Launchers Bestow Enchantment to Ammunition                            //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @50
+DESIGNATED 1100
+REQUIRE_PREDICATE (ENGINE_IS ~bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9008
+
+INCLUDE ~item_rev/components/revised_launchers_ammo.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Dual Wielding Changes for Light and Heavy Weapons                     //
