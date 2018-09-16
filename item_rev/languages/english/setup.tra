@@ -90,3 +90,4 @@
 
 @9006 = ~This component has been deprecated.~
 @9007 = ~This component requires features provided by ToBEx.~
+@9008 = ~This component may only be installed on BGEE, BG2EE, or EET.~
