@@ -74,10 +74,12 @@
 
 @49   = ~Shields Can Bash~
 
+@50   = ~Launchers Bestow Enchantment to Ammunition~
+
 ///////
 
 // the next free value
-@50   = ~~
+@51   = ~~
 
 ///////
 
@@ -90,3 +92,4 @@
 
 @9006 = ~This component has been deprecated.~
 @9007 = ~This component requires features provided by ToBEx.~
+@9008 = ~This component may only be installed on BGEE, BG2EE, or EET.~
