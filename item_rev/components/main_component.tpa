@@ -215,3 +215,11 @@ COPY_EXISTING ~smcudge.itm~ ~override~
 	WRITE_BYTE 0x19 (THIS BOR 0b00000010)
 IF_EXISTS BUT_ONLY
 
+
+/*-------------------EE brac11------------------*/
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+  COPY_EXISTING ~dvwinded.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR target = 7 END
+  BUT_ONLY
+END
+
