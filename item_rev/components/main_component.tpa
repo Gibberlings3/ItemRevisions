@@ -223,3 +223,17 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   BUT_ONLY
 END
 
+
+/*----------------EE ammo stacks----------------*/
+// from subtledoctor
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+    PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+      READ_BYTE 0x1c type
+      PATCH_IF (%type% = 5) OR (%type% = 14) OR (%type% = 31) BEGIN   // arrows or bullets or bolts
+        WRITE_SHORT 0x38 80
+      END
+    END
+  BUT_ONLY
+END
+
