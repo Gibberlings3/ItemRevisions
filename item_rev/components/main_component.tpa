@@ -207,3 +207,11 @@ ACTION_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
   BUT_ONLY
 END
 
+
+/*-----------starmetal hits loup garou------------*/
+COPY_EXISTING ~smcudge.itm~ ~override~
+			  ~cdismcud.itm~ ~override~
+			  ~sw2h07.itm~ ~override~
+	WRITE_BYTE 0x19 (THIS BOR 0b00000010)
+IF_EXISTS BUT_ONLY
+
