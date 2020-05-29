@@ -10,3 +10,4 @@
 setup-item_rev
 setup-item_rev.command
 item_rev/backup/*
+.DS_Store

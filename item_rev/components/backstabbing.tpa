@@ -46,8 +46,13 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ override PATCH_IF SOURCE_SIZE>0x71 BEGIN
       END
     END ELSE BEGIN
       READ_BYTE 0x1f us2
+      READ_BYTE 0x31 prof
       PATCH_IF (us2 & 2)!=2 || (us3 & 11)!=11 BEGIN // usable by any thief multiclass
-        WRITE_BYTE 0x20 (us3 & `64)
+		PATCH_IF (IS_AN_INT %prof%) BEGIN
+		  PATCH_IF (prof > 88) && (prof < 116) BEGIN
+        	WRITE_BYTE 0x20 (us3 & `64)
+          END
+        END
       END
     END
   END

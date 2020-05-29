@@ -128,9 +128,18 @@ DEFINE_ACTION_MACRO spelldesc BEGIN
   END
 
   ACTION_IF comp_sr=1 BEGIN
-    OUTER_SPRINT $temple("cure_medium_wounds") sppr215
-    OUTER_SPRINT $temple("cure_serious_wounds") sppr315
-    OUTER_SPRINT $temple("cure_critical_wounds") sppr401
+    ACTION_IF (FILE_CONTAINS_EVALUATED (~SPELL.IDS~ ~[ %TAB%]CLERIC_CURE_MODERATE_WOUNDS[ %TAB%%LNL%%MNL%%WNL%]~)) BEGIN
+	  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_MODERATE_WOUNDS~ RET spell_res END
+	  OUTER_SPRINT $temple("cure_medium_wounds") ~%spell_res%~
+	END
+    ACTION_IF (FILE_CONTAINS_EVALUATED (~SPELL.IDS~ ~[ %TAB%]CLERIC_CURE_MEDIUM_WOUNDS[ %TAB%%LNL%%MNL%%WNL%]~)) BEGIN
+	  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_MEDIUM_WOUNDS~ RET spell_res END
+	  OUTER_SPRINT $temple("cure_serious_wounds") ~%spell_res%~
+	END
+    ACTION_IF (FILE_CONTAINS_EVALUATED (~SPELL.IDS~ ~[ %TAB%]CLERIC_CURE_SERIOUS_WOUNDS[ %TAB%%LNL%%MNL%%WNL%]~)) BEGIN
+	  LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_SERIOUS_WOUNDS~ RET spell_res END
+	  OUTER_SPRINT $temple("cure_critical_wounds") ~%spell_res%~
+	END
   END
 
   COPY_EXISTING speldesc.2da override
