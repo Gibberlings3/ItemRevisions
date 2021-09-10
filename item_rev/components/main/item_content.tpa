@@ -786,6 +786,10 @@ COPY ~%source%/STAFF_OF_RYNN_3.tpa~ ~%target%~
   COPY ~item_rev/itm/sw1h10a.eff~ ~override~
   COPY ~item_rev/itm/sw1h10b.eff~ ~override~
   COPY ~item_rev/itm/sw1h10c.eff~ ~override~
+  COPY ~item_rev/itm/d51h10x.spl~ ~override~
+  ACTION_IF (FILE_EXISTS_IN_GAME ~clabth04.2da~) BEGIN
+    APPEND ~clabth04.2da~ ~NO_SW1H10   AP_D51H10X  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ UNLESS ~AP_D51H10X~
+  END
 >>>>>>>>
 COPY ~%source%/SHORT_SWORD_OF_BACKSTABBING_3.tpa~ ~%target%~
 
