@@ -570,6 +570,19 @@ vicarm   => 2  // Shar's Blessing
 yxy1     => 2  // Burning Actress
 z_redled => 1  // Leather +2
 
+// Forgotten Armament
+
+~mocm01~   => 4   // Anti-Venom Chainmail
+~mofp03~   => 7   // Armor of Freedom
+~mofp02~   => 7   // Armor of Gram the Mouse
+~molea01~  => 1   // Armor of Loyalty
+~molea02~  => 1   // Aurumvorax Armor
+~molea03~  => 2   // Black Flame Armor
+~mopm02~   => 6   // Deep Guardian's Plate
+~mocm02~   => 4   // Doron's Mistake
+~mofp01~   => 7   // Storm Armor of the Earth's Children
+~mopm01~   => 6   // The Gilded Defender 
+
 // Selune' Armory
 
 mgileat1 => 2  // Cured Leaf Hauberk +3
