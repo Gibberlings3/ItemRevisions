@@ -5,7 +5,7 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~V4 Beta 10 SD 15~
+VERSION ~v4beta10sd16~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
@@ -45,6 +45,10 @@ LANGUAGE ~Russian~
          ~item_rev/languages/russian/description_updates.tra~
 
 
+
+///////////////////////////////////////////////////////////////////////////
+
+
 ///////////////////////////////////////////////////////////////////////////
 // Item Revisions by Demivrgvs (Main Component) -  Installs all items    //
 ///////////////////////////////////////////////////////////////////////////
@@ -65,7 +69,9 @@ LOAD_TRA ~item_rev/languages/english/potion_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_descriptions.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/item_upgrades.tra~
 LOAD_TRA ~item_rev/languages/%LANGUAGE%/potion_descriptions.tra~
+
 INCLUDE ~item_rev/components/main_component.tpa~
+
 
 ///////////////////////////////////////////////////////////////////////////
 // Store Revisions                                                       //
@@ -104,6 +110,7 @@ END
 //  GLOBAL CHANGES                                                       //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+
 
 ///////////////////////////////////////////////////////////////////////////
 // Revised Armor                                                         //
@@ -425,3 +432,4 @@ INCLUDE ~item_rev/components/wands.tpa~
 //REQUIRE_PREDICATE (ENGINE_IS ~tob bgee bg2ee~ /* || ENGINE_IS ~iwdee~ */) @9002
 //
 //INCLUDE ~item_rev/components/shield_bash.tpa~
+
