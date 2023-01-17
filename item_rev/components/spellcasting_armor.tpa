@@ -183,6 +183,21 @@ ACTION_PHP_EACH armor AS ind => res BEGIN
 
       END
 
+      PATCH_FOR_EACH d5arca IN ~d5arcal~ ~d5arcac~ ~d5arcap~ ~d5arca1~ ~d5arca2~ ~d5arca3~ BEGIN // compat with subtledoctor
+        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = EVAL ~%d5arca%~ END
+      END 
+
+      PATCH_FOR_EACH zarm IN ~d5zarm1l~ ~d5zarm2l~ ~d5zarm3l~ ~d5zarm1c~ ~d5zarm2c~ ~d5zarm3c~ ~d5zarm1p~ ~d5zarm2p~ ~d5zarm3p~ BEGIN // compat with subtledoctor
+        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = EVAL ~%zarm%~ END
+      END 
+      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarmc~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarmp~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172c~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172p~ END
+      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
+
     END BUT_ONLY
   END
 END
