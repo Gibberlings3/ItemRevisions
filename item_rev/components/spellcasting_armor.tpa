@@ -139,7 +139,7 @@ ACTION_PHP_EACH armor AS ind => res BEGIN
               PATCH_IF bards_armor_spell_penalties || (class != 5 || (res != 4 && res != 1 && res != 12 && res != 3 && res != 2 && res != 12 && res != 36)) BEGIN
                 LPF ADD_ITEM_EQEFFECT INT_VAR opcode=177 target=1 timing=2 parameter1=class parameter2=5 STR_VAR resource=EVAL ~7c#IR%value%~ END
               END
-	    END
+	        END
           END
         END
 
@@ -157,9 +157,9 @@ ACTION_PHP_EACH armor AS ind => res BEGIN
               17 // fighter/mage/cleric
             BEGIN
 	/* CrevsDaak: avoid patching leather, studded, hide and chain (both mithral and elven) when it comes to Bards, as per Demi's request. */
-		PATCH_IF bards_armor_spell_penalties || (class != 5 || (res != 4 && res != 1 && res != 12 && res != 3 && res != 2 && res != 12 && res != 36)) BEGIN
+		      PATCH_IF bards_armor_spell_penalties || (class != 5 || (res != 4 && res != 1 && res != 12 && res != 3 && res != 2 && res != 12 && res != 36)) BEGIN
                   LPF ADD_ITEM_EQEFFECT INT_VAR opcode=177 target=1 timing=2 parameter1=class parameter2=5 STR_VAR resource=EVAL ~ag#irs%value%~ END
-		END
+		      END
             END
             PATCH_IF option=3 BEGIN
               PATCH_FOR_EACH class IN
@@ -176,12 +176,26 @@ ACTION_PHP_EACH armor AS ind => res BEGIN
               END
             END
           END
+//          PATCH_FOR_EACH d5arca IN d5arcal d5arcac d5arcap d5arca1 d5arca2 d5arca3 BEGIN // compat with subtledoctor
+/*
+            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
+            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcac~ END
+            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcap~ END
+            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arca1~ END
+            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arca2~ END
+            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arca3~ END
+*/
+//          END 
         END
 
         SPRINT text_update casting_penalty
         LPM update_item_descriptions
 
       END
+
+      PATCH_FOR_EACH d5arca IN ~d5arcal~ ~d5arcac~ ~d5arcap~ ~d5arca1~ ~d5arca2~ ~d5arca3~ BEGIN // compat with subtledoctor
+        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = EVAL ~%d5arca%~ END
+      END 
 
     END BUT_ONLY
   END

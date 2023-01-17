@@ -5,7 +5,7 @@ README ~item_rev/readme-item_rev.html~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~v4beta10sd16~
+VERSION ~v4beta10sd17~
 
 ALWAYS
   OUTER_PATCH ~~ BEGIN
