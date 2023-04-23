@@ -490,7 +490,7 @@ Note: always considered to be of +3 enchantment when determining what it can hit
 STATISTICS:
 
 Combat Abilities:
- Disruption: undead creatures are destroyed (save vs. spell neg.)
+ Disruption: undead creatures are destroyed (save vs. death neg.)
  Undead Bane: additional +2 bonus to THAC0 and +6 bonus to damage against undead
  Returning: returns to the wielder's hand instantly after an attack is made
 
@@ -958,7 +958,7 @@ Note: always considered to be of +3 enchantment when determining what it can hit
 STATISTICS:
 
 Combat Abilities:
- Disruption: undead creatures are destroyed (save vs. spell neg.)
+ Disruption: undead creatures are destroyed (save vs. death neg.)
  Undead Bane: additional +2 bonus to THAC0 and +6 bonus to damage against undead
 
 THAC0: +1 bonus
@@ -1245,7 +1245,7 @@ Equipped Abilities:
  Immunity to level drain effects
 
 Combat Abilities:
- Disruption: undead creatures are destroyed (save vs. spell neg.)
+ Disruption: undead creatures are destroyed (save vs. death neg.)
  Undead Bane: additional +2 bonus to THAC0 and +6 bonus to damage against undead
 
 THAC0: +2 bonus
