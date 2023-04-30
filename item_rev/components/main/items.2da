@@ -468,6 +468,7 @@ PLATE_MAIL_1                               PLATE    plat02   1        1        1
 FULL_PLATE_MAIL                            PLATEF   plat04   1        1        1        1        1        1        @1497    @1497    @1830    @1830    *        *        *        *
 FULL_PLATE_MAIL_1                          PLATEF   plat05   1        1        1        1        1        1        @1497    @1831    @1499    @1832    *        *        *        *
 ANKHEG_PLATE_MAIL_2                        PLATE    plat06   1        1        1        1        1        1        @1825    @1833    @1828    @1834    *        *        *        *
+ANKHEG_PLATE_MAIL                          PLATE    plat06_  0        0        0        0        0        1        @1825    @18331   @1828    @18341   *        *        *        *
 RADIANT_PLATE_2                            PLATE    plat08   1        1        1        1        1        1        @1825    @1835    @1828    @1836    *        *        *        *
 MITHRAL_FIELD_PLATE_MAIL_2#2               PLATEF   plat09   1        1        0        0        1        1        @1825    @1683    @1828    @1837    *        *        *        *
 PLATE_MAIL_2                               PLATE    plat10   1        1        0        0        1        1        @1825    @1838    @1828    @1839    *        *        *        *
