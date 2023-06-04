@@ -186,6 +186,18 @@ COPY - ~item_rev/components/main/items.2da~ ~item_rev/components/main~
     END
   END
 
+/*------------------Iron Crisis-----------------*/
+// from mercurier
+// Since Koveras's Ring of Protection +1 is now Ring of Oppotunity, 
+// update item exclusion rule
+
+COPY_EXISTING ~itemexcl.2da~ ~override~
+	READ_2DA_ENTRIES_NOW num_rows 2
+	FOR (i = 1; i < num_rows; i += 1) BEGIN
+		READ_2DA_ENTRY_FORMER num_rows i 0 current_item
+		REPLACE_TEXTUALLY CASE_INSENSITIVE ~[%LNL%%MNL%%WNL%][ %TAB%]*ring25[ %TAB%].*~ ~~
+	END
+BUT_ONLY
 
 /*------------------Iron Crisis-----------------*/
 INCLUDE ~item_rev/lib/iron_crisis.tpa~
