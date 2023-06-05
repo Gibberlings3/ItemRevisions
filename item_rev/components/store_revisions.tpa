@@ -95,6 +95,7 @@ END
 // Varscona
 COPY_EXISTING ribald.cre override LPF FJ_CRE_VALIDITY RET valid=valid END PATCH_IF valid BEGIN
   REMOVE_CRE_ITEM sw1h06
+  ADD_CRE_ITEM sw1h41 #0 #0 #0 ~none~ ~weapon1~ EQUIP
 END BUT_ONLY
 
 // Ring of Fire Control
