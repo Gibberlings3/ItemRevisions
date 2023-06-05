@@ -6539,6 +6539,28 @@ Not Usable By:
  Monk
  Avenger
  Shapeshifter~
+@18331 = ~Ankheg Plate Mail~
+@18341 = ~This plate mail has been expertly crafted. Sheathed in the chitinous scales of the ankheg, it provides the same degree of protection of traditional plate mail but is not susceptible to rust. As any world-weary adventurer will tell you, however, the best appreciated aspect of ankheg mail is its light weight and low encumbrance. Monsters come and go but fatigue is a constant enemy.
+
+STATISTICS:
+
+Equipped Abilities:
+ Acid Resistance: +40% bonus
+
+Armor Class: 3
+Weight: 35
+Requires: 8 Strength
+Not Usable By:
+ Bard
+ Mage
+ Thief
+ Archer
+ Stalker
+ Barbarian
+ Kensai
+ Monk
+ Avenger
+ Shapeshifter~
 @1835 = ~Radiant Plate +2~
 @1836 = ~This brilliant golden armor has a short history. A priestess of Lathander named Iraeni of Suzail had it constructed for the champion of her church, a warrior-priest named Beldan Miller. Beldan employed the armor frequently, as Iraeni was often attacked by agents of Myrkul. After twenty years of serving Lathander, Iraeni decided to step down from her office, as did Beldan. They were married shortly after. Beldan gave the armor to an errant paladin of Lathander, who is believed to have died fighting a powerful undead creature in Amn.
 
