@@ -231,6 +231,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY shield BEGIN
   ~SHLD29A~  => 3 // Medium Shield +2
   ~SOAITM24~ => 3 // Blue Kite Shield
   ~WQXSH1~   => 3 // Golem's Heart
+  ~ACQ17003~ => 3 // Mirror Shield +1 - Ascalon's Quest Pack
   
 // large/tower shields
   ~_shld05~ => 4

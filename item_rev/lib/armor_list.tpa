@@ -591,6 +591,9 @@ mgiplat1 => 7  // Restless Spirit +1
 ~s!plat05~ => 23 // Green Wyrm Plate +4
 ~s!plat06~ => 23 // Great Wyrm Armor +5
 
+// Ascalon's Quest Pack
+acq18002 => 2  // Orc Leather +3, Armor from Gibberling Leather - 
+
 // enhanced edition
 
 ohchan50 => 5 // Splint Mail +2
