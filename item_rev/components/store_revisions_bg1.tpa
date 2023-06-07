@@ -1,0 +1,8 @@
+// Added by mercurier
+// Patch BG1 stores to include new spells from SR 
+ACTION_IF comp_sr BEGIN
+  COPY_EXISTING ~sto0703.sto~ ~override~  // Sorcerous Sundries
+    ADD_STORE_ITEM ~SCRL6Y~   LAST #1 #0 #0 IDENTIFIED #1   // Vitriolic Sphere
+  BUT_ONLY
+END
+

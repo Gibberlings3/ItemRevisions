@@ -76,21 +76,35 @@ DESIGNATED 1030
 REQUIRE_PREDICATE (GAME_IS ~soa tob bgt bgee bg2ee eet~) @9002
 
 // a bit rough for now... will fine-tune once BG1 revision is complete
-ACTION_IF (GAME_IS ~tob bgt bg2ee eet~) BEGIN
+ACTION_IF (GAME_IS ~bgt eet~) BEGIN
   LOAD_TRA ~item_rev/languages/english/store_revisions.tra~
   LOAD_TRA ~item_rev/languages/%LANGUAGE%/store_revisions.tra~
+  INCLUDE ~item_rev/lib/compatibility.tpa~
   INCLUDE ~item_rev/components/store_revisions.tpa~
+  INCLUDE ~item_rev/components/store_revisions_bg1.tpa~
   INCLUDE ~item_rev/components/item_reallocation.tpa~
-  COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override
-    LPF items_to_order END
-  BUT_ONLY
-END ELSE BEGIN
-  INCLUDE ~item_rev/lib/identify_item.tpa~
-  INCLUDE ~item_rev/lib/store_rev_macros.tpa~
-  COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override
-    LPF items_to_order END
-  BUT_ONLY
+END ELSE BEGIN 
+  ACTION_IF (GAME_IS ~tob bg2ee~) BEGIN
+    LOAD_TRA ~item_rev/languages/english/store_revisions.tra~
+    LOAD_TRA ~item_rev/languages/%LANGUAGE%/store_revisions.tra~
+    INCLUDE ~item_rev/lib/compatibility.tpa~
+	INCLUDE ~item_rev/components/store_revisions.tpa~
+    INCLUDE ~item_rev/components/item_reallocation.tpa~
+  END ELSE BEGIN 
+    ACTION_IF (GAME_IS ~bg1 bgee~) BEGIN
+      LOAD_TRA ~item_rev/languages/english/store_revisions.tra~
+      LOAD_TRA ~item_rev/languages/%LANGUAGE%/store_revisions.tra~
+      INCLUDE ~item_rev/lib/compatibility.tpa~
+      INCLUDE ~item_rev/components/store_revisions_bg1.tpa~
+    END
+  END
 END
+
+INCLUDE ~item_rev/lib/identify_item.tpa~
+INCLUDE ~item_rev/lib/store_rev_macros.tpa~
+COPY_EXISTING_REGEXP GLOB ~.*\.sto~ override
+  LPF items_to_order END
+BUT_ONLY
 
 ACTION_IF install_masterwork_weapons BEGIN
   LOAD_TRA ~item_rev/languages/english/masterwork.tra~

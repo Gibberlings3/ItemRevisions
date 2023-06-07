@@ -1,7 +1,3 @@
-INCLUDE ~item_rev/lib/compatibility.tpa~
-INCLUDE ~item_rev/lib/identify_item.tpa~
-INCLUDE ~item_rev/lib/store_rev_macros.tpa~
-
 ///////////////////////////////////////////////////////////////////
 
 // use this detection check - 'FILE_EXISTS_IN_GAME ag#store_revisions.mrk'
