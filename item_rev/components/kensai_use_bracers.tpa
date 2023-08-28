@@ -93,6 +93,7 @@ ACTION_DEFINE_ARRAY bracers BEGIN
   ~U#BRAC01~  // Mits of Shaiman (Ruad Ro'fhessa (ToB))
   ~U#BRAC02~  // Fluent Fingers (Ruad Ro'fhessa (SoA))
   ~UBGLOVE1~  // Gloves of Pick Pocketing (BG1UB: Shilo Chen and the Ogre-Magi)
+  ~MOBR01~    // Imaskari Bracers of Immortality (Forgotten Armament)
   
   ~ohbbrac1~  // Enforcer Bracers
 END
