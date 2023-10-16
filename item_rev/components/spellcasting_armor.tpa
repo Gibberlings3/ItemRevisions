@@ -176,16 +176,6 @@ ACTION_PHP_EACH armor AS ind => res BEGIN
               END
             END
           END
-//          PATCH_FOR_EACH d5arca IN d5arcal d5arcac d5arcap d5arca1 d5arca2 d5arca3 BEGIN // compat with subtledoctor
-/*
-            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
-            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcac~ END
-            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcap~ END
-            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arca1~ END
-            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arca2~ END
-            LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arca3~ END
-*/
-//          END 
         END
 
         SPRINT text_update casting_penalty
