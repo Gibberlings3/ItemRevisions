@@ -23,6 +23,7 @@ COPY ~item_rev/itm/goledam6.eff~ ~override~
 COPY ~item_rev/itm/goledam8.eff~ ~override~
 COPY ~item_rev/itm/goledie.eff~ ~override~
 COPY ~item_rev/itm/holydam.eff~ ~override~
+COPY ~item_rev/itm/holydam2.eff~ ~override~
 COPY ~item_rev/itm/holydam3.eff~ ~override~
 COPY ~item_rev/itm/holydam4.eff~ ~override~
 COPY ~item_rev/itm/holydam6.eff~ ~override~

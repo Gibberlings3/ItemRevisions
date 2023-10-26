@@ -786,7 +786,7 @@ POTION_OF_INSIGHT                          POTION   potn43   1        1        1
 POTION_OF_STRENGTH                         POTION   potn44   1        1        1        1        1        1        #6976    @3084    #16264   @3085    *        *        *        *           //extra_content
 POTION_OF_FREEDOM                          POTION   potn45   1        1        1        1        1        1        #6976    @3086    #16264   @3087    *        *        *        *           //extra_content
 POTION_OF_STONE_FORM                       POTION   potn46   1        1        1        1        1        1        #6976    @3088    #16264   @3089    *        *        *        *           //extra_content
-MAREKS_POTION_OF_ANTIDOTE                  POTION   potn47   1        1        1        1        1        1        #6976    @3090    #16264   @3091    *        *        *        *           //extra_content
+MAREKS_POTION_OF_ANTIDOTE                  POTION   potn47   1        1        1        0        1        0        #6976    @3090    #16264   @3091    *        *        *        *           //extra_content
 VIAL_OF_MYSTERIOUS_LIQUID                  POTION   potn48   1        1        1        1        1        1        #6976    @3092    #16264   @3093    *        *        *        *           
 POTION_OF_EXTRA_HEALING                    POTION   potn52   1        1        1        1        1        1        #6976    @3094    #16264   @3095    *        *        *        *           //extra_content
 FESTULE_THE_ALCHEMISTS_POTION              POTION   potn53   1        1        0        0        1        1        #6976    @3096    #16264   @3097    *        *        *        *           

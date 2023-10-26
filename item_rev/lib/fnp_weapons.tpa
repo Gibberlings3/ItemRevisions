@@ -1,0 +1,32 @@
+// Function for compatibility with Faiths & Powers revised cleric weapon use
+
+
+DEFINE_ACTION_FUNCTION d5_fnp_weaps BEGIN
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY fnpproftypes BEGIN
+    89 => 22
+    90 => 20
+    91 => 19
+    92 => 25
+    93 => 57
+    94 => 30
+    95 => 29
+    96 => 16
+    97 => 21
+    98 => 44
+    99 => 69
+    100 => 23
+    101 => 17
+    102 => 26
+    115 => 26
+  END
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+    READ_BYTE  0x31 prof
+    PHP_EACH fnpproftypes AS profnum => itemtype BEGIN
+      PATCH_IF prof = %profnum% BEGIN
+        WRITE_SHORT 0x1c %itemtype%
+      END
+    END
+  BUT_ONLY
+
+END	//	end define function
