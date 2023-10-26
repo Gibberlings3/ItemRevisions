@@ -273,7 +273,7 @@ PATCH_IF prof=91 BEGIN
 END
 
 PATCH_IF prof=95 BEGIN
-  PATCH_IF (anim_num=21331) OR (anim_num=13139) BEGIN
+  PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~ss~) OR (~%anim%~ STRING_EQUAL_CASE ~s3~) BEGIN
     wakizashi=1
     SPRINT itemtype ~wakizashi~
     is_weapon=1
@@ -307,7 +307,7 @@ PATCH_IF prof=93 BEGIN
 END
 
 PATCH_IF prof=94 BEGIN
-  PATCH_IF (anim_num=13139) BEGIN
+  PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~s3~) BEGIN
     katana=1
     SPRINT itemtype ~katana~
     is_weapon=1
@@ -327,7 +327,7 @@ PATCH_IF prof=97 BEGIN
 END
 
 PATCH_IF prof=100 BEGIN
-  PATCH_IF anim_num=17229 BEGIN
+  PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~mc~) OR (~%anim%~ STRING_EQUAL_CASE ~m2~) BEGIN
     morning_star=1
     SPRINT itemtype ~morning_star~
     is_weapon=1
@@ -335,7 +335,7 @@ PATCH_IF prof=100 BEGIN
 END
 
 PATCH_IF prof=100 BEGIN
-  PATCH_IF anim_num=19526 BEGIN
+  PATCH_IF (~%anim%~ STRING_EQUAL_CASE ~fl~) OR (~%anim%~ STRING_EQUAL_CASE ~f0~) OR (~%anim%~ STRING_EQUAL_CASE ~f1~) OR (~%anim%~ STRING_EQUAL_CASE ~f3~) BEGIN
     flail=1
     SPRINT itemtype ~flail~
     is_weapon=1
